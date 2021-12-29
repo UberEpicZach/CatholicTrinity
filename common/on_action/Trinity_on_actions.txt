@@ -1,0 +1,284 @@
+﻿on_game_start = {
+	on_actions = {
+		on_cardinal_preinitialize
+	}
+}
+on_cardinal_preinitialize = {
+	# Set back-end configuration data 
+	effect = {
+		if = { # Vanilla parameters (For testing, since I don't have AGOT)
+			limit = {
+				exists = faith:catholic
+			}
+			set_global_variable = {
+				name = gui_storage
+				value = religion:christianity_religion
+				#value = dummy_male
+			}
+			set_global_variable = {
+				name = the_catholic
+				value = faith:catholic
+			}
+			set_global_variable = {
+				name = insular_celts
+				value = faith:insular_celtic
+			}
+			set_global_variable = {
+				name = k_papal_state
+				value = title:k_papal_state
+			}
+			set_global_variable = {
+				name = ideal_cardinal_location
+				value = title:c_roma
+			}
+		}
+		# else = { # AGOT parameters (Guesswork)
+		# 	set_global_variable = {
+		# 		name = gui_storage
+		# 		value = faith:the_seven_main.religion
+		# 		#value = dummy_male
+		# 	}
+		# 	set_global_variable = {
+		# 		name = the_seven_main
+		# 		value = faith:the_seven_main
+		# 	}
+		# 	set_global_variable = {
+		# 		name = k_the_most_devout
+		# 		value = title:k_the_most_devout
+		# 	}
+		# 	set_global_variable = {
+		# 		name = ideal_cardinal_location
+		# 		# I don't know what King's Landing's key is, so this is my best guess at game start:
+		# 		value = title:k_the_most_devout.holder.location.county
+		# 	}
+		# }
+		# Set which faiths should show the cardinal window.
+		global_var:the_catholic = {
+			set_variable = uses_cardinal_module
+		}
+		global_var:insular_celts = {
+			set_variable = uses_cardinal_module
+		}
+	}
+}
+
+on_game_start_after_lobby = {
+	on_actions = {
+		on_cardinal_initialize
+		CardinalsTraits
+	}
+}
+ 
+CardinalsTraits = {
+	effect = {
+		title:k_papal_state.holder = {
+			trigger_event = KoH_religiousflavour.22
+			update_cardinal_window = yes
+		}
+	}
+	on_actions = {
+		delay = { months = 1 }
+		CardinalsTraits
+		
+	}
+}
+
+on_title_gain = {
+	on_actions = {
+		on_gain_papacy
+	}
+}
+
+on_cardinal_initialize = {
+	effect = {
+		debug_log = "initializing cardinals"
+		initialize_random_cardinals = yes
+		update_preferatus = yes
+		update_cardinal_window = yes
+		}
+}
+
+on_death = {
+    on_actions = {
+        on_cardinal_death
+        on_pope_death
+        on_person_death_saint
+		on_theocrat_investiture_death
+    }
+}
+
+on_theocrat_investiture_death = {
+	trigger = {
+		exists = primary_title
+		primary_title = {
+			has_variable = theocratic_successor
+		}
+	}
+	effect = {
+		liege = { save_scope_as = important_liege }
+		primary_title = { var:theocratic_successor = { save_scope_as = theocratic_inheritor } remove_variable = theocratic_successor }
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = title_change
+			add_claim_on_loss = no
+		}
+		every_held_title = {
+			change_title_holder = {
+				holder = scope:theocratic_inheritor
+				change = scope:title_change
+			}
+		}
+		resolve_title_and_vassal_change = scope:title_change
+		scope:theocratic_inheritor = {
+			remove_variable = theocratic_successor
+			change_government = theocracy_government
+			create_title_and_vassal_change = {
+				type = swear_fealty
+				save_scope_as = change
+			}
+			change_liege = {
+				liege = scope:important_liege
+				change = scope:change
+			}
+			resolve_title_and_vassal_change = scope:change
+		}
+	}
+}
+
+on_person_death_saint = {
+    events = {
+        KoH_sainthood.1
+    }
+}
+
+on_theocrat_investiture_death = {
+	trigger = {
+		primary_title = {
+			has_variable = theocratic_successor
+		}
+	}
+	effect = {
+		liege = { save_scope_as = important_liege }
+		primary_title = { var:theocratic_successor = { save_scope_as = theocratic_inheritor } remove_variable = theocratic_successor }
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = title_change
+			add_claim_on_loss = no
+		}
+		every_held_title = {
+			change_title_holder = {
+				holder = scope:theocratic_inheritor
+				change = scope:title_change
+			}
+		}
+		resolve_title_and_vassal_change = scope:title_change
+		scope:theocratic_inheritor = {
+			remove_variable = theocratic_successor
+			change_government = theocracy_government
+			create_title_and_vassal_change = {
+				type = swear_fealty
+				save_scope_as = change
+			}
+			change_liege = {
+				liege = scope:important_liege
+				change = scope:change
+			}
+			resolve_title_and_vassal_change = scope:change
+		}
+	}
+}
+
+on_cardinal_death = {
+	trigger = {
+		owns_story_of_type = cardinal_story
+	}
+	effect = {
+		give_nickname = nick_cardinal
+	}
+}
+
+on_pope_death = {
+	trigger = {
+		is_pope = yes
+	}
+	effect = {
+		add_trait = pope_trait
+		give_nickname = nick_pope
+		# Make sure we have the most up-to-date preferatus
+		update_preferatus = yes
+		# Optional heir designation (If your systems care about such)
+		#set_designated_heir = global_var:preferatus.story_owner
+		# Make sure the preferatus gives up their lands and titles before becoming pope
+		global_var:preferatus.story_owner = {depose = yes}
+
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = papal_inheritance
+		}
+		# Transfer every non-barony title
+		every_held_title = {
+			limit = {
+				tier > tier_barony
+			}
+			every_player = {
+				add_prestige = 1
+			}
+			change_title_holder = {
+				holder = global_var:preferatus.story_owner
+				change = scope:papal_inheritance
+			}
+		}
+		resolve_title_and_vassal_change = scope:papal_inheritance
+				# Fetch a new cardinal in place of the recently promoted pope
+		global_var:preferatus = {
+			promote_new_cardinal = yes
+			remove_trait = koh_cardinal
+		}
+		update_cardinal_window = yes
+	}
+}
+
+on_gain_papacy = {
+	trigger = {
+		scope:title = title:k_papal_state
+	}
+	effect = {
+		if = { limit = { has_trait = koh_cardinal } remove_trait = koh_cardinal }
+		every_player = {add_gold = 1}
+		if = {limit = {is_cardinal = yes} every_player = {add_piety = 1}}
+	}
+}
+
+three_year_playable_pulse = {
+	on_actions = {
+		delay = { days = 18 }
+		trinity_events_tri_yearly_pulse
+	}
+}
+
+trinity_events_tri_yearly_pulse = {
+	random_events = {
+		chance_of_no_event = {
+			value = 30
+			if = {
+				limit = {
+					is_at_war = yes # Won't get spammed while at war
+				}
+				add = 10
+			}
+		}
+		23000 = 0 # 20000?
+		
+		#religious events
+		100 = KoH_religiousflavour.1
+		100 = KoH_religiousflavour.2
+		100 = KoH_religiousflavour.3
+		100 = KoH_religiousflavour.4
+		100 = KoH_religiousflavour.5
+		100 = KoH_religiousflavour.7
+		100 = KoH_religiousflavour.8
+		100 = KoH_religiousflavour.12
+		100 = KoH_religiousflavour.13 
+		100 = KoH_religiousflavour.14
+	}
+}

@@ -1,0 +1,29 @@
+﻿koh_cardinal = {
+	index = 711
+	health_trait = yes
+	dynasty_opinion = 20
+	birth = 0
+	random_creation = 0
+	monthly_dynasty_prestige = 1
+	monthly_piety_gain_mult = 0.2
+
+	desc = {
+		desc = cardinal_desc
+	}
+}
+ 
+beatified = {
+	index = 710
+	birth = 0
+	random_creation = 0
+
+	monthly_piety_gain_mult = 0.2
+}
+
+pope_trait = {
+	index = 712
+	birth = 0
+	random_creation = 0
+
+	monthly_piety_gain_mult = 0.2
+}

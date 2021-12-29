@@ -1,0 +1,274 @@
+﻿become_cardinal = { 
+	# Find random cardinal seat with dead holder, replace it
+	random_in_global_list = {
+		variable = cardinals # List of cardinal stories
+		limit = {story_owner = {is_alive = no}} # Make sure the owner is dead before replacing them
+		make_story_owner = prev
+		prev = {
+			set_variable = {
+				name = cardinal_story
+				value = prev
+			}
+		}
+	}
+}
+# 
+become_initial_cardinal = {
+	create_story = cardinal_story
+}
+# Updates Preferatus
+update_preferatus = {
+	# Who's the most likely next pope? (Preferatus)
+	ordered_in_global_list = {
+		limit = {exists = this}
+		variable = cardinals
+		order_by = story_owner.cardinal_to_pope_score
+		position = 0
+		set_global_variable = {
+			name = preferatus
+			value = this
+		}
+		# Tell the GUI who it is:
+		global_var:gui_storage = {
+			set_variable = {
+				name = preferatus
+				value = prev
+			}
+		}
+	}
+}
+# Updates the likely next cardinal candidate ("Predictus" is the mod's term for it, but it is not a real term, unlike Preferatus.)
+select_highest_scoring_cardinal_candidate = {
+	# Look for rulers who are valid candidates:
+	ordered_cardinal_candidate_ruler = {
+		order_by = bishop_to_cardinal_score
+		position = 0
+		add_to_list = highest_scoring_cardinal_candidates
+	}
+	# Look for rulers whose realm priests are valid candidates: 
+	ordered_ruler_with_potential_cardinal = {
+		order_by = realm_priest.bishop_to_cardinal_score
+		position = 0
+		realm_priest = {add_to_list = highest_scoring_cardinal_candidates}
+	}
+	# Choose the best one as scope:highest_scoring_cardinal_candidate (Predictus)
+	ordered_in_list = {
+		limit = {exists = this}
+		list = highest_scoring_cardinal_candidates
+		order_by = bishop_to_cardinal_score
+		position = 0
+		save_scope_as = highest_scoring_cardinal_candidate
+	}
+	# You can easily change this system to use one secular and one spiritual candidate, if you wish to show such in the GUI.
+}
+select_highest_scoring_player_cardinal_candidate = {
+	# Look through player's vassals_or_below for valid candidates
+	ordered_cardinal_candidate_vassal = {
+		order_by = bishop_to_cardinal_score
+		position = 0
+		add_to_list = highest_scoring_player_cardinal_candidates
+	}
+	# Check player's own realm priest
+	if = {
+		limit = {exists = realm_priest}
+		realm_priest = {add_to_list = highest_scoring_player_cardinal_candidates}
+	}
+	# Select player's best candidate:
+	ordered_in_list = {
+		limit = {exists = this}
+		list = highest_scoring_player_cardinal_candidates
+		order_by = bishop_to_cardinal_score
+		position = 0
+		save_scope_as = highest_scoring_player_cardinal_candidate
+	}
+	set_variable = {
+		name = cardinal_player_candidate
+		value = scope:highest_scoring_player_cardinal_candidate
+	}
+}
+promote_new_cardinal = {
+#Scope: The cardinal story to replace the owner of
+	# Promote the best candidate
+	select_highest_scoring_cardinal_candidate = yes
+	make_story_owner = scope:highest_scoring_cardinal_candidate
+		# Reward beneficiary if it exists.
+	scope:highest_scoring_cardinal_candidate = {
+		add_trait = koh_cardinal
+		if = {
+			limit = {
+				exists = var:beneficiary
+				var:cardinal_campaign_contribution.compare_value >= {
+					value = cardinal_election_beneficiary_reward_threshold_per_tier 
+					multiply = var:beneficiary.highest_held_title_tier
+				}
+			}
+			var:beneficiary = {
+				add_hook = { type = favor_hook target = prev years = 10 } 
+				add_piety = cardinal_election_piety_for_beneficiary
+			}
+		}
+	}
+}
+predict_new_cardinal = {
+	# Who's the most likely next elector?
+	select_highest_scoring_cardinal_candidate = yes
+	global_var:gui_storage = {
+		set_variable = {
+			name = predicted_cardinal
+			value = scope:highest_scoring_cardinal_candidate
+		}
+	}
+}
+initialize_random_cardinal = {
+	ordered_cardinal_candidate_ruler = {
+		order_by = bishop_to_cardinal_score
+		position = 0
+		#realm_priest = {
+		become_initial_cardinal = yes 
+		add_piety = 100
+		add_trait = koh_cardinal
+		#}
+	}
+}
+initialize_random_cardinals = {
+	# Can easily split up the number of realm priest and ruler characters if you run out of one type.
+	while = {
+		count = num_initial_cardinals
+		initialize_random_cardinal = yes
+	}
+}
+# Updates the variables that are accessed by the cardinal window from the gui storage unit.
+update_cardinal_window = {
+	global_var:gui_storage = {
+		update_preferatus = yes
+		predict_new_cardinal = yes
+		# Fetch the preferatus character into gui_storage
+		set_variable = {
+			name = preferatus_character
+			value = global_var:preferatus.story_owner
+		}
+		# Fetch all cardinal characters into gui_storage
+		clear_variable_list = cardinal_characters
+		ordered_in_global_list = {
+			order_by = story_owner.cardinal_to_pope_score
+			max = num_cardinals
+			variable = cardinals
+			prev = {
+				add_to_variable_list = {
+					name = cardinal_characters
+					target = prev.story_owner
+				}
+			}
+		}
+		# The preferatus gets their own icon slot, so let's remove them from the list.
+		remove_list_variable = {
+			name = cardinal_characters target = global_var:preferatus.story_owner
+		}
+		# Update player's candidates. They do not get a refund on their investments if this replaces the candidate.
+		every_player = {
+			limit = {ruler_has_cardinality_eligible_realm_priest = yes} #can maybe remove this, it's removed in the other version
+			select_highest_scoring_player_cardinal_candidate = yes
+		}
+	}
+}
+# Debugging tool to display the cardinals in the console
+indicate_cardinals = {
+	every_in_global_list = {
+		variable = cardinals
+		story_owner = {add_piety = 1}
+	}
+	add_gold = num_cardinals
+	add_prestige = num_living_cardinals
+}
+# Debug tool to see which cardinals are dead
+cardinal_test = {
+	every_cardinal = {
+		story_owner = {
+			add_piety = 1
+		}
+	}
+	every_living_cardinal = {
+		add_prestige = 1
+	}
+}
+
+# Not used:
+#setup_cardinal_activity = {
+#	update_preferatus = yes
+#	global_var:k_the_most_devout.holder = {set_designated_heir = global_var:preferatus.story_owner}
+#	# Commented-out activity which could be used for a non-instant Papal Election:
+#	#title:b_vaticano.title_province = {spawn_activity = { owner = global_var:preferatus.story_owner type = cardinal_activity}} 
+#}
+
+invest_in_cardinal_effect = {
+	save_scope_as = player
+	ordered_cardinal_candidate_vassal = {
+		order_by = bishop_to_cardinal_score
+		position = 0
+		add_to_list = highest_scoring_player_cardinal_candidates
+	}
+	if = {
+		limit = {exists = realm_priest}
+		realm_priest = {add_to_list = highest_scoring_player_cardinal_candidates}
+	}
+	ordered_in_list = {
+		limit = {exists = this}
+		list = highest_scoring_player_cardinal_candidates
+		order_by = bishop_to_cardinal_score
+		position = 0
+		save_scope_as = highest_scoring_player_cardinal_candidate
+	}
+	set_variable = {
+		name = cardinal_player_candidate
+		value = scope:highest_scoring_player_cardinal_candidate
+	}
+
+	scope:highest_scoring_player_cardinal_candidate = {
+		if = {
+			limit = {
+				NOT = {
+					exists = var:cardinal_campaign_contribution
+				}
+			}
+			set_variable = {name = cardinal_campaign_contribution value = 0}
+		}
+		change_variable = {name = cardinal_campaign_contribution add = cardinal_campaign_contribution_invest_cost}
+		scope:player = {remove_short_term_gold = cardinal_campaign_contribution_invest_cost}
+	
+		update_preferatus = yes
+		predict_new_cardinal = yes
+		set_variable = {
+			name = beneficiary
+			value = scope:player
+		}
+	} 
+}
+
+deinvest_in_cardinal_effect = {
+	save_scope_as = player
+	scope:highest_scoring_player_cardinal_candidate = {
+		change_variable = {name = cardinal_campaign_contribution subtract = cardinal_campaign_contribution_invest_cost}
+		scope:player = { add_gold = cardinal_campaign_contribution_divest_refund }
+		update_preferatus = yes
+		predict_new_cardinal = yes
+		if = {
+			limit = {
+				var:cardinal_campaign_contribution <= cardinal_campaign_contribution_invest_cost
+			} 
+			remove_variable = beneficiary
+		}
+	}
+}
+
+CardinalsAreCardinals = {
+	every_living_cardinal = {
+		add_prestige = 1
+		add_trait = koh_cardinal
+		# if = {
+		# 	limit = {
+		# 		is_landed = no
+		# 	}
+		# 	give_nickname = nick_cardinal
+		# }
+	}
+}

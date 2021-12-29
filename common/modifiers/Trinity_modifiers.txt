@@ -1,0 +1,16 @@
+﻿saintly_bloodline = {
+	icon = county_modifier_opinion_positive
+	same_faith_opinion = 5
+	clergy_opinion = 10
+	monthly_dynasty_prestige = 2
+	monthly_piety_gain_mult = 0.3
+}
+
+
+saintly_tomb = {
+	icon = county_modifier_opinion_positive
+	county_opinion_add = 20
+	monthly_income = 1
+	development_growth_factor = medium_development_growth_gain
+	development_growth = 0.15
+}
