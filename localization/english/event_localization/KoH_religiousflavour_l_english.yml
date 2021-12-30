@@ -1,4 +1,6 @@
 ﻿l_english:
+  candiatesoon: "A Candidate Will Appear Soon"
+  candiatesoonpope: "The Pope Cannot Have Candidates"
   KoH_religiousflavour.1.t: "A Pope and His Estates"
   KoH_religiousflavour.1.desc: "It has come to my attention that my kin, [scope:scoped_pope.Char.GetTitledFirstName] has arranged for the transportation of [Sibling/Son] and [Sibling/Son] to the vicinity of Rome, and has promised them a share of vast estates… in the name of ‘ease of governance’, of course. While His Holiness’ request is for my family, the news is to be relayed through my channels, and this leaves the decision ultimately up to me."
   KoH_religiousflavour.1.a: ""
@@ -102,3 +104,27 @@
 
   saintly_bloodline: "Blood of a Saint"
   saintly_tomb: "A Tomb of a Saint"
+
+  #Pope and Free Investiture
+  
+  KoH_religiousflavour.24.t.t: "Investiture: Issues in the Church"
+  KoH_religiousflavour.24.t.desc: "There are rulers in the world who are sadly neglecting the laws that Jesus himself gave to the Holy Church."
+  KoH_religiousflavour.24.t.a: "Invite them to follow the true doctrines."
+  KoH_religiousflavour.24.t.b: "God will punish them later..."
+
+  KoH_religiousflavour.25.t.t: "Investiture: A Papal Envoy"
+  KoH_religiousflavour.25.t.desc: "The Pope [faith.religious_head.GetName] is upset with our law of [free_investiture|E]. The Holy Father is asking us to change it to comply with Church Doctrine, known as [papal_investiture|E]."
+  KoH_religiousflavour.25.t.a: "Another heresy arises."
+  KoH_religiousflavour.25.t.b: "I rule in MY realm!"
+  KoH_religiousflavour.25.t.c: "Some gold to the church will silence them"
+  KoH_religiousflavour.25.t.d: "Decline on Theological Grounds"
+
+  KoH_religiousflavour.25.t.t: "Investiture: A Papal Envoy"
+  KoH_religiousflavour.25.t.desc: "The Pope [faith.religious_head.GetName] is upset with our law of [free_investiture|E]. The Holy Father is asking us to change it to comply with Church Doctrine, known as [papal_investiture|E]."
+  KoH_religiousflavour.25.t.a: "Another heresy arises."
+  KoH_religiousflavour.25.t.b: "I rule in MY realm!"
+  KoH_religiousflavour.25.t.c: "Some gold to the church will silence them"
+  KoH_religiousflavour.25.t.d: "Decline on Theological Grounds"
+
+ 
+

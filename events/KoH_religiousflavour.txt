@@ -175,7 +175,6 @@ KoH_religiousflavour.2 = { #Monks Make Good Beer
 
 		random = {
 			chance = 50
-			add_learning_skill = 1
 		}
 		if = {
 			limit = { NOT = { has_trait = drunkard } }
@@ -701,9 +700,10 @@ KoH_religiousflavour.14 = { #Duty-Bound - Varaint
 
 		exists = dynasty
 		dynasty = { 
-				any_dynasty_member = { 
+			any_dynasty_member = { 
 				AND = {
 					is_alive = yes
+					age >= 18
 					dynasty = root.dynasty
 					has_government = theocracy_government
 					OR = {
@@ -723,6 +723,7 @@ KoH_religiousflavour.14 = { #Duty-Bound - Varaint
 			every_dynasty_member = { 
 				AND = {
 					is_alive = yes
+					age >= 18
 					AND = {
 						dynasty = root.dynasty
 						has_government = theocracy_government
@@ -808,3 +809,392 @@ KoH_religiousflavour.23 = {
 		}
 	}
 }
+
+#The Pope and an Investiture Free Realm
+# The Pope singles out a Kingdom with Free Investiture (unless he has already targetted one)
+#Event 1
+KoH_religiousflavour.24 = { 
+	title = KoH_religiousflavour.24.t
+	desc = KoH_religiousflavour.24.desc
+	theme = learning_scholarship_focus
+	left_portrait = {
+		character = this
+		
+	}
+	right_portrait = {
+		character = scope:popewantsit
+	}
+	
+	trigger = {		
+		has_title = title:k_papal_state
+		this = faith.religious_head
+		is_imprisoned = no
+		has_religion = religion:christianity_religion
+		has_faith = faith:catholic
+		current_year >= 1000
+		#change_fervor = -20
+		faith = { fervor >= 50 }
+
+
+		any_independent_ruler = {
+			has_realm_law = free_investiture
+			highest_held_title_tier >= tier_duchy
+			has_faith = faith:catholic
+			title:k_papal_state.holder = faith.religious_head
+
+			NOR = {
+				has_character_flag = pope_wants_our_law_changed
+				has_character_flag = pope_respects_our_law	
+			}
+		}
+	}
+
+	immediate = {
+		random_independent_ruler = {
+			limit = {
+				has_realm_law = free_investiture
+				highest_held_title_tier >= tier_duchy
+				has_faith = faith:catholic
+				title:k_papal_state.holder = faith.religious_head
+
+				NOR = {
+					has_character_flag = pope_wants_our_law_changed
+					has_character_flag = pope_respects_our_law	
+				}
+			}
+			save_scope_as = popewantsit
+		}
+	}
+
+	option = { 
+		name = KoH_religiousflavour.24.a
+		add_character_flag = pope_currently_demanding
+
+		if = {
+			limit = {
+				scope:popewantsit = {
+					has_realm_law = free_investiture
+					highest_held_title_tier >= tier_duchy
+					has_faith = faith:catholic
+					faith.religious_head = PREV
+
+					NOR = {
+						has_character_flag = pope_wants_our_law_changed
+						has_character_flag = pope_respects_our_law	
+					}
+				}
+			}
+			scope:popewantsit = {
+				add_gold = 10
+				add_character_flag = pope_wants_our_law_changed
+
+				trigger_event = {
+					id = KoH_religiousflavour.25
+					days = 14
+				}
+			}
+		}
+		#custom_tooltip = KoH_religiousflavour.24 #EVTTOOLTIP67001
+
+		ai_chance = {	
+			base = 100
+		
+		}
+	}
+	
+	option = { 
+		name = KoH_religiousflavour.24.b
+		
+
+		ai_chance = { 
+			base = 0 
+		}
+	}
+}
+
+# King/Emperor gets the papal emissary asking them to change laws!
+#Event 2
+
+KoH_religiousflavour.25 = { 
+	title = KoH_religiousflavour.25.t
+	desc = KoH_religiousflavour.25.desc
+	theme = learning_scholarship_focus
+	left_portrait = {
+		character = scope:popewantsit
+	}
+	right_portrait = {
+		character = faith.religious_head
+	}
+	
+	trigger = {		
+		has_realm_law = free_investiture
+		highest_held_title_tier >= tier_duchy
+		has_faith = faith:catholic
+	}
+
+	immediate = {
+		save_scope_as = popewantsit
+	}
+
+	option = { 
+		name = KoH_religiousflavour.25.a # Fold to demand
+		
+		trigger = {
+			OR = {
+				AND = {
+					is_ai = no
+				}
+				AND = {
+					NOT = {
+						has_trait = cynical
+						is_ai = yes
+					}
+				}
+			}
+		}
+		
+		remove_realm_law = free_investiture
+		add_realm_law_skip_effects = papal_investiture
+
+		
+		
+		add_piety = 25
+		faith = {
+			change_fervor = 2
+		}
+
+		faith.religious_head = {
+			add_opinion = {
+				target = PREV
+				opinion = 10
+				modifier = changed_investiture_law
+			}
+			
+			trigger_event = {
+				id = KoH_religiousflavour.26
+				days = 1
+			}
+		}
+
+		hidden_effect = {
+			remove_character_flag = pope_wants_our_law_changed
+
+			faith.religious_head = {
+				remove_character_flag = pope_currently_demanding
+			}
+		}
+
+		ai_chance = {
+			base = 1	
+			modifier = {
+				factor = 8
+				has_trait = zealous
+			}
+		}
+	}
+	
+	option = { 
+		name = KoH_religiousflavour.25.b # Refuse
+		
+		add_piety = -25
+		faith = {
+			change_fervor = -4
+		}
+
+		add_character_flag = pope_we_refuse_law_changed
+
+		faith.religious_head = {
+			add_opinion = {
+				target = PREV
+				opinion = 10
+				modifier = refused_changed_investiture_law
+			}
+			trigger_event = {
+				id = KoH_religiousflavour.27
+				days = 1
+			}
+		}
+		ai_chance = { 
+			base = 1 
+		
+			modifier = {
+				factor = 1.5
+				has_trait = arbitrary
+			}
+
+			modifier = {
+				factor = 1.5
+				has_trait = cynical
+			}
+
+			modifier = {
+				factor = 1.5
+				has_trait = lifestyle_reveler
+			}
+		}
+
+	}
+
+	option = { 
+		name = KoH_religiousflavour.25.c ## Give gold to Pope / Bribe Pope
+		trigger = { 
+			gold >= 200
+
+			OR = {
+				AND = {
+					is_ai = no
+				}
+				AND = {
+					is_ai = yes
+					NOT = {
+						has_trait = zealous
+					}
+				}
+			}
+		}
+
+		pay_short_term_gold = {
+			gold = 200	# Todo: Adjust this?
+			target = faith.religious_head
+		}
+
+		add_character_flag = pope_respects_our_law
+		remove_character_flag = pope_wants_our_law_changed
+		hidden_effect = {
+			faith.religious_head = {
+				remove_character_flag = pope_currently_demanding
+				trigger_event = {
+					id = KoH_religiousflavour.28
+					days = 1
+				}
+			}
+		}
+
+		ai_chance = { 
+			base = 1 
+		
+			modifier = {
+				factor = 4
+				has_trait = cynical
+			}
+
+			modifier = {
+				factor = -3
+				has_trait = greedy
+			}
+		}
+	}
+
+	option = { 
+		name = KoH_religiousflavour.25.d ## Impress with Learning
+		trigger = { 
+			learning >= 16
+		}
+		add_piety = 1
+
+		add_character_flag = pope_respects_our_law
+		remove_character_flag = pope_wants_our_law_changed
+		hidden_effect = {
+			faith.religious_head = {
+				remove_character_flag = pope_currently_demanding
+				trigger_event = {
+					id = KoH_religiousflavour.29
+					days = 1
+				}
+			}
+		}
+
+		ai_chance = { 
+			base = 100
+		}
+	}
+}
+
+## King accepts
+#Event 3
+KoH_religiousflavour.26 = { 
+	title = KoH_religiousflavour.26.t
+	desc = KoH_religiousflavour.26.desc
+	theme = learning_scholarship_focus
+	left_portrait = {
+		character = scope:popewantsit
+	}
+
+	right_portrait = {
+		character = faith.religious_head
+	}
+
+	option = { 
+		name = KoH_religiousflavour.26.a
+		
+		add_prestige = 100
+
+		ai_chance = {	
+			base = 100
+		
+		}
+	}
+}
+
+## King refuses us
+#Event 4
+KoH_religiousflavour.27 = { 
+	title = KoH_religiousflavour.27.t
+	desc = KoH_religiousflavour.27.desc
+	theme = learning_scholarship_focus
+	left_portrait = {
+		character = scope:popewantsit
+	}
+
+	right_portrait = {
+		character = faith.religious_head
+	}
+
+	option = { 
+		name = KoH_religiousflavour.26.a
+		
+		add_prestige = 100
+
+		ai_chance = {	
+			base = 100
+		
+		}
+	}
+}
+
+
+
+## King bribes us
+#Event 5
+
+# King outwits us
+#Event 6
+
+## The Pope sends a delegate to a Bishop whose top liege has refused to change investiture Law
+#Event 7
+
+## The Bishop receives the Papal emissary
+#Event 8
+
+## King knows of bishop getting bribed
+#Event 9
+
+## The Pope contacts a powerful (preferably rebellious) vassal of a liege who has refused to change investiture Law
+#Event 10
+
+## The vassal receives the claim
+#Event 11
+
+####
+## Check for Cadaver Synod
+#Event 1
+
+#The Cadaver Synod
+
+## Pope learns that a catholic ruler has a heretic advisor
+
+## Vassal disappointed in liege having heretic advisor
+
+# # The Pope gives money to someone fighting the Infidel
+
+# The Pope appoints a new holy roman emperor / gives a claim

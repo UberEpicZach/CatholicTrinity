@@ -1,5 +1,6 @@
 ﻿@crown_authority_cooldown_years = 20
 @tribal_authority_cooldown_years = 10
+@investiture_cooldown_years = 10
 
 investiture = { 
 	default = papal_investiture
@@ -20,7 +21,7 @@ investiture = {
 
 		pass_cost = {
 			prestige = {
-					add = 1000
+				add = 1000
 			}
 		}
 	}
@@ -42,13 +43,14 @@ investiture = {
 				realm_law_pass_investiture = yes
 				NOT = {
 					has_primary_title = title:k_papal_state
+					has_variable = investiture_cooldown
 				}
 			}
 		}
 		
 		pass_cost = {
 			piety = {
-					add = 1000
+				add = 1000
 			}
 		}
 		
@@ -57,59 +59,59 @@ investiture = {
 				limit = {
 					NOT = { has_realm_law = free_investiture }
 				}
-			}
-			set_variable = {
-				name = crown_authority_cooldown
-				years = @crown_authority_cooldown_years
-			}
-
-			hidden_effect = {
-				every_vassal = {
-					add_realm_law_skip_effects = free_investiture
-				}
-
-				every_vassal = {
-					limit = {
-						any_vassal = {
-							has_government = theocracy_government
-						}
-					} 
-					add_opinion = {
-						target = root
-						modifier = koh_free_investiture
-						opinion = 10
-					}
-				}
-
-				title:k_papal_state.holder = {
-					add_opinion = {
-						target = root
-						modifier = koh_free_investiture
-						opinion = -150
-					}
+				set_variable = {
+					name = investiture_cooldown
+					years = @investiture_cooldown_years
 				}
 	
-				every_vassal = {
-					limit = {
-						has_government = theocracy_government
-					} 
-					add_opinion = {
-						target = root
-						modifier = koh_free_investiture
-						opinion = 10
+				hidden_effect = {
+					every_vassal = {
+						add_realm_law_skip_effects = free_investiture
 					}
-				}
-
-				every_ruler = {
-					limit = {
-						AND = {
-							has_trait = KOH_guelph
+	
+					every_vassal = {
+						limit = {
+							any_vassal = {
+								has_government = theocracy_government
+							}
+						} 
+						add_opinion = {
+							target = root
+							modifier = koh_free_investiture
+							opinion = 10
 						}
 					}
-					add_opinion = {
-						target = root
-						modifier = koh_free_investiture
-						opinion = -150
+	
+					title:k_papal_state.holder = {
+						add_opinion = {
+							target = root
+							modifier = koh_free_investiture
+							opinion = -150
+						}
+					}
+		
+					every_vassal = {
+						limit = {
+							has_government = theocracy_government
+						} 
+						add_opinion = {
+							target = root
+							modifier = koh_free_investiture
+							opinion = 10
+						}
+					}
+	
+					every_ruler = {
+						limit = {
+							AND = {
+								has_trait = KOH_guelph
+							}
+						}
+						add_opinion = {
+							target = root
+							modifier = koh_free_investiture
+							opinion = -150
+						}
 					}
 				}
 			}

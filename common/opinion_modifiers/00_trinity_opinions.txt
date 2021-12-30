@@ -7,3 +7,13 @@ koh_papal_investiture = {
 	monthly_change = 0.1
 	decaying = yes
 }
+
+changed_investiture_law = {
+	monthly_change = 0.4
+	decaying = yes
+}
+
+refused_changed_investiture_law = {
+	monthly_change = 0.4
+	decaying = yes
+}

@@ -60,7 +60,7 @@ cardinal_campaign_contribution 	= {value = 0 if = {limit = {exists = var:cardina
 bishop_to_cardinal_base_score = {
 	value = 0
 	if = {
-		limit = {exists = this} # To not log errors when iterating through members of an empty list
+		limit = { exists = this } # To not log errors when iterating through members of an empty list
 		add = cardinal_piety_bonus
 		add = cardinal_gold_bonus
 		add = cardinal_prestige_bonus

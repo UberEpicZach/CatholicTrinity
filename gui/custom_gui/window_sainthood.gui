@@ -12,6 +12,7 @@
         using = Window_Background
         using = Window_Decoration
         using = Animation_ShowHide_Standard
+         = yes
         vbox = {
             using = Window_Margins
             restrictparent_min = yes
@@ -46,25 +47,32 @@
                 name = "saints_scrollbox"
                 layoutpolicy_horizontal = expanding
                 layoutpolicy_vertical = expanding
+                
                 blockoverride "scrollbox_content"
                 {
                     dynamicgridbox = {
-                        layoutpolicy_vertical = expanding
-                        allow_outside = yes
-                        datacontext = "[FaithWindow.GetFaith]"
-                        ignoreinvisible = yes
-                        maxhorizontalslots = 1
-                        maxverticalslots = 100
+                        #layoutpolicy_vertical = expanding
+                       # allow_outside =no
+                        #datacontext = "[FaithWindow.GetFaith]"
+                       # ignoreinvisible = no
+                       # maxhorizontalslots = 1
+                       # maxverticalslots = 100
+                        # = yes
+
                         block "datamodel" {
                             datamodel = "[FaithWindow.GetFaith.MakeScope.GetList('faith_saints')]"
                         }
-                        item = {
-                            widget = {
+                         = yes
+                        
+                        item = {      
+                            widget = { 
+                                
                                 datacontext = "[Scope.GetCharacter]"
                                 block "size" {
                                     size = { 500 200 }
                                 }
-                                hbox = {
+                                hbox = {  
+                                     = yes
                                     portrait_shoulders_bright = {}
                                     vbox = {
                                         hbox = {
@@ -102,6 +110,38 @@
                                                     fontsize = 16
                                                     default_format = "#italic"
                                                 }
+                                                expand = {}
+                                            }
+                                            spacer = { size = { 10 0 } }
+                                            vbox = {
+                                                # hbox = {
+                                                #     text_single = {
+                                                #         text = "[piety|E]:"
+                                                #         fontsize = 16
+                                                #         default_format = "#italic"
+                                                #     }
+                                                #     spacer = { size = { 5 0 } }
+                                                #     text_single = {
+                                                #         text = "[Character.GetPiety]"
+                                                #         fontsize = 16
+                                                #         default_format = "#italic"
+                                                #     }
+                                                #     expand = {}
+                                                # }
+                                                # hbox = {
+                                                #     text_single = {
+                                                #         text = "[prestige|E]:"
+                                                #         fontsize = 16
+                                                #         default_format = "#italic"
+                                                #     }
+                                                #     spacer = { size = { 5 0 } }
+                                                #     text_single = {
+                                                #         text = "[Character.GetPrestige]"
+                                                #         fontsize = 16
+                                                #         default_format = "#italic"
+                                                #     }
+                                                #     expand = {}
+                                                # }
                                                 hbox = {
                                                     text_single = {
                                                         text = "[dynasty|E]: "
@@ -111,38 +151,6 @@
                                                     spacer = { size = { 5 0 } }
                                                     text_single = {
                                                         text = "[Character.GetDynasty.GetName]"
-                                                        fontsize = 16
-                                                        default_format = "#italic"
-                                                    }
-                                                    expand = {}
-                                                }
-                                                expand = {}
-                                            }
-                                            spacer = { size = { 10 0 } }
-                                            vbox = {
-                                                hbox = {
-                                                    text_single = {
-                                                        text = "[piety|E]:"
-                                                        fontsize = 16
-                                                        default_format = "#italic"
-                                                    }
-                                                    spacer = { size = { 5 0 } }
-                                                    text_single = {
-                                                        text = "[Character.GetPiety]"
-                                                        fontsize = 16
-                                                        default_format = "#italic"
-                                                    }
-                                                    expand = {}
-                                                }
-                                                hbox = {
-                                                    text_single = {
-                                                        text = "[prestige|E]:"
-                                                        fontsize = 16
-                                                        default_format = "#italic"
-                                                    }
-                                                    spacer = { size = { 5 0 } }
-                                                    text_single = {
-                                                        text = "[Character.GetPrestige]"
                                                         fontsize = 16
                                                         default_format = "#italic"
                                                     }
