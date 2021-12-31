@@ -1,0 +1,16 @@
+﻿d_captain_general_church = {
+	color = { 255 249 198 }
+	color2 = { 220 220 0 }
+	landless = yes
+	definite_form = yes
+	capital = c_roma
+	
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+	ruler_uses_title_name = no
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	de_jure_drift_disabled = yes
+}

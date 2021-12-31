@@ -44,6 +44,11 @@
   KoH_religiousflavour.11.a: "Very well, if it's what [From.GetSheHe] really wants."
   KoH_religiousflavour.11.b: "Absolutely not!"
  
+  KoH_religiousflavour.12.t: "The local monastery "
+  KoH_religiousflavour.12.desc: "The abbot of a nearby monastery has asked that you make a donation towards the repairs of the monastery church. Surely, it wouldn't hurt to ensure that you are in the monks' prayers?"
+  KoH_religiousflavour.12.a: "God will know that I support the church."
+  KoH_religiousflavour.12.b: "Sorry, I can't spare the gold right now."
+  
   KoH_religiousflavour.13.t: "Duty-Bound?"
   KoH_religiousflavour.13.desc: "Word from the countryside tells of the impious practices of a certain clergyman, [Priest.GetTitledFirstName], has been exposed as a lecher, being caught in the act with his mistress, [lover.GetTitledFirstName]."
   KoH_religiousflavour.13.a: "Who made that man a priest, anyway?"

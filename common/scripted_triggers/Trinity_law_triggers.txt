@@ -19,3 +19,7 @@ realm_law_pass_investiture = {
 		has_primary_title = title:k_papal_state
 	}
 }
+
+can_have_mercenary_succession_mod_law_trigger = {
+	has_government = mercenary_government_mod
+}

@@ -469,3 +469,51 @@ saint_traits = {
 	add_trait = generous
 	add_trait = patient
 }
+
+ghw_set_new_war_declarer_effect = {
+	#Determine Sponsor. (effect fired within FAITH scope)
+	if = {
+		limit = {
+			exists = religious_head
+			religious_head = {
+				has_title = title:k_papal_state
+			}
+			exists = title:d_captain_general_church.holder
+		}
+		title:d_captain_general_church.holder = {
+			save_scope_as = ghw_sponsor
+		}
+		great_holy_war = {
+			set_war_declarer = scope:ghw_sponsor
+			if = {
+				limit = {
+					NOT = { has_pledged_attacker = scope:ghw_sponsor }
+				}
+				pledge_attacker = scope:ghw_sponsor
+			}
+		}
+	}
+
+	if = {
+		limit = {
+			exists = religious_head
+			religious_head = {
+				NOT = {
+					has_title = title:k_papal_state
+				}
+			}
+		}
+		religious_head = {
+			save_scope_as = ghw_sponsor
+		}
+		great_holy_war = {
+			set_war_declarer = scope:ghw_sponsor
+			if = {
+				limit = {
+					NOT = { has_pledged_attacker = scope:ghw_sponsor }
+				}
+				pledge_attacker = scope:ghw_sponsor
+			}
+		}
+	}
+}

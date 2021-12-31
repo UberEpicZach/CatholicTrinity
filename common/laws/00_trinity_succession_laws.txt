@@ -1,0 +1,19 @@
+﻿succession_order_laws = {
+	flag = succession_order_laws
+
+	mercenary_company_mod_succession_law = {
+		can_keep = {
+			can_have_mercenary_succession_mod_law_trigger = yes
+		}
+		can_have = {
+			can_have_mercenary_succession_mod_law_trigger = yes
+		}
+		should_start_with = {
+			has_government = mercenary_government
+		}
+		succession = {
+			order_of_succession = company
+			pool_character_config = pool_mercenary_succession
+		}
+	}
+}

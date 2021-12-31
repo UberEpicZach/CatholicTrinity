@@ -1,0 +1,1 @@
+﻿d_captain_general_church = k_papal_state

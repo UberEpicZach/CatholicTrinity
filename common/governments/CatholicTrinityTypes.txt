@@ -1,0 +1,18 @@
+﻿# Mercenary will always get this
+mercenary_government_mod = {
+	court_generate_spouses = no
+	court_generate_commanders = 30
+	council = yes
+	primary_holding = castle_holding
+	required_county_holdings = { castle_holding city_holding church_holding }
+
+	ai = {
+		arrange_marriage = no
+		use_goals = no
+		use_scripted_guis = yes
+		perform_religious_reformation = no
+	}
+
+	valid_holdings = { castle_holding city_holding church_holding }
+	color = hsv{ 0.00 0.00 0.66 }
+}

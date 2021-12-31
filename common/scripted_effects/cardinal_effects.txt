@@ -61,8 +61,9 @@ select_highest_scoring_cardinal_candidate = {
 	}
 	# You can easily change this system to use one secular and one spiritual candidate, if you wish to show such in the GUI.
 }
+
 select_highest_scoring_player_cardinal_candidate = {
-	# Look through player's vassals_or_below for valid candidates
+	# Look through player's vassals_or_below for valid candidates 
 	ordered_cardinal_candidate_vassal = {
 		order_by = bishop_to_cardinal_score
 		position = 0
@@ -166,7 +167,7 @@ update_cardinal_window = {
 		}
 		# Update player's candidates. They do not get a refund on their investments if this replaces the candidate.
 		every_player = {
-			limit = {ruler_has_cardinality_eligible_realm_priest = yes} #can maybe remove this, it's removed in the other version
+			#limit = {ruler_has_cardinality_eligible_realm_priest = yes} #can maybe remove this, it's removed in the other version
 			select_highest_scoring_player_cardinal_candidate = yes
 		}
 	}

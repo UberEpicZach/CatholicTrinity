@@ -1,0 +1,40 @@
+﻿
+TrinityChurch = {
+	name = "Herlembaldus"
+	martial = 8
+	diplomacy = 5
+	intrigue = 5
+	stewardship = 5
+	religion = "catholic"
+	culture = italian
+	
+	840.1.1 = {
+		birth = yes
+	}
+	
+	890.5.2 = {
+		death = yes
+	}
+}
+
+
+TrinityChurch1 = {
+	name = "Erlembaldo Cotta"
+	martial = 8
+	diplomacy = 5
+	intrigue = 5
+	stewardship = 5
+	religion = "catholic"
+	culture = anglo_saxon
+	culture = italian
+	
+	1022.1.1 = {
+		birth = yes
+	}
+	
+	1099.5.2 = {
+		death = yes
+	}
+}
+
+

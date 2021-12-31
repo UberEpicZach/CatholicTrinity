@@ -86,7 +86,7 @@ investiture = {
 						add_opinion = {
 							target = root
 							modifier = koh_free_investiture
-							opinion = -150
+							opinion = -40
 						}
 					}
 		

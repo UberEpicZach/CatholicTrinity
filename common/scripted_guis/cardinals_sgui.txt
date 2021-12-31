@@ -19,6 +19,20 @@ can_see_my_candidate_fail = {
 	}
 }
 
+investiturelawcheck = {
+    scope = character
+	is_shown = {
+		NOR = {
+			has_realm_law = papal_investiture
+			top_liege = { has_realm_law = papal_investiture }
+		}
+		OR = {
+			has_realm_law = free_investiture
+			top_liege = { has_realm_law = free_investiture }
+		}
+	}
+}
+
 can_see_my_candidate_pope = {
     scope = character
 	is_shown = {

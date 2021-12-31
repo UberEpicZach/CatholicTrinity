@@ -49,6 +49,24 @@ type namefail = widget {
     }
 }
 
+type investiturechecker = widget {
+    allow_outside = yes
+    size = {150 100}
+    scale = 1
+
+    event_button_round = {  
+        name = "investiturechecker"
+        visible = "[GetScriptedGui('investiturelawcheck').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+        parentanchor = hcenter|top
+        texture = "gfx/interface/icons/flat_icons/replace_with_investiture.dds"
+        # position = {-105 -50} #don't fucking change
+        position = {-314 -97}
+        onclick = "[CouncilWindow.Close]"
+        enabled = "[GetScriptedGui('investiturelawcheck').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+        tooltip = "#T Investiture Replace"
+    }
+}
+
 type namefail_pope = widget {
     allow_outside = yes
     size = {150 213}

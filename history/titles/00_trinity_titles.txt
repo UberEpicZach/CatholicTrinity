@@ -1,0 +1,24 @@
+
+d_captain_general_church = {
+	867.1.1 = {
+		holder = TrinityChurch
+		government = mercenary_government_mod
+		succession_laws = {
+			mercenary_company_mod_succession_law
+			male_only_law
+		}
+		set_coa = title:k_papal_state
+		set_color_from_title = title:k_papal_state
+	}
+	
+	1066.1.1 = {
+		holder = TrinityChurch1
+		government = mercenary_government_mod
+		succession_laws = {
+			mercenary_company_mod_succession_law
+			male_only_law
+		}
+		set_coa = title:k_papal_state
+		set_color_from_title = title:k_papal_state
+	}
+}
