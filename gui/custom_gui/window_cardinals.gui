@@ -61,7 +61,8 @@ type investiturechecker = widget {
         texture = "gfx/interface/icons/flat_icons/replace_with_investiture.dds"
         # position = {-105 -50} #don't fucking change
         position = {-314 -97}
-        onclick = "[CouncilWindow.Close]"
+        onclick = "[GetVariableSystem.Toggle( 'window_appoint_successor_theocracyCouncil' )]"
+        onclick = "[GetScriptedGui('get_all_investitureCouncil_candidates').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('selected_councillor_inv',Scope.GetPlayer.PrimaryTitle.MakeScope).End)]"
         enabled = "[GetScriptedGui('investiturelawcheck').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
         tooltip = "#T Investiture Replace"
     }

@@ -1,0 +1,177 @@
+﻿types InvestitureCouncil { # Types are essentially templates. They are typically done in the gui/shared folder but can be done in any file.
+
+    type window_appoint_successor_theocracyCouncil = window {
+        size = { 600 850 }
+        position = { -600 55 }
+        layer = middle
+        visible = "[GetVariableSystem.Exists('window_appoint_successor_theocracyCouncil')]" # This is shown if that variable system exists, regardless of the variable.
+    
+        using = Window_Background # Using is useful for preset backgrounds and the like. All windows should at least have this and the decoration block
+        using = Window_Decoration
+        using = Animation_ShowHide_Standard
+
+        vbox = {
+            using = Window_Margins
+            restrictparent_min = yes
+    
+            header_pattern = { # Also a type. Just copy paste this typically and change the text and onclick.
+                layoutpolicy_horizontal = expanding
+    
+                blockoverride "header_text"
+                {
+                    text = "Appoint Successor"
+                }
+    
+                blockoverride "button_close"
+                {
+                    onclick = "[GetVariableSystem.Clear( 'window_appoint_successor_theocracyCouncil' )]"
+                }
+            }
+    
+            vbox = {
+                layoutpolicy_horizontal = expanding
+                layoutpolicy_vertical = expanding
+                # vbox = {
+                #     datacontext = "[GetPlayer.GetPrimaryTitle.MakeScope.Var('selected_councillor_for_investiture').GetCharacter]" # Get your primary title's variable selected_title_for_investiture and the title stored on it
+                #     text_multi = {
+                #         autoresize = yes
+                #         maximumsize = { 520 250 }
+                #         text = "INVESTITURE_APPOINT"
+                #         default_format = "#weak"
+                #         align = center
+                #     }
+                #     text_multi = {
+                #         autoresize = yes
+                #         maximumsize = { 200 100 }
+                #         text = "INVESTITURECouncil_TITLE"
+                #         default_format = "#bold"
+                #         align = center
+                #     }
+                #     portrait_head = {}
+                # }
+                scrollbox = {
+                    name = "appoint_investitureCouncil_successor_scrollarea"
+                    layoutpolicy_horizontal = expanding
+                    layoutpolicy_vertical = expanding
+                    #size = {100% 100%}
+                    size = { 530 800 }
+                    background = {
+                        texture = "gfx/interface/illustrations/lifestyles_background/learning_lifestyle.dds"
+                        alpha = 0.3
+                        modify_texture = {
+                            name = "mask"
+                            texture = "gfx/interface/component_masks/mask_rough_edges.dds"
+                            spriteType = Corneredstretched
+                            spriteborder = { 0 0 }
+                            blend_mode = alphamultiply
+                        }
+                    }
+
+                    
+                    blockoverride "scrollbox_content"
+                    {
+                        dynamicgridbox = {
+
+                            datacontext = "[GetPlayer]"
+                            layoutpolicy_vertical = expanding
+                            allow_outside = yes
+                            ignoreinvisible = yes
+                            maxhorizontalslots = 1
+                            maxverticalslots = 100
+                            block "datamodel" {
+                                datamodel = "[GetPlayer.GetPrimaryTitle.MakeScope.GetList('theocratcouncil_candidates')]"
+                            }
+                            item = {
+                                widget = {
+                                    datacontext = "[Scope.GetCharacter]"
+                                    block "size" {
+                                        size = { 500 121 }
+                                    }
+                                    hbox = {
+                                        portrait_head = {}
+                                        vbox = {
+                                            text_single = {
+                                                fontsize = 20
+                                                text = "[Character.GetFirstName]"
+                                                default_format = "#high"
+                                            }
+                                            hbox = {
+                                                minimumsize = { 210 -1 }
+                                                vbox = {
+                                                    minimumsize = { 100 -1 }
+                                                    hbox = {
+                                                        text_single = {
+                                                            text = "Diplomacy:  "
+                                                        }
+                                                        text_single = {
+                                                            text = "[Character.MakeScope.ScriptValue('diplomacy_theocrat')|0]" # For some fucked up reason we can't call up any of a person's stats so I have to manually do it via a script value
+                                                        }
+                                                    }
+                                                    hbox = {
+                                                        text_single = {
+                                                            text = "Stewardship:  "
+                                                        }
+                                                        text_single = {
+                                                            text = "[Character.MakeScope.ScriptValue('stewardship_theocrat')|0]"
+                                                        }
+                                                    }
+                                                    hbox = {
+                                                        text_single = {
+                                                            text = "Martial:  "
+                                                        }
+                                                        text_single = {
+                                                            text = "[Character.MakeScope.ScriptValue('martial_theocrat')|0]"
+                                                        }
+                                                    }
+                                                }
+                                                vbox = {
+                                                    minimumsize = { 100 -1 }
+                                                    hbox = {
+                                                        text_single = {
+                                                            text = "Intrigue:  "
+                                                        }
+                                                        text_single = {
+                                                            text = "[Character.MakeScope.ScriptValue('intrigue_theocrat')|0]"
+                                                        }
+                                                    }
+                                                    hbox = {
+                                                        text_single = {
+                                                            text = "Learning:  "
+                                                        }
+                                                        text_single = {
+                                                            text = "[Character.MakeScope.ScriptValue('learning_theocrat')|0]"
+                                                        }
+                                                    }
+                                                    hbox = {
+                                                        text_single = {
+                                                            text = "Prowess:  "
+                                                        }
+                                                        text_single = {
+                                                            text = "[Character.GetProwess]" # Except prowess. For some reason we can call prowess.
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            expand = {}
+                                        }
+                                        spacer = {
+                                            size = { 20 10 }
+                                        }
+                                        button = {
+                                            texture = "gfx/interface/icons/title_status/icon_claim_pressed.dds"
+                                            size = { 90 90 }
+                                            tooltip = appoint_governor
+                                            # onclick = "[GetScriptedGui('set_up_new_successor').Execute(GuiScope.SetRoot(Scope.Char.MakeScope).AddScope('title_inheritor',GetPlayer.GetPrimaryTitle.MakeScope.Var('selected_title_for_investiture').Title.MakeScope).End)]"
+                                            # onclick = "[GetVariableSystem.Clear('window_appoint_successor_theocracy')]" # Close the windows when clicked as well.
+                                            # onclick = "[GetScriptedGui('get_all_realm_theocracies').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]" # Refreshes the list for me
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

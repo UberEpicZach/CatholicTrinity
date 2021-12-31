@@ -9,6 +9,8 @@ window = {
 	parentanchor = top|right
 	layer = windows_layer
 	movable = no
+	allow_outside = yes
+	window_appoint_successor_theocracyCouncil = {}
 
 	using = Window_Size_MainTab
 
