@@ -1,4 +1,4 @@
-# Event window widget to rename a child (intended to be used at birth)
+﻿# Event window widget to rename a child (intended to be used at birth)
 # Required controller: name_character
 
 vbox = {

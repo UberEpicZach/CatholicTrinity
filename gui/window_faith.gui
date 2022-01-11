@@ -1,4 +1,4 @@
-######################################################
+﻿######################################################
 ################### FAITH WINDOW #####################
 ######################################################
 
@@ -714,12 +714,13 @@ window = {
 							hbox = {
 								layoutpolicy_horizontal = expanding
 
-								text_multi = {
+								text_single = {
 									visible = "[Faith.GetReligiousHead.IsValid]"
 									text = "RELIGIOUS_HEAD_WITH_NAME"
 									default_format = "#high"
 									layoutpolicy_horizontal = expanding
-									fontsize_min = 10
+									fontsize_min = 14
+									max_width = 245
 								}
 
 								text_multi = {
@@ -730,12 +731,43 @@ window = {
 									align = left
 									fontsize_min = 10
 								}
-
-								expand = {}
 							}
-
 							expand = {}
-
+							vbox = { #ROT
+								layoutpolicy_horizontal = expanding
+								#layoutpolicy_vertical = expanding
+								
+								margin_bottom = 5
+								
+								visible = "[Faith.HasDoctrineByKey('doctrine_independent_papacy_head')]"
+								text_single = {
+									visible = "[Faith.GetReligiousHead.IsValid]"
+									text = "rot_antipopes_title"
+									default_format = "#medium"
+									layoutpolicy_horizontal = expanding
+									fontsize_min = 10
+								}
+								
+								datamodel = "[Faith.MakeScope.GetList('rot_antipopes')]"
+								item = {
+									text_single = {
+										visible = "[Faith.GetReligiousHead.IsValid]"
+										text = "rot_antipopes_name"
+										default_format = "#high"
+										layoutpolicy_horizontal = expanding
+										fontsize_min = 14
+										max_width = 245
+									}
+								}
+								text_single = {
+									visible = "[GetScriptedGui( 'rot_no_antipopes' ).IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'faith', Faith.MakeScope ).End )]"
+									text = "rot_no_antipopes"
+									default_format = "#weak"
+									layoutpolicy_horizontal = expanding
+									fontsize_min = 14
+									max_width = 245
+								}
+							}
 						}
 					}
 
@@ -771,7 +803,23 @@ window = {
 						}
 
 						widget_doctrine_item = {
-							visible = "[Faith.HasDoctrineByKey( 'doctrine_spiritual_head' )]"
+							visible = "[Faith.HasDoctrineByKey( 'doctrine_independent_papacy_head' )]"
+
+							blockoverride "background" {}
+
+							blockoverride "doctrine_icon"
+							{
+								texture = "[GetDoctrine( 'doctrine_independent_papacy_head' ).GetIcon]"
+							}
+
+							blockoverride "wdi_context"
+							{
+								datacontext = "[GetDoctrine('doctrine_independent_papacy_head')]"
+								datacontext = "[Faith]"
+							}
+						}
+						widget_doctrine_item = {
+							visible = "[And(Faith.HasDoctrineByKey( 'doctrine_spiritual_head' ), Not(Faith.HasDoctrineByKey( 'doctrine_independent_papacy_head' )))]"
 
 							blockoverride "background" {}
 

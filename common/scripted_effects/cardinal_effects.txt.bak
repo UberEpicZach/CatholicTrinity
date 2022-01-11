@@ -63,28 +63,28 @@ select_highest_scoring_cardinal_candidate = {
 }
 
 select_highest_scoring_character_cardinal_candidate = {
-	# Look through characters's vassals_or_below for valid candidates 
+	# Look through player's vassals_or_below for valid candidates 
 	ordered_cardinal_candidate_vassal = {
 		order_by = bishop_to_cardinal_score
 		position = 0
-		add_to_list = highest_scoring_character_cardinal_candidates
+		add_to_list = highest_scoring_player_cardinal_candidates
 	}
 	# Check player's own realm priest
 	if = {
 		limit = {exists = realm_priest}
-		realm_priest = {add_to_list = highest_scoring_character_cardinal_candidates}
+		realm_priest = {add_to_list = highest_scoring_player_cardinal_candidates}
 	}
 	# Select player's best candidate:
 	ordered_in_list = {
 		limit = {exists = this}
-		list = highest_scoring_character_cardinal_candidates
+		list = highest_scoring_player_cardinal_candidates
 		order_by = bishop_to_cardinal_score
 		position = 0
-		save_scope_as = highest_scoring_character_cardinal_candidate_selected
+		save_scope_as = highest_scoring_player_cardinal_candidate
 	}
 	set_variable = {
 		name = cardinal_player_candidate
-		value = scope:highest_scoring_character_cardinal_candidate_selected
+		value = scope:highest_scoring_player_cardinal_candidate
 	}
 }
 
@@ -317,7 +317,7 @@ ErrorTest = {
 
 	if = {
 		limit = {
-			has_variable_list = highest_cardinal_candidates
+			exists_list = highest_cardinal_candidates
 			variable_list_size = {
 				name = highest_cardinal_candidates
 				value > 1
@@ -475,49 +475,3 @@ rot_remove_antipope = {
 # 	# 	days = 5
 # 	# }
 # }
-
-send_child_to_clergy_effect_for_events = {
-	# add_opinion = {
-	# 	modifier = demanded_taking_vows
-	# 	target = scope:actor
-	# }
-	#add the opinion in the events!
-	add_trait = devoted
-	add_piety_level = 1
-	if = {
-		limit = { is_ruler = yes }
-		depose = yes
-	}
-	if = {
-		limit = {
-			is_married = yes
-		}
-		every_spouse = {
-			divorce = scope:recipient
-		}
-	}
-	if = {
-		limit = {
-			exists = betrothed
-		}
-		break_betrothal = betrothed
-	}
-	if = {
-		limit = {
-			is_concubine = yes
-		}
-		this.concubinist = {
-			remove_concubine = scope:recipient
-		}
-	}
-	if = {
-		limit = {
-			number_of_concubines > 0
-		}
-		every_concubine = {
-			scope:recipient = {
-				remove_concubine = prev
-			}
-		}
-	}
-}

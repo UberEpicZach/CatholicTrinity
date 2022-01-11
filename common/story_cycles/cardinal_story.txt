@@ -12,7 +12,7 @@ cardinal_story = {
 				target = prev
 			}
 		}
-		dummy_male = {
+		global_var:gui_storage = {
 			add_to_variable_list = {
 				name = cardinals
 				target = prev

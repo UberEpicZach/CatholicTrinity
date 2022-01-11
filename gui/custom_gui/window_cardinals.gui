@@ -10,7 +10,7 @@ type window_cardinals_special_character = widget { #For showing the Pope, Prefer
         texture = "gfx/interface/CollegeCardinals/papacy_nameplate_large_bg.dds"
         position = {-12 -10} #don't fucking change
         text_single = {
-            block "text" {text = "[Character.GetUIName]"}
+            block "text" {text = "CARDINAL_WIND_UNIUI_POPENAME"}
             parentanchor = hcenter|vcenter
             default_format = "#light_background"
             using = Font_Type_Flavor
@@ -22,7 +22,7 @@ type window_cardinals_special_character = widget { #For showing the Pope, Prefer
     text_single = {
         parentanchor = bottom|hcenter
         position = {0 -25}
-        text = "[Character.GetUIName]"
+        text = "CARDINAL_WIND_UNIUI_POPENAME"
     }
 }
 type window_cardinals_portrait = portrait_head { # Normal character portrait used for Cardinals.
@@ -49,24 +49,28 @@ type namefail = widget {
     }
 }
 
-type investiturechecker = widget {
-    allow_outside = yes
-    size = {150 100}
-    scale = 1
+# type investiturechecker = widget {
+#     allow_outside = yes
+#     size = {150 100}
+#     scale = 1.2
 
-    event_button_round = {  
-        name = "investiturechecker"
-        visible = "[GetScriptedGui('investiturelawcheck').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-        parentanchor = hcenter|top
-        texture = "gfx/interface/icons/flat_icons/replace_with_investiture.dds"
-        # position = {-105 -50} #don't fucking change
-        position = {-314 -97}
-        onclick = "[GetVariableSystem.Toggle( 'window_appoint_successor_theocracyCouncil' )]"
-        onclick = "[GetScriptedGui('get_all_investitureCouncil_candidates').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('selected_councillor_inv',Scope.GetPlayer.PrimaryTitle.MakeScope).End)]"
-        enabled = "[GetScriptedGui('investiturelawcheck').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-        tooltip = "#T Investiture Replace"
-    }
-}
+#     button_round = { # I hope you don't mind that I changed this to look like the other replace buttons.
+#         name = "replace"
+#         visible = "[GetScriptedGui('investiturelawcheck').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+#         position = {-275 -81}
+#         onclick = "[GetVariableSystem.Toggle( 'window_appoint_successor_theocracyCouncil' )]"
+#         onclick = "[GetScriptedGui('get_all_investitureCouncil_candidates').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+#         enabled = "[GetScriptedGui('investiturelawcheck').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+#         tooltip = "#T Investiture Replace"
+#         using = tooltip_se
+#         parentanchor = hcenter|top
+#         button_change = {
+#             alwaystransparent = yes
+#             parentanchor = center
+#         }
+#     }
+
+# }
 
 type namefail_pope = widget {
     allow_outside = yes
@@ -368,13 +372,14 @@ type window_cardinals = window {
             scrollbar_vertical = {
                 using = Scrollbar_Vertical
             }
+            scrollbarpolicy_horizontal = always_off
             #allow_outside = yes
             scrollwidget = {
                 #allow_outside = yes
                 #widget = {size = {0 50}}
                 window_cardinal_dynamicgrid = {
                     parentanchor = top|left
-                    layoutpolicy_horizontal = expanding
+                    #layoutpolicy_horizontal = expanding
                     layoutpolicy_vertical = expanding
                 }
             }

@@ -1,6 +1,57 @@
 ﻿on_game_start = {
 	on_actions = {
 		on_cardinal_preinitialize
+		CatholicsimFix
+	}
+}
+
+
+CatholicsimFix = {
+	effect = {
+		faith:catholic = {
+			add_doctrine = doctrine_independent_papacy_head
+			add_doctrine = doctrine_clerical_succession_investiture_law_appointment
+			remove_doctrine = doctrine_consanguinity_aunt_nephew_and_uncle_niece
+			add_doctrine = doctrine_consanguinity_restricted
+		}
+		set_global_variable = {
+            name = Trinity_is_loaded
+            value = yes
+        }
+	}
+}
+
+on_character_faith_change = {
+	on_actions = {
+		characterfaithchangeROT
+	}
+}
+
+on_faith_conversion = {
+	on_actions = {
+		faithconversionROT
+	}
+}
+
+characterfaithchangeROT = {
+	effect = {
+		if = {
+			limit = {
+				has_trait = rot_antipope
+			}
+			rot_remove_antipope = yes
+		}
+	}
+}
+
+faithconversionROT = {
+	effect = {
+		if = {
+			limit = {
+				has_trait = rot_antipope
+			}
+			rot_remove_antipope = yes
+		}
 	}
 }
 
@@ -32,33 +83,79 @@ on_cardinal_preinitialize = {
 				name = ideal_cardinal_location
 				value = title:c_roma
 			}
+			every_ruler = { 
+				limit = { 
+					has_faith = faith:catholic 
+					NOT = { 
+						exists = var:cardinal_player_candidate 
+						has_government = mercenary_government 
+						has_government = theocracy_government 
+					}
+					primary_title.title_held_years > 1
+					is_at_war = no
+					is_ruler = yes
+					is_landed = yes
+					is_cardinal = no
+					is_pope = no
+					is_alive = yes
+				} 
+				select_highest_scoring_character_cardinal_candidate = yes 
+			}
 		}
-		# else = { # AGOT parameters (Guesswork)
-		# 	set_global_variable = {
-		# 		name = gui_storage
-		# 		value = faith:the_seven_main.religion
-		# 		#value = dummy_male
-		# 	}
-		# 	set_global_variable = {
-		# 		name = the_seven_main
-		# 		value = faith:the_seven_main
-		# 	}
-		# 	set_global_variable = {
-		# 		name = k_the_most_devout
-		# 		value = title:k_the_most_devout
-		# 	}
-		# 	set_global_variable = {
-		# 		name = ideal_cardinal_location
-		# 		# I don't know what King's Landing's key is, so this is my best guess at game start:
-		# 		value = title:k_the_most_devout.holder.location.county
-		# 	}
-		# }
-		# Set which faiths should show the cardinal window.
 		global_var:the_catholic = {
 			set_variable = uses_cardinal_module
 		}
 		global_var:insular_celts = {
 			set_variable = uses_cardinal_module
+		}
+	}
+}
+
+on_faith_monthly = {
+	on_actions = {
+		delay = { months = 5 }
+		NewCrusadeLeader
+		CardinalCandiatesUpdated
+	}
+}
+
+CardinalCandiatesUpdated = {
+	effect = {
+		every_ruler = { 
+			limit = { 
+				has_faith = faith:catholic
+				is_landed = yes
+				has_government = feudal_government
+				age >= 16
+				is_ai = yes 
+				NOT = { 
+					exists = var:cardinal_player_candidate 
+					has_government = mercenary_government 
+					has_government = theocracy_government 
+					highest_held_title_tier >= tier_county
+				}
+
+			} 
+			select_highest_scoring_character_cardinal_candidate = yes 
+		}
+	}
+}
+
+NewCrusadeLeader = {
+	trigger = {
+		exists = religious_head
+		exists = great_holy_war
+		religious_head = {
+			has_title = title:k_papal_state
+			NOT = { exists = var:ChangedCrusadeLeader }
+		}
+		exists = title:d_captain_general_church.holder
+	
+	}
+	effect = {
+		debug_log = "Testing Crusade Change Leader"
+		title:k_papal_state.holder = {
+			pledge_ghw_piety_gain_effect = yes
 		}
 	}
 }
@@ -80,7 +177,7 @@ HREInvestiture = {
 	}
 	effect = {
 		title:e_hre.holder = {
-			add_realm_law = free_investiture
+			add_realm_law_skip_effects = free_investiture_early
 		}
 	}
 }
@@ -142,6 +239,7 @@ CardinalsTraits = {
 		title:k_papal_state.holder = {
 			trigger_event = KoH_religiousflavour.22
 			update_cardinal_window = yes
+			update_preferatus = yes
 		}
 	}
 	on_actions = {
@@ -163,7 +261,7 @@ on_cardinal_initialize = {
 		initialize_random_cardinals = yes
 		update_preferatus = yes
 		update_cardinal_window = yes
-		}
+	}
 }
 
 on_death = {
@@ -172,6 +270,7 @@ on_death = {
         on_pope_death
         on_person_death_saint
 		on_theocrat_investiture_death
+		on_preferatus_death
     }
 }
 
@@ -219,49 +318,38 @@ on_person_death_saint = {
     }
 }
 
-on_theocrat_investiture_death = {
-	trigger = {
-		primary_title = {
-			has_variable = theocratic_successor
-		}
-	}
-	effect = {
-		liege = { save_scope_as = important_liege }
-		primary_title = { var:theocratic_successor = { save_scope_as = theocratic_inheritor } remove_variable = theocratic_successor }
-		create_title_and_vassal_change = {
-			type = granted
-			save_scope_as = title_change
-			add_claim_on_loss = no
-		}
-		every_held_title = {
-			change_title_holder = {
-				holder = scope:theocratic_inheritor
-				change = scope:title_change
-			}
-		}
-		resolve_title_and_vassal_change = scope:title_change
-		scope:theocratic_inheritor = {
-			remove_variable = theocratic_successor
-			change_government = theocracy_government
-			create_title_and_vassal_change = {
-				type = swear_fealty
-				save_scope_as = change
-			}
-			change_liege = {
-				liege = scope:important_liege
-				change = scope:change
-			}
-			resolve_title_and_vassal_change = scope:change
-		}
-	}
-}
-
 on_cardinal_death = {
 	trigger = {
 		owns_story_of_type = cardinal_story
 	}
 	effect = {
 		give_nickname = nick_cardinal
+		update_cardinal_window = yes
+		update_preferatus = yes
+	}
+}
+
+on_preferatus_death = {
+	trigger = {
+		AND = {
+			has_cardinal_faith = yes
+			has_trait = koh_cardinal
+			exists = global_var:preferatus
+			this = global_var:preferatus.story_owner
+			any_owned_story = {
+				story_type = cardinal_story
+			}
+		}
+	}
+	effect = {
+		update_cardinal_window = yes
+		global_var:preferatus = {
+			promote_new_cardinal = yes
+			update_cardinal_window = yes
+		}
+		title:k_papal_state.holder = {
+			trigger_event = KoH_religiousflavour.801
+		}
 	}
 }
 
@@ -270,8 +358,7 @@ on_pope_death = {
 		is_pope = yes
 	}
 	effect = {
-		add_trait = pope_trait
-		give_nickname = nick_pope
+		save_scope_as = deadpope
 		# Make sure we have the most up-to-date preferatus
 		update_preferatus = yes
 		# Optional heir designation (If your systems care about such)
@@ -298,13 +385,28 @@ on_pope_death = {
 			}
 		}
 		resolve_title_and_vassal_change = scope:papal_inheritance
-		set_player_character = global_var:preferatus.story_owner
+		if = {
+			limit = {
+				is_ai = no
+			}
+			set_player_character = global_var:preferatus.story_owner
+		}
+		
 		# Fetch a new cardinal in place of the recently promoted pope
 		global_var:preferatus = {
 			promote_new_cardinal = yes
+		}
+
+		global_var:preferatus.story_owner = {	
 			remove_trait = koh_cardinal
 		}
 		update_cardinal_window = yes
+		update_preferatus = yes
+
+		scope:deadpope = {
+			add_trait = pope_trait
+			give_nickname = nick_pope
+		}
 	}
 }
 
@@ -353,8 +455,8 @@ trinity_events_tri_yearly_pulse = {
 	}
 }
 
-eventtest = {
-	events = {
-		KoH_religiousflavour.24
-	}
-}
+# eventtest = {
+# 	events = {
+# 		KoH_religiousflavour.24
+# 	}
+# }

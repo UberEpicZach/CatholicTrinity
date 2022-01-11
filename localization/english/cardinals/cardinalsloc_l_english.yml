@@ -7,6 +7,7 @@
  countbishop: "Prince-Bishop"
  bishop: "Bishop"
  CathTheoHolder: "[CHARACTER.Custom('CardinalCheck')]"
+ AntipopeHolder: "Pope"
 
  councilCardinalHolder: "Cardinal"
  councilbishop: "[ROOT.Char.Custom('GetActualBishopTitle')]"

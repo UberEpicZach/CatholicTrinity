@@ -1,9 +1,7 @@
-namespace = KoH_sainthood
+﻿namespace = KoH_sainthood
 
 
 KoH_sainthood.1 = { #sainthood.1
-	title = KoH_sainthood.1.t
-	desc = KoH_sainthood.1.desc
 	hidden = yes
 
 	trigger = {		
@@ -14,22 +12,17 @@ KoH_sainthood.1 = { #sainthood.1
 		root = {
 			save_scope_as = saint_person
 		}
-		scope:saint_person.capital_county = { #capital_county.title_province
-			save_scope_as = saint_capital
-		}
-
-		random_held_title = {
-			limit = { 
-				tier = tier_county
-				title_province = {
-					NOR = {
-						has_province_modifier = pillaged_tomb_of_a_saint
-						has_province_modifier = tomb_of_a_saint
-					}
+		if = {
+			limit = {
+				scope:saint_person = {
+					exists = capital_county
 				}
 			}
-			save_scope_as = random_saint_demesne_province
+			scope:saint_person.capital_county = { #capital_county.title_province
+				save_scope_as = saint_capital
+			}
 		}
+
 		if = {
 			limit = {
 				has_religion = religion:christianity_religion
@@ -71,7 +64,7 @@ KoH_sainthood.1 = { #sainthood.1
 		}
 		#Potential for sainthood
 		random = {
-			chance = 20 #make 1
+			chance = 10 #make 1
 	
 			#Cynical people are less likely to be Canonized
 			modifier = {
@@ -101,16 +94,18 @@ KoH_sainthood.1 = { #sainthood.1
 					scope:saint_person.faith = faith:nestorian
 					scope:saint_person.faith = faith:insular_celtic
 					scope:saint_person.faith = faith:paulician
+					scope:saint_person.faith = faith:coptic
 				}
 			}
 	
 			#Religions without a Religious Head cannot Canonize
-			# modifier = {
-			# 	factor = 0 
+			modifier = {
+				factor = 0 
 	
-			# 	# Why was this so hard to write?
-			# 	NOT = { exists = { scope:saint_person.faith.religious_head } }
-			# }
+				# Why was this so hard to write?
+				NOT = { exists = scope:saint_person.faith.religious_head }
+			}
+			
 			#Eastern Christians have a lower chance of becoming Saints
 			modifier = {
 				factor = 0.8
@@ -121,6 +116,7 @@ KoH_sainthood.1 = { #sainthood.1
 					scope:saint_person.faith = faith:insular_celtic
 					scope:saint_person.faith = faith:paulician
 					scope:saint_person.faith = faith:orthodox
+					scope:saint_person.faith = faith:coptic
 				}
 			}
 			#Players who don't have a saintly bloodline have a higher chance of becoming a Saint
@@ -307,7 +303,7 @@ KoH_sainthood.1 = { #sainthood.1
 						faith:paulician = { NOT = { has_global_variable = paulician_saint } }
 						faith:orthodox = { NOT = { has_global_variable = orthodox_saint } }
 						faith:catholic = { NOT = { has_global_variable = catholic_saint } }
-						faith:iconoclast = { NOT = { has_global_variable = iconoclast_saint } }
+						faith:coptic = { NOT = { has_global_variable = coptic_saint } }
 					}
 				}
 			}
@@ -336,17 +332,17 @@ KoH_sainthood.1 = { #sainthood.1
 					faith:paulician = { set_global_variable = paulician_saint }
 					faith:orthodox = { set_global_variable = orthodox_saint }
 					faith:catholic = { set_global_variable = catholic_saint }
-					faith:iconoclast = { set_global_variable = iconoclast_saint }
+					faith:coptic = { set_global_variable = coptic_saint }
 				}
 			}
 		}
-		scope:saint_person = {
-			send_interface_toast = {
-				title = "Saintest Event 1"
+		# scope:saint_person = {
+		# 	# send_interface_toast = {
+		# 	# 	title = "Saintest Event 1"
 	
-				left_icon = root
-			}
-		}
+		# 	# 	left_icon = root
+		# 	# }
+		# }
 	}
 }
 
@@ -474,8 +470,8 @@ KoH_sainthood.7 = { ##Preparing Canonization
 
 	immediate = { 
 		if = {
-            limit = {
-				scope:saint_capital.title_province.holder = {
+			limit = {
+				scope:saint_capital.holder = {
 					has_religion = religion:christianity_religion
 				}
 			}
@@ -489,7 +485,6 @@ KoH_sainthood.7 = { ##Preparing Canonization
 			}
 		}
 	}
-
 }
 
 KoH_sainthood.8 = {
@@ -553,7 +548,7 @@ KoH_sainthood.8 = {
 				1 = {
 					give_nickname = nick_the_divine
 				}
-				3 = {
+				10 = {
 					trigger = {
 						martyrs_death_trigger = yes
 					}
@@ -568,11 +563,102 @@ KoH_sainthood.8 = {
 			}
 		}
 		
-		every_ruler = {
+		if = {
 			limit = {
-				religion = religion:christianity_religion  
+				scope:saint_person = {
+					has_faith = faith:catholic
+				}
 			}
-			trigger_event = KoH_sainthood.9
+			every_ruler = {
+				limit = {
+					has_faith = faith:catholic
+				}
+				trigger_event = KoH_sainthood.9
+			}
+		}
+		
+		if = {
+			limit = {
+				scope:saint_person = {
+					has_faith = faith:orthodox
+				}
+			}
+			every_ruler = {
+				limit = {
+					has_faith = faith:orthodox
+				}
+				trigger_event = KoH_sainthood.9
+			}
+		}
+
+		if = {
+			limit = {
+				scope:saint_person = {
+					has_faith = faith:iconoclast
+				}
+			}
+			every_ruler = {
+				limit = {
+					has_faith = faith:iconoclast
+				}
+				trigger_event = KoH_sainthood.9
+			}
+		}
+
+		if = {
+			limit = {
+				scope:saint_person = {
+					has_faith = faith:nestorian
+				}
+			}
+			every_ruler = {
+				limit = {
+					has_faith = faith:nestorian
+				}
+				trigger_event = KoH_sainthood.9
+			}
+		}
+
+		if = {
+			limit = {
+				scope:saint_person = {
+					has_faith = faith:insular_celtic
+				}
+			}
+			every_ruler = {
+				limit = {
+					has_faith = faith:insular_celtic
+				}
+				trigger_event = KoH_sainthood.9
+			}
+		}
+
+		if = {
+			limit = {
+				scope:saint_person = {
+					has_faith = faith:paulician
+				}
+			}
+			every_ruler = {
+				limit = {
+					has_faith = faith:paulician
+				}
+				trigger_event = KoH_sainthood.9
+			}
+		}
+
+		if = {
+			limit = {
+				scope:saint_person = {
+					has_faith = faith:coptic
+				}
+			}
+			every_ruler = {
+				limit = {
+					has_faith = faith:coptic
+				}
+				trigger_event = KoH_sainthood.9
+			}
 		}
 
 		scope:saint_person = {

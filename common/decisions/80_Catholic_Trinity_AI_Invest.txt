@@ -1,6 +1,6 @@
 ﻿#An AI Decision to make it invest in Elections in the College of Cardinals
 
-invest_in_cardinal_AI = {
+invest_in_cardinal_Ai = {
 	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
 
 	desc = invest_in_cardinal_AI_decision_desc
@@ -10,34 +10,46 @@ invest_in_cardinal_AI = {
 	ai_check_interval = 6
 
 	is_shown = {
-		has_religion = religion:christianity_religion
+		has_faith = faith:catholic
 		is_ruler = yes
 		is_landed = yes
 		is_cardinal = no
 		is_pope = no
-		is_ai = yes
+		NOT = { has_government = mercenary_government has_government = theocracy_government }
+		primary_title.title_held_years > 1
+		is_at_war = no
+		is_alive = yes
+		primary_title.tier >= tier_county
+		#is_ai = yes
+		# exists = var:cardinal_player_candidate
+		# has_variable = cardinal_player_candidate
 	}
 
 	is_valid = {
-		has_religion = religion:christianity_religion
+		has_faith = faith:catholic
 		is_ruler = yes
 		is_landed = yes
-		custom_description = {
-			text = "You must not be a Cardinal or the pope."
-			is_cardinal = no
-			is_pope = no
-		}
+		is_cardinal = no
+		is_pope = no
 		gold > 100
 		monthly_character_income > 0.5
 		is_at_war = no
+		NOT = { has_government = mercenary_government has_government = theocracy_government }
+		primary_title.title_held_years > 1
+		is_alive = yes
+		primary_title.tier >= tier_county
+		# exists = var:cardinal_player_candidate
+		# has_variable = cardinal_player_candidate
 	}
 
 	cooldown = { months = 6 }
 
 	effect = {
-		custom_tooltip = invest_in_cardinal_AI_decision_effect_tooltip
-		invest_in_cardinal_effect = yes
-
+		#custom_tooltip = invest_in_cardinal_AI_decision_effect_tooltip
+		#invest_in_cardinal_effect = yes
+		select_highest_scoring_character_cardinal_candidate = yes
+		select_highest_scoring_character_cardinal_candidate_invest = yes
+		
 	}
 
 	ai_will_do = {
@@ -60,7 +72,7 @@ invest_in_cardinal_AI = {
 		}
 		modifier = {
 			add = -15
-			has_trait = Gguttonous
+			has_trait = gluttonous
 		}
 		modifier = {
 			add = 40
@@ -144,7 +156,7 @@ invest_in_cardinal_AI = {
 		}
 		modifier = {
 			add = 10
-			has_trait = crusader
+			has_trait = holy_warrior
 		}
 		modifier = {
 			add = 50
@@ -207,32 +219,34 @@ deinvest_in_cardinal_AI = {
 	ai_check_interval = 6
 
 	is_shown = {
-		has_religion = religion:christianity_religion
+		has_faith = faith:catholic
 		is_ruler = yes
 		is_landed = yes
 		is_cardinal = no
 		is_pope = no
 		is_ai = yes
 		exists = var:cardinal_campaign_contribution
-		exists = cardinal_player_candidate
+		exists = var:cardinal_player_candidate
 		has_variable = cardinal_player_candidate
+		primary_title.title_held_years > 1
 	}
 
 	is_valid = {
-		has_religion = religion:christianity_religion
+		has_faith = faith:catholic
 		is_ruler = yes
 		is_landed = yes
 		is_cardinal = no
 		is_pope = no
 		exists = var:cardinal_campaign_contribution
-		exists = cardinal_player_candidate
+		exists = var:cardinal_player_candidate
 		has_variable = cardinal_player_candidate
+		primary_title.title_held_years > 1
 	}
 
 	cooldown = { months = 6 }
 
 	effect = {
-		custom_tooltip = deinvest_in_cardinal_AI_decision_effect_tooltip
+		#custom_tooltip = deinvest_in_cardinal_AI_decision_effect_tooltip
 		deinvest_in_cardinal_effect = yes
 	}
 

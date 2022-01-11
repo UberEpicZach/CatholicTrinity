@@ -1,6 +1,4 @@
-﻿succession_order_laws = {
-	flag = succession_order_laws
-
+﻿title_succession_laws = {
 	mercenary_company_mod_succession_law = {
 		can_keep = {
 			can_have_mercenary_succession_mod_law_trigger = yes
@@ -9,11 +7,20 @@
 			can_have_mercenary_succession_mod_law_trigger = yes
 		}
 		should_start_with = {
-			has_government = mercenary_government
+			has_government = mercenary_government_mod
 		}
 		succession = {
-			order_of_succession = company
+			order_of_succession = generate
+			faith = same_faith
 			pool_character_config = pool_mercenary_succession
+		}
+		flag = elective_succession_law
+		revoke_cost = {
+			prestige = change_title_succession_law_prestige_cost
+		}
+		pass_cost = {
+			prestige = change_title_succession_law_prestige_cost
 		}
 	}
 }
+

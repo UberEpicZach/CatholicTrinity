@@ -8,6 +8,12 @@
 	}
 	text = {
 		trigger = {
+			has_trait = rot_antipope
+		}
+		localization_key = AntipopeHolder
+	}
+	text = {
+		trigger = {
 			has_title = title:k_papal_state
 		}
 		localization_key = popebishop

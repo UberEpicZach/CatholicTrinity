@@ -19,7 +19,7 @@ TrinityChurch = {
 
 
 TrinityChurch1 = {
-	name = "Erlembaldo Cotta"
+	name = "ErlembaldoCotta"
 	martial = 8
 	diplomacy = 5
 	intrigue = 5

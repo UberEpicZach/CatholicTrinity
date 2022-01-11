@@ -1,0 +1,71 @@
+﻿Launch_Crusade = {
+	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
+
+	desc = Launch_Crusade_decision_desc
+	selection_tooltip = Launch_Crusade_decision_tooltip
+	major = yes
+
+	ai_check_interval = 6
+
+	is_shown = {
+		has_faith = faith:catholic
+		is_ruler = yes
+		is_landed = yes
+		is_pope = yes
+		has_government = theocracy_government
+		is_at_war = no
+		is_alive = yes
+		religion = { exists = var:variable_ghw_unlocked }
+		faith = {
+			NOT = { 
+				exists = great_holy_war
+				exists = var:variable_ghw_cooldown
+				religion = { exists = var:variable_first_ghw_cooldown }
+			}
+		}
+	}
+
+	is_valid = {
+		has_faith = faith:catholic
+		is_ruler = yes
+		is_landed = yes
+		is_pope = yes
+		has_government = theocracy_government
+		is_at_war = no
+		is_alive = yes
+		religion = { exists = var:variable_ghw_unlocked }
+		faith = {
+			NOT = { 
+				exists = great_holy_war
+				exists = var:variable_ghw_cooldown
+				religion = { exists = var:variable_first_ghw_cooldown }
+			}
+		}
+		prestige_level >= very_high_prestige_level
+		piety_level >= high_piety_level
+	}
+
+	cost = {
+		gold = {
+			value = 5000
+		}
+		piety = {
+			value = 2500
+		}
+		prestige = {
+			value = 1500
+		}
+	}
+
+	cooldown = { years = 30 }
+
+	effect = {
+		faith:catholic = {
+			add_doctrine = doctrine_spiritual_head
+			trigger_event = great_holy_war.0001
+			religious_head = {
+				trigger_event = KoH_religiousflavour.802
+			}
+		}
+	}
+}

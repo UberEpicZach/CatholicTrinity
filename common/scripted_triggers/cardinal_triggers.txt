@@ -19,7 +19,6 @@ ruler_has_cardinality_eligible_realm_priest = {
 
 # Is this character a valid cardinal?
 is_cardinal = {
-	#
 	has_cardinal_faith = yes
 	has_trait = koh_cardinal
 	any_owned_story = {
@@ -36,6 +35,7 @@ is_pope = {
 		has_papal_title = yes
 	}
 }
+
 has_cardinal_faith = {
 	OR = {
 		faith = global_var:the_catholic

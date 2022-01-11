@@ -14,3 +14,17 @@ saintly_tomb = {
 	development_growth_factor = medium_development_growth_gain
 	development_growth = 0.15
 }
+
+koh_governs_vast_estates = {
+	icon = feast_positive
+	monthly_income = 1
+}
+
+public_opinion_negative = {
+	icon = economy_negative
+	general_opinion = -5
+}
+public_opinion_positive = {
+	icon = economy__positive
+	general_opinion = 5
+}

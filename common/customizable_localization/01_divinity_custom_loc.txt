@@ -1,5 +1,4 @@
-﻿
-ToleranceValue = {
+﻿ToleranceValue = {
 	type = character
 
 	text = {
@@ -592,6 +591,12 @@ GetActualBishopTitle = {
 			has_trait = koh_cardinal
 		}
 		localization_key = CardinalHolder
+	}
+	text = {
+		trigger = {
+			has_trait = rot_antipope
+		}
+		localization_key = AntipopeHolder
 	}
 
 	# Religion-By-Religion Titles for Bishops based on Liege's Tier.

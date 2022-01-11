@@ -1,10 +1,10 @@
 ﻿koh_free_investiture = {
-	monthly_change = 0.1
+	monthly_change = 0.5
 	decaying = yes
 }
 
 koh_papal_investiture = {
-	monthly_change = 0.1
+	monthly_change = 0.5
 	decaying = yes
 }
 
@@ -16,4 +16,13 @@ changed_investiture_law = {
 refused_changed_investiture_law = {
 	monthly_change = 0.4
 	decaying = yes
+}
+
+rot_created_antipope = {
+	opinion = 30
+	years = 20
+}
+rot_creator_of_antipope = {
+	opinion = -50
+	years = 50
 }

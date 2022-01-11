@@ -9,7 +9,10 @@
 can_see_investiture_law = {
     scope = character
 	is_shown = {
-		has_realm_law = free_investiture
+		OR = {
+			has_realm_law = free_investiture_early
+			has_realm_law = free_investiture_late
+		}
 	}
 }
 
@@ -50,7 +53,10 @@ get_all_investiture_candidates = {
 		}
 		every_sibling = {
 			limit = {
-				has_education_learning_trigger = yes
+				OR = {
+					has_trait = devoted
+					has_education_learning_trigger = yes
+				}
 				is_landed = no
 				is_female = no
 				is_adult = yes
@@ -66,7 +72,10 @@ get_all_investiture_candidates = {
 		}
 		every_child = {
 			limit = {
-				has_education_learning_trigger = yes
+				OR = {
+					has_trait = devoted
+					has_education_learning_trigger = yes
+				}
 				is_landed = no
 				is_adult = yes
 				is_female = no
@@ -111,9 +120,17 @@ get_all_investiture_candidates = {
 							mother = liege_or_court_owner
 							primary_spouse = liege_or_court_owner
 						}
-						learning >= 7
 					}
 				}
+				AND = {
+					#And they have to actually like you enough to want to invest you.
+					opinion = {
+						target = root
+						value >= low_positive_opinion
+					}
+					learning >= 7
+				}
+				has_faith = scope:employer_liege_guy.faith
 			}
 			save_scope_as = person_thing
 			scope:title_thing = {

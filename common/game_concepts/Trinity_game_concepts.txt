@@ -20,14 +20,14 @@ papal_investiture = {
 	parent = law
 }
 
-collegeofcardinals = {
+collegeofcardinal = {
 	texture = "gfx/interface/CollegeCardinals/HouseofCardinalsButton.png"
 	#texture = "gfx/interface/icons/laws/crown_authority_0.dds"
 	parent = religion
 	alias = { collegeofcardinals }
 }
 
-praedictus = {
+praedictuss = {
 	texture = "gfx/interface/CollegeCardinals/HouseofCardinalsButton.png"
 	#texture = "gfx/interface/icons/laws/crown_authority_0.dds"
 	parent = religion
@@ -38,10 +38,10 @@ papabile = {
 	texture = "gfx/interface/CollegeCardinals/HouseofCardinalsButton.png"
 	#texture = "gfx/interface/icons/laws/crown_authority_0.dds"
 	parent = religion
-	alias = { papabile }
+	alias = { papabiles }
 }
 
-cardinal = {
+cardinals = {
 	texture = "gfx/interface/CollegeCardinals/HouseofCardinalsButton.png"
 	#texture = "gfx/interface/icons/laws/crown_authority_0.dds"
 	parent = religion

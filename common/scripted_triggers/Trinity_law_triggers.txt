@@ -6,15 +6,35 @@ can_have_holy_order_county_succession_law_trigger = {
 	has_government = holy_order_county_government
 }
 
-realm_law_use_investiture = {
+realm_law_use_investiture_early = {
 	faith = faith:catholic
 	is_independent_ruler = yes
+	NOT = {
+		exists = global_var:dictatuspapae
+	}
 }
 
-realm_law_pass_investiture = {
+
+realm_law_use_investiture_late = {
+	faith = faith:catholic
+	is_independent_ruler = yes
+	exists = global_var:dictatuspapae
+}
+
+realm_law_pass_investiture_early = {
 	is_independent_ruler = yes
 	faith = faith:catholic
 	highest_held_title_tier >= tier_kingdom
+	NOT = {
+		exists = global_var:dictatuspapae
+	}
+}
+
+realm_law_pass_investiture_late = {
+	is_independent_ruler = yes
+	faith = faith:catholic
+	highest_held_title_tier >= tier_kingdom
+	exists = global_var:dictatuspapae
 	NOT = {
 		has_primary_title = title:k_papal_state
 	}

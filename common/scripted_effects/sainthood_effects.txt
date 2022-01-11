@@ -434,85 +434,53 @@ saint_site_selection_event_option_effect = {
 	}
 }
 
-saint_traits = {
-	remove_trait = lifestyle_reveler
-	remove_trait = lustful
-	remove_trait = cannibal 
-	remove_perk = schemer_perk
-	remove_perk = seducer_perk
-	remove_perk = torturer_perk
-	remove_trait = lustful
-	remove_trait = gluttonous
-	remove_trait = greedy
-	remove_trait = lazy
-	remove_trait = wrathful
-	remove_trait = callous 
-	remove_trait = arrogant 
-	add_trait = chaste
-	add_trait = temperate
-	add_trait = generous
-	add_trait = diligent
-	add_trait = patient
-	add_trait = compassionate
-	add_trait = humble
-	add_trait = theologian
-	add_trait = celibate
-	add_trait = chaste
-	add_trait = humble
-	add_trait = content
-	add_trait = pilgrim
-	add_trait = monk
-	#add_trait = shieldmaiden
-	add_trait = zealous
-	add_trait = just
-	add_trait = compassionate 
-	add_trait = generous
-	add_trait = patient
-}
-
-ghw_set_new_war_declarer_effect = {
-	#Determine Sponsor. (effect fired within FAITH scope)
+pledge_ghw_piety_gain_effect = {
 	if = {
-		limit = {
-			exists = religious_head
-			religious_head = {
-				has_title = title:k_papal_state
-			}
-			exists = title:d_captain_general_church.holder
-		}
-		title:d_captain_general_church.holder = {
-			save_scope_as = ghw_sponsor
-		}
-		great_holy_war = {
-			set_war_declarer = scope:ghw_sponsor
-			if = {
-				limit = {
-					NOT = { has_pledged_attacker = scope:ghw_sponsor }
-				}
-				pledge_attacker = scope:ghw_sponsor
-			}
-		}
+		limit = { highest_held_title_tier = 5 }
+		add_piety = 150
 	}
-
 	if = {
-		limit = {
-			exists = religious_head
-			religious_head = {
-				NOT = {
+		limit = { highest_held_title_tier = 4 }
+		add_piety = 120
+	}
+	if = {
+		limit = { highest_held_title_tier = 3 }
+		add_piety = 90
+	}
+	if = {
+		limit = { highest_held_title_tier = 2 }
+		add_piety = 60
+	}
+	if = {
+		limit = { highest_held_title_tier = 1 }
+		add_piety = 30
+	}
+	faith = {
+		if = {
+			limit = {
+				exists = religious_head
+				exists = great_holy_war
+				religious_head = {
 					has_title = title:k_papal_state
+					NOT = { exists = var:ChangedCrusadeLeader }
+				}
+				exists = title:d_captain_general_church.holder
+			}
+			religious_head = {
+				set_variable = {
+					name = ChangedCrusadeLeader
+					value = yes
+					years = 30
 				}
 			}
-		}
-		religious_head = {
-			save_scope_as = ghw_sponsor
-		}
-		great_holy_war = {
-			set_war_declarer = scope:ghw_sponsor
-			if = {
-				limit = {
-					NOT = { has_pledged_attacker = scope:ghw_sponsor }
+			great_holy_war = {
+				set_war_declarer = title:d_captain_general_church.holder
+				if = {
+					limit = {
+						NOT = { has_pledged_attacker = title:d_captain_general_church.holder }
+					}
+					pledge_attacker = title:d_captain_general_church.holder
 				}
-				pledge_attacker = scope:ghw_sponsor
 			}
 		}
 	}

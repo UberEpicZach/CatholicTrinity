@@ -19,16 +19,30 @@ can_see_my_candidate_fail = {
 	}
 }
 
+this_is_the_pope = {
+    scope = character
+	is_shown = {
+		OR = {
+			has_title = title:k_papal_state
+			is_pope = yes
+		}
+	}
+}
+
 investiturelawcheck = {
     scope = character
 	is_shown = {
 		NOR = {
-			has_realm_law = papal_investiture
-			top_liege = { has_realm_law = papal_investiture }
+			has_realm_law = papal_investiture_early
+			top_liege = { has_realm_law = papal_investiture_early }
+			has_realm_law = papal_investiture_late
+			top_liege = { has_realm_law = papal_investiture_late }
 		}
 		OR = {
-			has_realm_law = free_investiture
-			top_liege = { has_realm_law = free_investiture }
+			has_realm_law = free_investiture_early
+			top_liege = { has_realm_law = free_investiture_early }
+			has_realm_law = free_investiture_late
+			top_liege = { has_realm_law = free_investiture_late }
 		}
 	}
 }
@@ -130,3 +144,21 @@ divest_from_cardinal = {
 # Defaults from Tobbzn's original version as a reminder:
 #cardinal_campaign_contribution_invest_cost = 500
 #cardinal_campaign_contribution_divest_refund = 250
+
+
+#ROT
+rot_no_antipopes = {
+	scope = character
+
+	is_valid = {
+		scope:faith = {
+			trigger_if = {
+				limit = {
+					has_variable_list = rot_antipopes
+				}
+				variable_list_size = { name = rot_antipopes value = 0 } 
+			}
+		}
+	}
+	
+}

@@ -1,0 +1,26 @@
+﻿namespace = autoerrorfixer
+autoerrorfixer.1 = {
+    hidden = yes
+    immediate = {
+		fix_variable_error = {ERROR = childforheir}
+		fix_variable_error = {ERROR = selected_title_for_investiture}
+		fix_variable_error = {ERROR = uses_cardinal_module}
+		fix_variable_error = {ERROR = qa_testing}
+		fix_variable_error = {ERROR = rulersthathaveinvestiture}
+		fix_variable_error = {ERROR = player_two}
+		fix_variable_error = {ERROR = Trinity_is_loaded}
+		fix_variable_error = {ERROR = tenet_followers_of_peter}
+		fix_variable_error = {ERROR = dictatuspapae}
+		fix_variable_error = {ERROR = player_one}
+		fix_variable_error = {ERROR = k_papal_state}
+		fix_variable_error = {ERROR = popemansainttesting}
+		fix_variable_error = {ERROR = preferatus_character}
+		fix_variable_error = {ERROR = predicted_cardinal}
+		fix_variable_error = {ERROR = faith_capital}
+		fix_variable_error = {ERROR = selected_title_inv}
+		fix_variable_error = {ERROR = title_inheritor}
+		fix_variable_error = {ERROR = pope_we_refuse_law_changed}
+		fix_variable_error = {ERROR = pope_currently_demanding}
+		fix_variable_error = {ERROR = pope_respects_our_law}
+	}
+}

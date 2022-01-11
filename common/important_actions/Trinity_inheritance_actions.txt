@@ -11,7 +11,10 @@
 							dynasty = root.dynasty
 						}
 					}
-					has_title = title:k_papal_state
+					OR = {
+						has_title = title:k_papal_state
+						has_government = theocracy_government
+					}
 				}
 			}
 			try_create_important_action = {

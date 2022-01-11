@@ -40,7 +40,7 @@ has_pious_trait_trigger = {
 
 has_impious_trait_trigger = {
 	OR = {
-		has_trait = lifestyle_reveler
+		has_trait = rakish
 		has_trait = lustful
 		has_trait = cannibal
 		has_perk = schemer_perk
@@ -73,14 +73,13 @@ sainthood_event1trigger = {
 		has_trait = kinslayer
 	}
 
-	NOT =  { has_claim_on  =  title:k_papal_state } # Antipopes
+	NOT =  { has_claim_on =	title:k_papal_state } # Antipopes
 
 	OR = {
 		AND = {
 			highest_held_title_tier = tier_empire
 			piety >= 1250
 		}
-
 		AND = {
 			highest_held_title_tier = tier_kingdom
 			piety >= 1000
@@ -92,6 +91,14 @@ sainthood_event1trigger = {
 		AND = {
 			highest_held_title_tier = tier_county
 			piety >= 500
+		}
+		AND = {
+			highest_held_title_tier = tier_barony
+			piety >= 250
+		}
+		AND = {
+			is_landed = no
+			piety >= 150
 		}
 	}
 	has_vice_trigger = no
@@ -110,5 +117,78 @@ can_realm_theocracies_trigger = {
 		primary_title = {
 			has_variable = theocratic_successor
 		}		
+	}
+}
+
+familytrigger = {
+	is_male = yes
+	is_ruler = no
+	root.primary_title = {
+		place_in_line_of_succession = {
+		  target = PREV
+		  value > 2
+		}
+	}
+}
+
+is_preferatus_character={
+	AND = {
+		has_cardinal_faith = yes
+		has_trait = koh_cardinal
+		exists = global_var:preferatus
+		this = global_var:preferatus.story_owner
+		any_owned_story = {
+			story_type = cardinal_story
+		}
+	}
+} 
+
+martyrs_death_trigger = {
+	death_reason = death_sacrificed_to_gods
+}
+
+rot_is_pope_of_target_trigger = {
+	#save_temporary_scope_as = cardinal_check
+	trigger_if = {
+			limit = {
+				scope:actor.faith = {
+					NOT = { 
+						has_variable_list = rot_antipopes 
+					}
+				} 
+			}
+		$TARGET$.faith.religious_head = $POPE$
+	}
+	trigger_else_if = {
+		limit = {
+			$TARGET$ = { 
+				OR = {
+					has_variable = rot_antipope_of_ruler
+					AND = {
+						exists = liege
+						any_liege_or_above = {
+							has_variable = rot_antipope_of_ruler
+						}
+					}
+				}
+			}
+		} 
+		OR = {
+			AND = {
+				$TARGET$ = {
+					has_variable = rot_antipope_of_ruler
+					var:rot_antipope_of_ruler = $POPE$
+				}
+			}
+			$TARGET$ = {
+				any_liege_or_above = {
+					has_variable = rot_antipope_of_ruler
+					var:rot_antipope_of_ruler = $POPE$
+				}
+			}
+		}
+	}
+	trigger_else = {
+		$TARGET$.faith.religious_head = $POPE$
 	}
 }

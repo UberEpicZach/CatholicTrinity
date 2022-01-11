@@ -5,3 +5,22 @@
   I_FREE: "[free_investiture|E]"
 
 appoint_governor:0 "Appoint Bishopic Successor"
+
+invest_in_cardinal_AI_decision_desc: "This decision is for AI to Invest in the College of Cardinals, Please report this as a bug if you can see this"
+invest_in_cardinal_AI_decision_tooltip: "This decision is for AI to Invest in the College of Cardinals, Please report this as a bug if you can see this"
+invest_in_cardinal_AI: "AI Invest in College"
+invest_in_cardinal_Ai: "AI Invest in College"
+invest_in_cardinal_Ai_confirm: "AI Invest in College"
+invest_in_cardinal_AI_confirm: "AI Invest in College"
+deinvest_in_cardinal_AI_decision_desc: "This decision is for AI to Deinvest in the College of Cardinals, Please report this as a bug if you can see this"
+deinvest_in_cardinal_AI_decision_tooltip: "This decision is for AI to Deinvest in the College of Cardinals, Please report this as a bug if you can see this"
+deinvest_in_cardinal_AI: "AI DeInvest in College"
+deinvest_in_cardinal_AI_confirm: "AI DeInvest in College"
+
+CardinalElectionWon: "Cardinal Election"
+HookGainedKOH: "You have gained a Hook"
+deinvest_in_cardinal_AI_decision_effect_tooltip: "This decision is for AI to Deinvest in the College of Cardinals, Please report this as a bug if you can see this"
+
+trait_rot_antipope:0 "Antipope"
+trait_rot_antipope_desc:0 "This character is an Antipope, a contender for the [faith|E] [head_of_faith|E]."
+rot_make_antipope_interaction_desc:0 "Create an Antipope"

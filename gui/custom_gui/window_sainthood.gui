@@ -12,7 +12,6 @@
         using = Window_Background
         using = Window_Decoration
         using = Animation_ShowHide_Standard
-         = yes
         vbox = {
             using = Window_Margins
             restrictparent_min = yes
@@ -57,12 +56,10 @@
                        # ignoreinvisible = no
                        # maxhorizontalslots = 1
                        # maxverticalslots = 100
-                        # = yes
 
                         block "datamodel" {
                             datamodel = "[FaithWindow.GetFaith.MakeScope.GetList('faith_saints')]"
                         }
-                         = yes
                         
                         item = {      
                             widget = { 
@@ -72,18 +69,17 @@
                                     size = { 500 200 }
                                 }
                                 hbox = {  
-                                     = yes
                                     portrait_shoulders_bright = {}
                                     vbox = {
                                         hbox = {
                                             text_single = {
-                                                text = "Saint"
+                                                text = "SAINT_WIND_UNIUI_GENERIC_SAINT"
                                                 fontsize = 21
                                                 default_format = "#bold"
                                             }
                                             spacer = { size = { 5 0 } }
                                             text_single = {
-                                                text = "[Character.GetFirstName]"
+                                                text = "SAINT_WIND_UNIUI_SAINT_NAME"
                                                 fontsize = 21
                                                 default_format = "#bold"
                                             }
@@ -150,7 +146,7 @@
                                                     }
                                                     spacer = { size = { 5 0 } }
                                                     text_single = {
-                                                        text = "[Character.GetDynasty.GetName]"
+                                                        text = "SAINT_WIND_UNIUI_SAINT_NAME"
                                                         fontsize = 16
                                                         default_format = "#italic"
                                                     }
@@ -164,7 +160,7 @@
                                                     }
                                                     spacer = { size = { 5 0 } }
                                                     text_single = {
-                                                        text = "[Character.GetHouse.GetName]"
+                                                        text = "SAINT_WIND_UNIUI_SAINT_HOUSE"
                                                         fontsize = 16
                                                         default_format = "#italic"
                                                     }

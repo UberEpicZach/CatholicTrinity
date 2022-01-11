@@ -1,14 +1,16 @@
 ﻿l_english:
   candiatesoon: "A Candidate Will Appear Soon"
-  candiatesoonpope: "The Pope Cannot Have Candidates"
+  candiatesoonpope: "The Pope Cannot Have Candidates."
   KoH_religiousflavour.1.t: "A Pope and His Estates"
   KoH_religiousflavour.1.desc: "It has come to my attention that my kin, [scope:scoped_pope.Char.GetTitledFirstName] has arranged for the transportation of [Sibling/Son] and [Sibling/Son] to the vicinity of Rome, and has promised them a share of vast estates… in the name of ‘ease of governance’, of course. While His Holiness’ request is for my family, the news is to be relayed through my channels, and this leaves the decision ultimately up to me."
-  KoH_religiousflavour.1.a: ""
+  KoH_religiousflavour.1.a: "Let them go"
 
   KoH_religiousflavour.2.t: "Drunk as a Monk: Beer"
   KoH_religiousflavour.2.desc: "That smooth and slightly malty taste, refreshing with just the right amount of bitter. Ah, these monks certainly know the art of brewing!"
   KoH_religiousflavour.2.a: "I must visit the monastery more often"
   KoH_religiousflavour.2.b: "Thanks but no thanks"
+  KoH_religiousflavour.2.a.toast: "You have become a Drunkard"
+  KoH_religiousflavour.2.b.toast: "You have become Temperate"
 
   KoH_religiousflavour.3.t: "Drunk as a Monk: Wine"
   KoH_religiousflavour.3.desc: "Such a wonderful bouquet. The complex blend of flavors spreads over my tongue just as the warmth spreads in my belly. These monks certainly know how to make a fine wine!"
@@ -25,9 +27,10 @@
   KoH_religiousflavour.5.a: "I will buy this painting and exhibit it at my castle!"
   KoH_religiousflavour.5.b: "Very nice, now let's eat."
 
-  #  KoH_religiousflavour.6.t: ""
-  #  KoH_religiousflavour.6.desc: ""
-  #  KoH_religiousflavour.6.a: ""
+  KoH_religiousflavour.6.t: "A Monk and His Painting"
+  KoH_religiousflavour.6.desc: "One day, passing by a monastery, you come upon a monk sitting and painting in a field. You observe his work and marvel at the composition, the colors and the fine brush strokes that bring the simple canvas to life. This monk is truly an artistic prodigy."
+  KoH_religiousflavour.6.a: "I will buy this painting and exhibit it at my castle!"
+  KoH_religiousflavour.6.b: "Very nice, now let's eat."
 
   KoH_religiousflavour.7.t: "Artful Books"
   KoH_religiousflavour.7.desc: "On a courtesy visit to the abbot of a local monastery, you observe a group of monks translating beautifully illustrated books into your language."
@@ -39,12 +42,12 @@
   KoH_religiousflavour.8.a: "I should seek their company more often."
   KoH_religiousflavour.8.b: "How tedious, these men of God."
 
-  KoH_religiousflavour.11.t: "The life of the faithful"
-  KoH_religiousflavour.11.desc: "During the last year or so, your [From.GetDaughterSon] [From.GetFirstName] has been spending a lot of time with the members of a local monastic order. You have also noticed that [From.GetSheHe] spends many hours per week in pious prayer. Then one day, [From.GetSheHe] approaches you asking for your permission to dedicate [From.GetHerHis] life to Christ."
-  KoH_religiousflavour.11.a: "Very well, if it's what [From.GetSheHe] really wants."
-  KoH_religiousflavour.11.b: "Absolutely not!"
+  KoH_religiousflavour.9.t: "The life of the faithful."
+  KoH_religiousflavour.9.desc: "During the last year or so, your [childforthechurch.Custom('GetDaughterSon')] [childforthechurch.GetFirstName] has been spending a lot of time with younger members of a local monastic order. You have also noticed that [childforthechurch.GetSheHe] spends many hours per week in pious prayer. Then one day, [childforthechurch.GetSheHe] approaches you asking for your permission to dedicate [childforthechurch.GetHerHis] life to Christ."
+  KoH_religiousflavour.9.a: "Very well, if it's what [childforthechurch.GetSheHe] really wants."
+  KoH_religiousflavour.9.b: "Absolutely not!"
  
-  KoH_religiousflavour.12.t: "The local monastery "
+  KoH_religiousflavour.12.t: "The local monastery"
   KoH_religiousflavour.12.desc: "The abbot of a nearby monastery has asked that you make a donation towards the repairs of the monastery church. Surely, it wouldn't hurt to ensure that you are in the monks' prayers?"
   KoH_religiousflavour.12.a: "God will know that I support the church."
   KoH_religiousflavour.12.b: "Sorry, I can't spare the gold right now."
@@ -90,12 +93,15 @@
   KoH_religiousflavour.21.desc: "The nobleman [forez.GetFullNameNicknamedRegnal] has publicly placed his support behind a preacher named [peter.GetTitledFirstName], deemed heretical by the Catholic Church. ‘Waldensians’, followers of Vaudès, have largely remained a minor force in Provence and Lyon, however this has changed as Guigues has set about being baptized fully into the faith. Protesting the wealth of the church among other things, [pope.GetTitledFirstName] has called for action against Forez."
   KoH_religiousflavour.21.a: "Another heresy arises."
 
-
  #SAINTHOOD
 
   KoH_sainthood.6.t: "A Blessed has Passed"
   KoH_sainthood.6.desc: "[saint_person.GetFirstNameNicknamed] lived a pious life, truly following the example of God. [saint_person.GetSheHe] passed on [saint_person.GetDeathDate.GetString], and people have long wondered if [saint_person.GetSheHe] would be considered a true christian or not.\n\nA large ceremony is held in [saint_person.GetFirstName]'s honor by the Pope, to celebrate the life [saint_person.GetSheHe] lived. A virtuous exemplar of a true christian, the Pope will write [saint_person.GetHerHis] name in among the pious christian's of old.\n\nA bastion of piety in life, a stalwart example in death. Blessed be [saint_person.GetHerHis] memory, once again in the arms of God."
   KoH_sainthood.6.a: "Blessed be [saint_person.GetFirstName]'s name"
+
+  KoH_sainthood.8.t: "The Death of [saint_person.GetFirstNameNicknamed]"
+  KoH_sainthood.8.desc: "[saint_person.GetFirstNameNicknamed] lived a pious life, truly following the example of God. [saint_person.GetSheHe] passed on [saint_person.GetDeathDate.GetString], and people have long wondered if [saint_person.GetSheHe] would be considered a true christian or not, Cardinals proclaim to you the choice of declaring [saint_person.GetFirstNameNicknamed] a Saint"
+  KoH_sainthood.8.a: "So it shall!"
 
   KoH_sainthood.9.t: "A Saint in Heaven"
   KoH_sainthood.9.desc: "[saint_person.GetFirstNameNicknamed] was a true exemplar of the christian faith, living a pious and inspiring life. In a grand announcement [canonizer_person.GetTitledFirstName] has decided to include [saint_person.GetFirstNameNicknamed] among the venerated ancestors of old.\n\nMany tales are told about the feats [saint_person.GetFirstName] did in life, and [saint_person.GetSheHe] will be an inspiration for our descendants in the years to come.\n\nIt is a great honor for the family of the blessed one, and may we all aspire to follow in [saint_person.GetHerHis] footsteps."
@@ -112,24 +118,47 @@
 
   #Pope and Free Investiture
   
-  KoH_religiousflavour.24.t.t: "Investiture: Issues in the Church"
-  KoH_religiousflavour.24.t.desc: "There are rulers in the world who are sadly neglecting the laws that Jesus himself gave to the Holy Church."
-  KoH_religiousflavour.24.t.a: "Invite them to follow the true doctrines."
-  KoH_religiousflavour.24.t.b: "God will punish them later..."
+  KoH_religiousflavour.24.t: "Investiture: Issues in the Church"
+  KoH_religiousflavour.24.desc: "There are rulers in the world who are sadly neglecting the laws that Jesus himself gave to the Holy Church."
+  KoH_religiousflavour.24.a: "Invite them to follow the true doctrines."
+  KoH_religiousflavour.24.b: "God will punish them later..."
 
-  KoH_religiousflavour.25.t.t: "Investiture: A Papal Envoy"
-  KoH_religiousflavour.25.t.desc: "The Pope [faith.religious_head.GetName] is upset with our law of [free_investiture|E]. The Holy Father is asking us to change it to comply with Church Doctrine, known as [papal_investiture|E]."
-  KoH_religiousflavour.25.t.a: "Another heresy arises."
-  KoH_religiousflavour.25.t.b: "I rule in MY realm!"
-  KoH_religiousflavour.25.t.c: "Some gold to the church will silence them"
-  KoH_religiousflavour.25.t.d: "Decline on Theological Grounds"
+  KoH_religiousflavour.25.t: "Investiture: A Papal Envoy"
+  KoH_religiousflavour.25.desc: "[popeman.GetName] is upset with our law of [free_investiture|E]. The Holy Father is asking us to change it to comply with Church Doctrine, known as [papal_investiture|E]."
+  KoH_religiousflavour.25.a: "I oblige.."
+  KoH_religiousflavour.25.b: "I rule in MY realm!"
+  KoH_religiousflavour.25.c: "Some gold to the church will silence them."
+  KoH_religiousflavour.25.d: "Decline on Theological Grounds."
 
-  KoH_religiousflavour.25.t.t: "Investiture: A Papal Envoy"
-  KoH_religiousflavour.25.t.desc: "The Pope [faith.religious_head.GetName] is upset with our law of [free_investiture|E]. The Holy Father is asking us to change it to comply with Church Doctrine, known as [papal_investiture|E]."
-  KoH_religiousflavour.25.t.a: "Another heresy arises."
-  KoH_religiousflavour.25.t.b: "I rule in MY realm!"
-  KoH_religiousflavour.25.t.c: "Some gold to the church will silence them"
-  KoH_religiousflavour.25.t.d: "Decline on Theological Grounds"
+  KoH_religiousflavour.26.t: "Investiture: Acceptance"
+  KoH_religiousflavour.26.desc: "[popewantsit.GetTitledFirstName] has accepted God's will, and is now allowing Papal appointments of Bishops, and is now using the [papal_investiture|E] Law."
+  KoH_religiousflavour.26.a: "Glory to God"
 
- 
+  KoH_religiousflavour.27.t: "Investiture: Refusal"
+  KoH_religiousflavour.27.desc: "[popewantsit.GetTitledFirstName] has refused to accept God's will! And refuses to allow Papal appointments of Bishops. We may need to go about other means of restoring our power..."
+  KoH_religiousflavour.27.a: "This is troubling"
+  
+  KoH_religiousflavour.28.t: "Investiture: A Particular Donation"
+  KoH_religiousflavour.28.desc: "[popewantsit.GetTitledFirstName] has sent a particular donation to the Church, specifically mentioning that 'This' donation of ducats will be needed for holy work, coinciding with my wishes to for their realm to change Investiture Laws; it can all be seen as this to be a bribe to leave his realm and laws alone.."
+  KoH_religiousflavour.28.a: "We can wait for [popewantsit.GetHerHim] to change the laws."
+  KoH_religiousflavour.28.a.tt: "By accepting this bribe, you agree to stop pestering [popewantsit.GetTitledFirstName] and his realm about Investiture Laws, for a while."
+  KoH_religiousflavour.28.b: "And [popewantsit.GetSheHe] thinks it's possible to simply bribe the pope?!"
+  KoH_religiousflavour.28.b.tt: "And [popewantsit.GetSheHe] thinks it's possible to simply bribe the pope?!"
+  KoH_religiousflavour.28.a.toast: "The Pope has accpeted your "Donation""
+  KoH_religiousflavour.28.b.toast: "The Pope declined your "Donation"!"
 
+  KoH_religiousflavour.29.t: "Investiture: A Political and Theological Debate"
+  KoH_religiousflavour.29.desc: "[popewantsit.GetTitledFirstName] has argued convincingly, on theological and political grounds, why [popewantsit.GetHerHis] realm should be exempt from [papal_investiture|E] Law, while you don't entirely agree, his statements in public eye, has them on his side on this matter. A Papacy without public support isn't much at all."
+  KoH_religiousflavour.29.a: "We are left with no other options...."
+  KoH_religiousflavour.29.a.tt: "By this end, you agree to stop pestering [popewantsit.GetTitledFirstName] and his realm about Investiture Laws, for a while, atleast publically."
+  KoH_religiousflavour.29.d.success: "I outwit the Pope, and get him off my back about his complaints about [free_investiture|E]"
+  KoH_religiousflavour.29.d.success.tt: "You successfully outwit the Pope in the field of theology and learning, the Pope will leave us alone regarding our [free_investiture|E] law."
+  KoH_religiousflavour.29.d.failure: "I fail to outwit and outsmarten the Pope, he considers this the same as refusing in the first place"
+  KoH_religiousflavour.29.d.failure.tt: "The Pope considers this the same as refusing in the first place..."
+  KoH_religiousflavour.29.b.toast: "You outwitted the Pope!"
+  KoH_religiousflavour.30.a.toast: "You failed to outwit the Pope!"
+
+  KoH_religiousflavour.30.t: "Investiture: A Political and Theological Debate"
+  KoH_religiousflavour.30.desc: "[popewantsit.GetTitledFirstName] has argued on and on, stating various quotes and lines from the bible and otherwise, he argues on theological and political grounds, why [popewantsit.GetHerHis] realm should be exempt from [papal_investiture|E] Law, alhough his arguments seems to fall flat, and has even seen the public eye begin to support the Papacies reasonings against the Emperor. Usually a Papacy without it's public support isn't much at all, although that isn't an issue this time around."
+  KoH_religiousflavour.30.a: "Perhaps we have other avenues?.." 
+  KoH_religiousflavour.30.a.tt: "By this end, while [popewantsit.GetTitledFirstName] hasn't yet changed laws, other opportunities may arise to assit along this changing of laws."
