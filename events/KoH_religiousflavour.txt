@@ -1745,7 +1745,82 @@ KoH_religiousflavour.30 = {
 # The Pope appoints a new holy roman emperor / gives a claim
 
 #Non_events
-KoH_religiousflavour.800 = {
+
+KoH_religiousflavour.799 = { 
+	title = KoH_religiousflavour.799.t
+	desc = KoH_religiousflavour.799.desc
+	theme = learning_scholarship_focus
+	left_portrait = {
+		character = scope:cardinal
+	}
+	right_portrait = {
+		character = scope:popeman
+	}
+
+	immediate = {
+		faith = {
+			religious_head = {
+				save_scope_as = popeman
+			}
+		}
+		random_ruler = {
+			limit = {
+				has_trait = koh_cardinal
+			}
+			save_scope_as = cardinal
+		}
+	}
+
+	option = { 
+		name = KoH_religiousflavour.799.a
+		dictatuspapae = yes
+
+		every_ruler = {
+			limit = {
+				has_faith = faith:catholic
+				primary_title.tier >= tier_county
+			}
+			trigger_event = {
+				id = KoH_religiousflavour.800
+				days = {5 15}
+			}
+		}
+
+		ai_chance = {	
+			base = 100
+		}
+	}
+}
+
+KoH_religiousflavour.800 = { 
+	title = KoH_religiousflavour.800.t
+	desc = KoH_religiousflavour.800.desc
+	theme = learning_scholarship_focus
+	left_portrait = {
+		character = scope:popewantsit
+	}
+	right_portrait = {
+		character = scope:popeman
+	}
+
+	immediate = {
+		faith = {
+			religious_head = {
+				save_scope_as = popeman
+			}
+		}
+	}
+
+	option = { 
+		name = KoH_religiousflavour.800.a
+
+		ai_chance = {	
+			base = 100
+		}
+	}
+}
+
+KoH_religiousflavour.802 = {
 	hidden = yes
 
 	immediate = {
@@ -1768,12 +1843,18 @@ KoH_religiousflavour.801 = {
 #
 #Launching a Crusade
 
-KoH_religiousflavour.802 = {
-	title = KoH_religiousflavour.802.t
-	desc = KoH_religiousflavour.802.desc
+KoH_religiousflavour.803 = {
+	title = KoH_religiousflavour.803.t
+	desc = KoH_religiousflavour.803.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
-		character = faith:religious_head
+		character = scope:pope
+	}
+
+	immediate = {
+		faith.religious_head = {
+			save_scope_as = pope
+		}
 	}
 
 	option = {

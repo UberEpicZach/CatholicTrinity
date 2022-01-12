@@ -49,6 +49,7 @@ cardinal_realm_priest_to_count 							= 15
 cardinal_realm_priest_to_duke 							= 30
 cardinal_realm_priest_to_king 							= 55
 cardinal_realm_priest_to_emperor 						= 60
+cardinal_is_pope 										= -10000
 
 
 # Restated vanilla keys to fetch in loc
@@ -74,6 +75,7 @@ bishop_to_cardinal_base_score = {
 		add = cardinal_popinion_bonus
 		add = cardinal_secular_power_bonus
 		add = cardinal_theocratic_power_bonus
+		add = cardinal_actually_is_pope_debuff
 	}
 }
 bishop_to_cardinal_score = {
@@ -168,6 +170,11 @@ cardinal_theocratic_power_bonus = {
 		else_if = {limit = {court_owner.highest_held_title_tier = tier_empire} 	add = cardinal_realm_priest_to_emperor}
 	}
 	multiply = cardinal_theocratic_power_multiplier
+}
+
+cardinal_actually_is_pope_debuff = {
+	value = 0 
+	if = { limit = { exists = title:k_papal_state has_title = title:k_papal_state } add = cardinal_is_pope } 
 }
 
 # Debug values:

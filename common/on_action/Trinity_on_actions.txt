@@ -149,13 +149,59 @@ NewCrusadeLeader = {
 			has_title = title:k_papal_state
 			NOT = { exists = var:ChangedCrusadeLeader }
 		}
-		exists = title:d_captain_general_church.holder
-	
 	}
 	effect = {
-		debug_log = "Testing Crusade Change Leader"
-		title:k_papal_state.holder = {
-			pledge_ghw_piety_gain_effect = yes
+		if = {
+			limit = {
+				exists = title:d_captain_general_church.holder
+			}
+			debug_log = "Testing Crusade Change Leader"
+			title:k_papal_state.holder = {
+				pledge_ghw_piety_gain_effect = yes
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = { exists = title:d_captain_general_church.holder }
+				title:k_papal_state.holder = {
+					has_title = title:c_tivoli
+				}
+			}
+			title:k_papal_state.holder = {
+				create_character = {
+					location = root.capital_province
+					age = { 25 35 }
+					gender = male
+					trait = education_martial_5
+					trait = devoted
+					faith = root.faith
+					culture = root.culture
+					learning = { 10 12 }
+					save_scope_as = CrusaderLeader
+				}
+			}
+			create_title_and_vassal_change = {
+				type = created
+				save_scope_as = title_change
+				add_claim_on_loss = no
+			}
+			title:d_captain_general_church = {
+				change_title_holder = {
+					holder = scope:CrusaderLeader
+					change = scope:title_change
+				}
+			}
+			resolve_title_and_vassal_change = scope:title_change
+			title:d_captain_general_church.holder = {
+				change_government = mercenary_government_mod
+			}
+			title:d_captain_general_church = {
+				add_title_law = mercenary_company_mod_succession_law
+			}
+			debug_log = "Testing Crusade Change Leader"
+			title:k_papal_state.holder = {
+				pledge_ghw_piety_gain_effect = yes
+			}
 		}
 	}
 }
@@ -241,11 +287,26 @@ CardinalsTraits = {
 			update_cardinal_window = yes
 			update_preferatus = yes
 		}
+		if = {
+			limit = {
+				title:k_papal_state.holder = {
+					faith = {
+						NOT = {
+							has_doctrine = doctrine_spiritual_head
+						}
+					}
+				}	
+			}
+			title:k_papal_state.holder = {
+				faith = {
+					add_doctrine = doctrine_spiritual_head
+				}
+			}
+		}
 	}
 	on_actions = {
 		delay = { months = 1 }
 		CardinalsTraits
-		
 	}
 }
 
@@ -266,12 +327,25 @@ on_cardinal_initialize = {
 
 on_death = {
     on_actions = {
+		on_antipope_death
         on_cardinal_death
         on_pope_death
         on_person_death_saint
 		on_theocrat_investiture_death
 		on_preferatus_death
     }
+}
+
+on_antipope_death = {
+	trigger = {
+		has_trait = rot_antipope
+	}
+	effect = {
+		rot_remove_antipope = yes
+		add_trait = pope_trait
+		add_trait = rot_antipope
+		give_nickname = nick_pope
+	}
 }
 
 on_theocrat_investiture_death = {
@@ -364,8 +438,7 @@ on_pope_death = {
 		# Optional heir designation (If your systems care about such)
 		#set_designated_heir = global_var:preferatus.story_owner
 		# Make sure the preferatus gives up their lands and titles before becoming pope
-
-		global_var:preferatus.story_owner = {depose = yes}
+		global_var:preferatus.story_owner = { depose = yes }
 
 		create_title_and_vassal_change = {
 			type = granted
@@ -384,13 +457,15 @@ on_pope_death = {
 				change = scope:papal_inheritance
 			}
 		}
-		resolve_title_and_vassal_change = scope:papal_inheritance
-		if = {
-			limit = {
-				is_ai = no
+
+		title:k_papal_state = {
+			change_title_holder = {
+				holder = global_var:preferatus.story_owner
+				change = scope:papal_inheritance
 			}
-			set_player_character = global_var:preferatus.story_owner
 		}
+		resolve_title_and_vassal_change = scope:papal_inheritance
+		set_player_character = global_var:preferatus.story_owner
 		
 		# Fetch a new cardinal in place of the recently promoted pope
 		global_var:preferatus = {
@@ -418,6 +493,7 @@ on_gain_papacy = {
 		if = { limit = { has_trait = koh_cardinal } remove_trait = koh_cardinal }
 		every_player = {add_gold = 1}
 		if = {limit = {is_cardinal = yes} every_player = {add_piety = 1}}
+		if = { limit = { has_trait = rot_antipope } rot_remove_antipope = yes}
 	}
 }
 

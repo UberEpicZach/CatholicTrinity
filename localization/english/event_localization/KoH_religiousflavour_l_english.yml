@@ -162,3 +162,12 @@
   KoH_religiousflavour.30.desc: "[popewantsit.GetTitledFirstName] has argued on and on, stating various quotes and lines from the bible and otherwise, he argues on theological and political grounds, why [popewantsit.GetHerHis] realm should be exempt from [papal_investiture|E] Law, alhough his arguments seems to fall flat, and has even seen the public eye begin to support the Papacies reasonings against the Emperor. Usually a Papacy without it's public support isn't much at all, although that isn't an issue this time around."
   KoH_religiousflavour.30.a: "Perhaps we have other avenues?.." 
   KoH_religiousflavour.30.a.tt: "By this end, while [popewantsit.GetTitledFirstName] hasn't yet changed laws, other opportunities may arise to assit along this changing of laws."
+
+
+  KoH_religiousflavour.799.t: "The Dictatus Papae"
+  KoH_religiousflavour.799.desc: "Standing before your Cardinals, you proclaim to them the intents of the Dictatus Papae - the ambitions of total authority of the appointment of bishops throughout Catholicism."
+  KoH_religiousflavour.799.a: "Okay"
+
+  KoH_religiousflavour.800.t: "The Dictatus Papae"
+  KoH_religiousflavour.800.desc: "In a large event, [popeman.GetName] had sent message to the entire christian world, declaring his supremacy over Investiture, demanding all catholics currently ruling under [free_investiture|E] to tranfser authority towards realm law [papal_investiture|E]."
+  KoH_religiousflavour.800.a: "Okay"

@@ -1,141 +1,141 @@
-﻿can_see_investiture = {
-    scope = character
-	is_shown = {
-		# has_realm_law = free_investiture
-		has_faith = faith:catholic
-	}
-}
+﻿# can_see_investiture = {
+#     scope = character
+# 	is_shown = {
+# 		# has_realm_law = free_investiture
+# 		has_faith = faith:catholic
+# 	}
+# }
 
-can_see_investiture_law = {
-    scope = character
-	is_shown = {
-		OR = {
-			has_realm_law = free_investiture_early
-			has_realm_law = free_investiture_late
-		}
-	}
-}
+# can_see_investiture_law = {
+#     scope = character
+# 	is_shown = {
+# 		OR = {
+# 			has_realm_law = free_investiture_early
+# 			has_realm_law = free_investiture_late
+# 		}
+# 	}
+# }
 
-get_all_investitureCouncil_candidates = {
-	effect = {
-		every_vassal = {
-			limit = { 
-				can_be_court_chaplain_trigger = { COURT_OWNER = root.liege_or_court_owner }
-				NOT = { has_council_position = councillor_spouse }
-				NOT = { has_council_position = councillor_court_chaplain }
-				faith = root.faith
-				is_capable_adult = yes
-				is_imprisoned = no
-				is_at_war_with_liege = no	
-				learning >= 10
-				has_education_learning_trigger = yes
-				is_alive = yes
-			}
-			save_scope_as = person_scope
-			root = {
-				add_to_variable_list = {
-					name = pre_theocratcouncil_candidates
-					target = scope:person_scope
-				}
-			}
-		}
-		every_courtier_or_guest = {
-			limit = {
-				can_be_court_chaplain_trigger = { COURT_OWNER = root.liege_or_court_owner } 
-				NOT = { has_council_position = councillor_spouse }
-				NOT = { has_council_position = councillor_court_chaplain }
-				faith = root.faith
-				is_capable_adult = yes
-				is_imprisoned = no
-				is_at_war_with_liege = no	
-				learning >= 10
-				has_education_learning_trigger = yes
-				is_alive = yes
-			}
-			save_scope_as = person_scope
-			root = {
-				add_to_variable_list = {
-					name = pre_theocratcouncil_candidates
-					target = scope:person_scope
-				}
-			}
-		}
-		every_sibling = {
-			limit = { 
-				can_be_court_chaplain_trigger = { COURT_OWNER = root.liege_or_court_owner }
-				NOT = { has_council_position = councillor_spouse }
-				NOT = { has_council_position = councillor_court_chaplain }
-				faith = root.faith
-				is_capable_adult = yes
-				is_imprisoned = no
-				is_at_war_with_liege = no	
-				learning >= 10
-				has_education_learning_trigger = yes
-				is_alive = yes
-			}
-			save_scope_as = person_scope
-			root = {
-				add_to_variable_list = {
-					name = pre_theocratcouncil_candidates
-					target = scope:person_scope
-				}
-			}
-		}
+# get_all_investitureCouncil_candidates = {
+# 	effect = {
+# 		every_vassal = {
+# 			limit = { 
+# 				can_be_court_chaplain_trigger = { COURT_OWNER = root.liege_or_court_owner }
+# 				NOT = { has_council_position = councillor_spouse }
+# 				NOT = { has_council_position = councillor_court_chaplain }
+# 				faith = root.faith
+# 				is_capable_adult = yes
+# 				is_imprisoned = no
+# 				is_at_war_with_liege = no	
+# 				learning >= 10
+# 				has_education_learning_trigger = yes
+# 				is_alive = yes
+# 			}
+# 			save_scope_as = person_scope
+# 			root = {
+# 				add_to_variable_list = {
+# 					name = pre_theocratcouncil_candidates
+# 					target = scope:person_scope
+# 				}
+# 			}
+# 		}
+# 		every_courtier_or_guest = {
+# 			limit = {
+# 				can_be_court_chaplain_trigger = { COURT_OWNER = root.liege_or_court_owner } 
+# 				NOT = { has_council_position = councillor_spouse }
+# 				NOT = { has_council_position = councillor_court_chaplain }
+# 				faith = root.faith
+# 				is_capable_adult = yes
+# 				is_imprisoned = no
+# 				is_at_war_with_liege = no	
+# 				learning >= 10
+# 				has_education_learning_trigger = yes
+# 				is_alive = yes
+# 			}
+# 			save_scope_as = person_scope
+# 			root = {
+# 				add_to_variable_list = {
+# 					name = pre_theocratcouncil_candidates
+# 					target = scope:person_scope
+# 				}
+# 			}
+# 		}
+# 		every_sibling = {
+# 			limit = { 
+# 				can_be_court_chaplain_trigger = { COURT_OWNER = root.liege_or_court_owner }
+# 				NOT = { has_council_position = councillor_spouse }
+# 				NOT = { has_council_position = councillor_court_chaplain }
+# 				faith = root.faith
+# 				is_capable_adult = yes
+# 				is_imprisoned = no
+# 				is_at_war_with_liege = no	
+# 				learning >= 10
+# 				has_education_learning_trigger = yes
+# 				is_alive = yes
+# 			}
+# 			save_scope_as = person_scope
+# 			root = {
+# 				add_to_variable_list = {
+# 					name = pre_theocratcouncil_candidates
+# 					target = scope:person_scope
+# 				}
+# 			}
+# 		}
 
-		every_child = {
-			limit = {
-				can_be_court_chaplain_trigger = { COURT_OWNER = root.liege_or_court_owner }
-				NOT = { has_council_position = councillor_spouse }
-				NOT = { has_council_position = councillor_court_chaplain }
-				faith = root.faith
-				is_capable_adult = yes
-				is_imprisoned = no
-				is_at_war_with_liege = no	
-				learning >= 10
-				has_education_learning_trigger = yes
-				NOT = { any_heir_to_title = { exists = this } }
-				is_alive = yes
-			}
-			save_scope_as = person_scope
-			root = {
-				add_to_variable_list = {
-					name = pre_theocratcouncil_candidates
-					target = scope:person_scope
-				}
-			}
-		}
+# 		every_child = {
+# 			limit = {
+# 				can_be_court_chaplain_trigger = { COURT_OWNER = root.liege_or_court_owner }
+# 				NOT = { has_council_position = councillor_spouse }
+# 				NOT = { has_council_position = councillor_court_chaplain }
+# 				faith = root.faith
+# 				is_capable_adult = yes
+# 				is_imprisoned = no
+# 				is_at_war_with_liege = no	
+# 				learning >= 10
+# 				has_education_learning_trigger = yes
+# 				NOT = { any_heir_to_title = { exists = this } }
+# 				is_alive = yes
+# 			}
+# 			save_scope_as = person_scope
+# 			root = {
+# 				add_to_variable_list = {
+# 					name = pre_theocratcouncil_candidates
+# 					target = scope:person_scope
+# 				}
+# 			}
+# 		}
 
-		ordered_in_list = {
-			variable = pre_theocratcouncil_candidates
-			order_by = learning
-			save_scope_as = new_person_guy
-			root = {
-				add_to_variable_list = {
-					name = theocratcouncil_candidates
-					target = scope:new_person_guy
-				}
-			}
-		}
-		clear_variable_list = pre_theocratcouncil_candidates
-	}
-}
+# 		ordered_in_list = {
+# 			variable = pre_theocratcouncil_candidates
+# 			order_by = learning
+# 			save_scope_as = new_person_guy
+# 			root = {
+# 				add_to_variable_list = {
+# 					name = theocratcouncil_candidates
+# 					target = scope:new_person_guy
+# 				}
+# 			}
+# 		}
+# 		clear_variable_list = pre_theocratcouncil_candidates
+# 	}
+# }
 
-appoint_new_councillor = {
-	effect = {
-		random_councillor = { limit = { has_council_position = councillor_court_chaplain } save_scope_as = chaplain_guy }
+# appoint_new_councillor = {
+# 	effect = {
+# 		random_councillor = { limit = { has_council_position = councillor_court_chaplain } save_scope_as = chaplain_guy }
 		
-		if = {
-			limit = {
-				exists = scope:chaplain_guy
-			}
-			fire_councillor = scope:chaplain_guy
-		}
+# 		if = {
+# 			limit = {
+# 				exists = scope:chaplain_guy
+# 			}
+# 			fire_councillor = scope:chaplain_guy
+# 		}
 		
-		assign_councillor_type = {
-			type = councillor_court_chaplain
-			target = scope:new_councillor
-		}
+# 		assign_councillor_type = {
+# 			type = councillor_court_chaplain
+# 			target = scope:new_councillor
+# 		}
 
-		clear_variable_list = theocratcouncil_candidates
-	}
-}
+# 		clear_variable_list = theocratcouncil_candidates
+# 	}
+# }

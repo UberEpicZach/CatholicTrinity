@@ -10,17 +10,11 @@
 			has_government = mercenary_government_mod
 		}
 		succession = {
-			order_of_succession = generate
+			order_of_succession = company
 			faith = same_faith
 			pool_character_config = pool_mercenary_succession
 		}
 		flag = elective_succession_law
-		revoke_cost = {
-			prestige = change_title_succession_law_prestige_cost
-		}
-		pass_cost = {
-			prestige = change_title_succession_law_prestige_cost
-		}
 	}
 }
 

@@ -1,0 +1,4 @@
+﻿installed_antipope = {
+	expiration_days = 3650
+	strong = yes
+}

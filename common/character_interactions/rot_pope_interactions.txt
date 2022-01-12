@@ -230,7 +230,6 @@ rot_make_antipope_interaction = {
 
 	ai_targets = {
 		ai_recipients = scripted_relations
-		ai_recipients = war_allies
 	}
 	
 	ai_frequency = 72
@@ -376,7 +375,6 @@ excommunicate_interaction = {
 
 	ai_targets = {
 		ai_recipients = scripted_relations
-		ai_recipients = primary_war_enemies
 	}
 	
 	ai_frequency = 36
@@ -520,10 +518,6 @@ request_excommunication_interaction = {
 					exists = religious_head
 					this = scope:secondary_recipient.faith
 				}
-				# AND = {
-				# 	has_doctrine = doctrine_autocephaly_head 
-				# 	scope:secondary_recipient.faith = { has_doctrine = doctrine_autocephaly_head }
-				# }
 			}
 			has_doctrine = tenet_communion
 		}
@@ -532,14 +526,7 @@ request_excommunication_interaction = {
 				highest_held_title_tier >= tier_kingdom
 			}
 		}
-		# trigger_if = {
-		# 	limit = {
-		# 		scope:actor.faith = { has_doctrine = doctrine_autocephaly_head }
-		# 	}
-		# 	scope:secondary_recipient = {
-		# 		rot_is_not_patriarch_trigger = yes 
-		# 	}
-		# }
+
 		trigger_if = {
 			limit = {
 				scope:actor.faith = { has_doctrine = doctrine_independent_papacy_head }
@@ -747,7 +734,6 @@ request_excommunication_interaction = {
 
 	ai_targets = {
 		ai_recipients = scripted_relations
-		ai_recipients = primary_war_enemies
 	}
 	
 	ai_frequency = 36
@@ -798,7 +784,7 @@ hof_ask_for_claim_interaction = {
 		}
 		if = {
 			limit = {
-				scope:actor.faith = { has_doctrine = tenet_followers_of_peter }
+				scope:actor = { has_cardinal_faith = yes } #might error
 			}
 			scope:actor = {
 				remove_variable = rot_conclave_influence
@@ -878,15 +864,6 @@ hof_ask_for_claim_interaction = {
 		scope:secondary_recipient = {
 			is_landed = yes
 			NOT = { has_government = holy_order_government }
-		}
-		
-		NAND = {
-			scope:actor.faith = {
-				has_doctrine = doctrine_temporal_papacy_head
-			}
-			scope:secondary_recipient = {
-				highest_held_title_tier >= tier_kingdom
-			}
 		}
 	}
 	
@@ -1436,15 +1413,6 @@ hof_ask_for_gold_interaction = {
 		}
 		trigger_if = {
 			limit = {
-				scope:actor.faith = { has_doctrine = doctrine_autocephaly_head }
-			}
-			rot_is_patriarch_of_target_trigger = { 
-				TARGET = scope:actor 
-				PATRIARCH = scope:recipient 
-			}
-		}
-		trigger_else_if = {
-			limit = {
 				scope:actor.faith = { has_doctrine = doctrine_independent_papacy_head }
 			}
 			rot_is_pope_of_target_trigger = { 
@@ -1870,15 +1838,6 @@ seek_indulgences_interaction = {
 		}
 		trigger_if = {
 			limit = {
-				scope:actor.faith = { has_doctrine = doctrine_autocephaly_head }
-			}
-			rot_is_patriarch_of_target_trigger = { 
-				TARGET = scope:actor 
-				PATRIARCH = scope:recipient 
-			}
-		}
-		trigger_else_if = {
-			limit = {
 				scope:actor.faith = { has_doctrine = doctrine_independent_papacy_head }
 			}
 			rot_is_pope_of_target_trigger = { 
@@ -1996,7 +1955,7 @@ seek_indulgences_interaction = {
 	}
 
 	ai_targets = {
-		#ai_recipients = head_of_faith
+		ai_recipients = head_of_faith
 	}
 	
 	ai_frequency = 36
@@ -2064,15 +2023,6 @@ declaration_of_repentance_interaction = {
 			faith = {
 				has_doctrine = tenet_communion
 				trigger_if = {
-					limit = {
-						has_doctrine = doctrine_autocephaly_head
-					}
-					rot_is_patriarch_of_target_trigger = { 
-						TARGET = scope:actor 
-						PATRIARCH = scope:recipient 
-					}
-				}
-				trigger_else_if = {
 					limit = {
 						has_doctrine = doctrine_independent_papacy_head
 					}
@@ -2209,7 +2159,7 @@ declaration_of_repentance_interaction = {
 	}
 
 	ai_targets = {
-		#ai_recipients = head_of_faith
+		ai_recipients = scripted_relations
 	}
 	
 	ai_frequency = 72
@@ -2231,17 +2181,6 @@ lift_excommunication_interaction = {
 			has_trait = excommunicated
 		}
 		trigger_if = {
-			limit = {
-				scope:actor.faith = {
-					has_doctrine = doctrine_autocephaly_head
-				}
-			}
-			rot_is_patriarch_of_target_trigger = { 
-				TARGET = scope:actor 
-				PATRIARCH = scope:recipient 
-			}
-		}
-		trigger_else_if = {
 			limit = {
 				scope:actor.faith = {
 					has_doctrine = doctrine_independent_papacy_head
@@ -2320,7 +2259,6 @@ lift_excommunication_interaction = {
 
 	ai_targets = {
 		ai_recipients = scripted_relations
-		ai_recipients = war_allies
 	}
 	
 	ai_frequency = 72

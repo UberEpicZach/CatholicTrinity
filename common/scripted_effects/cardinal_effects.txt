@@ -20,7 +20,7 @@ become_initial_cardinal = {
 update_preferatus = {
 	# Who's the most likely next pope? (Preferatus)
 	ordered_in_global_list = {
-		limit = {exists = this}
+		limit = {exists = this NOT = { has_title = title:k_papal_state } }
 		variable = cardinals
 		order_by = story_owner.cardinal_to_pope_score
 		position = 0
@@ -457,24 +457,22 @@ rot_remove_antipope = {
 	}
 }
 
-# dictatuspapae = {
-# 	every_ruler = {
-# 		limit = {
-# 			has_realm_law = free_investiture_early
-# 		}
-# 		add_to_global_variable_list = {
-# 			name = rulersthathaveinvestiture
-# 			target = this
-# 		}
-# 	}
-
-# 	set_global_variable = dictatuspapae
-
-# 	# trigger_event = {
-# 	# 	id = fixinglaws.1
-# 	# 	days = 5
-# 	# }
-# }
+dictatuspapae = {
+	every_ruler = {
+		limit = {
+			has_realm_law = free_investiture_early
+		}
+		add_to_global_variable_list = {
+			name = rulersthathaveinvestiture
+			target = this
+		}
+	}
+	set_global_variable = dictatuspapae
+	trigger_event = {
+		id = KoH_religiousflavour.802
+		days = 6
+	}
+}
 
 send_child_to_clergy_effect_for_events = {
 	# add_opinion = {
