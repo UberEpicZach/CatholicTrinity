@@ -13,6 +13,7 @@ investiture_early = {
 		can_keep = { realm_law_use_investiture_early = yes }
 
 		can_pass = {
+			is_ai = no
 		}
 
 		pass_cost = {
@@ -20,7 +21,7 @@ investiture_early = {
 				add = 1000
 			}
 		}
-	}
+	} 
 	free_investiture_early = {
 		modifier = {
 			theocracy_government_tax_contribution_mult = 0.25
@@ -32,6 +33,7 @@ investiture_early = {
 
 		can_pass = {
 			trigger_if = {
+				is_ai = no
 				is_independent_ruler = yes
 				has_realm_law = papal_investiture_early
 				realm_law_pass_investiture_early = yes
@@ -39,7 +41,6 @@ investiture_early = {
 					has_primary_title = title:k_papal_state
 					has_variable = investiture_cooldown
 				}
-				current_date <= 1000.1.1
 			}
 		}
 		
@@ -296,6 +297,7 @@ investiture_late = {
 		can_keep = { realm_law_use_investiture_late = yes }
 
 		can_pass = {
+			is_ai = no
 		}
 
 		pass_cost = {
@@ -315,6 +317,7 @@ investiture_late = {
 
 		can_pass = {
 			trigger_if = {
+				is_ai = no
 				is_independent_ruler = yes
 				has_realm_law = papal_investiture_late
 				realm_law_pass_investiture_late = yes
@@ -322,7 +325,6 @@ investiture_late = {
 					has_primary_title = title:k_papal_state
 					has_variable = investiture_cooldown
 				}
-				current_date >= 1000.1.1
 			}
 		}
 		

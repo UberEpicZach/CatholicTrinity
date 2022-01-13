@@ -17,6 +17,45 @@ deinvest_in_cardinal_AI_decision_tooltip: "This decision is for AI to Deinvest i
 deinvest_in_cardinal_AI: "AI DeInvest in College"
 deinvest_in_cardinal_AI_confirm: "AI DeInvest in College"
 
+Launch_Crusade: "Launch_Crusade"
+Launch_Crusade_decision_tooltip: "Launch_Crusade"
+Launch_Crusade_decision_desc: "Launch_Crusade"
+Launch_Crusade: "Launch_Crusade"
+Launch_Crusade_confirm: "Launch_Crusade"
+Launch_Crusade_confirm: "Launch_Crusade"
+
+InstallAntipope_decision_desc: "Install Antipope"
+InstallAntipope_decision_tooltip: "Install Antipope"
+InstallAntipope: "Install Antipope"
+InstallAntipope_confirm: "Install Antipope"
+
+ProclaimDictatusPapae_decision_desc: "This decision is for AI to Deinvest in the College of Cardinals, Please report this as a bug if you can see this"
+ProclaimDictatusPapae_decision_tooltip: "This decision is for AI to Deinvest in the College of Cardinals, Please report this as a bug if you can see this"
+ProclaimDictatusPapae: "AI DeInvest in College"
+ProclaimDictatusPapae_confirm: "AI DeInvest in College"
+
+take_free_investiture_early_AI: "take_free_investiture_early_AI"
+take_free_investiture_AI: "take_free_investiture_early_AI"
+take_free_investiture_AI_decision_tooltip: "take_free_investiture_early_AI"
+take_free_investiture_AI_decision_desc: "take_free_investiture_early_AI"
+take_free_investiture_early_AI_confirm: "take_free_investiture_early_AI"
+
+take_free_investiture_late_AI_decision_desc: "take_free_investiture_late_AI"
+take_free_investiture_late_AI_decision_tooltip: "take_free_investiture_late_AI"
+take_free_investiture_late_AI: "take_free_investiture_late_AI"
+take_free_investiture_late_AI_confirm: "take_free_investiture_late_AI_AI"
+
+take_papal_investiture_early_AI_decision_desc: "take_papal_investiture_early_AI"
+take_papal_investiture_early_AI_decision_tooltip: "take_papal_investiture_early_AI"
+take_papal_investiture_early_AI: "take_papal_investiture_early_AI"
+take_papal_investiture_early_AI_confirm: "take_papal_investiture_early_AI"
+
+
+take_papal_investiture_late_AI_decision_desc: "take_papal_investiture_late_AI"
+take_papal_investiture_late_AI_decision_tooltip: "take_papal_investiture_late_AI"
+take_papal_investiture_late_AI: "take_papal_investiture_late_AI"
+take_papal_investiture_late_AI_confirm: "take_papal_investiture_late_AI"
+
 CardinalElectionWon: "Cardinal Election"
 HookGainedKOH: "You have gained a Hook"
 deinvest_in_cardinal_AI_decision_effect_tooltip: "This decision is for AI to Deinvest in the College of Cardinals, Please report this as a bug if you can see this"

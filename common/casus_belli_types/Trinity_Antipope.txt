@@ -28,7 +28,7 @@
 			NOT = { has_trait = incapable }
 			is_imprisoned = no
 			OR = {
-				has_trait = antipope
+				has_trait = rot_antipope
 			}
 		}
 	}
@@ -90,8 +90,10 @@
 		}
 
 		if = {
-			scope:claimant = {
-				is_landed = yes
+			limit = {
+				scope:claimant = {
+					is_landed = yes
+				}
 			}
 			scope:claimant = { depose = yes }
 		}

@@ -3,16 +3,14 @@
 		holder = TrinityChurch
 		government = mercenary_government_mod
 		succession_laws = {
-			mercenary_company_mod_succession_law
 			male_only_law
 		}
 	}
 	
-	1066.1.1 = {
+	1065.1.1 = {
 		holder = TrinityChurch1
 		government = mercenary_government_mod
 		succession_laws = {
-			mercenary_company_mod_succession_law
 			male_only_law
 		}
 	}

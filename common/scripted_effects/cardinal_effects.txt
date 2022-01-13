@@ -20,7 +20,7 @@ become_initial_cardinal = {
 update_preferatus = {
 	# Who's the most likely next pope? (Preferatus)
 	ordered_in_global_list = {
-		limit = {exists = this NOT = { has_title = title:k_papal_state } }
+		limit = {exists = this }
 		variable = cardinals
 		order_by = story_owner.cardinal_to_pope_score
 		position = 0

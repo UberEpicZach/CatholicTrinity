@@ -291,3 +291,811 @@ deinvest_in_cardinal_AI = {
 		}
 	}
 }
+
+deinvest_in_cardinal_AI = {
+	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
+
+	desc = deinvest_in_cardinal_AI_decision_desc
+	selection_tooltip = deinvest_in_cardinal_AI_decision_tooltip
+	major = yes
+
+	ai_check_interval = 6
+
+	is_shown = {
+		has_faith = faith:catholic
+		is_ruler = yes
+		is_landed = yes
+		is_cardinal = no
+		is_pope = no
+		is_ai = yes
+		exists = var:cardinal_campaign_contribution
+		exists = var:cardinal_player_candidate
+		has_variable = cardinal_player_candidate
+		primary_title.title_held_years > 1
+	}
+
+	is_valid = {
+		has_faith = faith:catholic
+		is_ruler = yes
+		is_landed = yes
+		is_cardinal = no
+		is_pope = no
+		exists = var:cardinal_campaign_contribution
+		exists = var:cardinal_player_candidate
+		has_variable = cardinal_player_candidate
+		primary_title.title_held_years > 1
+	}
+
+	cooldown = { months = 6 }
+
+	effect = {
+		#custom_tooltip = deinvest_in_cardinal_AI_decision_effect_tooltip
+		deinvest_in_cardinal_effect = yes
+	}
+
+	ai_will_do = {
+		base = 10 
+		modifier = {
+			add = 100
+			monthly_character_income < 0
+		}
+		modifier = {
+			add = 100
+			gold < 0
+			is_at_war = yes
+		}
+		modifier = {
+			add = 100
+			gold < 0
+		}
+		modifier = {
+			add = 5
+			has_trait = education_stewardship_2  
+		}
+		modifier = {
+			add = 10
+			has_trait = education_stewardship_3 
+		}
+		modifier = {
+			add = 10
+			has_trait = education_stewardship_4
+		}
+		modifier = {
+			add = 50
+			has_trait = avaricious  
+		}
+		modifier = {
+			add = 1050
+			has_trait = excommunicated   
+		}
+		modifier = {
+			add = 20
+			has_trait = reaver   
+		}
+	}
+}
+
+take_free_investiture_early_AI = {
+	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
+
+	desc = take_free_investiture_AI_decision_desc
+	selection_tooltip = take_free_investiture_AI_decision_tooltip
+	major = yes
+
+	ai_check_interval = 6
+
+	is_shown = {
+		has_faith = faith:catholic
+		is_ruler = yes
+		is_landed = yes
+		is_cardinal = no
+		is_pope = no
+		is_ai = yes
+		is_independent_ruler = yes
+		has_realm_law = papal_investiture_early
+		realm_law_pass_investiture_early_AI = yes
+		NOT = {
+			has_primary_title = title:k_papal_state
+			has_variable = investiture_cooldown
+		}
+	}
+
+	cost = {
+		piety = {
+			add = 1000
+		}
+		prestige = {
+			add = 2500
+		}
+	}
+
+	is_valid = {
+		has_faith = faith:catholic
+		is_ruler = yes
+		is_landed = yes
+		is_cardinal = no
+		is_pope = no
+		is_ai = yes
+		is_independent_ruler = yes
+		has_realm_law = papal_investiture_early
+		realm_law_pass_investiture_early_AI = yes
+		NOT = {
+			has_primary_title = title:k_papal_state
+			has_variable = investiture_cooldown
+		}
+	}
+
+	cooldown = { months = 6 }
+
+	effect = {
+		#custom_tooltip = deinvest_in_cardinal_AI_decision_effect_tooltip
+		add_realm_law = free_investiture_early
+	}
+
+	ai_will_do = {
+		modifier = {
+			add = 0.37
+			has_trait = cynical
+		}
+		modifier = {
+			add = 1
+			has_trait = ambitious
+		}
+		modifier = {
+			add = -0.5
+			has_trait = craven
+		}
+		modifier = {
+			add = -1
+			has_trait = content
+		}
+		modifier = {
+			add = -0.37
+			has_trait = zealous
+		}
+		modifier = {
+			add = -0.5
+			has_trait = lazy
+		}
+		modifier = {
+			add = -0.25
+			has_trait = stubborn
+		}
+		modifier = {
+			add = 0.25
+			has_trait = fickle
+		}
+		modifier = {
+			add = 0.5
+			has_trait = greedy
+		}
+		modifier = {
+			add = -1
+			has_trait = humble
+		}
+		modifier = {
+			add = 1
+			has_trait = arrogant
+		}
+		modifier = {
+			add = -0.25
+			has_trait = just
+		}
+		modifier = {
+			add = 0.25
+			has_trait = arbitrary
+		}
+		modifier = {
+			add = 0.12
+			has_trait = gluttonous
+		}
+		modifier = { 
+			add = -0.12
+			has_trait = trusting
+		}
+		modifier = {
+			add = -0.25
+			has_perk = theologian_perk
+		}
+		modifier = {
+			add = 0.12
+			has_trait = scholar
+		}
+		modifier = {
+			add = -0.25
+			has_trait = celibate			
+		}
+		modifier = {
+			add = -0.12
+			has_trait = flagellant
+		}
+		modifier = {
+			add = -0.05
+			has_trait = contrite
+		}
+		modifier = { 
+			add = -0.5
+			has_trait = paragon
+		}
+		modifier = {
+			add = -0.25
+			has_trait = consecrated_blood
+		}
+		modifier = { 
+			add = -1
+			faith.religious_head = { reverse_opinion = { target = root value >= 100 } }
+		}
+		modifier = {
+			add = -0.5
+			faith.religious_head = { reverse_opinion = { target = root value >= 75 } }
+		}
+		modifier = { 
+			add = -0.25
+			faith.religious_head = { reverse_opinion = { target = root value >= 50 } }
+		}
+		modifier = {
+			add = -0.25
+			faith.religious_head = { reverse_opinion = { target = root value >= 25} }
+		}
+		modifier = {
+			add = 0.12	
+			faith.religious_head = { reverse_opinion = { target = root value >= -25 } }
+		}
+		modifier = {
+			add = 0.25
+			faith.religious_head = { reverse_opinion = { target = root value >= -50 } }
+		}
+		modifier = {
+			add = 0.5
+			faith.religious_head = { reverse_opinion = { target = root value >= -75 } }
+		}
+		modifier = {
+			add = 1
+			faith.religious_head = { reverse_opinion = { target = root value >= -99 } }
+		}
+	}
+}
+
+take_free_investiture_late_AI = {
+	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
+
+	desc = take_free_investiture_AI_decision_desc
+	selection_tooltip = take_free_investiture_AI_decision_tooltip
+	major = yes
+
+	ai_check_interval = 6
+
+	is_shown = {
+		has_faith = faith:catholic
+		is_ruler = yes
+		is_landed = yes
+		is_cardinal = no
+		is_pope = no
+		is_ai = yes
+		is_independent_ruler = yes
+		has_realm_law = papal_investiture_late
+		realm_law_pass_investiture_late_AI = yes
+		NOT = {
+			has_primary_title = title:k_papal_state
+			has_variable = investiture_cooldown
+		}
+	}
+
+	cost = {
+		piety = {
+			add = 1000
+		}
+		prestige = {
+			add = 2500
+		}
+	}
+
+	is_valid = {
+		has_faith = faith:catholic
+		is_ruler = yes
+		is_landed = yes
+		is_cardinal = no
+		is_pope = no
+		is_ai = yes
+		is_independent_ruler = yes
+		has_realm_law = papal_investiture_late
+		realm_law_pass_investiture_late_AI = yes
+		NOT = {
+			has_primary_title = title:k_papal_state
+			has_variable = investiture_cooldown
+		}
+	}
+
+	cooldown = { months = 6 }
+
+	effect = {
+		#custom_tooltip = deinvest_in_cardinal_AI_decision_effect_tooltip
+		add_realm_law = free_investiture_late
+	}
+
+	ai_will_do = {
+		modifier = {
+			add = 0.75
+			has_trait = cynical
+		}
+		modifier = {
+			add = 2
+			has_trait = ambitious
+		}
+		modifier = {
+			add = -1
+			has_trait = craven
+		}
+		modifier = {
+			add = -2
+			has_trait = content
+		}
+		modifier = {
+			add = -0.75
+			has_trait = zealous
+		}
+		modifier = {
+			add = -1
+			has_trait = lazy
+		}
+		modifier = {
+			add = -0.5
+			has_trait = stubborn
+		}
+		modifier = {
+			add = 0.5
+			has_trait = fickle
+		}
+		modifier = {
+			add = 1
+			has_trait = greedy
+		}
+		modifier = {
+			add = -2
+			has_trait = humble
+		}
+		modifier = {
+			add = 2
+			has_trait = arrogant
+		}
+		modifier = {
+			add = -0.5
+			has_trait = just
+		}
+		modifier = {
+			add = 0.5
+			has_trait = arbitrary
+		}
+		modifier = {
+			add = 0.25
+			has_trait = gluttonous
+		}
+		modifier = { 
+			add = -0.25
+			has_trait = trusting
+		}
+		modifier = {
+			add = -0.5
+			has_perk = theologian_perk
+		}
+		modifier = {
+			add = 0.25
+			has_trait = scholar
+		}
+		modifier = {
+			add = -0.5
+			has_trait = celibate			
+		}
+		modifier = {
+			add = -0.25
+			has_trait = flagellant
+		}
+		modifier = {
+			add = -0.10
+			has_trait = contrite
+		}
+		modifier = { 
+			add = -1	
+			has_trait = paragon
+		}
+		modifier = {
+			add = -0.5
+			has_trait = consecrated_blood
+		}
+		modifier = { 
+			add = -2
+			faith.religious_head = { reverse_opinion = { target = root value >= 100 } }
+		}
+		modifier = {
+			add = -1
+			faith.religious_head = { reverse_opinion = { target = root value >= 75 } }
+		}
+		modifier = { 
+			add = -0.5
+			faith.religious_head = { reverse_opinion = { target = root value >= 50 } }
+		}
+		modifier = {
+			add = -0.25
+			faith.religious_head = { reverse_opinion = { target = root value >= 25} }
+		}
+		modifier = {
+			add = 0.25	
+			faith.religious_head = { reverse_opinion = { target = root value >= -25 } }
+		}
+		modifier = {
+			add = 0.5
+			faith.religious_head = { reverse_opinion = { target = root value >= -50 } }
+		}
+		modifier = {
+			add = 1
+			faith.religious_head = { reverse_opinion = { target = root value >= -75 } }
+		}
+		modifier = {
+			add = 2
+			faith.religious_head = { reverse_opinion = { target = root value >= -99 } }
+		}
+	}
+}
+
+take_papal_investiture_early_AI = {
+	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
+
+	desc = take_free_investiture_AI_decision_desc
+	selection_tooltip = take_free_investiture_AI_decision_tooltip
+	major = yes
+
+	ai_check_interval = 6
+
+	is_shown = {
+		has_faith = faith:catholic
+		is_ruler = yes
+		is_landed = yes
+		is_cardinal = no
+		is_pope = no
+		is_ai = yes
+		is_independent_ruler = yes
+		has_realm_law = free_investiture_early
+		realm_law_pass_investiture_early_AI = yes
+		NOT = {
+			has_primary_title = title:k_papal_state
+			has_variable = investiture_cooldown
+		}
+	}
+
+	cost = {
+		piety = {
+			add = 1000
+		}
+		prestige = {
+			add = 2500
+		}
+	}
+
+	is_valid = {
+		has_faith = faith:catholic
+		is_ruler = yes
+		is_landed = yes
+		is_cardinal = no
+		is_pope = no
+		is_ai = yes
+		is_independent_ruler = yes
+		has_realm_law = free_investiture_early
+		realm_law_pass_investiture_early_AI = yes
+		NOT = {
+			has_primary_title = title:k_papal_state
+			has_variable = investiture_cooldown
+		}
+	}
+
+	cooldown = { months = 6 }
+
+	effect = {
+		#custom_tooltip = deinvest_in_cardinal_AI_decision_effect_tooltip
+		add_realm_law = papal_investiture_early
+	}
+
+	#Papal Investiture
+	ai_will_do = {
+		modifier = {
+			add = -0.37
+			has_trait = cynical
+		}
+		modifier = {
+			add = -1
+			has_trait = ambitious
+		}
+		modifier = {
+			add = 0.5
+			has_trait = craven
+		}
+		modifier = {
+			add = 1
+			has_trait = content
+		}
+		modifier = {
+			add = 0.37
+			has_trait = zealous
+		}
+		modifier = {
+			add = 0.5
+			has_trait = lazy
+		}
+		modifier = {
+			add = 0.25
+			has_trait = stubborn
+		}
+		modifier = {
+			add = -0.25
+			has_trait = fickle
+		}
+		modifier = {
+			add = -0.5
+			has_trait = greedy
+		}
+		modifier = {
+			add = 1
+			has_trait = humble
+		}
+		modifier = {
+			add = -1
+			has_trait = arrogant
+		}
+		modifier = {
+			add = 0.25
+			has_trait = just
+		}
+		modifier = {
+			add = -0.25
+			has_trait = arbitrary
+		}
+		modifier = {
+			add = -0.12
+			has_trait = gluttonous
+		}
+		modifier = { 
+			add = 0.12
+			has_trait = trusting
+		}
+		modifier = {
+			add = 0.25
+			has_perk = theologian_perk
+		}
+		modifier = {
+			add = -0.12
+			has_trait = scholar
+		}
+		modifier = {
+			add = 0.25
+			has_trait = celibate			
+		}
+		modifier = {
+			add = 0.12
+			has_trait = flagellant
+		}
+		modifier = {
+			add = 0.05
+			has_trait = contrite
+		}
+		modifier = { 
+			add = 0.5
+			has_trait = paragon
+		}
+		modifier = {
+			add = 0.25
+			has_trait = consecrated_blood
+		}
+		modifier = { 
+			add = 1
+			faith.religious_head = { reverse_opinion = { target = root value >= 100 } }
+		}
+		modifier = {
+			add = 0.5
+			faith.religious_head = { reverse_opinion = { target = root value >= 75 } }
+		}
+		modifier = { 
+			add = 0.25
+			faith.religious_head = { reverse_opinion = { target = root value >= 50 } }
+		}
+		modifier = {
+			add = 0.12
+			faith.religious_head = { reverse_opinion = { target = root value >= 25} }
+		}
+		modifier = {
+			add = -0.12	
+			faith.religious_head = { reverse_opinion = { target = root value >= -25 } }
+		}
+		modifier = {
+			add = -0.25
+			faith.religious_head = { reverse_opinion = { target = root value >= -50 } }
+		}
+		modifier = {
+			add = -0.5
+			faith.religious_head = { reverse_opinion = { target = root value >= -75 } }
+		}
+		modifier = {
+			add = -1
+			faith.religious_head = { reverse_opinion = { target = root value >= -99 } }
+		}
+	}
+}
+
+take_papal_investiture_late_AI = {
+	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
+
+	desc = take_free_investiture_AI_decision_desc
+	selection_tooltip = take_free_investiture_AI_decision_tooltip
+	major = yes
+
+	ai_check_interval = 6
+
+	is_shown = {
+		has_faith = faith:catholic
+		is_ruler = yes
+		is_landed = yes
+		is_cardinal = no
+		is_pope = no
+		is_ai = yes
+		is_independent_ruler = yes
+		has_realm_law = free_investiture_late
+		realm_law_pass_investiture_late_AI = yes
+		NOT = {
+			has_primary_title = title:k_papal_state
+			has_variable = investiture_cooldown
+		}
+	}
+
+	cost = {
+		piety = {
+			add = 1000
+		}
+		prestige = {
+			add = 2500
+		}
+	}
+
+	is_valid = {
+		has_faith = faith:catholic
+		is_ruler = yes
+		is_landed = yes
+		is_cardinal = no
+		is_pope = no
+		is_ai = yes
+		is_independent_ruler = yes
+		has_realm_law = free_investiture_late
+		realm_law_pass_investiture_early_AI = yes
+		NOT = {
+			has_primary_title = title:k_papal_state
+			has_variable = investiture_cooldown
+		}
+	}
+
+	cooldown = { months = 6 }
+
+	effect = {
+		#custom_tooltip = deinvest_in_cardinal_AI_decision_effect_tooltip
+		add_realm_law = free_investiture_late
+	}
+
+	ai_will_do = {
+		modifier = {
+			add = -0.75
+			has_trait = cynical
+		}
+		modifier = {
+			add = -2
+			has_trait = ambitious
+		}
+		modifier = {
+			add = 1
+			has_trait = craven
+		}
+		modifier = {
+			add = 1
+			has_trait = content
+		}
+		modifier = {
+			add = 0.75
+			has_trait = zealous
+		}
+		modifier = {
+			add = 1
+			has_trait = lazy
+		}
+		modifier = {
+			add = 0.5
+			has_trait = stubborn
+		}
+		modifier = {
+			add = -0.5
+			has_trait = fickle
+		}
+		modifier = {
+			add = -1
+			has_trait = greedy
+		}
+		modifier = {
+			add = 2
+			has_trait = humble
+		}
+		modifier = {
+			add = -2
+			has_trait = arrogant
+		}
+		modifier = {
+			add = 0.5
+			has_trait = just
+		}
+		modifier = {
+			add = -0.5
+			has_trait = arbitrary
+		}
+		modifier = {
+			add = -0.25
+			has_trait = gluttonous
+		}
+		modifier = { 
+			add = 0.25
+			has_trait = trusting
+		}
+		modifier = {
+			add = 0.50
+			has_perk = theologian_perk
+		}
+		modifier = {
+			add = -0.25
+			has_trait = scholar
+		}
+		modifier = {
+			add = 0.50
+			has_trait = celibate			
+		}
+		modifier = {
+			add = 0.25
+			has_trait = flagellant
+		}
+		modifier = {
+			add = 0.10
+			has_trait = contrite
+		}
+		modifier = { 
+			add = 1
+			has_trait = paragon
+		}
+		modifier = {
+			add = 0.50
+			has_trait = consecrated_blood
+		}
+		modifier = { 
+			add = 2
+			faith.religious_head = { reverse_opinion = { target = root value >= 100 } }
+		}
+		modifier = {
+			add = 1
+			faith.religious_head = { reverse_opinion = { target = root value >= 75 } }
+		}
+		modifier = { 
+			add = 0.5
+			faith.religious_head = { reverse_opinion = { target = root value >= 50 } }
+		}
+		modifier = {
+			add = 0.25
+			faith.religious_head = { reverse_opinion = { target = root value >= 25} }
+		}
+		modifier = {
+			add = -0.25	
+			faith.religious_head = { reverse_opinion = { target = root value >= -25 } }
+		}
+		modifier = {
+			add = -0.50
+			faith.religious_head = { reverse_opinion = { target = root value >= -50 } }
+		}
+		modifier = {
+			add = -1
+			faith.religious_head = { reverse_opinion = { target = root value >= -75 } }
+		}
+		modifier = {
+			add = -2
+			faith.religious_head = { reverse_opinion = { target = root value >= -99 } }
+		}
+	}
+}

@@ -1854,11 +1854,15 @@ KoH_religiousflavour.803 = {
 	immediate = {
 		faith.religious_head = {
 			save_scope_as = pope
+			add_character_modifier = {
+				modifier = public_opinion_positive
+				days = 10
+			}
 		}
 	}
 
 	option = {
-		name = KoH_religiousflavour.802.a
+		name = KoH_religiousflavour.803.a
 		
 	}
 }

@@ -7,3 +7,47 @@
     set_global_variable = {name = $ERROR$ value = flag:$ERROR$}  
     if = {limit = {OR = {has_character_flag = $ERROR$ var:$ERROR$ = flag:$ERROR$}} remove_variable = $ERROR$ remove_global_variable = $ERROR$}
 }
+
+line_mapping_map_barony = {
+	every_barony = {
+		county = {
+			prev = { set_color_from_title = prev }
+		}
+	}
+}
+
+line_mapping_investiture = {
+	every_barony = {
+		if = {
+			limit = { county.holder.top_liege = { has_realm_law = papal_investiture_early } }
+			set_color_from_title = title:d_line_map_papal_investiture
+		}
+		else_if = {
+			limit = { county.holder.top_liege = { has_realm_law = papal_investiture_late } }
+			set_color_from_title = title:d_line_map_papal_investiture
+		}
+		else_if = {
+			limit = { county.holder.top_liege = { has_realm_law = free_investiture_early} }
+			set_color_from_title = title:d_line_map_free_investiture
+		}
+        else_if = {
+			limit = { county.holder.top_liege = { has_realm_law = free_investiture_late } }
+			set_color_from_title = title:d_line_map_free_investiture
+		}
+		else = {
+			set_color_from_title = title:d_line_map_base
+		}
+	}
+}
+
+line_mapping_cardinal = {
+	every_barony = {
+		if = {
+			limit = { county.holder = { has_trait = koh_cardinal } }
+			set_color_from_title = title:d_line_map_free_investiture
+		}
+		else = {
+			set_color_from_title = title:d_line_map_base
+		}
+	}
+}

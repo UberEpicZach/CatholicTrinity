@@ -171,3 +171,7 @@
   KoH_religiousflavour.800.t: "The Dictatus Papae"
   KoH_religiousflavour.800.desc: "In a large event, [popeman.GetName] had sent message to the entire christian world, declaring his supremacy over Investiture, demanding all catholics currently ruling under [free_investiture|E] to tranfser authority towards realm law [papal_investiture|E]."
   KoH_religiousflavour.800.a: "Okay"
+
+  KoH_religiousflavour.803.t: ""
+  KoH_religiousflavour.803.desc: ""
+  KoH_religiousflavour.803.a: ""

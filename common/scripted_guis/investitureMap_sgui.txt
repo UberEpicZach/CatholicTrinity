@@ -1,0 +1,41 @@
+﻿#### War Maps BEGINS ####
+custom_map_mode_initialize = {
+	effect = {
+		set_global_variable = {
+			name = custom_map_mode
+			value = flag:none
+		}
+		line_mapping_map_barony = yes
+	}
+	is_valid = {
+		NOT = { global_var:custom_map_mode = flag:none	}
+	}
+}
+
+line_investiture_map = {
+	effect = {
+		set_global_variable = {
+			name = custom_map_mode
+			value = flag:line_investiture_map
+		}
+		line_mapping_investiture = yes
+	}
+	is_shown = {
+		exists = global_var:custom_map_mode
+		global_var:custom_map_mode = flag:line_investiture_map
+	}
+}
+
+line_cardinal_map = {
+	effect = {
+		set_global_variable = {
+			name = custom_map_mode
+			value = flag:line_cardinal_map
+		}
+		line_mapping_investiture = yes
+	}
+	is_shown = {
+		exists = global_var:custom_map_mode
+		global_var:custom_map_mode = flag:line_cardinal_map
+	}
+}

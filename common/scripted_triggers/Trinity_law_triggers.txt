@@ -6,6 +6,8 @@ can_have_holy_order_county_succession_law_trigger = {
 	has_government = holy_order_county_government
 }
 
+
+#PLAYER
 realm_law_use_investiture_early = {
 	faith = faith:catholic
 	is_independent_ruler = yes
@@ -22,6 +24,7 @@ realm_law_use_investiture_late = {
 }
 
 realm_law_pass_investiture_early = {
+	is_ai = no
 	is_independent_ruler = yes
 	faith = faith:catholic
 	highest_held_title_tier >= tier_kingdom
@@ -31,6 +34,7 @@ realm_law_pass_investiture_early = {
 }
 
 realm_law_pass_investiture_late = {
+	is_ai = no
 	is_independent_ruler = yes
 	faith = faith:catholic
 	highest_held_title_tier >= tier_kingdom
@@ -39,6 +43,45 @@ realm_law_pass_investiture_late = {
 		has_primary_title = title:k_papal_state
 	}
 }
+
+
+#AI _AI
+realm_law_use_investiture_early_AI = {
+	faith = faith:catholic
+	is_independent_ruler = yes
+	NOT = {
+		exists = global_var:dictatuspapae
+	}
+}
+
+
+realm_law_use_investiture_late_AI = {
+	faith = faith:catholic
+	is_independent_ruler = yes
+	exists = global_var:dictatuspapae
+}
+
+realm_law_pass_investiture_early_AI = {
+	is_ai = yes
+	is_independent_ruler = yes
+	faith = faith:catholic
+	highest_held_title_tier >= tier_kingdom
+	NOT = {
+		exists = global_var:dictatuspapae
+	}
+}
+
+realm_law_pass_investiture_late_AI = {
+	is_ai = yes
+	is_independent_ruler = yes
+	faith = faith:catholic
+	highest_held_title_tier >= tier_kingdom
+	exists = global_var:dictatuspapae
+	NOT = {
+		has_primary_title = title:k_papal_state
+	}
+}
+
 
 can_have_mercenary_succession_mod_law_trigger = {
 	has_government = mercenary_government_mod

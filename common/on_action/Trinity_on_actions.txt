@@ -2,9 +2,18 @@
 	on_actions = {
 		on_cardinal_preinitialize
 		CatholicsimFix
+		mapmodes
 	}
 }
 
+mapmodes = {
+	effect = {
+		set_global_variable = {
+			name = custom_map_mode
+			value = flag:none
+		}
+	}
+}
 
 CatholicsimFix = {
 	effect = {
@@ -172,7 +181,7 @@ NewCrusadeLeader = {
 					location = root.capital_province
 					age = { 25 35 }
 					gender = male
-					trait = education_martial_5
+					trait = education_martial_4
 					trait = devoted
 					faith = root.faith
 					culture = root.culture
@@ -275,6 +284,7 @@ captianchurch = {
 					change = scope:change
 				}
 				resolve_title_and_vassal_change = scope:change
+				add_realm_law = mercenary_company_mod_succession_law
 			}
 		}
 	}
@@ -285,7 +295,6 @@ CardinalsTraits = {
 		title:k_papal_state.holder = {
 			trigger_event = KoH_religiousflavour.22
 			update_cardinal_window = yes
-			update_preferatus = yes
 		}
 		if = {
 			limit = {
