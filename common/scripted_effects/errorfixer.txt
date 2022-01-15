@@ -19,6 +19,14 @@ line_mapping_map_barony = {
 line_mapping_investiture = {
 	every_barony = {
 		if = {
+			limit = { county.holder = { has_trait = koh_cardinal } }
+			set_color_from_title = title:d_line_map_cardinal
+		}
+		else_if = {
+			limit = { county.holder = { has_government = theocracy_government } }
+			set_color_from_title = title:d_line_map_theocracys
+		}
+		else_if = {
 			limit = { county.holder.top_liege = { has_realm_law = papal_investiture_early } }
 			set_color_from_title = title:d_line_map_papal_investiture
 		}

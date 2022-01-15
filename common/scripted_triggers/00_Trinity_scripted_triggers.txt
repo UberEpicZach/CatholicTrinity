@@ -73,7 +73,7 @@ sainthood_event1trigger = {
 		has_trait = kinslayer
 	}
 
-	NOT =  { has_claim_on =	title:k_papal_state } # Antipopes
+	NOT =  { has_trait = rot_antipope } # Antipopes
 
 	OR = {
 		AND = {
@@ -125,26 +125,33 @@ familytrigger = {
 	is_ruler = no
 	root.primary_title = {
 		place_in_line_of_succession = {
-		  target = PREV
-		  value > 2
+			target = PREV
+			value > 2
 		}
 	}
 }
 
-is_preferatus_character={
-	AND = {
-		has_cardinal_faith = yes
-		has_trait = koh_cardinal
-		exists = global_var:preferatus
-		this = global_var:preferatus.story_owner
-		any_owned_story = {
-			story_type = cardinal_story
-		}
+is_preferatus_character = {
+	has_cardinal_faith = yes
+	has_trait = koh_cardinal
+	exists = global_var:preferatus
+	this = global_var:preferatus.story_owner
+	any_owned_story = {
+		story_type = cardinal_story
 	}
 } 
 
 martyrs_death_trigger = {
 	death_reason = death_sacrificed_to_gods
+}
+
+has_nearby_saint_site = {
+	capital_county.duchy = {
+		any_in_de_jure_hierarchy = {
+			tier = tier_county
+			has_variable_list = faith_saints_and_capital
+		}
+	}
 }
 
 rot_is_pope_of_target_trigger = {

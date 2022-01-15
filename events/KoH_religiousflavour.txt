@@ -1744,6 +1744,725 @@ KoH_religiousflavour.30 = {
 
 # The Pope appoints a new holy roman emperor / gives a claim
 
+#Ending a Pilgrimage to a Saintly Tomb
+
+KoH_religiousflavour.250 = { 
+	title = KoH_religiousflavour.250.t
+	desc = KoH_religiousflavour.250.desc
+	theme = learning_scholarship_focus
+	left_portrait = {
+		character = root
+	}
+	right_portrait = {
+		character = scope:localsaint
+		animation = personality_rational
+	}
+	
+	immediate = {
+		location.county = {
+			limit = { 
+				has_variable_list = faith_saints_and_capital
+			}
+			save_scope_as = saintlocation
+		}
+		scope:saintlocation = {
+			random_in_list = {
+				variable = faith_saints_and_capital
+				save_scope_as = localsaint
+			}
+		}
+	}
+
+	option = { 
+		name = KoH_religiousflavour.300.a
+
+	}
+}
+
+#Saint related
+KoH_religiousflavour.300 = { 
+	title = KoH_religiousflavour.300.t
+	desc = KoH_religiousflavour.300.desc
+	theme = learning_scholarship_focus
+	left_portrait = {
+		character = scope:popewantsit
+	}
+	right_portrait = {
+		character = scope:localsaint
+		animation = personality_rational
+	}
+
+	trigger = {
+		has_nearby_saint_site = yes
+	}
+
+	immediate = {
+		capital_county.duchy = {
+			random_in_de_jure_hierarchy = {
+				continue = {
+					tier > tier_county
+				}
+				limit = {
+					tier = tier_county
+					has_variable_list = faith_saints_and_capital
+				}
+				save_scope_as = saintlocation
+			}
+				
+			scope:saintlocation = {
+				random_in_list = {
+					variable = faith_saints_and_capital
+					save_scope_as = localsaint
+				}
+			}
+		}
+	}
+
+	option = { 
+		name = KoH_religiousflavour.300.a
+
+	}
+}
+    
+#Handing out county to Clergy
+KoH_religiousflavour.499 = {
+	hidden = yes
+
+	immediate = {
+		every_held_title = {
+			limit = { tier = tier_county NOT = { root.capital_county = this } }
+			add_to_list = personally_held_counties_list
+		}
+
+		ordered_in_list = {
+			list = personally_held_counties_list
+			max = countydonationclery_cap_value
+			order_by = { add = development_level }
+			# Grab three options.
+			if = {
+				limit = {
+					NOT = { exists = scope:clergycounty_1 root.capital_county = this }
+				}
+				save_scope_as = clergycounty_1
+			}
+			else_if = {
+				limit = {
+					NOR = {
+						root.capital_county = this
+						this = scope:clergycounty_1
+						exists = scope:clergycounty_2
+					}
+				}
+				save_scope_as = clergycounty_2
+			}
+			else_if = {
+				limit = {
+					NOR = {
+						root.capital_county = this
+						this = scope:clergycounty_1
+						this = scope:clergycounty_2
+						exists = scope:clergycounty_3
+					}
+				}
+				save_scope_as = clergycounty_3
+			}
+			else_if = {
+				limit = {
+					NOR = {
+						root.capital_county = this
+						this = scope:clergycounty_1
+						this = scope:clergycounty_2
+						this = scope:clergycounty_3
+						exists = scope:clergycounty_4
+					}
+				}
+				save_scope_as = clergycounty_4
+			}
+			else_if = {
+				limit = {
+					NOR = {
+						root.capital_county = this
+						this = scope:clergycounty_1
+						this = scope:clergycounty_2
+						this = scope:clergycounty_3
+						this = scope:clergycounty_4
+						exists = scope:clergycounty_5
+					}
+				}
+				save_scope_as = clergycounty_5
+			}
+			else_if = {
+				limit = {
+					NOR = {
+						this = character.capital_county
+						this = scope:clergycounty_1
+						this = scope:clergycounty_2
+						this = scope:clergycounty_3
+						this = scope:clergycounty_4
+						this = scope:clergycounty_5
+						exists = scope:clergycounty_6
+					}
+				}
+				save_scope_as = clergycounty_6
+			}
+			else_if = {
+				limit = {
+					NOR = {
+						this = character.capital_county
+						this = scope:clergycounty_1
+						this = scope:clergycounty_2
+						this = scope:clergycounty_3
+						this = scope:clergycounty_4
+						this = scope:clergycounty_5
+						this = scope:clergycounty_6
+						exists = scope:clergycounty_7
+					}
+				}
+				save_scope_as = clergycounty_7
+			}
+			else_if = {
+				limit = {
+					NOR = {
+						this = character.capital_county
+						this = scope:clergycounty_1
+						this = scope:clergycounty_2
+						this = scope:clergycounty_3
+						this = scope:clergycounty_4
+						this = scope:clergycounty_5
+						this = scope:clergycounty_6
+						this = scope:clergycounty_7
+						exists = scope:clergycounty_8
+					}
+				}
+				save_scope_as = clergycounty_8
+			}
+			else_if = {
+				limit = {
+					NOR = {
+						this = character.capital_county
+						this = scope:clergycounty_1
+						this = scope:clergycounty_2
+						this = scope:clergycounty_3
+						this = scope:clergycounty_4
+						this = scope:clergycounty_5
+						this = scope:clergycounty_6
+						this = scope:clergycounty_7
+						this = scope:clergycounty_8
+						exists = scope:clergycounty_9
+					}
+				}
+				save_scope_as = clergycounty_9
+			}
+		}
+		trigger_event = KoH_religiousflavour.500
+	}
+}
+
+KoH_religiousflavour.500 = { 
+	title = KoH_religiousflavour.500.t
+	desc = KoH_religiousflavour.500.desc
+	theme = learning_scholarship_focus
+	left_portrait = {
+		character = root
+	}
+
+	option = { 
+		name = KoH_religiousflavour.500.a
+		trigger = {
+			exists = scope:clergycounty_1
+		}
+		custom_tooltip = KoH_religiousflavour.500.a.tt
+		hidden_effect = {
+			scope:clergycounty_1 = {
+				save_scope_as = countyfortheocracy
+			}
+
+			create_character = {
+				template = priest_character_template
+				location = root.capital_province
+				save_scope_as = template_priest
+			}
+
+			create_title_and_vassal_change = {
+				type = granted
+				save_scope_as = title_change
+				add_claim_on_loss = no
+			}
+			scope:countyfortheocracy = {
+				change_title_holder = {
+					holder = scope:template_priest
+					change = scope:title_change
+				}
+			}
+			resolve_title_and_vassal_change = scope:title_change
+			scope:template_priest = {
+				add_realm_law = bishop_theocratic_succession_law
+				change_government = theocracy_government
+			}
+		}
+		add_piety = 300
+		rot_get_pope_of_target = {
+			TARGET = root
+		}
+		scope:pope_of_target = {
+			add_opinion = {
+				target = root
+				modifier = grantedlandtoclergy
+				opinion = 10
+			}
+		}
+		add_character_modifier = {
+			modifier = donatedlandtoclergy
+			years = 5
+		}
+
+		ai_chance = {
+			base = 100
+		}
+	}
+	option = { 
+		name = KoH_religiousflavour.500.b
+		trigger = {
+			exists = scope:clergycounty_2
+		}
+		custom_tooltip = KoH_religiousflavour.500.a.tt
+		hidden_effect = {
+			scope:clergycounty_2 = {
+				save_scope_as = countyfortheocracy
+			}
+
+			create_character = {
+				template = priest_character_template
+				location = root.capital_province
+				save_scope_as = template_priest
+			}
+
+			create_title_and_vassal_change = {
+				type = granted
+				save_scope_as = title_change
+				add_claim_on_loss = no
+			}
+			scope:countyfortheocracy = {
+				change_title_holder = {
+					holder = scope:template_priest
+					change = scope:title_change
+				}
+			}
+			resolve_title_and_vassal_change = scope:title_change
+			scope:template_priest = {
+				add_realm_law = bishop_theocratic_succession_law
+				change_government = theocracy_government
+			}
+		}
+		add_piety = 300
+		rot_get_pope_of_target = {
+			TARGET = root
+		}
+		scope:pope_of_target = {
+			add_opinion = {
+				target = root
+				modifier = grantedlandtoclergy
+				opinion = 10
+			}
+		}
+		add_character_modifier = {
+			modifier = donatedlandtoclergy
+			years = 5
+		}
+		
+	}
+	option = { 
+		name = KoH_religiousflavour.500.c
+		trigger = {
+			exists = scope:clergycounty_3
+		}
+		custom_tooltip = KoH_religiousflavour.500.a.tt
+		hidden_effect = {
+			scope:clergycounty_3 = {
+				save_scope_as = countyfortheocracy
+			}
+
+			create_character = {
+				template = priest_character_template
+				location = root.capital_province
+				save_scope_as = template_priest
+			}
+
+			create_title_and_vassal_change = {
+				type = granted
+				save_scope_as = title_change
+				add_claim_on_loss = no
+			}
+			scope:countyfortheocracy = {
+				change_title_holder = {
+					holder = scope:template_priest
+					change = scope:title_change
+				}
+			}
+			resolve_title_and_vassal_change = scope:title_change
+			scope:template_priest = {
+				add_realm_law = bishop_theocratic_succession_law
+				change_government = theocracy_government
+			}
+		}
+		add_piety = 300
+		rot_get_pope_of_target = {
+			TARGET = root
+		}
+		scope:pope_of_target = {
+			add_opinion = {
+				target = root
+				modifier = grantedlandtoclergy
+				opinion = 10
+			}
+		}
+		add_character_modifier = {
+			modifier = donatedlandtoclergy
+			years = 5
+		}
+	}
+	option = { 
+		name = KoH_religiousflavour.500.d
+		trigger = {
+			exists = scope:clergycounty_4
+		}
+		custom_tooltip = KoH_religiousflavour.500.a.tt
+		hidden_effect = {
+			scope:clergycounty_4 = {
+				save_scope_as = countyfortheocracy
+			}
+
+			create_character = {
+				template = priest_character_template
+				location = root.capital_province
+				save_scope_as = template_priest
+			}
+
+			create_title_and_vassal_change = {
+				type = granted
+				save_scope_as = title_change
+				add_claim_on_loss = no
+			}
+			scope:countyfortheocracy = {
+				change_title_holder = {
+					holder = scope:template_priest
+					change = scope:title_change
+				}
+			}
+			resolve_title_and_vassal_change = scope:title_change
+			scope:template_priest = {
+				add_realm_law = bishop_theocratic_succession_law
+				change_government = theocracy_government
+			}
+		}
+		add_piety = 300
+		rot_get_pope_of_target = {
+			TARGET = root
+		}
+		scope:pope_of_target = {
+			add_opinion = {
+				target = root
+				modifier = grantedlandtoclergy
+				opinion = 10
+			}
+		}
+		add_character_modifier = {
+			modifier = donatedlandtoclergy
+			years = 5
+		}
+		
+	}
+
+	option = { 
+		name = KoH_religiousflavour.500.dd
+		trigger = {
+			exists = scope:clergycounty_5
+		}
+		custom_tooltip = KoH_religiousflavour.500.a.tt
+		hidden_effect = {
+			scope:clergycounty_5 = {
+				save_scope_as = countyfortheocracy
+			}
+
+			create_character = {
+				template = priest_character_template
+				location = root.capital_province
+				save_scope_as = template_priest
+			}
+
+			create_title_and_vassal_change = {
+				type = granted
+				save_scope_as = title_change
+				add_claim_on_loss = no
+			}
+			scope:countyfortheocracy = {
+				change_title_holder = {
+					holder = scope:template_priest
+					change = scope:title_change
+				}
+			}
+			resolve_title_and_vassal_change = scope:title_change
+			scope:template_priest = {
+				add_realm_law = bishop_theocratic_succession_law
+				change_government = theocracy_government
+			}
+		}
+		add_piety = 300
+		rot_get_pope_of_target = {
+			TARGET = root
+		}
+		scope:pope_of_target = {
+			add_opinion = {
+				target = root
+				modifier = grantedlandtoclergy
+				opinion = 10
+			}
+		}
+		add_character_modifier = {
+			modifier = donatedlandtoclergy
+			years = 5
+		}
+	}
+
+	option = { 
+		name = KoH_religiousflavour.500.ee
+		trigger = {
+			exists = scope:clergycounty_6
+		}
+
+		trigger_event = KoH_religiousflavour.501
+		
+	}
+
+	option = { 
+		name = KoH_religiousflavour.500.e
+		
+	}
+}
+
+KoH_religiousflavour.501 = {
+	title = KoH_religiousflavour.501.t
+	desc = KoH_religiousflavour.500.desc
+	theme = learning_scholarship_focus
+	left_portrait = {
+		character = root
+	}
+
+	option = { 
+		name = KoH_religiousflavour.500.g
+		trigger = {
+			exists = scope:clergycounty_6
+		}
+		custom_tooltip = KoH_religiousflavour.500.a.tt
+		hidden_effect = {
+			scope:clergycounty_6 = {
+				save_scope_as = countyfortheocracy
+			}
+
+			create_character = {
+				template = priest_character_template
+				location = root.capital_province
+				save_scope_as = template_priest
+			}
+
+			create_title_and_vassal_change = {
+				type = granted
+				save_scope_as = title_change
+				add_claim_on_loss = no
+			}
+			scope:countyfortheocracy = {
+				change_title_holder = {
+					holder = scope:template_priest
+					change = scope:title_change
+				}
+			}
+			resolve_title_and_vassal_change = scope:title_change
+			scope:template_priest = {
+				add_realm_law = bishop_theocratic_succession_law
+				change_government = theocracy_government
+			}
+		}
+		add_piety = 300
+		rot_get_pope_of_target = {
+			TARGET = root
+		}
+		scope:pope_of_target = {
+			add_opinion = {
+				target = root
+				modifier = grantedlandtoclergy
+				opinion = 10
+			}
+		}
+		add_character_modifier = {
+			modifier = donatedlandtoclergy
+			years = 5
+		}
+		
+	}
+	option = { 
+		name = KoH_religiousflavour.500.h
+		trigger = {
+			exists = scope:clergycounty_7
+		} 
+		custom_tooltip = KoH_religiousflavour.500.a.tt
+		hidden_effect = {
+			scope:clergycounty_7 = {
+				save_scope_as = countyfortheocracy
+			}
+
+			create_character = {
+				template = priest_character_template
+				location = root.capital_province
+				save_scope_as = template_priest
+			}
+
+			create_title_and_vassal_change = {
+				type = granted
+				save_scope_as = title_change
+				add_claim_on_loss = no
+			}
+			scope:countyfortheocracy = {
+				change_title_holder = {
+					holder = scope:template_priest
+					change = scope:title_change
+				}
+			}
+			resolve_title_and_vassal_change = scope:title_change
+			scope:template_priest = {
+				add_realm_law = bishop_theocratic_succession_law
+				change_government = theocracy_government
+			}
+		}
+		add_piety = 300
+		rot_get_pope_of_target = {
+			TARGET = root
+		}
+		scope:pope_of_target = {
+			add_opinion = {
+				target = root
+				modifier = grantedlandtoclergy
+				opinion = 10
+			}
+		}
+		add_character_modifier = {
+			modifier = donatedlandtoclergy
+			years = 5
+		}
+		
+	}
+	option = { 
+		name = KoH_religiousflavour.500.i
+		trigger = {
+			exists = scope:clergycounty_8
+		} 
+		custom_tooltip = KoH_religiousflavour.500.a.tt
+		hidden_effect = {
+			scope:clergycounty_8 = {
+				save_scope_as = countyfortheocracy
+			}
+
+			create_character = {
+				template = priest_character_template
+				location = root.capital_province
+				save_scope_as = template_priest
+			}
+
+			create_title_and_vassal_change = {
+				type = granted
+				save_scope_as = title_change
+				add_claim_on_loss = no
+			}
+			scope:countyfortheocracy = {
+				change_title_holder = {
+					holder = scope:template_priest
+					change = scope:title_change
+				}
+			}
+			resolve_title_and_vassal_change = scope:title_change
+			scope:template_priest = {
+				add_realm_law = bishop_theocratic_succession_law
+				change_government = theocracy_government
+			}
+		}
+		add_piety = 300
+		rot_get_pope_of_target = {
+			TARGET = root
+		}
+		scope:pope_of_target = {
+			add_opinion = {
+				target = root
+				modifier = grantedlandtoclergy
+				opinion = 10
+			}
+		}
+		add_character_modifier = {
+			modifier = donatedlandtoclergy
+			years = 5
+		}
+		
+	}
+	option = { 
+		name = KoH_religiousflavour.500.j
+		trigger = {
+			exists = scope:clergycounty_9
+		} 
+		custom_tooltip = KoH_religiousflavour.500.a.tt
+		hidden_effect = {
+			scope:clergycounty_9 = {
+				save_scope_as = countyfortheocracy
+			}
+
+			create_character = {
+				template = priest_character_template
+				location = root.capital_province
+				save_scope_as = template_priest
+			}
+
+			create_title_and_vassal_change = {
+				type = granted
+				save_scope_as = title_change
+				add_claim_on_loss = no
+			}
+			scope:countyfortheocracy = {
+				change_title_holder = {
+					holder = scope:template_priest
+					change = scope:title_change
+				}
+			}
+			resolve_title_and_vassal_change = scope:title_change
+			scope:template_priest = {
+				add_realm_law = bishop_theocratic_succession_law
+				change_government = theocracy_government
+			}
+		}
+		add_piety = 300
+		rot_get_pope_of_target = {
+			TARGET = root
+		}
+		scope:pope_of_target = {
+			add_opinion = {
+				target = root
+				modifier = grantedlandtoclergy
+				opinion = 10
+			}
+		}
+		add_character_modifier = {
+			modifier = donatedlandtoclergy
+			years = 5
+		}
+	}
+	option = { 
+		name = KoH_religiousflavour.500.k
+		trigger_event = KoH_religiousflavour.500
+	}
+
+	option = { 
+		name = KoH_religiousflavour.800.m
+		
+	}
+}
+
+
 #Non_events
 
 KoH_religiousflavour.799 = { 
@@ -1838,7 +2557,6 @@ KoH_religiousflavour.801 = {
 		update_cardinal_window = yes
 	}
 }
-
 
 #
 #Launching a Crusade

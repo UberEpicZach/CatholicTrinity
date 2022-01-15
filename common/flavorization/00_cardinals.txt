@@ -9,7 +9,6 @@
 	only_holder = yes
 }
 
-
 CathTheoHolderCounciller = {
 	gender = male
 	type = character

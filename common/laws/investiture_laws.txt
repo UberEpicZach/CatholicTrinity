@@ -3,7 +3,7 @@
 investiture_early = { 
 	default = papal_investiture_early
 	cumulative = no
-	flag = realm_law
+	flag = investiture_law
 	
 	papal_investiture_early = {
 		modifier = {
@@ -287,7 +287,7 @@ investiture_early = {
 investiture_late = { 
 	default = papal_investiture_late
 	cumulative = no
-	flag = realm_law
+	flag = investiture_law
 	
 	papal_investiture_late = {
 		modifier = {

@@ -401,6 +401,42 @@ on_person_death_saint = {
     }
 }
 
+pilgrimage_destination_events = {
+	first_valid_on_action = {
+		hajj_destination_events
+		christian_destination_events
+		jewish_destination_events
+		muslim_destination_events
+		hindu_destination_events
+		buddhist_destination_events
+		jain_destination_events
+		zoroastrian_destination_events
+		norse_destination_events
+		tengri_destination_events
+		pagan_destination_events
+		#saintly_tomb_destination_events
+		pilgrimage_generic_destination_events
+
+	}
+}
+
+# saintly_tomb_destination_events = {
+# 	trigger = {
+# 		religion = religion:christianity_religion
+# 		exists = scope:activity.activity_province
+# 		scope:activity.activity_province = {
+# 			has_province_modifier = saintly_tomb	
+# 		}
+# 	}
+# 	random_events = {
+# 		100 = pilgrimage.5001 # Rome
+# 		100 = pilgrimage.5011 # Jerusalem
+# 		100 = pilgrimage.5021 # Constantinople
+# 		100 = pilgrimage.5031 # Alexandria
+# 		100 = pilgrimage.4001 # Meet the Mystic again
+# 	}
+# }
+
 on_cardinal_death = {
 	trigger = {
 		owns_story_of_type = cardinal_story

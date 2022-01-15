@@ -126,7 +126,7 @@ get_all_investiture_candidates = {
 					#And they have to actually like you enough to want to invest you.
 					opinion = {
 						target = root
-						value >= low_positive_opinion
+						value >= 0
 					}
 					learning >= 7
 				}

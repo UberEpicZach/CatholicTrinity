@@ -19,3 +19,23 @@ d_line_map_papal_investiture = {
 		color2 = "white"
 	}
 }
+
+d_line_map_theocracys = {
+	pattern = "pattern_solid.dds"
+	color1 = "red"
+	colored_emblem = {
+		texture = "ce_cross_05_maltese.dds"
+		color1 = "white"
+		color2 = "white"
+	}
+}
+
+d_line_map_cardinal = {
+	pattern = "pattern_solid.dds"
+	color1 = "red"
+	colored_emblem = {
+		texture = "ce_cross_05_maltese.dds"
+		color1 = "white"
+		color2 = "white"
+	}
+}

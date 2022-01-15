@@ -270,13 +270,27 @@
 
 become_saint = {
 	save_scope_as = new_saint
-	
+	scope:new_saint.capital_county = {
+		save_scope_as = saint_capital
+	}
+
 	faith = {
 		add_to_variable_list = {
 			name = faith_saints
 			target = scope:new_saint
 		}
 	}
+
+	scope:saint_capital.title_province = {
+		add_province_modifier = saintly_tomb
+	}
+	scope:saint_capital.county ={
+		add_to_variable_list = {
+			name = faith_saints_and_capital
+			target = scope:new_saint
+		}
+	}
+
 	dynasty = {
 		add_dynasty_modifier = {
 			modifier = saintly_bloodline
@@ -290,9 +304,10 @@ become_saint = {
 	}
 }
 
+
+
 become_saint_capital = {
 	save_scope_as = new_saint_capital
-
 }
 
 remove_saint = {
@@ -484,4 +499,21 @@ pledge_ghw_piety_gain_effect = {
 			}
 		}
 	}
+}
+
+testingtest = {
+	save_scope_as = persontoscope
+    scope:persontoscope.capital_county = {
+        save_scope_as = scoped_capital
+    }
+    scope:scoped_capital.county ={
+        add_to_variable_list = {
+            name = characterscopedandcountyscoped
+            target = scope:persontoscope
+        }
+    }
+}
+
+testinglist = {
+	every_in_list = { variable = characterscopedandcountyscoped add_trait = hashishiyah }
 }

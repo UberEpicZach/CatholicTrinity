@@ -16,3 +16,15 @@ d_line_map_papal_investiture  = {
 	capital = c_roma
 	can_create = { always = no }
 }
+
+d_line_map_cardinal = {
+	color = { 156 20 28 }
+	capital = c_roma
+	can_create = { always = no }
+}
+
+d_line_map_theocracys = {
+	color = { 30 40 220 }
+	capital = c_roma
+	can_create = { always = no }
+}

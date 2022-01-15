@@ -25,6 +25,11 @@ public_opinion_negative = {
 	general_opinion = -5
 }
 public_opinion_positive = {
-	icon = economy__positive
+	icon = economy_positive
 	general_opinion = 5
+}
+
+donatedlandtoclergy = {
+	icon = piety_positive
+	clergy_opinion = 10
 }

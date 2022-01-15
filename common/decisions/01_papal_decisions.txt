@@ -208,3 +208,197 @@ InstallAntipope = {
 		}
 	}
 }
+
+DonationCountyClergy = {
+	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
+
+	desc = DonationCountyClergy_decision_desc
+	selection_tooltip = DonationCountyClergy_decision_tooltip
+
+	ai_check_interval = 6
+
+	cooldown = { years = 10 }
+
+	is_shown = {
+		has_faith = faith:catholic
+		is_ruler = yes
+		is_landed = yes
+		is_at_war = no
+		is_alive = yes
+		domain_size >= 2
+	}
+
+	is_valid = {
+		has_faith = faith:catholic
+		is_ruler = yes
+		is_landed = yes
+		is_at_war = no
+		is_alive = yes
+		prestige_level >= medium_prestige_level
+		piety_level >= medium_piety_level
+		domain_size >= 2
+	}
+
+	effect = {
+		debug_log = "Granted a County to the Clergy"
+		trigger_event = {
+			id = KoH_religiousflavour.499
+			days = 1
+		}
+	}
+
+	ai_will_do = {
+		base = 1
+		modifier = {
+			add = -100
+			has_trait = cynical
+		}
+		modifier = {
+			add = -100
+			has_trait = greedy
+		}
+		modifier = {
+			add = -15
+			has_trait = callous
+		}
+		modifier = {
+			add = -15
+			has_trait = sadistic
+		}
+		modifier = {
+			add = -15
+			has_trait = gluttonous
+		}
+		modifier = {
+			add = 40
+			has_trait = zealous
+		}
+		modifier = {
+			add = 40
+			has_trait = ambitious
+		}
+		modifier = {
+			add = 20
+			has_trait = generous
+		}
+		modifier = {
+			add = 15
+			has_trait = humble
+		}
+		modifier = {
+			add = 5
+			has_trait = education_learning_1
+		}
+		modifier = {
+			add = 10
+			has_trait = education_learning_2
+		}
+		modifier = {
+			add = 15
+			has_trait = education_learning_3
+		}
+		modifier = {
+			add = 20
+			has_trait = education_learning_4
+		}
+		modifier = {
+			add = 25
+			has_trait = theologian
+		}
+		modifier = {
+			add = 5
+			has_trait = holy_warrior
+		}
+		modifier = {
+			add = -1000
+			has_trait = excommunicated 
+		}
+		modifier = {
+			add = -1000
+			has_trait = witch
+		}
+		modifier = {
+			add = 50
+			has_trait = profligate 
+		}
+		modifier = {
+			add = -5
+			has_trait = drunkard
+		}
+		modifier = {
+			add = 5
+			has_trait = contrite
+		}
+		modifier = {
+			add = 50
+			has_trait = improvident
+		}
+		modifier = {
+			add = -30
+			has_trait = reclusive
+		}
+		modifier = {
+			add = -5
+			has_trait = rakish
+		}
+		modifier = {
+			add = 10
+			has_trait = paragon
+		}
+		modifier = {
+			add = 30
+			has_trait = crusader_king
+		}
+		modifier = {
+			add = 10
+			has_trait = holy_warrior
+		}
+		modifier = {
+			add = 50
+			has_trait = devoted
+		}
+		modifier = {
+			add = 10
+			has_trait = mystic_1
+		}
+		modifier = {
+			add = 20
+			has_trait = mystic_2
+		}
+		modifier = {
+			add = 30
+			has_trait = mystic_3
+		}
+		modifier = {
+			add = -10
+			has_trait = murderer 
+		}
+		modifier = {
+			add = 10
+			has_trait = sodomite  
+		}
+		modifier = {
+			add = -5
+			has_trait = incestuous  
+		}
+		modifier = {
+			add = -15
+			has_trait = deviant  
+		}
+		modifier = {
+			add = -5
+			has_trait = adulterer  
+		}
+		modifier = {
+			add = -5
+			has_trait = fornicator 
+		}
+		modifier = {
+			add = -5
+			has_trait = gallant  
+		}
+		modifier = {
+			add = -5
+			has_trait = fornicator 
+		}
+}
