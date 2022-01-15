@@ -84,8 +84,9 @@
   RELIGIOUS_HEAD_INTERACTION_CONCLAVE_INFLUENCE_ACTOR:0 "Your influence on [collegeofcardinals|E]: $VALUE|=+0$"
   RELIGIOUS_HEAD_INTERACTION_CONCLAVE_INFLUENCE_RECIPIENT:0 "Influence of [secondary_recipient.GetShortUIName|U] on [collegeofcardinals|E]: $VALUE|=+0$"
 
-  doctrine_independent_papacy_head_name:0 "Pope"
-  doctrine_independent_papacy_head_desc:0 "The physical world and the spiritual world are not alike. We must know for sure that the spiritual world has its own ruler, which guides us and protects our faith from bodily contamination." 
+  doctrine_independent_papacy_head_name:0 "Papal"
+  doctrine_independent_papacy_head_desc:0 "The physical world and the spiritual world are not alike. We must know for sure that the spiritual world has its own ruler, which guides us and protects our faith from bodily contamination."
+  doctrine_parameter_rot_antipopes:0 "Rulers with [free_investiture|E], can appoint Antipopes, contenders to the Papacy" 
 
   # "Investiture, #italic 'in#! #italic Vestire' #! meaning in dress or robe is the formal installationn which a person is given the authority and regalia of a high office, in the case of a Bishop's Investiture has brought upon differing views throughout the church and europe, The Pope had declared himself the sole appointer, while the european nobility, many of which who had donated lands and territory to the church themselves, wish to retain the legal authority to pick and choose the successors to these bishopics." [selected_title_for_investiture.GetNameNoTier]
   k_papal_state_article:0 "the "

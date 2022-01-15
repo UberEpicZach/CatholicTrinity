@@ -481,17 +481,36 @@ type window_cardinals = window {
 }
 
 types uniuitrinitytypes {
-    type trinity_independent_papacy_head = widget_doctrine_item  {
-        visible = "[Faith.HasDoctrineByKey( 'doctrine_independent_papacy_head' )]"
-        blockoverride "background" {}
-        blockoverride "doctrine_icon"
-        {
-            texture = "[GetDoctrine( 'doctrine_independent_papacy_head' ).GetIcon]"
+    type UniUI_Trinity_window_faith_widget_doctrine_item = container {
+        widget_doctrine_item = {
+            visible = "[Faith.HasDoctrineByKey( 'doctrine_independent_papacy_head' )]"
+            blockoverride "background" {}
+
+            blockoverride "doctrine_icon"
+            {
+                texture = "[GetDoctrine( 'doctrine_independent_papacy_head' ).GetIcon]"
+            }
+
+            blockoverride "wdi_context"
+            {
+                datacontext = "[GetDoctrine('doctrine_independent_papacy_head')]"
+                datacontext = "[Faith]"
+            }
         }
-        blockoverride "wdi_context"
-        {
-            datacontext = "[GetDoctrine('doctrine_independent_papacy_head')]"
-            datacontext = "[Faith]"
+        widget_doctrine_item = {
+            visible = "[And(Faith.HasDoctrineByKey( 'doctrine_spiritual_head' ), Not(Faith.HasDoctrineByKey( 'doctrine_independent_papacy_head' )))]"
+            blockoverride "background" {}
+
+            blockoverride "doctrine_icon"
+            {
+                texture = "[GetDoctrine( 'doctrine_spiritual_head' ).GetIcon]"
+            }
+
+            blockoverride "wdi_context"
+            {
+                datacontext = "[GetDoctrine('doctrine_spiritual_head')]"
+                datacontext = "[Faith]"
+            }
         }
     }
 }
