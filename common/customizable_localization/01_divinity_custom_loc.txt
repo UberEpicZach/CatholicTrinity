@@ -590,13 +590,13 @@ GetActualBishopTitle = {
 		trigger = {
 			has_trait = koh_cardinal
 		}
-		localization_key = CardinalHolder
+		localization_key = CardinalFlavor
 	}
 	text = {
 		trigger = {
 			has_trait = rot_antipope
 		}
-		localization_key = AntipopeHolder
+		localization_key = popebishop
 	}
 
 	# Religion-By-Religion Titles for Bishops based on Liege's Tier.

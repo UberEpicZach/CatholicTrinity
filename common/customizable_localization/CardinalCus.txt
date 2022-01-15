@@ -4,20 +4,17 @@
 		trigger = {
 			has_trait = koh_cardinal
 		}
-		localization_key = CardinalHolder
+		localization_key = CardinalFlavor
 	}
 	text = {
 		trigger = {
-			has_trait = rot_antipope
-		}
-		localization_key = AntipopeHolder
-	}
-	text = {
-		trigger = {
-			has_title = title:k_papal_state
+			OR = {
+				has_trait = rot_antipope
+				has_title = title:k_papal_state
+			}
 		}
 		localization_key = popebishop
-	} 
+	}
 	text = {
 		trigger = {
 			highest_held_title_tier = tier_empire
@@ -28,23 +25,23 @@
 		trigger = {
 			highest_held_title_tier = tier_kingdom
 		}
-		localization_key = kingbishop
+		localization_key = king_theocracy_male_christianity_religion
 	}
 	text = {
 		trigger = {
 			highest_held_title_tier = tier_duchy
 		}
-		localization_key = dukebishop
+		localization_key = duke_theocracy_male_christianity_religion
 	}
 	text = {
 		trigger = {
 			highest_held_title_tier = tier_county
 		}
-		localization_key = countbishop
+		localization_key = count_theocracy_male_christianity_religion
 	}
 	text = {
 		fallback = yes
-		localization_key = bishop
+		localization_key = baron_theocracy_male_christianity_religion
 	}
 }
 
@@ -59,7 +56,7 @@ councilCathTheoHolder = {
 				is_theocratic_lessee = yes
 			}
 		}
-		localization_key = councilCardinalHolder
+		localization_key = CardinalFlavor
 	}
 	text = {
 		fallback = yes
