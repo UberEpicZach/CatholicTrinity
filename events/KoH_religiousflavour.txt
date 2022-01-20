@@ -1717,18 +1717,589 @@ KoH_religiousflavour.30 = {
 
 ## The Pope sends a delegate to a Bishop whose top liege has refused to change investiture Law
 #Event 7
+KoH_religiousflavour.31 = { 
+	title = KoH_religiousflavour.31.t
+	desc = KoH_religiousflavour.31.desc
+	theme = learning_scholarship_focus
+	right_portrait = {
+		character = faith.religious_head
+	}
+	left_portrait = {
+		character = scope:bishop
+	}
+
+	trigger = {		
+		has_title = title:k_papal_state
+		this = faith.religious_head
+		is_imprisoned = no
+		has_religion = religion:christianity_religion
+		has_faith = faith:catholic
+		current_year >= 1040
+		exists = global_var:dictatuspapae
+		#change_fervor = -20
+		faith = { fervor >= 50 }
+
+		any_independent_ruler = {
+			OR = {
+				has_realm_law = free_investiture_early
+				has_realm_law = free_investiture_late
+			}
+			highest_held_title_tier >= tier_duchy
+			has_faith = faith:catholic
+			title:k_papal_state.holder = faith.religious_head
+
+			has_character_flag = pope_we_refuse_law_changed
+			NOR = { has_character_flag = pope_respects_our_law }	
+		}
+	}
+
+	immediate = {
+		random_independent_ruler = {
+			limit = {
+				OR = {
+					has_realm_law = free_investiture_early
+					has_realm_law = free_investiture_late
+				}
+				highest_held_title_tier >= tier_duchy
+				has_faith = faith:catholic
+				title:k_papal_state.holder = faith.religious_head
+				has_character_flag = pope_we_refuse_law_changed
+			}
+			save_scope_as = popewantsit
+		}
+		if = {
+			limit = {
+				scope:popewantsit = {
+					any_vassal = {
+						NOT = { has_character_flag = pope_bribing }
+						has_government = theocracy_government
+						opinion_modifier = {
+							who = prev
+							opinion_target = scope:popewantsit
+							multiplier = -1
+						}
+						opinion_modifier = {
+							who = prev
+							opinion_target = scope:popewantsit.faith.religious_head #Excommunication target
+							multiplier = 1
+						}
+					}
+				}
+			}
+			scope:popewantsit = {
+				random_vassal = {
+					limit = {
+						has_government = theocracy_government
+						opinion_modifier = {
+							who = prev
+							opinion_target = scope:popewantsit
+							multiplier = 1
+							min = 0
+						}
+						opinion_modifier = {
+							who = prev
+							opinion_target = scope:popewantsit.faith.religious_head #Excommunication target
+							multiplier = -1
+						}
+					}
+					save_scope_as = bishop
+				}
+			}
+		}
+	}
+		
+
+	option = { 
+		name = KoH_religiousflavour.31.a
+		custom_tooltip = KoH_religiousflavour.31a.tta
+		custom_tooltip = KoH_religiousflavour.31a.ttb
+		show_as_tooltip = {
+			pay_short_term_gold = {
+				target = scope:bishop
+				gold = 120
+			}
+		}
+		scope:bishop = { 
+			add_character_flag = pope_bribing
+
+			trigger_event = {
+				id = KoH_religiousflavour.32
+				days = 15
+			}
+		}
+
+		ai_chance = {	
+			base = 75
+
+			modifier = {
+				add = 25
+				has_trait = zealous
+			}
+		}
+	}
+	option = { 
+		name = KoH_religiousflavour.31.b
+	
+		remove_character_flag = pope_currently_demanding
+
+		scope:popewantsit = {
+			remove_character_flag = pope_we_refuse_law_changed
+		}
+
+		ai_chance = {	
+			base = 10
+
+			modifier = {
+				add = -75
+				has_trait = zealous
+			}
+		}
+	}
+}
 
 ## The Bishop receives the Papal emissary
 #Event 8
+KoH_religiousflavour.32 = { 
+	title = KoH_religiousflavour.32.t
+	desc = KoH_religiousflavour.32.desc
+	theme = learning_scholarship_focus
+	left_portrait = {
+		character = scope:bishop
+	}
+
+	right_portrait = {
+		character = faith.religious_head
+	}
+
+	option = { 
+		name = KoH_religiousflavour.32.a
+		
+		faith.religious_head = {
+			pay_short_term_gold = {
+				target = scope:bishop
+				gold = 120
+			}
+		}
+		scope:bishop = {
+			add_opinion = {
+				target = faith.religious_head
+				opinion = 20
+				modifier = bishop_bribed_by_pope
+			}
+		}
+
+		random_list = {
+			66 = { # Suceed
+				send_interface_toast = {
+					type = event_toast_effect_good
+					title = KoH_religiousflavour.32.a.toast #KoH_religiousflavour.2.a.toast
+					left_icon = root
+				}
+			}
+		
+		
+			33 = { # Emperror finds out
+				custom_tooltip = KoH_religiousflavour.32.a.tt
+
+				scope:popewantsit = {
+					trigger_event = {
+						id = KoH_religiousflavour.33
+						days = { 14 16 }
+					}
+				}
+				send_interface_toast = {
+					type = event_toast_effect_bad
+					title = KoH_religiousflavour.32.b.toast #KoH_religiousflavour.2.a.toast
+					left_icon = root
+				}
+			}
+		}
+
+		ai_chance = {	
+			base = 100
+		
+		}
+	}
+	option = { 
+		name = KoH_religiousflavour.32.b
+
+		add_prestige = 10
+	}
+}
+
 
 ## King knows of bishop getting bribed
 #Event 9
 
+KoH_religiousflavour.33 = { 
+	title = KoH_religiousflavour.33.t
+	desc = KoH_religiousflavour.33.desc
+	theme = learning_scholarship_focus
+	left_portrait = {
+		character = scope:bishop
+	}
+
+	right_portrait = {
+		character = faith.religious_head
+	}
+
+	option = { 
+		name = KoH_religiousflavour.33.a
+		
+		random_list = {
+			30 = {
+				add_trait = cynical
+			}
+			1 = {
+				add_trait = paranoid
+			}
+			60 = {
+
+			}
+		}
+
+		add_opinion = {
+			target = scope:bishop
+			modifier = suspicion_opinion
+			opinion = -15
+		}
+
+		add_opinion = {
+			target = faith.religious_head
+			modifier = suspicion_opinion
+			opinion = -15
+		}
+
+		ai_chance = {	
+			base = 100
+		
+		}
+	}
+	option = { 
+		name = KoH_religiousflavour.33.b
+
+		trigger = {
+			has_trait = paranoid
+		}
+
+		random_list = {
+			30 = { 
+				imprison = {
+					target = scope:bishop
+					type = dungeon
+				}
+				add_excommunication_actual_effect = yes
+				add_tyranny = 40
+			}
+			60 = {
+				add_stress = medium_stress_loss
+				add_tyranny = 40
+				add_excommunication_actual_effect = yes
+			}
+		}
+	}
+}
+
 ## The Pope contacts a powerful (preferably rebellious) vassal of a liege who has refused to change investiture Law
 #Event 10
 
+KoH_religiousflavour.34 = { 
+	title = KoH_religiousflavour.34.t
+	desc = KoH_religiousflavour.34.desc
+	theme = learning_scholarship_focus
+	right_portrait = {
+		character = faith.religious_head
+	}
+	left_portrait = {
+		character = scope:powerful_vassal
+	}
+
+	trigger = {		
+		has_title = title:k_papal_state
+		this = faith.religious_head
+		is_imprisoned = no
+		has_religion = religion:christianity_religion
+		has_faith = faith:catholic
+		current_year >= 1040
+		#exists = global_var:dictatuspapae
+		#change_fervor = -20
+		faith = { fervor >= 50 }
+
+		any_independent_ruler = {
+			OR = {
+				has_realm_law = free_investiture_early
+				has_realm_law = free_investiture_late
+			}
+			highest_held_title_tier >= tier_duchy
+			has_faith = faith:catholic
+			title:k_papal_state.holder = faith.religious_head
+
+			#has_character_flag = pope_we_refuse_law_changed
+			NOR = { has_character_flag = pope_respects_our_law }	
+		}
+	}
+
+	immediate = {
+		random_independent_ruler = {
+			limit = {
+				OR = {
+					has_realm_law = free_investiture_early
+					has_realm_law = free_investiture_late
+				}
+				highest_held_title_tier >= tier_county
+				has_faith = faith:catholic
+				title:k_papal_state.holder = faith.religious_head
+				#has_character_flag = pope_we_refuse_law_changed
+			}
+			save_scope_as = popewantsit
+		}
+		if = {
+			limit = {
+				scope:popewantsit = {
+					any_vassal = { 
+						max_military_strength >= liege.max_military_strength.div2
+					}
+					# NOT = { has_character_flag = pope_bribing }
+					# has_faith = scope:popewantsit.faith
+					# opinion_modifier = {
+					# 	who = prev
+					# 	opinion_target = scope:popewantsit
+					# 	multiplier = -1
+					# }
+					# opinion_modifier = {
+					# 	who = prev
+					# 	opinion_target = scope:popewantsit.faith.religious_head #Excommunication target
+					# 	multiplier = 1
+					# }
+				}
+			}
+			scope:popewantsit = {
+				random_vassal = {
+					limit = {
+						max_military_strength >= liege.max_military_strength.div2
+						# opinion_modifier = {
+						# 	who = prev
+						# 	opinion_target = scope:popewantsit
+						# 	multiplier = 1
+						# 	min = 0
+						# }
+						# opinion_modifier = {
+						# 	who = prev
+						# 	opinion_target = scope:popewantsit.faith.religious_head #Excommunication target
+						# 	multiplier = -1
+						# }
+					}
+					save_scope_as = powerful_vassal
+				}
+			}
+		}
+	}
+		
+
+	option = { 
+		name = KoH_religiousflavour.34.a
+		custom_tooltip = KoH_religiousflavour.341a.tta
+		custom_tooltip = KoH_religiousflavour.34a.ttb
+		show_as_tooltip = {
+			pay_short_term_gold = {
+				target = scope:powerful_vassal
+				gold = 120
+			}
+		}
+		scope:powerful_vassal = { 
+			add_character_flag = pope_bribing
+
+			trigger_event = {
+				id = KoH_religiousflavour.35
+				days = 15
+			}
+		}
+
+		ai_chance = {	
+			base = 75
+
+			modifier = {
+				add = 25
+				has_trait = zealous
+			}
+		}
+	}
+	option = { 
+		name = KoH_religiousflavour.34.a
+	
+		remove_character_flag = pope_currently_demanding
+
+		scope:popewantsit = {
+			remove_character_flag = pope_we_refuse_law_changed
+		}
+
+		ai_chance = {	
+			base = 10
+
+			modifier = {
+				add = -75
+				has_trait = zealous
+			}
+		}
+	}
+}
+
 ## The vassal receives the claim
 #Event 11
+
+KoH_religiousflavour.35 = { 
+	title = KoH_religiousflavour.35.t
+	desc = KoH_religiousflavour.35.desc
+	theme = learning_scholarship_focus
+	left_portrait = {
+		character = scope:powerful_vassal
+	}
+
+	right_portrait = {
+		character = faith.religious_head
+	}
+
+	option = { 
+		name = KoH_religiousflavour.35.a
+		add_pressed_claim = liege.primary_title
+		scope:powerful_vassal = {
+			add_opinion = {
+				target = faith.religious_head
+				opinion = 20
+				modifier = bishop_bribed_by_pope
+			}
+		}
+
+		spawn_army = {
+			uses_supply = no
+			inheritable = yes
+			name = event_troop_default_name
+			levies = {
+				value = 500
+			}
+			men_at_arms = {
+				type = onager
+				stacks = 5
+			}
+			men_at_arms = {
+				type = picchieri
+				stacks = 28
+			}
+			location = capital_province
+		}
+
+		scope:powerful_vassal = {
+			trigger_event = {
+				id = KoH_religiousflavour.37
+				days = { 100 365 }
+			}
+		}
+
+		every_ruler = {
+			trigger_event = {
+				id = KoH_religiousflavour.36
+				days = 2
+			}
+		}
+
+		ai_chance = {	
+			base = 100
+		
+		}
+	}
+	option = { 
+		name = KoH_religiousflavour.35.b
+
+		add_prestige = 10
+	}
+}
+
+#Inform everyone!
+KoH_religiousflavour.36 = { 
+	title = KoH_religiousflavour.36.t
+	desc = KoH_religiousflavour.36.desc
+	theme = faith
+	left_portrait = {
+		character = scope:powerful_vassal
+	}
+
+	right_portrait = {
+		character = faith.religious_head
+	}
+
+	lower_center_portrait = {
+		character = scope:popewantsit
+	}
+
+	option = { 
+		name = KoH_religiousflavour.36.a
+
+		if = {
+			limit = {
+				this = scope:popewantsit
+			}
+			scope:popewantsit = {
+				add_opinion = {
+					target = scope:powerful_vassal
+					modifier = angry_opinion
+					opinion = -150
+				}
+		
+				add_opinion = {
+					target = faith.religious_head
+					modifier = angry_opinion
+					opinion = -150
+				}
+			}
+			scope:powerful_vassal = {
+				add_opinion = {
+					target = scope:popewantsit
+					modifier = impious_opinion
+					opinion = -150
+				}
+			}
+		}
+		add_piety = 1
+
+		ai_chance = {	
+			base = 100
+		}
+	}
+}
+
+#Start the war
+KoH_religiousflavour.37 = { 
+	title = KoH_religiousflavour.37.t
+	desc = KoH_religiousflavour.37.desc
+	theme = faith
+	left_portrait = {
+		character = scope:powerful_vassal
+	}
+
+	right_portrait = {
+		character = faith.religious_head
+	}
+
+	lower_center_portrait = {
+		character = scope:popewantsit
+	}
+
+	option = { 
+		name = KoH_religiousflavour.37.a
+
+		start_war = {
+			cb = claim_cb
+			target = scope:popewantsit
+			claimant = scope:powerful_vassal
+			target_title = scope:popewantsit.primary_title
+		}
+
+		ai_chance = {	
+			base = 100
+		
+		}
+	}
+}
 
 ####
 ## Check for Cadaver Synod
@@ -1738,11 +2309,1274 @@ KoH_religiousflavour.30 = {
 
 ## Pope learns that a catholic ruler has a heretic advisor
 
+KoH_religiousflavour.41 = { 
+	title = KoH_religiousflavour.41.t
+	desc = KoH_religiousflavour.41.desc
+	theme = learning_scholarship_focus
+	right_portrait = {
+		character = faith.religious_head
+	}
+	left_portrait = {
+		character = scope:rulerwithheretic
+	}
+
+	trigger = {		
+		has_title = title:k_papal_state
+		this = faith.religious_head
+		is_imprisoned = no
+		has_religion = religion:christianity_religion
+		has_faith = faith:catholic
+		current_year >= 1040
+		faith = { fervor >= 40 }
+
+		any_independent_ruler = {
+			highest_held_title_tier >= tier_duchy
+			has_faith = faith:catholic
+			title:k_papal_state.holder = faith.religious_head
+			any_councillor = {
+				NOT = { has_faith = faith:catholic }
+			}
+		}
+	}
+
+	immediate = {
+		random_independent_ruler = {
+			limit = {
+				highest_held_title_tier >= tier_duchy
+				has_faith = faith:catholic
+				title:k_papal_state.holder = faith.religious_head
+				any_councillor = {
+					NOT = { has_faith = faith:catholic }
+				}
+			}
+			save_scope_as = rulerwithheretic
+		}
+		if = {
+			limit = {
+				scope:rulerwithheretic = {
+					any_councillor = {
+						NOT = { has_faith = faith:catholic }
+					}
+				}
+			}
+			scope:rulerwithheretic = {
+				random_councillor = {
+					limit = {
+						NOT = { has_faith = faith:catholic }
+					}
+					save_scope_as = heretic_councillor
+				}
+			}
+		}
+	}
+		
+
+	option = { 
+		name = KoH_religiousflavour.41.a
+		custom_tooltip = KoH_religiousflavour.41a.tta
+		scope:rulerwithheretic = {
+			trigger_event = {
+				id = KoH_religiousflavour.42
+				days = {15 30}
+			}
+		}
+
+		ai_chance = {	
+			base = 75
+
+			modifier = {
+				add = 25
+				has_trait = zealous
+			}
+		}
+	}
+}
+
+KoH_religiousflavour.42 = { 
+	title = KoH_religiousflavour.42.t
+	desc = KoH_religiousflavour.42.desc
+	theme = learning_scholarship_focus
+	right_portrait = {
+		character = faith.religious_head
+	}
+	left_portrait = {
+		character = scope:rulerwithheretic
+	}
+
+	option = { 
+		name = KoH_religiousflavour.42.a
+		custom_tooltip = KoH_religiousflavour.42a.tta
+		if = { #Can I fire them?
+			limit = {
+				scope:heretic_councillor = { can_be_fired_from_council_trigger = { COURT_OWNER = scope:rulerwithheretic } }
+			}
+			scope:rulerwithheretic = { fire_councillor = scope:heretic_councillor }
+		}
+		faith.religious_head = {
+			add_opinion = {
+				target = scope:rulerwithheretic
+				modifier = respect_opinion
+				opinion = 50
+			}
+		}
+	
+		ai_chance = {	
+			base = 75
+	
+			modifier = {
+				add = 25
+				has_trait = zealous
+			}
+		}
+	}
+	option = { 
+		name = KoH_religiousflavour.42.a
+	
+		faith.religious_head = {
+			add_opinion = {
+				target = scope:rulerwithheretic
+				modifier = angry_opinion
+				opinion = -50
+			}
+		}
+		add_character_modifier = {
+			modifier = refusedpope
+			years = 3
+		}
+	
+		ai_chance = {	
+			base = 10
+	
+			modifier = {
+				add = -75
+				has_trait = zealous
+			}
+		}
+	}
+} 
+
 ## Vassal disappointed in liege having heretic advisor
+
+KoH_religiousflavour.43 = { 
+	title = KoH_religiousflavour.43.t
+	desc = KoH_religiousflavour.43.desc
+	theme = learning_scholarship_focus
+	right_portrait = {
+		character = scope:vassal
+	}
+	left_portrait = {
+		character = scope:hereticadvisorruler
+	}
+
+	trigger = {		
+		is_imprisoned = no
+		has_religion = religion:christianity_religion
+		has_faith = faith:catholic
+		current_year >= 1040
+		faith = { fervor >= 40 }
+
+		any_independent_ruler = {
+			highest_held_title_tier >= tier_duchy
+			has_faith = faith:catholic
+			title:k_papal_state.holder = faith.religious_head
+			any_councillor = {
+				NOT = { has_faith = faith:catholic }
+			}
+			save_temporary_scope_as = hereticadvisorruler
+		}
+		is_vassal_of = scope:hereticadvisorruler
+	}
+
+	immediate = {
+		save_scope_as = vassal
+		liege = {
+			save_scope_as = hereticadvisorruler
+		}
+		if = {
+			limit = {
+				scope:hereticadvisorruler = {
+					any_councillor = {
+						NOT = { has_faith = faith:catholic }
+					}
+				}
+			}
+			scope:hereticadvisorruler = {
+				random_councillor = {
+					limit = {
+						NOT = { has_faith = faith:catholic }
+					}
+					save_scope_as = heretic_councillor
+				}
+			}
+		}
+	}
+		
+
+	option = { 
+		name = KoH_religiousflavour.43.a
+		custom_tooltip = KoH_religiousflavour.43a.tta
+		scope:hereticadvisorruler = {
+			trigger_event = {
+				id = KoH_religiousflavour.44
+				days = {15 30}
+			}
+		}
+
+		ai_chance = {	
+			base = 75
+
+			modifier = {
+				add = 25
+				has_trait = zealous
+			}
+		}
+	}
+}
+
+KoH_religiousflavour.44 = { 
+	title = KoH_religiousflavour.44.t
+	desc = KoH_religiousflavour.44.desc
+	theme = learning_scholarship_focus
+	right_portrait = {
+		character = scope:vassal
+	}
+	left_portrait = {
+		character = scope:hereticadvisorruler
+	}
+
+	option = { 
+		name = KoH_religiousflavour.44.a
+		custom_tooltip = KoH_religiousflavour.42a.tta
+		if = { #Can I fire them?
+			limit = {
+				scope:heretic_councillor = { can_be_fired_from_council_trigger = { COURT_OWNER = scope:rulerwithheretic } }
+			}
+			scope:hereticadvisorruler = { fire_councillor = scope:heretic_councillor }
+		}
+		scope:vassal = {
+			add_opinion = {
+				target = scope:hereticadvisorruler
+				modifier = respect_opinion
+				opinion = 20
+			}
+		}
+	
+		ai_chance = {	
+			base = 75
+	
+			modifier = {
+				add = 25
+				has_trait = zealous
+			}
+		}
+	}
+	option = { 
+		name = KoH_religiousflavour.44.b
+		scope:vassal = {
+			add_opinion = {
+				target = scope:hereticadvisorruler
+				modifier = angry_opinion
+				opinion = -20
+			}
+		}
+		add_character_modifier = {
+			modifier = refusedpope
+			years = 3
+		}
+	
+		ai_chance = {	
+			base = 10
+	
+			modifier = {
+				add = -75
+				has_trait = zealous
+			}
+		}
+	}
+} 
+
+## Realm Priest disappointed in liege having heretic advisor
+
+KoH_religiousflavour.45 = { 
+	title = KoH_religiousflavour.45.t
+	desc = KoH_religiousflavour.45.desc
+	theme = learning_scholarship_focus
+	right_portrait = {
+		character = scope:vassal
+	}
+	left_portrait = {
+		character = scope:hereticadvisorruler
+	}
+	lower_left_portrait = {
+		character = scope:heretic_councillor
+	}
+
+	trigger = {		
+		is_available_adult = yes
+		exists = cp:councillor_court_chaplain
+		cp:councillor_court_chaplain = {
+			opinion = {
+				target = liege
+				value <= -10
+			}
+			faith = root.faith
+			is_imprisoned = no
+		}
+		current_year >= 1040
+		faith = { fervor >= 40 }
+		highest_held_title_tier >= tier_duchy
+		has_faith = faith:catholic
+		title:k_papal_state.holder = faith.religious_head
+		any_councillor = {
+			NOT = { has_faith = faith:catholic }
+		}
+		save_temporary_scope_as = hereticadvisorruler
+	}
+
+	immediate = {
+		cp:councillor_court_chaplain = {
+			save_scope_as = vassal
+		}
+		save_scope_as = hereticadvisorruler
+		if = {
+			limit = {
+				scope:hereticadvisorruler = {
+					any_councillor = {
+						NOT = { has_faith = faith:catholic }
+					}
+				}
+			}
+			scope:hereticadvisorruler = {
+				random_councillor = {
+					limit = {
+						NOT = { has_faith = faith:catholic }
+					}
+					save_scope_as = heretic_councillor
+				}
+			}
+		}
+
+	}
+		
+
+	option = { 
+		name = KoH_religiousflavour.45.a
+		custom_tooltip = KoH_religiousflavour.45a.tta
+		if = { #Can I fire them?
+			limit = {
+				scope:heretic_councillor = { can_be_fired_from_council_trigger = { COURT_OWNER = scope:rulerwithheretic } }
+			}
+			scope:hereticadvisorruler = { fire_councillor = scope:heretic_councillor }
+		}
+		scope:vassal = {
+			add_opinion = {
+				target = scope:hereticadvisorruler
+				modifier = respect_opinion
+				opinion = 20
+			}
+		}
+	
+		ai_chance = {	
+			base = 75
+	
+			modifier = {
+				add = 25
+				has_trait = zealous
+			}
+		}
+	}
+	option = { 
+		name = KoH_religiousflavour.45.b
+	
+		scope:vassal = {
+			add_opinion = {
+				target = scope:hereticadvisorruler
+				modifier = angry_opinion
+				opinion = -20
+			}
+		}
+		add_character_modifier = {
+			modifier = refusedpope
+			years = 3
+		}
+	
+		ai_chance = {	
+			base = 10
+	
+			modifier = {
+				add = -75
+				has_trait = zealous
+			}
+		}
+	}
+}
 
 # # The Pope gives money to someone fighting the Infidel
 
-# The Pope appoints a new holy roman emperor / gives a claim
+KoH_religiousflavour.46 = { 
+	title = KoH_religiousflavour.46.t
+	desc = KoH_religiousflavour.46.desc
+	theme = war
+	lower_center_portrait = {
+		character = scope:holywarleader
+	}
+	right_portrait = {
+		character = scope:cardinal
+	}
+	left_portrait = {
+		character = root
+	}
+
+	trigger = {		
+		has_title = title:k_papal_state
+		this = faith.religious_head
+		is_imprisoned = no
+		has_religion = religion:christianity_religion
+		has_faith = faith:catholic
+		current_year >= 1040
+		faith = { fervor >= 40 }
+		gold >= 400
+
+		any_independent_ruler = {
+			highest_held_title_tier >= tier_duchy
+			has_faith = faith:catholic
+			title:k_papal_state.holder = faith.religious_head
+			OR = {
+				any_character_war = {
+					using_holy_war_cb_trigger = yes
+					is_defender = prev
+				}
+				any_character_war = {
+					using_holy_war_cb_trigger = yes
+					is_attacker = prev
+				}
+			}
+		}
+	}
+
+	immediate = {
+		random_independent_ruler = {
+			limit = {
+				highest_held_title_tier >= tier_duchy
+				has_faith = faith:catholic
+				title:k_papal_state.holder = faith.religious_head
+				OR = {
+					any_character_war = {
+						using_holy_war_cb_trigger = yes
+						is_defender = prev
+					}
+					any_character_war = {
+						using_holy_war_cb_trigger = yes
+						is_attacker = prev
+					}
+				}
+			}
+			save_scope_as = holywarleader
+		}
+		random_living_cardinal = { save_scope_as = cardinal } 
+	}
+
+	option = { 
+		name = KoH_religiousflavour.46.a
+		custom_tooltip = KoH_religiousflavour.46a.tta
+		
+		faith.religious_head = {
+			pay_short_term_gold = {
+				target = scope:holywarleader
+				gold = 120
+			}
+		}
+		scope:holywarleader = {
+			add_opinion = {
+				target = faith.religious_head
+				opinion = 20
+				modifier = bishop_bribed_by_pope
+			}
+			trigger_event = {
+				id = KoH_religiousflavour.467
+				days = 3
+			}
+		}
+	
+		ai_chance = {	
+			base = 75
+	
+			modifier = {
+				add = 25
+				has_trait = zealous
+			}
+		}
+	}
+	option = { 
+		name = KoH_religiousflavour.46.b
+	
+
+	
+		ai_chance = {	
+			base = 10
+	
+			modifier = {
+				add = -75
+				has_trait = zealous
+			}
+		}
+	}
+} 
+
+
+KoH_religiousflavour.467 = { 
+	hidden = yes
+
+	immediate = {
+		send_interface_toast = {
+			type = event_toast_effect_good
+			title =  KoH_religiousflavour.46.b.toast
+			left_icon = faith.religious_head
+			show_as_tooltip = {
+				faith.religious_head = {
+					pay_short_term_gold = {
+						target = scope:holywarleader
+						gold = 120
+					}
+				}
+			}
+		}
+	}
+} 
+
+# # Leprous Courtier Departs to Join Order of Lazarus
+
+KoH_religiousflavour.47 = { 
+	title = KoH_religiousflavour.47.t
+	desc = KoH_religiousflavour.47.desc
+	theme = faith
+	right_portrait = {
+		character = scope:leper
+	}
+	left_portrait = {
+		character = root
+	}
+
+	trigger = {		
+		any_courtier_or_guest = {
+			has_faith = faith:catholic
+			has_trait = leper
+			NOT = { has_trait = cynical}
+		}
+		has_faith = faith:catholic
+		highest_held_title_tier >= tier_county
+	}
+
+	immediate = {
+		random_courtier_or_guest = {
+			limit = {
+				has_faith = faith:catholic
+				has_trait = leper
+				NOT = { has_trait = cynical}
+			}
+			save_scope_as = leper
+		}
+	}
+
+	option = { 
+		name = KoH_religiousflavour.47.a
+		custom_tooltip = KoH_religiousflavour.46a.tta
+		
+		scope:leper = {
+			add_opinion = {
+				target = root
+				opinion = 20
+				modifier = grateful_opinion
+			}
+			add_trait = order_member
+
+			if = {
+				limit = {
+					title:c_jerusalem.holder = {
+						has_faith = faith:catholic
+					}
+				}
+				scope:leper = {
+					visit_court_of = title:c_jerusalem.holder 
+				}
+			}
+			else_if = {
+				limit = {
+					title:c_roma.holder = {
+						has_faith = faith:catholic
+					}
+				}
+				scope:leper = {
+					visit_court_of = title:c_roma.holder
+				}
+			}
+			else = {
+				move_to_pool_at = title:c_roma.holder..capital_province
+			}
+		}
+	
+		ai_chance = {	
+			base = 75
+	
+			modifier = {
+				add = 25
+				has_trait = zealous
+			}
+		}
+	}
+	option = { 
+		name = KoH_religiousflavour.47.b
+	
+		ai_chance = {	
+			base = 10
+	
+			modifier = {
+				add = -75
+				has_trait = zealous
+			}
+		}
+	}
+} 
+
+#Pope Complains of Heresy Run Rampant in Ruler's Lands #1
+KoH_religiousflavour.48 = { 
+	title = KoH_religiousflavour.48.t
+	desc = KoH_religiousflavour.48.desc
+	theme = faith
+	lower_center_portrait = {
+		character = scope:targetedruler
+	}
+	right_portrait = {
+		character = scope:cardinal
+	}
+	left_portrait = {
+		character = root
+	}
+
+	trigger = {		
+		has_title = title:k_papal_state
+		this = faith.religious_head
+		is_imprisoned = no
+		has_religion = religion:christianity_religion
+		has_faith = faith:catholic
+		current_year >= 1040
+		faith = { fervor >= 40 }
+
+		any_independent_ruler = {
+			highest_held_title_tier >= tier_duchy
+			has_faith = faith:catholic
+			title:k_papal_state.holder = faith.religious_head
+			any_realm_province = {
+				NOT = { faith = faith:catholic }
+			}
+			exists = cp:councillor_court_chaplain
+			NOT = {
+				cp:councillor_court_chaplain = {
+					is_performing_council_task = task_conversion
+				}
+			}
+		}
+	}
+
+	immediate = {
+		random_independent_ruler = {
+			limit = {
+				highest_held_title_tier >= tier_duchy
+				has_faith = faith:catholic
+				title:k_papal_state.holder = faith.religious_head
+				any_realm_province = {
+					NOT = { faith = faith:catholic }
+				}
+				exists = cp:councillor_court_chaplain
+				NOT = { 
+					cp:councillor_court_chaplain = {
+						is_performing_council_task = task_conversion
+					}
+				}
+			}
+			save_scope_as = targetedruler
+			random_realm_province = {
+				limit = {
+					NOT = { faith = faith:catholic }
+				}
+				save_scope_as = hereticprovince
+			}
+			save_scope_as = targetedruler
+		}
+		random_living_cardinal = { save_scope_as = cardinal } 
+	}
+
+	option = { 
+		name = KoH_religiousflavour.48.a
+		custom_tooltip = KoH_religiousflavour.48a.tta
+		
+		scope:targetedruler = {
+			trigger_event = {
+				id = KoH_religiousflavour.49
+				days = 3
+			}
+		}
+	
+		ai_chance = {	
+			base = 75
+	
+			modifier = {
+				add = 25
+				has_trait = zealous
+			}
+		}
+	}
+	option = { 
+		name = KoH_religiousflavour.48.b
+	
+		ai_chance = {	
+			base = 10
+	
+			modifier = {
+				add = -75
+				has_trait = zealous
+			}
+		}
+	}
+} 
+
+#Pope Complains of Heresy Run Rampant in Ruler's Lands  #2
+KoH_religiousflavour.49 = { 
+	title = KoH_religiousflavour.49.t
+	desc = KoH_religiousflavour.49.desc
+	theme = faith
+	right_portrait = {
+		character = scope:targetedruler
+	}
+	left_portrait = {
+		character = faith.religious_head
+	}
+
+	option = { 
+		name = KoH_religiousflavour.49.a
+		custom_tooltip = KoH_religiousflavour.49a.tta
+		
+		cp:councillor_court_chaplain = {
+			set_council_task = {
+				task_type = task_conversion
+				target = scope:hereticprovince
+			}
+		}
+
+		ai_chance = {	
+			base = 75
+	
+			modifier = {
+				add = 25
+				has_trait = zealous
+			}
+		}
+	}
+	option = { 
+		name = KoH_religiousflavour.49.b
+	
+
+		faith.religious_head = {
+			trigger_event = {
+				id = KoH_religiousflavour.50
+				months = 6
+			}
+		}
+
+		ai_chance = {	
+			base = 10
+	
+			modifier = {
+				add = -75
+				has_trait = zealous
+			}
+			modifier = {
+				add = 100
+				has_trait = cynical
+			}
+		}
+	}
+} 
+
+#Pope Complains of Heresy Run Rampant in Ruler's Lands  #3
+KoH_religiousflavour.50 = { 
+	title = KoH_religiousflavour.50.t
+	desc = KoH_religiousflavour.50.desc
+	theme = faith
+	right_portrait = {
+		character = scope:targetedruler
+	}
+	left_portrait = {
+		character = faith.religious_head
+	}
+
+	trigger = {
+		scope:targetedruler = {
+			exists = cp:councillor_court_chaplain
+			NOT = {
+				cp:councillor_court_chaplain = {
+					is_performing_council_task = task_conversion
+				}
+			}
+		}
+	}
+
+	option = { 
+		name = KoH_religiousflavour.50.a
+		custom_tooltip = KoH_religiousflavour.50a.tta
+		
+		scope:targetedruler = {
+			add_excommunication_actual_effect = yes
+		}
+
+		ai_chance = {	
+			base = 90
+	
+			modifier = {
+				add = 25
+				has_trait = zealous
+			}
+		}
+	}
+	option = { 
+		name = KoH_religiousflavour.50.b
+
+		ai_chance = {	
+			base = 10
+	
+			modifier = {
+				add = -75
+				has_trait = zealous
+			}
+		}
+	}
+}
+
+#Pope Demands Ruler Free Imprisoned Prince-Bishop #1
+KoH_religiousflavour.51 = { 
+	title = KoH_religiousflavour.51.t
+	desc = KoH_religiousflavour.51.desc
+	theme = faith
+	left_portrait = {
+		character = scope:targetedruler
+	}
+	right_portrait = {
+		character = scope:imprisonedbishop
+	}
+
+	trigger = {		
+		has_title = title:k_papal_state
+		this = faith.religious_head
+		is_imprisoned = no
+		has_religion = religion:christianity_religion
+		has_faith = faith:catholic
+		current_year >= 1040
+		faith = { fervor >= 40 }
+
+		any_independent_ruler = {
+			is_landed = yes
+			highest_held_title_tier >= tier_duchy
+			has_faith = faith:catholic
+			title:k_papal_state.holder = faith.religious_head
+			any_prisoner = {
+				has_faith = faith:catholic
+				is_imprisoned_by = prev
+				OR = { 
+					has_government = theocracy_government
+					has_council_position = councillor_court_chaplain
+				}
+			}
+		}
+	}
+
+	immediate = {
+		random_independent_ruler = {
+			limit = {
+				highest_held_title_tier >= tier_duchy
+				is_landed = yes
+				has_faith = faith:catholic
+				title:k_papal_state.holder = faith.religious_head
+				any_prisoner = {
+					has_faith = faith:catholic
+					is_imprisoned_by = prev
+					OR = { 
+						has_government = theocracy_government
+						has_council_position = councillor_court_chaplain
+					}
+				}
+			}
+			save_scope_as = targetedruler
+		}
+		scope:targetedruler = {
+			random_prisoner = {
+				limit = {
+					is_imprisoned_by = scope:targetedruler
+					has_faith = faith:catholic
+					OR = { 
+						has_government = theocracy_government
+						has_council_position = councillor_court_chaplain
+					}
+				}
+				save_scope_as = imprisonedbishop
+			}
+		}
+	}
+
+	option = { 
+		name = KoH_religiousflavour.51.a
+		custom_tooltip = KoH_religiousflavour.51a.tta
+		
+		scope:targetedruler = {
+			trigger_event = {
+				id = KoH_religiousflavour.52
+				days = 3
+			}
+		}
+	
+		ai_chance = {	
+			base = 75
+	
+			modifier = {
+				add = 25
+				has_trait = zealous
+			}
+		}
+	}
+	option = { 
+		name = KoH_religiousflavour.51.b
+	
+		scope:imprisonedbishop = {
+			add_opinion = {
+				target = root
+				modifier = angry_opinion
+				opinion = -10
+			}
+		}
+
+		ai_chance = {	
+			base = 10
+	
+			modifier = {
+				add = -75
+				has_trait = zealous
+			}
+		}
+	}
+} 
+
+#Pope Demands Ruler Free Imprisoned Prince-Bishop  #2
+KoH_religiousflavour.52 = { 
+	title = KoH_religiousflavour.52.t
+	desc = KoH_religiousflavour.52.desc
+	theme = faith
+	right_portrait = {
+		character = scope:imprisonedbishop
+	}
+	left_portrait = {
+		character = faith.religious_head
+	}
+
+	option = { 
+		name = KoH_religiousflavour.52.a
+		custom_tooltip = KoH_religiousflavour.52a.tta
+		
+		scope:imprisonedbishop = {
+			release_from_prison = yes
+		}
+
+		ai_chance = {	
+			base = 75
+	
+			modifier = {
+				add = 25
+				has_trait = zealous
+			}
+		}
+	}
+	option = { 
+		name = KoH_religiousflavour.52.b
+	
+
+		faith.religious_head = {
+			trigger_event = {
+				id = KoH_religiousflavour.53
+				months = 1
+			}
+		}
+
+		ai_chance = {	
+			base = 10
+	
+			modifier = {
+				add = -75
+				has_trait = zealous
+			}
+			modifier = {
+				add = 100
+				has_trait = cynical
+			}
+		}
+	}
+} 
+
+#Pope Demands Ruler Free Imprisoned Prince-Bishop  #3
+KoH_religiousflavour.53 = { 
+	title = KoH_religiousflavour.53.t
+	desc = KoH_religiousflavour.53.desc
+	theme = faith
+	hidden = yes
+
+	immediate = {
+		if = {
+			limit = {
+				scope:imprisonedbishop = {
+					is_imprisoned = yes
+					is_imprisoned_by = scope:targetedruler
+				}
+			}
+			faith.religious_head = {
+				trigger_event = KoH_religiousflavour.54
+			}
+		}
+	}
+}
+
+KoH_religiousflavour.54 = {
+	title = KoH_religiousflavour.54.t
+	desc = KoH_religiousflavour.54.desc
+	theme = faith
+	left_portrait = {
+		character = scope:targetedruler
+	}
+	right_portrait = {
+		character = faith.religious_head
+	}
+
+	option = { 
+		name = KoH_religiousflavour.54.a
+		custom_tooltip = KoH_religiousflavour.54a.tta
+		
+		scope:targetedruler = {
+			add_excommunication_actual_effect = yes
+			hidden_effect = {
+				send_interface_toast = {
+					type = event_toast_effect_good
+					title =  KoH_religiousflavour.54.a.toast
+					left_icon = faith.religious_head
+					show_as_tooltip = {
+						add_excommunication_actual_effect = yes
+					}
+				}
+			}
+		}
+
+		ai_chance = {	
+			base = 90
+	
+			modifier = {
+				add = 25
+				has_trait = zealous
+			}
+		}
+	}
+	option = { 
+		name = KoH_religiousflavour.54.b
+
+		ai_chance = {	
+			base = 10
+	
+			modifier = {
+				add = -75
+				has_trait = zealous
+			}
+		}
+	}
+}
+
+#Murdered a Bishop
+KoH_religiousflavour.55 = {
+	title = KoH_religiousflavour.55.t
+	desc = KoH_religiousflavour.55.desc
+	theme = faith
+	left_portrait = {
+		character = scope:targetedruler
+	}
+	right_portrait = {
+		character = faith.religious_head
+	}
+
+	option = { 
+		name = KoH_religiousflavour.55.a
+		custom_tooltip = KoH_religiousflavour.54a.tta
+		
+		scope:murderer = {
+			add_excommunication_actual_effect = yes
+			hidden_effect = {
+				send_interface_toast = {
+					type = event_toast_effect_good
+					title =  KoH_religiousflavour.54.a.toast
+					left_icon = faith.religious_head
+					show_as_tooltip = {
+						add_excommunication_actual_effect = yes
+					}
+				}
+			}
+		}
+
+		ai_chance = {	
+			base = 90
+	
+			modifier = {
+				add = 250
+				has_trait = zealous
+			}
+		}
+	}
+	option = { 
+		name = KoH_religiousflavour.55.b
+
+		ai_chance = {	
+			base = 10
+	
+			modifier = {
+				add = -75
+				has_trait = zealous
+			}
+		}
+	}
+}
+
+#Pope Excommunicates Ruler for Declaring War Against Prince-Bishop
+KoH_religiousflavour.56 = {
+	title = KoH_religiousflavour.56.t
+	desc = KoH_religiousflavour.56.desc
+	theme = faith
+	left_portrait = {
+		character = scope:BishopAttacker
+	}
+	lower_right_portrait = {
+		character = scope:BishopyDefender
+	}
+	right_portrait = {
+		character = scope:Pope
+	}
+
+	immediate = {
+		every_ruler = {
+			limit = {
+				is_at_war_with = scope:BishopyDefender		
+				any_character_war = {
+					is_war_leader = scope:attacker
+					is_participant = scope:BishopyDefender
+				}
+			}
+			save_scope_as = BishopAttacker
+		}
+
+		title:k_papal_state.holder = {
+			save_scope_as = Pope
+		}
+	}
+
+	option = { 
+		name = KoH_religiousflavour.56.a
+		custom_tooltip = KoH_religiousflavour.56a.tta
+		
+		scope:BishopAttacker = {
+			show_as_tooltip = {
+				every_character_war = {
+					limit = {
+						is_attacker = scope:BishopAttacker
+						is_defender = scope:BishopyDefender
+					}
+					every_war_attacker = {
+						add_excommunication_actual_effect = yes
+					}
+				}
+			}
+			trigger_event = {
+				id = KoH_religiousflavour.57
+				days = 3
+			}
+			
+		}
+
+		ai_chance = {	
+			base = 90
+	
+			modifier = {
+				add = 250
+				has_trait = zealous
+			}
+		}
+	}
+	option = { 
+		name = KoH_religiousflavour.56.b
+
+		ai_chance = {	
+			base = 10
+	
+			modifier = {
+				add = -75
+				has_trait = zealous
+			}
+		}
+	}
+}
+
+KoH_religiousflavour.57 = {
+	title = KoH_religiousflavour.57.t
+	desc = KoH_religiousflavour.57.desc
+	theme = faith
+	left_portrait = {
+		character = scope:BishopAttacker
+	}
+	lower_right_portrait = {
+		character = scope:BishopyDefender
+	}
+	right_portrait = {
+		character = scope:Pope
+	}
+
+	immediate = {
+		every_ruler = {
+			limit = {
+				is_at_war_with = scope:BishopyDefender		
+				any_character_war = {
+					is_war_leader = scope:attacker
+					is_participant = scope:BishopyDefender
+				}
+			}
+			save_scope_as = BishopAttacker
+		}
+
+		title:k_papal_state.holder = {
+			save_scope_as = Pope
+		}
+	}
+
+	option = { 
+		name = KoH_religiousflavour.57.a
+		custom_tooltip = KoH_religiousflavour.57a.tta
+		
+		scope:BishopAttacker = {
+			every_character_war = {
+				limit = {
+					is_attacker = scope:BishopAttacker
+					is_defender = scope:BishopyDefender
+				}
+				every_war_attacker = {
+					add_excommunication_actual_effect = yes
+				}
+			}
+		}
+
+
+		ai_chance = {	
+			base = 1
+		}
+	}
+}
 
 #Ending a Pilgrimage to a Saintly Tomb
 
@@ -1779,7 +3613,7 @@ KoH_religiousflavour.250 = {
 	}
 }
 
-#Saint related
+#Saint related - finds nearby saint
 KoH_religiousflavour.300 = { 
 	title = KoH_religiousflavour.300.t
 	desc = KoH_religiousflavour.300.desc
@@ -1960,7 +3794,23 @@ KoH_religiousflavour.499 = {
 
 KoH_religiousflavour.500 = { 
 	title = KoH_religiousflavour.500.t
-	desc = KoH_religiousflavour.500.desc
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					has_trait = cynical
+				}
+				desc = KoH_religiousflavour.500.desc.cynical
+			}
+			triggered_desc = {
+				trigger = {
+					NOT = { has_trait = cynical }
+				}
+				desc = KoH_religiousflavour.500.desc
+			}
+		}
+	}
+
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = root
@@ -2462,7 +4312,6 @@ KoH_religiousflavour.501 = {
 	}
 }
 
-
 #Non_events
 
 KoH_religiousflavour.799 = { 
@@ -2576,6 +4425,9 @@ KoH_religiousflavour.803 = {
 				modifier = public_opinion_positive
 				days = 10
 			}
+		}
+		title:k_orthodox.holder = {
+			save_scope_as = eastern_patriarch
 		}
 	}
 

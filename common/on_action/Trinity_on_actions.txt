@@ -576,8 +576,32 @@ trinity_events_tri_yearly_pulse = {
 	}
 }
 
-# eventtest = {
-# 	events = {
-# 		KoH_religiousflavour.24
-# 	}
-# }
+on_war_started = {
+	on_actions = {
+		Trinity_on_war_started
+	}
+}
+
+Trinity_on_war_started = {
+	effect = {
+		if = {
+			limit = {
+				exists = title:k_papal_state.holder
+
+				scope:defender = {
+					has_faith = faith:catholic
+					has_government = theocracy_government
+				}
+			}
+			scope:defender = {
+				save_scope_as = BishopyDefender
+			}
+			title:k_papal_state.holder = {
+				trigger_event = {
+					id = KoH_religiousflavour.56
+					days = 3
+				}
+			}
+		}
+	}
+}

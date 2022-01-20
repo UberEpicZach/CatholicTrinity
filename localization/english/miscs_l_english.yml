@@ -17,12 +17,11 @@ deinvest_in_cardinal_AI_decision_tooltip: "This decision is for AI to Deinvest i
 deinvest_in_cardinal_AI: "AI DeInvest in College"
 deinvest_in_cardinal_AI_confirm: "AI DeInvest in College"
 
-Launch_Crusade: "Launch_Crusade"
-Launch_Crusade_decision_tooltip: "Launch_Crusade"
-Launch_Crusade_decision_desc: "Launch_Crusade"
-Launch_Crusade: "Launch_Crusade"
-Launch_Crusade_confirm: "Launch_Crusade"
-Launch_Crusade_confirm: "Launch_Crusade"
+Launch_Crusade: "Declare a Crusade."
+Launch_Crusade_decision_effect_tooltip: "You will start the countdown for a Crusade\n\nDue to limitations, the game will choose a Target for you initally, you must use the redirect crusade option to chose a target yourself."
+Launch_Crusade_decision_desc: "The armies of the infidels inch ever closer. As the Vicar of Christ and holder of the Keys to the Kingdom, it is my sacred duty to rally all Christendom to the banner of the Lord."
+Launch_Crusade: "Declare a Crusade."
+Launch_Crusade_confirm: "By grace of god...."
 
 InstallAntipope_decision_desc: "Install Antipope"
 InstallAntipope_decision_tooltip: "Install Antipope"
@@ -63,3 +62,9 @@ deinvest_in_cardinal_AI_decision_effect_tooltip: "This decision is for AI to Dei
 trait_rot_antipope:0 "Antipope"
 trait_rot_antipope_desc:0 "This character is an Antipope, a contender for the [faith|E] [head_of_faith|E]."
 rot_make_antipope_interaction_desc:0 "Create an Antipope"
+
+DonationCountyClergy: "Donate land to the Clergy"
+DonationCountyClergy: "Donate land to the Clergy"
+DonationCountyClergy_decision_tooltip: "You will donate a county to the Clergy"
+DonationCountyClergy_decision_desc: "The act of donation, of giving away, is a most pious thing. And most would say that the Clergy are always in need of more land to administer, land on which they can guide the people down the right path in life. As such, I could give away a bit of my own lands to the Clergy, and be seen as a most Pious person for it"
+DonationCountyClergy_confirm: "Let us decide.."

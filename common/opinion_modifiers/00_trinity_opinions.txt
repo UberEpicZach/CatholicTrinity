@@ -18,6 +18,11 @@ refused_changed_investiture_law = {
 	decaying = yes
 }
 
+bishop_bribed_by_pope = {
+	monthly_change = 0.4
+	decaying = yes
+}
+
 rot_created_antipope = {
 	opinion = 30
 	years = 20

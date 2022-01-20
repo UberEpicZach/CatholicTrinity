@@ -1,0 +1,2 @@
+﻿div2 = {	value = this	multiply = 0.5	}
+div3 = {	value = this	multiply = 0.9	}

@@ -164,13 +164,47 @@
   KoH_religiousflavour.30.a: "Perhaps we have other avenues?.." 
   KoH_religiousflavour.30.a.tt: "By this end, while [popewantsit.GetTitledFirstName] hasn't yet changed laws, other opportunities may arise to assit along this changing of laws."
 
+
+
+  KoH_religiousflavour.31.t: "Investiture: Gaining clegical support"
+  KoH_religiousflavour.31.desc: "[popewantsit.GetTitledFirstName] has made himself clear in his aims to keep his realm locked into the ways of [free_investiture|E], this poses massive issues for the faith if I am not able to significantly hold authority of the catholic realms of the world, I am by god above, the Pope. It will need to be up to the servants of Christ to rectify this.."
+  KoH_religiousflavour.31.a: "Demand allegiance to the Throne of St. Peter."
+  KoH_religiousflavour.31.b: "Let it slide" 
+  KoH_religiousflavour.31a.tta: "[bishop.GetTitledFirstName] will listen to the demands of The Holy Father"
+  KoH_religiousflavour.31a.ttb: "If [bishop.GetTitledFirstName] accepts:"
+
+  KoH_religiousflavour.32.t: "Investiture: The Papal Envoy"
+  KoH_religiousflavour.32.desc: "An emissary is visiting you from the Papacy, giving us gifts and demanding our allegiance to the Throne of St. Peter, this is partially due to the conflict between the Papacy and my liege over the laws of [investiture|E].
+  KoH_religiousflavour.32.a.tt: "The Emperor finds out.."
+  KoH_religiousflavour.32.a: "I accept his donation, we can finally upgrade the temple..."
+  KoH_religiousflavour.32.b: "Is it pious to accept bribes?"
+  KoH_religiousflavour.32.a.toast: "You took the bribe"
+  KoH_religiousflavour.32.b.toast: "The Emperor found out..."
+
+  KoH_religiousflavour.33.t: "Investiture: Behind ones back.."
+  KoH_religiousflavour.33.desc: "Vassal [bishop..GetName], has been seen taking messages and money from a Papal Envoy, while usually without issue, this happens to have occured during a time when showing our supremacy over all religious matters should be a focus, and it seems the Pope has seen to do the same - distrusting our own authority over our realm, would be best to keep an eye on them.."
+  KoH_religiousflavour.33.a: "With ever watchful eyes.."
+  KoH_religiousflavour.33.b: "I..Imprison HIM!"
+
+
+  KoH_religiousflavour.46.b.toast: "The Papacy Sends Support Towards your [holy_war|E]!"
+
+
+  KoH_religiousflavour.54.a.toast: "Excommunicated for wrongful imprisonment of bishop!"
+
+
+  murdered_biship_modifier:0 "Murdered a Bishop"
+
   KoH_religiousflavour.250.t: "[saintlocation.GetNameNoTier], Resting place of Saint [localsaint.GetFirstNameNicknamedRegnal]."
-  KoH_religiousflavour.250.desc: "Ya boi"
+  KoH_religiousflavour.250.desc: "Ya boi" #REPLACE LOC
   KoH_religiousflavour.250.a: "The lovely [saintlocation.GetNameNoTier]."
 
 
   KoH_religiousflavour.500.t: "Donation to the Clergy: County Selection"
-  KoH_religiousflavour.500.desc: "To donate land to the clergy, we must first select which lands we wish to donate!"
+  KoH_religiousflavour.500.desc: "Many would argue that there is no grander purpose in life than serving God directly. And many join the ranks of the Church for precisely that reason. However, for those unable to do that, serving God must be done in different ways. \n\nPerhaps the most pious way that is available to a person such as I, is donating land to the Clergy, so that may do their duty all the better. \n\nThere is more to it than just sheer generosity, ofcourse, for I shall be known by many as a good and pious Christian for helping the Clergy. All good deeds shall be rewarded, indeed. \nRegardless, now I must decide what land I should give away to the Clergy:"
+
+  KoH_religiousflavour.500.desc.cynical: "Though some would argue that the Clergy, be they bishops, priests or deacons, can be a most capricious sort. At times they can be greedy, and sometimes very generous. \n\nAs such, it is in my best interest to keep them happy, docile even. Just as a petty Lord can be given a pittance of gold, to keep them in line, so can the Clergy- but more often than not, they are not so easily bribed. \n\nSome land given freely to them should be enough. Especially if it shall remain theirs to administer in perpetuity.\n\nThus, I should give away the county of:"
+
   KoH_religiousflavour.500.a: "The lovely [clergycounty_1.GetName]."
   KoH_religiousflavour.500.b: "I heard [clergycounty_2.GetName] is a pious place."
   KoH_religiousflavour.500.c: "Maybe the [clergycounty_3.GetName]?"
@@ -197,6 +231,6 @@
   KoH_religiousflavour.800.desc: "In a large event, [popeman.GetName] had sent message to the entire christian world, declaring his supremacy over Investiture, demanding all catholics currently ruling under [free_investiture|E] to tranfser authority towards realm law [papal_investiture|E]."
   KoH_religiousflavour.800.a: "Okay"
 
-  KoH_religiousflavour.803.t: ""
-  KoH_religiousflavour.803.desc: ""
-  KoH_religiousflavour.803.a: ""
+  KoH_religiousflavour.803.t: "Crusader Kings"
+  KoH_religiousflavour.803.desc: "Further and further do the heathens encroach upon Christendom, bound by their evil custom to pummel the longsuffering believers lower and lower into the dirt.\n\nThe leader of the Eastern schismatics, [eastern_patriarch.GetTitledFirstName] of Constantinople, is the only other ecclesiastical leader with the prestige and influence to rally common will for a solution. But he is said to be ironbound to the will of the Eastern Emperor — I, on the other hand, am in effect bound to none.\n\nI steel my nerve by uttering to myself from the 59th Psalm:\n#bold “Scatter them by Your power, and bring them down, O Lord, our shield.” #! \n\nTaking up my quill and sending word for a host of messengers, I try not to consider the first sentence of the verse. This not a time for contemplation and tolerance, but for action."
+  KoH_religiousflavour.803.a: "Deus Vult!"

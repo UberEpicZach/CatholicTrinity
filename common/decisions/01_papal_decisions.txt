@@ -22,6 +22,24 @@
 				exists = var:variable_ghw_cooldown
 				religion = { exists = var:variable_first_ghw_cooldown }
 			}
+			OR = {
+				has_doctrine_parameter = great_holy_wars_active
+				AND = {
+					has_doctrine_parameter = great_holy_wars_active_if_reformed
+					NOT = { has_doctrine_parameter = unreformed }
+				}
+				has_doctrine = divine_destiny_doctrine #SPECIAL: Has become the Chakravarti
+			}
+			has_doctrine = doctrine_spiritual_head
+			NOR = {
+				has_doctrine = unreformed_faith_doctrine
+				AND = {
+					has_doctrine = tenet_dharmic_pacifism
+					NOT = { has_doctrine = divine_destiny_doctrine }
+				}
+				has_doctrine = tenet_pacifism
+			}
+			fervor >= 75
 		}
 	}
 
@@ -40,6 +58,24 @@
 				exists = var:variable_ghw_cooldown
 				religion = { exists = var:variable_first_ghw_cooldown }
 			}
+			OR = {
+				has_doctrine_parameter = great_holy_wars_active
+				AND = {
+					has_doctrine_parameter = great_holy_wars_active_if_reformed
+					NOT = { has_doctrine_parameter = unreformed }
+				}
+				has_doctrine = divine_destiny_doctrine #SPECIAL: Has become the Chakravarti
+			}
+			has_doctrine = doctrine_spiritual_head
+			NOR = {
+				has_doctrine = unreformed_faith_doctrine
+				AND = {
+					has_doctrine = tenet_dharmic_pacifism
+					NOT = { has_doctrine = divine_destiny_doctrine }
+				}
+				has_doctrine = tenet_pacifism
+			}
+			fervor >= 75
 		}
 		prestige_level >= very_high_prestige_level
 		piety_level >= high_piety_level
@@ -60,11 +96,12 @@
 	cooldown = { years = 30 }
 
 	effect = {
+		custom_tooltip = Launch_Crusade_decision_effect_tooltip
 		faith:catholic = {
-			add_doctrine = doctrine_spiritual_head
+			hidden_effect = { if = { limit = { NOT = { has_doctrine = doctrine_spiritual_head } } add_doctrine = doctrine_spiritual_head } }
 			trigger_event = great_holy_war.0001
 			religious_head = {
-				trigger_event = KoH_religiousflavour.802
+				trigger_event = KoH_religiousflavour.803
 			}
 		}
 	}

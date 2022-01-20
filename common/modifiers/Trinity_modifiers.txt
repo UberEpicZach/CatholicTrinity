@@ -33,3 +33,14 @@ donatedlandtoclergy = {
 	icon = piety_positive
 	clergy_opinion = 10
 }
+
+refusedpope = {
+	icon = piety_negative
+	clergy_opinion = -15
+}
+
+murdered_biship_modifier = {
+	icon = intrigue_negative
+	general_opinion = -20
+	clergy_opinion = -90
+}
