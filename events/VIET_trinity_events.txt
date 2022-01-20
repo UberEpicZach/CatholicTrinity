@@ -1,0 +1,1237 @@
+﻿############################################################################################################################
+# 
+# VIET Style Events coded by Cybrxkhan for the Catholic Trinity Mod
+# VIETtrinity.0000-VIETmisc.0999 reserved
+# Fired from the on_actions for every three or five years depending on rarity
+#
+# 0001-0015			Pope Themed
+#
+############################################################################################################################
+
+namespace = VIETtrinity
+
+##################################################################
+# POPE THEMED 0001-0015
+# Events for the Pope
+##################################################################
+
+
+# Pope gives opinion on how to deal with vernacular translations
+VIETtrinity.0001 = {
+	type = character_event
+	title = VIETtrinity.0001.t
+	desc = VIETtrinity.0001.desc
+	theme = learning
+	override_icon = { reference = "gfx/interface/icons/event_types/type_faith.dds" } 
+	
+	left_portrait = root
+
+	trigger = {
+		is_pope = yes
+	}
+	
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			add = 0.2
+			has_trait = diligent
+		}
+		modifier = {
+			add = -0.2
+			has_trait = lazy
+		}
+		modifier = {
+			add = 0.2
+			has_trait = zealous
+		}
+		modifier = {
+			add = -0.2
+			has_trait = cynical
+		}
+		modifier = {
+			add = 0.2
+			learning >= decent_skill_rating
+		}
+		modifier = {
+			add = -0.2
+			learning <= mediocre_skill_rating
+		}
+	}
+	
+	option = { # ok
+		name = VIETtrinity.0001.a
+		add_piety = 30
+		#if = {
+		#	limit = {
+		#		has_game_rule = VIET_historical_context_on
+		#	}
+			custom_tooltip = VIETtrinity.0001.info
+		#}	
+	}
+	option = { # ok
+		name = VIETtrinity.0001.b
+		add_prestige = 30	
+		#if = {
+		#	limit = {
+		#		has_game_rule = VIET_historical_context_on
+		#	}
+			custom_tooltip = VIETtrinity.0001.info
+		#}	
+	}
+	option = { # ok
+		name = VIETtrinity.0001.c
+		add_piety = 15
+		add_prestige = 15
+		#if = {
+		#	limit = {
+		#		has_game_rule = VIET_historical_context_on
+		#	}
+			custom_tooltip = VIETtrinity.0001.info
+		#}			
+	}
+	option = { # ok
+		name = VIETtrinity.0001.d
+		trigger = {
+			learning >= decent_skill_rating
+		}
+		skill = learning
+		add_piety = 25
+		add_prestige = 25
+		add_character_modifier = {
+			modifier = VIET_trinity_theological_knowledge
+			years = 5
+		}
+		#if = {
+		#	limit = {
+		#		has_game_rule = VIET_historical_context_on
+		#	}
+			custom_tooltip = VIETtrinity.0001.info
+		#}	
+	}
+}
+
+
+# Relative asks for good words from you
+VIETtrinity.0002 = {
+	type = character_event
+	title = VIETtrinity.0002.t
+	desc = VIETtrinity.0002.desc
+	theme = diplomacy_family_focus
+	override_icon = { reference = "gfx/interface/icons/event_types/type_faith.dds" } 
+	
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}	
+	right_portrait = {
+		character = scope:relative
+		animation = personality_dishonorable
+	}
+
+	trigger = {
+		is_pope = yes
+		any_close_family_member = {
+			is_alive = yes
+			is_available_ai_adult = yes
+			NOT = { this = root }
+		}
+	}
+	
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			add = 0.2
+			has_trait = gregarious
+		}
+		modifier = {
+			add = -0.2
+			has_trait = shy
+		}
+		modifier = {
+			add = 0.2
+			has_trait = ambitious
+		}
+		modifier = {
+			add = -0.2
+			has_trait = content
+		}
+		modifier = {
+			add = 0.2
+			has_trait = arbitrary
+		}
+		modifier = {
+			add = -0.2
+			has_trait = just
+		}
+	}
+
+	immediate = {
+		random_close_family_member = {
+			limit = {
+				is_alive = yes
+				is_available_ai_adult = yes
+				NOT = { this = root }
+			}
+			save_scope_as = relative
+		}
+	}
+	
+	option = { # ok
+		name = VIETtrinity.0002.a
+		scope:relative = {
+			add_opinion = {
+				target = root
+				modifier = VIET_trinity_opinion_papal_relative_didnt_helped_me
+			}	
+		}
+		stress_impact = {
+			greedy = minor_stress_impact_gain
+			arbitrary = minor_stress_impact_gain
+		}	
+	}
+	option = { # ok
+		name = VIETtrinity.0002.b
+		add_piety = -50
+		add_prestige = 50
+		dynasty = { add_dynasty_prestige = 50 }
+		scope:relative = {
+			add_piety = 50
+			add_prestige = 50
+			add_opinion = {
+				target = root
+				modifier = VIET_trinity_opinion_papal_relative_helped_me
+			}	
+			add_character_modifier = {
+				modifier = VIET_trinity_praised_by_church_authorities
+				years = 10
+			}	
+		}
+		stress_impact = {
+			zealous = minor_stress_impact_gain
+			just = minor_stress_impact_gain
+		}
+	}
+	option = { # ok
+		name = VIETtrinity.0002.c
+		add_piety = -100
+		add_prestige = 50
+		dynasty = { add_dynasty_prestige = 50 }
+		add_gold = 50
+		scope:relative = {
+			add_piety = 50
+			add_prestige = 50
+			add_opinion = {
+				target = root
+				modifier = VIET_trinity_opinion_papal_relative_helped_me_bribe
+			}	
+			add_character_modifier = {
+				modifier = VIET_trinity_praised_by_church_authorities
+				years = 10
+			}	
+		}
+		stress_impact = {
+			zealous = medium_stress_impact_gain
+			just = medium_stress_impact_gain
+			generous = minor_stress_impact_gain
+			temperate = minor_stress_impact_gain
+		}
+	}
+}
+
+
+
+# Feeling overwhelmed by Papal responsibilities
+VIETtrinity.0003 = {
+	type = character_event
+	title = VIETtrinity.0003.t
+	desc = VIETtrinity.0003.desc
+	theme = unfriendly
+	
+	right_portrait = {
+		character = root
+		animation = stress
+	}
+
+	trigger = {
+		is_pope = yes
+	}
+	
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			add = 0.2
+			has_trait = shy
+		}
+		modifier = {
+			add = -0.2
+			has_trait = gregarious
+		}
+		modifier = {
+			add = 0.2
+			has_trait = ambitious
+		}
+		modifier = {
+			add = -0.2
+			has_trait = content
+		}
+		modifier = {
+			add = 0.2
+			has_trait = impatient
+		}
+		modifier = {
+			add = -0.2
+			has_trait = patient
+		}
+	}
+	
+	option = { # ok
+		name = VIETtrinity.0003.a
+		add_piety = 30
+		stress_impact = {
+			cynical = minor_stress_impact_gain
+		}
+	}
+	option = { # ok
+		name = VIETtrinity.0003.b
+		add_piety = 15
+		add_prestige = 15
+		stress_impact = {
+			lazy = minor_stress_impact_gain
+		}
+	}
+	option = { # ok
+		name = VIETtrinity.0003.c
+		add_prestige = 30
+		stress_impact = {
+			trusting = minor_stress_impact_gain
+		}
+	}
+}
+
+
+
+# Legate asks for advice before traveling to be your representative
+VIETtrinity.0004 = {
+	type = character_event
+	title = VIETtrinity.0004.t
+	desc = VIETtrinity.0004.desc
+	theme = diplomacy_foreign_affairs_focus
+	override_background = { event_background = council_chamber }
+	
+	right_portrait = {
+		character = root
+		animation = personality_compassionate
+	}
+
+	trigger = {
+		is_pope = yes
+	}
+	
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			add = 0.2
+			has_trait = gregarious
+		}
+		modifier = {
+			add = -0.2
+			has_trait = shy
+		}
+		modifier = {
+			add = 0.2
+			has_trait = patient
+		}
+		modifier = {
+			add = -0.2
+			has_trait = impatient
+		}
+		modifier = {
+			add = 0.2
+			has_trait = just
+		}
+		modifier = {
+			add = -0.2
+			has_trait = arbitrary
+		}
+	}
+	
+	option = { # ok
+		name = VIETtrinity.0004.a
+		add_prestige = 50
+		stress_impact = {
+			trusting = miniscule_stress_impact_gain
+			forgiving = miniscule_stress_impact_gain
+		}
+	}
+	option = { # ok
+		name = VIETtrinity.0004.b
+		add_piety = 50
+		stress_impact = {
+			cynical = miniscule_stress_impact_gain
+			paranoid = miniscule_stress_impact_gain
+		}
+	}
+	option = { # ok
+		name = VIETtrinity.0004.c
+		add_piety = 25
+		add_prestige = 25
+		stress_impact = {
+			ambitious = miniscule_stress_impact_gain
+			impatient = miniscule_stress_impact_gain
+		}
+	}
+}
+
+
+# Choose a new legate to represent you
+VIETtrinity.0005 = {
+	type = character_event
+	title = VIETtrinity.0005.t
+	desc = VIETtrinity.0005.desc
+	theme = diplomacy_foreign_affairs_focus
+	
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+
+	trigger = {
+		is_pope = yes
+	}
+	
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			add = 0.2
+			has_trait = diligent
+		}
+		modifier = {
+			add = -0.2
+			has_trait = lazy
+		}
+		modifier = {
+			add = 0.2
+			has_trait = ambitious
+		}
+		modifier = {
+			add = -0.2
+			has_trait = content
+		}
+		modifier = {
+			add = 0.2
+			has_trait = patient
+		}
+		modifier = {
+			add = -0.2
+			has_trait = impatient
+		}
+	}
+	
+	option = { # ok
+		name = VIETtrinity.0005.a
+		add_character_modifier = {
+			modifier = VIET_trinity_legate_firebrand
+			years = 8
+		}
+		stress_impact = {
+			cynical = minor_stress_impact_gain
+			shy = minor_stress_impact_gain
+		}
+	}
+	option = { # ok
+		name = VIETtrinity.0005.b
+		add_character_modifier = {
+			modifier = VIET_trinity_legate_scholar
+			years = 8
+		}
+		stress_impact = {
+			impatient = miniscule_stress_impact_gain
+			wrathful = miniscule_stress_impact_gain
+		}
+	}
+	option = { # ok
+		name = VIETtrinity.0005.c
+		add_character_modifier = {
+			modifier = VIET_trinity_legate_friend
+			years = 8
+		}
+		stress_impact = {
+			zealous = miniscule_stress_impact_gain
+			just = miniscule_stress_impact_gain
+		}
+	}
+	option = { # ok
+		name = VIETtrinity.0005.d
+		add_character_modifier = {
+			modifier = VIET_trinity_legate_serious
+			years = 8
+		}
+		stress_impact = {
+			gregarious = miniscule_stress_impact_gain
+			lustful = miniscule_stress_impact_gain
+		}
+	}
+	option = { # ok
+		name = VIETtrinity.0005.e
+		add_character_modifier = {
+			modifier = VIET_trinity_legate_personable
+			years = 8
+		}
+		stress_impact = {
+			paranoid = miniscule_stress_impact_gain
+			diligent = miniscule_stress_impact_gain
+		}
+	}
+}
+
+
+
+
+# Secular rulers resent you having power
+VIETtrinity.0006 = {
+	type = character_event
+	title = VIETtrinity.0006.t
+	desc = VIETtrinity.0006.desc
+	theme = diplomacy_foreign_affairs_focus
+	
+	left_portrait = root
+
+	trigger = {
+		is_pope = yes
+	}
+	
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			add = 0.2
+			has_trait = arrogant
+		}
+		modifier = {
+			add = -0.2
+			has_trait = humble
+		}
+		modifier = {
+			add = 0.2
+			has_trait = wrathful
+		}
+		modifier = {
+			add = -0.2
+			has_trait = lazy
+		}
+		modifier = {
+			add = 0.2
+			has_trait = stubborn
+		}
+		modifier = {
+			add = -0.2
+			has_trait = fickle
+		}
+	}
+	
+	option = { # ok
+		name = VIETtrinity.0006.a
+		add_piety = 25
+		add_prestige = 25
+	}
+	option = { # ok
+		name = VIETtrinity.0006.b
+		add_piety = 50
+	}
+	option = { # ok
+		name = VIETtrinity.0006.c
+		add_prestige = 50
+	}
+}
+
+
+
+# Church officials praised for being good under your leadership
+VIETtrinity.0007 = {
+	type = character_event
+	title = VIETtrinity.0007.t
+	desc = VIETtrinity.0007.desc
+	theme = faith
+	override_background = { event_background = council_chamber }
+	
+	left_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+
+	trigger = {
+		is_pope = yes
+	}
+	
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			add = 0.2
+			has_trait = just
+		}
+		modifier = {
+			add = -0.2
+			has_trait = arbitrary
+		}
+		modifier = {
+			add = 0.2
+			has_trait = compassionate
+		}
+		modifier = {
+			add = -0.2
+			has_trait = callous
+		}
+		modifier = {
+			add = 0.2
+			has_trait = generous
+		}
+		modifier = {
+			add = -0.2
+			has_trait = greedy
+		}
+	}
+	
+	option = { # ok
+		name = VIETtrinity.0007.a
+		add_character_modifier = {
+			modifier = VIET_trinity_church_officials_good
+			years = 5
+		}
+		#if = {
+		#	limit = {
+		#		has_game_rule = VIET_historical_context_on
+		#	}
+		custom_tooltip = VIETtrinity.0007.info
+		#}	
+	}
+}
+
+
+# Scholar suggests you encourage others to calculate when the apocalypse will happen
+VIETtrinity.0008 = {
+	type = character_event
+	title = VIETtrinity.0008.t
+	desc = VIETtrinity.0008.desc
+	theme = learning
+	
+	left_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+
+	trigger = {
+		is_pope = yes
+	}
+	
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			add = 0.2
+			has_trait = just
+		}
+		modifier = {
+			add = -0.2
+			has_trait = arbitrary
+		}
+		modifier = {
+			add = 0.2
+			has_trait = compassionate
+		}
+		modifier = {
+			add = -0.2
+			has_trait = callous
+		}
+		modifier = {
+			add = 0.2
+			has_trait = generous
+		}
+		modifier = {
+			add = -0.2
+			has_trait = greedy
+		}
+	}
+	
+	option = { # ok
+		name = VIETtrinity.0008.a
+		add_prestige = 25
+		#if = {
+		#	limit = {
+		#		has_game_rule = VIET_historical_context_on
+		#	}
+		custom_tooltip = VIETtrinity.0008.info
+		#}	
+	}
+	option = { # ok
+		name = VIETtrinity.0008.b
+		add_prestige = -75
+		add_piety = -75
+		add_character_modifier = {
+			modifier = VIET_trinity_calculating_apocalypse
+			years = 10
+		}
+		#if = {
+		#	limit = {
+		#		has_game_rule = VIET_historical_context_on
+		#	}
+		custom_tooltip = VIETtrinity.0008.info
+		#}	
+	}
+	option = { # ok
+		name = VIETtrinity.0008.c
+		add_piety = 25
+		#if = {
+		#	limit = {
+		#		has_game_rule = VIET_historical_context_on
+		#	}
+		custom_tooltip = VIETtrinity.0008.info
+		#}	
+	}
+}
+
+
+# Pope gives a good sermon
+VIETtrinity.0009 = {
+	type = character_event
+	title = VIETtrinity.0009.t
+	desc = VIETtrinity.0009.desc
+	theme = faith
+	override_icon = { reference = "gfx/interface/icons/event_types/type_relation_friendly.dds" }
+	
+	left_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+
+	trigger = {
+		is_pope = yes
+	}
+	
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			add = 0.2
+			has_trait = just
+		}
+		modifier = {
+			add = -0.2
+			has_trait = arbitrary
+		}
+		modifier = {
+			add = 0.2
+			has_trait = zealous
+		}
+		modifier = {
+			add = -0.2
+			has_trait = cynical
+		}
+		modifier = {
+			add = 0.2
+			has_trait = gregarious
+		}
+		modifier = {
+			add = -0.2
+			has_trait = shy
+		}
+	}
+	
+	option = { # ok
+		name = VIETtrinity.0009.a
+		add_character_modifier = {
+			modifier = VIET_trinity_good_sermon
+			years = 4
+		}
+		stress_impact = {
+			base = miniscule_stress_impact_loss
+			arrogant = miniscule_stress_impact_loss
+			zealous = miniscule_stress_impact_loss
+			gregarious = miniscule_stress_impact_loss
+		}
+	}
+}
+
+
+
+
+# Pope gives a bad sermon
+VIETtrinity.0010 = {
+	type = character_event
+	title = VIETtrinity.0010.t
+	desc = VIETtrinity.0010.desc
+	theme = faith
+	override_icon = { reference = "gfx/interface/icons/event_types/type_relation_unfriendly.dds" }
+	
+	left_portrait = {
+		character = root
+		animation = shame
+	}
+
+	trigger = {
+		is_pope = yes
+	}
+	
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			add = 0.2
+			has_trait = arbitrary
+		}
+		modifier = {
+			add = -0.2
+			has_trait = just
+		}
+		modifier = {
+			add = 0.2
+			has_trait = cynical
+		}
+		modifier = {
+			add = -0.2
+			has_trait = zealous
+		}
+		modifier = {
+			add = 0.2
+			has_trait = shy
+		}
+		modifier = {
+			add = -0.2
+			has_trait = gregarious
+		}
+	}
+	
+	option = { # ok
+		name = VIETtrinity.0010.a
+		add_character_modifier = {
+			modifier = VIET_trinity_bad_sermon
+			years = 4
+		}
+		stress_impact = {
+			base = miniscule_stress_impact_gain
+			arrogant = miniscule_stress_impact_gain
+			zealous = miniscule_stress_impact_gain
+			gregarious = miniscule_stress_impact_gain
+		}
+	}
+}
+
+
+# Writing a letter to a legate inspires you
+VIETtrinity.0011 = {
+	type = character_event
+	title = VIETtrinity.0011.t
+	desc = VIETtrinity.0011.desc
+	theme = faith
+	override_background = { event_background = study }
+	
+	left_portrait = {
+		character = root
+		animation = personality_content
+	}
+
+	trigger = {
+		is_pope = yes
+	}
+	
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			add = 0.2
+			has_trait = zealous
+		}
+		modifier = {
+			add = -0.2
+			has_trait = cynical
+		}
+		modifier = {
+			add = 0.2
+			has_trait = content
+		}
+		modifier = {
+			add = -0.2
+			has_trait = ambitious
+		}
+		modifier = {
+			add = 0.2
+			has_trait = just
+		}
+		modifier = {
+			add = -0.2
+			has_trait = arbitrary
+		}
+	}
+	
+	option = { # ok
+		name = VIETtrinity.0011.a
+		add_piety = 25
+	}	
+	option = { # ok
+		name = VIETtrinity.0011.b
+		stress_impact = {
+			base = minor_stress_impact_loss
+			zealous = miniscule_stress_impact_loss
+		}
+	}
+}
+
+
+# Writing a letter to a legate about difficult spiritual matters
+VIETtrinity.0012 = {
+	type = character_event
+	title = VIETtrinity.0012.t
+	desc = VIETtrinity.0012.desc
+	theme = faith
+	override_background = { event_background = study }
+	
+	left_portrait = {
+		character = root
+		animation = stress
+	}
+
+	trigger = {
+		is_pope = yes
+	}
+	
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			add = 0.2
+			has_trait = diligent
+		}
+		modifier = {
+			add = -0.2
+			has_trait = content
+		}
+		modifier = {
+			add = 0.2
+			has_trait = honest
+		}
+		modifier = {
+			add = -0.2
+			has_trait = deceitful
+		}
+		modifier = {
+			add = 0.2
+			has_trait = impatient
+		}
+		modifier = {
+			add = -0.2
+			has_trait = patient
+		}
+	}
+	
+	option = { # ok
+		name = VIETtrinity.0012.a
+		stress_impact = {
+			base = miniscule_stress_impact_loss
+			lazy = miniscule_stress_impact_loss
+			content = miniscule_stress_impact_loss
+		}
+	}	
+	option = { # ok
+		name = VIETtrinity.0012.b
+		add_piety = 25
+		stress_impact = {
+			cynical = miniscule_stress_impact_gain
+		}
+	}
+	option = { # ok
+		name = VIETtrinity.0012.c
+		add_prestige = 25
+		stress_impact = {
+			lazy = miniscule_stress_impact_gain
+		}
+	}
+}
+
+
+
+# Cleric urges stricter discipline for clergy
+VIETtrinity.0013 = {
+	type = character_event
+	title = VIETtrinity.0013.t
+	desc = VIETtrinity.0013.desc
+	theme = corruption
+	override_background = { event_background = council_chamber }
+	
+	left_portrait = {
+		character = root
+		animation = stress
+	}
+
+	trigger = {
+		is_pope = yes
+	}
+	
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			add = 0.2
+			has_trait = diligent
+		}
+		modifier = {
+			add = -0.2
+			has_trait = content
+		}
+		modifier = {
+			add = 0.2
+			has_trait = zealous
+		}
+		modifier = {
+			add = -0.2
+			has_trait = cynical
+		}
+		modifier = {
+			add = 0.2
+			has_trait = honest
+		}
+		modifier = {
+			add = -0.2
+			has_trait = deceitful
+		}
+	}
+	
+	option = { # ok
+		name = VIETtrinity.0013.a
+		add_prestige = -150
+		add_character_modifier = {
+			modifier = VIET_trinity_stricter_discipline
+			years = 10
+		}
+		stress_impact = {
+			content = minor_stress_impact_gain
+			arrogant = minor_stress_impact_gain
+			callous = minor_stress_impact_gain
+			lazy = minor_stress_impact_gain
+			craven = minor_stress_impact_gain
+		}
+	}
+	option = { # ok
+		name = VIETtrinity.0013.b
+		add_piety = 20
+		stress_impact = {
+			cynical = minor_stress_impact_gain
+			arrogant = miniscule_stress_impact_gain
+			paranoid = miniscule_stress_impact_gain
+		}
+	}
+	option = { # ok
+		name = VIETtrinity.0013.c
+		add_prestige = 20
+		stress_impact = {
+			humble = minor_stress_impact_gain
+			diligent = miniscule_stress_impact_gain
+			compassionate = miniscule_stress_impact_gain
+		}
+	}
+}
+
+
+# Rumors of being an improper head of faith
+VIETtrinity.0014 = {
+	type = character_event
+	title = VIETtrinity.0014.t
+	desc = VIETtrinity.0014.desc
+	theme = faith
+	
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+
+	trigger = {
+		is_pope = yes
+		OR = {
+			piety_level < 4
+			num_sinful_traits >= 1
+			has_personality_malicious_trigger = yes
+		}
+		num_virtuous_traits <= 1
+	}
+	
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			add = 0.2
+			has_trait = cynical
+		}
+		modifier = {
+			add = -0.2
+			has_trait = zealous
+		}
+		modifier = {
+			add = 0.2
+			has_trait = greedy
+		}
+		modifier = {
+			add = -0.2
+			has_trait = generous
+		}
+		modifier = {
+			add = 0.2
+			num_sinful_traits > 1
+		}
+		modifier = {
+			add = -0.2
+			num_virtuous_traits >= 1
+		}
+		modifier = {
+			add = 0.2
+			has_personality_malicious_trigger = yes
+		}
+		modifier = {
+			add = -0.2
+			has_personality_benevolent_trigger = yes
+		}
+	}
+	
+	option = { # ok
+		name = VIETtrinity.0014.a
+		trigger = {
+			NOT = { has_trait = temperate }
+			NOT = { has_trait = generous }
+		}
+		add_character_modifier = {
+			modifier = VIET_trinity_bad_rumors
+			years = 10
+		}
+		stress_impact = {
+			humble = miniscule_stress_impact_gain
+			craven = miniscule_stress_impact_gain
+			content = miniscule_stress_impact_gain
+		}
+	}	
+	option = { # ok
+		name = VIETtrinity.0014.b
+		trigger = {
+			OR = {
+				is_ai = no
+				gold >= 50
+			}
+			NOT = { has_trait = temperate }
+			NOT = { has_trait = generous }
+		}
+		remove_short_term_gold = 50
+		add_piety = 50
+		add_character_modifier = {
+			modifier = VIET_trinity_reducing_expenses
+			years = 10
+		}
+		stress_impact = {
+			greedy = medium_stress_impact_gain
+			callous = minor_stress_impact_gain
+			arrogant = minor_stress_impact_gain
+			arbitrary = minor_stress_impact_gain
+		}
+	}
+	option = { # ok
+		name = VIETtrinity.0014.c
+		trigger = {
+			has_trait = temperate
+		}
+		trait = temperate
+		add_character_modifier = {
+			modifier = VIET_trinity_renowned_for_modest_lifestyle
+			years = 10
+		}
+	}
+	option = { # ok
+		name = VIETtrinity.0014.c
+		trigger = {
+			has_trait = generous
+			NOT = { has_trait = temperate }
+		}
+		trait = generous
+		add_character_modifier = {
+			modifier = VIET_trinity_renowned_for_modest_lifestyle
+			years = 10
+		}
+	}
+}
+
+
+
+# Thinking about interfighting between co-religionists
+VIETtrinity.0015 = {
+	type = character_event
+	title = VIETtrinity.0015.t
+	desc = VIETtrinity.0015.desc
+	theme = diplomacy
+	
+	right_portrait = {
+		character = root
+		animation = sadness
+	}
+
+	trigger = {
+		is_pope = yes
+	}
+	
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			add = 0.2
+			has_trait = compassionate
+		}
+		modifier = {
+			add = -0.2
+			has_trait = callous
+		}
+		modifier = {
+			add = 0.2
+			has_trait = forgiving
+		}
+		modifier = {
+			add = -0.2
+			has_trait = vengeful
+		}
+		modifier = {
+			add = 0.2
+			has_trait = calm
+		}
+		modifier = {
+			add = -0.2
+			has_trait = wrathful
+		}
+	}
+	
+	option = { # ok
+		name = VIETtrinity.0015.a
+		add_prestige = -150
+		add_character_modifier = {
+			modifier = VIET_trinity_peace_efforts
+			years = 10
+		}
+		stress_impact = {
+			wrathful = miniscule_stress_impact_gain
+			vengeful = miniscule_stress_impact_gain
+			callous = miniscule_stress_impact_gain
+			sadistic = miniscule_stress_impact_gain
+			cynical = miniscule_stress_impact_gain
+		}
+	}	
+	option = { # ok
+		name = VIETtrinity.0015.b
+		add_piety = 25
+		stress_impact = {
+			compassionate = miniscule_stress_impact_gain
+			forgiving = miniscule_stress_impact_gain
+			calm = miniscule_stress_impact_gain
+			just = miniscule_stress_impact_gain
+		}
+	}
+	option = { # ok
+		name = VIETtrinity.0015.c
+		add_prestige = 25
+		stress_impact = {
+			compassionate = miniscule_stress_impact_gain
+			forgiving = miniscule_stress_impact_gain
+			humble = miniscule_stress_impact_gain
+			diligent = miniscule_stress_impact_gain
+		}
+	}
+}
+
+
+
+
+
+
+
+

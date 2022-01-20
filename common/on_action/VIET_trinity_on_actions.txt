@@ -1,0 +1,54 @@
+﻿three_year_playable_pulse = {
+	on_actions = {
+		delay = { days = { 8 288 } } # 18
+		VIET_trinity_events_tri_yearly_pulse
+	}
+}
+
+five_year_playable_pulse = {
+	on_actions = {
+		delay = { days = { 8 288 } } # 28
+		VIET_trinity_events_five_yearly_pulse
+	}
+}
+
+# Common events - covers more ordinary and mundane incidents
+VIET_trinity_events_tri_yearly_pulse = {
+	trigger = {
+		basic_is_valid_for_yearly_events_trigger = yes
+	}
+	random_events = {
+		
+		9000 = 0
+		
+		# Papacy
+		100 = VIETtrinity.0003		# Feeling overwhelmed by Papal responsibilities
+		100 = VIETtrinity.0004		# Legate asks for advice before traveling to be your representative
+		100 = VIETtrinity.0006		# Secular rulers resent you having power
+		100 = VIETtrinity.0007		# Church officials praised for being good under your leadership
+		100 = VIETtrinity.0009		# Pope gives a good sermon
+		100 = VIETtrinity.0010		# Pope gives a bad sermon
+		100 = VIETtrinity.0011		# Writing a letter to a legate inspires you
+		100 = VIETtrinity.0012		# Writing a letter to a legate about difficult spiritual matters
+	}
+}
+
+# Uncommon events - covers happenings that wouldn't be as frequent
+VIET_trinity_events_five_yearly_pulse = {
+	trigger = {
+		basic_is_valid_for_yearly_events_trigger = yes
+	}
+	random_events = {
+		
+		9000 = 0
+		
+		# Papacy
+		100 = VIETtrinity.0001		# Pope gives opinion on how to deal with vernacular translations
+		100 = VIETtrinity.0002		# Relative asks for good words from you
+		100 = VIETtrinity.0005		# Choose a new legate to represent you
+		100 = VIETtrinity.0008		# Scholar suggests you encourage others to calculate when the apocalypse will happen
+		100 = VIETtrinity.0013		# Cleric urges stricter discipline for clergy
+		100 = VIETtrinity.0014		# Rumors of being an improper head of faith
+		100 = VIETtrinity.0015		# Thinking about interfighting between co-religionists
+	}
+}

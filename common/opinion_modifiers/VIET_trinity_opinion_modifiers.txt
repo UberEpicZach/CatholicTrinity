@@ -1,0 +1,17 @@
+﻿
+
+VIET_trinity_opinion_papal_relative_helped_me = {
+	years = 20
+	decaying = yes
+	opinion = 15
+}
+VIET_trinity_opinion_papal_relative_didnt_helped_me = {
+	years = 20
+	decaying = yes
+	opinion = -10
+}
+VIET_trinity_opinion_papal_relative_helped_me_bribe = {
+	years = 20
+	decaying = yes
+	opinion = 5
+}

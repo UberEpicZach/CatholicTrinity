@@ -1,0 +1,175 @@
+﻿#################################################
+# 
+# MODIFIER LIST
+# 
+# asatru_raven_positive
+# asatru_raven_negative
+# bear_positive
+# bear_negative
+# blood_positive
+# blood_negative
+# cat_positive
+# cat_negative
+# cockroach_positive
+# cockroach_negative
+# county_modifier_control_positive
+# county_modifier_control_negative
+# county_modifier_corruption_positive
+# county_modifier_corruption_negative
+# county_modifier_development_positive
+# county_modifier_development_negative
+# county_modifier_opinion_positive
+# county_modifier_opinion_negative
+# diplomacy_positive
+# diplomacy_negative
+# dog_positive
+# dog_negative
+# dread_positive
+# dread_negative
+# drink_positive
+# drink_negative
+# economy_positive
+# economy_negative
+# family_positive
+# family_negative
+# feast_positive
+# feast_negative
+# fertility_positive
+# fertility_negative
+# food_positive
+# food_negative
+# health_positive
+# health_negative
+# horse_positive
+# horse_negative
+# hunt_positive
+# hunt_negative
+# intrigue_positive
+# intrigue_negative
+# learning_positive
+# learning_negative
+# letter_positive
+# letter_negative
+# love_positive
+# love_negative
+# magic_positive
+# magic_negative
+# martial_positive
+# martial_negative
+# outdoors_positive
+# outdoors_negative
+# piety_positive
+# piety_negative
+# prestige_positive
+# prestige_negative
+# prison_positive
+# prison_negative
+# prowess_positive
+# prowess_negative
+# rat_positive
+# rat_negative
+# rock_positive
+# rock_negative
+# social_positive
+# social_negative
+# spoon_positive
+# spoon_negative
+# stewardship_positive
+# stewardship_negative
+# stress_positive
+# stress_negative
+# treatment_positive
+# treatment_negative
+# 
+#################################################
+
+VIET_trinity_theological_knowledge = {
+	icon = learning_positive
+	monthly_prestige = 0.3
+}
+VIET_trinity_praised_by_church_authorities = {
+	icon = piety_positive
+	same_faith_opinion = 10
+	realm_priest_opinion = 10
+	monthly_prestige = 0.2
+	monthly_piety = 0.2
+}
+VIET_trinity_legate_firebrand = {
+	icon = martial_positive
+	martial = 1
+	monthly_piety = 0.2
+}
+VIET_trinity_legate_scholar = {
+	icon = learning_positive
+	monthly_prestige = 0.1
+	monthly_piety = 0.1
+	monthly_lifestyle_xp_gain_mult = 0.05
+}
+VIET_trinity_legate_friend = {
+	icon = family_positive
+	stress_gain_mult = -0.25
+	stress_loss_mult = 0.25
+	monthly_prestige = -0.2
+}
+VIET_trinity_legate_serious = {
+	icon = stress_positive
+	diplomacy = -1
+	stewardship = 2
+	intrigue = 1
+}
+VIET_trinity_legate_personable = {
+	icon = social_positive
+	diplomacy = 3
+	intrigue = -1
+}
+VIET_trinity_stricter_discipline = {
+	icon = letter_positive
+	clergy_opinion = -15
+	monthly_piety = 0.3
+	county_opinion_add = 5
+}
+VIET_trinity_church_officials_good = {
+	icon = family_positive
+	same_faith_opinion = 5
+	stewardship = 1
+}
+VIET_trinity_calculating_apocalypse = {
+	icon = magic_positive
+	diplomacy = -1
+	intrigue = 1
+	learning = 1
+}
+VIET_trinity_good_sermon = {
+	icon = piety_positive
+	monthly_prestige = 0.2
+	monthly_piety = 0.2
+}
+VIET_trinity_bad_sermon = {
+	icon = piety_negative
+	monthly_prestige = -0.2
+	monthly_piety = -0.2
+}
+VIET_trinity_bad_rumors = {
+	icon = drink_negative
+	same_faith_opinion = -5
+	monthly_piety_gain_mult = -0.1
+}
+VIET_trinity_reducing_expenses = {
+	icon = piety_positive
+	monthly_income_mult = -0.1
+	monthly_piety = 0.3
+	monthly_piety_gain_mult = 0.05
+	same_faith_opinion = 5
+}
+VIET_trinity_renowned_for_modest_lifestyle = {
+	icon = piety_positive
+	monthly_piety = 0.6
+	monthly_piety_gain_mult = 0.1
+	same_faith_opinion = 10
+}
+VIET_trinity_peace_efforts = {
+	icon = love_positive
+	diplomacy = 3
+	intrigue = -2
+	monthly_piety_gain_mult = 0.1
+}
