@@ -270,23 +270,10 @@
 
 become_saint = {
 	save_scope_as = new_saint
-	scope:new_saint.capital_county = {
-		save_scope_as = saint_capital
-	}
 
 	faith = {
 		add_to_variable_list = {
 			name = faith_saints
-			target = scope:new_saint
-		}
-	}
-
-	scope:saint_capital.title_province = {
-		add_province_modifier = saintly_tomb
-	}
-	scope:saint_capital.county ={
-		add_to_variable_list = {
-			name = faith_saints_and_capital
 			target = scope:new_saint
 		}
 	}

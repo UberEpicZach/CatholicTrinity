@@ -64,12 +64,12 @@ refresh_cardinal_characters = {
     }
 } 
 
-# cardinal_music = {
-# 	# Can use arbitrary scopes
-#     effect = {
-#         play_music_cue = Cardinals
-#     }
-# }
+cardinal_music = {
+	# Can use arbitrary scopes
+    effect = {
+        play_music_cue = Trinity_1
+    }
+}
 # These are used to choose which value breakdown to use for election score.
 cardinal = {
 	scope = character

@@ -22,5 +22,13 @@ autoerrorfixer.1 = {
 		fix_variable_error = {ERROR = pope_we_refuse_law_changed}
 		fix_variable_error = {ERROR = pope_currently_demanding}
 		fix_variable_error = {ERROR = pope_respects_our_law}
+		fix_variable_error = {ERROR = saint_capital}
+	}
+}
+autoerrorfixer.2 = {
+    hidden = yes
+    immediate = {
+		add_character_modifier = donatedlandtoclergy
+		add_character_modifier = public_opinion_positive
 	}
 }

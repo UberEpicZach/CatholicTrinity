@@ -18,8 +18,8 @@ KoH_sainthood.1 = { #sainthood.1
 					exists = capital_county
 				}
 			}
-			scope:saint_person.capital_county = { #capital_county.title_province
-				save_scope_as = saint_capital
+			scope:saint_person.capital_province = {
+				save_scope_as = saint_capital_province	
 			}
 		}
 
@@ -492,6 +492,14 @@ KoH_sainthood.8 = {
 	desc = KoH_sainthood.8.desc
 	theme = family
 
+	left_portrait = {
+		character = scope:canonizer_person
+	}
+
+	right_portrait = {
+		character = scope:saint_person
+	}
+
 	immediate = {
         save_scope_as = canonizer_person
     }
@@ -667,14 +675,21 @@ KoH_sainthood.8 = {
 			become_saint = yes
 		}
 
-		scope:saint_capital.title_province = {
+		scope:saint_capital_province = {
 			add_province_modifier = saintly_tomb	
+		}
+
+		scope:saint_capital_province.county = {
+			add_to_variable_list = {
+				name = faith_saints_and_capital
+				target = scope:saint_person
+			}
 		}
 
 		faith = {
 			add_to_variable_list = {
 				name = faith_capital
-				target = scope:saint_capital
+				target = scope:saint_person.capital_province
 			}
 		}
 	}
@@ -686,6 +701,10 @@ KoH_sainthood.9 = {
 	theme = faith
 	left_portrait = {
 		character = scope:saint_person
+	}
+
+	immediate = {
+		play_music_cue = Trinity_2
 	}
 
 	option = {

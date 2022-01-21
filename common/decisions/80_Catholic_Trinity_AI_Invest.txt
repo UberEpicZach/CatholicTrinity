@@ -20,7 +20,7 @@ invest_in_cardinal_Ai = {
 		is_at_war = no
 		is_alive = yes
 		primary_title.tier >= tier_county
-		#is_ai = yes
+		is_ai = yes
 		# exists = var:cardinal_player_candidate
 		# has_variable = cardinal_player_candidate
 	}
@@ -229,6 +229,7 @@ deinvest_in_cardinal_AI = {
 		exists = var:cardinal_player_candidate
 		has_variable = cardinal_player_candidate
 		primary_title.title_held_years > 1
+		is_ai = yes
 	}
 
 	is_valid = {

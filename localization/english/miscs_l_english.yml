@@ -1,10 +1,10 @@
-﻿l_english:
+l_english:
 
   I_INVESTITURE: "#l [investiture|E]"
   I_PAPAL: "[papal_investiture|E]"
   I_FREE: "[free_investiture|E]"
 
-appoint_governor:0 "Appoint Bishopic Successor"
+appoint_governor:0 "Appoint Bishopric Successor"
 
 invest_in_cardinal_AI_decision_desc: "This decision is for AI to Invest in the College of Cardinals, Please report this as a bug if you can see this"
 invest_in_cardinal_AI_decision_tooltip: "This decision is for AI to Invest in the College of Cardinals, Please report this as a bug if you can see this"
@@ -18,7 +18,8 @@ deinvest_in_cardinal_AI: "AI DeInvest in College"
 deinvest_in_cardinal_AI_confirm: "AI DeInvest in College"
 
 Launch_Crusade: "Declare a Crusade."
-Launch_Crusade_decision_effect_tooltip: "You will start the countdown for a Crusade\n\nDue to limitations, the game will choose a Target for you initally, you must use the redirect crusade option to chose a target yourself."
+Launch_Crusade_decision_effect_tooltip: "You will start the countdown for a Crusade\n\nDue to limitations, the game will choose a Target for you initially, you must use the redirect crusade option to chose a target yourself."
+Launch_Crusade_decision_tooltip: ""You will start the countdown for a Crusade\n\nDue to limitations, the game will choose a Target for you initially, you must use the redirect crusade option to chose a target yourself.""
 Launch_Crusade_decision_desc: "The armies of the infidels inch ever closer. As the Vicar of Christ and holder of the Keys to the Kingdom, it is my sacred duty to rally all Christendom to the banner of the Lord."
 Launch_Crusade: "Declare a Crusade."
 Launch_Crusade_confirm: "By grace of god...."
@@ -28,10 +29,10 @@ InstallAntipope_decision_tooltip: "Install Antipope"
 InstallAntipope: "Install Antipope"
 InstallAntipope_confirm: "Install Antipope"
 
-ProclaimDictatusPapae_decision_desc: "This decision is for AI to Deinvest in the College of Cardinals, Please report this as a bug if you can see this"
-ProclaimDictatusPapae_decision_tooltip: "This decision is for AI to Deinvest in the College of Cardinals, Please report this as a bug if you can see this"
-ProclaimDictatusPapae: "AI DeInvest in College"
-ProclaimDictatusPapae_confirm: "AI DeInvest in College"
+ProclaimDictatusPapae_decision_desc: "Following the decline of the Western Roman Empire, [investiture|E] was performed by members of the ruling nobility despite theoretically being a task of the church. Secular rulers across Christendom have appointed Bishops to enrich themselves and their family through nepotistic practices. Perhaps it is time to remind the Kings of Europe that the Catholic Church was founded by God alone, and as the successor to St Peter the Pope alone has the authority to appoint or depose churchmen."
+ProclaimDictatusPapae_decision_tooltip: "This will increase your hatred of rulers with [Free_investiture|E] by -50 Opinion.
+ProclaimDictatusPapae: "Proclaim the Dictatus Papae"
+ProclaimDictatusPapae_confirm: "Proclaim the Dictatus Papae!"
 
 take_free_investiture_early_AI: "take_free_investiture_early_AI"
 take_free_investiture_AI: "take_free_investiture_early_AI"

@@ -1,0 +1,21 @@
+﻿#KOH
+
+Cardinals = {
+	music = "file:/music/Trinity_Soundtrack/religionview.wav"
+}
+
+Trinity_1 = {
+	music = "file:/music/Trinity_Soundtrack/1 - Trinity.wav"
+}
+
+Trinity_2 = {
+	music = "file:/music/Trinity_Soundtrack/2 - Trinity.wav"
+}
+
+Trinity_3 = {
+	music = "file:/music/Trinity_Soundtrack/3 - Trinity.wav"
+}
+
+Trinity_4 = {
+	music = "file:/music/Trinity_Soundtrack/3 - Trinity.wav"
+}

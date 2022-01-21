@@ -36,9 +36,11 @@ pilgrimage.0001 = {
 			save_scope_as = saint_site_1
 		}
 		scope:saint_site_1 = {
-			county = {
-				limit = { 
-					has_variable_list = faith_saints_and_capital
+			if = {
+				limit ={
+					county = {
+						has_variable_list = faith_saints_and_capital
+					}
 				}
 				save_scope_as = saintlocation
 			}
@@ -3419,11 +3421,15 @@ pilgrimage.4001 = {
 					has_province_modifier = saintly_tomb
 				} 
 			}
-			scope:activity.activity_province.county = {
-				limit = { 
-					has_variable_list = faith_saints_and_capital
+			if = {
+				limit = {
+					scope:activity.activity_province.county = {
+						has_variable_list = faith_saints_and_capital
+					}
 				}
-				save_scope_as = saintlocation
+				scope:activity.activity_province.county = {
+					save_scope_as = saintlocation
+				}
 			}
 			scope:saintlocation = {
 				random_in_list = {

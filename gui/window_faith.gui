@@ -995,7 +995,7 @@ window = {
 					tooltip = "VIEW_CARDINAL_WINDOW_TITLE_TOOLTIP"
 					onclick = "[GetVariableSystem.Toggle('window_cardinals')]"
         			onclick = "[GetScriptedGui('refresh_cardinal_characters').Execute(GuiScope.SetRoot(Religion.MakeScope).End)]"
-					#onclick = "[GetScriptedGui('cardinal_music').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+					onclick = "[GetScriptedGui('cardinal_music').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 
 					using = tooltip_nw
 

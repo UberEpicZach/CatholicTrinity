@@ -2052,6 +2052,9 @@ KoH_religiousflavour.34 = {
 				#has_character_flag = pope_we_refuse_law_changed
 			}
 			save_scope_as = popewantsit
+			primary_title = {
+				save_scope_as = primarytitle
+			}
 		}
 		if = {
 			limit = {
@@ -2059,35 +2062,35 @@ KoH_religiousflavour.34 = {
 					any_vassal = { 
 						max_military_strength >= liege.max_military_strength.div2
 					}
-					# NOT = { has_character_flag = pope_bribing }
-					# has_faith = scope:popewantsit.faith
-					# opinion_modifier = {
-					# 	who = prev
-					# 	opinion_target = scope:popewantsit
-					# 	multiplier = -1
-					# }
-					# opinion_modifier = {
-					# 	who = prev
-					# 	opinion_target = scope:popewantsit.faith.religious_head #Excommunication target
-					# 	multiplier = 1
-					# }
+					NOT = { has_character_flag = pope_bribing }
+					has_faith = scope:popewantsit.faith
+					opinion_modifier = {
+						who = prev
+						opinion_target = scope:popewantsit
+						multiplier = -1
+					}
+					opinion_modifier = {
+						who = prev
+						opinion_target = scope:popewantsit.faith.religious_head #Excommunication target
+						multiplier = 1
+					}
 				}
 			}
 			scope:popewantsit = {
 				random_vassal = {
 					limit = {
 						max_military_strength >= liege.max_military_strength.div2
-						# opinion_modifier = {
-						# 	who = prev
-						# 	opinion_target = scope:popewantsit
-						# 	multiplier = 1
-						# 	min = 0
-						# }
-						# opinion_modifier = {
-						# 	who = prev
-						# 	opinion_target = scope:popewantsit.faith.religious_head #Excommunication target
-						# 	multiplier = -1
-						# }
+						opinion_modifier = {
+							who = prev
+							opinion_target = scope:popewantsit
+							multiplier = 1
+							min = 0
+						}
+						opinion_modifier = {
+							who = prev
+							opinion_target = scope:popewantsit.faith.religious_head #Excommunication target
+							multiplier = -1
+						}
 					}
 					save_scope_as = powerful_vassal
 				}
@@ -2098,7 +2101,7 @@ KoH_religiousflavour.34 = {
 
 	option = { 
 		name = KoH_religiousflavour.34.a
-		custom_tooltip = KoH_religiousflavour.341a.tta
+		custom_tooltip = KoH_religiousflavour.34.a.tt
 		custom_tooltip = KoH_religiousflavour.34a.ttb
 		show_as_tooltip = {
 			pay_short_term_gold = {
@@ -2125,7 +2128,7 @@ KoH_religiousflavour.34 = {
 		}
 	}
 	option = { 
-		name = KoH_religiousflavour.34.a
+		name = KoH_religiousflavour.34.b
 	
 		remove_character_flag = pope_currently_demanding
 
@@ -2156,11 +2159,18 @@ KoH_religiousflavour.35 = {
 	}
 
 	right_portrait = {
-		character = faith.religious_head
+		character = scope:pope
 	}
 
+	immediate = {
+		faith.religious_head = {
+			save_scope_as = pope
+		}
+	}
+	
 	option = { 
 		name = KoH_religiousflavour.35.a
+		custom_tooltip = "KoH_religiousflavour.35.a.tt"
 		add_pressed_claim = liege.primary_title
 		scope:powerful_vassal = {
 			add_opinion = {
@@ -2189,9 +2199,14 @@ KoH_religiousflavour.35 = {
 		}
 
 		scope:powerful_vassal = {
-			trigger_event = {
-				id = KoH_religiousflavour.37
-				days = { 100 365 }
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				trigger_event = {
+					id = KoH_religiousflavour.37
+					days = { 100 365 }
+				}
 			}
 		}
 
@@ -2219,16 +2234,17 @@ KoH_religiousflavour.36 = {
 	title = KoH_religiousflavour.36.t
 	desc = KoH_religiousflavour.36.desc
 	theme = faith
-	left_portrait = {
-		character = scope:powerful_vassal
-	}
 
 	right_portrait = {
 		character = faith.religious_head
 	}
 
-	lower_center_portrait = {
+	left_portrait = {
 		character = scope:popewantsit
+	}
+
+	lower_left_portrait = {
+		character = scope:powerful_vassal
 	}
 
 	option = { 
@@ -2259,7 +2275,32 @@ KoH_religiousflavour.36 = {
 				}
 			}
 		}
-		add_piety = 1
+
+		ai_chance = {	
+			base = 100
+		}
+	}
+	after = {
+		trigger_event = KoH_religiousflavour.367
+	}
+}
+
+KoH_religiousflavour.367 = { 
+	title = KoH_religiousflavour.367.t
+	desc = KoH_religiousflavour.367.desc
+	theme = faith
+
+	right_portrait = {
+		character = faith.religious_head
+	}
+
+	left_portrait = {
+		character = scope:powerful_vassal
+	}
+
+	option = { 
+		name = KoH_religiousflavour.367.a
+
 
 		ai_chance = {	
 			base = 100
@@ -2309,6 +2350,17 @@ KoH_religiousflavour.37 = {
 
 ## Pope learns that a catholic ruler has a heretic advisor
 
+scripted_trigger KoH_religiousflavour_41_valid_councillor = {
+	is_available_ai_adult = yes
+	NOR = {
+		has_trait = chaste
+		is_spouse_of = root
+	}
+
+	#We need to make sure that if we pick this councillor, there is a valid child of ROOT they can have a relationship with.
+	save_temporary_scope_as = councillor
+}
+
 KoH_religiousflavour.41 = { 
 	title = KoH_religiousflavour.41.t
 	desc = KoH_religiousflavour.41.desc
@@ -2334,7 +2386,7 @@ KoH_religiousflavour.41 = {
 			has_faith = faith:catholic
 			title:k_papal_state.holder = faith.religious_head
 			any_councillor = {
-				NOT = { has_faith = faith:catholic }
+				NOT = { has_faith = faith:catholic } KoH_religiousflavour_41_valid_councillor = yes
 			}
 		}
 	}
@@ -2346,7 +2398,7 @@ KoH_religiousflavour.41 = {
 				has_faith = faith:catholic
 				title:k_papal_state.holder = faith.religious_head
 				any_councillor = {
-					NOT = { has_faith = faith:catholic }
+					NOT = { has_faith = faith:catholic } KoH_religiousflavour_41_valid_councillor = yes
 				}
 			}
 			save_scope_as = rulerwithheretic
@@ -2355,14 +2407,14 @@ KoH_religiousflavour.41 = {
 			limit = {
 				scope:rulerwithheretic = {
 					any_councillor = {
-						NOT = { has_faith = faith:catholic }
+						NOT = { has_faith = faith:catholic } KoH_religiousflavour_41_valid_councillor = yes
 					}
 				}
 			}
 			scope:rulerwithheretic = {
 				random_councillor = {
 					limit = {
-						NOT = { has_faith = faith:catholic }
+						NOT = { has_faith = faith:catholic } KoH_religiousflavour_41_valid_councillor = yes
 					}
 					save_scope_as = heretic_councillor
 				}
@@ -2373,7 +2425,6 @@ KoH_religiousflavour.41 = {
 
 	option = { 
 		name = KoH_religiousflavour.41.a
-		custom_tooltip = KoH_religiousflavour.41a.tta
 		scope:rulerwithheretic = {
 			trigger_event = {
 				id = KoH_religiousflavour.42
@@ -2390,22 +2441,34 @@ KoH_religiousflavour.41 = {
 			}
 		}
 	}
+	option = { 
+		name = KoH_religiousflavour.41.b
+
+		ai_chance = {	
+			base = 75
+
+			modifier = {
+				add = 25
+				has_trait = zealous
+			}
+		}
+	}
 }
 
 KoH_religiousflavour.42 = { 
+	type = letter_event
 	title = KoH_religiousflavour.42.t
+	opening = KoH_religiousflavour.42.opening
 	desc = KoH_religiousflavour.42.desc
-	theme = learning_scholarship_focus
-	right_portrait = {
+	sender = {
 		character = faith.religious_head
 	}
-	left_portrait = {
-		character = scope:rulerwithheretic
-	}
+	# left_portrait = {
+	# 	character = scope:rulerwithheretic
+	# }
 
 	option = { 
 		name = KoH_religiousflavour.42.a
-		custom_tooltip = KoH_religiousflavour.42a.tta
 		if = { #Can I fire them?
 			limit = {
 				scope:heretic_councillor = { can_be_fired_from_council_trigger = { COURT_OWNER = scope:rulerwithheretic } }
@@ -2430,7 +2493,7 @@ KoH_religiousflavour.42 = {
 		}
 	}
 	option = { 
-		name = KoH_religiousflavour.42.a
+		name = KoH_religiousflavour.42.b
 	
 		faith.religious_head = {
 			add_opinion = {
@@ -2534,19 +2597,16 @@ KoH_religiousflavour.43 = {
 }
 
 KoH_religiousflavour.44 = { 
-	title = KoH_religiousflavour.44.t
-	desc = KoH_religiousflavour.44.desc
-	theme = learning_scholarship_focus
-	right_portrait = {
+	type = letter_event
+	title = KoH_religiousflavour.42.t
+	desc = KoH_religiousflavour.42.desc
+	opening = KoH_religiousflavour.42.opening
+	sender = {
 		character = scope:vassal
-	}
-	left_portrait = {
-		character = scope:hereticadvisorruler
 	}
 
 	option = { 
-		name = KoH_religiousflavour.44.a
-		custom_tooltip = KoH_religiousflavour.42a.tta
+		name = KoH_religiousflavour.42.a
 		if = { #Can I fire them?
 			limit = {
 				scope:heretic_councillor = { can_be_fired_from_council_trigger = { COURT_OWNER = scope:rulerwithheretic } }
@@ -2571,7 +2631,7 @@ KoH_religiousflavour.44 = {
 		}
 	}
 	option = { 
-		name = KoH_religiousflavour.44.b
+		name = KoH_religiousflavour.42.b
 		scope:vassal = {
 			add_opinion = {
 				target = scope:hereticadvisorruler
@@ -2598,18 +2658,13 @@ KoH_religiousflavour.44 = {
 ## Realm Priest disappointed in liege having heretic advisor
 
 KoH_religiousflavour.45 = { 
-	title = KoH_religiousflavour.45.t
-	desc = KoH_religiousflavour.45.desc
-	theme = learning_scholarship_focus
-	right_portrait = {
+	type = letter_event
+	title = KoH_religiousflavour.42.t
+	desc = KoH_religiousflavour.42.desc
+	sender = {
 		character = scope:vassal
 	}
-	left_portrait = {
-		character = scope:hereticadvisorruler
-	}
-	lower_left_portrait = {
-		character = scope:heretic_councillor
-	}
+	opening = KoH_religiousflavour.42.opening
 
 	trigger = {		
 		is_available_adult = yes
@@ -2660,8 +2715,7 @@ KoH_religiousflavour.45 = {
 		
 
 	option = { 
-		name = KoH_religiousflavour.45.a
-		custom_tooltip = KoH_religiousflavour.45a.tta
+		name = KoH_religiousflavour.42.a
 		if = { #Can I fire them?
 			limit = {
 				scope:heretic_councillor = { can_be_fired_from_council_trigger = { COURT_OWNER = scope:rulerwithheretic } }
@@ -2686,7 +2740,7 @@ KoH_religiousflavour.45 = {
 		}
 	}
 	option = { 
-		name = KoH_religiousflavour.45.b
+		name = KoH_religiousflavour.42.b
 	
 		scope:vassal = {
 			add_opinion = {
@@ -2778,14 +2832,15 @@ KoH_religiousflavour.46 = {
 
 	option = { 
 		name = KoH_religiousflavour.46.a
-		custom_tooltip = KoH_religiousflavour.46a.tta
-		
-		faith.religious_head = {
-			pay_short_term_gold = {
-				target = scope:holywarleader
-				gold = 120
+		show_as_tooltip = {
+			faith.religious_head = {
+				pay_short_term_gold = {
+					target = scope:holywarleader
+					gold = 120
+				}
 			}
 		}
+		
 		scope:holywarleader = {
 			add_opinion = {
 				target = faith.religious_head
@@ -2825,20 +2880,21 @@ KoH_religiousflavour.46 = {
 
 
 KoH_religiousflavour.467 = { 
-	hidden = yes
+	type = letter_event
+	title = KoH_religiousflavour.467.t
+	desc = KoH_religiousflavour.467.desc
 
-	immediate = {
-		send_interface_toast = {
-			type = event_toast_effect_good
-			title =  KoH_religiousflavour.46.b.toast
-			left_icon = faith.religious_head
-			show_as_tooltip = {
-				faith.religious_head = {
-					pay_short_term_gold = {
-						target = scope:holywarleader
-						gold = 120
-					}
-				}
+	sender = {
+		character = faith.religious_head
+	}
+	opening = KoH_religiousflavour.42.opening
+
+	option = {
+		name = KoH_religiousflavour.467.a
+		faith.religious_head = {
+			pay_short_term_gold = {
+				target = scope:holywarleader
+				gold = 120
 			}
 		}
 	}
@@ -2880,7 +2936,6 @@ KoH_religiousflavour.47 = {
 
 	option = { 
 		name = KoH_religiousflavour.47.a
-		custom_tooltip = KoH_religiousflavour.46a.tta
 		
 		scope:leper = {
 			add_opinion = {
@@ -2911,7 +2966,7 @@ KoH_religiousflavour.47 = {
 				}
 			}
 			else = {
-				move_to_pool_at = title:c_roma.holder..capital_province
+				move_to_pool_at = title:c_roma.holder.capital_province
 			}
 		}
 	
@@ -2937,6 +2992,16 @@ KoH_religiousflavour.47 = {
 		}
 	}
 } 
+
+scripted_trigger KoH_religiousflavour_48_province_trigger = {
+	NOT = { religion = root.religion }
+	faith = {
+		faith_hostility_level = {
+		target = root.faith
+		value >= faith_hostile_level
+		}
+	}
+}
 
 #Pope Complains of Heresy Run Rampant in Ruler's Lands #1
 KoH_religiousflavour.48 = { 
@@ -2966,8 +3031,8 @@ KoH_religiousflavour.48 = {
 			highest_held_title_tier >= tier_duchy
 			has_faith = faith:catholic
 			title:k_papal_state.holder = faith.religious_head
-			any_realm_province = {
-				NOT = { faith = faith:catholic }
+			any_sub_realm_county = {
+				KoH_religiousflavour_48_province_trigger = yes
 			}
 			exists = cp:councillor_court_chaplain
 			NOT = {
@@ -2981,25 +3046,24 @@ KoH_religiousflavour.48 = {
 	immediate = {
 		random_independent_ruler = {
 			limit = {
-				highest_held_title_tier >= tier_duchy
+				highest_held_title_tier >= tier_county
 				has_faith = faith:catholic
 				title:k_papal_state.holder = faith.religious_head
-				any_realm_province = {
-					NOT = { faith = faith:catholic }
+				any_sub_realm_county = {
+					KoH_religiousflavour_48_province_trigger = yes
 				}
 				exists = cp:councillor_court_chaplain
-				NOT = { 
-					cp:councillor_court_chaplain = {
-						is_performing_council_task = task_conversion
-					}
-				}
+				# NOT = { 
+				# 	cp:councillor_court_chaplain = {
+				# 		is_performing_council_task = task_conversion
+				# 	}
+				# }
 			}
-			save_scope_as = targetedruler
-			random_realm_province = {
+			random_sub_realm_county = {
 				limit = {
-					NOT = { faith = faith:catholic }
+					KoH_religiousflavour_48_province_trigger = yes
 				}
-				save_scope_as = hereticprovince
+				save_scope_as = county
 			}
 			save_scope_as = targetedruler
 		}
@@ -3008,7 +3072,6 @@ KoH_religiousflavour.48 = {
 
 	option = { 
 		name = KoH_religiousflavour.48.a
-		custom_tooltip = KoH_religiousflavour.48a.tta
 		
 		scope:targetedruler = {
 			trigger_event = {
@@ -3054,12 +3117,11 @@ KoH_religiousflavour.49 = {
 
 	option = { 
 		name = KoH_religiousflavour.49.a
-		custom_tooltip = KoH_religiousflavour.49a.tta
 		
 		cp:councillor_court_chaplain = {
 			set_council_task = {
 				task_type = task_conversion
-				target = scope:hereticprovince
+				target = scope:county.title_province
 			}
 		}
 
@@ -3075,13 +3137,11 @@ KoH_religiousflavour.49 = {
 	option = { 
 		name = KoH_religiousflavour.49.b
 	
-
-		faith.religious_head = {
-			trigger_event = {
-				id = KoH_religiousflavour.50
-				months = 6
-			}
+		trigger_event = {
+			id = KoH_religiousflavour.50
+			months = 6
 		}
+		
 
 		ai_chance = {	
 			base = 10
@@ -3113,17 +3173,24 @@ KoH_religiousflavour.50 = {
 	trigger = {
 		scope:targetedruler = {
 			exists = cp:councillor_court_chaplain
-			NOT = {
-				cp:councillor_court_chaplain = {
-					is_performing_council_task = task_conversion
-				}
+			# NOT = {
+			# 	cp:councillor_court_chaplain = {
+			# 		is_performing_council_task = task_conversion
+			# 	}
+			# }
+		}
+	}
+
+	immediate = {
+		scope:targetedruler = {
+			primary_title = {
+				save_scope_as = primary_title
 			}
 		}
 	}
 
 	option = { 
 		name = KoH_religiousflavour.50.a
-		custom_tooltip = KoH_religiousflavour.50a.tta
 		
 		scope:targetedruler = {
 			add_excommunication_actual_effect = yes
@@ -3134,18 +3201,6 @@ KoH_religiousflavour.50 = {
 	
 			modifier = {
 				add = 25
-				has_trait = zealous
-			}
-		}
-	}
-	option = { 
-		name = KoH_religiousflavour.50.b
-
-		ai_chance = {	
-			base = 10
-	
-			modifier = {
-				add = -75
 				has_trait = zealous
 			}
 		}
@@ -3220,11 +3275,19 @@ KoH_religiousflavour.51 = {
 				save_scope_as = imprisonedbishop
 			}
 		}
+		scope:imprisonedbishop ={
+			primary_title = {
+				save_scope_as = bishoptitle
+			}
+		}
+
+		random_living_cardinal = {
+			save_scope_as = cardinal
+		}
 	}
 
 	option = { 
 		name = KoH_religiousflavour.51.a
-		custom_tooltip = KoH_religiousflavour.51a.tta
 		
 		scope:targetedruler = {
 			trigger_event = {
@@ -3278,7 +3341,6 @@ KoH_religiousflavour.52 = {
 
 	option = { 
 		name = KoH_religiousflavour.52.a
-		custom_tooltip = KoH_religiousflavour.52a.tta
 		
 		scope:imprisonedbishop = {
 			release_from_prison = yes
@@ -3321,9 +3383,6 @@ KoH_religiousflavour.52 = {
 
 #Pope Demands Ruler Free Imprisoned Prince-Bishop  #3
 KoH_religiousflavour.53 = { 
-	title = KoH_religiousflavour.53.t
-	desc = KoH_religiousflavour.53.desc
-	theme = faith
 	hidden = yes
 
 	immediate = {
@@ -3354,7 +3413,6 @@ KoH_religiousflavour.54 = {
 
 	option = { 
 		name = KoH_religiousflavour.54.a
-		custom_tooltip = KoH_religiousflavour.54a.tta
 		
 		scope:targetedruler = {
 			add_excommunication_actual_effect = yes
@@ -3379,18 +3437,6 @@ KoH_religiousflavour.54 = {
 			}
 		}
 	}
-	option = { 
-		name = KoH_religiousflavour.54.b
-
-		ai_chance = {	
-			base = 10
-	
-			modifier = {
-				add = -75
-				has_trait = zealous
-			}
-		}
-	}
 }
 
 #Murdered a Bishop
@@ -3399,15 +3445,22 @@ KoH_religiousflavour.55 = {
 	desc = KoH_religiousflavour.55.desc
 	theme = faith
 	left_portrait = {
-		character = scope:targetedruler
+		character = scope:murderer
 	}
 	right_portrait = {
 		character = faith.religious_head
 	}
 
+	immediate = { 
+		scope:murderer = {
+			primary_title = {
+				save_scope_as = primary_title
+			}
+		}
+	}
+
 	option = { 
 		name = KoH_religiousflavour.55.a
-		custom_tooltip = KoH_religiousflavour.54a.tta
 		
 		scope:murderer = {
 			add_excommunication_actual_effect = yes
@@ -3428,18 +3481,6 @@ KoH_religiousflavour.55 = {
 	
 			modifier = {
 				add = 250
-				has_trait = zealous
-			}
-		}
-	}
-	option = { 
-		name = KoH_religiousflavour.55.b
-
-		ai_chance = {	
-			base = 10
-	
-			modifier = {
-				add = -75
 				has_trait = zealous
 			}
 		}
@@ -3476,11 +3517,14 @@ KoH_religiousflavour.56 = {
 		title:k_papal_state.holder = {
 			save_scope_as = Pope
 		}
+
+		random_living_cardinal = {
+			save_scope_as = cardinal
+		}
 	}
 
 	option = { 
 		name = KoH_religiousflavour.56.a
-		custom_tooltip = KoH_religiousflavour.56a.tta
 		
 		scope:BishopAttacker = {
 			show_as_tooltip = {
@@ -3557,7 +3601,6 @@ KoH_religiousflavour.57 = {
 
 	option = { 
 		name = KoH_religiousflavour.57.a
-		custom_tooltip = KoH_religiousflavour.57a.tta
 		
 		scope:BishopAttacker = {
 			every_character_war = {
@@ -3593,9 +3636,11 @@ KoH_religiousflavour.250 = {
 	}
 	
 	immediate = {
-		location.county = {
-			limit = { 
-				has_variable_list = faith_saints_and_capital
+		if = {
+			limit = {
+				location.county = {
+					has_variable_list = faith_saints_and_capital
+				}
 			}
 			save_scope_as = saintlocation
 		}
@@ -3605,6 +3650,7 @@ KoH_religiousflavour.250 = {
 				save_scope_as = localsaint
 			}
 		}
+		play_music_cue = Trinity_4
 	}
 
 	option = { 
@@ -3728,7 +3774,7 @@ KoH_religiousflavour.499 = {
 			else_if = {
 				limit = {
 					NOR = {
-						this = character.capital_county
+						this = root.capital_county
 						this = scope:clergycounty_1
 						this = scope:clergycounty_2
 						this = scope:clergycounty_3
@@ -3742,7 +3788,7 @@ KoH_religiousflavour.499 = {
 			else_if = {
 				limit = {
 					NOR = {
-						this = character.capital_county
+						this = root.capital_county
 						this = scope:clergycounty_1
 						this = scope:clergycounty_2
 						this = scope:clergycounty_3
@@ -3757,7 +3803,7 @@ KoH_religiousflavour.499 = {
 			else_if = {
 				limit = {
 					NOR = {
-						this = character.capital_county
+						this = root.capital_county
 						this = scope:clergycounty_1
 						this = scope:clergycounty_2
 						this = scope:clergycounty_3
@@ -3773,7 +3819,7 @@ KoH_religiousflavour.499 = {
 			else_if = {
 				limit = {
 					NOR = {
-						this = character.capital_county
+						this = root.capital_county
 						this = scope:clergycounty_1
 						this = scope:clergycounty_2
 						this = scope:clergycounty_3
@@ -4091,7 +4137,7 @@ KoH_religiousflavour.500 = {
 }
 
 KoH_religiousflavour.501 = {
-	title = KoH_religiousflavour.501.t
+	title = KoH_religiousflavour.500.t
 	desc = KoH_religiousflavour.500.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
@@ -4307,7 +4353,7 @@ KoH_religiousflavour.501 = {
 	}
 
 	option = { 
-		name = KoH_religiousflavour.800.m
+		name = KoH_religiousflavour.500.m
 		
 	}
 }
@@ -4377,6 +4423,7 @@ KoH_religiousflavour.800 = {
 				save_scope_as = popeman
 			}
 		}
+		play_music_cue = Trinity_1
 	}
 
 	option = { 
@@ -4429,6 +4476,7 @@ KoH_religiousflavour.803 = {
 		title:k_orthodox.holder = {
 			save_scope_as = eastern_patriarch
 		}
+		play_music_cue = Trinity_3
 	}
 
 	option = {

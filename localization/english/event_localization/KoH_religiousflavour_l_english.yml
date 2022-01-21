@@ -145,7 +145,7 @@
   KoH_religiousflavour.28.a.tt: "By accepting this bribe, you agree to stop pestering [popewantsit.GetTitledFirstName] and his realm about Investiture Laws, for a while."
   KoH_religiousflavour.28.b: "And [popewantsit.GetSheHe] thinks it's possible to simply bribe the pope?!"
   KoH_religiousflavour.28.b.tt: "And [popewantsit.GetSheHe] thinks it's possible to simply bribe the pope?!"
-  KoH_religiousflavour.28.a.toast: "The Pope has accpeted your "Donation""
+  KoH_religiousflavour.28.a.toast: "The Pope has accepted your "Donation""
   KoH_religiousflavour.28.b.toast: "The Pope declined your "Donation"!"
 
   KoH_religiousflavour.29.t: "Investiture: A Political and Theological Debate"
@@ -154,19 +154,17 @@
   KoH_religiousflavour.29.a.tt: "By this end, you agree to stop pestering [popewantsit.GetTitledFirstName] and his realm about Investiture Laws, for a while, atleast publically."
   KoH_religiousflavour.29.d.success: "I outwit the Pope, and get him off my back about his complaints about [free_investiture|E]"
   KoH_religiousflavour.29.d.success.tt: "You successfully outwit the Pope in the field of theology and learning, the Pope will leave us alone regarding our [free_investiture|E] law."
-  KoH_religiousflavour.29.d.failure: "I fail to outwit and outsmarten the Pope, he considers this the same as refusing in the first place"
+  KoH_religiousflavour.29.d.failure: "I fail to outwit and outsmart the Pope, he considers this the same as refusing in the first place"
   KoH_religiousflavour.29.d.failure.tt: "The Pope considers this the same as refusing in the first place..."
   KoH_religiousflavour.29.b.toast: "You outwitted the Pope!"
   KoH_religiousflavour.30.a.toast: "You failed to outwit the Pope!"
 
   KoH_religiousflavour.30.t: "Investiture: A Political and Theological Debate"
-  KoH_religiousflavour.30.desc: "[popewantsit.GetTitledFirstName] has argued on and on, stating various quotes and lines from the bible and otherwise, he argues on theological and political grounds, why [popewantsit.GetHerHis] realm should be exempt from [papal_investiture|E] Law, alhough his arguments seems to fall flat, and has even seen the public eye begin to support the Papacies reasonings against the Emperor. Usually a Papacy without it's public support isn't much at all, although that isn't an issue this time around."
+  KoH_religiousflavour.30.desc: "[popewantsit.GetTitledFirstName] has argued on and on, stating various quotes and lines from the bible and otherwise, he argues on theological and political grounds, why [popewantsit.GetHerHis] realm should be exempt from [papal_investiture|E] Law, although his arguments seems to fall flat, and has even seen the public eye begin to support the Papacies reasoning's against the Emperor. Usually a Papacy without it's public support isn't much at all, although that isn't an issue this time around."
   KoH_religiousflavour.30.a: "Perhaps we have other avenues?.." 
-  KoH_religiousflavour.30.a.tt: "By this end, while [popewantsit.GetTitledFirstName] hasn't yet changed laws, other opportunities may arise to assit along this changing of laws."
+  KoH_religiousflavour.30.a.tt: "By this end, while [popewantsit.GetTitledFirstName] hasn't yet changed laws, other opportunities may arise to assist along this changing of laws."
 
-
-
-  KoH_religiousflavour.31.t: "Investiture: Gaining clegical support"
+  KoH_religiousflavour.31.t: "Investiture: Gaining clerical support"
   KoH_religiousflavour.31.desc: "[popewantsit.GetTitledFirstName] has made himself clear in his aims to keep his realm locked into the ways of [free_investiture|E], this poses massive issues for the faith if I am not able to significantly hold authority of the catholic realms of the world, I am by god above, the Pope. It will need to be up to the servants of Christ to rectify this.."
   KoH_religiousflavour.31.a: "Demand allegiance to the Throne of St. Peter."
   KoH_religiousflavour.31.b: "Let it slide" 
@@ -174,7 +172,7 @@
   KoH_religiousflavour.31a.ttb: "If [bishop.GetTitledFirstName] accepts:"
 
   KoH_religiousflavour.32.t: "Investiture: The Papal Envoy"
-  KoH_religiousflavour.32.desc: "An emissary is visiting you from the Papacy, giving us gifts and demanding our allegiance to the Throne of St. Peter, this is partially due to the conflict between the Papacy and my liege over the laws of [investiture|E].
+  KoH_religiousflavour.32.desc: "An emissary is visiting you from the Papacy, giving us gifts and demanding our allegiance to the Throne of St. Peter, this is partially due to the conflict between the Papacy and my liege over the laws of [investiture|E]."
   KoH_religiousflavour.32.a.tt: "The Emperor finds out.."
   KoH_religiousflavour.32.a: "I accept his donation, we can finally upgrade the temple..."
   KoH_religiousflavour.32.b: "Is it pious to accept bribes?"
@@ -182,26 +180,131 @@
   KoH_religiousflavour.32.b.toast: "The Emperor found out..."
 
   KoH_religiousflavour.33.t: "Investiture: Behind ones back.."
-  KoH_religiousflavour.33.desc: "Vassal [bishop..GetName], has been seen taking messages and money from a Papal Envoy, while usually without issue, this happens to have occured during a time when showing our supremacy over all religious matters should be a focus, and it seems the Pope has seen to do the same - distrusting our own authority over our realm, would be best to keep an eye on them.."
+  KoH_religiousflavour.33.desc: "Vassal [bishop.GetName], has been seen taking messages and money from a Papal Envoy, while usually without issue, this happens to have occurred during a time when showing our supremacy over all religious matters should be a focus, and it seems the Pope has seen to do the same - distrusting our own authority over our realm, would be best to keep an eye on them.."
   KoH_religiousflavour.33.a: "With ever watchful eyes.."
   KoH_religiousflavour.33.b: "I..Imprison HIM!"
 
+  KoH_religiousflavour.34.t: "Investiture: Support Within"
+  KoH_religiousflavour.34.desc: "While [popewantsit.GetName] sits conformably having refused our rights as the Papacy, enforcing [free_investiture|E] upon his realm, It has come to my attention that many vassals under his realm - could be swayed, or in some cases seem a better fit for the throne then [popewantsit.GetTitledFirstName]. \n\nIn a time like this, [powerful_vassal.GetName] continues to come to mind when thinking of the future and [primarytitle.GetNameNoTier]. It would be within my rights as the Pope, to declare a new ruler of this state, one that would be ruled with Free Investiture!"
+  KoH_religiousflavour.34.a.tt: "If [powerful_vassal.GetName] accepts:"
+  KoH_religiousflavour.34a.ttb: "[powerful_vassal.GetName] gains a [claim|E] on [primarytitle.GetNameNoTier]"
+  KoH_religiousflavour.34.a: "By new Papal Bull, we proclaim....."
+  KoH_religiousflavour.34.ab.tt: "You will give claim and troops to [powerful_vassal.GetName]."
+  KoH_religiousflavour.34.b: "Sounds like a risk to make..."
 
+  KoH_religiousflavour.35.t: "Investiture: The Papal Envoy!"
+  KoH_religiousflavour.35.desc: "Early morning, I am standing on the balcony of my quarters, taking a look towards the sunrise in the distance, the birds chirp and sing, and, and a guard is calling my name..."My Liege! a Papal Legate is here for you!" \n\nHe has arrived directly from Rome to deliver a letter from the Papacy, more specifically from [pope.GetName] himself! \nReading the letter it is made clear his frustrations with my liege, [popewantsit.GetName], furthermore his laws of [free_investiture|E], and his refusal to accept [pope.GetTitledFirstName]'s demands of [papal_investiture|E]. \n\nThe Letter goes on to state an offer, The Papacy wishes to proclaim myself the Monarch of the [primarytitle.GetName], he further states that along with your claim under God for the title, he will also provide money and troops, and has given you a year to prepare..."
+  KoH_religiousflavour.35.a.tt: "The Papal States give you:"
+  KoH_religiousflavour.35.a: "I will do [pope.GetName], and God proud."
+  KoH_religiousflavour.35.ab.tt: "You will give claim and troops to [powerful_vassal.GetName]."
+  KoH_religiousflavour.35.b: "Too risky.."
+
+  KoH_religiousflavour.36.t: "Investiture: Declaration for a New Emperor."
+  KoH_religiousflavour.36.desc: ""The authority given to St. Peter and his successors, by the immense power of the Eternal King, excels all the powers of earthly kings and princes. It passes uncontrollable sentence upon them all; and if it find any of them resisting God's ordinance, it takes more severe vengeance of them, casting them down from their thrones, though never so puissant, and tumbling them down to the lowest parts of the earth, as the ministers of aspiring Lucifer." \n\n"I now declare in the name of omnipotent God, the Father, Son, and Holy Spirit, that [popewantsit.GetFirstNameNicknamed] [popewantsit.GetDynasty.GetName], son of [popewantsit.GetFather.GetFullNameNicknamed], is to be forever deprived of [popewantsit.GetHerHis] title to the [primarytitle.GetName], crown and of all lordship, dignity and privilege whatsoever. We charge and command all and singular the nobles, subjects, peoples and others afore said that they do not dare obey [popewantsit.GetHerHis] orders, mandates and laws. Those who shall act to the contrary we include in the like sentence of excommunication./n/nIn council with Cardinals, and under God, the Father, Son, and Holy Spirit, [powerful_vassal.GetName] is to be named and Crowned as the the true ruler of [primarytitle.GetName] from this day fourth!" - [pope.GetTitledFirstName]."
+  KoH_religiousflavour.36.a: "God Wills It?"
+  KoH_religiousflavour.36.b: "Too risky.."
+
+  KoH_religiousflavour.367.t: "Investiture: The Anti-King."
+  KoH_religiousflavour.367.desc: ""It is clearly demonstrated that, as a good son and Catholic prince, [powerful_vassal.GetName] has rendered innumerable services to [powerful_vassal.GetHerHis] mother, the Holy Church, intrepidly exterminating the enemies of the Christian name and diligently propagating the Christian faith, thereby leaving to generations still unborn a name worthy of memory and an example deserving of imitation. The Apostolic See must love with sincere affection and strive to efficiently attend, in their just petitions, those chosen by the divine Providence for the government and salvation of the people. \n\nWe, therefore, because of [powerful_vassal.GetHerHis] qualities of prudence, justice and idoneity for government, take [powerful_vassal.GetTitledFirstName] under the protection of St. Peter and our own, and grant and confirm by apostolic authority to [powerful_vassal.GetHerHis] excellent domain, the [primarytitle.GetName]. We determine accordingly that it is unlawful for any man to brazenly cause any trouble to [powerful_vassal.GetHerHis] or [powerful_vassal.GetHerHis] heirs or [powerful_vassal.GetHerHis] empire, or to seize anything that belongs to it or, in the case it has been seized, to keep it, debase it, or cause any torment to it.\n\nDo continue, therefore, to show yourself a beloved son, humble and devoted to the honour and service of your mother, the Holy Roman Church, and to defend Her interests by spreading the Christian faith in such a way that this Apostolic See may take joy in having such a devoted and glorious son whose affection cannot be in doubt. May the peace of Our Lord Jesus Christ be with all those who respect the rights of this empire and their ruler, so that they may gather the fruit of good works in this world and the reward of eternal peace before the Severe Judge." - [pope.GetTitledFirstName]."
+  KoH_religiousflavour.367.a: "God Wills It?"
+  KoH_religiousflavour.36.b: "Too risky.."
+
+  KoH_religiousflavour.37.t: "Investiture: The War."
+  KoH_religiousflavour.37.desc: "By Papal Bull, and the support of the Gods above, We shall win this!!"
+  KoH_religiousflavour.37.a: "To War!"
+
+  KoH_religiousflavour.41.t: "Heretical Courtiers."
+  KoH_religiousflavour.41.desc: "There are rumors that one of the rulers of Christendom is employing a heretic in their court. This is not acceptable to the Church, and this earthly lord will surely be damned unless we intervene."
+  KoH_religiousflavour.41.a: "Demand that this advisor be imprisoned!"
+  KoH_religiousflavour.41.b: "Ignore the issue."
+
+  KoH_religiousflavour.42.t: "Heretical Courtiers"
+  KoH_religiousflavour.42.opening: "[faith.religious_head.Custom2('AppropriateGreetingPositive', ROOT.Char)]"
+  KoH_religiousflavour.42.desc: "I am most concerned that you allow heretics as your advisors. They should immediately be removed from position their position."
+  KoH_religiousflavour.42.a: "Fire the heretic!"
+  KoH_religiousflavour.42.b: "I rule in my realm!"
+
+
+  KoH_religiousflavour.43.t: "Heretical Courtiers."
+  KoH_religiousflavour.43.desc: "My liege, [hereticadvisorruler.GetTitledFirstName] [hereticadvisorruler.GetDynasty.GetName] has a heretic as one of [hereticadvisorruler.GetHerHis] close councilors, this is a grave issue! [heretic_councillor.GetTitledFirstName] [heretic_councillor.GetDynasty.GetName] must be removed at once!"
+  KoH_religiousflavour.43.a: "Demand that this advisor be fired!!"
+  KoH_religiousflavour.43a.tta: "You will inquire to your liege, [hereticadvisorruler.GetTitledFirstName] [hereticadvisorruler.GetDynasty.GetName], about firing [heretic_councillor.GetTitledFirstName] [heretic_councillor.GetDynasty.GetName]."
+  KoH_religiousflavour.43.b: "leave it alone"
+ 
+  KoH_religiousflavour.46.t: "Holy War"
+  KoH_religiousflavour.46.desc: "The coffers of Holy Mother Church are full and the faithful, such as [holywarleader.GetName] are struggling against infidels and heathens. Perhaps we should provide some assistance?"
+  KoH_religiousflavour.46.a: "Send a Papal emissary with funds"
+  KoH_religiousflavour.46.b: "Our coffers are not that full"
+  KoH_religiousflavour.467.t: "Holy War"
+  KoH_religiousflavour.467.desc: "The Papacy has found it clear to support you in your #bold [holy_war] #!towards the infidel! \n\nWe hope that this sum of gold may help you in your holy mission. "
+  KoH_religiousflavour.467.a: "We accept!"
   KoH_religiousflavour.46.b.toast: "The Papacy Sends Support Towards your [holy_war|E]!"
 
+  KoH_religiousflavour.47.t: "The Leprous Courtier..."
+  KoH_religiousflavour.47.desc: "I deeply regret to inform you that I have been afflicted with the dread malady of leprosy. I now wish for nothing more than to live out my days in pious servitude among the leper knights of the Order of Saint Lazarus. I beg your leave to depart at once to join their number, so that I may make haste to cleanse myself of sin."
+  KoH_religiousflavour.47.a: "Of course; may God have mercy upon your soul."
+  KoH_religiousflavour.47.b: "No; remain here and seek redemption in my service."
 
+  KoH_religiousflavour.48.t: "Heresy Run Rampant"
+  KoH_religiousflavour.48.desc: "It has come to your attention, from [cardinal.GetName], that a heretical creed of [county.GetProvince.GetCounty.GetFaith.GetName] runs rampant throughout the lands of [county.GetNameNoTier], and yet it's ruler, [targetedruler.GetName] has barely seen fit to lift a finger to slow the spread of this blasphemous blight. It is only your sincere hope that this seeming apathy toward the enemies of Christ is due only to the innumerable matters of great importance that undoubtedly demands [targetedruler.GetName]'s lordly attention."
+  KoH_religiousflavour.48.a: "I must remind you that your first and greatest obligation..."
+  KoH_religiousflavour.48.b: "He is surely too busy..."
+
+
+  KoH_religiousflavour.49.t: "Heresy Run Rampant"
+  KoH_religiousflavour.49.desc: "A Papal Legate from Rome arrives in your court to deliver a message from the Pope himself,\n\n"It has come to my attention that the heretical creed of [county.GetProvince.GetCounty.GetFaith.GetName] runs rampant throughout the lands of [county.GetNameNoTier], and yet you have barely seen fit to lift a finger to slow the spread of this blasphemous blight. It is my sincere hope that this seeming apathy toward the enemies of Christ is due only to the innumerable matters of great import that undoubtedly demand your lordly attention, but I must remind you that your first and greatest obligation is to fear the Lord and serve him faithfully. If you do not take immediate action against these abominable apostates, then I will have no choice but to believe that they persist not beneath your attention, but with your support.""
+  KoH_religiousflavour.49.a: "The Vicar of Christ commands us; we must obey."
+  KoH_religiousflavour.49.b: "I have more important matters to attend to than a smattering of schismatic swineherds."
+
+  KoH_religiousflavour.50.t: "Heresy Run Rampant: Inaction"
+  KoH_religiousflavour.50.desc: "A Papal Legate from Rome, once again arrives in your court to deliver a message,\n\n"It has come to my attention that you had completely ignored my requests for you to take action toward the enemies of Christ, and as such - I have no choice but to believe that they persist not beneath your attention, but with your support, I am sorry but I am left with no other choice. \n\nWherefore in the name of God the all-powerful, Father, Son, and Holy Ghost, of the Blessed Peter, Prince of the Apostles, and of all the saints, in virtue of the power which has been given us of binding and loosing in Heaven and on earth, we deprive him all of all his accomplices and all his abettors of the Communion of the Body and Blood of Our Lord, we separate him from the society of all Christians, we exclude him from the bosom of our Holy Mother the Church in Heaven and on earth, we declare him #bold Excommunicated #! and anathematized and we judge him condemned to eternal fire with Satan and his angels and all the reprobate, so long as he will not burst the fetters of the demon, do penance and Satisfy the Church; we deliver him to Satan to mortify his body, that his soul may be saved on the day of Judgment..""
+  KoH_religiousflavour.50.a: "It is done.."
+  KoH_religiousflavour.50.b: "I have more important matters to attend to than a smattering of schismatic swineherds."
+
+  KoH_religiousflavour.51.t: "Papal Intervention: The Imprisoned Bishop."
+  KoH_religiousflavour.51.desc: "Reports have reached your ears from one of your Cardinals, [cardinal.GetName], that [targetedruler.GetName] has chained the [bishoptitle.GetName] [imprisonedbishop.GetName] in irons, and that he sits in darkness and in the shadow of death in [targetedruler.GetTitledFirstName]'s dungeons, in flagrant disregard of all Christian principles. This is an iniquitous assault on the dignity and rights of the Holy Mother Church..."
+  KoH_religiousflavour.51.a: "I demand that you release...."
+  KoH_religiousflavour.51.b: "Ignore the issue."
+
+  KoH_religiousflavour.52.t: "Papal Intervention: The Imprisoned Bishop."
+  KoH_religiousflavour.52.desc: "Reports have reached my ears that you have chained the [bishoptitle.GetName] [imprisonedbishop.GetName] in irons, and that he sits in darkness and in the shadow of death in your dungeons, in flagrant disregard of all Christian principles. This is an iniquitous assault on the dignity and rights of the Holy Mother Church; I demand that you release [imprisonedbishop.GetHerHis] at once and make restitutions for your misdeeds. Should you choose to persist in this folly, I will have no choice but to declare you excommunicate and anathema!"
+  KoH_religiousflavour.52.a: "The Vicar of Christ commands us; we must obey."
+  KoH_religiousflavour.52.b: "If God truly wishes for him to be freed, then He can tell me Himself!"
+
+  #Event #3 is hidden 
+
+  KoH_religiousflavour.54.t: "The Imprisoned Bishop: Excommunication?"
+  KoH_religiousflavour.54.desc: "It has been over six months since the request for [targetedruler.GetName] to release [imprisonedbishop.GetName], the entire period [imprisonedbishop.GetName] would spend in darkness and in the shadow of death, this is cause for Excommunication if any, God bless his soul..."
+  KoH_religiousflavour.54.a: "Excommunicate him for good."
   KoH_religiousflavour.54.a.toast: "Excommunicated for wrongful imprisonment of bishop!"
 
+  KoH_religiousflavour.55.t: "The Bishop Murderer"
+  KoH_religiousflavour.55.desc: "Wherefore in the name of God the all-powerful, Father, Son, and Holy Ghost, of the Blessed Peter, Prince of the Apostles, and of all the saints, in virtue of the power which has been given us of binding and loosing in Heaven and on earth, we deprive him all of all his accomplices and all his abettors of the Communion of the Body and Blood of Our Lord, we separate him from the society of all Christians, we exclude him from the bosom of our Holy Mother the Church in Heaven and on earth, we declare him #bold Excommunicated #! and anathematized and we judge him condemned to eternal fire with Satan and his angels and all the reprobate, so long as he will not burst the fetters of the demon, do penance and Satisfy the Church; we deliver him to Satan to mortify his body, that his soul may be saved on the day of Judgment."
+  KoH_religiousflavour.55.a: "Damnation!"
+  KoH_religiousflavour.55.a.toast: "Excommunicated for wrongful imprisonment of bishop!"
 
+  KoH_religiousflavour.56.t: "The War on the Church..."
+  KoH_religiousflavour.56.desc: "Reports have reached your ears from one of your Cardinals, [cardinal.GetName], that [BishopAttacker.GetName] has initiated war on one of the great bishops of Catholicism, [BishopyDefender.GetName] fends for himself against the onslaught of [BishopyAttacker.GetName] armies, in flagrant disregard of all Christian principles. This is an iniquitous assault on the dignity and rights of the Holy Mother Church..."
+  KoH_religiousflavour.56.a: "We shall order him excommunicated at once!"
+  KoH_religiousflavour.56.b: "Ignore this crime, we shall let this slide."
+
+  KoH_religiousflavour.57.t: "The War on the Church..."
+  KoH_religiousflavour.57.desc: "Wherefore in the name of God the all-powerful, Father, Son, and Holy Ghost, of the Blessed Peter, Prince of the Apostles, and of all the saints, in virtue of the power which has been given us of binding and loosing in Heaven and on earth, we deprive him all of all his accomplices and all his abettors of the Communion of the Body and Blood of Our Lord, we separate him from the society of all Christians, we exclude him from the bosom of our Holy Mother the Church in Heaven and on earth, we declare him #bold Excommunicated #! and anathematized and we judge him condemned to eternal fire with Satan and his angels and all the reprobate, so long as he will not burst the fetters of the demon, do penance and Satisfy the Church; we deliver him to Satan to mortify his body, that his soul may be saved on the day of Judgment."
+  KoH_religiousflavour.57.a: "Damnation!"
   murdered_biship_modifier:0 "Murdered a Bishop"
+
+
 
   KoH_religiousflavour.250.t: "[saintlocation.GetNameNoTier], Resting place of Saint [localsaint.GetFirstNameNicknamedRegnal]."
   KoH_religiousflavour.250.desc: "Ya boi" #REPLACE LOC
   KoH_religiousflavour.250.a: "The lovely [saintlocation.GetNameNoTier]."
 
+	KoH_religiousflavour.300.t: "Saint Test Event"
+	KoH_religiousflavour.300.desc: "Saint Test Event"
+  KoH_religiousflavour.300.a: "Saint Test Event"
 
   KoH_religiousflavour.500.t: "Donation to the Clergy: County Selection"
-  KoH_religiousflavour.500.desc: "Many would argue that there is no grander purpose in life than serving God directly. And many join the ranks of the Church for precisely that reason. However, for those unable to do that, serving God must be done in different ways. \n\nPerhaps the most pious way that is available to a person such as I, is donating land to the Clergy, so that may do their duty all the better. \n\nThere is more to it than just sheer generosity, ofcourse, for I shall be known by many as a good and pious Christian for helping the Clergy. All good deeds shall be rewarded, indeed. \nRegardless, now I must decide what land I should give away to the Clergy:"
+  KoH_religiousflavour.500.desc: "Many would argue that there is no grander purpose in life than serving God directly. And many join the ranks of the Church for precisely that reason. However, for those unable to do that, serving God must be done in different ways. \n\nPerhaps the most pious way that is available to a person such as I, is donating land to the Clergy, so that may do their duty all the better. \n\nThere is more to it than just sheer generosity, of course, for I shall be known by many as a good and pious Christian for helping the Clergy. All good deeds shall be rewarded, indeed. \nRegardless, now I must decide what land I should give away to the Clergy:"
 
   KoH_religiousflavour.500.desc.cynical: "Though some would argue that the Clergy, be they bishops, priests or deacons, can be a most capricious sort. At times they can be greedy, and sometimes very generous. \n\nAs such, it is in my best interest to keep them happy, docile even. Just as a petty Lord can be given a pittance of gold, to keep them in line, so can the Clergy- but more often than not, they are not so easily bribed. \n\nSome land given freely to them should be enough. Especially if it shall remain theirs to administer in perpetuity.\n\nThus, I should give away the county of:"
 
@@ -224,11 +327,11 @@
 
 
   KoH_religiousflavour.799.t: "The Dictatus Papae"
-  KoH_religiousflavour.799.desc: "Standing before your Cardinals, you proclaim to them the intents of the Dictatus Papae - the ambitions of total authority of the appointment of bishops throughout Catholicism."
-  KoH_religiousflavour.799.a: "Okay"
+  KoH_religiousflavour.799.desc: "Murmurs of concern echo throughout the chamber as the Cardinals consider my words. \nMy words, that the Holy See alone holds the true responsibility of [investiture|E], is a marked departure of the ideals of my predecessors. \n\nEver since the decline of the Western Roman Empire, investiture has been performed by members of the ruling nobility; nobility that has long used that right to enrich themselves by selling off those holy offices. \n\nRulers across Christendom have justified this power through their divine right as monarchs, but they forget that the Roman church was founded by God alone, and as such papal power, that is the authority of the Pope, is the sole universal power."
+  KoH_religiousflavour.799.a: "For God!"
 
   KoH_religiousflavour.800.t: "The Dictatus Papae"
-  KoH_religiousflavour.800.desc: "In a large event, [popeman.GetName] had sent message to the entire christian world, declaring his supremacy over Investiture, demanding all catholics currently ruling under [free_investiture|E] to tranfser authority towards realm law [papal_investiture|E]."
+  KoH_religiousflavour.800.desc: "News from Rome!\n\nThe Pope, supported by a Council held in the Lateran Palace, has announced that the Pope alone holds the right of [investiture|E] - the ability to choose and install bishops.\n\nPapal legates across Europe have declared that the Roman church was founded by God alone, and as such papal power was the sole universal power, which includes the appointment or deposition of churchmen or their movement from see to see. \n\nThe Pope has called on all of Christendom to respect his divine right of Papal Investiture and has let it be known that all those who continue to practice [free_investiture|E] will find no favor with the Holy See. ."
   KoH_religiousflavour.800.a: "Okay"
 
   KoH_religiousflavour.803.t: "Crusader Kings"
