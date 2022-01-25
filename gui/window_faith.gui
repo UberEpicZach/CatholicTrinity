@@ -286,6 +286,7 @@ window = {
 			button_tab = {
 				layoutpolicy_horizontal = expanding
 				onclick = "[GetVariableSystem.Set( 'faith_view_tabs', 'beliefs' )]"
+				onclick = "[SetMapMode('religions')]"
 				down = "[GetVariableSystem.HasValue( 'faith_view_tabs', 'beliefs' )]"
 				text = "FAITH_BELIEFS"
 				default_format = "#low"

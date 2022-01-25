@@ -49,6 +49,9 @@ rot_make_antipope_interaction = {
 				}
 			}
 		}
+		scope:actor = {
+			is_independent_ruler = yes
+		}
 		scope:actor.faith.religious_head = {
 			NOT = { is_vassal_of = scope:actor }
 		}
@@ -130,31 +133,52 @@ rot_make_antipope_interaction = {
 			}
 		}
 		modifier = {
-			desc = RELIGIOUS_HEAD_INTERACTION_CONSECRATED_BLOOD
-			add = 5
-			scope:actor = {
-				has_trait = consecrated_blood
-			}
-		}
-		modifier = {
 			desc = ROT_MAKE_ANTIPOPE_IS_AMBITIOUS
-			add = 25
+			add = 50
 			scope:recipient = {
 				has_trait = ambitious
 			}
 		}
 		modifier = {
 			desc = ROT_MAKE_ANTIPOPE_IS_CONTENT
-			add = -25
+			add = -50
 			scope:recipient = {
 				has_trait = content
 			}
 		}
 		modifier = {
 			desc = ROT_MAKE_ANTIPOPE_IS_CARDINAL
-			add = -25
+			add = -10
 			scope:recipient = {
 				has_trait = koh_cardinal
+			}
+		}
+		modifier = {
+			desc = ROT_MAKE_ANTIPOPE_IS_HUMBLE #ADD LOC
+			add = -25
+			scope:recipient = {
+				has_trait = humble
+			}
+		}
+		modifier = {
+			desc = ROT_MAKE_ANTIPOPE_IS_ARROGANT #ADD LOC
+			add = 25
+			scope:recipient = {
+				has_trait = arrogant
+			}
+		}
+		modifier = {
+			desc = ROT_MAKE_ANTIPOPE_IS_BRAVE #ADD LOC
+			add = 10
+			scope:recipient = {
+				has_trait = brave
+			}
+		}
+		modifier = {
+			desc = ROT_MAKE_ANTIPOPE_IS_CRAVEN #ADD LOC
+			add = -10
+			scope:recipient = {
+				has_trait = craven
 			}
 		}
 	}
@@ -268,8 +292,10 @@ excommunicate_interaction = {
 		}
 		NOT = {
 			scope:recipient = {
+				this = scope:actor
 				has_trait = excommunicated
 			}
+			scope:recipient = scope:actor
 		}
 		trigger_if = {
 			limit = {
@@ -331,7 +357,8 @@ excommunicate_interaction = {
 
 	on_accept = {
 		scope:actor = {
-			add_piety = major_piety_loss
+			add_piety = -500
+			add_prestige = -1000
 			hidden_effect = {
 				send_interface_toast = {	
 					title = excommunicate_interaction_desc.tt
@@ -401,7 +428,6 @@ excommunicate_interaction = {
 }
 
 request_excommunication_interaction = {
-
 	category = interaction_category_hostile
 
 	desc = request_excommunication_interaction_desc
@@ -521,11 +547,14 @@ request_excommunication_interaction = {
 			}
 			has_doctrine = tenet_communion
 		}
-		NAND = {
-			scope:secondary_recipient = {
-				highest_held_title_tier >= tier_kingdom
-			}
-		}
+		# NAND = {
+		# 	scope:actor.faith = {
+		# 		has_doctrine = doctrine_temporal_papacy_head
+		# 	}
+		# 	scope:secondary_recipient = {
+		# 		highest_held_title_tier >= tier_kingdom
+		# 	}
+		# }
 
 		trigger_if = {
 			limit = {
@@ -593,7 +622,7 @@ request_excommunication_interaction = {
 		opinion_modifier = {
 			who = scope:recipient
 			opinion_target = scope:actor
-			multiplier = 1
+			multiplier = 1.5
 		}
 		opinion_modifier = {
 			who = scope:recipient
@@ -609,7 +638,7 @@ request_excommunication_interaction = {
 					target = scope:secondary_recipient #Excommunication target
 				}
 			}
-			desc = EXCOMMUNICATION_OPINION
+			desc = EXCOMMUNICATION_0_OPINION
 		}
 		modifier = {
 			add = {
@@ -1766,6 +1795,11 @@ hof_ask_for_gold_interaction = {
 	on_decline = {
 		scope:actor = {
 			trigger_event = religious_interaction.32
+			add_opinion = {
+				target = scope:recipient
+				modifier = requested_money_opinion
+				opinion = -20
+			}
 		}
 	}
 	

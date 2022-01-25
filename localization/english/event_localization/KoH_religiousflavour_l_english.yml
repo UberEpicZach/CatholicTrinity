@@ -289,14 +289,14 @@
   KoH_religiousflavour.56.b: "Ignore this crime, we shall let this slide."
 
   KoH_religiousflavour.57.t: "The War on the Church..."
-  KoH_religiousflavour.57.desc: "Wherefore in the name of God the all-powerful, Father, Son, and Holy Ghost, of the Blessed Peter, Prince of the Apostles, and of all the saints, in virtue of the power which has been given us of binding and loosing in Heaven and on earth, we deprive him all of all his accomplices and all his abettors of the Communion of the Body and Blood of Our Lord, we separate him from the society of all Christians, we exclude him from the bosom of our Holy Mother the Church in Heaven and on earth, we declare him #bold Excommunicated #! and anathematized and we judge him condemned to eternal fire with Satan and his angels and all the reprobate, so long as he will not burst the fetters of the demon, do penance and Satisfy the Church; we deliver him to Satan to mortify his body, that his soul may be saved on the day of Judgment."
+  KoH_religiousflavour.57.desc: ""Wherefore in the name of God the all-powerful, Father, Son, and Holy Ghost, of the Blessed Peter, Prince of the Apostles, and of all the saints, in virtue of the power which has been given us of binding and loosing in Heaven and on earth, we deprive him all of all his accomplices and all his abettors of the Communion of the Body and Blood of Our Lord, we separate him from the society of all Christians, we exclude him from the bosom of our Holy Mother the Church in Heaven and on earth, we declare him #bold Excommunicated #! and anathematized and we judge him condemned to eternal fire with Satan and his angels and all the reprobate, so long as he will not burst the fetters of the demon, do penance and Satisfy the Church; we deliver him to Satan to mortify his body, that his soul may be saved on the day of Judgment." - [Pope.GetTitledFirstName]."
   KoH_religiousflavour.57.a: "Damnation!"
   murdered_biship_modifier:0 "Murdered a Bishop"
 
 
 
   KoH_religiousflavour.250.t: "[saintlocation.GetNameNoTier], Resting place of Saint [localsaint.GetFirstNameNicknamedRegnal]."
-  KoH_religiousflavour.250.desc: "Ya boi" #REPLACE LOC
+  KoH_religiousflavour.250.desc: "Begrimed by the mud and dust of the road, we weary travelers walk where myriad pilgrims ages past have trod. At long last, I have reached the place of Saint [localsaint.GetFirstNameNicknamedRegnal]’s everlasting rest, sanctified by hallowed fame. Even poor strangers to the faith have come as if drawn by grace. With measured footsteps and sacred awe, we approach the holy fane. Pilgrims kneel in prayer before their long-sought shrine; the murmurs of the penitent, imploring saintly intercession, rise like incense in the heavenly sanctuary. \n\nYou who shine with excellence and superhuman virtue deliver us from all evil, who turn to you with confidence and enable us by your gracious protection to serve God more and more faithfully every day."
   KoH_religiousflavour.250.a: "The lovely [saintlocation.GetNameNoTier]."
 
 	KoH_religiousflavour.300.t: "Saint Test Event"

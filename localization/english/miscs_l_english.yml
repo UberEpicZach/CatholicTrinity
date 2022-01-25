@@ -1,4 +1,4 @@
-l_english:
+﻿l_english:
 
   I_INVESTITURE: "#l [investiture|E]"
   I_PAPAL: "[papal_investiture|E]"
@@ -24,13 +24,18 @@ Launch_Crusade_decision_desc: "The armies of the infidels inch ever closer. As t
 Launch_Crusade: "Declare a Crusade."
 Launch_Crusade_confirm: "By grace of god...."
 
-InstallAntipope_decision_desc: "Install Antipope"
+InstallAntipope_decision_desc: "For too long we have allowed the false pretender to rest on the Throne of St. Peter. It is now time to stand up and restore the true Vicar of Christ to his rightful position within the Holy See."
 InstallAntipope_decision_tooltip: "Install Antipope"
 InstallAntipope: "Install Antipope"
 InstallAntipope_confirm: "Install Antipope"
+rot_creator_of_antipope: "Creator of Antipope"
+
+ EXCOMMUNICATION_0_OPINION:0 "[recipient.GetShortUIName|U] has a positive Opinion of [secondary_recipient.GetShortUIName]: $VALUE|=+0$"
+ EXCOMMUNICATION_50_OPINION:0 "[recipient.GetShortUIName|U] has a positive Opinion of over 50 of [secondary_recipient.GetShortUIName]: $VALUE|=+0$"
+ EXCOMMUNICATION_99_OPINION:0 "[recipient.GetShortUIName|U] has a positive Opinion of over 99 of [secondary_recipient.GetShortUIName]: $VALUE|=+0$" 
 
 ProclaimDictatusPapae_decision_desc: "Following the decline of the Western Roman Empire, [investiture|E] was performed by members of the ruling nobility despite theoretically being a task of the church. Secular rulers across Christendom have appointed Bishops to enrich themselves and their family through nepotistic practices. Perhaps it is time to remind the Kings of Europe that the Catholic Church was founded by God alone, and as the successor to St Peter the Pope alone has the authority to appoint or depose churchmen."
-ProclaimDictatusPapae_decision_tooltip: "This will increase your hatred of rulers with [Free_investiture|E] by -50 Opinion.
+ProclaimDictatusPapae_decision_tooltip: "This will increase your hatred of rulers with [Free_investiture|E] by -50 Opinion."
 ProclaimDictatusPapae: "Proclaim the Dictatus Papae"
 ProclaimDictatusPapae_confirm: "Proclaim the Dictatus Papae!"
 
@@ -69,3 +74,6 @@ DonationCountyClergy: "Donate land to the Clergy"
 DonationCountyClergy_decision_tooltip: "You will donate a county to the Clergy"
 DonationCountyClergy_decision_desc: "The act of donation, of giving away, is a most pious thing. And most would say that the Clergy are always in need of more land to administer, land on which they can guide the people down the right path in life. As such, I could give away a bit of my own lands to the Clergy, and be seen as a most Pious person for it"
 DonationCountyClergy_confirm: "Let us decide.."
+
+investiture_early_singular: "[investiture|E]"
+investiture_late_singular: "[investiture|E]"

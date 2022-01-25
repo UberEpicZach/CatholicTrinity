@@ -1,6 +1,64 @@
 ﻿doctrine_head_of_faith = {
 	group = "main_group"
 
+	doctrine_no_head = {
+		visible = no
+		piety_cost = {
+			value = faith_doctrine_cost_mid
+			if = {
+				limit = { has_doctrine = doctrine_no_head }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			no_head_of_faith = yes
+			minimum_fervor = 25
+		}
+	}
+	doctrine_spiritual_head = {
+		visible = no
+		piety_cost = {
+			value = faith_doctrine_cost_high
+			if = {
+				limit = { has_doctrine = doctrine_spiritual_head }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			spiritual_head_of_faith = yes
+			spiritual_head_of_faith_claims = yes
+			spiritual_head_of_faith_gold = yes
+		}
+	}
+	doctrine_temporal_head = {
+		visible = no
+		piety_cost = {
+			value = faith_doctrine_cost_massive
+			if = {
+				limit = { has_doctrine = doctrine_temporal_head }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		can_pick = {
+			custom_description = {
+				text = incompatible_doctrine_theocracy_temporal_trigger
+				NOT = { flag:doctrine_theocracy_temporal = { is_in_list = selected_doctrines } }
+			}
+			custom_description = {
+				text = incompatible_doctrine_spiritual_appointment_temporal_trigger
+				NOR = {
+					flag:doctrine_clerical_succession_spiritual_appointment = { is_in_list = selected_doctrines }
+					flag:doctrine_clerical_succession_spiritual_fixed_appointment = { is_in_list = selected_doctrines }
+				}
+			}
+		}
+
+		parameters = {
+			temporal_head_of_faith = yes
+			temporal_head_of_faith_directed_holy_wars = yes
+		}
+	}
+
 	doctrine_independent_papacy_head = {
 		visible = no
 		is_shown = { religion_tag = christianity_religion }
@@ -21,6 +79,7 @@
 			rot_antipopes = yes
 		}
 	}
+	
 }
 
 doctrine_clerical_succession = {
@@ -224,10 +283,6 @@ doctrine_clerical_succession = {
 		}
 		is_shown = { religion_tag = christianity_religion }
 		can_pick = {
-			custom_description = {
-				text = need_tenet_followers_of_peter_trigger
-				flag:tenet_followers_of_peter = { is_in_list = selected_doctrines }
-			}
 			custom_description = {
 				text = incompatible_doctrine_spiritual_appointment_temporal_trigger
 				NOT = { flag:doctrine_temporal_head = { is_in_list = selected_doctrines } }

@@ -12,6 +12,8 @@ can_see_investiture_law = {
 		OR = {
 			has_realm_law = free_investiture_early
 			has_realm_law = free_investiture_late
+			top_liege = { has_realm_law = free_investiture_late }
+			top_liege = { has_realm_law = free_investiture_early }
 		}
 	}
 }
@@ -90,6 +92,59 @@ get_all_investiture_candidates = {
 			}
 		}
 		
+		every_vassal = {
+			every_courtier_or_guest = {
+				limit = {
+					OR = {
+						AND = {
+							is_councillor_of = scope:employer_liege_guy
+							has_council_position = councillor_court_chaplain
+						}
+						AND = {
+							NOT = {
+								AND = {
+									court_owner = { has_realm_law = male_only_law }
+									is_female = yes
+								}
+								AND = {
+									court_owner = { has_realm_law = male_preference_law }
+									is_female = yes
+								}
+								AND = {
+									court_owner = { has_realm_law = female_only_law }
+									is_female = no
+								}
+								AND = {
+									court_owner = { has_realm_law = female_preference_law }
+									is_female = no
+								}
+								has_variable = theocratic_successor
+								father = liege_or_court_owner
+								mother = liege_or_court_owner
+								primary_spouse = liege_or_court_owner
+							}
+						}
+					}
+					AND = {
+						#And they have to actually like you enough to want to invest you.
+						opinion = {
+							target = root
+							value >= 0
+						}
+						learning >= 7
+					}
+					has_faith = scope:employer_liege_guy.faith
+				}
+				save_scope_as = person_thing
+				scope:title_thing = {
+					add_to_variable_list = {
+						name = theocrat_candidates
+						target = scope:person_thing
+					}
+				}
+			}
+		}
+
 		every_courtier_or_guest = {
 			limit = {
 				OR = {

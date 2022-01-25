@@ -1,7 +1,7 @@
 ﻿l_english:
- game_concept_investiture: "Investiture"
- game_concept_investiture: "Investiture"
- game_concept_investiture_desc: "Investiture, #italic 'in#! #italic Vestire' #! meaning in dress or robe is the formal installationn which a person is given the authority and regalia of a high office, in the case of a Bishop's Investiture has brought upon differing views throughout the church and europe, The Pope had declared himself the sole appointer, while the european nobility, many of which who had donated lands and territory to the church themselves, wish to retain the legal authority to pick and choose the successors to these bishopics.\n\nThere are two levels of Investiture: [papal_investitures|E] and [free_investitures|E].\n\nThese decide among other things, the election of Bishops, the firing and electing of [realm_priest|E], Divorce, Excommunications, and other related powers of the [head_of_faith|E]."
+ game_concept_investiture: "Investiture Law"
+ game_concept_investiture: "Investiture Law"
+ game_concept_investiture_desc: "Investiture, #italic 'in#! #italic Vestire' #! meaning in dress or robe is the formal installation which a person is given the authority and regalia of a high office, in the case of a Bishop's Investiture has brought upon differing views throughout the church and europe, The Pope had declared himself the sole appointer, while the european nobility, many of which who had donated lands and territory to the church themselves, wish to retain the legal authority to pick and choose the successors to these bishoprics.\n\nThere are two levels of Investiture: [papal_investitures|E] and [free_investitures|E].\n\nThese decide among other things, the election of Bishops, the firing and electing of [realm_priest|E], Divorce, Excommunications, and other related powers of the [head_of_faith|E]."
  game_concept_free_investiture: "Free Investiture"
  game_concept_free_investitures: "Free Investiture"
  game_concept_free_investiture_desc: "$game_concept_free_investiture$ is a higher tier of [investiture|E]. Bishops within the kingdom can be appointed by their secular lieges, including the realm preist and will be more loyal to their liege. The Pope and his followers may not be pleased, and may try to take to arms to prevent it."
@@ -79,6 +79,10 @@
   ROT_MAKE_ANTIPOPE_IS_AMBITIOUS:0 "[GetTrait('ambitious').GetName(recipient.Self)]: $VALUE|=+0$"
   ROT_MAKE_ANTIPOPE_IS_CONTENT:0 "[GetTrait('content').GetName(recipient.Self)]: $VALUE|=+ 0 $""
   ROT_MAKE_ANTIPOPE_IS_CARDINAL:0 "[GetTrait('koh_cardinal').GetName(recipient.Self)]: $VALUE|=+0$"
+  ROT_MAKE_ANTIPOPE_IS_HUMBLE:0 "[GetTrait('humble').GetName(recipient.Self)]: $VALUE|=+0$"
+  ROT_MAKE_ANTIPOPE_IS_ARROGANT:0 "[GetTrait('arrogant').GetName(recipient.Self)]: $VALUE|=+0$"
+  ROT_MAKE_ANTIPOPE_IS_BRAVE:0 "[GetTrait('brave').GetName(recipient.Self)]: $VALUE|=+0$"
+  ROT_MAKE_ANTIPOPE_IS_CRAVEN:0 "[GetTrait('craven').GetName(recipient.Self)]: $VALUE|=+0$"
   ROT_MAKE_ANTIPOPE_IS_DUKE:0 "You are just a duke: $VALUE|=+0$"
   ROT_MAKE_ANTIPOPE_ANTIPOPE_IS_EXISTS:0 "At least one antipope already exists: $VALUE|=+0$"
   

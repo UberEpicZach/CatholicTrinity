@@ -28,7 +28,7 @@ rot_created_antipope = {
 	years = 20
 }
 rot_creator_of_antipope = {
-	opinion = -50
+	opinion = -300
 	years = 50
 }
 

@@ -2021,7 +2021,7 @@ KoH_religiousflavour.34 = {
 		has_religion = religion:christianity_religion
 		has_faith = faith:catholic
 		current_year >= 1040
-		#exists = global_var:dictatuspapae
+		exists = global_var:dictatuspapae
 		#change_fervor = -20
 		faith = { fervor >= 50 }
 
@@ -2034,7 +2034,7 @@ KoH_religiousflavour.34 = {
 			has_faith = faith:catholic
 			title:k_papal_state.holder = faith.religious_head
 
-			#has_character_flag = pope_we_refuse_law_changed
+			has_character_flag = pope_we_refuse_law_changed
 			NOR = { has_character_flag = pope_respects_our_law }	
 		}
 	}
@@ -2049,7 +2049,7 @@ KoH_religiousflavour.34 = {
 				highest_held_title_tier >= tier_county
 				has_faith = faith:catholic
 				title:k_papal_state.holder = faith.religious_head
-				#has_character_flag = pope_we_refuse_law_changed
+				has_character_flag = pope_we_refuse_law_changed
 			}
 			save_scope_as = popewantsit
 			primary_title = {
@@ -3053,11 +3053,11 @@ KoH_religiousflavour.48 = {
 					KoH_religiousflavour_48_province_trigger = yes
 				}
 				exists = cp:councillor_court_chaplain
-				# NOT = { 
-				# 	cp:councillor_court_chaplain = {
-				# 		is_performing_council_task = task_conversion
-				# 	}
-				# }
+				NOT = { 
+					cp:councillor_court_chaplain = {
+						is_performing_council_task = task_conversion
+					}
+				}
 			}
 			random_sub_realm_county = {
 				limit = {
@@ -3173,11 +3173,11 @@ KoH_religiousflavour.50 = {
 	trigger = {
 		scope:targetedruler = {
 			exists = cp:councillor_court_chaplain
-			# NOT = {
-			# 	cp:councillor_court_chaplain = {
-			# 		is_performing_council_task = task_conversion
-			# 	}
-			# }
+			NOT = {
+				cp:councillor_court_chaplain = {
+					is_performing_council_task = task_conversion
+				}
+			}
 		}
 	}
 
