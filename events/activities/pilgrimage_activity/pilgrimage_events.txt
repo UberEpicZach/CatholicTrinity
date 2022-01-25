@@ -26,7 +26,6 @@ pilgrimage.0001 = {
 			flag = planning_an_activity
 			days = 30
 		}
-
 		set_up_holy_sites_for_selection_effect = yes
 		random_province = {
 			limit = {
@@ -37,12 +36,14 @@ pilgrimage.0001 = {
 		}
 		scope:saint_site_1 = {
 			if = {
-				limit ={
+				limit = {
 					county = {
 						has_variable_list = faith_saints_and_capital
 					}
 				}
-				save_scope_as = saintlocation
+				county = {
+					save_scope_as = saintlocation
+				}
 			}
 		}
 		scope:saintlocation = {

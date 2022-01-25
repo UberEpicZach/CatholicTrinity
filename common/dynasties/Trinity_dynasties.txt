@@ -1,0 +1,5 @@
+﻿SanctiPetriFiliis = {
+	prefix = "dynnp_di"
+	name = "dynn_SanctiPetriFiliis"
+	culture = "italian"
+}

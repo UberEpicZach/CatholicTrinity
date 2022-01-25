@@ -8,7 +8,8 @@
  bishop: "Bishop"
  CathTheoHolder: "[CHARACTER.Custom('CardinalCheck')]"
  AntipopeHolder: "Pope"
-
+ dynn_SanctiPetriFiliis:"Sancti Petri Filiis"
+ house_SanctiPetriFiliis: "Sancti Petri Filiis"
  councilCardinalHolder: "Cardinal"
  councilbishop: "[ROOT.Char.Custom('GetActualBishopTitle')]"
  councilCathTheoHolder: "[CHARACTER.Custom('CathTheoHolderCounciller')]"

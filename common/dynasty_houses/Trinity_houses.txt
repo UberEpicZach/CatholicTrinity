@@ -1,0 +1,4 @@
+﻿house_SanctiPetriFiliis = {
+	name = "dynn_SanctiPetriFiliis"
+	dynasty = SanctiPetriFiliis
+}
