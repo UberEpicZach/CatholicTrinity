@@ -303,6 +303,19 @@
 	KoH_religiousflavour.300.desc: "Saint Test Event"
   KoH_religiousflavour.300.a: "Saint Test Event"
 
+
+  KoH_religiousflavour.400.t: "The Death of [deadpope.GetFirstNameNicknamedRegnal]: The Papal Conclave Convenes in Roma"
+  KoH_religiousflavour.400.desc: "His holiness [deadpope.GetFirstNameNicknamedRegnal] has passed, and the Cardinals of the world have convened in Roma to elect a new Pope,\n\nWhile days pass, and intense rounds of voting for the new Pope finally come to the end, the Cardinal-Protodeacon stands at a podium at the head of the room of Cardinals, and goes to announces the Cardinal who has won, and will become the next Pope. \nAs he speaks, all the Cardinals in the room look my way...?"
+  KoH_religiousflavour.400.a: "Did, Did he speak my name?"
+
+  KoH_religiousflavour.401.t: "The Papal Conclave Convenes in Roma: The Result?"
+  KoH_religiousflavour.401.desc: "As the Cardinals surround around, I give my best speech to the men, the very men who had decided that I was the Holiness of Catholicism, the head of the Catholic Faith and The vicar of Christ; these men in the holy body of Cardinals, that mere moments ago I had been apart of. The Cardinal-Protodeacon lights a White smoke indicating that a Pope has been chosen, giving notice to the citizens of Rome. \n\nHours later thousands have gathered in the streets of Rome, and I sit along various Cardinals on the Balcony of the Lateran Palace while the Cardinal-Protodeacon takes the stage announcing,#V #italic \n"I announce to you a great joy;\nwe have a Pope! \n\nThe most reverend lord #bold Cardinal [newpope.GetOriginalFirstName] #!\nhas been elected as supreme pontiff and has chosen for himself the name #bold Pope [newpope.GetFirstNameNicknamedRegnal]. #!\n\nTo the honor of almighty God, Father, Son, and Holy Spirit, of the blessed Apostles Peter and Paul, we invest him in the papacy of the Roman Church, that he may govern the city and the world." #! #!"
+  KoH_religiousflavour.401.a: "Sic transit gloria mundi."
+
+  KoH_religiousflavour.402.t: "The Papal Conclave: A New Pope"
+  KoH_religiousflavour.402.desc: "A letter quickly arrives to your court wearing the garb of the Papacy, and the City of Rome. \n\n#V #italic "I announce to you a great joy;\nwe have a Pope! \n\nThe most reverend lord #bold Cardinal [newpope.GetOriginalFirstName] #!\nhas been elected as supreme pontiff and has chosen for himself the name #bold Pope [newpope.GetFirstNameNicknamedRegnal]. #!\n\nTo the honor of almighty God, Father, Son, and Holy Spirit, of the blessed Apostles Peter and Paul, we invest him in the papacy of the Roman Church, that he may govern the city and the world." #! #! \n-Cardinal-Protodeacon of Roma."
+  KoH_religiousflavour.402.a: "Sic transit gloria mundi."
+
   KoH_religiousflavour.500.t: "Donation to the Clergy: County Selection"
   KoH_religiousflavour.500.desc: "Many would argue that there is no grander purpose in life than serving God directly. And many join the ranks of the Church for precisely that reason. However, for those unable to do that, serving God must be done in different ways. \n\nPerhaps the most pious way that is available to a person such as I, is donating land to the Clergy, so that may do their duty all the better. \n\nThere is more to it than just sheer generosity, of course, for I shall be known by many as a good and pious Christian for helping the Clergy. All good deeds shall be rewarded, indeed. \nRegardless, now I must decide what land I should give away to the Clergy:"
 

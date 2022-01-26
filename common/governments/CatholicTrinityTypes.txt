@@ -6,6 +6,10 @@ mercenary_government_mod = {
 	primary_holding = castle_holding
 	required_county_holdings = { castle_holding city_holding church_holding }
 
+	can_get_government = {
+		religion = religion:christianity_religion
+	}
+
 	ai = {
 		arrange_marriage = no
 		use_goals = no

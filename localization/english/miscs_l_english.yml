@@ -6,6 +6,9 @@
 
 appoint_governor:0 "Appoint Bishopric Successor"
 
+public_opinion_positive: "High Public Opinion!"
+refusedpope: "Refused the Pope."
+
 invest_in_cardinal_AI_decision_desc: "This decision is for AI to Invest in the College of Cardinals, Please report this as a bug if you can see this"
 invest_in_cardinal_AI_decision_tooltip: "This decision is for AI to Invest in the College of Cardinals, Please report this as a bug if you can see this"
 invest_in_cardinal_AI: "AI Invest in College"

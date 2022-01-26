@@ -98,7 +98,12 @@
 	effect = {
 		custom_tooltip = Launch_Crusade_decision_effect_tooltip
 		faith:catholic = {
-			hidden_effect = { if = { limit = { NOT = { has_doctrine = doctrine_spiritual_head } } add_doctrine = doctrine_spiritual_head } }
+			religious_head = { 
+				add_character_flag = { 
+					flag = PlayerDecisionForCrusade
+					days = 30 
+				}
+			}
 			trigger_event = great_holy_war.0001
 			religious_head = {
 				trigger_event = KoH_religiousflavour.803

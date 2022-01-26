@@ -199,3 +199,50 @@ rot_is_pope_of_target_trigger = {
 		$TARGET$.faith.religious_head = $POPE$
 	}
 }
+
+suitable_faith_for_undirected_ghw_trigger = {
+	OR = {
+		AND = {
+			this = faith:catholic
+			exists = title:k_papal_state.holder
+			title:k_papal_state.holder = {
+				NOT = { is_ai = yes }
+				has_character_flag = PlayerDecisionForCrusade
+			}
+		}
+		AND = {
+			this = faith:catholic
+			exists = title:k_papal_state.holder
+			title:k_papal_state.holder = {
+				is_ai = yes
+				NOT = { has_character_flag = PlayerDecisionForCrusade }
+			}
+		}
+	}	
+	OR = {
+		has_doctrine_parameter = great_holy_wars_active
+		AND = {
+			has_doctrine_parameter = great_holy_wars_active_if_reformed
+			NOT = { has_doctrine_parameter = unreformed }
+		}
+		has_doctrine = divine_destiny_doctrine #SPECIAL: Has become the Chakravarti
+	}
+	has_doctrine = doctrine_spiritual_head
+	NOR = {
+		has_doctrine = unreformed_faith_doctrine
+		AND = {
+			has_doctrine = tenet_dharmic_pacifism
+			NOT = { has_doctrine = divine_destiny_doctrine }
+		}
+		has_doctrine = tenet_pacifism
+	}
+	fervor >= 75
+	save_temporary_scope_value_as = {
+		name = faith_strength
+		value = faith_military_strength
+	}
+	save_temporary_scope_as = faith
+	any_kingdom = {
+		valid_ghw_target_trigger = { FAITH = scope:faith }
+	}
+}

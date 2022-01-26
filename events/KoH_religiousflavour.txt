@@ -3703,6 +3703,132 @@ KoH_religiousflavour.300 = {
 
 	}
 }
+
+KoH_religiousflavour.400 = {
+	title = KoH_religiousflavour.400.t
+	desc = KoH_religiousflavour.400.desc
+	theme = learning_scholarship_focus
+	left_portrait = {
+		character = scope:deadpope
+	}
+	right_portrait = {
+		character = title:k_papal_state.holder
+		animation = personality_honorable
+	}
+	lower_center_portrait = {
+		character = scope:cardinal1
+		animation = ecstasy
+	}
+	lower_left_portrait = {
+		character = scope:cardinal2
+		animation = content
+	}
+	lower_right_portrait = {
+		character = scope:cardinal3
+		animation = sadness
+	}
+
+	immediate = {
+		random_living_cardinal = {
+			save_scope_as = cardinal1
+		}
+		random_living_cardinal = {
+			limit = { NOT = { this = scope:cardinal1 } }
+			save_scope_as = cardinal2
+		}
+		random_living_cardinal = {
+			limit = { NOT = { this = scope:cardinal1 this = scope:cardinal2 } }
+			save_scope_as = cardinal3
+		}
+	}
+
+	option = { 
+		name = KoH_religiousflavour.400.a
+
+		trigger_event = KoH_religiousflavour.401
+
+		ai_chance = {
+			base = 50
+		}
+	}
+}
+
+KoH_religiousflavour.401 = {
+	title = KoH_religiousflavour.401.t
+	desc = KoH_religiousflavour.401.desc
+	theme = learning_scholarship_focus
+	left_portrait = {
+		character = title:k_papal_state.holder
+		animation = personality_honorable
+	}
+	right_portrait = {
+		character = scope:cardinal4
+		animation = ecstasy
+	}
+	lower_center_portrait = {
+		character = scope:cardinal1
+		animation = ecstasy
+	}
+	lower_left_portrait = {
+		character = scope:cardinal2
+		animation = content
+	}
+	lower_right_portrait = {
+		character = scope:cardinal3
+		animation = sadness
+	}
+
+	immediate = {
+		save_scope_as = newpope
+		random_living_cardinal = {
+			limit = { NOT = { this = scope:cardinal1 this = scope:cardinal2 this = scope:cardinal3 } }
+			save_scope_as = cardinal4
+		}
+	}
+
+	option = { 
+		name = KoH_religiousflavour.401.a
+
+		ai_chance = {
+			base = 50
+		}
+	}
+	after = {
+		every_ruler = {
+			limit = {
+				has_faith = faith:catholic
+				primary_title.tier >= tier_county
+				NOT = { this = faith.religious_head }
+			}
+			trigger_event = {
+				id = KoH_religiousflavour.402
+				days = {5 15}
+			}
+		}
+	}
+}
+
+KoH_religiousflavour.402 = {
+	title = KoH_religiousflavour.402.t
+	desc = KoH_religiousflavour.402.desc
+	theme = learning_scholarship_focus
+	left_portrait = {
+		character = title:k_papal_state.holder
+		animation = personality_honorable
+	}
+	right_portrait = {
+		character = scope:cardinal4
+		animation = ecstasy
+	}
+
+	option = { 
+		name = KoH_religiousflavour.402.a
+
+		ai_chance = {
+			base = 50
+		}
+	}
+}
     
 #Handing out county to Clergy
 KoH_religiousflavour.499 = {
@@ -4393,6 +4519,7 @@ KoH_religiousflavour.799 = {
 			limit = {
 				has_faith = faith:catholic
 				primary_title.tier >= tier_county
+				NOT = { this = faith.religious_head }
 			}
 			trigger_event = {
 				id = KoH_religiousflavour.800

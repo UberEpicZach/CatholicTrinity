@@ -490,6 +490,41 @@ on_pope_death = {
 		save_scope_as = deadpope
 		# Make sure we have the most up-to-date preferatus
 		update_preferatus = yes
+
+		#Value Management
+		if = {
+			limit = {
+				exists = cp:councillor_marshal
+			}
+			cp:councillor_marshal = {
+				save_scope_as = marshal
+			}
+		}
+		if = {
+			limit = {
+				exists = cp:councillor_chancellor
+			}
+			cp:councillor_chancellor = {
+				save_scope_as = chancellor
+			}
+		}
+		if = {
+			limit = {
+				exists = cp:councillor_steward
+			}
+			cp:councillor_steward = {
+				save_scope_as = steward
+			}
+		}
+		if = {
+			limit = {
+				exists = cp:councillor_spymaster
+			}
+			cp:councillor_spymaster = {
+				save_scope_as = spymaster
+			}
+		}
+
 		# Optional heir designation (If your systems care about such)
 		#set_designated_heir = global_var:preferatus.story_owner
 		# Make sure the preferatus gives up their lands and titles before becoming pope
@@ -513,12 +548,12 @@ on_pope_death = {
 			}
 		}
 
-		title:k_papal_state = {
-			change_title_holder = {
-				holder = global_var:preferatus.story_owner
-				change = scope:papal_inheritance
-			}
-		}
+		# title:k_papal_state = {
+		# 	change_title_holder = {
+		# 		holder = global_var:preferatus.story_owner
+		# 		change = scope:papal_inheritance
+		# 	}
+		# }
 		resolve_title_and_vassal_change = scope:papal_inheritance
 		set_player_character = global_var:preferatus.story_owner
 		global_var:preferatus.story_owner = { if = { limit = { is_lowborn = yes } global_var:preferatus.story_owner = { set_house = house:house_SanctiPetriFiliis } } }
@@ -529,7 +564,57 @@ on_pope_death = {
 		}
 
 		global_var:preferatus.story_owner = {	
+			add_gold = scope:deadpope.gold
 			remove_trait = koh_cardinal
+		}
+
+		#transfer values
+		title:k_papal_state.holder = {	
+			add_gold = scope:deadpope.gold
+
+			if = {
+				limit = {
+					NOT = { exists = cp:councillor_marshal }
+					exists = scope:marshal
+				}
+				assign_councillor_type = {
+					type = councillor_marshal
+					target = scope:marshal
+				}
+			}
+			if = {
+				limit = {
+					NOT = { exists = cp:councillor_steward }
+					exists = scope:steward
+				}
+				assign_councillor_type = {
+					type = councillor_steward
+					target = scope:steward
+				}
+			}
+			if = {
+				limit = {
+					NOT = { exists = cp:councillor_chancellor }
+					exists = scope:chancellor
+				}
+				assign_councillor_type = {
+					type = councillor_chancellor
+					target = scope:chancellor
+				}
+			}
+			if = {
+				limit = {
+					NOT = { exists = cp:councillor_spymaster }
+					exists = scope:spymaster
+				}
+				assign_councillor_type = {
+					type = councillor_spymaster
+					target = scope:spymaster
+				}
+			}
+			title:k_papal_state.holder = { 
+				trigger_event = KoH_religiousflavour.400
+			}
 		}
 		update_cardinal_window = yes
 		update_preferatus = yes
