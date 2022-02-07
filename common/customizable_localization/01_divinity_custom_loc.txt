@@ -588,9 +588,32 @@ GetActualBishopTitle = {
 	}
 	text = {
 		trigger = {
-			has_trait = koh_cardinal
+			has_trait = cardinal_priest
 		}
-		localization_key = CardinalFlavor
+		localization_key = CardinalFlavor1
+	}
+	text = {
+		trigger = {
+			has_trait = cardinal_bishop
+		}
+		localization_key = CardinalFlavor2
+	}
+	text = {
+		trigger = {
+			has_trait = cardinal_archbishop
+		}
+		localization_key = CardinalFlavor3
+	}
+	text = {
+		trigger = {
+			is_preferatus_character = yes
+			OR = {
+				has_trait = cardinal_archbishop
+				has_trait = cardinal_bishop
+				has_trait = cardinal_priest
+			}
+		}
+		localization_key = CardinalFlavor4
 	}
 	text = {
 		trigger = {
@@ -1117,23 +1140,23 @@ GetActualBishopTitle = {
 
 	#Christian
 	text = {
-		trigger = { liege.highest_held_title_tier >= tier_empire is_female = no faith.religion = faith:catholic.religion NOT = { has_trait = koh_cardinal } }
+		trigger = { liege.highest_held_title_tier >= tier_empire is_female = no faith.religion = faith:catholic.religion NOT = { OR = { has_trait = cardinal_priest has_trait = cardinal_bishop has_trait = cardinal_archbishop }}}
 		localization_key = councillor_court_chaplain_christian_empire
 	}
 	text = {
-		trigger = { liege.highest_held_title_tier >= tier_empire is_female = yes faith.religion = faith:catholic.religion NOT = { has_trait = koh_cardinal }}
+		trigger = { liege.highest_held_title_tier >= tier_empire is_female = yes faith.religion = faith:catholic.religion NOT = { OR = { has_trait = cardinal_priest has_trait = cardinal_bishop has_trait = cardinal_archbishop }}}
 		localization_key = councillor_court_chaplain_christian_empire_female
 	}
 	text = {
-		trigger = { liege.highest_held_title_tier >= tier_kingdom faith.religion = faith:catholic.religion NOT = { has_trait = koh_cardinal } }
+		trigger = { liege.highest_held_title_tier >= tier_kingdom faith.religion = faith:catholic.religion NOT = { OR = { has_trait = cardinal_priest has_trait = cardinal_bishop has_trait = cardinal_archbishop }}}
 		localization_key = councillor_court_chaplain_christian_kingdom
 	}
 	text = {
-		trigger = { liege.highest_held_title_tier >= tier_duchy faith.religion = faith:catholic.religion NOT = { has_trait = koh_cardinal }}
+		trigger = { liege.highest_held_title_tier >= tier_duchy faith.religion = faith:catholic.religion NOT = { OR = { has_trait = cardinal_priest has_trait = cardinal_bishop has_trait = cardinal_archbishop }}}
 		localization_key = councillor_court_chaplain_christian_duchy
 	}
 	text = {
-		trigger = { liege.highest_held_title_tier < tier_duchy faith.religion = faith:catholic.religion NOT = { has_trait = koh_cardinal }}
+		trigger = { liege.highest_held_title_tier < tier_duchy faith.religion = faith:catholic.religion NOT = { OR = { has_trait = cardinal_priest has_trait = cardinal_bishop has_trait = cardinal_archbishop }}}
 		localization_key = councillor_court_chaplain_christian_county
 	}
 

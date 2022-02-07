@@ -1013,18 +1013,22 @@ KoH_religiousflavour.22 = {
 	immediate = {
 		every_living_cardinal = {
 			add_prestige = 1
-			add_trait = koh_cardinal
-			#give_nickname = nick_cardinal
-			# if = {
-			# 	limit = {
-			# 		OR = {
-			# 			has_council_position = councillor_court_chaplain
-			# 			is_theocratic_lessee = yes
-			# 			is_landed = no
-			# 		}
-			# 	}
-			# 	give_nickname = nick_cardinal
-			# }
+			if = {
+				limit = {
+					is_landed = no
+				}
+				add_trait = cardinal_priest
+			}
+			if = {
+				limit = {
+					is_landed = yes
+					highest_held_title_tier >= tier_duchy
+				}
+				add_trait = cardinal_archbishop
+			}
+			else = {
+				add_trait = cardinal_bishop
+			}
 		}
 	}
 }
@@ -1234,7 +1238,10 @@ KoH_religiousflavour.25 = {
 		
 		add_piety = 25
 		faith = {
-			change_fervor = 2
+			change_fervor = {
+				value = 2
+				desc = increased_fervor
+			}
 		}
 
 		faith.religious_head = {
@@ -1272,7 +1279,10 @@ KoH_religiousflavour.25 = {
 		
 		add_piety = -25
 		faith = {
-			change_fervor = -4
+			change_fervor = {
+				value = 2
+				desc = increased_fervor
+			}
 		}
 
 		add_character_flag = pope_we_refuse_law_changed
@@ -4503,10 +4513,7 @@ KoH_religiousflavour.799 = {
 				save_scope_as = popeman
 			}
 		}
-		random_ruler = {
-			limit = {
-				has_trait = koh_cardinal
-			}
+		random_living_cardinal = {
 			save_scope_as = cardinal
 		}
 	}

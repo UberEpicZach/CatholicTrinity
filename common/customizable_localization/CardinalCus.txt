@@ -2,9 +2,32 @@
 	type = character
 	text = {
 		trigger = {
-			has_trait = koh_cardinal
+			is_preferatus_character = yes 
+			OR = {
+				has_trait = cardinal_archbishop
+				has_trait = cardinal_bishop
+				has_trait = cardinal_priest
+			}
 		}
-		localization_key = CardinalFlavor
+		localization_key = CardinalFlavor4
+	}
+	text = {
+		trigger = {
+			has_trait = cardinal_priest
+		}
+		localization_key = CardinalFlavor1
+	}
+	text = {
+		trigger = {
+			has_trait = cardinal_bishop
+		}
+		localization_key = CardinalFlavor2
+	}
+	text = {
+		trigger = {
+			has_trait = cardinal_archbishop
+		}
+		localization_key = CardinalFlavor3
 	}
 	text = {
 		trigger = {
@@ -45,21 +68,61 @@
 	}
 }
 
+CardinalTitleCheck = {
+	type = character
+	text = {
+		trigger = {
+			has_trait = cardinal_priest
+		}
+		localization_key = CardinalFlavor1
+	}
+	text = {
+		trigger = {
+			has_trait = cardinal_bishop
+		}
+		localization_key = CardinalFlavor2
+	}
+	text = {
+		trigger = {
+			has_trait = cardinal_archbishop
+		}
+		localization_key = CardinalFlavor3
+	}
+}
+
 councilCathTheoHolder = {
 	type = character
 	text = {
 		trigger = {
-			has_trait = koh_cardinal
+			has_trait = cardinal_priest
 			is_cardinal = yes
 			OR = {
 				has_council_position = councillor_court_chaplain
 				is_theocratic_lessee = yes
 			}
 		}
-		localization_key = CardinalFlavor
+		localization_key = CardinalFlavor1
 	}
 	text = {
 		fallback = yes
 		localization_key = councilbishop
+	}
+}
+
+sainthood_enviroment_check = {
+	type = character
+	text = {
+		trigger = {
+			has_trait = saint
+		}
+		localization_key = environment_saint
+	}
+	text = {
+		trigger = {
+			NOT = { 
+				has_trait = saint
+			}
+		}
+		localization_key = environment_standard
 	}
 }

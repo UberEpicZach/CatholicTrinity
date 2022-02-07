@@ -27,6 +27,7 @@ mapmodes = {
 
 CatholicsimFix = {
 	effect = {
+		every_living_character = { limit = { is_clergy = yes has_faith = faith:catholic } learn_language = language_latin }
 		faith:catholic = {
 			add_doctrine = doctrine_independent_papacy_head
 			add_doctrine = doctrine_clerical_succession_investiture_law_appointment
@@ -282,7 +283,7 @@ captianchurch = {
 				exists = title:d_captain_general_church
 			}
 			title:d_captain_general_church.holder = {
-				get_title = c_tivoli
+				get_title = title:c_tivoli
 
 				create_title_and_vassal_change = {
 					type = granted #or whatever
@@ -462,7 +463,11 @@ on_preferatus_death = {
 	trigger = {
 		AND = {
 			has_cardinal_faith = yes
-			has_trait = koh_cardinal
+			OR = {
+				has_trait = cardinal_priest
+				has_trait = cardinal_bishop
+				has_trait = cardinal_archbishop
+			}
 			exists = global_var:preferatus
 			this = global_var:preferatus.story_owner
 			any_owned_story = {
@@ -565,7 +570,9 @@ on_pope_death = {
 
 		global_var:preferatus.story_owner = {	
 			add_gold = scope:deadpope.gold
-			remove_trait = koh_cardinal
+			if = { limit = { has_trait = cardinal_priest } remove_trait = cardinal_priest }
+			if = { limit = { has_trait = cardinal_bishop } remove_trait = cardinal_bishop }
+			if = { limit = { has_trait = cardinal_archbishop } remove_trait = cardinal_archbishop }
 		}
 
 		#transfer values
@@ -631,7 +638,9 @@ on_gain_papacy = {
 		scope:title = title:k_papal_state
 	}
 	effect = {
-		if = { limit = { has_trait = koh_cardinal } remove_trait = koh_cardinal }
+		if = { limit = { has_trait = cardinal_bishop } remove_trait = cardinal_bishop }
+		if = { limit = { has_trait = cardinal_priest } remove_trait = cardinal_priest }
+		if = { limit = { has_trait = cardinal_archbishop } remove_trait = cardinal_archbishop }
 		every_player = {add_gold = 1}
 		if = {limit = {is_cardinal = yes} every_player = {add_piety = 1}}
 		if = { limit = { has_trait = rot_antipope } rot_remove_antipope = yes}

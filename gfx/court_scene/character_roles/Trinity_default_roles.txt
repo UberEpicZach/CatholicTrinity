@@ -1,0 +1,25 @@
+﻿cardinals = {
+	effect = {
+		if = {
+			limit = {
+				scope:ruler = {
+					has_title = title:k_papal_state
+				}
+			}
+			every_living_cardinal = {
+				limit = {
+					in_diplomatic_range = scope:ruler
+				}
+				add_to_list = characters
+			}
+		}
+	}
+	scripted_animation = {
+		triggered_animation = {
+			trigger = {
+				always = yes
+			}
+			animation = { throne_room_conversation_1 throne_room_conversation_2 throne_room_conversation_4 throne_room_writer personality_rational chaplain personality_zealous boredom }
+		}
+	}
+}

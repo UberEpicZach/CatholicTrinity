@@ -119,7 +119,7 @@ cardinal_location_bonus = {
 cardinal_culture_bonus = {
 	value = 0
 	if = 		{limit = {culture = global_var:ideal_cardinal_location.culture} 						add = cardinal_score_culture}
-	else_if = 	{limit = {culture_group = global_var:ideal_cardinal_location.culture.culture_group} 	add = cardinal_score_culture_group}
+	else_if = 	{limit = { culture = { has_same_culture_heritage = global_var:ideal_cardinal_location.culture} } 	add = cardinal_score_culture_group}
 }
 cardinal_virtue_bonus = {
 	value = num_virtuous_traits
@@ -186,5 +186,5 @@ num_cardinals = {
 }
 num_living_cardinals = {
 	# Can't use custom scripted lists in script math (Yet!)
-	every_living_character = {limit = {is_cardinal = yes is_pope = no}add = 1}
+	every_living_character = {limit = {is_cardinal = yes is_pope = no} add = 1}
 }

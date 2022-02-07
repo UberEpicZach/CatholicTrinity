@@ -145,3 +145,42 @@ empire_mercenary_mod = {
 	priority = 101
 	governments = { mercenary_government_mod }
 }
+papacy_papal_legate = {
+	type = character
+	special = councillor
+	priority = 666
+	council_position = councillor_chancellor
+	titles = { k_papal_state }
+}
+
+papacy_general_auditor  = {
+	type = character
+	special = councillor
+	priority = 666
+	council_position = councillor_marshal
+	titles = { k_papal_state }
+}
+
+papacy_papal_majordomo = {
+	type = character
+	special = councillor
+	priority = 666
+	council_position = councillor_court_chaplain
+	titles = { k_papal_state }
+}
+
+papacy_papal_camerlengo = {
+	type = character
+	special = councillor
+	priority = 666
+	council_position = councillor_steward
+	titles = { k_papal_state }
+}
+
+papacy_grand_inquisitor  = {
+	type = character
+	special = councillor
+	priority = 666
+	council_position = councillor_spymaster
+	titles = { k_papal_state }
+}

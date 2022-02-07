@@ -1,0 +1,37 @@
+﻿CatholicTrinityCardinalTrigger = {
+	OR = {
+		has_trait = cardinal_archbishop
+		has_trait = cardinal_bishop
+		has_trait = cardinal_priest
+	}
+}
+
+CatholicTrinityCardinalOrAntiPopeTrigger = {
+	OR = {
+		has_trait = pope_trait
+		has_trait = rot_antipope
+	}
+}
+
+CatholicTrinityMercenaryGovernementTrigger = {
+	has_government = mercenary_government_mod
+}
+
+CatholicTrinityMercenaryTitleTrigger = { #exists = title:d_captain_general_church.holder / has_title = title:d_captain_general_church
+	exists = title:d_captain_general_church.holder
+	has_title = title:d_captain_general_church
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

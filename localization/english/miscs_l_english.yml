@@ -80,3 +80,9 @@ DonationCountyClergy_confirm: "Let us decide.."
 
 investiture_early_singular: "[investiture|E]"
 investiture_late_singular: "[investiture|E]"
+
+environment_standard: "You shouldn't see this"
+environment_saint: "You shouldn't see this, but for saints!"
+ 
+close_tooltip: "Close"
+increased_fervor: "Fervor Change"

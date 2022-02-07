@@ -5,7 +5,7 @@ mercenary_government_mod = {
 	council = yes
 	primary_holding = castle_holding
 	required_county_holdings = { castle_holding city_holding church_holding }
-
+	#royal_court = yes
 	can_get_government = {
 		religion = religion:christianity_religion
 	}
@@ -22,21 +22,21 @@ mercenary_government_mod = {
 }
 
 # # Head of faith will always get this if possible
-# theocracy_government = {
-# 	primary_holding = church_holding
-# 	valid_holdings = { castle_holding }
-# 	religious = yes
-# 	rulers_should_have_dynasty = yes
-# 	required_county_holdings = { church_holding castle_holding city_holding }
+theocracy_government = {
+	primary_holding = church_holding
+	valid_holdings = { castle_holding }
+	religious = yes
+	royal_court = yes
+	required_county_holdings = { church_holding castle_holding city_holding }
 
-# 	can_get_government = {
-# 		NOT = {
-# 			faith = {
-# 				has_doctrine = doctrine_theocracy_lay_clergy
-# 			}
-# 		}
-# 	}
+	can_get_government = {
+		NOT = {
+			faith = {
+				has_doctrine = doctrine_theocracy_lay_clergy
+			}
+		}
+	}
 
-# 	vassal_contract = { theocracy_government_obligations }
-# 	color = hsv{ 0.00 0.00 0.78 }
-# }
+	vassal_contract = { theocracy_government_obligations }
+	color = hsv{ 0.00 0.00 0.78 }
+}

@@ -1,7 +1,4 @@
-﻿
-### ANTIPOPE ACTIONS
-
-rot_make_antipope_interaction = {
+﻿rot_make_antipope_interaction = {
 	category = interaction_category_religion
 
 	common_interaction = yes
@@ -150,7 +147,11 @@ rot_make_antipope_interaction = {
 			desc = ROT_MAKE_ANTIPOPE_IS_CARDINAL
 			add = -10
 			scope:recipient = {
-				has_trait = koh_cardinal
+				OR = {
+					has_trait = cardinal_priest
+					has_trait = cardinal_bishop
+					has_trait = cardinal_archbishop
+				}
 			}
 		}
 		modifier = {
@@ -187,7 +188,6 @@ rot_make_antipope_interaction = {
 	ai_max_reply_days = 5
 
 	on_accept = {
-
 		scope:recipient = {
 			if = {
 				limit = { 
@@ -199,8 +199,16 @@ rot_make_antipope_interaction = {
 				}
 			}
 			if = {
-				limit = { has_trait = koh_cardinal }
-				remove_trait = koh_cardinal
+				limit = { 
+					OR = {
+						has_trait = cardinal_priest
+						has_trait = cardinal_bishop
+						has_trait = cardinal_archbishop
+					}
+				}
+				if = { limit = { has_trait = cardinal_priest } remove_trait = cardinal_priest }
+				if = { limit = { has_trait = cardinal_bishop } remove_trait = cardinal_bishop }
+				if = { limit = { has_trait = cardinal_archbishop } remove_trait = cardinal_archbishop }
 				random_owned_story = {
 					limit = {
 						story_type = cardinal_story
@@ -279,7 +287,6 @@ rot_make_antipope_interaction = {
 	}
 }
 ## COMMUNION TENET
-
 excommunicate_interaction = {
 	category = interaction_category_hostile
 	common_interaction = yes #suppress error
@@ -296,6 +303,11 @@ excommunicate_interaction = {
 				has_trait = excommunicated
 			}
 			scope:recipient = scope:actor
+		}
+		NOT = {
+			scope:recipient = {
+				has_trait = excommunicated
+			}
 		}
 		trigger_if = {
 			limit = {
@@ -460,41 +472,53 @@ request_excommunication_interaction = {
 		}
 		if = {
 			limit = {
-				scope:actor = { has_cardinal_faith = yes } #might error
+				scope:actor = { has_cardinal_faith = yes }
 			}
-			scope:actor = {
-				if = {
-					limit = {
+			if = {
+				limit = {
+					scope:actor = {
 						has_variable = rot_conclave_influence
 					}
+				}
+				scope:actor = {
 					remove_variable = rot_conclave_influence
 				}
 			}
-			scope:secondary_recipient = {
-				if = {
-					limit = {
+			if = {
+				limit = {
+					scope:secondary_recipient = {
 						has_variable = rot_conclave_influence
 					}
+				}
+				scope:secondary_recipient = {
 					remove_variable = rot_conclave_influence
 				}
 			}
 			every_living_character = {
 				limit = { 
-					has_trait = koh_cardinal
+					OR = {
+						has_trait = cardinal_priest
+						has_trait = cardinal_bishop
+						has_trait = cardinal_archbishop
+					}
 					faith = scope:actor.faith
 					top_liege = scope:actor
 				}
-				scope:actor = {
-					if = {
-						limit = {
+				if = {
+					limit = {
+						scope:actor = {
 							NOT = { has_variable = rot_conclave_influence }
 						}
+					}
+					scope:actor = {
 						set_variable = {
 							name = rot_conclave_influence
 							value = 1
 						}
 					}
-					else = {
+				}
+				else = {
+					scope:actor = {
 						change_variable = {
 							name = rot_conclave_influence
 							add = 1
@@ -504,21 +528,29 @@ request_excommunication_interaction = {
 			}
 			every_living_character = {
 				limit = { 
-					has_trait = koh_cardinal
+					OR = {
+						has_trait = cardinal_priest
+						has_trait = cardinal_bishop
+						has_trait = cardinal_archbishop
+					}
 					faith = scope:secondary_recipient.faith
 					top_liege = scope:secondary_recipient
 				}
-				scope:secondary_recipient = {
-					if = {
-						limit = {
+				if = {
+					limit = {
+						scope:secondary_recipient = {
 							NOT = { has_variable = rot_conclave_influence }
 						}
+					}
+					scope:secondary_recipient = {
 						set_variable = {
 							name = rot_conclave_influence
 							value = 1
 						}
 					}
-					else = {
+				}
+				else = {
+					scope:secondary_recipient = {
 						change_variable = {
 							name = rot_conclave_influence
 							add = 1
@@ -788,7 +820,6 @@ request_excommunication_interaction = {
 	}
 }
 
-
 hof_ask_for_claim_interaction = {
 	category = interaction_category_diplomacy
 
@@ -821,47 +852,32 @@ hof_ask_for_claim_interaction = {
 			scope:secondary_recipient = {
 				remove_variable = rot_conclave_influence
 			}
+
 			every_living_character = {
 				limit = { 
-					has_trait = koh_cardinal
-					faith = scope:actor.faith
-					top_liege = scope:actor
-				}
-				scope:actor = {
-					if = {
-						limit = {
-							NOT = { has_variable = rot_conclave_influence }
-						}
-						set_variable = {
-							name = rot_conclave_influence
-							value = 1
-						}
+					OR = {
+						has_trait = cardinal_priest
+						has_trait = cardinal_bishop
+						has_trait = cardinal_archbishop
 					}
-					else = {
-						change_variable = {
-							name = rot_conclave_influence
-							add = 1
-						}
-					}
-				}
-			}
-			every_living_character = {
-				limit = { 
-					has_trait = koh_cardinal
 					faith = scope:secondary_recipient.faith
 					top_liege = scope:secondary_recipient
 				}
-				scope:secondary_recipient = {
-					if = {
-						limit = {
+				if = {
+					limit = {
+						scope:secondary_recipient = {
 							NOT = { has_variable = rot_conclave_influence }
 						}
+					}
+					scope:secondary_recipient = {
 						set_variable = {
 							name = rot_conclave_influence
 							value = 1
 						}
 					}
-					else = {
+				}
+				else = {
+					scope:secondary_recipient = {
 						change_variable = {
 							name = rot_conclave_influence
 							add = 1
@@ -2222,8 +2238,8 @@ lift_excommunication_interaction = {
 			}
 			scope:actor.faith = scope:recipient.faith
 			rot_is_pope_of_target_trigger = { 
-				TARGET = scope:actor 
-				POPE = scope:recipient 
+				TARGET = scope:recipient 
+				POPE = scope:actor  
 			}
 		}
 		trigger_else = {
@@ -2327,13 +2343,17 @@ divorce_character_interaction = {
 	cost = {
 		piety = divorce_cost
 	}
-
+	
 	is_shown = {
-		always = no
+		scope:actor.faith = {
+			NOT = {
+				has_doctrine = doctrine_divorce_approval
+			}
+		}
 	}
 
 	is_valid_showing_failures_only = {
-		always = no
+		
 	}
 
 	auto_accept = yes
@@ -2910,7 +2930,7 @@ take_vows_interaction = {
  		}
  	}
 
-	auto_accept = no
+	#auto_accept = no
 
 	ai_accept = {
 		base = 0 # Try to make it 0 for most interactions

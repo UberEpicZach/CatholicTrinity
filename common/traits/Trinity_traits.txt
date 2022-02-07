@@ -1,19 +1,76 @@
-﻿koh_cardinal = {
-	index = 901
-	health_trait = yes
-	dynasty_opinion = 20
-	birth = 0
-	random_creation = 0
-	monthly_dynasty_prestige = 1
-	monthly_piety_gain_mult = 0.2
+﻿cardinal_priest = {
+    fame = yes
+    learning = 2
 
-	desc = {
-		desc = cardinal_desc
-	}
+    random_creation = 0
+    same_faith_opinion = 10
+
+    advantage_against_coreligionists = 5
+    monthly_piety_gain_mult = 0.1
+
+    desc = {
+        first_valid = {
+            triggered_desc = {
+                trigger = {
+                    NOT = { exists = this }
+                }
+                desc = trait_cardinal_priest_desc
+            }
+            desc = trait_cardinal_priest_character_desc
+        }
+    }
+}
+
+cardinal_bishop = {
+    fame = yes
+    learning = 2
+
+    random_creation = 0
+    same_faith_opinion = 15
+
+    advantage_against_coreligionists = 10
+    monthly_prestige_gain_mult = 0.1
+    monthly_piety_gain_mult = 0.1
+
+    desc = {
+        first_valid = {
+            triggered_desc = {
+                trigger = {
+                    NOT = { exists = this }
+                }
+                desc = trait_cardinal_bishop_desc
+            }
+            desc = trait_cardinal_bishop_character_desc
+        }
+    }
+}
+
+cardinal_archbishop = {
+    fame = yes
+    learning = 2
+    stewardship = 1
+
+    random_creation = 0
+    same_faith_opinion = 20
+
+    advantage_against_coreligionists = 15
+    monthly_prestige_gain_mult = 0.1
+    monthly_piety_gain_mult = 0.2
+
+    desc = {
+        first_valid = {
+            triggered_desc = {
+                trigger = {
+                    NOT = { exists = this }
+                }
+                desc = trait_cardinal_archbishop_desc
+            }
+            desc = trait_cardinal_archbishop_character_desc
+        }
+    }
 }
  
 beatified = {
-	index = 902
 	birth = 0
 	random_creation = 0
 

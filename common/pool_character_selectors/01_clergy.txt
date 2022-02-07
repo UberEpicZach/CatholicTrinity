@@ -24,7 +24,7 @@
 				has_trait = saint
 			}
 		}
-	}
+	} 
 	
 	character_score = {
 		base = 1
@@ -34,12 +34,20 @@
 			has_same_culture_as = scope:base
 		}
 		modifier = {
-			add = 1000
-			has_same_culture_group_as = scope:base
+			add = 700
+			culture = { has_same_culture_heritage = scope:base.culture }
+		}
+		modifier = {
+			add = 700
+			culture = { has_same_culture_language = scope:base.culture }
+		}
+		modifier = {
+			add = 700
+			culture = { has_same_culture_ethos = scope:base.culture }
 		}
 		modifier = {
 			add = -1000
-			NOT = { has_same_culture_group_as = scope:base }
+			NOT = { culture = { has_same_culture_heritage = scope:base.culture } }
 		}
 		modifier = {
 			add = 250
@@ -93,9 +101,18 @@ pool_theocratic_succession = {
 			has_same_culture_as = scope:base
 		}
 		modifier = {
-			add = 10
-			has_same_culture_group_as = scope:base
+			add = 15
+			culture = { has_same_culture_heritage = scope:base.culture }
 		}
+		modifier = {
+			add = 10
+			culture = { has_same_culture_language = scope:base.culture }
+		}
+		modifier = {
+			add = 5
+			culture = { has_same_culture_ethos = scope:base.culture }
+		}
+		
 		modifier = {
 			factor = 1.5
 			age > 40

@@ -21,7 +21,7 @@
     
                 blockoverride "header_text"
                 {
-                    text = "Saints"
+                    raw_text = "Saints"
                     fontsize = 28
                 }
     
@@ -89,7 +89,7 @@
                                             vbox = {
                                                 hbox = {
                                                     text_single = {
-                                                        text = "[culture|E]: "
+                                                        raw_text = "[culture|E]: "
                                                         fontsize = 16
                                                         default_format = "#italic"
                                                     }
@@ -106,13 +106,13 @@
                                             vbox = {
                                                 hbox = {
                                                     text_single = {
-                                                        text = "[dynasty|E]: "
+                                                        raw_text = "[dynasty|E]: "
                                                         fontsize = 16
                                                         default_format = "#italic"
                                                     }
                                                     spacer = { size = { 5 0 } }
                                                     text_single = {
-                                                        text = "SAINT_WIND_UNIUI_SAINT_DYNASTY"
+                                                        raw_text = "SAINT_WIND_UNIUI_SAINT_DYNASTY"
                                                         fontsize = 16
                                                         default_format = "#italic"
                                                     }
@@ -123,13 +123,13 @@
 
                                         hbox = {
                                             text_single = {
-                                                text = "Age at death, [Character.GetAge],"
+                                                raw_text = "Age at death, [Character.GetAge],"
                                                 fontsize = 16
                                                 default_format = "#italic"
                                             }
                                             spacer = { size = { 5 0 } }
                                             text_single = {
-                                                text = "[Character.GetDeathOrBirthDateInfo]"
+                                                raw_text = "[Character.GetDeathOrBirthDateInfo]"
                                                 fontsize = 16
                                                 default_format = "#italic"
                                             }
@@ -138,7 +138,7 @@
                                         
                                         hbox = {
                                             text_single = {
-                                                text = "Bio:"
+                                                raw_text = "Bio:"
                                                 fontsize = 16
                                                 default_format = "#italic"
                                             }
@@ -176,7 +176,7 @@
             using = portrait_base
             block "portrait_texture"
             {
-                portrait_texture = "[Character.GetPortrait('environment_very_bright_shoulders', 'camera_shoulders', 'idle', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+                portrait_texture = "[Character.GetPortrait('environment_saint', 'camera_shoulders', 'idle', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
             }
 
             mask = "gfx/portraits/portrait_mask_shoulders.dds"

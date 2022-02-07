@@ -99,8 +99,7 @@ environment_shoulders = {
 	shadow_camera = environment_standard
 }
 
-environment_very_bright_shoulders = { #Sainthood
-
+environment_saint = { #Sainthood
 	cubemap = "gfx/portraits/environments/black.dds"
 	cubemap_intensity = 0.6
 

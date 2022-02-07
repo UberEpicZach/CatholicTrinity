@@ -39,9 +39,6 @@ window = {
 
 	### INSIDE WINDOW
 	vbox = {
-		layoutpolicy_horizontal = expanding
-		layoutpolicy_vertical = expanding
-
 		using = Window_Margins_Sidebar
 
 		### Header
@@ -101,18 +98,16 @@ window = {
 			}
 
 			hbox = {
-				layoutpolicy_horizontal = expanding
-				layoutpolicy_vertical = expanding
 				datacontext = "[FaithWindow.GetFaith]"
 
 				watch_window_button = {
 					size = { 60 40 }
 					onclick = "[AddWatchWindow( FaithWindow.GetFaith.MakeScope )]"
 				}
+
 				vbox = {
 					margin_top = 30
 					margin_left = 10
-					layoutpolicy_vertical = expanding
 
 					icon = {
 						name = "faith_icon"
@@ -144,8 +139,8 @@ window = {
 						layoutpolicy_horizontal = expanding
 
 						vbox = {
-							layoutpolicy_vertical = expanding
 							visible = "[Not(ObjectsEqual( GetPlayer.GetFaith, Faith.Self ))]"
+							layoutpolicy_vertical = expanding
 							margin_bottom = 3
 
 							expand = {}
@@ -167,7 +162,6 @@ window = {
 
 						vbox = {
 							layoutpolicy_vertical = expanding
-							layoutpolicy_horizontal = expanding
 							margin_bottom = 3
 
 							text_single = {
@@ -185,40 +179,7 @@ window = {
 							margin = { 10 0 }
 							spacing = 4
 
-							vbox = {
-								name = "fervor_container"
-								tooltip = "FERVOR_TT"
-								spacing = -6
-
-								# Fervor
-								hbox = {
-
-									icon = {
-										texture = "gfx/interface/icons/icon_fervor.dds"
-										size = { 22 22 }
-									}
-
-									text_single = {
-										text = "FAITH_WINDOW_FERVOR"
-										default_format = "#high"
-										align = nobaseline
-									}
-								}
-								hbox = {
-									layoutpolicy_horizontal = expanding
-									margin_right = 1
-									expand = {}
-
-									text_single = {
-										name = "fervor_trend"
-										text = "[Faith.GetMonthlyFervorChange|=+2]"
-										max_width = 110
-										default_format = "#low"
-										fontsize = 13
-										size = { 0 12 }
-									}
-								}
-							}
+							fervor_container_vbox = {}
 
 							button_sidepanel_right = {
 								name = "religion_information"
@@ -236,13 +197,13 @@ window = {
 							}
 							button_sidepanel_right = {
 								name = "saints_information"
-								tooltip = "View Saints"
+								raw_tooltip = "View Saints"
 								onclick = "[GetVariableSystem.Toggle('window_sainthood')]"
 								using = tooltip_nw
 
 								blockoverride "button_text"
 								{
-									text = "View Saints"
+									raw_text = "View Saints"
 								}
 							}
 						}
@@ -312,7 +273,7 @@ window = {
 				onclick = "[SetMapMode( 'baronies' )]"
 				onclick = "[GetScriptedGui('get_all_realm_theocracies').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 				down = "[GetVariableSystem.HasValue( 'faith_view_tabs', 'investiture' )]"
-				text = "Investiture" # Should typically call a loc key but you can put the text right in if you are lazy
+				raw_text = "Investiture" # Should typically call a loc key but you can put the text right in if you are lazy
 				default_format = "#low"
 
 				using = tooltip_below
@@ -797,7 +758,7 @@ window = {
 							hbox = {
 								layoutpolicy_horizontal = expanding
 
-								text_single = {
+								text_multi = {
 									visible = "[Faith.GetReligiousHead.IsValid]"
 									text = "RELIGIOUS_HEAD_WITH_NAME"
 									default_format = "#high"
@@ -814,7 +775,10 @@ window = {
 									align = left
 									fontsize_min = 10
 								}
+
+								expand = {}
 							}
+
 							expand = {}
 							vbox = { #ROT
 								layoutpolicy_horizontal = expanding
@@ -1253,12 +1217,12 @@ window = {
 ### RELIGION VIEW
 window = {
 	name = "religion_window"
-	size = { 550 80% }
-	position = { 605 75 }
-	movable = yes
+	size = { 590 80% }
+	position = { 620 75 }
 	datacontext = "[ReligionWindow.GetReligion]"
 	layer = windows_layer
 
+	using = Window_Movable
 	using = Window_Background_Subwindow
 
 	state = {
@@ -1304,7 +1268,7 @@ window = {
 			layoutpolicy_horizontal = expanding
 			margin = { 15 0 }
 			margin_bottom = 5
-			spacing = 20
+			spacing = 5
 
 			hbox = {
 				spacing = 5
@@ -1333,20 +1297,20 @@ window = {
 				max_width = 550
 				spacing = 5
 
-				button_checkbox = {
+				expand = {}
+
+				button_checkbox_label = {
 					onclick = "[ReligionWindow.OnShowOnlyReligionFaiths]"
 
+					blockoverride "text"
+					{
+						text = "RELIGION_SHOW_ONLY"
+						max_width = 180
+					}
 					blockoverride "checkbox"
 					{
 						checked = "[ReligionWindow.ShowOnlyReligionFaiths]"
 					}
-				}
-
-				text_multi = {
-					layoutpolicy_horizontal = expanding
-					text = "RELIGION_SHOW_ONLY"
-					align = nobaseline
-					default_format = "#clickable"
 				}
 
 				tooltip = "[ReligionWindow.GetShowOnlyReligionFaithsTooltip]"
@@ -1393,8 +1357,6 @@ window = {
 							}
 
 							hbox = {
-								layoutpolicy_horizontal = expanding
-								layoutpolicy_vertical = expanding
 								margin = { 10 5 }
 								alpha = "[Select_float(GreaterThan_int32(Faith.GetNumberOfCountiesOfFaith,'(int32)0'), '(float)1.0','(float)0.5'))]"
 
@@ -1423,6 +1385,14 @@ window = {
 										}
 
 										expand = {}
+
+										text_single = {
+											min_width = 160
+											name = "religion_faith_name"
+											align = right|nobaseline
+											text = "FAITH_RELIGION"
+											margin_right = 5
+										}
 									}
 
 									hbox = {
@@ -1453,14 +1423,6 @@ window = {
 										autoresize = no
 									}
 								}
-
-								text_multi = {
-									min_width = 160
-									name = "religion_faith_name"
-									text = "FAITH_RELIGION"
-									autoresize = no
-									align = center
-								}
 							}
 						}
 					}
@@ -1483,7 +1445,7 @@ types FaithCreationWindow
 		{
 			block "label"
 			{
-				text = "#D enter label...#!"
+				text = "DEFAULT_TEXT"
 			}
 		}
 		size = { 380 30 }
@@ -1525,6 +1487,41 @@ types FaithShared
 			default_format = "#high"
 
 			using = Font_Size_Medium
+		}
+	}
+
+	type fervor_container_vbox = vbox {
+		name = "fervor_container"
+		tooltip = "FERVOR_TT"
+		spacing = -6
+
+		# Fervor
+		hbox = {
+
+			icon = {
+				texture = "gfx/interface/icons/icon_fervor.dds"
+				size = { 22 22 }
+			}
+
+			text_single = {
+				text = "FAITH_WINDOW_FERVOR"
+				default_format = "#high"
+				align = nobaseline
+			}
+		}
+		hbox = {
+			layoutpolicy_horizontal = expanding
+			margin_right = 1
+			expand = {}
+
+			text_single = {
+				name = "fervor_trend"
+				text = "[Faith.GetYearlyFervorChange|=+2]"
+				max_width = 110
+				default_format = "#low"
+				fontsize = 13
+				size = { 0 12 }
+			}
 		}
 	}
 }

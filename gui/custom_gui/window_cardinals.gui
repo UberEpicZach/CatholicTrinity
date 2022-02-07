@@ -110,6 +110,9 @@ type window_cardinals_character = widget { # Lists character's name and portrait
             }
         }
         window_cardinals_portrait = {}
+        # text_single = {
+        #     text = "cardinals_cardinal3"
+        # }
         text_single = {
             text = "cardinals_cardinal2"
         }
@@ -230,7 +233,7 @@ type window_cardinals_open_button = button {
     datacontext = "[Faith.GetReligion]"
     visible = "[Faith.MakeScope.Var('uses_cardinal_module').IsSet]"
     icon    = {texture = "gfx/interface/CollegeCardinals/HouseofCardinalsButton.png"}
-    tooltip = "#T The [collegeofcardinals|E]#!."
+    raw_tooltip = "#T The [collegeofcardinals|E]#!."
     #tooltip = "#T The [collegeofcardinals|E]#!.                                                           There exists a college which comprises 9 cardinals.                Cardinals are appointed by the Pope from among the clergy of Catholic Europe.                                                                                                                                                                                                       Candidates with greater piety, greater age, greater learning, virtuous traits, secular power, favourable relations with the Pope, and the current culture of Rome/The Pope are preferred.                                                                                                                                         Candidates are immediately appointed upon the death of a cardinal or upon the accession of one of the nine to the Papacy. Secular rulers can assign money to the campaign fund of the most promising cardinal candidate in their realm, thus making this vassal bishop more likely to be made into a cardinal."
     onclick = "[GetVariableSystem.Toggle('window_cardinals')]"
     onclick = "[GetScriptedGui('refresh_cardinal_characters').Execute(GuiScope.SetRoot(Religion.MakeScope).End)]"
@@ -284,9 +287,9 @@ type window_cardinals = window {
         position= {544 1090}
         visible = "[EqualTo_string(FaithWindow.GetFaith.GetNameNoTooltip,Localize('catholic'))]"
         icon    = {texture = "gfx/interface/CollegeCardinals/CloseButton.png"}
-        tooltip = "close"
+        tooltip = "close_tooltip"
         onclick = "[GetVariableSystem.Toggle('window_cardinals')]"
-        onclick = "[GetScriptedGui('refresh_cardinal_characters').Execute(GuiScope.SetRoot(GetDummyMale.MakeScope).End)]"
+        onclick = "[GetScriptedGui('refresh_cardinal_characters').Execute(GuiScope.SetRoot(Religion.MakeScope).End)]"
         alwaystransparent = no
         layoutpolicy_vertical = expanding
     }
@@ -311,7 +314,7 @@ type window_cardinals = window {
             name = "header_text_custom"
             default_format = "#clickable"
 
-            text = "Close"
+            raw_text = "Close"
             fontsize = 25
             maximumsize = { 400 -1 }
 
@@ -345,12 +348,12 @@ type window_cardinals = window {
             parentanchor = top|hcenter
             window_cardinals_special_character = {
                 datacontext = "[FaithWindow.GetFaith.GetReligiousHead]"
-                blockoverride "text" {text = cardinals_pope}
+                blockoverride "text" { raw_text = cardinals_pope}
                 blockoverride "fontsize" { fontsize = 25 }
             }
             window_cardinals_special_character = {
                 datacontext = "[Religion.MakeScope.Var('preferatus_character').GetCharacter]"
-                blockoverride "text"    {   text = cardinals_preferatus}
+                blockoverride "text"    {   raw_text = cardinals_preferatus}
                 blockoverride "portrait" {  window_cardinals_portrait = { parentanchor = hcenter|vcenter position = { -13 3 } } } 
                 blockoverride "fontsize" { fontsize = 26 }
                 window_cardinals_score      = {position = { 40 0 }}
@@ -406,7 +409,7 @@ type window_cardinals = window {
                 parentanchor = top|hcenter
                 position = { 0 -2 }
                 default_format = "#light_background"
-                text = cardinals_candidacy
+                raw_text = cardinals_candidacy
                 fontsize = 28
                 maximumsize = { 400 -1}
     
@@ -422,9 +425,9 @@ type window_cardinals = window {
             position = {250 0}
             visible = "[GetScriptedGui('can_see_my_candidate').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
             datacontext = "[GetPlayer.MakeScope.Var('cardinal_player_candidate').GetCharacter]"
-            blockoverride "text"    {   text = cardinals_my_candidate}
+            blockoverride "text"    {   raw_text = cardinals_my_candidate}
             blockoverride "portrait" {  window_cardinals_portrait = { parentanchor = hcenter|vcenter }}
-            blockoverride "score" {text = "[GuiScope.SetRoot(Character.MakeScope).ScriptValue('bishop_to_cardinal_score')|0]"}
+            blockoverride "score" {raw_text = "[GuiScope.SetRoot(Character.MakeScope).ScriptValue('bishop_to_cardinal_score')|0]"}
             blockoverride "fontsize" { fontsize = 26 }
             window_cardinals_campaign = {position = { -25 50 }}
             window_cardinals_score = {position = { 50 -5 }}
@@ -469,7 +472,7 @@ type window_cardinals = window {
             parentanchor = vcenter|right
             position = {-220 0}
             datacontext = "[Religion.MakeScope.Var('predicted_cardinal').GetCharacter]"
-            blockoverride "text"    {   text = cardinals_predictus}
+            blockoverride "text"    {   raw_text = cardinals_predictus}
             blockoverride "portrait" {  window_cardinals_portrait = { parentanchor = hcenter|vcenter }}
             blockoverride "score" {text = "[GuiScope.SetRoot(Character.MakeScope).ScriptValue('bishop_to_cardinal_score')|0]"}
             blockoverride "fontsize" { fontsize = 26 }

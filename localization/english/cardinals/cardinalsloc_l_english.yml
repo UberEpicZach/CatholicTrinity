@@ -1,5 +1,8 @@
 ﻿l_english:
- CardinalFlavor: "Cardinal"
+ CardinalFlavor1: "Cardinal-Priest"
+ CardinalFlavor2: "Cardinal-Bishop"
+ CardinalFlavor3: "Cardinal-Archbishop"
+ CardinalFlavor4: "Cardinal-Dean"
  emperorbishop: "Primas"
  popebishop: "Pope"
  kingbishop: "King-Bishop"
@@ -41,3 +44,10 @@
  emperor_theocracy_male_christianity_religion:0 "Emperor-Bishop"
  emperor_theocracy_female_christianity_religion:0 "Empress-Bishop"
  empire_theocracy_christianity_religion:0 "Imperial Church"
+
+  # Papacy Сouncillor
+ papacy_papal_legate:0 "Papal Legate"
+ papacy_general_auditor:0 "General Auditor"
+ papacy_papal_majordomo:0 "Papal Majordomo"
+ papacy_papal_camerlengo:0 "Сamerlengo"
+ papacy_grand_inquisitor:0 "Grand Inquisitor"

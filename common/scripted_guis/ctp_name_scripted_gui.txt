@@ -53,3 +53,14 @@ faith_has_female_saints = {
 		}
 	}
 }
+
+sainthood = {
+	#scope = empty
+	saved_scopes = {
+		char
+	}
+	is_shown = {
+		exists = scope:char
+		scope:char = {has_trait = saint}
+	}
+}

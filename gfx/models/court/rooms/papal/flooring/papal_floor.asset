@@ -1,0 +1,58 @@
+pdxmesh = {
+	name = "papal_floor_mesh"
+	file = "papal_floor.mesh"
+
+	meshsettings = {
+		name = "Outer Wall"
+		index = 0
+		texture_diffuse = "papal_wall_diffuse.dds"
+		texture_normal = "papal_wall_normal.dds"
+		texture_specular = "papal_wall_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+
+	meshsettings = {
+		name = "Papal Floor"
+		index = 1
+		texture_diffuse = "papal_floor_diffuse.dds"
+		texture_normal = "papal_floor_normal.dds"
+		texture_specular = "papal_floor_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+	meshsettings = {
+		name = "Stairs"
+		index = 2
+		texture_diffuse = "papal_stairs_diffuse.dds"
+		texture_normal = "papal_stairs_normal.dds"
+		texture_specular = "papal_stairs_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+
+	meshsettings = {
+		name = "Stand"
+		index = 3
+		texture_diffuse = "papal_stand_diffuse.dds"
+		texture_normal = "papal_stand_normal.dds"
+		texture_specular = "papal_stand_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+
+	meshsettings = {
+		name = "Top of Stairs"
+		index = 4
+		texture_diffuse = "papal_stairstop_diffuse.dds"
+		texture_normal = "papal_stairstop_normal.dds"
+		texture_specular = "papal_stairstop_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+entity = {
+	name = "papal_floor_entity"
+	pdxmesh = "papal_floor_mesh"
+}

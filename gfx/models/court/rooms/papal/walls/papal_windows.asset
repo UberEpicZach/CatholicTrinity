@@ -1,0 +1,19 @@
+pdxmesh = {
+	name = "papal_windows_mesh"
+	file = "Papal_Windows.mesh"
+
+	meshsettings = {
+		name = "Windows"
+		index = 0
+		texture_diffuse = "Wall and Roof_diffuse.dds"
+		texture_normal = "Wall and Roof_normal.dds"
+		texture_specular = "Wall and Roof_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+entity = {
+	name = "papal_windows_entity"
+	pdxmesh = "papal_windows_mesh"
+}

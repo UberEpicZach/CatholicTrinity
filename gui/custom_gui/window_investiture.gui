@@ -63,7 +63,7 @@
                                 spacer = { size = { 10 0 } } # Literally what it sounds like. Adds some empty space.
                                 vbox = {
                                     text_single = { # Text. text_multi is better for descriptions though.
-                                        text = "Current Holder:" # I should have put in a loc key but I just put in the loc since I'm lazy.
+                                        raw_text = "Current Holder:" # I should have put in a loc key but I just put in the loc since I'm lazy.
                                         default_format = "#high" # If you don't want to do #bold or #italic or #G in the loc key itself, you can get it here. That said, you can't do "#bold #italic" and can only get one formatting change here.
                                         fontsize = 16 # I am not explaining this.
                                     }
@@ -73,7 +73,7 @@
                                 vbox = {
                                     datacontext = "[Scope.GetCharacter.GetPrimaryTitle.MakeScope.Var('theocratic_successor').GetCharacter]" # Get's the character's primary title's variable theocratic_successor and gets the character stored on it.
                                     text_single = {
-                                        text = "Successor:"
+                                        raw_text = "Successor:"
                                         default_format = "#high"
                                         fontsize = 16
                                     }
@@ -83,7 +83,7 @@
                                 button_sidepanel_right = { # This is a type I'm calling here
                                     blockoverride "button_text" # So we need a blockoverride.
                                     {
-                                        text = "Appoint Successor"
+                                        raw_text = "Appoint Successor"
                                     }
                                     visible = "[And(Not(GetScriptedGui('set_up_new_successor').IsShown(GuiScope.SetRoot(Scope.GetCharacter.GetPrimaryTitle.MakeScope).End)),GetScriptedGui('can_see_investiture_law').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]" # Not(), And(), Nor() and the like are the GUI versions of NOT, AND, NOR, etc. Items can be seperated with a comma. Capitalization here is important
                                     onclick = "[GetScriptedGui('get_all_investiture_candidates').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('selected_title_inv',Scope.GetCharacter.GetPrimaryTitle.MakeScope).End)]" # AddScope is the GUI version of save_scope_as for script values. It follows the format ('scope name',who is the scope data functions)
@@ -118,7 +118,7 @@
     
                 blockoverride "header_text"
                 {
-                    text = "Appoint Successor"
+                    raw_text = "Appoint Successor"
                 }
     
                 blockoverride "button_close"
@@ -202,26 +202,26 @@
                                                     minimumsize = { 100 -1 }
                                                     hbox = {
                                                         text_single = {
-                                                            text = "Diplomacy:  "
+                                                            raw_text = "Diplomacy:  "
                                                         }
                                                         text_single = {
-                                                            text = "[Character.MakeScope.ScriptValue('diplomacy_theocrat')|0]" # For some fucked up reason we can't call up any of a person's stats so I have to manually do it via a script value
-                                                        }
-                                                    }
-                                                    hbox = {
-                                                        text_single = {
-                                                            text = "Stewardship:  "
-                                                        }
-                                                        text_single = {
-                                                            text = "[Character.MakeScope.ScriptValue('stewardship_theocrat')|0]"
+                                                            raw_text = "[Character.MakeScope.ScriptValue('diplomacy_theocrat')|0]" # For some fucked up reason we can't call up any of a person's stats so I have to manually do it via a script value
                                                         }
                                                     }
                                                     hbox = {
                                                         text_single = {
-                                                            text = "Martial:  "
+                                                            raw_text = "Stewardship:  "
                                                         }
                                                         text_single = {
-                                                            text = "[Character.MakeScope.ScriptValue('martial_theocrat')|0]"
+                                                            raw_text = "[Character.MakeScope.ScriptValue('stewardship_theocrat')|0]"
+                                                        }
+                                                    }
+                                                    hbox = {
+                                                        text_single = {
+                                                            raw_text = "Martial:  "
+                                                        }
+                                                        text_single = {
+                                                            raw_text = "[Character.MakeScope.ScriptValue('martial_theocrat')|0]"
                                                         }
                                                     }
                                                 }
@@ -229,26 +229,26 @@
                                                     minimumsize = { 100 -1 }
                                                     hbox = {
                                                         text_single = {
-                                                            text = "Intrigue:  "
+                                                            raw_text = "Intrigue:  "
                                                         }
                                                         text_single = {
-                                                            text = "[Character.MakeScope.ScriptValue('intrigue_theocrat')|0]"
-                                                        }
-                                                    }
-                                                    hbox = {
-                                                        text_single = {
-                                                            text = "Learning:  "
-                                                        }
-                                                        text_single = {
-                                                            text = "[Character.MakeScope.ScriptValue('learning_theocrat')|0]"
+                                                            raw_text = "[Character.MakeScope.ScriptValue('intrigue_theocrat')|0]"
                                                         }
                                                     }
                                                     hbox = {
                                                         text_single = {
-                                                            text = "Prowess:  "
+                                                            raw_text = "Learning:  "
                                                         }
                                                         text_single = {
-                                                            text = "[Character.GetProwess]" # Except prowess. For some reason we can call prowess.
+                                                            raw_text = "[Character.MakeScope.ScriptValue('learning_theocrat')|0]"
+                                                        }
+                                                    }
+                                                    hbox = {
+                                                        text_single = {
+                                                            raw_text = "Prowess:  "
+                                                        }
+                                                        text_single = {
+                                                            raw_text = "[Character.GetProwess]" # Except prowess. For some reason we can call prowess.
                                                         }
                                                     }
                                                 }
