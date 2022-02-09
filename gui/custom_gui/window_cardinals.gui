@@ -114,7 +114,12 @@ type window_cardinals_character = widget { # Lists character's name and portrait
         #     text = "cardinals_cardinal3"
         # }
         text_single = {
+            visible = "[Character.HasLandedTitles]"
             text = "cardinals_cardinal2"
+        }
+        text_single = {
+            visible = "[Not(Character.HasLandedTitles)]"
+            text = "cardinals_cardinal4"
         }
     }
 }

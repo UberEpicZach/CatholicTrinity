@@ -111,8 +111,11 @@ CatholicTrinityModule_is_loaded = { always = yes }
 
 can_realm_theocracies_trigger = {
 	has_government = theocracy_government
-	exists = theocracy_vassals_for_investiture
-	is_in_global_list = theocracy_vassals_for_investiture
+	#exists = theocracy_vassals_for_investiture
+	is_target_in_global_variable_list = {
+		name = theocracy_vassals_for_investiture
+		target = prev
+	}
 	NOT = {
 		primary_title = {
 			has_variable = theocratic_successor
@@ -132,7 +135,10 @@ familytrigger = {
 }
 
 is_preferatus_character = {
-	has_cardinal_faith = yes
+	OR = {
+		has_faith = faith:catholic
+		has_faith = faith:insular_celtic
+	}
 	OR = {
 		has_trait = cardinal_archbishop
 		has_trait = cardinal_bishop
@@ -249,4 +255,8 @@ suitable_faith_for_undirected_ghw_trigger = {
 	any_kingdom = {
 		valid_ghw_target_trigger = { FAITH = scope:faith }
 	}
+}
+
+removingvariableeffecttrigger = {
+	has_variable = rot_conclave_influence
 }

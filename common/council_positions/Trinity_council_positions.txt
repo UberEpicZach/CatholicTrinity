@@ -6,17 +6,48 @@
 		custom_description = {
 			text = "court_chaplain_cant_fire_doctrines_TCT"
 			NOR = {
-                has_realm_law = papal_investiture_early
-				has_realm_law = papal_investiture_late
-                top_liege = { has_realm_law = papal_investiture_early }
-				top_liege = { has_realm_law = papal_investiture_late }
+                AND = {
+					has_faith = faith:catholic
+					has_realm_law = papal_investiture_early
+				}
+				AND = {
+					has_faith = faith:catholic
+					has_realm_law = papal_investiture_late
+				}	
+                AND = {
+					has_faith = faith:catholic
+					top_liege = { has_realm_law = papal_investiture_early }
+				}
+				AND = {
+					has_faith = faith:catholic
+					top_liege = { has_realm_law = papal_investiture_late }
+				}
             }
             OR = {
-                has_realm_law = free_investiture_early
-				has_realm_law = free_investiture_late
-                top_liege = { has_realm_law = free_investiture_early }
-				top_liege = { has_realm_law = free_investiture_late }
-            }
+				AND = {
+					has_faith = faith:catholic
+					has_realm_law = free_investiture_early
+				}
+				AND = {
+					has_faith = faith:catholic
+					has_realm_law = free_investiture_late
+				}
+				AND = {
+					has_faith = faith:catholic
+					top_liege = { has_realm_law = free_investiture_early }
+				}
+				AND = {
+					has_faith = faith:catholic
+					top_liege = { has_realm_law = free_investiture_late }
+				}
+				AND = {
+					faith = {
+						NOT = {
+							has_doctrine = doctrine_clerical_succession_spiritual_fixed_appointment
+						}
+					}
+				}
+			}
 		}
 	}
 
@@ -24,32 +55,90 @@
 		custom_description = {
             text = "court_chaplain_cant_reassign_doctrines"
 			NOR = {
-                has_realm_law = papal_investiture_early
-				has_realm_law = papal_investiture_late
-                top_liege = { has_realm_law = papal_investiture_early }
-				top_liege = { has_realm_law = papal_investiture_late }
+                AND = {
+					has_faith = faith:catholic
+					has_realm_law = papal_investiture_early
+				}
+				AND = {
+					has_faith = faith:catholic
+					has_realm_law = papal_investiture_late
+				}	
+                AND = {
+					has_faith = faith:catholic
+					top_liege = { has_realm_law = papal_investiture_early }
+				}
+				AND = {
+					has_faith = faith:catholic
+					top_liege = { has_realm_law = papal_investiture_late }
+				}
             }
-			OR = {
-                has_realm_law = free_investiture_early
-				has_realm_law = free_investiture_late
-                top_liege = { has_realm_law = free_investiture_early }
-				top_liege = { has_realm_law = free_investiture_late }
-            }
+            OR = {
+				AND = {
+					has_faith = faith:catholic
+					has_realm_law = free_investiture_early
+				}
+				AND = {
+					has_faith = faith:catholic
+					has_realm_law = free_investiture_late
+				}
+				AND = {
+					has_faith = faith:catholic
+					top_liege = { has_realm_law = free_investiture_early }
+				}
+				AND = {
+					has_faith = faith:catholic
+					top_liege = { has_realm_law = free_investiture_late }
+				}
+				AND = {
+					faith = {
+						has_doctrine_parameter = clerical_appointment_ruler
+					}
+				}
+			}
         }
     }
 
 	can_change_once = {
 		NOR = {
-			has_realm_law = papal_investiture_early
-			has_realm_law = papal_investiture_late
-			top_liege = { has_realm_law = papal_investiture_early }
-			top_liege = { has_realm_law = papal_investiture_late }
+			AND = {
+				has_faith = faith:catholic
+				has_realm_law = papal_investiture_early
+			}
+			AND = {
+				has_faith = faith:catholic
+				has_realm_law = papal_investiture_late
+			}	
+			AND = {
+				has_faith = faith:catholic
+				top_liege = { has_realm_law = papal_investiture_early }
+			}
+			AND = {
+				has_faith = faith:catholic
+				top_liege = { has_realm_law = papal_investiture_late }
+			}
 		}
 		OR = {
-			has_realm_law = free_investiture_early
-			has_realm_law = free_investiture_late
-			top_liege = { has_realm_law = free_investiture_early }
-			top_liege = { has_realm_law = free_investiture_late }
+			AND = {
+				has_faith = faith:catholic
+				has_realm_law = free_investiture_early
+			}
+			AND = {
+				has_faith = faith:catholic
+				has_realm_law = free_investiture_late
+			}
+			AND = {
+				has_faith = faith:catholic
+				top_liege = { has_realm_law = free_investiture_early }
+			}
+			AND = {
+				has_faith = faith:catholic
+				top_liege = { has_realm_law = free_investiture_late }
+			}
+			AND = {
+				faith = {
+					has_doctrine_parameter = clerical_appointment_fixed
+				}
+			}
 		}
 	}
 	

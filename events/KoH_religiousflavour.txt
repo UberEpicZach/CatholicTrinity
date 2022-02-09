@@ -1023,10 +1023,15 @@ KoH_religiousflavour.22 = {
 				limit = {
 					is_landed = yes
 					highest_held_title_tier >= tier_duchy
+					NOT = { this = character:7853 }
 				}
 				add_trait = cardinal_archbishop
 			}
-			else = {
+			else_if = {
+				limit = {
+					is_landed = yes
+					NOT = { this = character:7853 }
+				}
 				add_trait = cardinal_bishop
 			}
 		}
@@ -1036,7 +1041,7 @@ KoH_religiousflavour.22 = {
 #cardinal election won
 KoH_religiousflavour.23 = {
 	hidden = yes
-
+	orphan = yes
 	immediate = {
 		send_interface_toast = {
 			title = CardinalElectionWon				
@@ -3637,6 +3642,7 @@ KoH_religiousflavour.250 = {
 	title = KoH_religiousflavour.250.t
 	desc = KoH_religiousflavour.250.desc
 	theme = learning_scholarship_focus
+	orphan = yes 
 	left_portrait = {
 		character = root
 	}
@@ -3674,6 +3680,7 @@ KoH_religiousflavour.300 = {
 	title = KoH_religiousflavour.300.t
 	desc = KoH_religiousflavour.300.desc
 	theme = learning_scholarship_focus
+	orphan = yes 
 	left_portrait = {
 		character = scope:popewantsit
 	}
@@ -3724,6 +3731,7 @@ KoH_religiousflavour.400 = {
 	right_portrait = {
 		character = title:k_papal_state.holder
 		animation = personality_honorable
+		outfit_tags = { cardinal_outfit}
 	}
 	lower_center_portrait = {
 		character = scope:cardinal1
@@ -4616,5 +4624,73 @@ KoH_religiousflavour.803 = {
 	option = {
 		name = KoH_religiousflavour.803.a
 		
+	}
+}
+
+KoH_religiousflavour.805 = {
+	hidden = yes
+
+	trigger = {
+		OR = {
+			has_trait = cardinal_archbishop
+			has_trait = cardinal_bishop
+			has_trait = cardinal_priest
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				has_trait = cardinal_archbishop
+				highest_held_title_tier < tier_duchy
+				is_landed = yes
+			}
+			remove_trait = cardinal_archbishop
+			add_trait = cardinal_bishop
+		}
+		if = {
+			limit = {
+				has_trait = cardinal_bishop
+				is_landed = no
+			}
+			remove_trait = cardinal_bishop
+			add_trait = cardinal_priest
+		}
+	}
+
+	option = {
+		name = KoH_religiousflavour.803.a
+		
+	}
+}
+
+KoH_religiousflavour.806 = {
+	hidden = yes
+
+	trigger = {
+		OR = {
+			has_trait = cardinal_archbishop
+			has_trait = cardinal_bishop
+			has_trait = cardinal_priest
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				has_trait = cardinal_bishop
+				highest_held_title_tier >= tier_duchy
+			}
+			remove_trait = cardinal_bishop
+			add_trait = cardinal_archbishop
+		}
+		if = {
+			limit = {
+				has_trait = cardinal_priest
+				is_landed = yes
+			}
+			remove_trait = cardinal_priest
+			add_trait = cardinal_bishop
+		}
 	}
 }

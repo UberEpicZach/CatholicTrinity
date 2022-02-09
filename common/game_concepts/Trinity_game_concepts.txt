@@ -47,3 +47,25 @@ cardinals = {
 	parent = religion
 	alias = { cardinal }
 }
+
+
+cardinal_bishop = {
+	texture = "gfx/interface/CollegeCardinals/HouseofCardinalsButton.png"
+	#texture = "gfx/interface/icons/laws/crown_authority_0.dds"
+	parent = cardinals
+	alias = { cardinal_bishops }
+}
+
+cardinal_priest = {
+	texture = "gfx/interface/CollegeCardinals/HouseofCardinalsButton.png"
+	#texture = "gfx/interface/icons/laws/crown_authority_0.dds"
+	parent = cardinals
+	alias = { cardinal_priests }
+}
+
+cardinal_archbishop = {
+	texture = "gfx/interface/CollegeCardinals/HouseofCardinalsButton.png"
+	#texture = "gfx/interface/icons/laws/crown_authority_0.dds"
+	parent = cardinals
+	alias = { cardinal_archbishops }
+}

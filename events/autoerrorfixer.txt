@@ -1,7 +1,8 @@
 ﻿namespace = autoerrorfixer
 autoerrorfixer.1 = {
     hidden = yes
-    immediate = {
+	orphan = yes 
+	immediate = {
 		fix_variable_error = {ERROR = childforheir}
 		fix_variable_error = {ERROR = selected_title_for_investiture}
 		fix_variable_error = {ERROR = uses_cardinal_module}
@@ -27,6 +28,7 @@ autoerrorfixer.1 = {
 }
 autoerrorfixer.2 = {
     hidden = yes
+	orphan = yes 
     immediate = {
 		add_character_modifier = donatedlandtoclergy
 		add_character_modifier = public_opinion_positive

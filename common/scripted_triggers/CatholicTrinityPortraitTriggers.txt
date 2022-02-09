@@ -22,7 +22,58 @@ CatholicTrinityMercenaryTitleTrigger = { #exists = title:d_captain_general_churc
 	has_title = title:d_captain_general_church
 }
 
+cfp_loaded_checker = { 
+	trigger_if = { cfp_is_loaded = yes }
+	trigger_else = { always = no }
+}
 
+#CFP
+has_graphical_norman_culture_group_trigger = {
+	cfp_loaded_checker = yes
+	OR = {
+		has_culture = culture:english
+		has_culture = culture:norman
+		AND = {
+			culture = {	has_cultural_pillar = heritage_frankish }
+			any_sub_realm_county = {
+				any_this_title_or_de_jure_above = {	this = title:k_england }
+			}
+			NOR = {
+				has_culture = culture:french
+				has_culture = culture:frankish
+				has_culture = culture:occitan
+			}
+		}
+	}
+}
+
+has_graphical_goidelic_culture_group_trigger = {
+	cfp_loaded_checker = yes
+	OR = {
+		has_culture = culture:irish
+		has_culture = culture:gaelic
+		culture = {	has_cultural_pillar = heritage_goidelic }
+	}
+}
+
+has_graphical_andalusian_culture_group_trigger = {
+	cfp_loaded_checker = yes
+	OR = {
+		has_culture = culture:andalusian
+		AND = {
+			faith.religion = religion:islam_religion
+			any_sub_realm_county = {
+				any_this_title_or_de_jure_above = {	this = title:e_spain }
+			}
+		}
+		AND = {
+			culture = { has_cultural_pillar = heritage_iberian }
+			any_sub_realm_county = {
+				any_this_title_or_de_jure_above = {	this = title:k_andalusia }
+			}
+		}
+	}
+}
 
 
 

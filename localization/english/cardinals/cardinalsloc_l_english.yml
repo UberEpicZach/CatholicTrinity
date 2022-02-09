@@ -11,7 +11,7 @@
  bishop: "Bishop"
  CathTheoHolder: "[CHARACTER.Custom('CardinalCheck')]"
  AntipopeHolder: "Pope"
- dynn_SanctiPetriFiliis: "Sancti Petri Filiis"
+ dynn_SanctiPetriFiliis:"Sancti Petri Filiis"
  house_SanctiPetriFiliis: "Sancti Petri Filiis"
  councilCardinalHolder: "Cardinal"
  councilbishop: "[ROOT.Char.Custom('GetActualBishopTitle')]"
@@ -27,6 +27,12 @@
  cardinal_councillor_court_chaplain_christian_empire_female:0 "Matriarch"
  cardinal_councillor_court_chaplain_christian_empire_possessive:0 "Patriarch's"
  cardinal_councillor_court_chaplain_christian_empire_female_possessive:0 "Matriarch's"
+
+ newcardinalpromoted: "New Cardinal Appointed"
+ newcardinalpromoted_desc: "[highest_scoring_cardinal_candidate.GetName] has joined the College of Cardinals"
+
+ cardinaldied: "Cardinal Passed Away"
+ cardinaldied_desc: "[dyingcardinal.GetName] has passed away, opening a new position in the College of Cardinals."
 
  # Christianity
  baron_theocracy_male_christianity_religion:0 "Bishop"

@@ -34,6 +34,7 @@ is_cardinal = {
 is_pope = {
 	exists = primary_title
 	has_cardinal_faith = yes
+	is_cardinal = yes
 	OR = {
 		this = faith.religious_head
 		has_papal_title = yes

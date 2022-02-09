@@ -118,11 +118,25 @@ promote_new_cardinal = {
 			limit = {
 				is_landed = yes
 				highest_held_title_tier >= tier_duchy
+				NOT = { this = character:7853 }
 			}
 			add_trait = cardinal_archbishop
 		}
-		else = {
+		else_if = {
+			limit = {
+				is_landed = yes
+				NOT = { this = character:7853 }
+			}
 			add_trait = cardinal_bishop
+		}
+	}
+	title:k_papal_state.holder = {
+		send_interface_message = {
+			type = event_generic_good_text
+			title = newcardinalpromoted
+			desc = newcardinalpromoted_desc
+
+			left_icon = scope:highest_scoring_cardinal_candidate
 		}
 	}
 }
@@ -139,7 +153,7 @@ predict_new_cardinal = {
 initialize_random_cardinal = {
 	ordered_cardinal_candidate_ruler = {
 		order_by = bishop_to_cardinal_score
-		limit = { is_male = yes }
+		limit = { is_male = yes NOT = { this = character:7853 } }
 		position = 0
 		#realm_priest = {
 		become_initial_cardinal = yes 
@@ -154,10 +168,15 @@ initialize_random_cardinal = {
 			limit = {
 				is_landed = yes
 				highest_held_title_tier >= tier_duchy
+				NOT = { this = character:7853 }
 			}
 			add_trait = cardinal_archbishop
 		}
-		else = {
+		else_if = {
+			limit = {
+				is_landed = yes
+				NOT = { this = character:7853 }
+			}
 			add_trait = cardinal_bishop
 		}
 	}
@@ -301,10 +320,15 @@ CardinalsAreCardinals = {
 			limit = {
 				is_landed = yes
 				highest_held_title_tier >= tier_duchy
+				NOT = { this = character:7853 }
 			}
 			add_trait = cardinal_archbishop
 		}
-		else = {
+		else_if = {
+			limit = {
+				is_landed = yes
+				NOT = { this = character:7853 }
+			}
 			add_trait = cardinal_bishop
 		}
 		# if = {
@@ -315,72 +339,6 @@ CardinalsAreCardinals = {
 		# }
 	}
 }
-
-ErrorTest = {
-	ordered_cardinal_candidate_vassal = {
-		order_by = bishop_to_cardinal_score
-		position = 0
-		add_to_variable_list = {
-			name = highest_cardinal_candidates
-			target = prev
-		}
-	}
-	if = {
-		limit = {exists = realm_priest }
-		realm_priest = { 
-			add_to_variable_list = {
-				name = highest_cardinal_candidates
-				target = prev
-			} 
-		}
-	}
-	if = {
-		limit = {
-			NOT = {
-				variable_list_size = {
-					name = highest_cardinal_candidates
-					value > 1
-				} 
-			}
-		}
-		create_character = {
-			location = root.capital_province
-			gender_female_chance = 0
-			template_character = root
-			random_traits = yes
-			age = { 18 50 }
-			learning = high_skill_rating
-			save_scope_as = newcandidate 
-		}
-		scope:newcandidate = {
-			add_to_variable_list = {
-				name = highest_cardinal_candidates
-				target = prev
-			} 
-		}
-	}
-
-	if = {
-		limit = {
-			has_variable_list = highest_cardinal_candidates
-			variable_list_size = {
-				name = highest_cardinal_candidates
-				value > 1
-			} 
-		}
-		ordered_in_list = {
-			list = highest_cardinal_candidates
-			limit = {exists = this}
-			order_by = bishop_to_cardinal_score
-			position = 0
-			save_scope_as = highest_scoring_player_cardinal_candidate
-		}
-		scope:highest_scoring_player_cardinal_candidate = {
-			add_gold = 10
-		}
-	}
-}
-
 
 scripted_effect_popethingevent = {
 	title:k_papal_state.holder = { save_scope_as = scoped_pope }
@@ -562,5 +520,23 @@ send_child_to_clergy_effect_for_events = {
 				remove_concubine = prev
 			}
 		}
+	}
+}
+
+removingvariableeffect = {
+	remove_variable = rot_conclave_influence
+}
+
+setingvariableeffect = {
+	set_variable = {
+		name = rot_conclave_influence
+		value = 1
+	}
+}
+
+changingvariableeffect = {
+	change_variable = {
+		name = rot_conclave_influence
+		add = 1
 	}
 }

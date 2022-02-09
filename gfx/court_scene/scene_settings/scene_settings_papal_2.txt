@@ -28,8 +28,8 @@ camera={ {
 		description="Default View"
 		fov=50.000000
 		position={ 252.158920 334.368195 -1069.804443 }
-		pitch=26.440487
-		yaw=-61.020603
+		pitch=10.000000
+		yaw=-22.000000
 		camera_near_far={ 1.000000 2090.000000 }
 		is_camera_used_for_screenshots=yes
 		royal_court_camera_name_key="ROYAL_COURT_COURT_VIEW_CAMERA"
@@ -242,6 +242,62 @@ camera={ {
 		yaw=0.000000
 		camera_near_far={ 70.000000 2570.000000 }
 	}
+ {
+		description="The Last Judgement"
+		fov=51.000000
+		position={ -48.400002 858.900024 0.000000 }
+		pitch=1.000000
+		yaw=2.000000
+		camera_near_far={ 0.100000 1000.000000 }
+		is_camera_used_for_screenshots=yes
+		royal_court_camera_name_key="The Last Judgement"
+	}
+ {
+		description="North Wall #1"
+		fov=50.000000
+		position={ 0.000000 560.299072 -979.799988 }
+		pitch=0.000000
+		yaw=90.000000
+		camera_near_far={ 0.100000 1000.000000 }
+		royal_court_camera_name_key="North Wall #1"
+	}
+ {
+		description="North Wall #2"
+		fov=50.000000
+		position={ 0.000000 560.299072 -471.700012 }
+		pitch=0.000000
+		yaw=90.000000
+		camera_near_far={ 0.100000 1000.000000 }
+		royal_court_camera_name_key="North Wall #2"
+	}
+ {
+		description="North Wall #3"
+		fov=50.000000
+		position={ 0.000000 560.299072 133.100006 }
+		pitch=0.000000
+		yaw=90.000000
+		camera_near_far={ 0.100000 1000.000000 }
+		royal_court_camera_name_key="North Wall #3"
+	}
+ {
+		description="North Wall #4"
+		fov=50.000000
+		position={ 0.000000 560.299072 653.299988 }
+		pitch=0.000000
+		yaw=90.000000
+		camera_near_far={ 0.100000 1000.000000 }
+		royal_court_camera_name_key="North Wall #4"
+	}
+ {
+		description="South Wall #1"
+		fov=50.000000
+		position={ -12.100000 560.299072 -1112.800049 }
+		pitch=0.000000
+		yaw=-56.000000
+		camera_near_far={ 0.100000 2270.000000 }
+		is_camera_used_for_screenshots=yes
+		royal_court_camera_name_key="North Wall #1"
+	}
  }
 default_camera=0
 lights={ {
@@ -292,6 +348,7 @@ lights={ {
  {
 		description="Window Front Right Disc"
 		light={
+			outer_cone_angle=1.500000
 			inner_cone_angle=0.000000
 			radius=100.200005
 			intensity=1812.000000
@@ -786,7 +843,7 @@ characters={ {
 		roles={ petitioners_3 }
 	}
  {
-		position={ -266.000000 0.000000 -107.999977 }
+		position={ -266.000000 -32.500000 -107.999977 }
 		rotation={ 180.000000 -27.000006 180.000000 }
 		locator="character_group_1_1"
 		description="Event group 1_1"
@@ -794,7 +851,7 @@ characters={ {
 		roles={ event_group_1 }
 	}
  {
-		position={ -197.000000 0.000000 22.000017 }
+		position={ -197.000000 -10.400000 9.900001 }
 		direction=16.000015
 		locator="character_group_1_2"
 		description="Event group 1_2"
@@ -802,7 +859,7 @@ characters={ {
 		roles={ event_group_1 }
 	}
  {
-		position={ -276.000000 0.000000 18.000025 }
+		position={ -276.000000 -32.500000 18.000025 }
 		direction=-13.999993
 		locator="character_group_1_3"
 		description="Event group 1_3"
@@ -810,7 +867,7 @@ characters={ {
 		roles={ event_group_1 }
 	}
  {
-		position={ -67.999985 0.000000 180.000000 }
+		position={ -67.999985 -32.500000 180.000000 }
 		rotation={ 180.000000 -42.000000 180.000000 }
 		locator="character_group_2_1"
 		description="Event group 2_1"
@@ -818,7 +875,7 @@ characters={ {
 		roles={ event_group_2 }
 	}
  {
-		position={ 21.000025 0.000000 282.000000 }
+		position={ 21.000025 -32.500000 282.000000 }
 		direction=31.000031
 		locator="character_group_2_2"
 		description="Event group 2_2"
@@ -826,7 +883,7 @@ characters={ {
 		roles={ event_group_2 }
 	}
  {
-		position={ -62.999973 0.000000 290.000000 }
+		position={ -62.999973 -32.500000 290.000000 }
 		direction=-13.999993
 		locator="character_group_2_3"
 		description="Event group 2_3"
@@ -834,7 +891,7 @@ characters={ {
 		roles={ event_group_2 }
 	}
  {
-		position={ -30.000000 0.000000 -9.999997 }
+		position={ -30.000000 -32.500000 -9.999997 }
 		rotation={ 180.000000 -87.000038 180.000000 }
 		locator="character_group_3_1"
 		description="Event group 3_1"
@@ -842,7 +899,7 @@ characters={ {
 		roles={ event_group_3 }
 	}
  {
-		position={ 99.000000 0.000000 23.999990 }
+		position={ 99.000000 -32.500000 23.999990 }
 		direction=61.000011
 		locator="character_group_3_2"
 		description="Event group 3_2"
@@ -872,7 +929,7 @@ characters={ {
 		roles={ cardinals }
 	}
  {
-		position={ -388.000000 -10.400003 -10.999966 }
+		position={ -388.000000 -10.400000 -10.999966 }
 		direction=20.000008
 		locator="character_flavor_courtier_3"
 		description="BG Courtier 3"
@@ -950,7 +1007,7 @@ assets={ {
 		roles=ruler_throne
 	}
  {
-		position={ 0.000070 0.000000 219.400009 }
+		position={ 18.400105 0.000000 219.400009 }
 		direction=0.000010
 		description="Wall - Center"
 		asset="papal_back_wall_entity"
@@ -962,18 +1019,18 @@ assets={ {
 		asset="papal_floor_entity"
 	}
  {
-		position={ 356.600006 60.000000 655.799988 }
+		position={ 356.600006 785.799988 655.799988 }
 		description="God Ray Right"
 		asset="roco_god_ray_01"
 	}
  {
-		position={ 455.000000 185.000000 660.000000 }
+		position={ 455.000000 801.900024 599.500000 }
 		direction=-5.000016
 		description="God Ray Right Side"
 		asset="roco_god_ray_02"
 	}
  {
-		position={ -390.000000 846.299988 571.101440 }
+		position={ -390.000000 737.400024 571.101440 }
 		direction=-91.000000
 		scale=1.400000
 		description="God Ray Left"
@@ -1017,7 +1074,7 @@ assets={ {
 		asset="roco_dust_motes"
 	}
  {
-		position={ 390.000000 150.000000 600.000000 }
+		position={ 256.899994 839.500000 527.400024 }
 		description="Dust Motes Particles"
 		asset="roco_dust_motes"
 	}
@@ -1038,7 +1095,7 @@ assets={ {
 		asset="roco_atmospheric_01"
 	}
  {
-		position={ 350.700012 230.000000 604.799988 }
+		position={ 399.100006 871.100037 508.000000 }
 		direction=30.000000
 		description="Atmospheric Scattering Right"
 		asset="roco_atmospheric_01"
@@ -1067,7 +1124,7 @@ assets={ {
 		roles=dynamic_sound_entity
 		tag=event_group_3	}
  {
-		position={ 0.000000 0.000000 254.000000 }
+		position={ 17.500031 0.000000 217.699997 }
 		description="Walls and Roof"
 		asset="papal_walls_and_roof_entity"
 	}
@@ -1077,7 +1134,7 @@ assets={ {
 		asset="papal_far_back_wall_entity"
 	}
  {
-		position={ 1.300000 783.899963 253.400711 }
+		position={ 25.500000 783.899963 213.199768 }
 		description="Windows"
 		asset="papal_windows_entity"
 	}
@@ -1085,6 +1142,12 @@ assets={ {
 		position={ -9.800001 24.200001 750.000000 }
 		description="Jesus Statue"
 		asset="jesus_stand_cross_entity"
+	}
+ {
+		position={ 399.100006 871.100037 72.500000 }
+		direction=30.000000
+		description="Atmospheric Scattering Right"
+		asset="roco_atmospheric_01"
 	}
  }
 artifacts={ {

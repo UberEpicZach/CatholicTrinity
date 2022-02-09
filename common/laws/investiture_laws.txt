@@ -46,10 +46,10 @@ investiture_early = {
 		
 		pass_cost = {
 			piety = {
-				add = 1000
+				add = 100
 			}
 			prestige = {
-				add = 2500
+				add = 200
 			}
 		}
 		

@@ -3,6 +3,7 @@
  cardinals_preferatus: "The [papabile]"
  cardinals_cardinal: "Cardinal [Character.GetFirstName]"
  cardinals_cardinal3: "CHARACTER.Custom('CardinalCheck')]"
+ cardinals_cardinal4: "Cardinal Priest"
  cardinals_cardinal2: "[Character.GetPrimaryTitle.GetName]"
  cardinals_college: "[collegeofcardinals]"
  cardinals_candidacy: "Cardinal Candidacy"

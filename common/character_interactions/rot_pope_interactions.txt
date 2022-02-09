@@ -472,90 +472,73 @@ request_excommunication_interaction = {
 		}
 		if = {
 			limit = {
-				scope:actor = { has_cardinal_faith = yes }
+				scope:actor = {
+					removingvariableeffecttrigger = yes
+				}
+			}
+			scope:actor = {
+				removingvariableeffect = yes
+			}
+		}
+		if = {
+			limit = {
+				scope:secondary_recipient = {
+					removingvariableeffecttrigger = yes
+				}
+			}
+			scope:secondary_recipient = {
+				removingvariableeffect = yes
+			}
+		}
+		every_living_character = {
+			limit = { 
+				OR = {
+					has_trait = cardinal_priest
+					has_trait = cardinal_bishop
+					has_trait = cardinal_archbishop
+				}
+				faith = scope:actor.faith
+				top_liege = scope:actor
 			}
 			if = {
 				limit = {
 					scope:actor = {
-						has_variable = rot_conclave_influence
+						NOT = { removingvariableeffecttrigger = yes }
 					}
 				}
 				scope:actor = {
-					remove_variable = rot_conclave_influence
+					setingvariableeffect = yes
 				}
+			}
+			else = {
+				scope:actor = {
+					changingvariableeffect = yes
+				}
+			}
+		}
+		every_living_character = {
+			limit = { 
+				OR = {
+					has_trait = cardinal_priest
+					has_trait = cardinal_bishop
+					has_trait = cardinal_archbishop
+				}
+				faith = scope:secondary_recipient.faith
+				top_liege = scope:secondary_recipient
 			}
 			if = {
 				limit = {
 					scope:secondary_recipient = {
-						has_variable = rot_conclave_influence
+						NOT = { removingvariableeffecttrigger = yes }
 					}
 				}
 				scope:secondary_recipient = {
-					remove_variable = rot_conclave_influence
+					setingvariableeffect = yes
 				}
 			}
-			every_living_character = {
-				limit = { 
-					OR = {
-						has_trait = cardinal_priest
-						has_trait = cardinal_bishop
-						has_trait = cardinal_archbishop
-					}
-					faith = scope:actor.faith
-					top_liege = scope:actor
-				}
-				if = {
-					limit = {
-						scope:actor = {
-							NOT = { has_variable = rot_conclave_influence }
-						}
-					}
-					scope:actor = {
-						set_variable = {
-							name = rot_conclave_influence
-							value = 1
-						}
-					}
-				}
-				else = {
-					scope:actor = {
-						change_variable = {
-							name = rot_conclave_influence
-							add = 1
-						}
-					}
-				}
-			}
-			every_living_character = {
-				limit = { 
-					OR = {
-						has_trait = cardinal_priest
-						has_trait = cardinal_bishop
-						has_trait = cardinal_archbishop
-					}
-					faith = scope:secondary_recipient.faith
-					top_liege = scope:secondary_recipient
-				}
-				if = {
-					limit = {
-						scope:secondary_recipient = {
-							NOT = { has_variable = rot_conclave_influence }
-						}
-					}
-					scope:secondary_recipient = {
-						set_variable = {
-							name = rot_conclave_influence
-							value = 1
-						}
-					}
-				}
-				else = {
-					scope:secondary_recipient = {
-						change_variable = {
-							name = rot_conclave_influence
-							add = 1
-						}
-					}
+			else = {
+				scope:secondary_recipient = {
+					changingvariableeffect = yes
 				}
 			}
 		}
@@ -847,10 +830,10 @@ hof_ask_for_claim_interaction = {
 				scope:actor = { has_cardinal_faith = yes } #might error
 			}
 			scope:actor = {
-				remove_variable = rot_conclave_influence
+				removingvariableeffect = yes
 			}
 			scope:secondary_recipient = {
-				remove_variable = rot_conclave_influence
+				removingvariableeffect = yes
 			}
 
 			every_living_character = {
@@ -866,24 +849,18 @@ hof_ask_for_claim_interaction = {
 				if = {
 					limit = {
 						scope:secondary_recipient = {
-							NOT = { has_variable = rot_conclave_influence }
+							removingvariableeffecttrigger = yes
 						}
 					}
 					scope:secondary_recipient = {
-						set_variable = {
-							name = rot_conclave_influence
-							value = 1
-						}
+						setingvariableeffect = yes
 					}
 				}
-				else = {
-					scope:secondary_recipient = {
-						change_variable = {
-							name = rot_conclave_influence
-							add = 1
-						}
-					}
-				}
+				# else = {
+				# 	scope:secondary_recipient = {
+				# 		changingvariableeffect = yes
+				# 	}
+				# }
 			}
 		}
 	}
