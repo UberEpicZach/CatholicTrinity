@@ -3762,7 +3762,142 @@ KoH_religiousflavour.400 = {
 
 	option = { 
 		name = KoH_religiousflavour.400.a
+		open_view_data = {
+			view = royal_court
+			player = root
+		}
+		custom_tooltip = court_maintenance.0010.a.tooltip
+		trigger_event = {
+			id = KoH_religiousflavour.400a
+			day = 1
+		}
 
+		ai_chance = {
+			base = 50
+		}
+	}
+}
+
+KoH_religiousflavour.400a = {
+	type = court_event
+	title = KoH_religiousflavour.400a.t
+	desc = KoH_religiousflavour.400a.desc
+	theme = court
+	override_background = { event_background = throne_room }
+
+	court_scene = {
+		button_position_character = scope:cardinal4 
+		court_owner = root
+		court_event_force_open = yes
+		should_pause_time = yes
+		roles = {
+		    scope:newpope= {
+				group = cardinals
+				animation = worried
+				outfit_tags = { cardinal_outfit}
+		    }
+			scope:cardinal2 = {
+				group = cardinals
+				animation = worried
+		    }
+			scope:cardinal3 = {
+				group = cardinals
+				animation = worried
+		    }
+			scope:cardinal4 = {
+				group = cardinals
+				animation = worried
+		    }
+			scope:cardinal5 = {
+				group = cardinals
+				animation = worried
+		    }
+			scope:cardinal6 = {
+				group = cardinals
+				animation = worried
+		    }
+			scope:cardinal7 = {
+				group = cardinals
+				animation = worried
+		    }
+		}
+	}
+
+	widget = {
+		gui = "event_window_widget_event_chain_progress"
+		container = "custom_widgets_container"
+		controller = event_chain_progress
+	}
+
+	immediate = {
+		save_scope_as = newpope
+		random_living_cardinal = {
+			save_scope_as = cardinal1
+		}
+
+		random_living_cardinal = {
+			limit = { NOT = { this = scope:cardinal1 } }
+			save_scope_as = cardinal2
+			court_event_character_flag_effect = yes
+		}
+
+		random_living_cardinal = {
+			limit = { NOT = { this = scope:cardinal1 this = scope:cardinal2 } }
+			save_scope_as = cardinal3
+			court_event_character_flag_effect = yes
+		}
+
+		random_living_cardinal = {
+			limit = { NOT = { this = scope:cardinal1 this = scope:cardinal2 this = scope:cardinal3 } }
+			save_scope_as = cardinal4
+			court_event_character_flag_effect = yes
+		}
+		
+		random_living_cardinal = {
+			limit = { NOT = { this = scope:cardinal1 this = scope:cardinal2 this = scope:cardinal3 this = scope:cardinal4 } }
+			save_scope_as = cardinal5
+			court_event_character_flag_effect = yes
+		}
+
+		random_living_cardinal = {
+			limit = { NOT = { this = scope:cardinal1 this = scope:cardinal2 this = scope:cardinal3 this = scope:cardinal4 this = scope:cardinal5 } }
+			save_scope_as = cardinal6
+			court_event_character_flag_effect = yes
+		}
+
+		random_living_cardinal = {
+			limit = { NOT = { this = scope:cardinal1 this = scope:cardinal2 this = scope:cardinal3 this = scope:cardinal4 this = scope:cardinal5 this = scope:cardinal6 }}
+			save_scope_as = cardinal7
+			court_event_character_flag_effect = yes
+		}
+
+		# Tracking for how many petitioners have come through.
+		set_variable = {
+			name = num_petitioners
+			value = 2
+		}
+		# Start a counting variable for widget progress.
+		set_variable = {
+			name = petitioner_current_progress
+			value = 0
+		}
+		# Widget setup.
+		## Set the total length of the chain.
+		save_scope_value_as = {
+			name = event_chain_length
+			value = 2
+		}
+		## Manually set the current widget length.
+		### Due to code-side shenanigans, we do this a bit awkwardly.
+		save_scope_value_as = {
+			name = event_chain_progress
+			value = 1
+		}
+	}
+
+	option = { 
+		name = KoH_religiousflavour.400a.a
+		
 		trigger_event = KoH_religiousflavour.401
 
 		ai_chance = {
@@ -3772,36 +3907,63 @@ KoH_religiousflavour.400 = {
 }
 
 KoH_religiousflavour.401 = {
+	type = court_event
 	title = KoH_religiousflavour.401.t
 	desc = KoH_religiousflavour.401.desc
-	theme = learning_scholarship_focus
-	left_portrait = {
-		character = title:k_papal_state.holder
-		animation = personality_honorable
-	}
-	right_portrait = {
-		character = scope:cardinal4
-		animation = ecstasy
-	}
-	lower_center_portrait = {
-		character = scope:cardinal1
-		animation = ecstasy
-	}
-	lower_left_portrait = {
-		character = scope:cardinal2
-		animation = content
-	}
-	lower_right_portrait = {
-		character = scope:cardinal3
-		animation = sadness
+	theme = court
+	override_background = { event_background = throne_room }
+
+	court_scene = {
+		button_position_character = scope:cardinal4 
+		court_owner = root
+		court_event_force_open = yes
+		should_pause_time = yes
+		roles = {
+		    scope:newpope= {
+				group = cardinals
+				animation = worried
+		    }
+			scope:cardinal2 = {
+				group = cardinals
+				animation = worried
+		    }
+			scope:cardinal3 = {
+				group = cardinals
+				animation = worried
+		    }
+			scope:cardinal4 = {
+				group = cardinals
+				animation = worried
+		    }
+			scope:cardinal5 = {
+				group = cardinals
+				animation = worried
+		    }
+			scope:cardinal6 = {
+				group = cardinals
+				animation = worried
+		    }
+			scope:cardinal7 = {
+				group = cardinals
+				animation = worried
+		    }
+		}
 	}
 
 	immediate = {
-		save_scope_as = newpope
-		random_living_cardinal = {
-			limit = { NOT = { this = scope:cardinal1 this = scope:cardinal2 this = scope:cardinal3 } }
-			save_scope_as = cardinal4
+		# Clean up the ol' variable.
+		remove_variable = petitioner_current_progress
+		# Update the widget one last time.
+		save_scope_value_as = {
+			name = event_chain_progress
+			value = 2
 		}
+	}
+
+	widget = {
+		gui = "event_window_widget_event_chain_progress"
+		container = "custom_widgets_container"
+		controller = event_chain_progress
 	}
 
 	option = { 

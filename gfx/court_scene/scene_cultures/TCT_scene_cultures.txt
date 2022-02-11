@@ -9,13 +9,17 @@ papal = {
 ## CFP
 norman = {
 	trigger = {
-		has_graphical_norman_culture_group_trigger = yes
+		AND = {
+			cfp_loaded_checker = yes
+			has_graphical_norman_culture_group_trigger = yes
+		}
 		NOT = { has_title = title:k_papal_state }
 	}
 }
 
 goidelic = {
 	trigger = {
+		cfp_loaded_checker = yes
 		has_graphical_goidelic_culture_group_trigger = yes
 		NOT = { has_title = title:k_papal_state }
 	}
@@ -23,6 +27,7 @@ goidelic = {
 
 andalusian = {
 	trigger = {
+		cfp_loaded_checker = yes
 		has_graphical_andalusian_culture_group_trigger = yes
 		NOT = { has_title = title:k_papal_state }
 	}
@@ -57,8 +62,14 @@ western = {
 			}
 		}
 		NOR = { 
-			has_graphical_norman_culture_group_trigger = yes
-			has_graphical_goidelic_culture_group_trigger = yes
+			AND = {
+				cfp_loaded_checker = yes
+				has_graphical_norman_culture_group_trigger = yes
+			}
+			AND = {
+				cfp_loaded_checker = yes
+				has_graphical_goidelic_culture_group_trigger = yes
+			}
 			has_title = title:k_papal_state
 		}
 	}

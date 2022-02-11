@@ -2323,9 +2323,38 @@ divorce_character_interaction = {
 	
 	is_shown = {
 		scope:actor.faith = {
+			# We are not required to seek approval of a spiritual HoF
 			NOT = {
 				has_doctrine = doctrine_divorce_approval
+				has_doctrine = doctrine_spiritual_head
+				exists = religious_head
 			}
+			# We are not required to seek approval of a house head
+			NOT = {
+				has_doctrine = doctrine_divorce_approval
+				exists = scope:actor.house
+				exists = scope:actor.house.house_head
+				scope:actor = { is_house_head = no }
+			}
+		}
+		scope:recipient = {
+			# We are not required to seek approval of a spiritual HoF
+			NOT = {
+				has_doctrine = doctrine_divorce_approval
+				has_doctrine = doctrine_spiritual_head
+				exists = religious_head
+			}
+			# We are not required to seek approval of a house head
+			NOT = {
+				has_doctrine = doctrine_divorce_approval
+				exists = scope:actor.house
+				exists = scope:actor.house.house_head
+				scope:actor = { is_house_head = no }
+			}
+		}
+		scope:recipient = {
+			is_spouse_of = scope:actor
+			is_concubine = no # Can set aside Concubines at any time
 		}
 	}
 

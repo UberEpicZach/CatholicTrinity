@@ -15,6 +15,7 @@
 # 
 become_initial_cardinal = {
 	create_story = cardinal_story
+	set_variable = was_once_cardinal
 }
 # Updates Preferatus
 update_preferatus = {
@@ -538,5 +539,76 @@ changingvariableeffect = {
 	change_variable = {
 		name = rot_conclave_influence
 		add = 1
+	}
+}
+
+popeetitlechange = {
+	save_scope_as = deadpope
+	
+	create_character = {
+		location = deadpope.capital_province
+		age = { 99 100 }
+		name = "Jesus"
+		gender = male
+		trait = education_learning_3
+		trait = devoted
+		faith = deadpope.faith
+		culture = deadpope.culture
+		learning = { 10 12 }
+		save_scope_as = monk
+	}
+
+	update_preferatus = yes
+	global_var:preferatus.story_owner = { depose = yes }
+	global_var:preferatus.story_owner = {
+		save_scope_as = preferatus 
+	}
+	create_title_and_vassal_change = {
+		type = granted
+		save_scope_as = papal_inheritance
+	}
+	# Transfer every non-barony title
+	every_held_title = {
+		limit = {
+			tier > tier_barony
+		}
+		every_player = {
+			add_prestige = 1
+		}
+		change_title_holder = {
+			holder = global_var:preferatus.story_owner
+			change = scope:papal_inheritance
+		}
+	}
+	set_player_character = scope:preferatus
+	# title:k_papal_state = {
+	# 	change_title_holder = {
+	# 		holder = global_var:preferatus.story_owner
+	# 		change = scope:papal_inheritance
+	# 	}
+	# }
+	resolve_title_and_vassal_change = scope:papal_inheritance
+
+	global_var:preferatus.story_owner = {
+		set_realm_capital = title:c_roma
+	}
+
+	global_var:preferatus = {
+		promote_new_cardinal = yes
+	}
+	
+	scope:preferatus = {
+		set_player_character = scope:monk
+	}
+
+	scope:monk = {
+		set_player_character = scope:preferatus
+	}
+	update_cardinal_window = yes
+	update_preferatus = yes
+
+	scope:deadpope = {
+		add_trait = pope_trait
+		give_nickname = nick_pope
 	}
 }

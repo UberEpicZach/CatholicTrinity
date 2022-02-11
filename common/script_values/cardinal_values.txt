@@ -51,6 +51,11 @@ cardinal_realm_priest_to_king 							= 55
 cardinal_realm_priest_to_emperor 						= 60
 cardinal_is_pope 										= -10000
 
+#Scripted Modifier Score
+cardinal_has_modifier_good 								= 250
+cardinal_has_modifier_bad 								= -100
+
+
 
 # Restated vanilla keys to fetch in loc
 cardinal_virtue_count 			= {value = num_virtuous_traits}
@@ -76,6 +81,7 @@ bishop_to_cardinal_base_score = {
 		add = cardinal_secular_power_bonus
 		add = cardinal_theocratic_power_bonus
 		add = cardinal_actually_is_pope_debuff
+		add = cardinal_recent_event_modiifer
 	}
 }
 bishop_to_cardinal_score = {
@@ -175,6 +181,12 @@ cardinal_theocratic_power_bonus = {
 cardinal_actually_is_pope_debuff = {
 	value = 0 
 	if = { limit = { exists = title:k_papal_state has_title = title:k_papal_state } add = cardinal_is_pope } 
+}
+
+cardinal_recent_event_modiifer = {
+	value = 0 
+	if = { limit = { has_character_flag = cardinal_boost } add = cardinal_has_modifier_good }
+	if = { limit = { has_character_flag = cardinal_debuff } add = cardinal_has_modifier_badd }
 }
 
 # Debug values:

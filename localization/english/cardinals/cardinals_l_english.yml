@@ -32,3 +32,4 @@
  cardinal_money_bonus: "[gold_i]Campaign Funding ([Character.MakeScope.Var('cardinal_campaign_contribution').GetValue|0V])"
  cardinal_secular_power_bonus: "Secular Power"
  cardinal_theocratic_power_bonus: "Theocratic Power"
+ cardinal_event_bonus: "Recent Events"

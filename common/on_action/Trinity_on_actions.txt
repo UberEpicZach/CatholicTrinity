@@ -40,6 +40,22 @@ mapmodes = {
 
 CatholicsimFix = {
 	effect = {
+		title:k_papal_state = {
+			if = {
+				limit = {
+					exists = holder
+					has_dlc_feature = royal_court
+				}
+				holder = {
+					set_court_language = language_latin
+					if = {
+						limit = { NOT = { knows_court_language_of = this } }
+						learn_court_language_of = this
+					}
+				}
+			}
+		}
+
 		every_living_character = { limit = { is_clergy = yes has_faith = faith:catholic } learn_language = language_latin }
 		faith:catholic = {
 			add_doctrine = doctrine_independent_papacy_head
@@ -346,6 +362,8 @@ CardinalsTraits = {
 on_title_gain = {
 	on_actions = {
 		on_gain_papacy
+		delay = { days = { 2 4 } }		
+		priests_learn_latin
 	}
 }
 
@@ -513,12 +531,23 @@ on_preferatus_death = {
 
 on_pope_death = {
 	trigger = {
-		is_pope = yes
+		has_title = title:k_papal_state
 	}
 	effect = {
 		save_scope_as = deadpope
-		# Make sure we have the most up-to-date preferatus
-		update_preferatus = yes
+		
+		create_character = {
+			location = deadpope.capital_province
+			age = { 99 100 }
+			name = "Jesus"
+			gender = male
+			trait = education_learning_3
+			trait = devoted
+			faith = deadpope.faith
+			culture = deadpope.culture
+			learning = { 10 12 }
+			save_scope_as = monk
+		}
 
 		#Value Management
 		if = {
@@ -554,11 +583,11 @@ on_pope_death = {
 			}
 		}
 
-		# Optional heir designation (If your systems care about such)
-		#set_designated_heir = global_var:preferatus.story_owner
-		# Make sure the preferatus gives up their lands and titles before becoming pope
+		update_preferatus = yes
 		global_var:preferatus.story_owner = { depose = yes }
-
+		global_var:preferatus.story_owner = {
+			save_scope_as = preferatus 
+		}
 		create_title_and_vassal_change = {
 			type = granted
 			save_scope_as = papal_inheritance
@@ -576,7 +605,7 @@ on_pope_death = {
 				change = scope:papal_inheritance
 			}
 		}
-
+		set_player_character = scope:preferatus
 		# title:k_papal_state = {
 		# 	change_title_holder = {
 		# 		holder = global_var:preferatus.story_owner
@@ -584,22 +613,25 @@ on_pope_death = {
 		# 	}
 		# }
 		resolve_title_and_vassal_change = scope:papal_inheritance
-		set_player_character = global_var:preferatus.story_owner
-		global_var:preferatus.story_owner = { if = { limit = { is_lowborn = yes } global_var:preferatus.story_owner = { set_house = house:house_SanctiPetriFiliis } } }
-		
-		# Fetch a new cardinal in place of the recently promoted pope
+
+		global_var:preferatus.story_owner = {
+			set_realm_capital = title:c_roma
+		}
+
 		global_var:preferatus = {
 			promote_new_cardinal = yes
 		}
-
-		global_var:preferatus.story_owner = {	
-			add_gold = scope:deadpope.gold
-			if = { limit = { has_trait = cardinal_priest } remove_trait = cardinal_priest }
-			if = { limit = { has_trait = cardinal_bishop } remove_trait = cardinal_bishop }
-			if = { limit = { has_trait = cardinal_archbishop } remove_trait = cardinal_archbishop }
+		
+		scope:preferatus = {
+			set_player_character = scope:monk
 		}
 
-		#transfer values
+		scope:monk = {
+			set_player_character = scope:preferatus
+		}
+		update_cardinal_window = yes
+		update_preferatus = yes
+
 		title:k_papal_state.holder = {	
 			add_gold = scope:deadpope.gold
 
@@ -647,8 +679,6 @@ on_pope_death = {
 				trigger_event = KoH_religiousflavour.400
 			}
 		}
-		update_cardinal_window = yes
-		update_preferatus = yes
 
 		scope:deadpope = {
 			add_trait = pope_trait
@@ -656,6 +686,10 @@ on_pope_death = {
 		}
 	}
 }
+
+
+
+	
 
 on_gain_papacy = {
 	trigger = {
@@ -767,6 +801,43 @@ Trinity_on_war_started = {
 					days = 3
 				}
 			}
+		}
+	}
+}
+
+#Priests learn latin!
+on_title_gain_inheritance = {
+	on_actions = {
+		delay = { days = { 2 4 } }		
+		priests_learn_latin
+	}
+}
+
+on_title_gain_usurpation = {
+	on_actions = {
+		delay = { days = { 2 4 } }		
+		priests_learn_latin
+	}
+}
+
+on_baron_found_or_created_for_title = {
+	on_actions = {
+		delay = { days = { 2 4 } }		
+		priests_learn_latin
+	}
+}
+
+
+priests_learn_latin = {
+	effect = {	
+		if = {
+			limit = {
+				is_clergy = yes
+				has_faith = faith:catholic
+				learning > average_skill_rating #8
+				NOT = { knows_language = language_latin }
+			}
+			learn_language = language_latin
 		}
 	}
 }
