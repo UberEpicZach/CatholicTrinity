@@ -1,9 +1,9 @@
-version="1.4.4"
+version="1.5.0.1"
 tags={
 	"Gameplay"
 	"Events"
 	"Historical"
 }
-name="The Catholic Trinity (Cardinals, Sainthood, Investiture)*"
-supported_version="1.4.4"
-remote_file_id="2587931559"
+name="The Catholic Trinity Github"
+supported_version="1.5.0.1"
+#remote_file_id="2587931559"
