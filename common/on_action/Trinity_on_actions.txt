@@ -218,13 +218,13 @@ NewCrusadeLeader = {
 			}
 			title:k_papal_state.holder = {
 				create_character = {
-					location = root.capital_province
+					location = title:k_papal_state.holder.capital_province
 					age = { 25 35 }
 					gender = male
 					trait = education_martial_4
 					trait = devoted
-					faith = root.faith
-					culture = root.culture
+					faith = title:k_papal_state.holder.faith
+					culture = title:k_papal_state.holder.culture
 					learning = { 10 12 }
 					save_scope_as = CrusaderLeader
 				}

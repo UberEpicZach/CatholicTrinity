@@ -3768,7 +3768,7 @@ KoH_religiousflavour.400 = {
 		}
 		custom_tooltip = court_maintenance.0010.a.tooltip
 		trigger_event = {
-			id = KoH_religiousflavour.400a
+			id = KoH_religiousflavour.4001
 			day = 1
 		}
 
@@ -3778,10 +3778,10 @@ KoH_religiousflavour.400 = {
 	}
 }
 
-KoH_religiousflavour.400a = {
+KoH_religiousflavour.4001 = {
 	type = court_event
-	title = KoH_religiousflavour.400a.t
-	desc = KoH_religiousflavour.400a.desc
+	title = KoH_religiousflavour.4001.t
+	desc = KoH_religiousflavour.4001.desc
 	theme = court
 	override_background = { event_background = throne_room }
 
@@ -3896,7 +3896,7 @@ KoH_religiousflavour.400a = {
 	}
 
 	option = { 
-		name = KoH_religiousflavour.400a.a
+		name = KoH_religiousflavour.4001.a
 		
 		trigger_event = KoH_religiousflavour.401
 
