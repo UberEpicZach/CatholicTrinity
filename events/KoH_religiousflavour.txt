@@ -702,17 +702,7 @@ KoH_religiousflavour.9 = { #Child wants to be monk/nun - select child
 	}
 
 	trigger = {		
-		is_commanding_army = no
-		is_adult = yes
-		is_imprisoned = no
-		has_religion = religion:christianity_religion
-		any_child = {
-			is_ruler = no
-			age >= 13
-			NOT = { age >= 16 }
-			NOT = { has_trait = cynical }
-			NOT = { is_clergy = yes }
-		}
+		triggerforKoH_religiousflavour9 = yes
 	}
 
 	immediate = {
@@ -3791,7 +3781,7 @@ KoH_religiousflavour.4001 = {
 		court_event_force_open = yes
 		should_pause_time = yes
 		roles = {
-		    scope:newpope= {
+		    scope:newpope = {
 				group = cardinals
 				animation = worried
 				outfit_tags = { cardinal_outfit}
@@ -4853,6 +4843,33 @@ KoH_religiousflavour.806 = {
 			}
 			remove_trait = cardinal_priest
 			add_trait = cardinal_bishop
+		}
+	}
+}
+
+
+KoH_religiousflavour.807 = {
+	hidden = yes
+
+	immediate = {
+		if = {
+			limit = {
+				faith = {
+					has_doctrine = doctrine_spiritual_head
+					has_doctrine = doctrine_independent_papacy_head
+					religion_tag = christianity_religion
+				}	
+				NOT = {
+					faith.religious_head = {
+						has_title = title:k_papal_state
+					}
+				}
+			}
+			faith = {
+				remove_doctrine = doctrine_independent_papacy_head
+				add_doctrine = doctrine_spiritual_head
+			}
+			trigger_event = faith_creation.0002
 		}
 	}
 }

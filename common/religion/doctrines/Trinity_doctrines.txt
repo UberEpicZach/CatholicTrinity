@@ -77,6 +77,7 @@
 			spiritual_head_of_faith_claims = yes
 			spiritual_head_of_faith_gold = yes
 			rot_antipopes = yes
+			clergy_can_fight = yes
 		}
 	}
 	
@@ -292,6 +293,7 @@ doctrine_clerical_succession = {
 		parameters = {
 			clerical_appointment_fixed = yes
 			rot_clerical_appointment_investiture = yes
+			
 		}
 	}
 }

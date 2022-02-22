@@ -1,16 +1,16 @@
 ﻿#TCT
 
 papal = {
-	trigger = {
-		has_title = title:k_papal_state
-	}
+    trigger = {
+        has_title = title:k_papal_state
+    }
 }
 
 ## CFP
 norman = {
 	trigger = {
 		AND = {
-			cfp_loaded_checker = yes
+			exists = global_var:CFP_is_loaded
 			has_graphical_norman_culture_group_trigger = yes
 		}
 		NOT = { has_title = title:k_papal_state }
@@ -19,16 +19,44 @@ norman = {
 
 goidelic = {
 	trigger = {
-		cfp_loaded_checker = yes
-		has_graphical_goidelic_culture_group_trigger = yes
+		AND = {
+			exists = global_var:CFP_is_loaded
+			has_graphical_goidelic_culture_group_trigger = yes
+		}
 		NOT = { has_title = title:k_papal_state }
 	}
 }
 
 andalusian = {
 	trigger = {
-		cfp_loaded_checker = yes
-		has_graphical_andalusian_culture_group_trigger = yes
+		AND = {
+			NOT = { has_title = title:k_papal_state }
+			exists = global_var:CFP_is_loaded
+			has_graphical_andalusian_culture_group_trigger = yes
+		}
+		NOT = { has_title = title:k_papal_state }
+	}
+}
+
+west_african = {
+	trigger = {
+		AND = {	
+			NOT = { has_title = title:k_papal_state }
+			exists = global_var:CFP_is_loaded
+			has_graphical_west_african_culture_group_trigger = yes
+		}
+		NOT = { has_title = title:k_papal_state }
+	}
+}
+
+east_african = {
+	trigger = {
+		AND = {	
+			NOT = { has_title = title:k_papal_state }
+			exists = global_var:CFP_is_loaded
+			has_graphical_east_african_culture_group_trigger = yes
+			NOT = { has_title = title:k_papal_state }
+		}
 		NOT = { has_title = title:k_papal_state }
 	}
 }
@@ -63,13 +91,33 @@ western = {
 		}
 		NOR = { 
 			AND = {
-				cfp_loaded_checker = yes
+				exists = global_var:CFP_is_loaded
 				has_graphical_norman_culture_group_trigger = yes
 			}
 			AND = {
-				cfp_loaded_checker = yes
+				exists = global_var:CFP_is_loaded
 				has_graphical_goidelic_culture_group_trigger = yes
 			}
+			has_title = title:k_papal_state
+		}
+	}
+}
+
+## Redefine MENA to exclude Africans from it
+mena = {
+	trigger = {
+		exists = capital_county
+		capital_county.culture = {
+			OR = {
+				has_graphical_mena_culture_group_trigger = yes
+				has_graphical_african_culture_group_trigger = yes
+				has_graphical_steppe_culture_group_trigger = yes
+			}
+		}
+		NOR = {
+			has_graphical_andalusian_culture_group_trigger = yes
+			has_graphical_west_african_culture_group_trigger = yes
+			has_graphical_east_african_culture_group_trigger = yes
 			has_title = title:k_papal_state
 		}
 	}

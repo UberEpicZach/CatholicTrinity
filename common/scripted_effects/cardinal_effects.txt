@@ -233,16 +233,16 @@ indicate_cardinals = {
 	add_prestige = num_living_cardinals
 }
 # # Debug tool to see which cardinals are dead
-# cardinal_test = {
-# 	every_cardinal = {
-# 		story_owner = {
-# 			add_piety = 1
-# 		}
-# 	}
-# 	every_living_cardinal = {
-# 		add_prestige = 1
-# 	}
-# }
+cardinal_test = {
+	every_cardinal = {
+		story_owner = {
+			add_piety = 1
+		}
+	}
+	every_living_cardinal = {
+		add_prestige = 1
+	}
+}
 
 # Not used:
 #setup_cardinal_activity = {
@@ -611,4 +611,8 @@ popeetitlechange = {
 		add_trait = pope_trait
 		give_nickname = nick_pope
 	}
+}
+
+testingversion = {
+	add_gold = 10
 }

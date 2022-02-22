@@ -174,8 +174,8 @@ rot_is_pope_of_target_trigger = {
 					}
 				} 
 			}
-		$TARGET$.faith.religious_head = $POPE$
-	}
+			$TARGET$.faith.religious_head = $POPE$
+		}
 	trigger_else_if = {
 		limit = {
 			$TARGET$ = { 
@@ -259,4 +259,112 @@ suitable_faith_for_undirected_ghw_trigger = {
 
 removingvariableeffecttrigger = {
 	has_variable = rot_conclave_influence
+}
+
+# can_be_commander_basic_trigger = {
+# 	is_alive = yes
+# 	is_adult = yes
+	
+# 	trigger_if = {
+# 		limit = {
+# 			$ARMY_OWNER$ = {
+# 				is_ai = yes
+# 			}
+# 		}
+# 		is_ai = yes
+# 	}
+
+# 	OR = {
+# 		AND = {
+# 			$ARMY_OWNER$ = {
+# 				has_title = title:k_papal_state
+# 			}
+# 			prowess >= 10
+
+# 		}
+# 	}
+
+# 	NOR = {
+# 		has_trait = incapable
+# 		AND = {
+# 			has_trait = devoted
+# 			faith = {
+# 				NOT = {
+# 					has_doctrine_parameter = clergy_can_fight
+# 				}
+# 			}
+# 		}
+# 		AND = {
+# 			is_clergy = yes
+# 			faith = {
+# 				NOT = {
+# 					has_doctrine_parameter = clergy_can_fight
+# 				}
+# 			}
+# 		}
+# 	}
+# 	OR = { # You can always lead your own armies
+# 		AND = {
+# 			this = $ARMY_OWNER$
+# 			can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = $ARMY_OWNER$ }
+# 		}
+# 	}
+# }
+
+can_be_knight_trigger = {
+	is_alive = yes
+	is_adult = yes
+	can_be_warrior_trigger = { ARMY_OWNER = $ARMY_OWNER$ }
+	NOR = {
+		has_trait = incapable
+		has_trait = blind
+		AND = {
+			has_trait = devoted
+			OR = {
+				faith = {
+					NOT = {
+						has_doctrine_parameter = clergy_can_fight
+					}
+				}
+				culture = {
+					NOT = {
+						has_cultural_parameter = culture_clergy_can_fight
+					}
+				}
+			}
+		}
+		AND = {
+			is_clergy = yes
+			OR = {
+				faith = {
+					NOT = {
+						has_doctrine_parameter = clergy_can_fight
+					}
+				}
+			}
+		}
+	}
+	
+	trigger_if = {
+		limit = {
+			$ARMY_OWNER$.culture = {
+				has_cultural_parameter = minimum_prowess_for_knights
+			}
+		}
+		prowess >= 12
+	}
+}
+
+triggerforKoH_religiousflavour9 = {
+	is_commanding_army = no
+	is_adult = yes
+	is_imprisoned = no
+	has_religion = religion:christianity_religion
+	any_child = {
+		is_ruler = no
+		age >= 13
+		NOT = { age >= 16 }
+		NOT = { has_trait = cynical }
+		NOT = { is_clergy = yes }
+	}
 }

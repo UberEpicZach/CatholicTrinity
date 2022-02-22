@@ -841,3 +841,9 @@ priests_learn_latin = {
 		}
 	}
 }
+
+on_faith_created = {
+	events = {
+		KoH_religiousflavour.807
+	}
+}

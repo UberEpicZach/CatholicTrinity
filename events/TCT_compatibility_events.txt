@@ -1,0 +1,23 @@
+﻿namespace = TCT_compatibility
+
+# TCT_compatibility.1 = { # Community Flavor Pack compatibility
+#     hidden = yes
+# 	orphan = yes 
+# 	trigger = {
+# 		exists = global_var:CFP_is_loaded
+# 	}
+# 	immediate = {
+
+# 	}
+# }
+
+TCT_compatibility.2 = { # The Catholic Trinity compatibility
+    hidden = yes
+	orphan = yes 
+	immediate = {
+		set_global_variable = {
+			name = CFP_is_loaded
+			value = yes
+		}
+	}
+}
