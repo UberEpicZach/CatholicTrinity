@@ -90,6 +90,30 @@ characterfaithchangeROT = {
 			}
 			rot_remove_antipope = yes
 		}
+		if = {
+			limit = {
+				has_trait = cardinal_archbishop
+			}
+			remove_trait = cardinal_archbishop
+			remove_cardinal = yes
+			promote_new_cardinal = yes
+		}
+		if = {
+			limit = {
+				has_trait = cardinal_bishop
+			}
+			remove_trait = cardinal_bishop
+			remove_cardinal = yes
+			promote_new_cardinal = yes
+		}
+		if = {
+			limit = {
+				has_trait = cardinal_priest
+			}
+			remove_trait = cardinal_priest
+			remove_cardinal = yes
+			promote_new_cardinal = yes
+		}
 	}
 }
 
@@ -100,6 +124,30 @@ faithconversionROT = {
 				has_trait = rot_antipope
 			}
 			rot_remove_antipope = yes
+		}
+		if = {
+			limit = {
+				has_trait = cardinal_archbishop
+			}
+			remove_trait = cardinal_archbishop
+			remove_cardinal = yes
+			promote_new_cardinal = yes
+		}
+		if = {
+			limit = {
+				has_trait = cardinal_bishop
+			}
+			remove_trait = cardinal_bishop
+			remove_cardinal = yes
+			promote_new_cardinal = yes
+		}
+		if = {
+			limit = {
+				has_trait = cardinal_priest
+			}
+			remove_trait = cardinal_priest
+			remove_cardinal = yes
+			promote_new_cardinal = yes
 		}
 	}
 }
@@ -495,7 +543,7 @@ on_cardinal_death = {
 				title = cardinaldied
 				desc = cardinaldied_desc
 		
-				left_icon = scope:highest_scoring_cardinal_candidate
+				left_icon = root
 			}
 		}
 	}
@@ -683,6 +731,10 @@ on_pope_death = {
 		scope:deadpope = {
 			add_trait = pope_trait
 			give_nickname = nick_pope
+
+			every_character_artifact = {
+				set_owner = title:k_papal_state.holder
+			}
 		}
 	}
 }

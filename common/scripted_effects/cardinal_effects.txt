@@ -12,6 +12,16 @@
 		}
 	}
 }
+
+remove_cardinal = {
+	#remove_variable = cardinals
+	random_owned_story = {
+		limit = {
+			story_type = cardinal_story
+		}
+		end_story = yes
+	}
+}
 # 
 become_initial_cardinal = {
 	create_story = cardinal_story
@@ -130,6 +140,7 @@ promote_new_cardinal = {
 			}
 			add_trait = cardinal_bishop
 		}
+		set_variable = was_once_cardinal
 	}
 	title:k_papal_state.holder = {
 		send_interface_message = {
@@ -615,4 +626,70 @@ popeetitlechange = {
 
 testingversion = {
 	add_gold = 10
+}
+
+councillor_leaving_effect = {
+	if = {
+		limit = { NOT = { is_councillor_of = scope:old_employer } }
+
+		# Councillor leaving because of marriage
+		if = {
+			limit = {
+				is_landed = no
+				is_married = yes
+				primary_spouse = { is_landed = yes }
+			}
+			scope:old_employer = {
+				send_interface_message = {
+					type = event_generic_neutral
+					title = councillor_leaving_court_message_title
+					left_icon = scope:councillor
+					custom_tooltip = councillor_leaving_court_marriage_notification
+				}
+			}
+		}
+		# Councillor leaving because of title inheritance
+		else_if = {
+			limit = {
+				is_landed = yes
+				NOT = { is_vassal_of = scope:old_employer }
+			}
+			scope:old_employer = {
+				send_interface_message = {
+					type = event_generic_neutral
+					title = councillor_leaving_court_message_title
+					left_icon = scope:councillor
+					custom_tooltip = councillor_leaving_court_landed_notification
+				}
+			}
+		}
+		# Councillor leaving because pope
+		else_if = {
+			limit = {
+				scope:old_employer = {
+					has_title = title:k_papal_state
+				}
+			}
+			add_gold = 1
+			# scope:old_employer = {
+			# 	send_interface_message = {
+			# 		type = event_generic_neutral
+			# 		title = councillor_leaving_court_message_title
+			# 		left_icon = scope:councillor
+			# 		custom_tooltip = councillor_leaving_court_landed_notification
+			# 	}
+			# }
+		}
+		# Generic fallback
+		else = {
+			scope:old_employer = {
+				send_interface_message = {
+					type = event_generic_neutral
+					title = councillor_leaving_court_message_title
+					left_icon = scope:councillor
+					custom_tooltip = councillor_leaving_court_generic_fallback_notification
+				}
+			}
+		}
+	}
 }

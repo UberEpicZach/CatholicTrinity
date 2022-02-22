@@ -209,15 +209,8 @@
 				if = { limit = { has_trait = cardinal_priest } remove_trait = cardinal_priest }
 				if = { limit = { has_trait = cardinal_bishop } remove_trait = cardinal_bishop }
 				if = { limit = { has_trait = cardinal_archbishop } remove_trait = cardinal_archbishop }
-				random_owned_story = {
-					limit = {
-						story_type = cardinal_story
-					}
-					end_story = yes
-				}
-				global_var:preferatus = {
-					promote_new_cardinal = yes
-				}
+				remove_cardinal = yes
+				promote_new_cardinal = yes
 				update_cardinal_window = yes
 				update_preferatus = yes
 			}

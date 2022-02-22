@@ -3721,19 +3721,51 @@ KoH_religiousflavour.400 = {
 	right_portrait = {
 		character = title:k_papal_state.holder
 		animation = personality_honorable
-		outfit_tags = { cardinal_outfit}
+		triggered_outfit = {
+			trigger = { exists = global_var:CFP_is_loaded }
+			outfit_tags = { cardinal_outfit }
+		}
+		triggered_outfit = {
+			trigger = { NOT = { exists = global_var:CFP_is_loaded } }
+			outfit_tags = { bishop_outfit }
+		}
+		hide_info = yes
 	}
 	lower_center_portrait = {
 		character = scope:cardinal1
 		animation = ecstasy
+		triggered_outfit = {
+			trigger = { exists = global_var:CFP_is_loaded }
+			outfit_tags = { cardinal_outfit }
+		}
+		triggered_outfit = {
+			trigger = { NOT = { exists = global_var:CFP_is_loaded } }
+			outfit_tags = { bishop_outfit }
+		}
 	}
 	lower_left_portrait = {
 		character = scope:cardinal2
 		animation = content
+		triggered_outfit = {
+			trigger = { exists = global_var:CFP_is_loaded }
+			outfit_tags = { cardinal_outfit }
+		}
+		triggered_outfit = {
+			trigger = { NOT = { exists = global_var:CFP_is_loaded } }
+			outfit_tags = { bishop_outfit }
+		}
 	}
 	lower_right_portrait = {
 		character = scope:cardinal3
 		animation = sadness
+		triggered_outfit = {
+			trigger = { exists = global_var:CFP_is_loaded }
+			outfit_tags = { cardinal_outfit }
+		}
+		triggered_outfit = {
+			trigger = { NOT = { exists = global_var:CFP_is_loaded } }
+			outfit_tags = { bishop_outfit }
+		}
 	}
 
 	immediate = {
@@ -3775,6 +3807,21 @@ KoH_religiousflavour.4001 = {
 	theme = court
 	override_background = { event_background = throne_room }
 
+	right_portrait = {
+		character = title:k_papal_state.holder
+		animation = personality_honorable
+		triggered_outfit = {
+			trigger = { exists = global_var:CFP_is_loaded }
+			outfit_tags = { cardinal_outfit }
+		}
+		triggered_outfit = {
+			trigger = { NOT = { exists = global_var:CFP_is_loaded } }
+			outfit_tags = { bishop_outfit }
+		}
+		hide_info = yes
+	}
+
+
 	court_scene = {
 		button_position_character = scope:cardinal4 
 		court_owner = root
@@ -3782,33 +3829,88 @@ KoH_religiousflavour.4001 = {
 		should_pause_time = yes
 		roles = {
 		    scope:newpope = {
-				group = cardinals
+				group = event_group
 				animation = worried
-				outfit_tags = { cardinal_outfit}
+				triggered_outfit = {
+					trigger = { exists = global_var:CFP_is_loaded }
+					outfit_tags = { cardinal_outfit }
+				}
+				triggered_outfit = {
+					trigger = { NOT = { exists = global_var:CFP_is_loaded } }
+					outfit_tags = { bishop_outfit }
+				}
 		    }
 			scope:cardinal2 = {
-				group = cardinals
+				group = event_group
 				animation = worried
+				triggered_outfit = {
+					trigger = { exists = global_var:CFP_is_loaded }
+					outfit_tags = { cardinal_outfit }
+				}
+				triggered_outfit = {
+					trigger = { NOT = { exists = global_var:CFP_is_loaded } }
+					outfit_tags = { bishop_outfit }
+				}
 		    }
 			scope:cardinal3 = {
-				group = cardinals
+				group = event_group
 				animation = worried
+				triggered_outfit = {
+					trigger = { exists = global_var:CFP_is_loaded }
+					outfit_tags = { cardinal_outfit }
+				}
+				triggered_outfit = {
+					trigger = { NOT = { exists = global_var:CFP_is_loaded } }
+					outfit_tags = { bishop_outfit }
+				}
 		    }
 			scope:cardinal4 = {
-				group = cardinals
+				group = event_group
 				animation = worried
+				triggered_outfit = {
+					trigger = { exists = global_var:CFP_is_loaded }
+					outfit_tags = { cardinal_outfit }
+				}
+				triggered_outfit = {
+					trigger = { NOT = { exists = global_var:CFP_is_loaded } }
+					outfit_tags = { bishop_outfit }
+				}
 		    }
 			scope:cardinal5 = {
-				group = cardinals
+				group = event_group
 				animation = worried
+				triggered_outfit = {
+					trigger = { exists = global_var:CFP_is_loaded }
+					outfit_tags = { cardinal_outfit }
+				}
+				triggered_outfit = {
+					trigger = { NOT = { exists = global_var:CFP_is_loaded } }
+					outfit_tags = { bishop_outfit }
+				}
 		    }
 			scope:cardinal6 = {
-				group = cardinals
+				group = event_group
 				animation = worried
+				triggered_outfit = {
+					trigger = { exists = global_var:CFP_is_loaded }
+					outfit_tags = { cardinal_outfit }
+				}
+				triggered_outfit = {
+					trigger = { NOT = { exists = global_var:CFP_is_loaded } }
+					outfit_tags = { bishop_outfit }
+				}
 		    }
 			scope:cardinal7 = {
-				group = cardinals
+				group = event_group
 				animation = worried
+				triggered_outfit = {
+					trigger = { exists = global_var:CFP_is_loaded }
+					outfit_tags = { cardinal_outfit }
+				}
+				triggered_outfit = {
+					trigger = { NOT = { exists = global_var:CFP_is_loaded } }
+					outfit_tags = { bishop_outfit }
+				}
 		    }
 		}
 	}
@@ -3903,6 +4005,19 @@ KoH_religiousflavour.401 = {
 	theme = court
 	override_background = { event_background = throne_room }
 
+	right_portrait = {
+		character = title:k_papal_state.holder
+		animation = personality_honorable
+		triggered_outfit = {
+			trigger = { exists = global_var:CFP_is_loaded }
+			outfit_tags = { cardinal_outfit }
+		}
+		triggered_outfit = {
+			trigger = { NOT = { exists = global_var:CFP_is_loaded } }
+			outfit_tags = { bishop_outfit }
+		}
+	}
+
 	court_scene = {
 		button_position_character = scope:cardinal4 
 		court_owner = root
@@ -3910,32 +4025,88 @@ KoH_religiousflavour.401 = {
 		should_pause_time = yes
 		roles = {
 		    scope:newpope= {
-				group = cardinals
+				group = event_group
 				animation = worried
+				triggered_outfit = {
+					trigger = { exists = global_var:CFP_is_loaded }
+					outfit_tags = { cardinal_outfit }
+				}
+				triggered_outfit = {
+					trigger = { NOT = { exists = global_var:CFP_is_loaded } }
+					outfit_tags = { bishop_outfit }
+				}
 		    }
 			scope:cardinal2 = {
-				group = cardinals
+				group = event_group
 				animation = worried
+				triggered_outfit = {
+					trigger = { exists = global_var:CFP_is_loaded }
+					outfit_tags = { cardinal_outfit }
+				}
+				triggered_outfit = {
+					trigger = { NOT = { exists = global_var:CFP_is_loaded } }
+					outfit_tags = { bishop_outfit }
+				}
 		    }
 			scope:cardinal3 = {
-				group = cardinals
+				group = event_group
 				animation = worried
+				triggered_outfit = {
+					trigger = { exists = global_var:CFP_is_loaded }
+					outfit_tags = { cardinal_outfit }
+				}
+				triggered_outfit = {
+					trigger = { NOT = { exists = global_var:CFP_is_loaded } }
+					outfit_tags = { bishop_outfit }
+				}
 		    }
 			scope:cardinal4 = {
-				group = cardinals
+				group = event_group
 				animation = worried
+				triggered_outfit = {
+					trigger = { exists = global_var:CFP_is_loaded }
+					outfit_tags = { cardinal_outfit }
+				}
+				triggered_outfit = {
+					trigger = { NOT = { exists = global_var:CFP_is_loaded } }
+					outfit_tags = { bishop_outfit }
+				}
 		    }
 			scope:cardinal5 = {
-				group = cardinals
+				group = event_group
 				animation = worried
+				triggered_outfit = {
+					trigger = { exists = global_var:CFP_is_loaded }
+					outfit_tags = { cardinal_outfit }
+				}
+				triggered_outfit = {
+					trigger = { NOT = { exists = global_var:CFP_is_loaded } }
+					outfit_tags = { bishop_outfit }
+				}
 		    }
 			scope:cardinal6 = {
-				group = cardinals
+				group = event_group
 				animation = worried
+				triggered_outfit = {
+					trigger = { exists = global_var:CFP_is_loaded }
+					outfit_tags = { cardinal_outfit }
+				}
+				triggered_outfit = {
+					trigger = { NOT = { exists = global_var:CFP_is_loaded } }
+					outfit_tags = { bishop_outfit }
+				}
 		    }
 			scope:cardinal7 = {
-				group = cardinals
+				group = event_group
 				animation = worried
+				triggered_outfit = {
+					trigger = { exists = global_var:CFP_is_loaded }
+					outfit_tags = { cardinal_outfit }
+				}
+				triggered_outfit = {
+					trigger = { NOT = { exists = global_var:CFP_is_loaded } }
+					outfit_tags = { bishop_outfit }
+				}
 		    }
 		}
 	}
@@ -3969,6 +4140,9 @@ KoH_religiousflavour.401 = {
 				has_faith = faith:catholic
 				primary_title.tier >= tier_county
 				NOT = { this = faith.religious_head }
+				NOT = {
+					has_title = title:k_papal_state
+				}
 			}
 			trigger_event = {
 				id = KoH_religiousflavour.402
@@ -4855,7 +5029,6 @@ KoH_religiousflavour.807 = {
 		if = {
 			limit = {
 				faith = {
-					has_doctrine = doctrine_spiritual_head
 					has_doctrine = doctrine_independent_papacy_head
 					religion_tag = christianity_religion
 				}	
