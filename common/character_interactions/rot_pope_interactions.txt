@@ -2336,6 +2336,9 @@ divorce_character_interaction = {
 				exists = scope:actor.house.house_head
 				scope:actor = { is_house_head = no }
 			}
+			NOT = {
+				has_doctrine = doctrine_divorce_approval
+			}
 		}
 		scope:recipient.faith = {
 			# We are not required to seek approval of a spiritual HoF
@@ -2350,6 +2353,9 @@ divorce_character_interaction = {
 				exists = scope:actor.house
 				exists = scope:actor.house.house_head
 				scope:actor = { is_house_head = no }
+			}
+			NOT = {
+				has_doctrine = doctrine_divorce_approval
 			}
 		}
 		scope:recipient = {
