@@ -16,31 +16,31 @@
 		is_at_war = no
 		is_alive = yes
 		religion = { exists = var:variable_ghw_unlocked }
-		faith = {
-			NOT = { 
-				exists = great_holy_war
-				exists = var:variable_ghw_cooldown
-				religion = { exists = var:variable_first_ghw_cooldown }
-			}
-			OR = {
-				has_doctrine_parameter = great_holy_wars_active
-				AND = {
-					has_doctrine_parameter = great_holy_wars_active_if_reformed
-					NOT = { has_doctrine_parameter = unreformed }
-				}
-				has_doctrine = divine_destiny_doctrine #SPECIAL: Has become the Chakravarti
-			}
-			has_doctrine = doctrine_spiritual_head
-			NOR = {
-				has_doctrine = unreformed_faith_doctrine
-				AND = {
-					has_doctrine = tenet_dharmic_pacifism
-					NOT = { has_doctrine = divine_destiny_doctrine }
-				}
-				has_doctrine = tenet_pacifism
-			}
-			fervor >= 75
-		}
+		# faith = {
+		# 	NOT = { 
+		# 		exists = great_holy_war
+		# 		exists = var:variable_ghw_cooldown
+		# 		religion = { exists = var:variable_first_ghw_cooldown }
+		# 	}
+		# 	OR = {
+		# 		has_doctrine_parameter = great_holy_wars_active
+		# 		AND = {
+		# 			has_doctrine_parameter = great_holy_wars_active_if_reformed
+		# 			NOT = { has_doctrine_parameter = unreformed }
+		# 		}
+		# 		has_doctrine = divine_destiny_doctrine #SPECIAL: Has become the Chakravarti
+		# 	}
+		# 	has_doctrine = doctrine_spiritual_head
+		# 	NOR = {
+		# 		has_doctrine = unreformed_faith_doctrine
+		# 		AND = {
+		# 			has_doctrine = tenet_dharmic_pacifism
+		# 			NOT = { has_doctrine = divine_destiny_doctrine }
+		# 		}
+		# 		has_doctrine = tenet_pacifism
+		# 	}
+		# 	fervor >= 75
+		# }
 	}
 
 	is_valid = {
@@ -252,9 +252,9 @@ DonationCountyClergy = {
 	desc = DonationCountyClergy_decision_desc
 	selection_tooltip = DonationCountyClergy_decision_tooltip
 
-	ai_check_interval = 6
+	ai_check_interval = 72
 
-	cooldown = { years = 10 }
+	cooldown = { years = 20 }
 
 	is_shown = {
 		has_faith = faith:catholic

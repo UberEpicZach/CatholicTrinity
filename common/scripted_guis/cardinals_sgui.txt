@@ -21,7 +21,9 @@ can_see_my_candidate_fail = {
 
 is_landedtrigger = {
 	scope = character
-	is_landed = yes
+	is_shown = {
+		is_landed = yes
+	}
 }
 
 this_is_the_pope = {

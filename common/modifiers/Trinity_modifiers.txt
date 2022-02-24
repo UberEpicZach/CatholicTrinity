@@ -9,8 +9,7 @@
 
 saintly_tomb = {
 	icon = county_modifier_opinion_positive
-	general_opinion = 10
-	monthly_income = 1
+	monthly_income = 1.5
 	development_growth_factor = medium_development_growth_gain
 	development_growth = 0.15
 }

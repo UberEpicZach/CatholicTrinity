@@ -3791,7 +3791,7 @@ KoH_religiousflavour.400 = {
 		custom_tooltip = court_maintenance.0010.a.tooltip
 		trigger_event = {
 			id = KoH_religiousflavour.4001
-			day = 1
+			days = 1
 		}
 
 		ai_chance = {
@@ -3831,86 +3831,37 @@ KoH_religiousflavour.4001 = {
 		    scope:newpope = {
 				group = event_group
 				animation = worried
-				triggered_outfit = {
-					trigger = { exists = global_var:CFP_is_loaded }
-					outfit_tags = { cardinal_outfit }
-				}
-				triggered_outfit = {
-					trigger = { NOT = { exists = global_var:CFP_is_loaded } }
-					outfit_tags = { bishop_outfit }
-				}
+				
 		    }
 			scope:cardinal2 = {
 				group = event_group
 				animation = worried
-				triggered_outfit = {
-					trigger = { exists = global_var:CFP_is_loaded }
-					outfit_tags = { cardinal_outfit }
-				}
-				triggered_outfit = {
-					trigger = { NOT = { exists = global_var:CFP_is_loaded } }
-					outfit_tags = { bishop_outfit }
-				}
+				
 		    }
 			scope:cardinal3 = {
 				group = event_group
 				animation = worried
-				triggered_outfit = {
-					trigger = { exists = global_var:CFP_is_loaded }
-					outfit_tags = { cardinal_outfit }
-				}
-				triggered_outfit = {
-					trigger = { NOT = { exists = global_var:CFP_is_loaded } }
-					outfit_tags = { bishop_outfit }
-				}
+				
 		    }
 			scope:cardinal4 = {
 				group = event_group
 				animation = worried
-				triggered_outfit = {
-					trigger = { exists = global_var:CFP_is_loaded }
-					outfit_tags = { cardinal_outfit }
-				}
-				triggered_outfit = {
-					trigger = { NOT = { exists = global_var:CFP_is_loaded } }
-					outfit_tags = { bishop_outfit }
-				}
+				
 		    }
 			scope:cardinal5 = {
 				group = event_group
 				animation = worried
-				triggered_outfit = {
-					trigger = { exists = global_var:CFP_is_loaded }
-					outfit_tags = { cardinal_outfit }
-				}
-				triggered_outfit = {
-					trigger = { NOT = { exists = global_var:CFP_is_loaded } }
-					outfit_tags = { bishop_outfit }
-				}
+				
 		    }
 			scope:cardinal6 = {
 				group = event_group
 				animation = worried
-				triggered_outfit = {
-					trigger = { exists = global_var:CFP_is_loaded }
-					outfit_tags = { cardinal_outfit }
-				}
-				triggered_outfit = {
-					trigger = { NOT = { exists = global_var:CFP_is_loaded } }
-					outfit_tags = { bishop_outfit }
-				}
+				
 		    }
 			scope:cardinal7 = {
 				group = event_group
 				animation = worried
-				triggered_outfit = {
-					trigger = { exists = global_var:CFP_is_loaded }
-					outfit_tags = { cardinal_outfit }
-				}
-				triggered_outfit = {
-					trigger = { NOT = { exists = global_var:CFP_is_loaded } }
-					outfit_tags = { bishop_outfit }
-				}
+		
 		    }
 		}
 	}
@@ -4027,86 +3978,36 @@ KoH_religiousflavour.401 = {
 		    scope:newpope= {
 				group = event_group
 				animation = worried
-				triggered_outfit = {
-					trigger = { exists = global_var:CFP_is_loaded }
-					outfit_tags = { cardinal_outfit }
-				}
-				triggered_outfit = {
-					trigger = { NOT = { exists = global_var:CFP_is_loaded } }
-					outfit_tags = { bishop_outfit }
-				}
 		    }
 			scope:cardinal2 = {
 				group = event_group
 				animation = worried
-				triggered_outfit = {
-					trigger = { exists = global_var:CFP_is_loaded }
-					outfit_tags = { cardinal_outfit }
-				}
-				triggered_outfit = {
-					trigger = { NOT = { exists = global_var:CFP_is_loaded } }
-					outfit_tags = { bishop_outfit }
-				}
+				
 		    }
 			scope:cardinal3 = {
 				group = event_group
 				animation = worried
-				triggered_outfit = {
-					trigger = { exists = global_var:CFP_is_loaded }
-					outfit_tags = { cardinal_outfit }
-				}
-				triggered_outfit = {
-					trigger = { NOT = { exists = global_var:CFP_is_loaded } }
-					outfit_tags = { bishop_outfit }
-				}
+				
 		    }
 			scope:cardinal4 = {
 				group = event_group
 				animation = worried
-				triggered_outfit = {
-					trigger = { exists = global_var:CFP_is_loaded }
-					outfit_tags = { cardinal_outfit }
-				}
-				triggered_outfit = {
-					trigger = { NOT = { exists = global_var:CFP_is_loaded } }
-					outfit_tags = { bishop_outfit }
-				}
+				
 		    }
 			scope:cardinal5 = {
 				group = event_group
 				animation = worried
-				triggered_outfit = {
-					trigger = { exists = global_var:CFP_is_loaded }
-					outfit_tags = { cardinal_outfit }
-				}
-				triggered_outfit = {
-					trigger = { NOT = { exists = global_var:CFP_is_loaded } }
-					outfit_tags = { bishop_outfit }
-				}
+				
 		    }
 			scope:cardinal6 = {
 				group = event_group
 				animation = worried
-				triggered_outfit = {
-					trigger = { exists = global_var:CFP_is_loaded }
-					outfit_tags = { cardinal_outfit }
-				}
-				triggered_outfit = {
-					trigger = { NOT = { exists = global_var:CFP_is_loaded } }
-					outfit_tags = { bishop_outfit }
-				}
+				
 		    }
 			scope:cardinal7 = {
 				group = event_group
 				animation = worried
-				triggered_outfit = {
-					trigger = { exists = global_var:CFP_is_loaded }
-					outfit_tags = { cardinal_outfit }
-				}
-				triggered_outfit = {
-					trigger = { NOT = { exists = global_var:CFP_is_loaded } }
-					outfit_tags = { bishop_outfit }
-				}
+
 		    }
 		}
 	}

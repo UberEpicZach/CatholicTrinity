@@ -167,15 +167,15 @@ has_nearby_saint_site = {
 rot_is_pope_of_target_trigger = {
 	#save_temporary_scope_as = cardinal_check
 	trigger_if = {
-			limit = {
-				scope:actor.faith = {
-					NOT = { 
-						has_variable_list = rot_antipopes 
-					}
-				} 
-			}
-			$TARGET$.faith.religious_head = $POPE$
+		limit = {
+			scope:actor.faith = {
+				NOT = { 
+					has_variable_list = rot_antipopes 
+				}
+			} 
 		}
+		$TARGET$.faith.religious_head = $POPE$
+	}
 	trigger_else_if = {
 		limit = {
 			$TARGET$ = { 
@@ -252,6 +252,10 @@ suitable_faith_for_undirected_ghw_trigger = {
 		value = faith_military_strength
 	}
 	save_temporary_scope_as = faith
+	suitable_location_for_undirected_ghw_trigger = yes
+}
+
+suitable_location_for_undirected_ghw_trigger = {
 	any_kingdom = {
 		valid_ghw_target_trigger = { FAITH = scope:faith }
 	}

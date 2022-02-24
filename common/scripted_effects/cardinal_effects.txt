@@ -244,16 +244,16 @@ indicate_cardinals = {
 	add_prestige = num_living_cardinals
 }
 # # Debug tool to see which cardinals are dead
-cardinal_test = {
-	every_cardinal = {
-		story_owner = {
-			add_piety = 1
-		}
-	}
-	every_living_cardinal = {
-		add_prestige = 1
-	}
-}
+# cardinal_test = {
+# 	every_living_cardinal = {
+# 		story_owner = {
+# 			add_piety = 1
+# 		}
+# 	}
+# 	every_living_cardinal = {
+# 		add_prestige = 1
+# 	}
+# }
 
 # Not used:
 #setup_cardinal_activity = {
@@ -557,14 +557,14 @@ popeetitlechange = {
 	save_scope_as = deadpope
 	
 	create_character = {
-		location = deadpope.capital_province
+		location = scope:deadpope.capital_province
 		age = { 99 100 }
 		name = "Jesus"
 		gender = male
 		trait = education_learning_3
 		trait = devoted
-		faith = deadpope.faith
-		culture = deadpope.culture
+		faith = scope:deadpope.faith
+		culture = scope:deadpope.culture
 		learning = { 10 12 }
 		save_scope_as = monk
 	}

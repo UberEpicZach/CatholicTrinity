@@ -3,7 +3,7 @@ pdxmesh = {
 	file = "papal_floor.mesh"
 
 	meshsettings = {
-		name = "Outer Wall"
+		name = "PDXmat_Outer Wall"
 		index = 0
 		texture_diffuse = "papal_wall_diffuse.dds"
 		texture_normal = "papal_wall_normal.dds"
@@ -13,7 +13,7 @@ pdxmesh = {
 	}
 
 	meshsettings = {
-		name = "Papal Floor"
+		name = "PDXmat_Papal Floor"
 		index = 1
 		texture_diffuse = "papal_floor_diffuse.dds"
 		texture_normal = "papal_floor_normal.dds"
@@ -22,7 +22,7 @@ pdxmesh = {
 		shader_file = "gfx/FX/court_scene.shader"
 	}
 	meshsettings = {
-		name = "Stairs"
+		name = "PDXmat_Stairs"
 		index = 2
 		texture_diffuse = "papal_stairs_diffuse.dds"
 		texture_normal = "papal_stairs_normal.dds"
@@ -32,7 +32,7 @@ pdxmesh = {
 	}
 
 	meshsettings = {
-		name = "Stand"
+		name = "PDXmat_Stand"
 		index = 3
 		texture_diffuse = "papal_stand_diffuse.dds"
 		texture_normal = "papal_stand_normal.dds"
@@ -42,7 +42,7 @@ pdxmesh = {
 	}
 
 	meshsettings = {
-		name = "Top of Stairs"
+		name = "PDXmat_TopOfStairs"
 		index = 4
 		texture_diffuse = "papal_stairstop_diffuse.dds"
 		texture_normal = "papal_stairstop_normal.dds"

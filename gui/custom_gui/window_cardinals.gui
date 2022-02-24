@@ -207,6 +207,7 @@ type window_cardinals_invest = button { # Add x gold to the character's election
     icon = {
         texture = "gfx/interface/CollegeCardinals/Invest.png"
     }
+    tooltip = "window_cardinals_invest_tooltip"
     enabled = "[GetScriptedGui('invest_in_cardinal').IsValid(GuiScope.SetRoot(Character.MakeScope).AddScope('player',GetPlayer.MakeScope).End)]"
     onclick = "[GetScriptedGui('invest_in_cardinal').Execute(GuiScope.SetRoot(Character.MakeScope).AddScope('player',GetPlayer.MakeScope).End)]"
     alwaystransparent = no
@@ -218,6 +219,7 @@ type window_cardinals_divest = button { # Retrieve 50% of your donation from the
     icon = {
         texture = "gfx/interface/CollegeCardinals/Divest.png"
     }
+    tooltip = "window_cardinals_divest_tooltip"
     enabled = "[GetScriptedGui('divest_from_cardinal').IsValid(GuiScope.SetRoot(Character.MakeScope).AddScope('player',GetPlayer.MakeScope).End)]"
     onclick = "[GetScriptedGui('divest_from_cardinal').Execute(GuiScope.SetRoot(Character.MakeScope).AddScope('player',GetPlayer.MakeScope).End)]"
     alwaystransparent = no

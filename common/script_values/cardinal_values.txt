@@ -186,7 +186,7 @@ cardinal_actually_is_pope_debuff = {
 cardinal_recent_event_modiifer = {
 	value = 0 
 	if = { limit = { has_character_flag = cardinal_boost } add = cardinal_has_modifier_good }
-	if = { limit = { has_character_flag = cardinal_debuff } add = cardinal_has_modifier_badd }
+	if = { limit = { has_character_flag = cardinal_debuff } add = cardinal_has_modifier_bad }
 }
 
 # Debug values:

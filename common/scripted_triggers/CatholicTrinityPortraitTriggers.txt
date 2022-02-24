@@ -22,16 +22,6 @@ CatholicTrinityMercenaryTitleTrigger = { #exists = title:d_captain_general_churc
 	has_title = title:d_captain_general_church
 }
 
-cfp_loaded_checker = { 
-	trigger_if = { 
-		limit = { 
-			cfp_is_loaded = yes 
-		}
-		exists = global_var:CFP_is_loaded
-	}
-	trigger_else = { always = no }
-}
-
 has_graphical_papal_trigger = {
 	OR = {
 		capital_county.duchy = title:d_latium
@@ -67,24 +57,24 @@ has_graphical_goidelic_culture_group_trigger = {
 	}
 }
 
-# has_graphical_andalusian_culture_group_trigger = {
-# 	exists = global_var:CFP_is_loaded
-# 	OR = {
-# 		has_culture = culture:andalusian
-# 		culture = { 
-# 			any_parent_culture_or_above = { this = culture:andalusian }
-# 		}
-# 		AND = {
-# 			faith.religion = religion:islam_religion
-# 			capital_county.kingdom = title:k_andalusia
-# 		}
-# 		# Led to too many complaints
-# 		# AND = {
-# 			# culture = { has_cultural_pillar = heritage_iberian }
-# 			# capital_county.kingdom = title:k_andalusia
-# 		# }
-# 	}
-# }
+has_graphical_andalusian_culture_group_trigger = {
+	exists = global_var:CFP_is_loaded
+	OR = {
+		has_culture = culture:andalusian
+		culture = { 
+			any_parent_culture_or_above = { this = culture:andalusian }
+		}
+		AND = {
+			faith.religion = religion:islam_religion
+			capital_county.kingdom = title:k_andalusia
+		}
+		# Led to too many complaints
+		# AND = {
+			# culture = { has_cultural_pillar = heritage_iberian }
+			# capital_county.kingdom = title:k_andalusia
+		# }
+	}
+}
 
 has_graphical_west_african_culture_group_trigger = {
 	exists = global_var:CFP_is_loaded

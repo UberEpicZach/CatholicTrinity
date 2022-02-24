@@ -242,7 +242,7 @@
 		}
 	}
 	
-	# AI will do
+	#AI will do
 	
 	ai_potential = {
 		is_adult = yes
@@ -279,7 +279,7 @@
 		}
 	}
 }
-## COMMUNION TENET
+# COMMUNION TENET
 excommunicate_interaction = {
 	category = interaction_category_hostile
 	common_interaction = yes #suppress error
@@ -316,7 +316,7 @@ excommunicate_interaction = {
 
 		trigger_if = {
 			limit = {
-				scope:actor.faith = { has_doctrine = doctrine_independent_papacy_head  }
+				scope:actor.faith = { AND = { has_doctrine = doctrine_independent_papacy_head has_variable_list = rot_antipopes } }
 			}
 			scope:actor.faith = scope:recipient.faith
 			rot_is_pope_of_target_trigger = { 
@@ -394,7 +394,7 @@ excommunicate_interaction = {
 		}
 	}
 	
-	# AI will do
+	#AI will do
 	
 	ai_potential = {
 		is_adult = yes
@@ -437,19 +437,23 @@ request_excommunication_interaction = {
 
 	desc = request_excommunication_interaction_desc
 	redirect = {
-		rot_get_pope_of_target = {
-			TARGET = scope:recipient
-		}
 		if = {
 			limit = {
-				scope:actor.faith = { has_doctrine = doctrine_independent_papacy_head }
-				exists = scope:pope_of_target
+				scope:actor.faith = { AND = { has_doctrine = doctrine_independent_papacy_head has_variable_list = rot_antipopes } }	
 			}
-			scope:recipient = {
-				save_scope_as = secondary_recipient
+			rot_get_pope_of_target = {
+				TARGET = scope:recipient
 			}
-			scope:pope_of_target = {
-				save_scope_as = recipient
+			if = {
+				limit = {
+					exists = scope:pope_of_target
+				}
+				scope:recipient = {
+					save_scope_as = secondary_recipient
+				}
+				scope:pope_of_target = {
+					save_scope_as = recipient
+				}
 			}
 		}
 		else_if = {
@@ -758,7 +762,7 @@ request_excommunication_interaction = {
 		}
 	}
 	
-	# AI will do
+	#AI will do
 	
 	ai_potential = {
 		is_adult = yes
@@ -806,7 +810,7 @@ hof_ask_for_claim_interaction = {
 	redirect = {
 		if = {
 			limit = {
-				exists = scope:actor.faith.religious_head
+				scope:actor.faith = { AND = { has_doctrine = doctrine_independent_papacy_head has_variable_list = rot_antipopes } }	
 			}
 			rot_get_pope_of_target = {
 				TARGET = scope:recipient
@@ -815,6 +819,17 @@ hof_ask_for_claim_interaction = {
 				save_scope_as = secondary_recipient
 			}
 			scope:pope_of_target = {
+				save_scope_as = recipient
+			}
+		}
+		else_if = {
+			limit = {
+				exists = scope:actor.faith.religious_head
+			}
+			scope:recipient = {
+				save_scope_as = secondary_recipient
+			}
+			scope:actor.faith.religious_head = {
 				save_scope_as = recipient
 			}
 		}
@@ -849,11 +864,11 @@ hof_ask_for_claim_interaction = {
 						setingvariableeffect = yes
 					}
 				}
-				# else = {
-				# 	scope:secondary_recipient = {
-				# 		changingvariableeffect = yes
-				# 	}
-				# }
+				else = {
+					scope:secondary_recipient = {
+						changingvariableeffect = yes
+					}
+				}
 			}
 		}
 	}
@@ -1420,15 +1435,23 @@ hof_ask_for_gold_interaction = {
 	cooldown_against_recipient = { years = 3 }
 	
 	is_shown = {
-		NOT = {
-			scope:recipient = scope:actor
-		}
 		scope:actor.faith = {
-			has_doctrine = tenet_communion
+			OR = {
+				has_doctrine = doctrine_independent_papacy_head
+				has_doctrine = doctrine_spiritual_head
+			}
 		}
+
 		trigger_if = {
 			limit = {
-				scope:actor.faith = { has_doctrine = doctrine_independent_papacy_head }
+				scope:actor = {
+					faith = {
+						AND = {
+							has_doctrine = doctrine_independent_papacy_head 
+							has_variable_list = rot_antipopes
+						}
+					}
+				}	
 			}
 			rot_is_pope_of_target_trigger = { 
 				TARGET = scope:actor 
@@ -1436,7 +1459,8 @@ hof_ask_for_gold_interaction = {
 			}
 		}
 		trigger_else = {
-			religious_head = scope:recipient
+			exists = scope:actor.faith.religious_head
+			scope:actor.faith.religious_head = scope:recipient
 		}
 	}
 
@@ -1858,7 +1882,7 @@ seek_indulgences_interaction = {
 		}
 		trigger_if = {
 			limit = {
-				scope:actor.faith = { has_doctrine = doctrine_independent_papacy_head }
+				scope:actor.faith = { AND = { has_doctrine = doctrine_independent_papacy_head has_variable_list = rot_antipopes } }
 			}
 			rot_is_pope_of_target_trigger = { 
 				TARGET = scope:actor 
@@ -1866,7 +1890,7 @@ seek_indulgences_interaction = {
 			}
 		}
 		trigger_else = {
-			religious_head = scope:recipient
+			scope:actor.faith.religious_head = scope:recipient
 		}
 	}
 
@@ -2044,7 +2068,10 @@ declaration_of_repentance_interaction = {
 				has_doctrine = tenet_communion
 				trigger_if = {
 					limit = {
-						has_doctrine = doctrine_independent_papacy_head
+						AND = {
+							has_variable_list = rot_antipopes
+							has_doctrine = doctrine_independent_papacy_head
+						}
 					}
 					rot_is_pope_of_target_trigger = { 
 						TARGET = scope:actor 
@@ -2052,7 +2079,7 @@ declaration_of_repentance_interaction = {
 					}
 				}
 				trigger_else = {
-					religious_head = scope:recipient
+					scope:actor.faith.religious_head = scope:recipient
 				}
 			}
 		}
@@ -2203,7 +2230,10 @@ lift_excommunication_interaction = {
 		trigger_if = {
 			limit = {
 				scope:actor.faith = {
-					has_doctrine = doctrine_independent_papacy_head
+					AND = {
+						has_doctrine = doctrine_independent_papacy_head
+						has_variable_list = rot_antipopes
+					}
 				}
 			}
 			scope:actor.faith = scope:recipient.faith
@@ -2421,13 +2451,26 @@ divorce_character_rel_head_interaction = {
 
 		if = {
 			limit = {
-				exists = scope:actor.faith.religious_head
-				scope:actor.faith = faith:catholic
+				scope:actor.faith = { AND = { has_doctrine = doctrine_independent_papacy_head has_variable_list = rot_antipopes } }	
 			}
 			rot_get_pope_of_target = {
 				TARGET = scope:recipient
 			}
+			scope:recipient = {
+				save_scope_as = secondary_recipient
+			}
 			scope:pope_of_target = {
+				save_scope_as = recipient
+			}
+		}
+		else_if = {
+			limit = {
+				exists = scope:actor.faith.religious_head
+			}
+			scope:recipient = {
+				save_scope_as = secondary_recipient
+			}
+			scope:actor.faith.religious_head = {
 				save_scope_as = recipient
 			}
 		}

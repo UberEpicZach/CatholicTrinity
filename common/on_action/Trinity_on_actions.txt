@@ -56,7 +56,7 @@ CatholicsimFix = {
 			}
 		}
 
-		every_living_character = { limit = { is_clergy = yes has_faith = faith:catholic } learn_language = language_latin }
+		every_living_character = { limit = { is_clergy = yes has_faith = faith:catholic NOT = { knows_language = language_latin } } learn_language = language_latin }
 		faith:catholic = {
 			add_doctrine = doctrine_independent_papacy_head
 			add_doctrine = doctrine_clerical_succession_investiture_law_appointment
@@ -66,6 +66,9 @@ CatholicsimFix = {
 		set_global_variable = {
 			name = Trinity_is_loaded
 			value = yes
+		}
+		title:k_papal_state.holder = {
+			set_variable = was_once_cardinal
 		}
 	}
 }
@@ -213,30 +216,8 @@ on_faith_monthly = {
 	on_actions = {
 		delay = { months = 5 }
 		NewCrusadeLeader
-		CardinalCandiatesUpdated
 	}
 }
-
-# CardinalCandiatesUpdated = {
-# 	effect = {
-# 		every_living_character = { 
-# 			limit = { 
-# 				has_faith = faith:catholic
-# 				is_landed = yes
-# 				has_government = feudal_government
-# 				age >= 16
-# 				is_ai = yes 
-# 				NOT = { 
-# 					exists = var:cardinal_player_candidate 
-# 					has_government = mercenary_government 
-# 					has_government = theocracy_government 
-# 					primary_title.tier > 2
-# 				}
-# 			} 
-# 			select_highest_scoring_character_cardinal_candidate = yes 
-# 		}
-# 	}
-# }
 
 NewCrusadeLeader = {
 	trigger = {
@@ -585,14 +566,14 @@ on_pope_death = {
 		save_scope_as = deadpope
 		
 		create_character = {
-			location = deadpope.capital_province
+			location = scope:deadpope.capital_province
 			age = { 99 100 }
 			name = "Jesus"
 			gender = male
 			trait = education_learning_3
 			trait = devoted
-			faith = deadpope.faith
-			culture = deadpope.culture
+			faith = scope:deadpope.faith
+			culture = scope:deadpope.culture
 			learning = { 10 12 }
 			save_scope_as = monk
 		}

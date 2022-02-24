@@ -124,3 +124,7 @@
 
  #Modifiers
  koh_governs_vast_estates:0 "This Character Governs Vast Esates for the pope."
+
+ #Invest 
+  window_cardinals_divest_tooltip:0 "Withdraw Investment! Returns half initial investment."
+  window_cardinals_invest_tooltip:0 "Invest in Candidate! Costs 50 Gold, Removing Investment later returns only Half initial investment!"

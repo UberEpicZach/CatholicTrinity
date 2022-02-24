@@ -24,6 +24,10 @@ autoerrorfixer.1 = {
 		fix_variable_error = {ERROR = pope_currently_demanding}
 		fix_variable_error = {ERROR = pope_respects_our_law}
 		fix_variable_error = {ERROR = saint_capital}
+		fix_variable_error = {ERROR = PlayerDecisionForCrusade}
+		fix_variable_error = {ERROR = cardinal_story}
+		fix_variable_error = {ERROR = cardinal_boost}
+		fix_variable_error = {ERROR = cardinal_debuff}
 	}
 }
 autoerrorfixer.2 = {
