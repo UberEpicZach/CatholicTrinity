@@ -693,3 +693,7 @@ councillor_leaving_effect = {
 		}
 	}
 }
+
+take_gold_mod_effect = {
+	remove_short_term_gold = 30
+}

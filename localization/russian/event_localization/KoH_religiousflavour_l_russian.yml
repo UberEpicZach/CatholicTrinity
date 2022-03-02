@@ -1,0 +1,357 @@
+﻿l_russian:
+  candiatesoon: "Кандидат скоро появится"
+  candiatesoonpope: "Папа не выдвигает кандидатов"
+  KoH_religiousflavour.1.t: "Папа Римский и его поместья"
+  KoH_religiousflavour.1.desc: "Мне стало известно, что мой родственник, [scope:scoped_pope.Char.GetTitledFirstName] организовал перевозку [Sibling/Son] и [Sibling/Son] в окрестности Рима, и пообещал им долю в обширных владениях... во имя "эффективности управления", конечно. Хотя просьба Его Святейшества касается моей семьи, новость должна быть передана по моим защищённым каналам, и это оставляет решение в конечном счете за мной."
+  KoH_religiousflavour.1.a: "Отпустить их"
+
+  KoH_religiousflavour.2.t: "Пьян как монах: Пиво"
+  KoH_religiousflavour.2.desc: "Этот мягкий и слегка солодовый вкус, освежающий с нужным количеством горечи. Ах, эти монахи определенно владеют искусством пивоварения!"
+  KoH_religiousflavour.2.a: "Я должен почаще бывать в монастыре"
+  KoH_religiousflavour.2.b: "Спасибо, но нет, достаточно"
+  KoH_religiousflavour.2.a.toast: "Вы совсем сопьётесь"
+  KoH_religiousflavour.2.b.toast: "Вы стали умеренным"
+
+  KoH_religiousflavour.3.t: "Пьян как монах: Вино"
+  KoH_religiousflavour.3.desc: "Такой чудесный букет. Сложная смесь ароматов распространяется по моему языку так же, как тепло распространяется по моему животу. Эти монахи, безусловно, знают, как сделать прекрасное вино!"
+  KoH_religiousflavour.3.a: "Я должен почаще бывать в монастыре"
+  KoH_religiousflavour.3.b: "Спасибо, но нет, достаточно"
+
+  KoH_religiousflavour.4.t: "Целебные травы?"
+  KoH_religiousflavour.4.desc: "Монахи из соседнего монастыря прибыли с целебными травами и предложили помочь в лечении вашей болезни"
+  KoH_religiousflavour.4.a: "Поблагодарите их и позволить им помочь вам"
+  KoH_religiousflavour.4.b: "Я думаю, что нет - эти травы странно пахнут"
+
+  KoH_religiousflavour.5.t: "Солнечный день" 
+  KoH_religiousflavour.5.desc: "Однажды, проходя мимо монастыря, вы натыкаетесь на монаха, который сидит и рисует в поле. Вы наблюдаете за его работой и восхищаетесь композицией, цветами и тонкими мазками кисти, которые оживляют простой холст. Этот монах - поистине гениальный художник."
+  KoH_religiousflavour.5.a: "Я куплю эту картину и выставлю её в своей резиденции!"
+  KoH_religiousflavour.5.b: "Очень мило, а теперь давайте поедим"
+
+  KoH_religiousflavour.6.t: "Монах и его живопись"
+  KoH_religiousflavour.6.desc: "Однажды, проходя мимо монастыря, вы натыкаетесь на монаха, который сидит и рисует в поле. Вы наблюдаете за его работой и восхищаетесь композицией, цветами и тонкими мазками кисти, которые оживляют простой холст. Этот монах - поистине гениальный художник."
+  KoH_religiousflavour.6.a: "Я куплю эту картину и выставлю её в своей резиденции!"
+  KoH_religiousflavour.6.b: "Очень мило, а теперь давайте поедим"
+
+  KoH_religiousflavour.7.t: "Искусные книги"
+  KoH_religiousflavour.7.desc: "Во время визита вежливости к настоятелю местного монастыря вы наблюдаете за группой монахов, переводящих прекрасно иллюстрированные книги на ваш язык."
+  KoH_religiousflavour.7.a: "Я куплю несколько книг. Возможно, я даже прочитаю их"
+  KoH_religiousflavour.7.b: "Красивые картинки, но у меня есть дела поважнее"
+
+  KoH_religiousflavour.8.t: "Монастырские монахи"
+  KoH_religiousflavour.8.desc: "В последнее время монахи из соседнего монастыря довольно часто заглядывают сюда, чтобы пополнить припасы. Обычно они задерживаются, чтобы поговорить и обменяться знаниями."
+  KoH_religiousflavour.8.a: "Мне бы следовало почаще искать их общества"
+  KoH_religiousflavour.8.b: "Как скучны эти набожные люди"
+
+  KoH_religiousflavour.9.t: "Жизнь верующих"
+  KoH_religiousflavour.9.desc: "В течение последнего года или около того ваш [childforthechurch.Custom('GetDaughterSon')] [childforthechurch.GetFirstName] проводит много времени с молодыми членами местного монашеского ордена. Вы также заметили, что [childforthechurch.GetSheHe] проводит много часов в неделю в благочестивой молитве. Затем в один прекрасный день, [childforthechurch.GetSheHe] подходит к вам и просит вашего разрешения посвятить [childforthechurch.GetHerHis] жизнь для Христа."
+  KoH_religiousflavour.9.a: "Очень хорошо, если это то, что [childforthechurch.GetSheHe] действительно хочет"
+  KoH_religiousflavour.9.b: "Ни в коем случае!"
+ 
+  KoH_religiousflavour.12.t: "Местный монастырь"
+  KoH_religiousflavour.12.desc: "Настоятель соседнего монастыря попросил вас сделать пожертвование на ремонт монастырской церкви. Конечно, не помешало бы убедиться, что именно о вас будут молитвы монахов?"
+  KoH_religiousflavour.12.a: "Бог будет знать, что я поддерживаю церковь"
+  KoH_religiousflavour.12.b: "Извините, я не могу сейчас выделить золото"
+  
+  KoH_religiousflavour.13.t: "Связанный долгом?"
+  KoH_religiousflavour.13.desc: "Слухи из сельской местности рассказывают о нечестивых поступках некоего священника, [Priest.GetTitledFirstName], был разоблачен как развратный грешник, будучи пойманным на месте преступления со своей любовницей, [lover.GetTitledFirstName]."
+  KoH_religiousflavour.13.a: "Кстати, кто сделал этого человека священником?"
+ 
+  KoH_religiousflavour.14.t: "Связанный долгом?"
+  KoH_religiousflavour.14.desc: "Слухи из сельской местности повествуют о нечестивых поступках некоего священника, да к тому же мой родственник! [Priest.GetTitledFirstName] был разоблачен как развратный грешник, будучи пойманным на месте преступления со своей любовницей, [lover.GetTitledFirstName]. Это, безусловно, не сулит ничего хорошего доброму имени моей династии."
+  KoH_religiousflavour.14.a: "Кстати, кто сделал этого человека священником?"
+
+  KoH_religiousflavour.15.t: "Бедняки Лиона"
+  KoH_religiousflavour.15.desc: "From Haute-Rivoire comes a loose convoy of men, some with their families, others with nothing but robes and sandals. It is the bailiff, tasked with enforcing tolls on the road from the east, who dispatches a watchman to inform me of the oddity. “They come with no taxable wealth, and have all taken up preaching. They claim their origin is Lyon”.\n\nAt the forefront is one [peter.GetTitledFirstName], and unbeknownst to the bailiff, word from Archbishop [archbishop.GetTitledFirstName] had advanced at a faster pace, with the intent to inform myself of an approaching band of so-called ‘heretics’, barred and exiled from Lyon. The Archbishop gives a warning, expressing his disgust of them, and expresses his belief that I shall make the correct decision on the matter.\n\nIt takes less than an afternoon for Pèire to begin preaching in the town square of Feurs. Donning fine robes, you approach the disheveled man of cloth by horseback, and you reciprocate his gaze. An hour passes, as he pays little attention to his senses, speaking plainly in Franco-Provençal, and a small crowd begins to form. It is clearly heresy, as defined by the church, and Vaudès continues to speak of the corruption of the church by worldly goods and temptations. It is then you dismiss yourself, returning to your residence. “Dear the Most Reverend and Holy Archbishop of Lyon, I am corresponding in response to your previous letter to tell you I have made the decision to…"
+  KoH_religiousflavour.15.a: "Изгнать язычников из Водеса"
+  KoH_religiousflavour.15.b: "Защитить свободу Водесы"
+
+  KoH_religiousflavour.16.t: "Вальденсовская ересь"
+  KoH_religiousflavour.16.desc: "Учение бывшего купца из Лиона, так называемое "вальденсианство", начало быстро распространяться в Провансе и Западных Альпах. Аскетическое движение, осуждающее развращение церкви, папский легат предупредил меня о росте ереси в моём владении."
+  KoH_religiousflavour.16.a: "Люди будут обращаться к Богу по-разному"
+
+  KoH_religiousflavour.17.t: "Конклав Савиньи"
+  KoH_religiousflavour.17.desc: "The people of the Forez have found the words of Vaudès especially riling” An eerily casual remark escapes the lips of [archbishop.GetTitledFirstName]. The grandiose Abbey of Saint Martin overlooks the scene of the stern Archbishop’s grievances, likely chosen for the sole purpose of intimidation, as remarked by my chamberlain. \n\n“I need not your confirmation on the matter, however I believe you should be aware that the Bishop of Feurs recently had parts of his own home desecrated by these charlatan-followers you grant asylum. The Bishop has seen attendance of his mass shrink substantially, and tells me that he believes the majority of your domain has begun to protest against the supposed unjust wealth of the church. This is dangerous, Guigues; these men worship a false idol. And what is your response to this? What shall you do? Idle like your so-called martial ancestors did when called to the Holy Lands?” It is quite clear the Archbishop seems satisfied with himself, smirking caddishly. “The Pope could get involved in my request, you are aware?”"
+  KoH_religiousflavour.17.a: "Мои извинения; вы можете вмешаться"
+  KoH_religiousflavour.17.b: "Ты не будешь мне угрожать!"
+  KoH_religiousflavour.17.b.tt: "Церковь может избегать вас, как бы вы ни считали нужным занимать свою должность"
+  KoH_religiousflavour.17.c: "И, возможно, в их словах есть смысл"
+  KoH_religiousflavour.17.c.tt: "Из-за поведения церкви в отношении вашей позиции и в отношении религиозной терпимости, кажется, что справедливость может прийти только в солидарности; следуя убеждениям Водеса"
+
+  KoH_religiousflavour.18.t: "Резня на Луаре"
+  KoH_religiousflavour.18.desc: "Do you know what the prophet of the Lord says about this time? He says there will be great agony. You can read his words: it is a day of anger, of struggle, of suffering and countless terrors. On that day the angels will loudly blow their horns, which will resound over the earth to awaken the dead.”\n-Otfrid of Weissenberg\n\n The smoke ceased to be emitted from the square, and Feurs went silent."
+  KoH_religiousflavour.18.a: "Пусть их души обретут покой"
+
+  KoH_religiousflavour.19.t: "Водес и его город"
+  KoH_religiousflavour.19.desc: "Feurs grows ever larger as news travels across the nearby countryside of the good word of a preacher who speaks for the people; and the local economy has certainly benefited. A more pressing matter, however, comes in the form of Rome’s word. “Guigo Comes Forensis fuerit excommunicatus…” reads the letter, and it is quite clear who requested it’s sending."
+  KoH_religiousflavour.19.a: "Будь проклят этот негодяй в Лионе!"
+
+  KoH_religiousflavour.20.t: "Вальденсовский раскол"
+  KoH_religiousflavour.20.desc: "The central church of Feurs was occupied by unusual tenants, for the usual bishop fled the day beforehand considering the urgent circumstances in his episcopal see;\n\n[peter.GetTitledFirstName], a layman, set about baptizing [root.GetTitledFirstName] in holy water. It was at this moment that Guigues considered his position converting to a heretical interpretation of the word of god, and knew the journey ahead would be difficult. \n\nIt was one thing for a group of citizens to interpret the scripture in a non-conforming manner, but this moment would certainly mean the beginning of a new schism in the church, albeit minor. \n\nFor a nobleman carries a certain power the peasantry could not sustain, Vaudès had hope his ideals would be treated with a degree of newfound merit; whether that be through subtle acknowledgment… or warfare."
+  KoH_religiousflavour.20.a: "И прохладная вода коснулась его кожи"
+
+  KoH_religiousflavour.21.t: "Вальденсовский раскол"
+  KoH_religiousflavour.21.desc: "The nobleman [forez.GetFullNameNicknamedRegnal] has publicly placed his support behind a preacher named [peter.GetTitledFirstName], deemed heretical by the Catholic Church. ‘Waldensians’, followers of Vaudès, have largely remained a minor force in Provence and Lyon, however this has changed as Guigues has set about being baptized fully into the faith. Protesting the wealth of the church among other things, [pope.GetTitledFirstName] has called for action against Forez."
+  KoH_religiousflavour.21.a: "Возникает еще одна ересь"
+
+ #SAINTHOOD
+
+  KoH_sainthood.6.t: "Пришло благословение"
+  KoH_sainthood.6.desc: "[saint_person.GetFirstNameNicknamed] lived a pious life, truly following the example of God. [saint_person.GetSheHe] passed on [saint_person.GetDeathDate.GetString], and people have long wondered if [saint_person.GetSheHe] would be considered a true christian or not.\n\nA large ceremony is held in [saint_person.GetFirstName]'s honor by the Pope, to celebrate the life [saint_person.GetSheHe] lived. A virtuous exemplar of a true christian, the Pope will write [saint_person.GetHerHis] name in among the pious christian's of old.\n\nA bastion of piety in life, a stalwart example in death. Blessed be [saint_person.GetHerHis] memory, once again in the arms of God."
+  KoH_sainthood.6.a: "Blessed be [saint_person.GetFirstName]'s name"
+
+  KoH_sainthood.8.t: "Смерть [saint_person.GetFirstNameNicknamed]"
+  KoH_sainthood.8.desc: "[saint_person.GetFirstNameNicknamed] жил благочестивой жизнью, истинно следуя примеру Господа. [saint_person.GetSheHe] прошёл дальше [saint_person.GetDeathDate.GetString], и люди уже давно задавались вопросом, если [saint_person.GetSheHe] будете ли вы считаться истинным христианином или нет, кардиналы предлагают вам провозгласить [saint_person.GetFirstNameNicknamed] святым"
+  KoH_sainthood.8.a: "Так и будет!"
+
+  KoH_sainthood.9.t: "Святой на небесах"
+  KoH_sainthood.9.desc: "[saint_person.GetFirstNameNicknamed] was a true exemplar of the christian faith, living a pious and inspiring life. In a grand announcement [canonizer_person.GetTitledFirstName] has decided to include [saint_person.GetFirstNameNicknamed] among the venerated ancestors of old.\n\nMany tales are told about the feats [saint_person.GetFirstName] did in life, and [saint_person.GetSheHe] will be an inspiration for our descendants in the years to come.\n\nIt is a great honor for the family of the blessed one, and may we all aspire to follow in [saint_person.GetHerHis] footsteps."
+  KoH_sainthood.9.a: "A true saint, bless [saint_person.GetFirstName]'s name"
+
+
+ #Pilgrimages 
+  pilgrimage.0001.f: "Святая гробница в [saint_site_1.GetNameNoTooltip]."
+
+  GET_SAINT_DESC: "Saint [Character.GetFirstName] was a true exemplar of the christian faith\nliving a pious and inspiring life, Many tales are told about the\nfeats [Character.GetFirstNameNicknamed] did in life, and [Character.GetSheHe] is an inspiration\nfor catholics now and in the years to come.\n\n"
+
+  saintlypilgrimagetooltip: "Посетите гробницу святого [localsaint.GetFirstNameNicknamedRegnal]!"
+  saintly_bloodline: "Кровь святого"
+  saintly_tomb: "Могила святого"
+
+  #Pope and Free Investiture
+  
+  KoH_religiousflavour.24.t: "Инвеститура: Проблемы в Церкви"
+  KoH_religiousflavour.24.desc: "В мире есть правители, которые, к сожалению, пренебрегают законами, которые сам Иисус дал Святой Церкви."
+  KoH_religiousflavour.24.a: "Предложите им следовать истинным доктринам"
+  KoH_religiousflavour.24.b: "Бог накажет их позже..."
+
+  KoH_religiousflavour.25.t: "Инвеститура: Папский посланник"
+  KoH_religiousflavour.25.desc: "[popeman.GetName] нарушен нашим законом [free_investiture|E]. Святой отец просит нас изменить его в соответствии с церковной доктриной, известной как [papal_investiture|E]."
+  KoH_religiousflavour.25.a: "Я подчиняюсь..."
+  KoH_religiousflavour.25.b: "Я правлю в СВОЁМ царстве!"
+  KoH_religiousflavour.25.c: "Немного золота для церкви заставит их замолчать"
+  KoH_religiousflavour.25.d: "Отклонить по теологическим соображениям"
+
+  KoH_religiousflavour.26.t: "Инвеститура: Принятие"
+  KoH_religiousflavour.26.desc: "[popewantsit.GetTitledFirstName] принял Божью волю и теперь разрешает папские назначения епископов, а теперь использует [papal_investiture|E]."
+  KoH_religiousflavour.26.a: "Слава Богу"
+
+  KoH_religiousflavour.27.t: "Инвеститура: Отказ"
+  KoH_religiousflavour.27.desc: "[popewantsit.GetTitledFirstName] отказался принять Божью волю! И отказывается разрешать папские назначения епископов. Возможно, нам придется прибегнуть к другим способам восстановления нашей власти..."
+  KoH_religiousflavour.27.a: "Это вызывает беспокойство"
+  
+  KoH_religiousflavour.28.t: "Инвеститура: Особое пожертвование"
+  KoH_religiousflavour.28.desc: "[popewantsit.GetTitledFirstName] has sent a particular donation to the Church, specifically mentioning that 'This' donation of ducats will be needed for holy work, coinciding with my wishes to for their realm to change Investiture Laws; it can all be seen as this to be a bribe to leave his realm and laws alone.."
+  KoH_religiousflavour.28.a: "We can wait for [popewantsit.GetHerHim] to change the laws."
+  KoH_religiousflavour.28.a.tt: "By accepting this bribe, you agree to stop pestering [popewantsit.GetTitledFirstName] and his realm about Investiture Laws, for a while."
+  KoH_religiousflavour.28.b: "And [popewantsit.GetSheHe] thinks it's possible to simply bribe the pope?!"
+  KoH_religiousflavour.28.b.tt: "And [popewantsit.GetSheHe] thinks it's possible to simply bribe the pope?!"
+  KoH_religiousflavour.28.a.toast: "Папа Римский принял ваше "Пожертвование""
+  KoH_religiousflavour.28.b.toast: "The Pope declined your "Donation"!"
+
+  KoH_religiousflavour.29.t: "Инвеститура: Политические и богословские дебаты"
+  KoH_religiousflavour.29.desc: "[popewantsit.GetTitledFirstName] has argued convincingly, on theological and political grounds, why [popewantsit.GetHerHis] realm should be exempt from [papal_investiture|E] Law, while you don't entirely agree, his statements in public eye, has them on his side on this matter. A Papacy without public support isn't much at all."
+  KoH_religiousflavour.29.a: "У нас не остаётся других вариантов..."
+  KoH_religiousflavour.29.a.tt: "By this end, you agree to stop pestering [popewantsit.GetTitledFirstName] and his realm about Investiture Laws, for a while, atleast publically."
+  KoH_religiousflavour.29.d.success: "I outwit the Pope, and get him off my back about his complaints about [free_investiture|E]"
+  KoH_religiousflavour.29.d.success.tt: "You successfully outwit the Pope in the field of theology and learning, the Pope will leave us alone regarding our [free_investiture|E] law."
+  KoH_religiousflavour.29.d.failure: "I fail to outwit and outsmart the Pope, he considers this the same as refusing in the first place"
+  KoH_religiousflavour.29.d.failure.tt: "Папа Римский считает это тем же самым, что и отказ в первую очередь..."
+  KoH_religiousflavour.29.b.toast: "Ты обманул Папу Римского!"
+  KoH_religiousflavour.30.a.toast: "Тебе не удалось обмануть Папу Римского!"
+
+  KoH_religiousflavour.30.t: "Инвеститура: Политические и богословские дебаты"
+  KoH_religiousflavour.30.desc: "[popewantsit.GetTitledFirstName] has argued on and on, stating various quotes and lines from the bible and otherwise, he argues on theological and political grounds, why [popewantsit.GetHerHis] realm should be exempt from [papal_investiture|E] Law, although his arguments seems to fall flat, and has even seen the public eye begin to support the Papacies reasoning's against the Emperor. Usually a Papacy without it's public support isn't much at all, although that isn't an issue this time around."
+  KoH_religiousflavour.30.a: "Может быть, у нас есть другие пути?" 
+  KoH_religiousflavour.30.a.tt: "Этим и, в то время как [popewantsit.GetTitledFirstName] ещё не изменил законы, могут возникнуть другие возможности помочь в этом изменении законов."
+
+  KoH_religiousflavour.31.t: "Инвеститура: Получение духовной поддержки"
+  KoH_religiousflavour.31.desc: "[popewantsit.GetTitledFirstName] has made himself clear in his aims to keep his realm locked into the ways of [free_investiture|E], this poses massive issues for the faith if I am not able to significantly hold authority of the catholic realms of the world, I am by god above, the Pope. It will need to be up to the servants of Christ to rectify this.."
+  KoH_religiousflavour.31.a: "Требуйте верности престолу Святого Петра."
+  KoH_religiousflavour.31.b: "Пусть все идёт своим чередом" 
+  KoH_religiousflavour.31a.tta: "[bishop.GetTitledFirstName] will listen to the demands of The Holy Father"
+  KoH_religiousflavour.31a.ttb: "Если[bishop.GetTitledFirstName] принимает:"
+
+  KoH_religiousflavour.32.t: "Инвеститура: Папский посланник"
+  KoH_religiousflavour.32.desc: "An emissary is visiting you from the Papacy, giving us gifts and demanding our allegiance to the Throne of St. Peter, this is partially due to the conflict between the Papacy and my liege over the laws of [investiture|E]."
+  KoH_religiousflavour.32.a.tt: "The Emperor finds out.."
+  KoH_religiousflavour.32.a: "I accept his donation, we can finally upgrade the temple..."
+  KoH_religiousflavour.32.b: "Is it pious to accept bribes?"
+  KoH_religiousflavour.32.a.toast: "You took the bribe"
+  KoH_religiousflavour.32.b.toast: "The Emperor found out..."
+
+  KoH_religiousflavour.33.t: "Инвеститура: За спиной..."
+  KoH_religiousflavour.33.desc: "Vassal [bishop.GetName], has been seen taking messages and money from a Papal Envoy, while usually without issue, this happens to have occurred during a time when showing our supremacy over all religious matters should be a focus, and it seems the Pope has seen to do the same - distrusting our own authority over our realm, would be best to keep an eye on them.."
+  KoH_religiousflavour.33.a: "С вечно бдительными глазами..."
+  KoH_religiousflavour.33.b: "Я... Заключу ЕГО В ТЮРЬМУ!"
+
+  KoH_religiousflavour.34.t: "Инвестиция: Поддержка внутри"
+  KoH_religiousflavour.34.desc: "While [popewantsit.GetName] sits conformably having refused our rights as the Papacy, enforcing [free_investiture|E] upon his realm, It has come to my attention that many vassals under his realm - could be swayed, or in some cases seem a better fit for the throne then [popewantsit.GetTitledFirstName]. \n\nIn a time like this, [powerful_vassal.GetName] continues to come to mind when thinking of the future and [primarytitle.GetNameNoTier]. It would be within my rights as the Pope, to declare a new ruler of this state, one that would be ruled with Free Investiture!"
+  KoH_religiousflavour.34.a.tt: "If [powerful_vassal.GetName] accepts:"
+  KoH_religiousflavour.34a.ttb: "[powerful_vassal.GetName] gains a [claim|E] on [primarytitle.GetNameNoTier]"
+  KoH_religiousflavour.34.a: "Новой Папской буллой мы провозглашаем....."
+  KoH_religiousflavour.34.ab.tt: "You will give claim and troops to [powerful_vassal.GetName]."
+  KoH_religiousflavour.34.b: "Sounds like a risk to make..."
+
+  KoH_religiousflavour.35.t: "Инвеститура: Папский посланник!"
+  KoH_religiousflavour.35.desc: "Early morning, I am standing on the balcony of my quarters, taking a look towards the sunrise in the distance, the birds chirp and sing, and, and a guard is calling my name..."My Liege! a Papal Legate is here for you!" \n\nHe has arrived directly from Rome to deliver a letter from the Papacy, more specifically from [pope.GetName] himself! \nReading the letter it is made clear his frustrations with my liege, [popewantsit.GetName], furthermore his laws of [free_investiture|E], and his refusal to accept [pope.GetTitledFirstName]'s demands of [papal_investiture|E]. \n\nThe Letter goes on to state an offer, The Papacy wishes to proclaim myself the Monarch of the [primarytitle.GetName], he further states that along with your claim under God for the title, he will also provide money and troops, and has given you a year to prepare..."
+  KoH_religiousflavour.35.a.tt: "The Papal States give you:"
+  KoH_religiousflavour.35.a: "I will do [pope.GetName], and God proud."
+  KoH_religiousflavour.35.ab.tt: "You will give claim and troops to [powerful_vassal.GetName]."
+  KoH_religiousflavour.35.b: "Too risky.."
+
+  KoH_religiousflavour.36.t: "Инвеститура: Провозглашение нового императора"
+  KoH_religiousflavour.36.desc: ""The authority given to St. Peter and his successors, by the immense power of the Eternal King, excels all the powers of earthly kings and princes. It passes uncontrollable sentence upon them all; and if it find any of them resisting God's ordinance, it takes more severe vengeance of them, casting them down from their thrones, though never so puissant, and tumbling them down to the lowest parts of the earth, as the ministers of aspiring Lucifer." \n\n"I now declare in the name of omnipotent God, the Father, Son, and Holy Spirit, that [popewantsit.GetFirstNameNicknamed] [popewantsit.GetDynasty.GetName], son of [popewantsit.GetFather.GetFullNameNicknamed], is to be forever deprived of [popewantsit.GetHerHis] title to the [primarytitle.GetName], crown and of all lordship, dignity and privilege whatsoever. We charge and command all and singular the nobles, subjects, peoples and others afore said that they do not dare obey [popewantsit.GetHerHis] orders, mandates and laws. Those who shall act to the contrary we include in the like sentence of excommunication./n/nIn council with Cardinals, and under God, the Father, Son, and Holy Spirit, [powerful_vassal.GetName] is to be named and Crowned as the the true ruler of [primarytitle.GetName] from this day fourth!" - [pope.GetTitledFirstName]."
+  KoH_religiousflavour.36.a: "Такова Воля Божья?"
+  KoH_religiousflavour.36.b: "Слишком рискованно..."
+
+  KoH_religiousflavour.367.t: "Инвеститура: Анти-король."
+  KoH_religiousflavour.367.desc: ""It is clearly demonstrated that, as a good son and Catholic prince, [powerful_vassal.GetName] has rendered innumerable services to [powerful_vassal.GetHerHis] mother, the Holy Church, intrepidly exterminating the enemies of the Christian name and diligently propagating the Christian faith, thereby leaving to generations still unborn a name worthy of memory and an example deserving of imitation. The Apostolic See must love with sincere affection and strive to efficiently attend, in their just petitions, those chosen by the divine Providence for the government and salvation of the people. \n\nWe, therefore, because of [powerful_vassal.GetHerHis] qualities of prudence, justice and idoneity for government, take [powerful_vassal.GetTitledFirstName] under the protection of St. Peter and our own, and grant and confirm by apostolic authority to [powerful_vassal.GetHerHis] excellent domain, the [primarytitle.GetName]. We determine accordingly that it is unlawful for any man to brazenly cause any trouble to [powerful_vassal.GetHerHis] or [powerful_vassal.GetHerHis] heirs or [powerful_vassal.GetHerHis] empire, or to seize anything that belongs to it or, in the case it has been seized, to keep it, debase it, or cause any torment to it.\n\nDo continue, therefore, to show yourself a beloved son, humble and devoted to the honour and service of your mother, the Holy Roman Church, and to defend Her interests by spreading the Christian faith in such a way that this Apostolic See may take joy in having such a devoted and glorious son whose affection cannot be in doubt. May the peace of Our Lord Jesus Christ be with all those who respect the rights of this empire and their ruler, so that they may gather the fruit of good works in this world and the reward of eternal peace before the Severe Judge." - [pope.GetTitledFirstName]."
+  KoH_religiousflavour.367.a: "Такова Воля Божья?"
+  KoH_religiousflavour.36.b: "Слишком рискованно..."
+
+  KoH_religiousflavour.37.t: "Инвеститура: Война"
+  KoH_religiousflavour.37.desc: "By Papal Bull, and the support of the Gods above, We shall win this!!"
+  KoH_religiousflavour.37.a: "На войну!"
+
+  KoH_religiousflavour.41.t: "Придворные-еретики"
+  KoH_religiousflavour.41.desc: "There are rumors that one of the rulers of Christendom is employing a heretic in their court. This is not acceptable to the Church, and this earthly lord will surely be damned unless we intervene."
+  KoH_religiousflavour.41.a: "Требуйте, чтобы этот советник был заключен в тюрьму!"
+  KoH_religiousflavour.41.b: "Игнорируйте проблему"
+
+  KoH_religiousflavour.42.t: "Придворные-еретики"
+  KoH_religiousflavour.42.opening: "[faith.religious_head.Custom2('AppropriateGreetingPositive', ROOT.Char)]"
+  KoH_religiousflavour.42.desc: "I am most concerned that you allow heretics as your advisors. They should immediately be removed from position their position."
+  KoH_religiousflavour.42.a: "Сжечь еретика!"
+  KoH_religiousflavour.42.b: "Я правлю в своём царстве!"
+
+
+  KoH_religiousflavour.43.t: "Придворные-еретики"
+  KoH_religiousflavour.43.desc: "My liege, [hereticadvisorruler.GetTitledFirstName] [hereticadvisorruler.GetDynasty.GetName] has a heretic as one of [hereticadvisorruler.GetHerHis] close councilors, this is a grave issue! [heretic_councillor.GetTitledFirstName] [heretic_councillor.GetDynasty.GetName] must be removed at once!"
+  KoH_religiousflavour.43.a: "Demand that this advisor be fired!!"
+  KoH_religiousflavour.43a.tta: "You will inquire to your liege, [hereticadvisorruler.GetTitledFirstName] [hereticadvisorruler.GetDynasty.GetName], about firing [heretic_councillor.GetTitledFirstName] [heretic_councillor.GetDynasty.GetName]."
+  KoH_religiousflavour.43.b: "Оставь это в покое"
+ 
+  KoH_religiousflavour.46.t: "Священная война"
+  KoH_religiousflavour.46.desc: "The coffers of Holy Mother Church are full and the faithful, such as [holywarleader.GetName] are struggling against infidels and heathens. Perhaps we should provide some assistance?"
+  KoH_religiousflavour.46.a: "Послать папского эмиссара с деньгами"
+  KoH_religiousflavour.46.b: "Наша казна не настолько полна"
+  KoH_religiousflavour.467.t: "Священная война"
+  KoH_religiousflavour.467.desc: "The Papacy has found it clear to support you in your #bold [holy_war] #!towards the infidel! \n\nWe hope that this sum of gold may help you in your holy mission. "
+  KoH_religiousflavour.467.a: "Мы принимаем!"
+  KoH_religiousflavour.46.b.toast: "Папство шлёт поддержку вашему [holy_war|E]!"
+
+  KoH_religiousflavour.47.t: "Прокаженный придворный..."
+  KoH_religiousflavour.47.desc: "I deeply regret to inform you that I have been afflicted with the dread malady of leprosy. I now wish for nothing more than to live out my days in pious servitude among the leper knights of the Order of Saint Lazarus. I beg your leave to depart at once to join their number, so that I may make haste to cleanse myself of sin."
+  KoH_religiousflavour.47.a: "Of course; may God have mercy upon your soul."
+  KoH_religiousflavour.47.b: "No; remain here and seek redemption in my service."
+
+  KoH_religiousflavour.48.t: "Угрожающая ересь"
+  KoH_religiousflavour.48.desc: "It has come to your attention, from [cardinal.GetName], that a heretical creed of [county.GetProvince.GetCounty.GetFaith.GetName] runs rampant throughout the lands of [county.GetNameNoTier], and yet it's ruler, [targetedruler.GetName] has barely seen fit to lift a finger to slow the spread of this blasphemous blight. It is only your sincere hope that this seeming apathy toward the enemies of Christ is due only to the innumerable matters of great importance that undoubtedly demands [targetedruler.GetName]'s lordly attention."
+  KoH_religiousflavour.48.a: "I must remind you that your first and greatest obligation..."
+  KoH_religiousflavour.48.b: "Он, конечно, слишком занят..."
+
+
+  KoH_religiousflavour.49.t: "Угрожающая ересь"
+  KoH_religiousflavour.49.desc: "A Papal Legate from Rome arrives in your court to deliver a message from the Pope himself,\n\n"It has come to my attention that the heretical creed of [county.GetProvince.GetCounty.GetFaith.GetName] runs rampant throughout the lands of [county.GetNameNoTier], and yet you have barely seen fit to lift a finger to slow the spread of this blasphemous blight. It is my sincere hope that this seeming apathy toward the enemies of Christ is due only to the innumerable matters of great import that undoubtedly demand your lordly attention, but I must remind you that your first and greatest obligation is to fear the Lord and serve him faithfully. If you do not take immediate action against these abominable apostates, then I will have no choice but to believe that they persist not beneath your attention, but with your support.""
+  KoH_religiousflavour.49.a: "The Vicar of Christ commands us; we must obey."
+  KoH_religiousflavour.49.b: "I have more important matters to attend to than a smattering of schismatic swineherds."
+
+  KoH_religiousflavour.50.t: "Ересь свирепствует: Бездействие"
+  KoH_religiousflavour.50.desc: "A Papal Legate from Rome, once again arrives in your court to deliver a message,\n\n"It has come to my attention that you had completely ignored my requests for you to take action toward the enemies of Christ, and as such - I have no choice but to believe that they persist not beneath your attention, but with your support, I am sorry but I am left with no other choice. \n\nWherefore in the name of God the all-powerful, Father, Son, and Holy Ghost, of the Blessed Peter, Prince of the Apostles, and of all the saints, in virtue of the power which has been given us of binding and loosing in Heaven and on earth, we deprive him all of all his accomplices and all his abettors of the Communion of the Body and Blood of Our Lord, we separate him from the society of all Christians, we exclude him from the bosom of our Holy Mother the Church in Heaven and on earth, we declare him #bold Excommunicated #! and anathematized and we judge him condemned to eternal fire with Satan and his angels and all the reprobate, so long as he will not burst the fetters of the demon, do penance and Satisfy the Church; we deliver him to Satan to mortify his body, that his soul may be saved on the day of Judgment..""
+  KoH_religiousflavour.50.a: "Это сделано..."
+  KoH_religiousflavour.50.b: "У меня есть дела поважнее, чем кучка свинопасов-раскольников."
+
+  KoH_religiousflavour.51.t: "Папское вмешательство: Заключенный епископ"
+  KoH_religiousflavour.51.desc: "Reports have reached your ears from one of your Cardinals, [cardinal.GetName], that [targetedruler.GetName] has chained the [bishoptitle.GetName] [imprisonedbishop.GetName] in irons, and that he sits in darkness and in the shadow of death in [targetedruler.GetTitledFirstName]'s dungeons, in flagrant disregard of all Christian principles. This is an iniquitous assault on the dignity and rights of the Holy Mother Church..."
+  KoH_religiousflavour.51.a: "Я требую, чтобы вы освободились..."
+  KoH_religiousflavour.51.b: "Игнорируйте проблему"
+
+  KoH_religiousflavour.52.t: "Папское вмешательство: Заключенный епископ"
+  KoH_religiousflavour.52.desc: "Reports have reached my ears that you have chained the [bishoptitle.GetName] [imprisonedbishop.GetName] in irons, and that he sits in darkness and in the shadow of death in your dungeons, in flagrant disregard of all Christian principles. This is an iniquitous assault on the dignity and rights of the Holy Mother Church; I demand that you release [imprisonedbishop.GetHerHis] at once and make restitutions for your misdeeds. Should you choose to persist in this folly, I will have no choice but to declare you excommunicate and anathema!"
+  KoH_religiousflavour.52.a: "Наместник Христа повелевает нам; мы должны повиноваться."
+  KoH_religiousflavour.52.b: "Если Бог действительно желает, чтобы он был освобожден, тогда Он может сказать мне Сам!"
+
+  #Event #3 is hidden 
+
+  KoH_religiousflavour.54.t: "Заключенный епископ: Отлучение от Церкви?"
+  KoH_religiousflavour.54.desc: "It has been over six months since the request for [targetedruler.GetName] to release [imprisonedbishop.GetName], the entire period [imprisonedbishop.GetName] would spend in darkness and in the shadow of death, this is cause for Excommunication if any, God bless his soul..."
+  KoH_religiousflavour.54.a: "Отлучи его от церкви навсегда"
+  KoH_religiousflavour.54.a.toast: "Excommunicated for wrongful imprisonment of bishop!"
+
+  KoH_religiousflavour.55.t: "Убийца епископа"
+  KoH_religiousflavour.55.desc: "Wherefore in the name of God the all-powerful, Father, Son, and Holy Ghost, of the Blessed Peter, Prince of the Apostles, and of all the saints, in virtue of the power which has been given us of binding and loosing in Heaven and on earth, we deprive him all of all his accomplices and all his abettors of the Communion of the Body and Blood of Our Lord, we separate him from the society of all Christians, we exclude him from the bosom of our Holy Mother the Church in Heaven and on earth, we declare him #bold Excommunicated #! and anathematized and we judge him condemned to eternal fire with Satan and his angels and all the reprobate, so long as he will not burst the fetters of the demon, do penance and Satisfy the Church; we deliver him to Satan to mortify his body, that his soul may be saved on the day of Judgment."
+  KoH_religiousflavour.55.a: "Damnation!"
+  KoH_religiousflavour.55.a.toast: "Excommunicated for wrongful imprisonment of bishop!"
+
+  KoH_religiousflavour.56.t: "Война с церковью..."
+  KoH_religiousflavour.56.desc: "До вас дошли тревожные письма от одного из ваших кардиналов, [cardinal.GetName] сообщает о том, что [BishopAttacker.GetName] начал войну с одним из влиятельных епископов католической церкви. [BishopyDefender.GetName] защищает церковные владения от притеснителей, это несправедливое посягательство на земли церкви, вопиющее пренебрежение всех христианских принципов и добродетелей, требуется ваше неотложное вмешательство..."
+  KoH_religiousflavour.56.a: "Распорядится отлучить притеснителей от церкви!"
+  KoH_religiousflavour.56.b: "Не обращать внимание на местный конфликт"
+
+  KoH_religiousflavour.57.t: "Война с церковью..."
+  KoH_religiousflavour.57.desc: ""Wherefore in the name of God the all-powerful, Father, Son, and Holy Ghost, of the Blessed Peter, Prince of the Apostles, and of all the saints, in virtue of the power which has been given us of binding and loosing in Heaven and on earth, we deprive him all of all his accomplices and all his abettors of the Communion of the Body and Blood of Our Lord, we separate him from the society of all Christians, we exclude him from the bosom of our Holy Mother the Church in Heaven and on earth, we declare him #bold Excommunicated #! and anathematized and we judge him condemned to eternal fire with Satan and his angels and all the reprobate, so long as he will not burst the fetters of the demon, do penance and Satisfy the Church; we deliver him to Satan to mortify his body, that his soul may be saved on the day of Judgment." - [Pope.GetTitledFirstName]."
+  KoH_religiousflavour.57.a: "Проклятие!"
+  murdered_biship_modifier:0 "Убил епископа"
+
+
+
+  KoH_religiousflavour.250.t: "[saintlocation.GetNameNoTier], Resting place of Saint [localsaint.GetFirstNameNicknamedRegnal]."
+  KoH_religiousflavour.250.desc: "Begrimed by the mud and dust of the road, we weary travelers walk where myriad pilgrims ages past have trod. At long last, I have reached the place of Saint [localsaint.GetFirstNameNicknamedRegnal]’s everlasting rest, sanctified by hallowed fame. Even poor strangers to the faith have come as if drawn by grace. With measured footsteps and sacred awe, we approach the holy fane. Pilgrims kneel in prayer before their long-sought shrine; the murmurs of the penitent, imploring saintly intercession, rise like incense in the heavenly sanctuary. \n\nYou who shine with excellence and superhuman virtue deliver us from all evil, who turn to you with confidence and enable us by your gracious protection to serve God more and more faithfully every day."
+  KoH_religiousflavour.250.a: "Прелестный [saintlocation.GetNameNoTier]."
+
+	KoH_religiousflavour.300.t: "Saint Test Event"
+	KoH_religiousflavour.300.desc: "Saint Test Event"
+  KoH_religiousflavour.300.a: "Святой: Тестовое событие"
+
+
+  KoH_religiousflavour.400.t: "The Death of [deadpope.GetFirstNameNicknamedRegnal]: The Papal Conclave Convenes in Roma"
+  KoH_religiousflavour.400.desc: "His holiness [deadpope.GetFirstNameNicknamedRegnal] has passed, and the Cardinals of the world have convened in Roma to elect a new Pope."
+  KoH_religiousflavour.400.a: "Давайте проголосуем!"
+
+
+  KoH_religiousflavour.400a.t: "Папский конклав"
+  KoH_religiousflavour.400a.desc: "While days pass, and intense rounds of voting for the new Pope finally come to the end, the Cardinal-Protodeacon stands at a podium at the head of the room of Cardinals, and goes to announces the Cardinal who has won, and will become the next Pope. \nAs he speaks, all the Cardinals in the room look my way...?"
+  KoH_religiousflavour.400a.a: "Неужели, неужели он произнёс мое имя?"
+
+  KoH_religiousflavour.401.t: "Папский конклав собрался в Риме: Кто же будет избран?"
+  KoH_religiousflavour.401.desc: "As the Cardinals surround around, I give my best speech to the men, the very men who had decided that I was the Holiness of Catholicism, the head of the Catholic Faith and The vicar of Christ; these men in the holy body of Cardinals, that mere moments ago I had been apart of. The Cardinal-Protodeacon lights a White smoke indicating that a Pope has been chosen, giving notice to the citizens of Rome. \n\nHours later thousands have gathered in the streets of Rome, and I sit along various Cardinals on the Balcony of the Lateran Palace while the Cardinal-Protodeacon takes the stage announcing,#V #italic \n"I announce to you a great joy;\nwe have a Pope! \n\nThe most reverend lord #bold Cardinal [newpope.GetOriginalFirstName] #!\nhas been elected as supreme pontiff and has chosen for himself the name #bold Pope [newpope.GetFirstNameNicknamedRegnal]. #!\n\nTo the honor of almighty God, Father, Son, and Holy Spirit, of the blessed Apostles Peter and Paul, we invest him in the papacy of the Roman Church, that he may govern the city and the world." #! #!"
+  KoH_religiousflavour.401.a: "Sic transit gloria mundi."
+
+  KoH_religiousflavour.402.t: "Папский конклав: Избран новый Папа"
+  KoH_religiousflavour.402.desc: "A letter quickly arrives to your court wearing the garb of the Papacy, and the City of Rome. \n\n#V #italic "I announce to you a great joy;\nwe have a Pope! \n\nThe most reverend lord #bold Cardinal [newpope.GetOriginalFirstName] #!\nhas been elected as supreme pontiff and has chosen for himself the name #bold Pope [newpope.GetFirstNameNicknamedRegnal]. #!\n\nTo the honor of almighty God, Father, Son, and Holy Spirit, of the blessed Apostles Peter and Paul, we invest him in the papacy of the Roman Church, that he may govern the city and the world." #! #! \n-Cardinal-Protodeacon of Roma."
+  KoH_religiousflavour.402.a: "Sic transit gloria mundi."
+
+  KoH_religiousflavour.500.t: "Пожертвование духовенству: Выбор округа"
+  KoH_religiousflavour.500.desc: "Many would argue that there is no grander purpose in life than serving God directly. And many join the ranks of the Church for precisely that reason. However, for those unable to do that, serving God must be done in different ways. \n\nPerhaps the most pious way that is available to a person such as I, is donating land to the Clergy, so that may do their duty all the better. \n\nThere is more to it than just sheer generosity, of course, for I shall be known by many as a good and pious Christian for helping the Clergy. All good deeds shall be rewarded, indeed. \nRegardless, now I must decide what land I should give away to the Clergy:"
+
+  KoH_religiousflavour.500.desc.cynical: "Though some would argue that the Clergy, be they bishops, priests or deacons, can be a most capricious sort. At times they can be greedy, and sometimes very generous. \n\nAs such, it is in my best interest to keep them happy, docile even. Just as a petty Lord can be given a pittance of gold, to keep them in line, so can the Clergy- but more often than not, they are not so easily bribed. \n\nSome land given freely to them should be enough. Especially if it shall remain theirs to administer in perpetuity.\n\nThus, I should give away the county of:"
+
+  KoH_religiousflavour.500.a: "The lovely [clergycounty_1.GetName]."
+  KoH_religiousflavour.500.b: "I heard [clergycounty_2.GetName] is a pious place."
+  KoH_religiousflavour.500.c: "Maybe the [clergycounty_3.GetName]?"
+  KoH_religiousflavour.500.d: "I do hold [clergycounty_4.GetName], perhaps there?"
+  KoH_religiousflavour.500.dd: "How about [clergycounty_5.GetName]?" 
+  KoH_religiousflavour.500.ee: "Perhaps some of my other counties?"    
+  KoH_religiousflavour.500.e: "I should reconsider this.."
+  KoH_religiousflavour.500.g: "[clergycounty_6.GetName], the place of priests to be!"
+  KoH_religiousflavour.500.h: "Wonderful [clergycounty_7.GetName], a great place for the clergy?"
+  KoH_religiousflavour.500.i: "[clergycounty_8.GetName]! Nothings ever gone wrong there!"
+  KoH_religiousflavour.500.j: "Я должен найти духовенство в [clergycounty_9.GetName]."
+  KoH_religiousflavour.500.k: "Хм, может быть, вместо этого что-нибудь из первого списка?"
+  KoH_religiousflavour.500.m: "Я должен пересмотреть это..."
+  KoH_religiousflavour.500.a.tt: "Вы предоставляете землю духовенству"
+  donatedlandtoclergy: "Пожертвовал землю духовенству" 
+  grantedlandtoclergy: "Пожертвовал землю духовенству"
+
+
+  KoH_religiousflavour.799.t: "Диктат Папы Римского"
+  KoH_religiousflavour.799.desc: "Шёпот беспокойства эхом разносится по залу, пока кардиналы обдумывают мои слова. \nMy words, that the Holy See alone holds the true responsibility of [investiture|E], is a marked departure of the ideals of my predecessors. \n\nEver since the decline of the Western Roman Empire, investiture has been performed by members of the ruling nobility; nobility that has long used that right to enrich themselves by selling off those holy offices. \n\nRulers across Christendom have justified this power through their divine right as monarchs, but they forget that the Roman church was founded by God alone, and as such papal power, that is the authority of the Pope, is the sole universal power."
+  KoH_religiousflavour.799.a: "Ради Бога!"
+
+  KoH_religiousflavour.800.t: "Диктат Папы Римского"
+  KoH_religiousflavour.800.desc: "News from Rome!\n\nThe Pope, supported by a Council held in the Lateran Palace, has announced that the Pope alone holds the right of [investiture|E] - the ability to choose and install bishops.\n\nPapal legates across Europe have declared that the Roman church was founded by God alone, and as such papal power was the sole universal power, which includes the appointment or deposition of churchmen or their movement from see to see. \n\nThe Pope has called on all of Christendom to respect his divine right of Papal Investiture and has let it be known that all those who continue to practice [free_investiture|E] will find no favor with the Holy See. ."
+  KoH_religiousflavour.800.a: "Ладно"
+
+  KoH_religiousflavour.803.t: "Короли-крестоносцы"
+  KoH_religiousflavour.803.desc: "Further and further do the heathens encroach upon Christendom, bound by their evil custom to pummel the longsuffering believers lower and lower into the dirt.\n\nThe leader of the Eastern schismatics, [eastern_patriarch.GetTitledFirstName] of Constantinople, is the only other ecclesiastical leader with the prestige and influence to rally common will for a solution. But he is said to be ironbound to the will of the Eastern Emperor — I, on the other hand, am in effect bound to none.\n\nI steel my nerve by uttering to myself from the 59th Psalm:\n#bold “Scatter them by Your power, and bring them down, O Lord, our shield.” #! \n\nTaking up my quill and sending word for a host of messengers, I try not to consider the first sentence of the verse. This not a time for contemplation and tolerance, but for action."
+  KoH_religiousflavour.803.a: "Deus Vult!"

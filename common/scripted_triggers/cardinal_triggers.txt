@@ -51,3 +51,8 @@ has_cardinal_faith = {
 has_papal_title = {
 	has_title = global_var:k_papal_state
 }
+
+
+has_gold_trigger = {
+	gold >= 100
+}
