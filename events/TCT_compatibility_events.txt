@@ -4,7 +4,7 @@
 #     hidden = yes
 # 	orphan = yes 
 # 	trigger = {
-# 		exists = global_var:CFP_is_loaded
+# 		exists = global_var:cfp_is_loaded
 # 	}
 # 	immediate = {
 
@@ -16,7 +16,7 @@ TCT_compatibility.2 = { # The Catholic Trinity compatibility
 	orphan = yes 
 	immediate = {
 		set_global_variable = {
-			name = CFP_is_loaded
+			name = cfp_is_loaded
 			value = yes
 		}
 	}

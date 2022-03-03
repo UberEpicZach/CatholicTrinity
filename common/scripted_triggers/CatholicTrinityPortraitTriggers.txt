@@ -30,7 +30,7 @@ has_graphical_papal_trigger = {
 
 #CFP
 has_graphical_norman_culture_group_trigger = {
-	exists = global_var:CFP_is_loaded
+	exists = global_var:cfp_is_loaded
 	OR = {
 		capital_county.kingdom = title:k_england
 		capital_county.kingdom = title:k_france
@@ -44,7 +44,7 @@ has_graphical_norman_culture_group_trigger = {
 }
 
 has_graphical_goidelic_culture_group_trigger = {
-	exists = global_var:CFP_is_loaded
+	exists = global_var:cfp_is_loaded
 	OR = {
 		has_culture = culture:irish
 		culture = {
@@ -58,7 +58,7 @@ has_graphical_goidelic_culture_group_trigger = {
 }
 
 has_graphical_andalusian_culture_group_trigger = {
-	exists = global_var:CFP_is_loaded
+	exists = global_var:cfp_is_loaded
 	OR = {
 		has_culture = culture:andalusian
 		culture = { 
@@ -77,7 +77,7 @@ has_graphical_andalusian_culture_group_trigger = {
 }
 
 has_graphical_west_african_culture_group_trigger = {
-	exists = global_var:CFP_is_loaded
+	exists = global_var:cfp_is_loaded
 	culture = {
 		OR = {
 			has_cultural_pillar = heritage_west_african
@@ -90,7 +90,7 @@ has_graphical_west_african_culture_group_trigger = {
 }
 
 has_graphical_east_african_culture_group_trigger = {
-	exists = global_var:CFP_is_loaded
+	exists = global_var:cfp_is_loaded
 	NOT = { faith.religion = religion:islam_religion }
 	culture = {
 		OR = {

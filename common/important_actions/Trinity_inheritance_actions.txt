@@ -1,4 +1,4 @@
-﻿action_no_heir = {
+﻿action_no_heir = { 
 	type = alert
 
 	check_create_action = {
@@ -20,7 +20,6 @@
 			try_create_important_action = {
 				important_action_type = action_no_heir
 				actor = root
-				recipient = primary_heir
 			}
 		}
 	}

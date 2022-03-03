@@ -3722,11 +3722,11 @@ KoH_religiousflavour.400 = {
 		character = title:k_papal_state.holder
 		animation = personality_honorable
 		triggered_outfit = {
-			trigger = { exists = global_var:CFP_is_loaded }
+			trigger = { exists = global_var:cfp_is_loaded }
 			outfit_tags = { cardinal_outfit }
 		}
 		triggered_outfit = {
-			trigger = { NOT = { exists = global_var:CFP_is_loaded } }
+			trigger = { NOT = { exists = global_var:cfp_is_loaded } }
 			outfit_tags = { bishop_outfit }
 		}
 		hide_info = yes
@@ -3735,11 +3735,11 @@ KoH_religiousflavour.400 = {
 		character = scope:cardinal1
 		animation = ecstasy
 		triggered_outfit = {
-			trigger = { exists = global_var:CFP_is_loaded }
+			trigger = { exists = global_var:cfp_is_loaded }
 			outfit_tags = { cardinal_outfit }
 		}
 		triggered_outfit = {
-			trigger = { NOT = { exists = global_var:CFP_is_loaded } }
+			trigger = { NOT = { exists = global_var:cfp_is_loaded } }
 			outfit_tags = { bishop_outfit }
 		}
 	}
@@ -3747,11 +3747,11 @@ KoH_religiousflavour.400 = {
 		character = scope:cardinal2
 		animation = content
 		triggered_outfit = {
-			trigger = { exists = global_var:CFP_is_loaded }
+			trigger = { exists = global_var:cfp_is_loaded }
 			outfit_tags = { cardinal_outfit }
 		}
 		triggered_outfit = {
-			trigger = { NOT = { exists = global_var:CFP_is_loaded } }
+			trigger = { NOT = { exists = global_var:cfp_is_loaded } }
 			outfit_tags = { bishop_outfit }
 		}
 	}
@@ -3759,11 +3759,11 @@ KoH_religiousflavour.400 = {
 		character = scope:cardinal3
 		animation = sadness
 		triggered_outfit = {
-			trigger = { exists = global_var:CFP_is_loaded }
+			trigger = { exists = global_var:cfp_is_loaded }
 			outfit_tags = { cardinal_outfit }
 		}
 		triggered_outfit = {
-			trigger = { NOT = { exists = global_var:CFP_is_loaded } }
+			trigger = { NOT = { exists = global_var:cfp_is_loaded } }
 			outfit_tags = { bishop_outfit }
 		}
 	}
@@ -3811,11 +3811,11 @@ KoH_religiousflavour.4001 = {
 		character = title:k_papal_state.holder
 		animation = personality_honorable
 		triggered_outfit = {
-			trigger = { exists = global_var:CFP_is_loaded }
+			trigger = { exists = global_var:cfp_is_loaded }
 			outfit_tags = { cardinal_outfit }
 		}
 		triggered_outfit = {
-			trigger = { NOT = { exists = global_var:CFP_is_loaded } }
+			trigger = { NOT = { exists = global_var:cfp_is_loaded } }
 			outfit_tags = { bishop_outfit }
 		}
 		hide_info = yes
@@ -3960,11 +3960,11 @@ KoH_religiousflavour.401 = {
 		character = title:k_papal_state.holder
 		animation = personality_honorable
 		triggered_outfit = {
-			trigger = { exists = global_var:CFP_is_loaded }
+			trigger = { exists = global_var:cfp_is_loaded }
 			outfit_tags = { cardinal_outfit }
 		}
 		triggered_outfit = {
-			trigger = { NOT = { exists = global_var:CFP_is_loaded } }
+			trigger = { NOT = { exists = global_var:cfp_is_loaded } }
 			outfit_tags = { bishop_outfit }
 		}
 	}
