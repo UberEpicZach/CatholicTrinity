@@ -559,7 +559,6 @@ popeetitlechange = {
 	create_character = {
 		location = scope:deadpope.capital_province
 		age = { 99 100 }
-		name = "Jesus"
 		gender = male
 		trait = education_learning_3
 		trait = devoted

@@ -487,58 +487,67 @@ request_excommunication_interaction = {
 				removingvariableeffect = yes
 			}
 		}
-		every_living_character = {
-			limit = { 
-				OR = {
-					has_trait = cardinal_priest
-					has_trait = cardinal_bishop
-					has_trait = cardinal_archbishop
+		if = {
+			limit = {
+				scope:actor = {
+					faith = faith:catholic
 				}
-				faith = scope:actor.faith
-				top_liege = scope:actor
 			}
-			if = {
-				limit = {
-					scope:actor = {
-						NOT = { removingvariableeffecttrigger = yes }
+			scope:actor.faith = {
+				every_faith_ruler = {
+					limit = { 
+						OR = {
+							has_trait = cardinal_priest
+							has_trait = cardinal_bishop
+							has_trait = cardinal_archbishop
+						}
+						faith = scope:actor.faith
+						top_liege = scope:actor
+					}
+					if = {
+						limit = {
+							scope:actor = {
+								NOT = { removingvariableeffecttrigger = yes }
+							}
+						}
+						scope:actor = {
+							setingvariableeffect = yes
+						}
+					}
+					else = {
+						scope:actor = {
+							changingvariableeffect = yes
+						}
 					}
 				}
-				scope:actor = {
-					setingvariableeffect = yes
-				}
-			}
-			else = {
-				scope:actor = {
-					changingvariableeffect = yes
-				}
-			}
-		}
-		every_living_character = {
-			limit = { 
-				OR = {
-					has_trait = cardinal_priest
-					has_trait = cardinal_bishop
-					has_trait = cardinal_archbishop
-				}
-				faith = scope:secondary_recipient.faith
-				top_liege = scope:secondary_recipient
-			}
-			if = {
-				limit = {
-					scope:secondary_recipient = {
-						NOT = { removingvariableeffecttrigger = yes }
+				every_faith_ruler = {
+					limit = { 
+						OR = {
+							has_trait = cardinal_priest
+							has_trait = cardinal_bishop
+							has_trait = cardinal_archbishop
+						}
+						faith = scope:secondary_recipient.faith
+						top_liege = scope:secondary_recipient
+					}
+					if = {
+						limit = {
+							scope:secondary_recipient = {
+								NOT = { removingvariableeffecttrigger = yes }
+							}
+						}
+						scope:secondary_recipient = {
+							setingvariableeffect = yes
+						}
+					}
+					else = {
+						scope:secondary_recipient = {
+							changingvariableeffect = yes
+						}
 					}
 				}
-				scope:secondary_recipient = {
-					setingvariableeffect = yes
-				}
 			}
-			else = {
-				scope:secondary_recipient = {
-					changingvariableeffect = yes
-				}
-			}
-		}
+		}	
 	}
 
 	notification_text = RELIGIOUS_HEAD_REQUEST_EXCOMMUNICATION
@@ -843,30 +852,38 @@ hof_ask_for_claim_interaction = {
 			scope:secondary_recipient = {
 				removingvariableeffect = yes
 			}
-
-			every_living_character = {
-				limit = { 
-					OR = {
-						has_trait = cardinal_priest
-						has_trait = cardinal_bishop
-						has_trait = cardinal_archbishop
+			if = {
+				limit = {
+					scope:actor = {
+						faith = faith:catholic
 					}
-					faith = scope:secondary_recipient.faith
-					top_liege = scope:secondary_recipient
 				}
-				if = {
-					limit = {
-						scope:secondary_recipient = {
-							removingvariableeffecttrigger = yes
+				scope:actor.faith = {
+					every_faith_ruler = {
+						limit = { 
+							OR = {
+								has_trait = cardinal_priest
+								has_trait = cardinal_bishop
+								has_trait = cardinal_archbishop
+							}
+							faith = scope:secondary_recipient.faith
+							top_liege = scope:secondary_recipient
 						}
-					}
-					scope:secondary_recipient = {
-						setingvariableeffect = yes
-					}
-				}
-				else = {
-					scope:secondary_recipient = {
-						changingvariableeffect = yes
+						if = {
+							limit = {
+								scope:secondary_recipient = {
+									NOT = { removingvariableeffecttrigger = yes }
+								}
+							}
+							scope:secondary_recipient = {
+								setingvariableeffect = yes
+							}
+						}
+						else = {
+							scope:secondary_recipient = {
+								changingvariableeffect = yes
+							}
+						}
 					}
 				}
 			}

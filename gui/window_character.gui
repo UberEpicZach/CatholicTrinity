@@ -3918,7 +3918,7 @@ window = {
 						}
 
 						item = {
-							portrait_head_small_cached = { #EPE FIX
+							portrait_head_small = { #EPE FIX now removed
 								blockoverride "portrait_button"
 								{
 									using = tooltip_ne
