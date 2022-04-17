@@ -551,7 +551,7 @@ on_pope_death = {
 		
 		create_character = {
 			location = scope:deadpope.capital_province
-			age = { 99 100 }
+			age = { 30 33 }
 			gender = male
 			trait = education_learning_3
 			trait = devoted
