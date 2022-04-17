@@ -348,6 +348,19 @@ can_be_knight_trigger = {
 			}
 		}
 	}
+
+	trigger_if = {
+		limit = {
+			$ARMY_OWNER$.primary_title = {
+				this = title:k_papal_state
+			}
+			NOR = {
+				has_trait = incapable
+				has_trait = blind
+			}
+		}
+		prowess >= 5
+	}
 	
 	trigger_if = {
 		limit = {

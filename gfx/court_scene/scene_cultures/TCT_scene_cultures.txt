@@ -2,7 +2,13 @@
 
 papal = {
     trigger = {
-        has_title = title:k_papal_state
+        has_graphical_papal_trigger = yes
+    }
+}
+
+papal_sistine = {
+    trigger = {
+        has_graphical_papal_trigger_sistine = yes
     }
 }
 

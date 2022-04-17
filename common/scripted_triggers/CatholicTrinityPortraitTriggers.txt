@@ -28,7 +28,35 @@ has_graphical_papal_trigger = {
 	}
 }
 
-#CFP
+#CFP 
+
+#CFP PAPAL
+
+has_graphical_papal_trigger_sistine = {
+    has_title = title:k_papal_state
+	OR = {
+		AND = {
+			title:k_papal_state = {
+				has_variable = TCT_commissioned_sisitine_chapel
+			}
+			exists = global_var:cfp_is_loaded
+		}
+		NOT = {
+			exists = global_var:cfp_is_loaded
+		}
+	}
+}
+
+has_graphical_papal_trigger = {
+	exists = global_var:cfp_is_loaded
+    has_title = title:k_papal_state
+	NOT = {
+		title:k_papal_state = {
+			has_variable = TCT_commissioned_sisitine_chapel
+		}
+	}
+}
+
 has_graphical_norman_culture_group_trigger = {
 	exists = global_var:cfp_is_loaded
 	OR = {
