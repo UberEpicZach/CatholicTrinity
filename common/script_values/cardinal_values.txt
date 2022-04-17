@@ -55,6 +55,8 @@ cardinal_is_pope 										= -10000
 cardinal_has_modifier_good 								= 250
 cardinal_has_modifier_bad 								= -100
 
+cardinal_too_old 										= -300
+
 
 
 # Restated vanilla keys to fetch in loc
@@ -82,6 +84,7 @@ bishop_to_cardinal_base_score = {
 		add = cardinal_theocratic_power_bonus
 		add = cardinal_actually_is_pope_debuff
 		add = cardinal_recent_event_modiifer
+		add = cardinal_too_old_modifiier
 	}
 }
 bishop_to_cardinal_score = {
@@ -187,6 +190,11 @@ cardinal_recent_event_modiifer = {
 	value = 0 
 	if = { limit = { has_character_flag = cardinal_boost } add = cardinal_has_modifier_good }
 	if = { limit = { has_character_flag = cardinal_debuff } add = cardinal_has_modifier_bad }
+}
+
+cardinal_too_old_modifiier = {
+	value = 0 
+	if = { limit = { age >= 93 } add = cardinal_too_old }
 }
 
 # Debug values:

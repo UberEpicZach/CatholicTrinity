@@ -85,6 +85,10 @@ types WOKValueBreakdown  {
                     blockoverride "text"     {text = cardinal_event_bonus } 
                     blockoverride "value"    {text = "[TopScope.ScriptValue('cardinal_recent_event_modiifer')|0=+]"}
 				}
+                wok_cardinal_breakdown_box  = {
+                    blockoverride "text"     {text = cardinal_too_old } 
+                    blockoverride "value"    {text = "[TopScope.ScriptValue('cardinal_too_old_modifiier')|0=+]"}
+				}
 				wok_breakdown_box  = {
                     datacontext = "[GetScriptedGui('not_cardinal')]"
                     blockoverride "text"     {text = cardinal_money_bonus} 
