@@ -314,7 +314,7 @@ excommunicate_interaction = {
 			scope:actor.faith = scope:recipient.faith
 		}
 
-		trigger_if = {
+		trigger_else_if = {
 			limit = {
 				scope:actor.faith = { AND = { has_doctrine = doctrine_independent_papacy_head has_variable_list = rot_antipopes } }
 			}
@@ -322,6 +322,24 @@ excommunicate_interaction = {
 			rot_is_pope_of_target_trigger = { 
 				TARGET = scope:recipient
 				POPE = scope:actor 
+			}
+		}
+
+		trigger_else = {
+			scope:actor = scope:actor.faith.religious_head
+			scope:actor.faith = {
+				this = scope:recipient.faith
+				has_doctrine = tenet_communion
+			}
+
+			NOT = {
+				scope:recipient = {
+					has_trait = excommunicated
+				}
+			}
+
+			NOT = { #Don't do this to yourself
+				scope:recipient = scope:actor 
 			}
 		}
 	}

@@ -55,7 +55,7 @@ cardinal_is_pope 										= -10000
 cardinal_has_modifier_good 								= 250
 cardinal_has_modifier_bad 								= -100
 
-cardinal_too_old 										= -300
+cardinal_too_old 										= -500
 
 
 

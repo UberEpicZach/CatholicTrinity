@@ -106,6 +106,7 @@ pilgrimage.0001 = {
 			exists = scope:saint_site_1
 			exists = scope:saintlocation
 			exists = scope:localsaint
+			faith = scope:localsaint.faith
 		}
 		custom_tooltip = saintlypilgrimagetooltip
 		saint_site_selection_event_option_effect = yes
