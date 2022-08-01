@@ -95,3 +95,16 @@ rot_antipope = {
 }
 
 #RESERVED IN INDEX 905 - 910
+
+uncrowned_trait = {
+    index = 905
+
+    inherit_chance = 0
+    birth = 0
+    random_creation = 0
+    fame = yes
+
+    same_faith_opinion = -10
+    monthly_piety = -0.2
+    monthly_prestige = -0.2
+}

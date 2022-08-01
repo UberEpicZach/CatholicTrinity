@@ -1,0 +1,387 @@
+namespace = coronation
+
+
+# ADD TO AI_CHANCE RIVAL RELATIONSHIPS
+coronation.0001 = {  # Coronation: the clergyman
+	title = coronation_event.0001.t
+	desc = coronation_event.0001.desc
+	theme = crown
+	type = character_event
+
+	immediate = {
+		random_vassal = {
+			limit = {
+				has_faith = faith:catholic
+				#is_theocratic_lessee = yes
+				is_pope = no
+				is_clergy = yes
+			}
+			save_scope_as = random_priest
+		}
+		root.realm_priest = {
+			save_scope_as = my_realm_priest
+		}
+		title:k_papal_state.holder = {
+			save_scope_as = the_pope
+		}
+		save_scope_as = me
+	}
+
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+
+	right_portrait = {
+		character = title:k_papal_state.holder
+		triggered_animation = {
+			trigger = {
+				title:k_papal_state.holder = {
+					opinion = {
+						target = ROOT
+						value <= -15
+					}
+				}
+			}
+			animation = anger
+		}
+		animation = personality_zealous
+	}
+
+	lower_left_portrait = {
+		character = root.realm_priest
+		animation = idle
+	}
+
+	lower_right_portrait = {
+		character = scope:random_priest
+		animation = admiration
+	}
+
+	option = {	# Choose the Pope
+		name = coronation_event.0001.a
+	
+		title:k_papal_state.holder = {
+			add_opinion = {
+				target = ROOT
+				opinion = 10
+				modifier = grateful_opinion
+			}
+			trigger_event = {
+				id = coronation.1000
+				days = 1
+			}
+		}
+
+		add_gold = -100
+		title:k_papal_state.holder = {
+			add_gold = 100
+		}
+
+		ai_chance = {
+			base = 70
+
+			modifier = {
+				add = -20
+				OR = {
+					has_trait = greedy
+					has_trait = avaricious
+				}
+			}
+			modifier = {
+				add = 5
+				OR = {
+					has_trait = diligent
+					has_trait = ambitious
+				}
+			}
+			modifier = {
+				add = 10
+				has_trait = zealous
+			}
+			modifier = {
+				add = -5
+				has_trait = lazy
+			}
+			modifier = {
+				add = -15
+				opinion = {
+					target = title:k_papal_state.holder
+					value <= -25
+				}
+			}
+			modifier = {
+				add = 20
+				OR = {
+					opinion = {
+						target = title:k_papal_state.holder
+						value >= 40
+					}
+					has_relation_friend = title:k_papal_state.holder
+					has_relation_best_friend = title:k_papal_state.holder
+				}
+			}
+			modifier = {
+				add = 5
+				OR = {
+					ROOT.dynasty = title:k_papal_state.holder.dynasty
+					ROOT.house = title:k_papal_state.holder.house
+				}
+			}
+			modifier = {
+				add = 10
+				ROOT.real_father = title:k_papal_state.holder
+				reverse_opinion = {
+					target = title:k_papal_state.holder
+					value >= 0
+				}
+			}
+		}
+	}
+
+	option = {	# Choose the Realm Priest
+		name = coronation_event.0001.b
+	
+		title:k_papal_state.holder = {
+			add_opinion = {
+				target = ROOT
+				opinion = -10
+				modifier = disappointed_opinion
+			}
+		}
+		ROOT.realm_priest = {
+			add_opinion = {
+				target = ROOT
+				opinion = 20
+				modifier = grateful_opinion
+			}
+			trigger_event = {
+				id = coronation.1000
+				days = 1
+			}
+		}
+
+		add_gold = -50
+		root.realm_priest = {
+			add_gold = 50
+		}
+
+		ai_chance = {
+			base = 50
+
+			modifier = {
+				add = -10
+				opinion = {
+					target = root.realm_priest
+					value <= -25
+				}
+			}
+			modifier = {
+				add = 20
+				OR = {
+					opinion = {
+						target = root.realm_priest
+						value >= 70
+					}
+					has_relation_friend = ROOT.realm_priest
+					has_relation_best_friend = ROOT.realm_priest
+				}
+			}
+			modifier = {
+				add = 5
+				OR = {
+					ROOT.dynasty = root.realm_priest.dynasty
+					ROOT.house = root.realm_priest.house
+				}
+			}
+			modifier = {
+				add = 10
+				ROOT.real_father = root.realm_priest
+				reverse_opinion = {
+					target = root.realm_priest
+					value >= 0
+				}
+				opinion = {
+					target = root.realm_priest
+					value >= 0
+				}
+			}
+		}
+	}
+
+	option = {	# Choose a lowly priest
+		name = coronation_event.0001.c
+
+		trigger = {
+			exists = scope:random_priest
+		}
+	
+		title:k_papal_state.holder = {
+			add_opinion = {
+				target = ROOT
+				opinion = -25
+				modifier = disappointed_opinion
+			}
+		}
+		ROOT.realm_priest = {
+			add_opinion = {
+				target = ROOT
+				opinion = -20
+				modifier = disappointed_opinion
+			}
+			trigger_event = {
+				id = coronation.1000
+				days = 7
+			}
+		}
+
+		add_gold = -10
+		scope:random_priest = {
+			add_gold = 10
+		}
+
+		ai_chance = {
+			base = 10
+
+			modifier = {
+				add = 10
+				opinion = {
+					target = title:k_papal_state.holder
+					value <= -15
+				}
+				opinion = {
+					target = root.realm_priest
+					value < 0
+				}
+			}
+			modifier = {
+				add = 5
+				has_trait = cynical
+			}
+			modifier = {
+				add = 5
+				has_trait = humble
+			}
+		}
+	}
+
+	option = {	# Change idea, no coronation
+		name = coronation_event.0001.d
+	
+		title:k_papal_state.holder = {
+			add_opinion = {
+				target = ROOT
+				opinion = -10
+				modifier = disappointed_opinion
+			}
+		}
+		ROOT.realm_priest = {
+			add_opinion = {
+				target = ROOT
+				opinion = -15
+				modifier = disappointed_opinion
+			}
+		}
+
+		add_piety = {
+			value = -50
+		}
+
+		ai_chance = {
+			base = 10
+
+			modifier = {
+				add = 10
+				has_trait = fickle
+			}
+		}
+	}
+}
+
+coronation.0002 = {  # Coronation: for every pocket
+	title = coronation_event.0002.t
+	desc = coronation_event.0002.desc
+	theme = crown
+	type = character_event
+}
+
+coronation.0003 = {  # Coronation: the refusal
+	title = coronation_event.0003.t
+	desc = coronation_event.0003.desc
+	theme = crown
+	type = character_event
+
+	left_portrait = {
+		character = root
+		animation = shame
+	}
+
+	right_portrait = {
+		character = scope:rejecter
+		animation = schadenfreude
+	}
+
+	option = {
+		 name = coronation_event.0003.a
+	}
+}
+
+coronation.1000 = {  # Coronation: a typical request   --- only for the receiver, to accept or refuse coronation
+	title = coronation_event.1000.t
+	desc = coronation_event.1000.desc
+	theme = crown
+	type = character_event
+
+	immediate = {
+		save_scope_as = rejecter
+	}
+
+	left_portrait = {
+		character = ROOT
+		animation = personality_rational
+	}
+
+	right_portrait = {
+		character = scope:me
+		animation = beg
+	}
+
+	option = {	# Accept the request
+		name = coronation_event.1000.a
+
+		
+		stress_impact = {
+			base = 5
+			diligent = 5
+			lazy = 20
+			shy = 15
+		}
+
+		trigger_event = {
+			id = coronation.0002
+			days = 7
+		}
+	}
+
+	option = {	# Refuse the request
+		name = coronation_event.1000.b
+
+		scope:me = {
+			add_prestige = {
+				value = -100
+			}
+			add_opinion = {
+				modifier = angry_opinion
+				years = 5
+				target = ROOT
+				opinion = -30
+			}
+			# add a temp modifier for prestige and catholic opinion
+		}
+
+		trigger_event = {
+			id = coronation.0003
+			days = 7
+		}
+	}
+}

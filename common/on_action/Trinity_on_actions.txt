@@ -4,6 +4,8 @@
 		CatholicsimFix
 		mapmodes
 		fixing867pope
+		on_start_uncrown
+		on_start_crown
 	}
 }
 
@@ -19,12 +21,18 @@ fixing867pope = {
 }
 
 on_rank_down = {
+	on_actions = {
+		on_king_emperor_demotion
+	}
 	events = {
 		KoH_religiousflavour.805
 	}
 }
 
 on_rank_up = {
+	on_actions = {
+		on_king_emperor_election
+	}
 	events = {
 		KoH_religiousflavour.806
 	}
@@ -291,6 +299,8 @@ on_game_start_after_lobby = {
 		CardinalsTraits
 		captianchurch
 		HREInvestiture
+		on_start_uncrown
+		on_start_crown
 	}
 }
 
@@ -405,6 +415,70 @@ on_cardinal_initialize = {
 		update_cardinal_window = yes
 	}
 }
+
+on_game_start_with_tutorial = {
+	on_actions = {
+		on_start_uncrown
+		on_start_crown
+	}
+}
+
+# CORONATION
+
+on_start_crown = {
+	trigger = {
+		highest_held_title_tier >= tier_kingdom
+		has_faith = faith:catholic
+		is_clergy = no
+		primary_title = {
+			title_held_years >= 2
+		}
+	}
+	effect = {
+		add_character_flag = coronated_flag
+	}
+}
+
+on_start_uncrown = {
+	trigger = {
+		highest_held_title_tier >= tier_kingdom
+		has_faith = faith:catholic
+		is_clergy = no
+		primary_title = {
+			title_held_years < 2
+		}
+	}
+	effect = {
+		add_trait = uncrowned_trait
+	}
+}
+
+on_king_emperor_election = {  # for giving Uncrowned trait (or modifier, to be discussed)
+	trigger = {
+		highest_held_title_tier >= tier_kingdom
+		has_faith = faith:catholic
+		is_clergy = no
+		NOT = {
+			has_character_flag = coronated_flag
+		}
+	}
+	effect = {
+		add_trait = uncrowned_trait
+	}
+}
+
+on_king_emperor_demotion = {  # for removing Uncrowned trait (or modifier, to be discussed)
+	trigger = {
+		highest_held_title_tier < tier_kingdom
+		has_faith = faith:catholic
+	}
+	effect = {
+		remove_trait = uncrowned_trait
+		remove_character_flag = coronated_flag
+	}
+}
+
+# END CORONATION
 
 on_death = {
     on_actions = {

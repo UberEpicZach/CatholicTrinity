@@ -1,0 +1,70 @@
+GetCoronation = {
+	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
+
+	desc = GetCoronation_decision_desc
+	selection_tooltip = GetCoronation_decision_tooltip
+	major = yes
+
+	ai_check_interval = 6
+
+	is_shown = {
+		has_faith = faith:catholic
+		is_ruler = yes
+		is_landed = yes
+		is_pope = no
+		is_clergy = no
+		is_alive = yes
+		NOT = {
+			has_character_flag = coronated_flag
+		}
+	}
+
+	is_valid = {
+		has_faith = faith:catholic
+		is_ruler = yes
+		is_landed = yes
+		is_pope = no
+		has_government = feudal_government
+		is_at_war = no
+		is_alive = yes
+		piety_level >= low_piety_level
+		highest_held_title_tier >= tier_kingdom
+	}
+
+	cooldown = { years = 10 }
+
+	effect = {
+		trigger_event = coronation.0001
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 200
+
+		modifier = {
+			add = -1000
+			OR = {
+				has_trait = excommunicated
+				has_trait = witch
+			}
+		}
+		modifier = {
+			add = 150
+			has_trait = ambitious
+		}
+		modifier = {
+			add = -70
+			OR = {
+				has_trait = shy
+				has_trait = humble
+			}
+		}
+		modifier = {
+			add = 250
+			ROOT.gold >= 300
+		}
+	}
+}

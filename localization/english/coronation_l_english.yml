@@ -1,0 +1,26 @@
+﻿l_english:
+  coronation_event.0001.t: "Coronation: the clergyman"
+  coronation_event.0001.desc: "I have to choose, I am [ROOT.Char.GetFirstName].\nMy Realm Priest is [my_realm_priest.GetFirstName], and the Pope is [the_pope.GetFullNameRegnal].\nThe lowly priest is [random_priest.GetFirstName]."
+  coronation_event.0001.a: "The Pope himself will crown me!"
+  coronation_event.0001.b: "[my_realm_priest.GetFirstName] will incoronate me!"
+  coronation_event.0001.c: "A lowly priest like [random_priest.GetFirstNameNoTooltip] will be sufficient"
+  coronation_event.0001.d: "I have changed my mind"
+
+
+
+  coronation_event.0003.t: "Coronation: the refusal"
+  coronation_event.0003.desc: "The worst has happened: [rejecter.GetFullNameRegnal] has rejected my request to be crowned! It will be a long time before I can hold a crown on my head and have my rule legitimized."
+  coronation_event.0003.a: "I will find another way to rule my realm, for the moment..."
+
+  coronation_event.1000.t: "Coronation: a typical request"
+  coronation_event.1000.desc: "I have to coronate [me.GetName]."
+  coronation_event.1000.a: "I am going to coronate [me.GetFullNameNoTooltipRegnal]!"
+  coronation_event.1000.b: "He will have nothing from me!"
+
+
+
+  # DECISIONS
+  GetCoronation_decision_desc: "Every Catholic king or emperor must be recognized as the true ruler of their land and their vassals, and this ceremony will mark an important day of their life.\nEvery person remembered in history went through this ceremony.\nYou will spend a lot of gold, and your prestige will rise above the name of Julius Caesar, but if you don't, everybody will remember you as a greedy ruler: be warned!"
+  GetCoronation: "Organize your Coronation"
+  GetCoronation_decision_effect_tooltip: "You'll be crowned as the rightful lord of your land"
+  GetCoronation_confirm: "Start the ceremony"
