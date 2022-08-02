@@ -43,3 +43,10 @@ murdered_biship_modifier = {
 	general_opinion = -20
 	clergy_opinion = -90
 }
+
+coronation_refused = {
+	icon = prestige_negative
+	opinion_of_same_faith = -10
+	direct_vassal_opinion = -15
+	monthly_prestige = -0.2
+}

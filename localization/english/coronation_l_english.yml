@@ -6,11 +6,15 @@
   coronation_event.0001.c: "A lowly priest like [random_priest.GetFirstNameNoTooltip] will be sufficient"
   coronation_event.0001.d: "I have changed my mind"
 
-
+  coronation_event.0002.t: "Coronation: for every pocket"
+  coronation_event.0002.desc: "It is time to decide the money I will spend on the ceremony."
+  coronation_event.0002.a: "A lavish coronation is what the realm needs!"
+  coronation_event.0002.b: "A normal feast will be surely appreciated"
+  coronation_event.0002.c: "Time to shrink the budget!"
 
   coronation_event.0003.t: "Coronation: the refusal"
   coronation_event.0003.desc: "The worst has happened: [rejecter.GetFullNameRegnal] has rejected my request to be crowned! It will be a long time before I can hold a crown on my head and have my rule legitimized."
-  coronation_event.0003.a: "I will find another way to rule my realm, for the moment..."
+  coronation_event.0003.a: "At least I have my money back..."
 
   coronation_event.1000.t: "Coronation: a typical request"
   coronation_event.1000.desc: "I have to coronate [me.GetName]."
@@ -24,3 +28,8 @@
   GetCoronation: "Organize your Coronation"
   GetCoronation_decision_effect_tooltip: "You'll be crowned as the rightful lord of your land"
   GetCoronation_confirm: "Start the ceremony"
+  GetCoronation_decision_tooltip: "You will get coronated"
+
+  # MODIFIERS
+  coronation_refused: "Coronation refused"
+  coronation_refused_desc: "This ruler's request for coronation has been rejected recently."
