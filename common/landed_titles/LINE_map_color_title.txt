@@ -1,5 +1,4 @@
-﻿# Using code from Silk Road mod: https://steamcommunity.com/workshop/filedetails/?id=2493459927
-d_line_map_base = {
+﻿d_line_map_base = {
 	color = { 84 78 60 }
 	capital = c_roma
 	can_create = { always = no }

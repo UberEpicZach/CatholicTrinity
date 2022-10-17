@@ -9,7 +9,7 @@ num_initial_cardinals 		 							= 21
 cardinal_score_per_virtue 								= 15
 cardinal_score_per_sin 									= -15
 excommunicated_counts_as_this_many_sins 				= 3
-
+ 
 # General character stat parameters
 # If these are set to zero, then the corresponding contribution will never show up in the breakdown.
 cardinal_score_per_piety 								= 0.1

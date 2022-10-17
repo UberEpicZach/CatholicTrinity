@@ -5,7 +5,7 @@ types WOKValueBreakdown  {
         alwaystransparent = no
         layoutpolicy_vertical = expanding
         using = DefaultTooltipBackground
-        vbox = {
+        vbox = { 
             restrictparent_min = yes
             margin = { 5 5 }
             vbox = {

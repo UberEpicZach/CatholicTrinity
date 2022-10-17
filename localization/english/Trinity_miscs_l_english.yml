@@ -86,3 +86,6 @@ environment_saint: "You shouldn't see this, but for saints!"
  
 close_tooltip: "Close"
 increased_fervor: "Fervor Change"
+
+  doctrine_independent_papacy_head_desc:0 "TODO"
+  doctrine_independent_papacy_head:0 "TODO"

@@ -4,7 +4,6 @@
 
 d_captain_general_church = {
 	color = { 255 249 198 }
-	color2 = { 220 220 0 }
 	landless = yes
 	definite_form = yes
 	capital = c_roma

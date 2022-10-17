@@ -37,7 +37,7 @@ type namefail = widget {
         visible = "[GetScriptedGui('can_see_my_candidate_fail').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
         parentanchor = hcenter|top
         texture = "gfx/interface/CollegeCardinals/papacy_nameplate_large_bg.dds"
-        position = {-350 75} #don't fucking change
+        position = {-350 75} #don't change
         text_single = {
            text = candiatesoon
             parentanchor = hcenter|vcenter
@@ -48,30 +48,6 @@ type namefail = widget {
         }
     }
 }
-
-# type investiturechecker = widget {
-#     allow_outside = yes
-#     size = {150 100}
-#     scale = 1.2
-
-#     button_round = { # I hope you don't mind that I changed this to look like the other replace buttons.
-#         name = "replace"
-#         visible = "[GetScriptedGui('investiturelawcheck').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-#         position = {-275 -81}
-#         onclick = "[GetVariableSystem.Toggle( 'window_appoint_successor_theocracyCouncil' )]"
-#         onclick = "[GetScriptedGui('get_all_investitureCouncil_candidates').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-#         enabled = "[GetScriptedGui('investiturelawcheck').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-#         tooltip = "#T Investiture Replace"
-#         using = tooltip_se
-#         parentanchor = hcenter|top
-#         button_change = {
-#             alwaystransparent = yes
-#             parentanchor = center
-#         }
-#     }
-
-# }
-
 type namefail_pope = widget {
     allow_outside = yes
     size = {150 213}
@@ -81,7 +57,7 @@ type namefail_pope = widget {
         visible = "[GetScriptedGui('can_see_my_candidate_pope').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
         parentanchor = hcenter|top
         texture = "gfx/interface/CollegeCardinals/papacy_nameplate_large_bg.dds"
-        position = {-350 39} #don't fucking change
+        position = {-350 39} #don't change
         text_single = {
            text = candiatesoonpope
             parentanchor = hcenter|vcenter
@@ -200,7 +176,7 @@ type window_cardinals_campaign = widget { # Show much money has been invested in
             fontsize = 25
         }
     }
-}
+} 
 type window_cardinals_invest = button { # Add x gold to the character's election fund
     size = { 100 75 }
     parentanchor = left|bottom
@@ -447,32 +423,30 @@ type window_cardinals = window {
             size = { 100% 32 }
             icon = {
                 visible = "[GetScriptedGui('can_see_my_candidate_fail').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-            #     texture = "gfx/interface/CollegeCardinals/papacy_nameplate_small_bg.dds"
-            #     text_single = {
-            #         block "text" {text = candiatesoon}
-            #         parentanchor = hcenter|vcenter
-            #         default_format = "#light_background"
-            #         using = Font_Type_Flavor
-            #         fontsize = 20
-            #         position = {-100 0
-            #         }
-            #     }
+                texture = "gfx/interface/CollegeCardinals/papacy_nameplate_small_bg.dds"
+                text_single = {
+                    block "text" {text = candiatesoon}
+                    parentanchor = hcenter|vcenter
+                    default_format = "#light_background"
+                    using = Font_Type_Flavor
+                    fontsize = 20
+                    position = {-100 0 }
+                }
             }    
         }
         namefail_pope = {
             size = { 100% 32 }
             icon = {
                 visible = "[GetScriptedGui('can_see_my_candidate_pope').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-            #     texture = "gfx/interface/CollegeCardinals/papacy_nameplate_small_bg.dds"
-            #     text_single = {
-            #         block "text" {text = candiatesoon}
-            #         parentanchor = hcenter|vcenter
-            #         default_format = "#light_background"
-            #         using = Font_Type_Flavor
-            #         fontsize = 20
-            #         position = {-100 0
-            #         }
-            #     }
+                texture = "gfx/interface/CollegeCardinals/papacy_nameplate_small_bg.dds"
+                text_single = {
+                    block "text" {text = candiatesoon}
+                    parentanchor = hcenter|vcenter
+                    default_format = "#light_background"
+                    using = Font_Type_Flavor
+                    fontsize = 20
+                    position = {-100 0 }
+                }
             }    
         }
         window_cardinals_special_character = {

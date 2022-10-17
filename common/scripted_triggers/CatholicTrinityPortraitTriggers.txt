@@ -22,11 +22,6 @@ CatholicTrinityMercenaryTitleTrigger = { #exists = title:d_captain_general_churc
 	has_title = title:d_captain_general_church
 }
 
-has_graphical_papal_trigger = {
-	OR = {
-		capital_county.duchy = title:d_latium
-	}
-}
 
 #CFP 
 

@@ -49,7 +49,7 @@ update_preferatus = {
 	}
 }
 # Updates the likely next cardinal candidate ("Predictus" is the mod's term for it, but it is not a real term, unlike Preferatus.)
-select_highest_scoring_cardinal_candidate = {
+select_highest_scoring_cardinal_candidate = { 
 	# Look for rulers who are valid candidates:
 	ordered_cardinal_candidate_ruler = {
 		order_by = bishop_to_cardinal_score

@@ -19,5 +19,9 @@ TCT_compatibility.2 = { # The Catholic Trinity compatibility
 			name = cfp_is_loaded
 			value = yes
 		}
+		set_global_variable = {
+			name = TCT_commissioned_sisitine_chapel
+			value = yes
+		}
 	}
 }

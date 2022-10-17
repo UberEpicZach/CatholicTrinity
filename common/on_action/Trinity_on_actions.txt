@@ -339,7 +339,7 @@ captianchurch = {
 	effect = {
 		if = {
 			limit = {
-				exists = title:d_captain_general_church
+				exists = title:d_captain_general_church.holder
 			}
 			title:d_captain_general_church.holder = {
 				get_title = title:c_tivoli
