@@ -351,8 +351,8 @@ can_be_knight_trigger = {
 
 	trigger_if = {
 		limit = {
-			$ARMY_OWNER$.primary_title = {
-				this = title:k_papal_state
+			$ARMY_OWNER$ = {
+				is_pope = yes
 			}
 			NOR = {
 				has_trait = incapable

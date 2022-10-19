@@ -33,6 +33,7 @@ is_cardinal = {
 # Is this character a valid pope?
 is_pope = {
 	exists = primary_title
+	exists = var:was_once_cardinal
 	has_cardinal_faith = yes
 	has_variable = was_once_cardinal
 	OR = {
