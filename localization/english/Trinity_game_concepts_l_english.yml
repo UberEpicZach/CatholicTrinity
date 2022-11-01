@@ -90,6 +90,7 @@
   RELIGIOUS_HEAD_INTERACTION_CONCLAVE_INFLUENCE_RECIPIENT:0 "Influence of [secondary_recipient.GetShortUIName|U] on [collegeofcardinals|E]: $VALUE|=+0$"
 
   doctrine_independent_papacy_head_name:0 "Papal"
+  doctrine_independent_papacy_head:0 "Papal"
   doctrine_independent_papacy_head_desc:0 "The physical world and the spiritual world are not alike. We must know for sure that the spiritual world has its own ruler, which guides us and protects our faith from bodily contamination."
   doctrine_parameter_rot_antipopes:0 "Rulers with [free_investiture|E], can appoint Antipopes, contenders to the Papacy" 
 

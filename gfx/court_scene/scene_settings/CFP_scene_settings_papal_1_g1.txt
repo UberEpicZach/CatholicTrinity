@@ -790,7 +790,7 @@ lights={ {
 	direction=-10.000000
 	locator="character_flavor_courtier_2"
 	description="BG Courtier 2"
-	roles={ cardinalss }
+	roles={ cardinals }
 }
 {
 	position={ -388.000000 0.000000 -11.000000 }

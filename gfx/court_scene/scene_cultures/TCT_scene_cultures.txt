@@ -13,13 +13,69 @@ papal_sistine = {
 }
 
 ## CFP
+hre = {
+	trigger = {
+		AND = {
+			exists = global_var:cfp_is_loaded
+			has_graphical_hre_culture_group_trigger = yes
+			NOT = { has_title = title:k_papal_state }
+    	}
+	}
+}
+
+byzantine = {
+	trigger = {
+		AND = {
+			exists = global_var:cfp_is_loaded
+			has_graphical_byzantine_culture_group_trigger = yes
+			religion = religion:christianity_religion
+			NOT = { faith = faith:iconoclast }
+			NOT = { has_title = title:k_papal_state }
+		}
+	}
+}
+
+byzantine_mena = {
+	trigger = {
+		AND = {
+			exists = global_var:cfp_is_loaded
+			has_graphical_byzantine_culture_group_trigger = yes
+			religion = religion:islam_religion
+			NOT = { has_title = title:k_papal_state }
+		}
+	}
+}
+
+byzantine_pagan = {
+	trigger = {
+		AND = {
+			exists = global_var:cfp_is_loaded
+			has_graphical_byzantine_culture_group_trigger = yes
+			OR = { 
+				NOR = {
+					AND = {
+						religion = religion:christianity_religion
+						NOT = { faith = faith:iconoclast }
+					}
+					religion = religion:islam_religion
+				}
+				AND = {
+					religion = religion:christianity_religion
+					faith = faith:iconoclast
+				}
+			}
+			NOT = { has_title = title:k_papal_state }
+		}
+	}
+}
+
 norman = {
 	trigger = {
 		AND = {
 			exists = global_var:cfp_is_loaded
 			has_graphical_norman_culture_group_trigger = yes
+			NOT = { has_title = title:k_papal_state }
 		}
-		NOT = { has_title = title:k_papal_state }
 	}
 }
 
@@ -28,6 +84,21 @@ goidelic = {
 		AND = {
 			exists = global_var:cfp_is_loaded
 			has_graphical_goidelic_culture_group_trigger = yes
+			NOT = { has_title = title:k_papal_state }
+		}
+	}
+}
+
+iberian = {
+	trigger = {
+		exists = capital_county
+		exists = global_var:cfp_is_loaded
+		capital_county.culture = {
+			has_graphical_iberian_culture_group_trigger  = yes
+			prev.religion = religion:christianity_religion
+		}
+		capital_county.holder = {
+			has_religion = religion:christianity_religion
 		}
 		NOT = { has_title = title:k_papal_state }
 	}
@@ -36,65 +107,51 @@ goidelic = {
 andalusian = {
 	trigger = {
 		AND = {
-			NOT = { has_title = title:k_papal_state }
 			exists = global_var:cfp_is_loaded
-			has_graphical_andalusian_culture_group_trigger = yes
+			exists = capital_county
+			capital_county.culture = {
+				has_graphical_iberian_culture_group_trigger  = yes
+				prev.religion = religion:islam_religion
+			}
+			has_religion = religion:islam_religion
+			NOT = { has_title = title:k_papal_state }
 		}
-		NOT = { has_title = title:k_papal_state }
 	}
 }
 
 west_african = {
 	trigger = {
 		AND = {	
-			NOT = { has_title = title:k_papal_state }
 			exists = global_var:cfp_is_loaded
 			has_graphical_west_african_culture_group_trigger = yes
+			NOT = { has_title = title:k_papal_state }
 		}
-		NOT = { has_title = title:k_papal_state }
 	}
 }
 
 east_african = {
 	trigger = {
 		AND = {	
-			NOT = { has_title = title:k_papal_state }
 			exists = global_var:cfp_is_loaded
 			has_graphical_east_african_culture_group_trigger = yes
-		}
-		NOT = { has_title = title:k_papal_state }
-	}
-}
-## Redefine mediterranean to exclude andalusians/popes from it
-mediterranean = {
-	trigger = {
-		NOT = { has_title = title:k_papal_state }
-		exists = capital_county
-		capital_county.culture = {
-			has_graphical_mediterranean_culture_group_trigger = yes
-		}
-		NOR = { 
-			capital_county = {
-				this = title:c_roma
-			}
-			has_graphical_andalusian_culture_group_trigger = yes
-			has_title = title:k_papal_state
+			NOT = { has_title = title:k_papal_state }
 		}
 	}
 }
+
 ## Redefine western to exclude normans/goidelics/popes from it
 western = {
 	trigger = {
 		exists = capital_county
-		capital_county = {
-			culture = {
-				OR = {
-					has_graphical_western_culture_group_trigger = yes
-					has_graphical_norse_culture_group_trigger = yes
-				}
+		NOT = { has_title = title:k_papal_state }
+		capital_county.culture = {
+			OR = {
+				has_graphical_western_culture_group_trigger = yes
+				has_graphical_norse_culture_group_trigger = yes
 			}
 		}
 		NOR = { 
+			has_title = title:k_papal_state
 			AND = {
 				exists = global_var:cfp_is_loaded
 				has_graphical_norman_culture_group_trigger = yes
@@ -103,7 +160,33 @@ western = {
 				exists = global_var:cfp_is_loaded
 				has_graphical_goidelic_culture_group_trigger = yes
 			}
+			AND = {
+				exists = global_var:cfp_is_loaded
+				has_graphical_hre_culture_group_trigger = yes
+			}
+		}
+	}
+}
+## Redefine mediterranean to exclude andalusians/popes from it
+mediterranean = {
+	trigger = {
+		exists = capital_county
+		capital_county.culture = {
+			OR = {
+				has_graphical_mediterranean_culture_group_trigger = yes
+				AND = {
+					has_graphical_iberian_culture_group_trigger  = yes
+					NOR = {
+						prev.religion = religion:christianity_religion
+						prev.religion = religion:islam_religion
+					}
+				}
+			}
+		}
+		NOR = { 
 			has_title = title:k_papal_state
+			has_graphical_papal_culture_group_trigger = yes
+			has_graphical_byzantine_culture_group_trigger = yes
 		}
 	}
 }
@@ -120,10 +203,9 @@ mena = {
 			}
 		}
 		NOR = {
-			has_graphical_andalusian_culture_group_trigger = yes
+			has_title = title:k_papal_state
 			has_graphical_west_african_culture_group_trigger = yes
 			has_graphical_east_african_culture_group_trigger = yes
-			has_title = title:k_papal_state
 		}
 	}
 }
