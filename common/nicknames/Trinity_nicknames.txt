@@ -1,2 +1,3 @@
 ﻿nick_pope = { is_prefix = yes }
 nick_cardinal = { is_prefix = yes }
+nick_the_tolerant = {}
