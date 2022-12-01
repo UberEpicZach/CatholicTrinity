@@ -34,7 +34,7 @@ has_graphical_papal_trigger_sistine = {
 	}
 }
 
-has_graphical_papal_trigger = {
+has_graphical_papal_culture_group_trigger = {
 	exists = global_var:cfp_is_loaded
     has_title = title:k_papal_state
 	NOT = {
@@ -115,9 +115,26 @@ has_graphical_east_african_culture_group_trigger = {
 	}
 }
 
+has_graphical_hre_culture_group_trigger = {
+	exists = global_var:cfp_is_loaded
+	OR = {
+		has_title = title:e_hre
+		has_title = title:e_france
+	}
+}
 
-
-
+has_graphical_byzantine_culture_group_trigger = {
+	exists = global_var:cfp_is_loaded
+	OR = {
+		has_title = title:e_byzantium
+		has_title = title:e_roman_empire
+		has_title = title:e_latin_empire
+		AND = {
+			highest_held_title_tier = tier_empire
+			capital_county.kingdom = title:k_thessalonika
+		}
+	}
+}
 
 
 
