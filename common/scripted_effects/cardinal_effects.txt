@@ -109,7 +109,7 @@ promote_new_cardinal = {
 		if = {
 			limit = {
 				exists = var:beneficiary
-				var:cardinal_campaign_contribution.compare_value >= {
+				var:cardinal_campaign_contribution >= {
 					value = cardinal_election_beneficiary_reward_threshold_per_tier 
 					multiply = var:beneficiary.highest_held_title_tier
 				}

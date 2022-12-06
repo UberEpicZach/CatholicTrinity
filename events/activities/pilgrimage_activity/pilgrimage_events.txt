@@ -871,7 +871,7 @@ pilgrimage.2005 = {
 	}
 	theme = pilgrimage_activity
 	override_background = { event_background = bp1_bonfire }
-		left_portrait = {
+	left_portrait = {
 		character = root
 		triggered_animation = {
 			trigger = { ai_vengefulness > 0 }
@@ -2682,7 +2682,7 @@ pilgrimage.2511 = {
 		progress_towards_rival_effect = {
 			CHARACTER = scope:lordling
 			REASON = rival_pilgrimage_lordling
-			OPINION = no
+			OPINION = 0
 		}
 	}
 
@@ -3708,7 +3708,7 @@ pilgrimage.4002 = {
 		progress_towards_friend_effect = {
 			REASON = friend_pilgrimage
 			CHARACTER = scope:mystic
-			OPINION = yes
+			OPINION = default_friend_opinion
 		}
 		give_pilgrimage_reward_effect = yes
 	}
@@ -3721,7 +3721,7 @@ pilgrimage.4002 = {
 		progress_towards_friend_effect = {
 			REASON = friend_pilgrimage
 			CHARACTER = scope:mystic
-			OPINION = yes
+			OPINION = default_friend_opinion
 		}
 		give_pilgrimage_reward_effect = yes
 	}
@@ -3746,7 +3746,7 @@ pilgrimage.4002 = {
 		progress_towards_lover_effect = {
 			CHARACTER = scope:mystic
 			REASON = lover_mystic_lust
-			OPINION = yes
+			OPINION = default_lover_opinion
 		}
 	}
 

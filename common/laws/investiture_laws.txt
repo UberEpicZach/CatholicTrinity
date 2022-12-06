@@ -90,7 +90,7 @@ investiture_early = {
 				}
 			}
 		}
-
+ 
 		ai_will_do = {
 			if = {
 				limit = { 
@@ -283,7 +283,7 @@ investiture_early = {
 		}
 	}
 }
-
+ 
 investiture_late = { 
 	default = papal_investiture_late
 	cumulative = no
