@@ -3935,6 +3935,8 @@ select_cardinal_candidate_interaction = {
 						is_married = no
 						is_betrothed = no
 						is_ruler = no
+						is_clergy = yes
+						is_cardinal = no
 						# In minimum good standing with faith
 						NOT = { has_trait = excommunicated }
 					}
@@ -3952,6 +3954,8 @@ select_cardinal_candidate_interaction = {
 					is_married = no
 					is_betrothed = no
 					is_ruler = no
+					is_clergy = yes
+					is_cardinal = no
 					# In minimum good standing with faith
 					NOT = { has_trait = excommunicated }
 				}
@@ -3969,6 +3973,8 @@ select_cardinal_candidate_interaction = {
 						# In minimum good standing with faith
 						NOT = { has_trait = excommunicated }
 						is_ruler = no
+						is_clergy = yes
+						is_cardinal = no
 					}
 					add_to_list = characters
 				}
@@ -3984,8 +3990,21 @@ select_cardinal_candidate_interaction = {
 						}
 						learning >= 7
 						is_ruler = no
+						is_clergy = yes
+						is_cardinal = no
 					}
 				}
+				add_to_list = characters
+			}
+			every_vassal_or_below = {
+				limit = {
+					AND = {
+						is_male = yes
+						is_clergy = yes
+						is_cardinal = no
+					}
+				}
+				add_to_list = characters
 			}
 		}
 	}
@@ -3993,18 +4012,13 @@ select_cardinal_candidate_interaction = {
 	auto_accept = yes
 	
 	is_shown = {
-		exists = scope:actor.faith.great_holy_war
-		scope:actor = {
-			exists = faith.great_holy_war
-			this = scope:recipient
-			is_pledged_ghw_attacker = yes
-		}
-		NOT = { scope:actor = scope:recipient.faith.great_holy_war.ghw_war_declarer } #Not for the Caliph himself.
+		always = yes
 	}
 	
 	can_be_picked = {
 		is_adult = yes
-		is_ruler = no
+		#is_ruler = no
+		is_cardinal = no
 		faith = scope:actor.faith
 		custom_tooltip = {
 			text = ghw_heir_to_a_title
@@ -4035,10 +4049,10 @@ select_cardinal_candidate_interaction = {
 			}
 			faith = scope:actor.faith
 			is_adult = yes
-			is_ruler = no
-			NOT = {
-				any_heir_title = {} # Not heir to anything
-			}
+			#is_ruler = no
+			# NOT = {
+			# 	any_heir_title = {} # Not heir to anything
+			# }
 			OR = { #Either not married, or not married to a ruler.
 				is_married = no
 				NOT = {
@@ -4054,7 +4068,7 @@ select_cardinal_candidate_interaction = {
 	on_accept = {
 		scope:actor = {
 			send_interface_toast = {
-				title = select_ghw_beneficiary_interaction_notification
+				title = select_cardinal_candidate_interaction_notification
 
 				right_icon = scope:secondary_recipient
 

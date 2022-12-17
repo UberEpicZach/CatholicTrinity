@@ -6,7 +6,7 @@ ruler_with_potential_cardinal = {
 	}
 }
 cardinal_candidate_ruler = {
-	base = ruler
+	base = living_character
 	conditions = {
 		is_eligible_for_cardinality = yes
 	}
@@ -14,7 +14,7 @@ cardinal_candidate_ruler = {
 cardinal_candidate_vassal = {
 	base = vassal_or_below
 	conditions = {
-		is_eligible_for_cardinality = yes
+		is_eligible_for_cardinality_vassal = yes
 	}
 }
 living_cardinal = {

@@ -6,16 +6,37 @@ is_eligible_for_cardinality = {
 		is_clergy = yes
 		has_variable = is_a_set_cardinal_player_candidate
 	}
+	is_male = yes
 	has_cardinal_faith = yes
 	is_cardinal = no
 	is_pope = no
+}
+
+is_eligible_for_cardinality_vassal = {
+	is_alive = yes
+	#is_councillor = yes
+	is_clergy = yes
+	#is_landed = no
+	OR = {has_government = theocracy_government is_landed = no}
+	has_cardinal_faith = yes
+	is_cardinal = no
+	is_pope = no
+}
+
+is_selected_candidate = {
+	has_variable = is_a_set_cardinal_player_candidate
 }
 # Can this character's realm priest become cardinal?
 ruler_has_cardinality_eligible_realm_priest = {
 	has_cardinal_faith = yes
 	highest_held_title_tier >= tier_county
-	exists = realm_priest
-	realm_priest = {is_eligible_for_cardinality = yes}
+	OR = {
+		AND = {
+			exists = realm_priest
+			realm_priest = {is_eligible_for_cardinality = yes }
+		}
+		has_variable = is_a_set_cardinal_player_candidate
+	}
 }
 
 # Is this character a valid cardinal?

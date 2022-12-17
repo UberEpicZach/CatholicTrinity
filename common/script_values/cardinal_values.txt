@@ -87,13 +87,35 @@ bishop_to_cardinal_base_score = {
 		add = cardinal_too_old_modifiier
 	}
 }
+cardinal_to_pope_base_score = {
+	value = 0
+	if = {
+		limit = { exists = this } # To not log errors when iterating through members of an empty list
+		add = cardinal_piety_bonus
+		add = cardinal_gold_bonus
+		add = cardinal_prestige_bonus
+		add = cardinal_learning_bonus
+		add = cardinal_age_bonus
+		add = cardinal_dynasty_bonus
+		add = cardinal_location_bonus
+		add = cardinal_culture_bonus
+		add = cardinal_virtue_bonus
+		add = cardinal_sin_penalty
+		add = cardinal_popinion_bonus
+		add = cardinal_secular_power_bonus
+		add = cardinal_theocratic_power_bonus
+		add = cardinal_actually_is_pope_debuff
+		add = cardinal_to_pope_recent_event_modiifer
+		add = cardinal_too_old_modifiier
+	}
+}
 bishop_to_cardinal_score = {
 	value = bishop_to_cardinal_base_score
 	add = cardinal_money_bonus
 }
 cardinal_to_pope_score = {
 	value = 0
-	if = {limit = {exists = this} add = bishop_to_cardinal_base_score}
+	if = {limit = {exists = this} add = cardinal_to_pope_base_score}
 }
 # Subterms
 cardinal_piety_bonus = {
@@ -187,6 +209,12 @@ cardinal_actually_is_pope_debuff = {
 }
 
 cardinal_recent_event_modiifer = {
+	value = 0 
+	if = { limit = { has_character_flag = cardinal_boost } add = cardinal_has_modifier_good }
+	if = { limit = { has_character_flag = cardinal_debuff } add = cardinal_has_modifier_bad }
+}
+
+cardinal__to_pope_recent_event_modiifer = {
 	value = 0 
 	if = { limit = { has_character_flag = cardinal_boost } add = cardinal_has_modifier_good }
 	if = { limit = { has_character_flag = cardinal_debuff } add = cardinal_has_modifier_bad }

@@ -455,20 +455,17 @@ type window_cardinals = window {
             visible_at_creation = yes
             position = {-450 -100 }
             margin = { 0 5 }
-    
+            #raw_tooltip = "#Change Cardinal Candidate"
             button_round = {
                 name = "change_beneficiary"
                 text = "GHW_CHANGE_BENEFICIARY"
                 onclick = "[OpenCharacterInteraction( 'select_cardinal_candidate_interaction', GetPlayer )]"
+                raw_tooltip = "#T Change Cardinal Candidate#!"
 
-                button_icon = {
-                    parentanchor =  left|vcenter
-                    position = { 5 0 }
+                button_change = {
                     alwaystransparent = yes
-                    texture = "gfx/interface/icons/flat_icons/plus.dds"
+                    parentanchor = center
                 }
-    
-                tooltip = "SELECT_GHW_BENEFICIARY"
             }
         }
         window_cardinals_special_character = {
