@@ -1,0 +1,24 @@
+﻿@always_primary_score = 1000
+
+# EMPIRES
+
+# special titles
+k_papal_state = {
+	color = { 255 249 198 }
+	definite_form = yes
+	ruler_uses_title_name = no
+	landless = yes
+
+	capital = c_roma
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	de_jure_drift_disabled = yes
+
+	#male_names = { Alexander Anastasius Benedictus Caelestinus Callistus Clemens Eugenius Leo Gregorius Hadrianus Honorius Innocentius Ioannes Lucius Marinus Martinus Nicolaus Sergius Silvester Stephanus Urbanus Victor }
+}

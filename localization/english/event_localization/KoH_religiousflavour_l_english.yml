@@ -350,9 +350,14 @@
   KoH_religiousflavour.799.a: "For God!"
 
   KoH_religiousflavour.800.t: "The Dictatus Papae"
-  KoH_religiousflavour.800.desc: "News from Rome!\n\nThe Pope, supported by a Council held in the Lateran Palace, has announced that the Pope alone holds the right of [investiture|E] - the ability to choose and install bishops.\n\nPapal legates across Europe have declared that the Roman church was founded by God alone, and as such papal power was the sole universal power, which includes the appointment or deposition of churchmen or their movement from see to see. \n\nThe Pope has called on all of Christendom to respect his divine right of Papal Investiture and has let it be known that all those who continue to practice [free_investiture|E] will find no favor with the Holy See. ."
+  KoH_religiousflavour.800.desc: "News from Rome!\n\nPope [popeman.GetFirstNameNicknamedRegnal] supported by a Council held in the Lateran Palace, has announced that the Pope alone holds the right of [investiture|E] - the ability to choose and install bishops.\n\nPapal legates across Europe have declared that the Roman church was founded by God alone, and as such papal power was the sole universal power, which includes the appointment or deposition of churchmen or their movement from see to see. \n\n Pope [popeman.GetFirstNameNicknamedRegnal] has called on all of Christendom to respect his divine right of Papal Investiture and has let it be known that all those who continue to practice [free_investiture|E] will find no favor with the Holy See."
   KoH_religiousflavour.800.a: "Okay"
 
   KoH_religiousflavour.803.t: "Crusader Kings"
   KoH_religiousflavour.803.desc: "Further and further do the heathens encroach upon Christendom, bound by their evil custom to pummel the longsuffering believers lower and lower into the dirt.\n\nThe leader of the Eastern schismatics, [eastern_patriarch.GetTitledFirstName] of Constantinople, is the only other ecclesiastical leader with the prestige and influence to rally common will for a solution. But he is said to be ironbound to the will of the Eastern Emperor — I, on the other hand, am in effect bound to none.\n\nI steel my nerve by uttering to myself from the 59th Psalm:\n#bold “Scatter them by Your power, and bring them down, O Lord, our shield.” #! \n\nTaking up my quill and sending word for a host of messengers, I try not to consider the first sentence of the verse. This not a time for contemplation and tolerance, but for action."
   KoH_religiousflavour.803.a: "Deus Vult!"
+
+ KoH_religiousflavour.5725.t:0 "A Papal Name"
+ KoH_religiousflavour.5725.desc.me:0 "I have been Elected [ROOT.Char.GetTitleAsNameNoTooltip], the Holy Leader of the Catholic Faith; following Tradition; it is my duty to take on a new Regnal Name; like all the previous Popes of Holy Past."
+ birth.9004.desc:0 "[child.GetFirstNameNoTooltip].\n\nInitially I was fond of the name, but now it seems strange to my ears. What will [child.GetSheHe] think of [child.GetHerHis] name once grown up?\n\nMaybe I should change it to something better?"
+ birth.9004.a:0 "Ah, a #EMP much#! better name!"

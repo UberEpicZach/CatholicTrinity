@@ -13,7 +13,7 @@
 
 		custom_description = {
 			text = "GAME_OVER_CANNOT_PLAY_REPUBLIC"
-			OR ={
+			OR = {
 				NOT = { has_government = republic_government }
 				AND = {
 					exists = global_var:KOH_is_loaded

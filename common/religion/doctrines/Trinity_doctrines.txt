@@ -1,5 +1,6 @@
 ﻿doctrine_head_of_faith = {
 	group = "main_group"
+	number_of_picks = 2
 
 	doctrine_no_head = {
 		visible = no
@@ -85,6 +86,8 @@
 
 doctrine_clerical_succession = {
 	group = "clergy"
+	number_of_picks = 2
+	
 	doctrine_clerical_succession_temporal_appointment = { # Temporal, Free
 		piety_cost = {
 			value = faith_doctrine_cost_high

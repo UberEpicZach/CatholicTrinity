@@ -9,6 +9,14 @@
  game_concept_papal_investitures: "Papal Investiture"
  game_concept_papal_investiture_desc: "$game_concept_papal_investiture$ is the standard for Catholic [investiture|E]. Only the Pope may appoint Bishops within the Realm. This will give the Crown a Piety cost discount when requesting special papal actions, like Divorce and Excommunication."
 
+
+  select_cardinal_candidate_interaction:1 "Select Cardinal Candidate"
+  recipient_secondary_select_cardinal_candidate_interaction:0 "Cardinal Candidate"
+  select_cardinal_candidate_interaction_desc:0 "Select an adult member of your court, [dynasty|E] or realm to be your Cardinal Candidate for the [collegeofcardinals|E]."
+  select_cardinal_candidate_interaction_notification:0 "Selected Cardinal Candidate"
+
+
+
  installed_antipope: "Installed Pope"
  rot_created_antipope: "Created Antipope"
  rot_make_antipope_interaction: "#W Create Anti-Pope#!"

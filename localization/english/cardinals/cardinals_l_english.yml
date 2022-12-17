@@ -12,7 +12,7 @@
  VIEW_CARDINAL_WINDOW_TITLE:0 "College of Cardinals"
  cardinals_college_title:0 "[collegeofcardinals|E]"
  VIEW_CARDINAL_WINDOW_TITLE_TOOLTIP:0 "#T $cardinals_college_title$#!\nView the Papal College of Cardinals and it's organisation of highest ranked bishops."
- 
+ election_history: "Elected"
  # Pope score breakdown
  cardinals_score_papal: "@icon_popinion!Papal Score:"
  cardinals_score_cardinal: "@icon_popinion!Cardinal Score:"

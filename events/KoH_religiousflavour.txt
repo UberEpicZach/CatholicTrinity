@@ -1001,6 +1001,7 @@ KoH_religiousflavour.14 = { #Duty-Bound - Varaint
 KoH_religiousflavour.15 = {
 	title = KoH_religiousflavour.15.t
 	desc = KoH_religiousflavour.15.desc
+	orphan = yes
 	theme = faith 
 	override_background = {
 		event_background = market
@@ -1398,7 +1399,7 @@ KoH_religiousflavour.24 = {
 		current_year >= 1040
 		#change_fervor = -20
 		faith = { fervor >= 50 }
-
+		exists = global_var:dictatuspapae
 
 		any_independent_ruler = {
 			OR = {
@@ -5055,6 +5056,110 @@ KoH_religiousflavour.501 = {
 	option = { 
 		name = KoH_religiousflavour.500.m
 		
+	}
+}
+
+#Papal Naming!
+KoH_religiousflavour.5725 = {
+	type = character_event
+	title = KoH_religiousflavour.5725.t
+	desc = {
+		first_valid = {
+			#If we're renaming ourself
+			triggered_desc = {
+				trigger = {
+					root = scope:child
+				}
+				desc = KoH_religiousflavour.5725.desc.me
+			}
+			#If we're renaming someone else
+			triggered_desc = {
+				desc = birth.9004.desc
+			}
+		}
+	}
+	theme = family
+	override_background = { event_background = relaxing_room }
+	right_portrait = {
+		character = scope:child
+		animation = happiness
+	}
+	#NAMING WIDGET
+	widgets = {
+		widget = {
+			is_shown = {
+				allow_naming_on_birth_of_child_trigger = { CHILD = scope:child }
+			}
+			gui = "event_window_widget_name_pope"
+			container = "dynamic_birth_name"
+			controller = name_character
+			setup_scope = {
+				scope:child = { save_scope_as = name_character_target }
+			}
+		}
+	}
+	immediate = {
+		save_scope_as = child
+	}
+	#Go ahead
+	option = {
+		name = birth.9004.a
+	}
+	#On second though...
+	# option = {
+	# 	name = {
+	# 		text = {
+	# 			first_valid = {
+	# 				#If we're renaming ourself
+	# 				triggered_desc = {
+	# 					trigger = { root = scope:child }
+	# 					desc = birth.9004.b
+	# 				}
+	# 				#If we're renaming someone else
+	# 				triggered_desc = {
+	# 					desc = birth.9004.b.other
+	# 				}
+	# 			}
+	# 		}
+	# 	}
+	# 	flavor = {
+	# 		first_valid = {
+	# 			#If we're renaming ourself
+	# 			triggered_desc = {
+	# 				trigger = { root = scope:child }
+	# 				desc = birth.9004.b.tt
+	# 			}
+	# 			#If we're renaming someone else
+	# 			triggered_desc = {
+	# 				desc = birth.9004.b.tt.other
+	# 			}
+	# 		}
+	# 	}
+	# 	is_cancel_option = yes
+	# }
+}
+
+
+#Election of Pope Gregory VII
+KoH_religiousflavour.600 = {
+	title = KoH_religiousflavour.600.t
+	desc = KoH_religiousflavour.600.desc
+	theme = learning_scholarship_focus
+	left_portrait = {
+		character = root
+	}
+	right_portrait = {
+		character = character:2010
+	}
+	trigger = {
+		exists = character:2010
+		character:2010 = {
+			is_alive = yes
+		}
+	}
+
+	option = {
+		trigger_event = KoH_religiousflavour.400
 	}
 }
 

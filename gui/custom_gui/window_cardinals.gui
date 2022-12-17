@@ -277,7 +277,6 @@ type window_cardinals = window {
         layoutpolicy_vertical = expanding
     }
 
-
     widget = { 
         size = { 100% 100 }
         position= {-544 1090 }
@@ -448,6 +447,29 @@ type window_cardinals = window {
                     position = {-100 0 }
                 }
             }    
+        }
+        hbox = {
+            name = "change_candidate"
+            layoutpolicy_horizontal = expanding
+           # visible = "[WarOverviewWindow.ShowBeneficiary]"
+            visible_at_creation = yes
+            position = {-450 -100 }
+            margin = { 0 5 }
+    
+            button_round = {
+                name = "change_beneficiary"
+                text = "GHW_CHANGE_BENEFICIARY"
+                onclick = "[OpenCharacterInteraction( 'select_cardinal_candidate_interaction', GetPlayer )]"
+
+                button_icon = {
+                    parentanchor =  left|vcenter
+                    position = { 5 0 }
+                    alwaystransparent = yes
+                    texture = "gfx/interface/icons/flat_icons/plus.dds"
+                }
+    
+                tooltip = "SELECT_GHW_BENEFICIARY"
+            }
         }
         window_cardinals_special_character = {
             parentanchor = vcenter|right

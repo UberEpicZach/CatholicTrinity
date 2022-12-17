@@ -12,6 +12,77 @@
 	}
 }
 
+random_pope_male_name = {
+	scope = character
+	effect = {
+		random_list = {
+			1 = {
+				change_first_name = Alexander
+			}
+			1 = {
+				change_first_name = Anastasius
+			}
+			1 = {
+				change_first_name = Caelestinus
+			}
+			1 = {
+				change_first_name = Callistus
+			}
+			1 = {
+				change_first_name = Clemens
+			}
+			1 = {
+				change_first_name = Eugenius
+			}
+			1 = {
+				change_first_name = Leo
+			}
+			1 = {
+				change_first_name = Gregorius
+			}
+			1 = {
+				change_first_name = Hadrianus
+			}
+			1 = {
+				change_first_name = Honorius
+			}
+			1 = {
+				change_first_name = Innocentius
+			}
+			1 = {
+				change_first_name = Ioannes
+			}
+			1 = {
+				change_first_name = Lucius
+			}
+			1 = {
+				change_first_name = Marinus
+			}
+			1 = {
+				change_first_name = Martinus
+			}
+			1 = {
+				change_first_name = Nicolaus
+			}
+			1 = {
+				change_first_name = Sergius
+			}
+			1 = {
+				change_first_name = Silvester
+			}
+			1 = {
+				change_first_name = Stephanus
+			}
+			1 = {
+				change_first_name = Urbanus
+			}
+			1 = {
+				change_first_name = Victor
+			}
+		}
+	}
+}
+
 random_saint_female_name = {
 	scope = character
 	effect = {

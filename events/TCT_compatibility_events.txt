@@ -25,3 +25,14 @@ TCT_compatibility.2 = { # The Catholic Trinity compatibility
 		}
 	}
 }
+
+TCT_compatibility.3 = { # Kingdom of Heaven compatibility
+    hidden = yes
+	orphan = yes 
+	immediate = {
+		set_global_variable = {
+			name = KOH_is_loaded
+			value = yes
+		}
+	}
+}

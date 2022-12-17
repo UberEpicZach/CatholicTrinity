@@ -47,6 +47,14 @@ vbox = {
 				on_start = "[GetScriptedGui('random_saint_female_name').Execute(GuiScope.SetRoot(EventWindowWidgetNameCharacter.GetCharacter.MakeScope).End)]"
 				on_finish = "[EventWindowWidgetNameCharacter.SetCurrentNameCultural( EventWindowWidgetNameCharacter.GetCharacter.GetFirstNameNoTooltip)]"
 			}
+
+			state = {
+				name = "pope_name_refresh"
+				next = "name_refresh"
+				duration = 0.05
+				on_start = "[GetScriptedGui('random_pope_male_name').Execute(GuiScope.SetRoot(EventWindowWidgetNameCharacter.GetCharacter.MakeScope).End)]"
+				on_finish = "[EventWindowWidgetNameCharacter.SetCurrentNameCultural( EventWindowWidgetNameCharacter.GetCharacter.GetFirstNameNoTooltip)]"
+			}
 		}
 	}
 
@@ -122,10 +130,10 @@ vbox = {
 				size = { 35 35 }
 			}
 		}
-	
+
 		event_button_round = {
-			visible = "[And( Not( Character.IsFemale ), GetScriptedGui('faith_has_male_saints').IsShown(GuiScope.SetRoot(EventWindowWidgetNameCharacter.GetCharacter.MakeScope).End))]" #
-			onclick = "[PdxGuiTriggerAllAnimations('saint_male_name_refresh')]"
+			visible = "[And( Character.IsFemale, GetScriptedGui('faith_has_female_saints').IsShown(GuiScope.SetRoot(EventWindowWidgetNameCharacter.GetCharacter.MakeScope).End))]"
+			onclick = "[PdxGuiTriggerAllAnimations('saint_female_name_refresh')]"
 			tooltip =  "event_window_widget_name_child_random_saint_name"
 			using = tooltip_se
 	
@@ -135,10 +143,10 @@ vbox = {
 				size = { 35 35 }
 			}
 		}
-	
+
 		event_button_round = {
-			visible = "[And( Character.IsFemale, GetScriptedGui('faith_has_female_saints').IsShown(GuiScope.SetRoot(EventWindowWidgetNameCharacter.GetCharacter.MakeScope).End))]"
-			onclick = "[PdxGuiTriggerAllAnimations('saint_female_name_refresh')]"
+			visible = "[And( Not( Character.IsFemale ), GetScriptedGui('this_is_the_pope').IsShown(GuiScope.SetRoot(EventWindowWidgetNameCharacter.GetCharacter.MakeScope).End))]" #
+			onclick = "[PdxGuiTriggerAllAnimations('pope_name_refresh')]"
 			tooltip =  "event_window_widget_name_child_random_saint_name"
 			using = tooltip_se
 	

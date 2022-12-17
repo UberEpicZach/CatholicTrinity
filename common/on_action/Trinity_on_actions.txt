@@ -547,157 +547,334 @@ on_pope_death = {
 		has_title = title:k_papal_state
 	}
 	effect = {
-		save_scope_as = deadpope
-		
-		create_character = {
-			location = scope:deadpope.capital_province
-			age = { 30 33 }
-			gender = male
-			trait = education_learning_3
-			trait = devoted
-			faith = scope:deadpope.faith
-			culture = scope:deadpope.culture
-			learning = { 10 12 }
-			save_scope_as = monk
-		}
-
-		#Value Management
 		if = {
 			limit = {
-				exists = cp:councillor_marshal
+				game_start_date = 1066.9.15
+				exists = character:2010
+				character:2010 = {
+					is_alive = yes
+				}
+				NOT = { 
+					character:2010 = title:k_papal_state.holder
+					exists = global_var:TCT_Pope_Gregory_VII 
+				}
 			}
-			cp:councillor_marshal = {
-				save_scope_as = marshal
-			}
-		}
-		if = {
-			limit = {
-				exists = cp:councillor_chancellor
-			}
-			cp:councillor_chancellor = {
-				save_scope_as = chancellor
-			}
-		}
-		if = {
-			limit = {
-				exists = cp:councillor_steward
-			}
-			cp:councillor_steward = {
-				save_scope_as = steward
-			}
-		}
-		if = {
-			limit = {
-				exists = cp:councillor_spymaster
-			}
-			cp:councillor_spymaster = {
-				save_scope_as = spymaster
-			}
-		}
+			set_global_variable = TCT_Pope_Gregory_VII
+			save_scope_as = deadpope
 
-		update_preferatus = yes
-		global_var:preferatus.story_owner = { depose = yes }
-		global_var:preferatus.story_owner = {
-			save_scope_as = preferatus 
-		}
-		create_title_and_vassal_change = {
-			type = election
-			save_scope_as = papal_inheritance
-		}
-		# Transfer every non-barony title
-		every_held_title = {
-			limit = {
-				tier > tier_barony
+			create_character = {
+				location = scope:deadpope.capital_province
+				age = { 30 33 }
+				gender = male
+				trait = education_learning_3
+				trait = devoted
+				faith = scope:deadpope.faith
+				culture = scope:deadpope.culture
+				learning = { 10 12 }
+				save_scope_as = monk
 			}
-			every_player = {
-				add_prestige = 1
+
+			#Value Management
+			if = {
+				limit = {
+					exists = cp:councillor_marshal
+				}
+				cp:councillor_marshal = {
+					save_scope_as = marshal
+				}
 			}
-			change_title_holder = {
-				holder = global_var:preferatus.story_owner
-				change = scope:papal_inheritance
+			if = {
+				limit = {
+					exists = cp:councillor_chancellor
+				}
+				cp:councillor_chancellor = {
+					save_scope_as = chancellor
+				}
 			}
-		}
-		set_player_character = scope:preferatus
-		# title:k_papal_state = {
-		# 	change_title_holder = {
-		# 		holder = global_var:preferatus.story_owner
-		# 		change = scope:papal_inheritance
-		# 	}
-		# }
-		resolve_title_and_vassal_change = scope:papal_inheritance
+			if = {
+				limit = {
+					exists = cp:councillor_steward
+				}
+				cp:councillor_steward = {
+					save_scope_as = steward
+				}
+			}
+			if = {
+				limit = {
+					exists = cp:councillor_spymaster
+				}
+				cp:councillor_spymaster = {
+					save_scope_as = spymaster
+				}
+			}
 
-		global_var:preferatus.story_owner = {
-			set_realm_capital = title:c_roma
-		}
-
-		global_var:preferatus = {
-			promote_new_cardinal = yes
-		}
-		
-		scope:preferatus = {
-			set_player_character = scope:monk
-		}
-
-		scope:monk = {
+			update_preferatus = yes
+			# Preferatus, doesn't matter here, Pope Gregory VII Time!
+			# global_var:preferatus.story_owner = { depose = yes }
+			# global_var:preferatus.story_owner = {
+			# 	save_scope_as = preferatus 
+			# }
+			character:2010 = {
+				set_variable = was_once_cardinal
+				save_scope_as = preferatus
+				add_prestige = 3000
+				add_piety = 3000
+				change_first_name = Gregorius
+			}
+			create_title_and_vassal_change = {
+				type = election
+				save_scope_as = papal_inheritance
+			}
+			# Transfer every non-barony title
+			every_held_title = {
+				limit = {
+					tier > tier_barony
+				}
+				every_player = {
+					add_prestige = 1
+				}
+				change_title_holder = {
+					holder = character:2010
+					change = scope:papal_inheritance
+				}
+			}
 			set_player_character = scope:preferatus
+			# title:k_papal_state = {
+			# 	change_title_holder = {
+			# 		holder = global_var:preferatus.story_owner
+			# 		change = scope:papal_inheritance
+			# 	}
+			# }
+			resolve_title_and_vassal_change = scope:papal_inheritance
+
+			character:2010 = {
+				set_realm_capital = title:c_roma
+			}
+
+			# global_var:preferatus = {
+			# 	promote_new_cardinal = yes
+			# }
+			
+			scope:preferatus = {
+				set_player_character = scope:monk
+			}
+
+			scope:monk = {
+				set_player_character = scope:preferatus
+			}
+			update_cardinal_window = yes
+			update_preferatus = yes
+
+			title:k_papal_state.holder = {	
+				add_gold = scope:deadpope.gold
+
+				if = {
+					limit = {
+						NOT = { exists = cp:councillor_marshal }
+						exists = scope:marshal
+					}
+					assign_councillor_type = {
+						type = councillor_marshal
+						target = scope:marshal
+					}
+				}
+				if = {
+					limit = {
+						NOT = { exists = cp:councillor_steward }
+						exists = scope:steward
+					}
+					assign_councillor_type = {
+						type = councillor_steward
+						target = scope:steward
+					}
+				}
+				if = {
+					limit = {
+						NOT = { exists = cp:councillor_chancellor }
+						exists = scope:chancellor
+					}
+					assign_councillor_type = {
+						type = councillor_chancellor
+						target = scope:chancellor
+					}
+				}
+				if = {
+					limit = {
+						NOT = { exists = cp:councillor_spymaster }
+						exists = scope:spymaster
+					}
+					assign_councillor_type = {
+						type = councillor_spymaster
+						target = scope:spymaster
+					}
+				}
+				title:k_papal_state.holder = { 
+					trigger_event = KoH_religiousflavour.600
+				}
+			}
+
+			scope:deadpope = {
+				add_trait = pope_trait
+				give_nickname = nick_pope
+
+				every_character_artifact = {
+					set_owner = title:k_papal_state.holder
+				}
+			}
 		}
-		update_cardinal_window = yes
-		update_preferatus = yes
-
-		title:k_papal_state.holder = {	
-			add_gold = scope:deadpope.gold
-
-			if = {
-				limit = {
-					NOT = { exists = cp:councillor_marshal }
-					exists = scope:marshal
-				}
-				assign_councillor_type = {
-					type = councillor_marshal
-					target = scope:marshal
-				}
+		else = {
+			save_scope_as = deadpope
+		
+			create_character = {
+				location = scope:deadpope.capital_province
+				age = { 30 33 }
+				gender = male
+				trait = education_learning_3
+				trait = devoted
+				faith = scope:deadpope.faith
+				culture = scope:deadpope.culture
+				learning = { 10 12 }
+				save_scope_as = monk
 			}
+
+			#Value Management
 			if = {
 				limit = {
-					NOT = { exists = cp:councillor_steward }
-					exists = scope:steward
+					exists = cp:councillor_marshal
 				}
-				assign_councillor_type = {
-					type = councillor_steward
-					target = scope:steward
-				}
-			}
-			if = {
-				limit = {
-					NOT = { exists = cp:councillor_chancellor }
-					exists = scope:chancellor
-				}
-				assign_councillor_type = {
-					type = councillor_chancellor
-					target = scope:chancellor
+				cp:councillor_marshal = {
+					save_scope_as = marshal
 				}
 			}
 			if = {
 				limit = {
-					NOT = { exists = cp:councillor_spymaster }
-					exists = scope:spymaster
+					exists = cp:councillor_chancellor
 				}
-				assign_councillor_type = {
-					type = councillor_spymaster
-					target = scope:spymaster
+				cp:councillor_chancellor = {
+					save_scope_as = chancellor
 				}
 			}
-			title:k_papal_state.holder = { 
-				trigger_event = KoH_religiousflavour.400
+			if = {
+				limit = {
+					exists = cp:councillor_steward
+				}
+				cp:councillor_steward = {
+					save_scope_as = steward
+				}
 			}
-		}
+			if = {
+				limit = {
+					exists = cp:councillor_spymaster
+				}
+				cp:councillor_spymaster = {
+					save_scope_as = spymaster
+				}
+			}
 
-		scope:deadpope = {
-			add_trait = pope_trait
-			give_nickname = nick_pope
+			update_preferatus = yes
+			global_var:preferatus.story_owner = { depose = yes }
+			global_var:preferatus.story_owner = {
+				save_scope_as = preferatus 
+			}
+			create_title_and_vassal_change = {
+				type = election
+				save_scope_as = papal_inheritance
+			}
+			# Transfer every non-barony title
+			every_held_title = {
+				limit = {
+					tier > tier_barony
+				}
+				every_player = {
+					add_prestige = 1
+				}
+				change_title_holder = {
+					holder = global_var:preferatus.story_owner
+					change = scope:papal_inheritance
+				}
+			}
+			set_player_character = scope:preferatus
+			# title:k_papal_state = {
+			# 	change_title_holder = {
+			# 		holder = global_var:preferatus.story_owner
+			# 		change = scope:papal_inheritance
+			# 	}
+			# }
+			resolve_title_and_vassal_change = scope:papal_inheritance
 
-			every_character_artifact = {
-				set_owner = title:k_papal_state.holder
+			global_var:preferatus.story_owner = {
+				set_realm_capital = title:c_roma
+			}
+
+			global_var:preferatus = {
+				promote_new_cardinal = yes
+			}
+			
+			scope:preferatus = {
+				set_player_character = scope:monk
+			}
+
+			scope:monk = {
+				set_player_character = scope:preferatus
+			}
+			update_cardinal_window = yes
+			update_preferatus = yes
+
+			title:k_papal_state.holder = {	
+				add_gold = scope:deadpope.gold
+
+				if = {
+					limit = {
+						NOT = { exists = cp:councillor_marshal }
+						exists = scope:marshal
+					}
+					assign_councillor_type = {
+						type = councillor_marshal
+						target = scope:marshal
+					}
+				}
+				if = {
+					limit = {
+						NOT = { exists = cp:councillor_steward }
+						exists = scope:steward
+					}
+					assign_councillor_type = {
+						type = councillor_steward
+						target = scope:steward
+					}
+				}
+				if = {
+					limit = {
+						NOT = { exists = cp:councillor_chancellor }
+						exists = scope:chancellor
+					}
+					assign_councillor_type = {
+						type = councillor_chancellor
+						target = scope:chancellor
+					}
+				}
+				if = {
+					limit = {
+						NOT = { exists = cp:councillor_spymaster }
+						exists = scope:spymaster
+					}
+					assign_councillor_type = {
+						type = councillor_spymaster
+						target = scope:spymaster
+					}
+				}
+				title:k_papal_state.holder = { 
+					trigger_event = KoH_religiousflavour.400
+				}
+			}
+
+			scope:deadpope = {
+				add_trait = pope_trait
+				give_nickname = nick_pope
+
+				every_character_artifact = {
+					set_owner = title:k_papal_state.holder
+				}
 			}
 		}
 	}

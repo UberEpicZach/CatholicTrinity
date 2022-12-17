@@ -1,10 +1,11 @@
 ﻿# Can this character become cardinal?
 is_eligible_for_cardinality = {
 	is_alive = yes
-	#is_councillor = yes
-	is_clergy = yes
-	#is_landed = no
-	OR = {has_government = theocracy_government is_landed = no}
+	OR = {
+		has_government = theocracy_government
+		is_clergy = yes
+		has_variable = is_a_set_cardinal_player_candidate
+	}
 	has_cardinal_faith = yes
 	is_cardinal = no
 	is_pope = no

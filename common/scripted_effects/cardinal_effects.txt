@@ -75,27 +75,37 @@ select_highest_scoring_cardinal_candidate = {
 
 select_highest_scoring_character_cardinal_candidate = {
 	# Look through characters's vassals_or_below for valid candidates 
-	ordered_cardinal_candidate_vassal = {
-		order_by = bishop_to_cardinal_score
-		position = 0
-		add_to_list = highest_scoring_character_cardinal_candidates
-	}
-	# Check player's own realm priest
 	if = {
-		limit = {exists = realm_priest}
-		realm_priest = {add_to_list = highest_scoring_character_cardinal_candidates}
+		limit = {
+			has_variable = has_set_cardinal_player_candidate
+		}
+		var:has_set_cardinal_player_candidate = {
+			save_scope_as = highest_scoring_cardinal_candidate
+		}
 	}
-	# Select player's best candidate:
-	ordered_in_list = {
-		limit = {exists = this}
-		list = highest_scoring_character_cardinal_candidates
-		order_by = bishop_to_cardinal_score
-		position = 0
-		save_scope_as = highest_scoring_character_cardinal_candidate_selected
-	}
-	set_variable = {
-		name = cardinal_player_candidate
-		value = scope:highest_scoring_character_cardinal_candidate_selected
+	else = {
+		ordered_cardinal_candidate_vassal = {
+			order_by = bishop_to_cardinal_score
+			position = 0
+			add_to_list = highest_scoring_character_cardinal_candidates
+		}
+		# Check player's own realm priest
+		if = {
+			limit = {exists = realm_priest}
+			realm_priest = {add_to_list = highest_scoring_character_cardinal_candidates}
+		}
+		# Select player's best candidate:
+		ordered_in_list = {
+			limit = {exists = this}
+			list = highest_scoring_character_cardinal_candidates
+			order_by = bishop_to_cardinal_score
+			position = 0
+			save_scope_as = highest_scoring_character_cardinal_candidate_selected
+		}
+		set_variable = {
+			name = cardinal_player_candidate
+			value = scope:highest_scoring_character_cardinal_candidate_selected
+		}
 	}
 }
 
@@ -695,4 +705,18 @@ councillor_leaving_effect = {
 
 take_gold_mod_effect = {
 	remove_short_term_gold = 30
+}
+
+investiture_set_up_candidate = {
+	save_scope_as = theocratic_inheritor
+	scope:title_inheritor = {
+		set_variable = {
+			name = theocratic_successor
+			value = scope:theocratic_inheritor
+		}
+	}
+	set_variable = {
+		name = theocratic_successor
+		value = scope:title_inheritor
+	}
 }
