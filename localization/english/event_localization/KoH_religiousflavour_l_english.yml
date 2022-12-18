@@ -23,12 +23,12 @@
   KoH_religiousflavour.4.b: "I think not - these herbs smell funny."
 
   KoH_religiousflavour.5.t: "A Sunny Day" 
-  KoH_religiousflavour.5.desc: "One day, passing by a monastery, you come upon a monk sitting and painting in a field. You observe his work and marvel at the composition, the colors and the fine brush strokes that bring the simple canvas to life. This monk is truly an artistic prodigy."
+  KoH_religiousflavour.5.desc: "As I strolled past the monastery one day, I couldn't help but be drawn to a monk sitting in a field, his brushstrokes quick and sure as he brought his canvas to life. I was enthralled by the artistry on display - the composition was impeccable, the colors vibrant and striking. It was as if this monk were a true prodigy of the artistic world, his gift for creating beauty simply breathtaking."
   KoH_religiousflavour.5.a: "I will buy this painting and exhibit it at my castle!"
   KoH_religiousflavour.5.b: "Very nice, now let's eat."
 
   KoH_religiousflavour.6.t: "A Monk and His Painting"
-  KoH_religiousflavour.6.desc: "One day, passing by a monastery, you come upon a monk sitting and painting in a field. You observe his work and marvel at the composition, the colors and the fine brush strokes that bring the simple canvas to life. This monk is truly an artistic prodigy."
+  KoH_religiousflavour.6.desc: "As I strolled past the monastery one day, I couldn't help but be drawn to a monk sitting in a field, his brushstrokes quick and sure as he brought his canvas to life. I was enthralled by the artistry on display - the composition was impeccable, the colors vibrant and striking. It was as if this monk were a true prodigy of the artistic world, his gift for creating beauty simply breathtaking."
   KoH_religiousflavour.6.a: "I will buy this painting and exhibit it at my castle!"
   KoH_religiousflavour.6.b: "Very nice, now let's eat."
 
@@ -47,6 +47,8 @@
   KoH_religiousflavour.9.a: "Very well, if it's what [childforthechurch.GetSheHe] really wants."
   KoH_religiousflavour.9.b: "Absolutely not!"
  
+  #MAKE ALTERNATE EVENT FROM THE POV OF THE COURT BISHOP????? 
+  #"Your Holiness, the esteemed Abbot of the nearby monastery has humbly requested our assistance in funding the necessary repairs for the monastery church. As devoted followers of the faith, is it not our duty to do all that we can to support our fellow believers and ensure that we are remembered in their prayers? I believe a donation towards the repair of their sacred place of worship would be a small but meaningful gesture of our devotion."
   KoH_religiousflavour.12.t: "Monastery Repairs"
   KoH_religiousflavour.12.desc: "The abbot of a nearby monastery has asked that you make a donation towards the repairs of the monastery church. Surely, it wouldn't hurt to ensure that you are in the monks' prayers?"
   KoH_religiousflavour.12.a: "God will know that I support the church."
@@ -121,7 +123,7 @@
   #Pope and Free Investiture
   
   KoH_religiousflavour.24.t: "Investiture: Issues in the Church"
-  KoH_religiousflavour.24.desc: "There are rulers in the world who are sadly neglecting the laws that Jesus himself gave to the Holy Church."
+  KoH_religiousflavour.24.desc: "It is a lamentable fact that there are those who hold power and authority who have chosen to turn a blind eye to the sacred laws that our Lord Jesus himself bestowed upon the Holy Church. It is my solemn duty to do all that I can to bring them back to the path of righteousness and guide them towards the light of salvation."
   KoH_religiousflavour.24.a: "Invite them to follow the true doctrines."
   KoH_religiousflavour.24.b: "God will punish them later..."
 
@@ -263,7 +265,7 @@
   KoH_religiousflavour.50.b: "I have more important matters to attend to than a smattering of schismatic swineherds."
 
   KoH_religiousflavour.51.t: "Papal Intervention: The Imprisoned Bishop."
-  KoH_religiousflavour.51.desc: "Reports have reached your ears from one of your Cardinals, [cardinal.GetName], that [targetedruler.GetName] has chained the [bishoptitle.GetName] [imprisonedbishop.GetName] in irons, and that he sits in darkness and in the shadow of death in [targetedruler.GetTitledFirstName]'s dungeons, in flagrant disregard of all Christian principles. This is an iniquitous assault on the dignity and rights of the Holy Mother Church..."
+  KoH_religiousflavour.51.desc: ""it is with great sorrow that I bring you this disturbing news" said Cardinal [cardinal.GetName]. "[targetedruler.GetName] has committed a grave injustice, imprisoning [imprisonedbishop.GetName], the [bishoptitle.GetName], in their dungeons. This poor soul now sits in darkness and in the shadow of death, shackled in irons, all in flagrant disregard of Christian principles. This is a heinous attack on the dignity and rights of the Holy Mother Church, and we must do all that we can to secure [imprisonedbishop.GetName]'s release and bring an end to this injustice.""
   KoH_religiousflavour.51.a: "I demand that you release...."
   KoH_religiousflavour.51.b: "Ignore the issue."
 
