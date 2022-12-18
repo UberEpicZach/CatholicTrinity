@@ -19,3 +19,7 @@ Trinity_3 = {
 Trinity_4 = {
 	music = "file:/music/Trinity_Soundtrack/3 - Trinity.wav"
 }
+
+CK2_songs_of_yuletide = {
+	music = "file:/music/Trinity_Soundtrack/pdxmascarol.ogg"
+}

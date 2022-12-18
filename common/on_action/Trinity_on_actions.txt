@@ -7,6 +7,36 @@
 	}
 }
 
+yearly_global_pulse = {
+	on_actions = {
+		delay = { days = 357 }
+		TCT_christmas_set
+	}
+}
+
+TCT_christmas_set = {
+	effect = {
+		faith:catholic = {
+			every_faith_ruler = {
+				trigger_event = { on_action = TCT_christmas_real }
+			}
+		}
+	}
+}
+
+TCT_christmas_real = {
+	trigger = {
+		is_adult = yes
+	}
+	random_events = {
+		112 = 0
+		1 = KoH_religiousflavour.58 #Christmas! 
+		1 = bp1_yearly.3004 #Christmas, but a child!! 
+		1 = bp1_yearly.3006 # Reflecting on a great Christmas
+		1 = bp1_yearly.3006 # Last Christmas I gave you my heart
+	}
+}
+
 fixing867pope = {
 	trigger = {
 		game_start_date = 867.1.1

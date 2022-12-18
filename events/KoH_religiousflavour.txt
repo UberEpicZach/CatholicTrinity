@@ -343,6 +343,7 @@ KoH_religiousflavour.3 = { #Monks Make Good Wine
 		}
 	}
 }
+
 KoH_religiousflavour.4 = { #Monks have healing herbs
 	title = KoH_religiousflavour.4.t
 	desc = KoH_religiousflavour.4.desc
@@ -1372,10 +1373,6 @@ KoH_religiousflavour.23 = {
 	}
 }
 
-
-
-
-
 #The Pope and an Investiture Free Realm
 # The Pope singles out a Kingdom with Free Investiture (unless he has already targetted one)
 #Event 1
@@ -1485,10 +1482,8 @@ KoH_religiousflavour.24 = {
 	}
 }
 
-
 #King/Emperor gets the papal emissary asking them to change laws!
 #Event 2
-
 KoH_religiousflavour.25 = { 
 	title = KoH_religiousflavour.25.t
 	desc = KoH_religiousflavour.25.desc
@@ -1947,7 +1942,6 @@ KoH_religiousflavour.28 = {
 	}
 }
 
-
 # King outwits us
 #Event 6
 KoH_religiousflavour.29 = { 
@@ -2048,7 +2042,6 @@ KoH_religiousflavour.30 = {
 		}
 	}
 }
-
 
 ## The Pope sends a delegate to a Bishop whose top liege has refused to change investiture Law
 #Event 7
@@ -2262,10 +2255,8 @@ KoH_religiousflavour.32 = {
 	}
 }
 
-
 ## King knows of bishop getting bribed
 #Event 9
-
 KoH_religiousflavour.33 = { 
 	title = KoH_religiousflavour.33.t
 	desc = KoH_religiousflavour.33.desc
@@ -2337,7 +2328,6 @@ KoH_religiousflavour.33 = {
 
 ## The Pope contacts a powerful (preferably rebellious) vassal of a liege who has refused to change investiture Law
 #Event 10
-
 KoH_religiousflavour.34 = { 
 	title = KoH_religiousflavour.34.t
 	desc = KoH_religiousflavour.34.desc
@@ -2484,7 +2474,6 @@ KoH_religiousflavour.34 = {
 
 ## The vassal receives the claim
 #Event 11
-
 KoH_religiousflavour.35 = { 
 	title = KoH_religiousflavour.35.t
 	desc = KoH_religiousflavour.35.desc
@@ -2682,6 +2671,8 @@ KoH_religiousflavour.37 = {
 #Event 1
 
 #The Cadaver Synod
+
+
 
 ## Pope learns that a catholic ruler has a heretic advisor
 
@@ -3212,7 +3203,6 @@ KoH_religiousflavour.46 = {
 		}
 	}
 } 
-
 
 KoH_religiousflavour.467 = { 
 	type = letter_event
@@ -3956,8 +3946,78 @@ KoH_religiousflavour.57 = {
 	}
 }
 
-#Ending a Pilgrimage to a Saintly Tomb
+#Christmas! 
+KoH_religiousflavour.58 = {#christmas
+	type = character_event
+	title = KoH_religiousflavour.58.t
+	desc = KoH_religiousflavour.58.desc
+	theme = family
+	override_background = { event_background = TCT_christmas }
+	left_portrait = {
+		character = scope:family
+		animation = happiness
+	}
+	
+	right_portrait = {
+		character = root
+		animation = ecstasy
+	}
 
+	immediate = {
+		play_music_cue = CK2_songs_of_yuletide 
+		if = {
+			limit = {
+				is_married = yes
+			}
+			spouse = {
+				save_scope_as = family
+			}
+		}
+		else = {
+			limit = {
+				any_child = {
+					count >= 1
+				}
+				random_child = {
+					save_scope_as = family
+				}
+			}
+		}
+		root.capital_province = {
+			save_scope_as = provincefun
+		}
+	}
+
+	option = { #wassailing
+		name = KoH_religiousflavour.58.a
+		add_stress = medium_stress_loss
+	}
+	option = { #feast
+		name = KoH_religiousflavour.58.b
+		capital_province = {
+			spawn_activity = {
+				type = activity_feast
+				owner = root
+			}
+		}	
+	}	
+
+	option = { #family
+		name = KoH_religiousflavour.58.c
+		every_close_or_extended_family_member = {
+			limit = {
+				NOT = { this = root }
+			}
+			add_opinion = {
+				modifier = KOH_christmas_opinion
+				target = root
+			}
+		}
+	}
+}
+
+
+#Ending a Pilgrimage to a Saintly Tomb
 KoH_religiousflavour.250 = { 
 	title = KoH_religiousflavour.250.t
 	desc = KoH_religiousflavour.250.desc

@@ -36,3 +36,15 @@ grantedlandtoclergy = {
 	monthly_change = 0.5
 	decaying = yes
 }
+
+KOH_christmas_opinion = {
+	opinion = 30
+	decaying = yes
+	years = 3
+}
+
+holidays_bouquet = {
+	opinion = 25
+	decaying = yes
+	years = 5
+}

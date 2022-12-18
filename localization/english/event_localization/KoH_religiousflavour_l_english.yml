@@ -242,7 +242,7 @@
   KoH_religiousflavour.46.b.toast: "The Papacy Sends Support Towards your [holy_war|E]!"
 
   KoH_religiousflavour.47.t: "The Leprous Courtier..."
-  KoH_religiousflavour.47.desc: "I deeply regret to inform you that I have been afflicted with the dread malady of leprosy. I now wish for nothing more than to live out my days in pious servitude among the leper knights of the Order of Saint Lazarus. I beg your leave to depart at once to join their number, so that I may make haste to cleanse myself of sin."
+  KoH_religiousflavour.47.desc: ""My dear liege, I deeply regret to inform you that I have been afflicted with the dread malady of leprosy. I now wish for nothing more than to live out my days in pious servitude among the leper knights of the Order of Saint Lazarus. I beg your leave to depart at once to join their number, so that I may make haste to cleanse myself of sin.""
   KoH_religiousflavour.47.a: "Of course; may God have mercy upon your soul."
   KoH_religiousflavour.47.b: "No; remain here and seek redemption in my service."
 
@@ -294,7 +294,12 @@
   KoH_religiousflavour.57.a: "Damnation!"
   murdered_biship_modifier:0 "Murdered a Bishop"
 
-
+  KOH_christmas_opinion: "Had Christmas Festivities"
+  KoH_religiousflavour.58.t: "Christes Maesse"
+  KoH_religiousflavour.58.desc: "It was a cold and snowy Christmas Eve in [provincefun.GetName], in the distance of the rolling snowly hills of the countryside. \nThe villagers had spent the day preparing for the festive celebration that evening, after months of harvest and hard work, it was time for celebration and relaxation, they were hanging wreaths of holly and ivy on the doors of their homes and stringing up twinkling lights made of beeswax candles. As the sun began to set, the villagers gathered in the town square, where a Tree stood tall and proud. \n\nA choir of Wassailers began to sing traditional Christmas hymns, Children ran and played, laughing and chasing each other around the tree. The village priest gave a short sermon, reminding the villagers of the true meaning of Christmas and the birth of Jesus.\n\nIn the season of the cold and dark, it was now time to cherish the moments where Joy could be found, amd the atmosphere was one of joy and celebration, with everyone feeling the warmth and love of the holiday season."
+  KoH_religiousflavour.58.a: "A Toast to the Carolers!"
+  KoH_religiousflavour.58.b: "Time for a feast!"
+  KoH_religiousflavour.58.c: "It is time to spend time with family."
 
   KoH_religiousflavour.250.t: "[saintlocation.GetNameNoTier], Resting place of Saint [localsaint.GetFirstNameNicknamedRegnal]."
   KoH_religiousflavour.250.desc: "Begrimed by the mud and dust of the road, we weary travelers walk where myriad pilgrims ages past have trod. At long last, I have reached the place of Saint [localsaint.GetFirstNameNicknamedRegnal]’s everlasting rest, sanctified by hallowed fame. Even poor strangers to the faith have come as if drawn by grace. With measured footsteps and sacred awe, we approach the holy fane. Pilgrims kneel in prayer before their long-sought shrine; the murmurs of the penitent, imploring saintly intercession, rise like incense in the heavenly sanctuary. \n\nYou who shine with excellence and superhuman virtue deliver us from all evil, who turn to you with confidence and enable us by your gracious protection to serve God more and more faithfully every day."
