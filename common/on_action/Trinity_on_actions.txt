@@ -852,6 +852,13 @@ on_pope_death = {
 
 			title:k_papal_state.holder = {	
 				add_gold = scope:deadpope.gold
+				
+				# #Save original name 
+				# store_localized_text_in_death = "preferatus.GetFirstName"
+				# add_to_global_variable_list = {
+				# 	name = test_saved_text_character
+				# 	target = title:k_papal_state.holder
+				# }
 
 				if = {
 					limit = {
@@ -896,7 +903,7 @@ on_pope_death = {
 				title:k_papal_state.holder = { 
 					trigger_event = KoH_religiousflavour.400
 				}
-			}
+			} 
 
 			scope:deadpope = {
 				add_trait = pope_trait

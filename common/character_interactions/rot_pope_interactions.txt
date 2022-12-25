@@ -4012,7 +4012,16 @@ select_cardinal_candidate_interaction = {
 	auto_accept = yes
 	
 	is_shown = {
-		always = yes
+		is_male = yes
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_married = no
+		is_betrothed = no
+		is_ruler = no
+		is_clergy = yes
+		is_cardinal = no
+		# In minimum good standing with faith
+		NOT = { has_trait = excommunicated }
 	}
 	
 	can_be_picked = {
