@@ -1,0 +1,26 @@
+Types Catholic_Trinity_types {
+	Type window_character_heir_papal_type = container { 
+		# Papal succession
+		name = "heir_papal"
+		datacontext = "[CharacterWindow.GetCharacter.GetFaith.GetReligion.MakeScope.Var('preferatus_character').GetCharacter]"
+		visible = "[GetScriptedGui('this_is_the_pope').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).End) ]"
+		parentanchor = bottom|right
+		position = { -20 -6 }
+
+		using = Animation_Character_Window_Refresh
+
+		portrait_head_small = {
+			blockoverride "portrait_transformation"
+			{
+				portrait_scale = { -1 1 }
+				portrait_offset = { 1 0 }
+			}
+		}
+
+		text_label_center = {
+			parentanchor = top|hcenter
+			position = { 0 85 }
+			raw_text = "[papabile|E]"
+		}
+	}
+}
