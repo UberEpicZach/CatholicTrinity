@@ -224,6 +224,30 @@ type window_cardinals_open_button = button {
     alwaystransparent = no
     layoutpolicy_vertical = expanding
 }
+type cardinals_button = button_standard {
+    name = "college_of_cardinals"
+    minimumsize = { 240 0 }
+    visible = "[EqualTo_string(FaithWindow.GetFaith.GetNameNoTooltip,Localize('catholic'))]"
+    text = "VIEW_CARDINAL_WINDOW_TITLE"
+    tooltip = "VIEW_CARDINAL_WINDOW_TITLE_TOOLTIP"
+    onclick = "[GetVariableSystem.Toggle('window_cardinals')]"
+    onclick = "[GetScriptedGui('refresh_cardinal_characters').Execute(GuiScope.SetRoot(Religion.MakeScope).End)]"
+    onclick = "[GetScriptedGui('cardinal_music').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+
+    using = tooltip_nw
+
+    # text_single = {
+    # 	position= {60 3}
+    # 	name = "header_text_custom"
+    # 	default_format = "#clickable"
+
+    # 	text = "collegeofcardinals"
+    # 	maximumsize = { 400 -1 }
+
+    # 	#using = Font_Type_Flavor
+    # 	using = tooltip_nw
+    # }
+}
 
 type window_cardinals = window {
     datacontext = "[Faith.GetReligion]"
@@ -483,37 +507,3 @@ type window_cardinals = window {
 }
 }
 
-types uniuitrinitytypes {
-    type UniUI_Trinity_window_faith_widget_doctrine_item = container {
-        widget_doctrine_item = {
-            visible = "[Faith.HasDoctrineByKey( 'doctrine_independent_papacy_head' )]"
-            blockoverride "background" {}
-
-            blockoverride "doctrine_icon"
-            {
-                texture = "[GetDoctrine( 'doctrine_independent_papacy_head' ).GetIcon]"
-            }
-
-            blockoverride "wdi_context"
-            {
-                datacontext = "[GetDoctrine('doctrine_independent_papacy_head')]"
-                datacontext = "[Faith]"
-            }
-        }
-        widget_doctrine_item = {
-            visible = "[And(Faith.HasDoctrineByKey( 'doctrine_spiritual_head' ), Not(Faith.HasDoctrineByKey( 'doctrine_independent_papacy_head' )))]"
-            blockoverride "background" {}
-
-            blockoverride "doctrine_icon"
-            {
-                texture = "[GetDoctrine( 'doctrine_spiritual_head' ).GetIcon]"
-            }
-
-            blockoverride "wdi_context"
-            {
-                datacontext = "[GetDoctrine('doctrine_spiritual_head')]"
-                datacontext = "[Faith]"
-            }
-        }
-    }
-}

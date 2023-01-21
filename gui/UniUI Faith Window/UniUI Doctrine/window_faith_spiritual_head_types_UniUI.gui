@@ -1,0 +1,34 @@
+types window_faith_spiritual_head_types_vanilla {
+    type window_faith_doctrine_spiritual_head_item_type = container {
+        widget_doctrine_item = {
+            visible = "[Faith.HasDoctrineByKey( 'doctrine_independent_papacy_head' )]"
+            blockoverride "background" {}
+
+            blockoverride "doctrine_icon"
+            {
+                texture = "[GetDoctrine( 'doctrine_independent_papacy_head' ).GetIcon]"
+            }
+
+            blockoverride "wdi_context"
+            {
+                datacontext = "[GetDoctrine('doctrine_independent_papacy_head')]"
+                datacontext = "[Faith]"
+            }
+        }
+        widget_doctrine_item = {
+            visible = "[And(Faith.HasDoctrineByKey( 'doctrine_spiritual_head' ), Not(Faith.HasDoctrineByKey( 'doctrine_independent_papacy_head' )))]"
+            blockoverride "background" {}
+
+            blockoverride "doctrine_icon"
+            {
+                texture = "[GetDoctrine( 'doctrine_spiritual_head' ).GetIcon]"
+            }
+
+            blockoverride "wdi_context"
+            {
+                datacontext = "[GetDoctrine('doctrine_spiritual_head')]"
+                datacontext = "[Faith]"
+            }
+        }
+    }
+}
