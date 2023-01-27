@@ -62,6 +62,17 @@ has_virtue_trigger = {
 	}
 }
 
+sainthood_temple_exists = {
+	faith:catholic = {
+		any_faith_ruler = {
+			any_realm_county = {
+				has_variable_list = faith_saints_and_capital
+				save_temporary_scope_as = saintlocationtemp
+			}
+		}
+	}
+}
+
 sainthood_event1trigger = {
 	NOR = {
 		has_trait = excommunicated

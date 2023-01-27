@@ -31,3 +31,47 @@ cardinal_story = {
 		update_preferatus = yes
 	}
 }
+
+story_saint_day = {
+	# by Uber
+	
+	on_setup = {
+		global_var:TCT_saint_day_dummychar = {
+			var:TCT_saint_day_saint = {
+				save_scope_as = localsaint
+			}
+		}
+		faith = {
+			add_to_variable_list = {
+				name = faith_saints_days
+				target = scope:localsaint
+			}
+			add_to_variable_list = {
+				name = faith_saints_days_stories
+				target = scope:story
+			}
+		}
+	}
+
+	on_end = {
+		debug_log = "[localsaint.GetName] Saint Day Forgotten!:"
+		debug_log_date = yes
+	}
+
+	effect_group = {
+		years = 1
+		
+		triggered_effect = {
+			trigger = {
+				always = yes
+			}
+			effect = {
+				faith:catholic = {
+					every_faith_ruler = {
+						trigger_event = { on_action = TCT_saint_day_real }
+					}
+				}
+			}
+		}
+	}
+}

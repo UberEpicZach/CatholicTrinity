@@ -303,6 +303,13 @@
   KoH_religiousflavour.58.b: "Time for a feast!"
   KoH_religiousflavour.58.c: "It is time to spend time with family."
 
+  KOH_saintdaysaint_opinion: "[localsaint.GetFirstName] Day"
+  KoH_religiousflavour.63.t: "[localsaint.GetFirstName] Day"
+  KoH_religiousflavour.63.desc: "Saint Day Celebration Text."
+  KoH_religiousflavour.58.a: "A Toast to the Carolers!"
+  KoH_religiousflavour.58.b: "Time for a feast!"
+  KoH_religiousflavour.58.c: "It is time to spend time with family."
+
   KoH_religiousflavour.250.t: "[saintlocation.GetNameNoTier], Resting place of Saint [localsaint.GetFirstNameNicknamedRegnal]."
   KoH_religiousflavour.250.desc: "Begrimed by the mud and dust of the road, we weary travelers walk where myriad pilgrims ages past have trod. At long last, I have reached the place of Saint [localsaint.GetFirstNameNicknamedRegnal]’s everlasting rest, sanctified by hallowed fame. Even poor strangers to the faith have come as if drawn by grace. With measured footsteps and sacred awe, we approach the holy fane. Pilgrims kneel in prayer before their long-sought shrine; the murmurs of the penitent, imploring saintly intercession, rise like incense in the heavenly sanctuary. \n\nYou who shine with excellence and superhuman virtue deliver us from all evil, who turn to you with confidence and enable us by your gracious protection to serve God more and more faithfully every day."
   KoH_religiousflavour.250.a: "The lovely [saintlocation.GetNameNoTier]."
@@ -322,13 +329,12 @@
   KoH_religiousflavour.4001.a: "Did, Did he speak my name?"
  
   KoH_religiousflavour.401.t: "The Papal Conclave Convenes in Roma: The Result?"
-  KoH_religiousflavour.401.desc: "As the Cardinals surround around, I give my best speech to the men, the very men who had decided that I was the Holiness of Catholicism, the head of the Catholic Faith and The vicar of Christ; these men in the holy body of Cardinals, that mere moments ago I had been apart of. The Cardinal-Protodeacon lights a White smoke indicating that a Pope has been chosen, giving notice to the citizens of Rome. \n\nHours later thousands have gathered in the streets of Rome, and I sit along various Cardinals on the Balcony of the Lateran Palace while the Cardinal-Protodeacon takes the stage announcing,#V #italic \n"I announce to you a great joy;\nwe have a Pope! \n\nThe most reverend lord #bold Cardinal [text_character.GetLocalizedText( 'test_saved_text' )] #!\nhas been elected as supreme pontiff and has chosen for himself the name #bold Pope [newpope.GetFirstNameNicknamedRegnal]. #!\n\nTo the honor of almighty God, Father, Son, and Holy Spirit, of the blessed Apostles Peter and Paul, we invest him in the papacy of the Roman Church, that he may govern the city and the world." #! #!"
+  KoH_religiousflavour.401.desc: "As the Cardinals surround around, I give my best speech to the men, the very men who had decided that I was the Holiness of Catholicism, the head of the Catholic Faith and The vicar of Christ; these men in the holy body of Cardinals, that mere moments ago I had been apart of. The Cardinal-Protodeacon lights a White smoke indicating that a Pope has been chosen, giving notice to the citizens of Rome. \n\nHours later thousands have gathered in the streets of Rome, and I sit along various Cardinals on the Balcony of the Lateran Palace while the Cardinal-Protodeacon takes the stage announcing,#V #italic \n"I announce to you a great joy;\nwe have a Pope! \n\nThe most reverend lord #bold Cardinal [duplicatedname.GetFirstNameNoTooltip] #!\nhas been elected as supreme pontiff and has chosen for himself the name #bold Pope [newpope.GetFirstNameNicknamedRegnal]. #!\n\nTo the honor of almighty God, Father, Son, and Holy Spirit, of the blessed Apostles Peter and Paul, we invest him in the papacy of the Roman Church, that he may govern the city and the world." #! #!"
   KoH_religiousflavour.401.a: "Sic transit gloria mundi."
 
-  KoH_religiousflavour.401.oldname: "text_ruler.GetFirstName"
  
   KoH_religiousflavour.402.t: "The Papal Conclave: A New Pope"
-  KoH_religiousflavour.402.desc: "A letter quickly arrives to your court wearing the garb of the Papacy, and the City of Rome. \n\n#V #italic "I announce to you a great joy;\nwe have a Pope! \n\nThe most reverend lord #bold Cardinal [text_character.GetLocalizedText( 'test_saved_text' )] #!\nhas been elected as supreme pontiff and has chosen for himself the name #bold Pope [newpope.GetFirstNameNicknamedRegnal]. #!\n\nTo the honor of almighty God, Father, Son, and Holy Spirit, of the blessed Apostles Peter and Paul, we invest him in the papacy of the Roman Church, that he may govern the city and the world." #! #! \n-Cardinal-Protodeacon of Roma."
+  KoH_religiousflavour.402.desc: "A letter quickly arrives to your court wearing the garb of the Papacy, and the City of Rome. \n\n#V #italic "I announce to you a great joy;\nwe have a Pope! \n\nThe most reverend lord #bold Cardinal [duplicatedname.GetFirstNameNoTooltip] #!\nhas been elected as supreme pontiff and has chosen for himself the name #bold Pope [newpope.GetFirstNameNicknamedRegnal]. #!\n\nTo the honor of almighty God, Father, Son, and Holy Spirit, of the blessed Apostles Peter and Paul, we invest him in the papacy of the Roman Church, that he may govern the city and the world." #! #! \n-Cardinal-Protodeacon of Roma."
   KoH_religiousflavour.402.a: "Sic transit gloria mundi."
 
   KoH_religiousflavour.500.t: "Donation to the Clergy: County Selection"

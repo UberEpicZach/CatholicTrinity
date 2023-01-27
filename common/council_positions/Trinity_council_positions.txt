@@ -47,6 +47,13 @@
 						}
 					}
 				}
+				AND = {
+					NOT = {
+						has_faith = faith:catholic
+						top_liege = { has_faith = faith:catholic }
+					}
+					#religion = { is_in_family = rf_pagan }
+				}
 			}
 		}
 	}
@@ -93,6 +100,13 @@
 					faith = {
 						has_doctrine_parameter = clerical_appointment_ruler
 					}
+				}
+				AND = {
+					NOT = {
+						has_faith = faith:catholic
+						top_liege = { has_faith = faith:catholic }
+					}
+					#religion = { is_in_family = rf_pagan }
 				}
 			}
         }

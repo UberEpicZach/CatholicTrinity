@@ -31,9 +31,24 @@ TCT_christmas_real = {
 	random_events = {
 		112 = 0
 		1 = KoH_religiousflavour.58 #Christmas! 
-		1 = bp1_yearly.3004 #Christmas, but a child!! 
-		1 = bp1_yearly.3006 # Reflecting on a great Christmas
-		1 = bp1_yearly.3006 # Last Christmas I gave you my heart
+		#1 = bp1_yearly.3004 #Christmas, but a child!! 
+		#1 = bp1_yearly.3006 # Reflecting on a great Christmas
+		#1 = bp1_yearly.3006 # Last Christmas I gave you my heart
+	}
+}
+
+
+TCT_saint_day_real = {
+	trigger = {
+		is_adult = yes
+		#exists = var:TCT_saint_day_dummychar
+	}
+	events = {
+		#112 = 0
+		KoH_religiousflavour.63 #Saint Day! 
+		#1 = bp1_yearly.3004 #Christmas, but a child!! 
+		#1 = bp1_yearly.3006 # Reflecting on a great Christmas
+		#1 = bp1_yearly.3006 # Last Christmas I gave you my heart
 	}
 }
 
@@ -422,11 +437,24 @@ CardinalsTraits = {
 on_title_gain = {
 	on_actions = {
 		on_gain_papacy
+		on_gain_cardinal
 		delay = { days = { 2 4 } }		
 		priests_learn_latin
 	}
 }
-
+on_gain_cardinal = {
+	trigger = {
+		CatholicTrinityCardinalTrigger = yes
+	}
+	effect = {
+		if = {
+			limit = {
+				has_nickname = nick_cardinal
+			}
+			remove_nickname = yes
+		}
+	}
+}
 on_cardinal_initialize = {
 	effect = {
 		debug_log = "initializing cardinals"
@@ -649,7 +677,6 @@ on_pope_death = {
 				save_scope_as = preferatus
 				add_prestige = 3000
 				add_piety = 3000
-				change_first_name = Gregorius
 			}
 			create_title_and_vassal_change = {
 				type = election
@@ -698,6 +725,22 @@ on_pope_death = {
 			title:k_papal_state.holder = {	
 				add_gold = scope:deadpope.gold
 
+				create_character = {
+					location = scope:deadpope.capital_province
+					faith = scope:deadpope.faith
+					culture = scope:deadpope.culture
+					learning = { 10 12 }
+					save_scope_as = duplicatename
+					after_creation = {
+						change_first_name = { template_character = title:k_papal_state.holder }
+					}
+				}
+
+				set_variable = {
+					name = duplicatenameexists
+					value = scope:duplicatename
+				}
+
 				if = {
 					limit = {
 						NOT = { exists = cp:councillor_marshal }
@@ -739,7 +782,7 @@ on_pope_death = {
 					}
 				}
 				title:k_papal_state.holder = { 
-					trigger_event = KoH_religiousflavour.600
+					trigger_event = KoH_religiousflavour.400
 				}
 			}
 
@@ -852,13 +895,22 @@ on_pope_death = {
 
 			title:k_papal_state.holder = {	
 				add_gold = scope:deadpope.gold
-				
-				# #Save original name 
-				# store_localized_text_in_death = "preferatus.GetFirstName"
-				# add_to_global_variable_list = {
-				# 	name = test_saved_text_character
-				# 	target = title:k_papal_state.holder
-				# }
+
+				create_character = {
+					location = scope:deadpope.capital_province
+					faith = scope:deadpope.faith
+					culture = scope:deadpope.culture
+					learning = { 10 12 }
+					save_scope_as = duplicatename
+					after_creation = {
+						change_first_name = { template_character = title:k_papal_state.holder }
+					}
+				}
+
+				set_variable = {
+					name = duplicatenameexists
+					value = scope:duplicatename
+				}
 
 				if = {
 					limit = {
@@ -922,6 +974,7 @@ on_gain_papacy = {
 		scope:title = title:k_papal_state
 	}
 	effect = {
+		add_trait = pope_trait
 		if = { limit = { is_lowborn = yes } title:k_papal_state.holder = { set_house = house:house_SanctiPetriFiliis } }
 		if = { limit = { has_trait = cardinal_bishop } remove_trait = cardinal_bishop }
 		if = { limit = { has_trait = cardinal_priest } remove_trait = cardinal_priest }

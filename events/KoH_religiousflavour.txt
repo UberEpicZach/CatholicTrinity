@@ -4016,6 +4016,87 @@ KoH_religiousflavour.58 = {#christmas
 	}
 }
 
+#KoH_religiousflavour.59 #christmas
+
+#KoH_religiousflavour.60 #christmas
+
+#KoH_religiousflavour.61 #christmas
+
+#KoH_religiousflavour.62 #christmas
+
+KoH_religiousflavour.63 = {
+	type = character_event
+	title = KoH_religiousflavour.63.t
+	desc = KoH_religiousflavour.63.desc
+	theme = faith
+	#override_background = { event_background = TCT_christmas }
+	left_portrait = {
+		character = scope:family
+		animation = happiness
+	}
+	
+	right_portrait = {
+		character = root
+		animation = ecstasy
+	}
+
+	immediate = {
+		global_var:TCT_saint_day_dummychar = {
+			var:TCT_saint_day_saint = {
+				save_scope_as = localsaint
+			}
+		}
+		
+		if = {
+			limit = {
+				is_married = yes
+			}
+			spouse = {
+				save_scope_as = family
+			}
+		}
+		else = {
+			limit = {
+				any_child = {
+					count >= 1
+				}
+			}
+			random_child = {
+				save_scope_as = family
+			}
+		}
+		root.capital_province = {
+			save_scope_as = provincefun
+		}
+	}
+
+	option = { #wassailing
+		name = KoH_religiousflavour.58.a
+		add_stress = medium_stress_loss
+	}
+	option = { #feast
+		name = KoH_religiousflavour.58.b
+		capital_province = {
+			spawn_activity = {
+				type = activity_feast
+				owner = root
+			}
+		}	
+	}	
+
+	option = { #family
+		name = KoH_religiousflavour.58.c
+		every_close_or_extended_family_member = {
+			limit = {
+				NOT = { this = root }
+			}
+			add_opinion = {
+				modifier = KOH_saintdaysaint_opinion
+				target = root
+			}
+		}
+	}
+}
 
 #Ending a Pilgrimage to a Saintly Tomb
 KoH_religiousflavour.250 = { 
@@ -4101,31 +4182,6 @@ KoH_religiousflavour.300 = {
 	}
 }
 
-KoH_religiousflavour.399 = {
-	title = KoH_religiousflavour.400.t
-	desc = KoH_religiousflavour.400.desc
-	theme = learning_scholarship_focus
-	hidden = yes
-
-	data = {
-		key = test_saved_text
-		default = KoH_religiousflavour.401.oldname
-	}
-
-	immediate = {
-		save_scope_as = text_ruler
-
-		store_localized_text_in_death = test_saved_text
-		add_to_global_variable_list = {
-			name = test_saved_text_character
-			target = root
-		}
-		trigger_event = {
-			id = KoH_religiousflavour.400
-		}
-	}
-}
-
 KoH_religiousflavour.400 = {
 	title = KoH_religiousflavour.400.t
 	desc = KoH_religiousflavour.400.desc
@@ -4206,7 +4262,6 @@ KoH_religiousflavour.400 = {
 		custom_tooltip = court_maintenance.0010.a.tooltip
 		trigger_event = {
 			id = KoH_religiousflavour.4001
-			days = 1
 		}
 
 		ai_chance = {
@@ -4246,7 +4301,7 @@ KoH_religiousflavour.4001 = {
 		    scope:newpope = {
 				group = event_group
 				animation = worried
-				
+				outfit_tags = { bishop_outfit }
 		    }
 			scope:cardinal2 = {
 				group = event_group
@@ -4289,9 +4344,24 @@ KoH_religiousflavour.4001 = {
 
 	immediate = {
 		save_scope_as = newpope
-		random_in_global_list = {
-			variable = test_saved_text_character
-			save_scope_as = text_character
+		add_character_flag = {
+			flag = wearing_cardinal
+			days = 3
+		}
+		if = {
+			limit = {
+				exists = var:duplicatenameexists
+			}
+			var:duplicatenameexists = {
+				save_scope_as = duplicatedname
+			}
+		}
+
+		if = {
+			limit = {
+				has_nickname = nick_cardinal
+			}
+			remove_nickname = yes
 		}
 
 		random_living_cardinal = {
@@ -4348,7 +4418,7 @@ KoH_religiousflavour.4001 = {
 		## Set the total length of the chain.
 		save_scope_value_as = {
 			name = event_chain_length
-			value = 2
+			value = 3
 		}
 		## Manually set the current widget length.
 		### Due to code-side shenanigans, we do this a bit awkwardly.
@@ -4361,10 +4431,223 @@ KoH_religiousflavour.4001 = {
 	option = { 
 		name = KoH_religiousflavour.4001.a
 		
-		trigger_event = KoH_religiousflavour.401
+		if = {
+			limit = {
+				this = character:2010
+			}
+			trigger_event = KoH_religiousflavour.600
+		}
+		else = {
+			trigger_event = KoH_religiousflavour.5725
+		}	
 
 		ai_chance = {
 			base = 50
+		}
+	}
+}
+
+#SELECT A NAME 
+#Papal Naming!
+KoH_religiousflavour.5725 = {
+	type = character_event
+	title = KoH_religiousflavour.5725.t
+	desc = {
+		first_valid = {
+			#If we're renaming ourself
+			triggered_desc = {
+				trigger = {
+					root = scope:child
+				}
+				desc = KoH_religiousflavour.5725.desc.me
+			}
+			#If we're renaming someone else
+			triggered_desc = {
+				desc = birth.9004.desc
+			}
+		}
+	}
+	theme = family
+	override_background = { event_background = relaxing_room }
+	right_portrait = {
+		character = scope:child
+		animation = happiness
+	}
+	#NAMING WIDGET
+	widgets = {
+		widget = {
+			gui = "event_window_widget_event_chain_progress"
+			container = "custom_widgets_container"
+			controller = event_chain_progress
+		}
+		widget = {
+			is_shown = {
+				allow_naming_on_birth_of_child_trigger = { CHILD = scope:child }
+			}
+			gui = "event_window_widget_name_pope"
+			container = "dynamic_birth_name"
+			controller = name_character
+			setup_scope = {
+				scope:child = { save_scope_as = name_character_target }
+			}
+		}
+	}
+
+	court_scene = {
+		button_position_character = scope:cardinal4 
+		court_owner = root
+		court_event_force_open = yes
+		should_pause_time = yes
+		roles = {
+		    scope:newpope = {
+				group = event_group
+				animation = worried
+				
+		    }
+			scope:cardinal2 = {
+				group = event_group
+				animation = worried
+				
+		    }
+			scope:cardinal3 = {
+				group = event_group
+				animation = worried
+				
+		    }
+			scope:cardinal4 = {
+				group = event_group
+				animation = worried
+				
+		    }
+			scope:cardinal5 = {
+				group = event_group
+				animation = worried
+				
+		    }
+			scope:cardinal6 = {
+				group = event_group
+				animation = worried
+				
+		    }
+			scope:cardinal7 = {
+				group = event_group
+				animation = worried
+		
+		    }
+		}
+	}
+
+	immediate = {
+		save_scope_as = child
+
+		if = {
+			limit = {
+				title:k_papal_state.holder = { is_ai = yes }
+			}
+			title:k_papal_state.holder = {
+				random_list = {
+					1 = {
+						change_first_name = Alexander
+					}
+					1 = {
+						change_first_name = Anastasius
+					}
+					1 = {
+						change_first_name = Caelestinus
+					}
+					1 = {
+						change_first_name = Callistus
+					}
+					1 = {
+						change_first_name = Clemens
+					}
+					1 = {
+						change_first_name = Eugenius
+					}
+					1 = {
+						change_first_name = Leo
+					}
+					1 = {
+						change_first_name = Gregorius
+					}
+					1 = {
+						change_first_name = Hadrianus
+					}
+					1 = {
+						change_first_name = Honorius
+					}
+					1 = {
+						change_first_name = Innocentius
+					}
+					1 = {
+						change_first_name = Ioannes
+					}
+					1 = {
+						change_first_name = Lucius
+					}
+					1 = {
+						change_first_name = Marinus
+					}
+					1 = {
+						change_first_name = Martinus
+					}
+					1 = {
+						change_first_name = Nicolaus
+					}
+					1 = {
+						change_first_name = Sergius
+					}
+					1 = {
+						change_first_name = Silvester
+					}
+					1 = {
+						change_first_name = Stephanus
+					}
+					1 = {
+						change_first_name = Urbanus
+					}
+					1 = {
+						change_first_name = Victor
+					}
+				}
+			}
+		}
+
+		# Tracking for how many petitioners have come through.
+		set_variable = {
+			name = num_petitioners
+			value = 2
+		}
+		# Start a counting variable for widget progress.
+		set_variable = {
+			name = petitioner_current_progress
+			value = 0
+		}
+		# Widget setup.
+		## Set the total length of the chain.
+		save_scope_value_as = {
+			name = event_chain_length
+			value = 3
+		}
+		## Manually set the current widget length.
+		### Due to code-side shenanigans, we do this a bit awkwardly.
+		save_scope_value_as = {
+			name = event_chain_progress
+			value = 2
+		}
+	}
+	#Go ahead
+	option = {
+		name = birth.9004.a
+		trigger_event = KoH_religiousflavour.401
+	}
+	after = {
+		if = {
+			limit = {
+				exists = character:2010
+				this = character:2010
+			}
+			change_first_name = Gregorius
 		}
 	}
 }
@@ -4435,15 +4718,12 @@ KoH_religiousflavour.401 = {
 	immediate = {
 		# Clean up the ol' variable.
 		remove_variable = petitioner_current_progress
-		every_in_global_list = {
-			variable = test_saved_text_character
-			remove_localized_text = test_saved_text
-		}
 		# Update the widget one last time.
 		save_scope_value_as = {
 			name = event_chain_progress
-			value = 2
+			value = 3
 		}
+		remove_character_flag = wearing_cardinal
 	}
 
 	widget = {
@@ -5153,171 +5433,34 @@ KoH_religiousflavour.501 = {
 	}
 }
 
-#Papal Naming!
-KoH_religiousflavour.5725 = {
-	type = character_event
-	title = KoH_religiousflavour.5725.t
-	desc = {
-		first_valid = {
-			#If we're renaming ourself
-			triggered_desc = {
-				trigger = {
-					root = scope:child
-				}
-				desc = KoH_religiousflavour.5725.desc.me
-			}
-			#If we're renaming someone else
-			triggered_desc = {
-				desc = birth.9004.desc
-			}
-		}
-	}
-	theme = family
-	override_background = { event_background = relaxing_room }
-	right_portrait = {
-		character = scope:child
-		animation = happiness
-	}
-	#NAMING WIDGET
-	widgets = {
-		widget = {
-			is_shown = {
-				allow_naming_on_birth_of_child_trigger = { CHILD = scope:child }
-			}
-			gui = "event_window_widget_name_pope"
-			container = "dynamic_birth_name"
-			controller = name_character
-			setup_scope = {
-				scope:child = { save_scope_as = name_character_target }
-			}
-		}
-	}
-	immediate = {
-		save_scope_as = child
-
-		if = {
-			limit = {
-				title:k_papal_state.holder = { is_ai = yes }
-			}
-			title:k_papal_state.holder = {
-				random_list = {
-					1 = {
-						change_first_name = Alexander
-					}
-					1 = {
-						change_first_name = Anastasius
-					}
-					1 = {
-						change_first_name = Caelestinus
-					}
-					1 = {
-						change_first_name = Callistus
-					}
-					1 = {
-						change_first_name = Clemens
-					}
-					1 = {
-						change_first_name = Eugenius
-					}
-					1 = {
-						change_first_name = Leo
-					}
-					1 = {
-						change_first_name = Gregorius
-					}
-					1 = {
-						change_first_name = Hadrianus
-					}
-					1 = {
-						change_first_name = Honorius
-					}
-					1 = {
-						change_first_name = Innocentius
-					}
-					1 = {
-						change_first_name = Ioannes
-					}
-					1 = {
-						change_first_name = Lucius
-					}
-					1 = {
-						change_first_name = Marinus
-					}
-					1 = {
-						change_first_name = Martinus
-					}
-					1 = {
-						change_first_name = Nicolaus
-					}
-					1 = {
-						change_first_name = Sergius
-					}
-					1 = {
-						change_first_name = Silvester
-					}
-					1 = {
-						change_first_name = Stephanus
-					}
-					1 = {
-						change_first_name = Urbanus
-					}
-					1 = {
-						change_first_name = Victor
-					}
-				}
-			}
-		}
-	}
-	#Go ahead
-	option = {
-		name = birth.9004.a
-	}
-	#On second though...
-	# option = {
-	# 	name = {
-	# 		text = {
-	# 			first_valid = {
-	# 				#If we're renaming ourself
-	# 				triggered_desc = {
-	# 					trigger = { root = scope:child }
-	# 					desc = birth.9004.b
-	# 				}
-	# 				#If we're renaming someone else
-	# 				triggered_desc = {
-	# 					desc = birth.9004.b.other
-	# 				}
-	# 			}
-	# 		}
-	# 	}
-	# 	flavor = {
-	# 		first_valid = {
-	# 			#If we're renaming ourself
-	# 			triggered_desc = {
-	# 				trigger = { root = scope:child }
-	# 				desc = birth.9004.b.tt
-	# 			}
-	# 			#If we're renaming someone else
-	# 			triggered_desc = {
-	# 				desc = birth.9004.b.tt.other
-	# 			}
-	# 		}
-	# 	}
-	# 	is_cancel_option = yes
-	# }
-}
-
 
 #Election of Pope Gregory VII
 KoH_religiousflavour.600 = {
 	title = KoH_religiousflavour.600.t
 	desc = KoH_religiousflavour.600.desc
-	theme = learning_scholarship_focus
-	left_portrait = {
-		character = root
-	}
+	theme = faith
 	right_portrait = {
-		character = character:2010
+		character = title:k_papal_state.holder
+		animation = personality_honorable
+		triggered_outfit = {
+			trigger = { exists = global_var:cfp_is_loaded }
+			outfit_tags = { cardinal_outfit }
+		}
+		triggered_outfit = {
+			trigger = { NOT = { exists = global_var:cfp_is_loaded } }
+			outfit_tags = { bishop_outfit }
+		}
+		hide_info = yes
 	}
+
+	widgets = {
+		widget = {
+			gui = "event_window_widget_event_chain_progress"
+			container = "custom_widgets_container"
+			controller = event_chain_progress
+		}
+	}
+	
 	trigger = {
 		exists = character:2010
 		character:2010 = {
@@ -5325,8 +5468,33 @@ KoH_religiousflavour.600 = {
 		}
 	}
 
+	immediate = {
+		# Widget setup.
+		## Set the total length of the chain.
+		save_scope_value_as = {
+			name = event_chain_length
+			value = 3
+		}
+		## Manually set the current widget length.
+		### Due to code-side shenanigans, we do this a bit awkwardly.
+		save_scope_value_as = {
+			name = event_chain_progress
+			value = 2
+		}
+	}
+
 	option = {
-		trigger_event = KoH_religiousflavour.400
+		name = KoH_religiousflavour.600.a
+		trigger_event = KoH_religiousflavour.401
+		hidden_effect = {
+			if = {
+				limit = {
+					exists = character:2010
+					this = character:2010
+				}
+				change_first_name = Gregorius
+			}
+		}
 	}
 }
 
