@@ -195,17 +195,7 @@ window = {
 								}
 
 							}
-							button_sidepanel_right = {
-								name = "saints_information"
-								raw_tooltip = "View Saints"
-								onclick = "[GetVariableSystem.Toggle('window_sainthood')]"
-								using = tooltip_nw
-
-								blockoverride "button_text"
-								{
-									raw_text = "View Saints"
-								}
-							}
+							window_faith_saint_information = {}
 						}
 					}
 				}
@@ -265,7 +255,7 @@ window = {
 				using = tooltip_below
 			}
 
-			investiture_button = {}
+			window_faith_investiture_tab = {}
 			
 		}
 
@@ -692,41 +682,7 @@ window = {
 							}
 
 							expand = {}
-							vbox = { #ROT
-								layoutpolicy_horizontal = expanding
-								#layoutpolicy_vertical = expanding
-								
-								margin_bottom = 5
-								
-								visible = "[Faith.HasDoctrineByKey('doctrine_independent_papacy_head')]"
-								text_single = {
-									visible = "[Faith.GetReligiousHead.IsValid]"
-									text = "rot_antipopes_title"
-									default_format = "#medium"
-									layoutpolicy_horizontal = expanding
-									fontsize_min = 10
-								}
-								
-								datamodel = "[Faith.MakeScope.GetList('rot_antipopes')]"
-								item = {
-									text_single = {
-										visible = "[Faith.GetReligiousHead.IsValid]"
-										text = "rot_antipopes_name"
-										default_format = "#high"
-										layoutpolicy_horizontal = expanding
-										fontsize_min = 14
-										max_width = 245
-									}
-								}
-								text_single = {
-									visible = "[GetScriptedGui( 'rot_no_antipopes' ).IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'faith', Faith.MakeScope ).End )]"
-									text = "rot_no_antipopes"
-									default_format = "#weak"
-									layoutpolicy_horizontal = expanding
-									fontsize_min = 14
-									max_width = 245
-								}
-							}
+							window_faith_ROT = {}
 						}
 					}
 
