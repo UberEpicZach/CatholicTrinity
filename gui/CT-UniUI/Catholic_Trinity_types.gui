@@ -159,4 +159,28 @@ Types Catholic_Trinity_types {
 			max_width = 245
 		}
 	}
+	Type window_faith_cardinals_button = button_standard { 
+		name = "college_of_cardinals"
+		minimumsize = { 240 0 }
+		visible = "[EqualTo_string(FaithWindow.GetFaith.GetNameNoTooltip,Localize('catholic'))]"
+		text = "VIEW_CARDINAL_WINDOW_TITLE"
+		tooltip = "VIEW_CARDINAL_WINDOW_TITLE_TOOLTIP"
+		onclick = "[GetVariableSystem.Toggle('window_cardinals')]"
+		onclick = "[GetScriptedGui('refresh_cardinal_characters').Execute(GuiScope.SetRoot(Religion.MakeScope).End)]"
+		onclick = "[GetScriptedGui('cardinal_music').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+
+		using = tooltip_nw
+
+		# text_single = {
+		# 	position= {60 3}
+		# 	name = "header_text_custom"
+		# 	default_format = "#clickable"
+
+		# 	text = "collegeofcardinals"
+		# 	maximumsize = { 400 -1 }
+
+		# 	#using = Font_Type_Flavor
+		# 	using = tooltip_nw
+		# }
+	}
 }

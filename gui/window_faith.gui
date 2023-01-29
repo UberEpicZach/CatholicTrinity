@@ -717,7 +717,7 @@ window = {
 							}
 						}
 
-						window_faith_doctrine_spiritual_head_item_type = {}
+						UniUI_Trinity_window_faith_widget_doctrine_item = {}
 
 						widget_doctrine_item = {
 							visible = "[Faith.HasDoctrineByKey( 'doctrine_temporal_head' )]"
@@ -820,7 +820,7 @@ window = {
 					text = "RECREATE_TEMPORAL_HEAD_OF_FAITH_TITLE"
 				}
  
-				cardinals_button = {}
+				window_faith_cardinals_button = {}
 
 				expand = {}
 			}
