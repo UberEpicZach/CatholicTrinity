@@ -32,7 +32,7 @@
 	text = {
 		trigger = {
 			OR = {
-				has_trait = rot_antipope
+				has_trait = TCT_antipope
 				has_title = title:k_papal_state
 			}
 		}

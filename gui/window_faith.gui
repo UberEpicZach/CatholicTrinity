@@ -32,7 +32,7 @@ window = {
 		position = { -60 0 }
 		on_start = "[GetVariableSystem.Clear( 'hide_bottom_left_HUD' )]"
 		on_start = "[GetVariableSystem.Clear( 'window_appoint_successor_theocracy' )]"
-
+		on_start = "[SetMapMode( 'realms' )]"
 		using = Animation_FadeOut_Quick
 		using = Sound_WindowHide_Standard
 	}
@@ -265,12 +265,110 @@ window = {
 				using = tooltip_below
 			}
 
+			#PENTARCHY
 			button_tab = {
 				layoutpolicy_horizontal = expanding
-				visible = "[GetScriptedGui('can_see_investiture').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+				onclick = "[GetVariableSystem.Set( 'faith_view_tabs', 'pentarchy' )]"
+				down = "[GetVariableSystem.HasValue( 'faith_view_tabs', 'pentarchy' )]"
+				visible = "[Faith.HasDoctrineByKey( 'doctrine_autocephaly_head' )]"
+				datacontext = "[GetScriptedGui( 'TCT_update_pentarchy' )]"
+				enabled = "[Not(IsObserver)]"
+				onclick = "[GetVariableSystem.Toggle( 'pentarchy_open' )]"
+				onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'faith', Faith.MakeScope ).End ) ]"
+				onclick = "[GetScriptedGui( 'TCT_pentarchy_map' ).Execute(GuiScope.End)]"
+				onclick = "[SetMapMode( 'TCT_pentarchy' )]"
+				
+				
+				text = "TCT_open_pentarchy_window_button"
+				default_format = "#low"
+
+				using = tooltip_below
+
+				flowcontainer = {
+					visible = "[And( GetScriptedGui('TCT_update_pentarchy').IsShown(GuiScope.End), IsMapMode('TCT_pentarchy') ), IsDefaultGUIMode ) )]"
+					parentanchor = bottom|right
+					position = { 1325 760 }
+					direction = vertical
+					ignoreinvisible = yes
+					min_width = 170
+					margin_left = 2
+					margin_top = 3
+					margin_bottom = 5
+					spacing = 5
+		
+					state = {
+						name = _show
+						using = Animation_FadeIn_Standard
+					}
+		
+					state = {
+						name = _hide
+						using = Animation_FadeOut_Standard
+					}
+		
+					background = {
+						using = Background_Area_Dark
+						margin = { 10 10 }
+						margin_top = 5
+						color = { 0.15 0.15 0.15 0.75 }
+					}
+		
+					text_single = {
+						parentanchor = hcenter
+						text = "pentarchy_LEGEND"
+						default_format = "#Bold #color_white"
+						
+					}
+		
+					flowcontainer = {
+						direction = vertical
+						spacing = 20
+						margin_bottom = 10
+						widget = {
+							hbox = {
+								icon = {
+									texture = "gfx/interface/colors/white.dds"
+									size = { 8 8 }
+									color = { 100.100 100.100 100.100 1 }
+								}
+								spacing = 5
+								text_single = {
+									margin_top = -6
+									align = center
+									text = "CUSTOM_pentarchy_INVESTITURE"
+									default_format = "#bold"
+								}
+								expand = {}
+							}
+						}
+						widget = {
+							hbox = {
+								icon = {
+									texture = "gfx/interface/colors/white.dds"
+									size = { 8 8 }
+									color = { 0.98431 0.28627 0.20392 1 }
+								}
+								spacing = 5
+								text_single = {
+									margin_top = -6
+									align = center
+									text = "CUSTOM_pentarchy_INVESTITURE"
+									default_format = "#bold"
+								}
+								expand = {}
+							}
+						}
+					}
+				}
+			}
+
+			#INVESTITURE
+			button_tab = {
+				layoutpolicy_horizontal = expanding
+				visible = "[Faith.HasDoctrineByKey( 'doctrine_clerical_succession_investiture_law_appointment' )]"
 				onclick = "[GetVariableSystem.Set( 'faith_view_tabs', 'investiture' )]"
 				onclick = "[GetScriptedGui( 'line_investiture_map' ).Execute(GuiScope.End)]"
-				onclick = "[SetMapMode( 'baronies' )]"
+				onclick = "[SetMapMode( 'TCT_investiture' )]"
 				onclick = "[GetScriptedGui('get_all_realm_theocracies').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 				down = "[GetVariableSystem.HasValue( 'faith_view_tabs', 'investiture' )]"
 				raw_text = "Investiture" # Should typically call a loc key but you can put the text right in if you are lazy
@@ -279,7 +377,7 @@ window = {
 				using = tooltip_below
 
 				flowcontainer = {
-					visible = "[And( GetScriptedGui('line_investiture_map').IsShown(GuiScope.End), IsMapMode('baronies') ), IsDefaultGUIMode ) )]"
+					visible = "[And( GetScriptedGui('line_investiture_map').IsShown(GuiScope.End), IsMapMode('TCT_investiture') ), IsDefaultGUIMode ) )]"
 					parentanchor = bottom|right
 					position = { 1325 760 }
 					direction = vertical
@@ -789,17 +887,17 @@ window = {
 								visible = "[Faith.HasDoctrineByKey('doctrine_independent_papacy_head')]"
 								text_single = {
 									visible = "[Faith.GetReligiousHead.IsValid]"
-									text = "rot_antipopes_title"
+									text = "TCT_antipopes_title"
 									default_format = "#medium"
 									layoutpolicy_horizontal = expanding
 									fontsize_min = 10
 								}
 								
-								datamodel = "[Faith.MakeScope.GetList('rot_antipopes')]"
+								datamodel = "[Faith.MakeScope.GetList('TCT_antipopes')]"
 								item = {
 									text_single = {
 										visible = "[Faith.GetReligiousHead.IsValid]"
-										text = "rot_antipopes_name"
+										text = "TCT_antipopes_name"
 										default_format = "#high"
 										layoutpolicy_horizontal = expanding
 										fontsize_min = 14
@@ -807,8 +905,8 @@ window = {
 									}
 								}
 								text_single = {
-									visible = "[GetScriptedGui( 'rot_no_antipopes' ).IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'faith', Faith.MakeScope ).End )]"
-									text = "rot_no_antipopes"
+									visible = "[GetScriptedGui( 'TCT_no_antipopes' ).IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'faith', Faith.MakeScope ).End )]"
+									text = "TCT_no_antipopes"
 									default_format = "#weak"
 									layoutpolicy_horizontal = expanding
 									fontsize_min = 14
@@ -1211,8 +1309,271 @@ window = {
 				}
 			}
 		}
+
+		#############################################
+		#############################################
+		################# PENTARCHY #################
+		#############################################
+		#############################################
+		
+		vbox = {
+			name = "tab_pentarchy"
+			visible = "[GetVariableSystem.HasValue( 'faith_view_tabs', 'pentarchy' )]"
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+
+			spacing = 15
+			margin_top = 15
+			
+			state = {
+				name = _show
+				using = Animation_FadeIn_Quick
+			}
+
+			state = {
+				name = _hide
+				alpha = 0
+			}
+			text_label_center = {
+				parentanchor = left
+				text = "TCT_pentarchy_title"
+				#size = { 150 100 }
+			}
+			hbox = {
+				vbox = {
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+					datamodel = "[GetPlayer.MakeScope.GetList('TCT_ecumenical_patriarch_list')]"
+					margin_right = 15
+					item = {
+						flowcontainer = {
+							datacontext = "[Scope.GetCharacter]"
+							vbox = {
+								text_single = {
+									parentanchor = top
+									text = "TCT_ecumenical_patriarch_title"
+									default_format = "#high"
+									#layoutpolicy_horizontal = expanding
+									margin_bottom = 30
+									max_width = 200
+								}
+
+								portrait_shoulders = {
+									background = {
+										using = Background_Area_Dark
+										margin_top = 25
+										margin_bottom = 10
+										margin_left = 20
+										margin_right = 20
+									} 
+									background = {
+										using = Background_Frame
+										margin_top = 20
+										margin_bottom = 5
+										margin_left = 15
+										margin_right = 15
+									}
+									background = {
+										using = Background_Area_Dark
+										margin_top = 19
+										margin_bottom = 4
+										margin_left = 14
+										margin_right = 14
+									} 
+								}
+
+								background = {
+									using = Background_Area
+								}
+								
+								background = {
+									texture = "gfx/interface/component_masks/patterns/mask_pattern_04.dds"
+									spriteType = Corneredtiled
+									margin_top = -20
+									margin_bottom = -10
+									margin_left = -10
+									margin_right = -10
+									using = Color_Red
+									alpha = 0.25
+
+									modify_texture = {
+										texture = "gfx/interface/component_masks/mask_rough_edges.dds"
+										spriteType = Corneredtiled
+										spriteborder = { 20 20 }
+										texture_density = 5
+										blend_mode = alphamultiply
+									}
+								}
+								text_label_center = {
+									text = "TCT_ecumenical_patriarch_name"
+									#layoutpolicy_horizontal = expanding
+									max_width = 200
+								}
+							}
+						}
+					}
+				}
+				spacer = { 
+					size = { 75 75 }
+					margin_top = 2
+				}
+				
+				dynamicgridbox = { # Pentarchs
+					name = "pentarchs"
+					datamodel = "[GetPlayer.MakeScope.GetList('TCT_pentarchs_list')]"
+					#layoutpolicy_horizontal = expanding
+					#layoutpolicy_vertical = expanding
+					datamodel_wrap = 2
+					flipdirection = yes
+					item = {
+						flowcontainer = {
+							
+							margin_top = 2
+							margin_bottom = 2
+							margin_left = 6
+							margin_right = 2
+			
+							vbox = {
+								
+								#layoutpolicy_horizontal = expanding
+								#layoutpolicy_vertical = expanding
+								datacontext = "[Scope.GetCharacter]"
+								spacer = { 
+									size = { 5 50 }
+								}
+								# background = {
+								# 	using = Background_Area
+								# 	spacer = { 
+								# 		size = { 0 50 }
+								# 	}
+								# }
+								text_label_center = {
+									margin_top = 5
+									parentanchor = left
+									text = "[Scope.GetCharacter.Custom('TCT_get_patriarchate_of_pentarch')]"
+									layoutpolicy_horizontal = expanding
+									max_width = 90
+									#size = { 150 100 }
+								}
+								#spacer = { 
+								#	size = { 0 5 }
+								#}
+								portrait_head = {
+									#size = { 150 200 }
+									parentanchor = left
+									#datacontext = "[Character]"
+								
+									#blockoverride "coa_button" {
+									#	datacontext = "[Scope.GetCharacter.GetTopLiege]"
+									#	tooltip = "[Character.GetDefaultRealmFlagTooltipPrimaryTitleClickInfo]"
+									#	onclick = "[DefaultOnCoatOfArmsClick(Character.GetPrimaryTitle.GetID)]"
+									#}
+								}
+								text_single = {
+									parentanchor = left
+									text = "[Scope.GetCharacter.GetFirstNameNoTooltip]" 
+									max_width = 100
+									#size = { 150 100 }
+								}
+							}
+						}
+					}
+				}
+				spacer = { 
+					size = { 20 0 }
+				}
+			}
+			spacer = { 
+				size = { 20 25 }
+			}
+			vbox = {
+				name = "autocephalies"
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+				margin_top = 10
+
+				text_label_center = {
+					layoutpolicy_horizontal = expanding
+					text = "TCT_patriarchs_title"
+					default_format = "#medium"
+				
+				}
+				spacer = { 
+					size = { 0 10 }
+				}
+				scrollbox = {
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+
+					blockoverride "scrollbox_content"
+					{
+						
+						spacing = 10
+						margin_top = 20
+
+						state = {
+							name = "faith_view_refresh"
+							using = Animation_Refresh_FadeOut
+						}
+
+						state = {
+							using = Animation_Refresh_FadeIn
+						}
+						
+						vbox = {
+							layoutpolicy_horizontal = expanding
+							datamodel = "[GetPlayer.MakeScope.GetList('TCT_patriarchs_list')]"
+							item = {
+								hbox = {
+									layoutpolicy_horizontal = expanding
+									layoutpolicy_vertical = expanding
+									datacontext = "[Scope.GetCharacter]"
+									
+									background = {
+										using = Background_Area
+									}
+									portrait_head = {
+										parentanchor = left
+									}
+									flowcontainer = {
+										direction = vertical
+										layoutpolicy_horizontal = expanding
+										layoutpolicy_vertical = expanding
+										margin_top = 10
+										margin_bottom = 10
+										margin_left = 15
+										spacing = 13
+										text_label_center = {
+											text = "[Character.GetPrimaryTitle.GetNameNoTooltip]"
+											using = Font_Size_Medium
+											default_format = "#high"
+											layoutpolicy_horizontal = expanding
+											#align = nobaseline
+											#margin_bottom = 3
+											#margin_left = 10
+										}
+										text_single = {
+											parentanchor = left
+											layoutpolicy_horizontal = expanding
+											text = "TCT_patriarch_name"
+											#size = { 150 100 }
+										}
+										text_single = {
+											parentanchor = left
+											layoutpolicy_horizontal = expanding
+											text = "TCT_patriarchate_territory"
+											#size = { 150 100 }
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
 	}
-}
+}	
 
 ### RELIGION VIEW
 window = {

@@ -4,6 +4,26 @@
 		CatholicsimFix
 		mapmodes
 		fixing867pope
+		TCTpentarchy
+	}
+}
+
+TCTpentarchy = {
+	effect = {
+		### Pentarchy setups
+		every_living_character = {
+			limit = {
+				OR = {
+					has_title = title:k_papal_state
+					has_title = title:d_rome_patriarchate
+					has_title = title:d_constantinople_patriarchate
+					has_title = title:d_alexandria_patriarchate
+					has_title = title:d_antioch_patriarchate
+					has_title = title:d_jerusalem_patriarchate
+				}
+			}
+			change_government = theocracy_government
+		}
 	}
 }
 
@@ -109,6 +129,11 @@ CatholicsimFix = {
 			remove_doctrine = doctrine_consanguinity_aunt_nephew_and_uncle_niece
 			add_doctrine = doctrine_consanguinity_restricted
 		}
+		faith:orthodox = {
+			remove_doctrine = tenet_pentarchy
+			add_doctrine = tenet_christian_pentarchy
+			add_doctrine = doctrine_autocephaly_head
+		}
 		set_global_variable = {
 			name = Trinity_is_loaded
 			value = yes
@@ -135,9 +160,9 @@ characterfaithchangeROT = {
 	effect = {
 		if = {
 			limit = {
-				has_trait = rot_antipope
+				has_trait = TCT_antipope
 			}
-			rot_remove_antipope = yes
+			TCT_remove_antipope = yes
 		}
 		if = {
 			limit = {
@@ -170,9 +195,9 @@ faithconversionROT = {
 	effect = {
 		if = {
 			limit = {
-				has_trait = rot_antipope
+				has_trait = TCT_antipope
 			}
-			rot_remove_antipope = yes
+			TCT_remove_antipope = yes
 		}
 		if = {
 			limit = {
@@ -477,12 +502,12 @@ on_death = {
 
 on_antipope_death = {
 	trigger = {
-		has_trait = rot_antipope
+		has_trait = TCT_antipope
 	}
 	effect = {
-		rot_remove_antipope = yes
+		TCT_remove_antipope = yes
 		add_trait = pope_trait
-		add_trait = rot_antipope
+		add_trait = TCT_antipope
 		give_nickname = nick_pope
 	}
 }
@@ -991,7 +1016,7 @@ on_gain_papacy = {
 		if = { limit = { has_trait = cardinal_archbishop } remove_trait = cardinal_archbishop }
 		every_player = {add_gold = 1}
 		if = {limit = {is_cardinal = yes} every_player = {add_piety = 1}}
-		if = { limit = { has_trait = rot_antipope } rot_remove_antipope = yes}
+		if = { limit = { has_trait = TCT_antipope } TCT_remove_antipope = yes}
 	}
 }
 

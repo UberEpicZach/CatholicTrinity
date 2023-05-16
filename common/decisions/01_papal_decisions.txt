@@ -194,7 +194,7 @@ InstallAntipope = {
 	ai_check_interval = 6
 
 	is_shown = {
-		has_variable = rot_antipope_of_ruler
+		has_variable = TCT_antipope_of_ruler
 		has_faith = faith:catholic
 		is_ruler = yes
 		is_landed = yes
@@ -208,7 +208,7 @@ InstallAntipope = {
 	}
 
 	is_valid = {
-		has_variable = rot_antipope_of_ruler
+		has_variable = TCT_antipope_of_ruler
 		has_faith = faith:catholic
 		is_ruler = yes
 		is_landed = yes
@@ -239,7 +239,7 @@ InstallAntipope = {
 	}
 
 	effect = {
-		rot_get_pope_of_target = {
+		TCT_get_pope_of_target = {
 			TARGET = root
 		}
 

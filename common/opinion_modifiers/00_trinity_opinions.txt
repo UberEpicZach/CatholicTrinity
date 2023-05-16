@@ -23,11 +23,11 @@ bishop_bribed_by_pope = {
 	decaying = yes
 }
 
-rot_created_antipope = {
+TCT_created_antipope = {
 	opinion = 30
 	years = 20
 }
-rot_creator_of_antipope = {
+TCT_creator_of_antipope = {
 	opinion = -300
 	years = 50
 }

@@ -10,8 +10,8 @@
  game_concept_papal_investiture_desc: "$game_concept_papal_investiture$ is the standard for Catholic [investiture|E]. Only the Pope may appoint Bishops within the Realm. This will give the Crown a Piety cost discount when requesting special papal actions, like Divorce and Excommunication."
 
  installed_antipope: "Installed Pope"
- rot_created_antipope: "Created Antipope"
- rot_make_antipope_interaction: "#W Create Anti-Pope#!"
+ TCT_created_antipope: "Created Antipope"
+ TCT_make_antipope_interaction: "#W Create Anti-Pope#!"
  investiture_early: "[investiture|E]"
  investiture_late: "[investiture|E]"
  papal_investiture_early: "[papal_investiture|E]"
@@ -51,7 +51,7 @@
  feudal_government_raid:0 "Feudal"
  
 
-  doctrine_parameter_rot_clerical_appointment_investiture:0 "Appointments to the positions "[realm_priest|E]" and "[court_chaplain|E]" are determined through the laws of investiture "
+  doctrine_parameter_TCT_clerical_appointment_investiture:0 "Appointments to the positions "[realm_priest|E]" and "[court_chaplain|E]" are determined through the laws of investiture "
   doctrine_clerical_succession_investiture_law_appointment_name:0 "Investiture"
   doctrine_clerical_succession_investiture_law_appointment_desc:0 "Until the dispute over the supremacy of power between secular rulers and the Holy See is resolved, the appointment of bishops will be decided by each ruler independently. The appointment itself will ultimately be final and absolute."
   investiture_is_on_cooldown:0 "The investiture law has changed not so long ago. It will not be possible to change it until [GetCurrentDateWithDiff (GetVarTimeRemaining (CHARACTER.MakeScope, 'investiture_cooldown'))]"
@@ -69,29 +69,29 @@
   CUSTOM_FREE_INVESTITURE: "Free Investiture"
  
   ### ANTIPOPES
-  rot_antipopes_title:0 "Antipope:"
-  rot_antipopes_name:0 "[Scope.GetCharacter.GetFirstNameNicknamed] #medium ([Scope.GetCharacter.GetLiege.GetPrimaryTitle.GetName]) #!"
-  rot_no_antipopes:0 "Absent"
+  TCT_antipopes_title:0 "Antipope:"
+  TCT_antipopes_name:0 "[Scope.GetCharacter.GetFirstNameNicknamed] #medium ([Scope.GetCharacter.GetLiege.GetPrimaryTitle.GetName]) #!"
+  TCT_no_antipopes:0 "Absent"
   
-  ROT_MAKE_ANTIPOPE_NEGATIVE_OPINION:0 "[recipient.GetShortUIName|U] has a negative opinion about my character: $VALUE|=+0$"
-  ROT_MAKE_ANTIPOPE_VIRTUES:0 "[actor.GetFaith.GetReligiousHead.GetShortUIName|U] has virtuous [traits|El]: $VALUE|=+0$"
-  ROT_MAKE_ANTIPOPE_SINS:0 "[recipient.GetFaith.GetReligiousHead.GetShortUIName|U] has sinful [traits|El]: $VALUE|=+0$"
-  ROT_MAKE_ANTIPOPE_IS_AMBITIOUS:0 "[GetTrait('ambitious').GetName(recipient.Self)]: $VALUE|=+0$"
-  ROT_MAKE_ANTIPOPE_IS_CONTENT:0 "[GetTrait('content').GetName(recipient.Self)]: $VALUE|=+ 0 $""
-  ROT_MAKE_ANTIPOPE_IS_CARDINAL:0 "[GetTrait('koh_cardinal').GetName(recipient.Self)]: $VALUE|=+0$"
-  ROT_MAKE_ANTIPOPE_IS_HUMBLE:0 "[GetTrait('humble').GetName(recipient.Self)]: $VALUE|=+0$"
-  ROT_MAKE_ANTIPOPE_IS_ARROGANT:0 "[GetTrait('arrogant').GetName(recipient.Self)]: $VALUE|=+0$"
-  ROT_MAKE_ANTIPOPE_IS_BRAVE:0 "[GetTrait('brave').GetName(recipient.Self)]: $VALUE|=+0$"
-  ROT_MAKE_ANTIPOPE_IS_CRAVEN:0 "[GetTrait('craven').GetName(recipient.Self)]: $VALUE|=+0$"
-  ROT_MAKE_ANTIPOPE_IS_DUKE:0 "You are just a duke: $VALUE|=+0$"
-  ROT_MAKE_ANTIPOPE_ANTIPOPE_IS_EXISTS:0 "At least one antipope already exists: $VALUE|=+0$"
+  TCT_MAKE_ANTIPOPE_NEGATIVE_OPINION:0 "[recipient.GetShortUIName|U] has a negative opinion about my character: $VALUE|=+0$"
+  TCT_MAKE_ANTIPOPE_VIRTUES:0 "[actor.GetFaith.GetReligiousHead.GetShortUIName|U] has virtuous [traits|El]: $VALUE|=+0$"
+  TCT_MAKE_ANTIPOPE_SINS:0 "[recipient.GetFaith.GetReligiousHead.GetShortUIName|U] has sinful [traits|El]: $VALUE|=+0$"
+  TCT_MAKE_ANTIPOPE_IS_AMBITIOUS:0 "[GetTrait('ambitious').GetName(recipient.Self)]: $VALUE|=+0$"
+  TCT_MAKE_ANTIPOPE_IS_CONTENT:0 "[GetTrait('content').GetName(recipient.Self)]: $VALUE|=+ 0 $""
+  TCT_MAKE_ANTIPOPE_IS_CARDINAL:0 "[GetTrait('koh_cardinal').GetName(recipient.Self)]: $VALUE|=+0$"
+  TCT_MAKE_ANTIPOPE_IS_HUMBLE:0 "[GetTrait('humble').GetName(recipient.Self)]: $VALUE|=+0$"
+  TCT_MAKE_ANTIPOPE_IS_ARROGANT:0 "[GetTrait('arrogant').GetName(recipient.Self)]: $VALUE|=+0$"
+  TCT_MAKE_ANTIPOPE_IS_BRAVE:0 "[GetTrait('brave').GetName(recipient.Self)]: $VALUE|=+0$"
+  TCT_MAKE_ANTIPOPE_IS_CRAVEN:0 "[GetTrait('craven').GetName(recipient.Self)]: $VALUE|=+0$"
+  TCT_MAKE_ANTIPOPE_IS_DUKE:0 "You are just a duke: $VALUE|=+0$"
+  TCT_MAKE_ANTIPOPE_ANTIPOPE_IS_EXISTS:0 "At least one antipope already exists: $VALUE|=+0$"
   
   RELIGIOUS_HEAD_INTERACTION_CONCLAVE_INFLUENCE_ACTOR:0 "Your influence on [collegeofcardinals|E]: $VALUE|=+0$"
   RELIGIOUS_HEAD_INTERACTION_CONCLAVE_INFLUENCE_RECIPIENT:0 "Influence of [secondary_recipient.GetShortUIName|U] on [collegeofcardinals|E]: $VALUE|=+0$"
 
   doctrine_independent_papacy_head_name:0 "Papal"
   doctrine_independent_papacy_head_desc:0 "The physical world and the spiritual world are not alike. We must know for sure that the spiritual world has its own ruler, which guides us and protects our faith from bodily contamination."
-  doctrine_parameter_rot_antipopes:0 "Rulers with [free_investiture|E], can appoint Antipopes, contenders to the Papacy" 
+  doctrine_parameter_TCT_antipopes:0 "Rulers with [free_investiture|E], can appoint Antipopes, contenders to the Papacy" 
 
   # "Investiture, #italic 'in#! #italic Vestire' #! meaning in dress or robe is the formal installationn which a person is given the authority and regalia of a high office, in the case of a Bishop's Investiture has brought upon differing views throughout the church and europe, The Pope had declared himself the sole appointer, while the european nobility, many of which who had donated lands and territory to the church themselves, wish to retain the legal authority to pick and choose the successors to these bishopics." [selected_title_for_investiture.GetNameNoTier]
   k_papal_state_article:0 "the "

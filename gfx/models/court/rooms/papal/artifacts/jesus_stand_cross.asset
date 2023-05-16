@@ -1,0 +1,60 @@
+pdxmesh = {
+	name = "jesus_stand_cross_mesh"
+	file = "jesus_stand_cross.mesh"
+
+	meshsettings = {
+		name = "Cross"
+		index = 0
+		texture_diffuse = "Jesus_diffuse.dds"
+		texture_normal = "papal_wall_normal.dds"
+		texture_specular = "papal_wall_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+
+	meshsettings = {
+		name = "Cross Stand"
+		index = 1
+		texture_diffuse = "jesus_cross_stand.dds"
+		texture_normal = "papal_floor_normal.dds"
+		texture_specular = "papal_floor_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+	meshsettings = {
+		name = "Jesus"
+		index = 2
+		texture_diffuse = "Jesus_diffuse.dds"
+		texture_normal = "Jesus_normal.dds"
+		texture_specular = "Jesus_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+
+	meshsettings = {
+		name = "Jesus Stand Box"
+		index = 3
+		texture_diffuse = "Jesus Box Stand.dds"
+		texture_normal = "papal_stand_normal.dds"
+		texture_specular = "papal_stand_properties.dds"
+		shader = "court"
+		shader_file = "gfx/FX/court_scene.shader"
+	}
+}
+
+entity = {
+	name = "jesus_stand_cross_entity"
+	pdxmesh = "jesus_stand_cross_mesh"
+}
+
+entity = {
+	name = "env_wildfire01"
+	
+	locator = { name = part1 }
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 5
+		event = { time = 0 node = "part1" particle = "wildfire02-TestFromHere" trigger_once = yes skip_forward = 2}
+	}
+	cull_radius = 4
+}

@@ -16,10 +16,16 @@
 	}
 }
 
-# k_TCT_papal_state = {
-# 	30.1.1 = {
-# 		holder = 145292
+# d_jerusalem_patriarchate = {
+# 	864.1.1 = {
+# 		holder = TrinityChurch4
 # 		government = theocracy_government
-# 	} # Peter's first visit to Rome
-
+# 		liege = e_arabia
+# 	}
+# 	1053.1.1 = {
+# 		holder = TrinityChurch3
+# 		government = theocracy_government
+# 		liege = k_egypt
+# 	}
 # }
+

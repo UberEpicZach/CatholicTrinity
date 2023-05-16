@@ -17,3 +17,102 @@ d_captain_general_church = {
 	always_follows_primary_heir = yes
 	de_jure_drift_disabled = yes
 }
+
+
+d_rome_patriarchate = {
+	color = { 140 20 20 }
+	definite_form = yes
+	ruler_uses_title_name = no
+	landless = yes
+
+	capital = c_roma
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+}
+d_constantinople_patriarchate = {
+	color = hsv{ 0.9 1 0.3 }
+	definite_form = yes
+	ruler_uses_title_name = no
+	landless = yes
+
+	capital = c_byzantion
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+}
+d_alexandria_patriarchate = {
+	color = { 100 220 135 }
+	definite_form = yes
+	ruler_uses_title_name = no
+	landless = yes
+
+	capital = c_alexandria
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+}
+d_antioch_patriarchate = {
+	color = { 180 110 45 }
+	definite_form = yes
+	ruler_uses_title_name = no
+	landless = yes
+
+	capital = c_antiocheia	#Etchmiadzin
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+}
+d_jerusalem_patriarchate = {
+	color = { 180 180 180 }
+	definite_form = yes
+	ruler_uses_title_name = yes
+	landless = yes
+
+	capital = c_jerusalem	#Etchmiadzin
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+}
+
+d_blank_title_fuck_you_game_eat_shit = {
+	color = { 180 180 180 }
+	definite_form = yes
+	ruler_uses_title_name = no
+	landless = yes
+
+	capital = c_jerusalem	#Etchmiadzin
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+}

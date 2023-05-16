@@ -184,3 +184,19 @@ papacy_grand_inquisitor  = {
 	council_position = councillor_spymaster
 	titles = { k_papal_state }
 }
+
+orthodox_patriarch = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 301
+	titles = { 
+		d_alexandria_patriarchate
+		d_antioch_patriarchate
+		d_jerusalem_patriarchate
+		d_rome_patriarchate
+		d_constantinople_patriarchate
+	}
+	top_liege = no
+}

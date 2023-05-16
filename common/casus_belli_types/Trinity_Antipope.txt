@@ -5,7 +5,7 @@
 	}
 
 	allowed_for_character = { 
-		has_variable = rot_antipope_of_ruler
+		has_variable = TCT_antipope_of_ruler
 		highest_held_title_tier >= tier_duchy
 	}
 
@@ -14,7 +14,7 @@
 		is_pope = yes
 		has_title = title:k_papal_state
 		faith = {
-			has_variable_list = rot_antipopes
+			has_variable_list = TCT_antipopes
 		}
 
 	}
@@ -28,7 +28,7 @@
 			NOT = { has_trait = incapable }
 			is_imprisoned = no
 			OR = {
-				has_trait = rot_antipope
+				has_trait = TCT_antipope
 			}
 		}
 	}

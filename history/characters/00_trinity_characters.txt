@@ -25,7 +25,6 @@ TrinityChurch1 = {
 	intrigue = 5
 	stewardship = 5
 	religion = "catholic"
-	culture = anglo_saxon
 	culture = italian
 	
 	1022.1.1 = {
@@ -37,4 +36,44 @@ TrinityChurch1 = {
 	}
 }
 
+#Patriach of Jerusalem 1066 date
+TrinityChurch3 = {
+	name = "Sophronius"
+	martial = 4
+	diplomacy = 6
+	intrigue = 3
+	stewardship = 6
+	learning = 14
+	culture = "greek"
+	religion = "orthodox"
+	trait = devoted
+	1020.1.1 = {
+		birth = yes
+	}
+	
+	1084.5.2 = {
+		death = yes
+	}
+}
+
+#Patriach of Jerusalem 867 date
+TrinityChurch4 = {
+	name = "Theodosius"
+	martial = 3
+	diplomacy = 1
+	intrigue = 2
+	stewardship = 2
+	learning = 18
+	culture = "greek"
+	religion = "orthodox"
+	trait = devoted
+
+	800.1.1 = {
+		birth = yes
+	}
+	
+	879.5.2 = {
+		death = yes
+	}
+}
 
