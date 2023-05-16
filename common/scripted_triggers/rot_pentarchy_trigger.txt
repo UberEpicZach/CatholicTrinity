@@ -1,0 +1,196 @@
+﻿TCT_is_patriarch_of_target_trigger = {
+	trigger_if = {
+		limit = {
+			$TARGET$ = {
+				faith = { has_doctrine = doctrine_autocephaly_head }
+				exists = capital_province
+			}
+		}
+		trigger_if = {
+			limit = { 
+				$PATRIARCH$ = {
+					any_held_title = { 
+						has_variable = TCT_autocephaly 
+						save_temporary_scope_as = TCT_patriarchate
+					}
+				}
+			}
+			OR = {
+				$TARGET$.top_liege.capital_province.empire = scope:TCT_patriarchate.var:TCT_autocephaly
+				$TARGET$.top_liege.capital_province.kingdom = scope:TCT_patriarchate.var:TCT_autocephaly
+			}
+		}
+		trigger_else_if = {
+			limit = { $PATRIARCH$ = title:k_papal_state.holder }
+			$TARGET$.capital_province = { geographical_region = TCT_region_pentarchy_rome }
+		}
+		trigger_else_if = {
+			limit = { $PATRIARCH$ = title:d_rome_patriarchate.holder }
+			$TARGET$.capital_province = { geographical_region = TCT_region_pentarchy_rome }
+		}
+		trigger_else_if = {
+			limit = { $PATRIARCH$ = title:d_constantinople_patriarchate.holder }
+			$TARGET$.capital_province = { geographical_region = TCT_region_pentarchy_constantinople }
+		}
+		trigger_else_if = {
+			limit = { $PATRIARCH$ = title:d_alexandria_patriarchate.holder }
+			$TARGET$.capital_province = { geographical_region = TCT_region_pentarchy_alexandria }
+		}
+		trigger_else_if = {
+			limit = { $PATRIARCH$ = title:d_antioch_patriarchate.holder }
+			$TARGET$.capital_province = { 
+				OR = {
+					geographical_region = TCT_region_pentarchy_antiochia 
+					geographical_region = world_india
+					geographical_region = world_steppe_tarim
+					geographical_region = world_tibet
+					geographical_region = world_burma
+					geographical_region = world_steppe_east 
+				}
+			}
+		}
+		trigger_else_if = {
+			limit = { $PATRIARCH$ = title:d_jerusalem_patriarchate.holder }
+			$TARGET$.capital_province = { geographical_region = TCT_region_pentarchy_jerusalem }
+		}
+		trigger_else = {
+			always = no 
+		}
+	}
+	trigger_else_if = {
+		limit = {
+			$TARGET$ = {
+				faith = { has_doctrine = doctrine_autocephaly_head }
+				exists = liege.capital_province
+			}
+		}
+		trigger_if = {
+			limit = { 
+				$PATRIARCH$ = {
+					any_held_title = { 
+						has_variable = TCT_autocephaly 
+						save_temporary_scope_as = TCT_patriarchate
+					}
+				}
+			}
+			OR = {
+				$TARGET$.top_liege.capital_province.empire = scope:TCT_patriarchate.var:TCT_autocephaly
+				$TARGET$.top_liege.capital_province.kingdom = scope:TCT_patriarchate.var:TCT_autocephaly
+			}
+		}
+		trigger_else_if = {
+			limit = { $PATRIARCH$ = title:k_papal_state.holder }
+			$TARGET$.liege.capital_province = { geographical_region = TCT_region_pentarchy_rome }
+		}
+		trigger_else_if = {
+			limit = { $PATRIARCH$ = title:d_rome_patriarchate.holder }
+			$TARGET$.liege.capital_province = { geographical_region = TCT_region_pentarchy_rome }
+		}
+		trigger_else_if = {
+			limit = { $PATRIARCH$ = title:d_constantinople_patriarchate.holder }
+			$TARGET$.liege.capital_province = { geographical_region = TCT_region_pentarchy_constantinople }
+		}
+		trigger_else_if = {
+			limit = { $PATRIARCH$ = title:d_alexandria_patriarchate.holder }
+			$TARGET$.liege.capital_province = { geographical_region = TCT_region_pentarchy_alexandria }
+		}
+		trigger_else_if = {
+			limit = { $PATRIARCH$ = title:d_antioch_patriarchate.holder }
+			$TARGET$.liege.capital_province = { 
+				OR = {
+					geographical_region = TCT_region_pentarchy_antiochia 
+					geographical_region = world_india
+					geographical_region = world_steppe_tarim
+					geographical_region = world_tibet
+					geographical_region = world_burma
+					geographical_region = world_steppe_east 
+				}
+			}
+		}
+		trigger_else_if = {
+			limit = { $PATRIARCH$ = title:d_jerusalem_patriarchate.holder }
+			$TARGET$.liege.capital_province = { geographical_region = TCT_region_pentarchy_jerusalem }
+		}
+		trigger_else = {
+			always = no
+		}
+	}
+	trigger_else_if = {
+		limit = {
+			$TARGET$ = {
+				faith = { has_doctrine = doctrine_autocephaly_head }
+				exists = location
+			}
+		}
+		trigger_if = {
+			limit = { 
+				$PATRIARCH$ = {
+					any_held_title = { 
+						has_variable = TCT_autocephaly 
+						save_temporary_scope_as = TCT_patriarchate
+					}
+				}
+			}
+			OR = {
+				$TARGET$.top_liege.capital_province.empire = scope:TCT_patriarchate.var:TCT_autocephaly
+				$TARGET$.top_liege.capital_province.kingdom = scope:TCT_patriarchate.var:TCT_autocephaly
+			}
+		}
+		trigger_else_if = {
+			limit = { $PATRIARCH$ = title:k_papal_state.holder }
+			$TARGET$.location = { geographical_region = TCT_region_pentarchy_rome }
+		}
+		trigger_else_if = {
+			limit = { $PATRIARCH$ = title:d_rome_patriarchate.holder }
+			$TARGET$.location = { geographical_region = TCT_region_pentarchy_rome }
+		}
+		trigger_else_if = {
+			limit = { $PATRIARCH$ = title:d_constantinople_patriarchate.holder }
+			$TARGET$.location = { geographical_region = TCT_region_pentarchy_constantinople }
+		}
+		trigger_else_if = {
+			limit = { $PATRIARCH$ = title:d_alexandria_patriarchate.holder }
+			$TARGET$.location = { geographical_region = TCT_region_pentarchy_alexandria }
+		}
+		trigger_else_if = {
+			limit = { $PATRIARCH$ = title:d_antioch_patriarchate.holder }
+			$TARGET$.location = { 
+				OR = {
+					geographical_region = TCT_region_pentarchy_antiochia 
+					geographical_region = world_india
+					geographical_region = world_steppe_tarim
+					geographical_region = world_tibet
+					geographical_region = world_burma
+					geographical_region = world_steppe_east 
+				}
+			}
+		} 
+		trigger_else_if = {
+			limit = { $PATRIARCH$ = title:d_jerusalem_patriarchate.holder }
+			$TARGET$.location = { geographical_region = TCT_region_pentarchy_jerusalem }
+		}
+		trigger_else = {
+			always = no
+		}
+	}
+	trigger_else = {
+		$PATRIARCH$ = $TARGET$.faith.religious_head
+	}
+}
+TCT_is_not_patriarch_trigger = {
+	NOT = { 
+		has_title = title:k_orthodox
+		has_title = title:k_papal_state
+		has_title = title:d_rome_patriarchate
+		has_title = title:d_constantinople_patriarchate
+		has_title = title:d_alexandria_patriarchate
+		has_title = title:d_antioch_patriarchate
+		has_title = title:d_jerusalem_patriarchate
+		trigger_if = {
+			limit = { is_ruler = yes }
+			any_held_title = {
+				has_variable = TCT_autocephaly 
+			}
+		}
+	}
+}

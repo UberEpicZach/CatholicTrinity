@@ -167,5 +167,4 @@ TCT_no_antipopes = {
 			}
 		}
 	}
-	
 }

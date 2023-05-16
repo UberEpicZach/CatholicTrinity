@@ -266,101 +266,101 @@ window = {
 			}
 
 			#PENTARCHY
-			# button_tab = {
-			# 	layoutpolicy_horizontal = expanding
-			# 	onclick = "[GetVariableSystem.Set( 'faith_view_tabs', 'pentarchy' )]"
-			# 	down = "[GetVariableSystem.HasValue( 'faith_view_tabs', 'pentarchy' )]"
-			# 	visible = "[Faith.HasDoctrineByKey( 'doctrine_autocephaly_head' )]"
-			# 	datacontext = "[GetScriptedGui( 'TCT_update_pentarchy' )]"
-			# 	enabled = "[Not(IsObserver)]"
-			# 	onclick = "[GetVariableSystem.Toggle( 'pentarchy_open' )]"
-			# 	onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'faith', Faith.MakeScope ).End ) ]"
-			# 	onclick = "[GetScriptedGui( 'TCT_pentarchy_map' ).Execute(GuiScope.End)]"
-			# 	onclick = "[SetMapMode( 'TCT_pentarchy' )]"
+			button_tab = {
+				layoutpolicy_horizontal = expanding
+				onclick = "[GetVariableSystem.Set( 'faith_view_tabs', 'pentarchy' )]"
+				down = "[GetVariableSystem.HasValue( 'faith_view_tabs', 'pentarchy' )]"
+				visible = "[Faith.HasDoctrineByKey( 'doctrine_autocephaly_head' )]"
+				datacontext = "[GetScriptedGui( 'TCT_update_pentarchy' )]"
+				enabled = "[Not(IsObserver)]"
+				onclick = "[GetVariableSystem.Toggle( 'pentarchy_open' )]"
+				onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'faith', Faith.MakeScope ).End ) ]"
+				onclick = "[GetScriptedGui( 'TCT_pentarchy_map' ).Execute(GuiScope.End)]"
+				onclick = "[SetMapMode( 'TCT_pentarchy' )]"
 				
 				
-			# 	text = "TCT_open_pentarchy_window_button"
-			# 	default_format = "#low"
+				text = "TCT_open_pentarchy_window_button"
+				default_format = "#low"
 
-			# 	using = tooltip_below
+				using = tooltip_below
 
-			# 	flowcontainer = {
-			# 		visible = "[And( GetScriptedGui('TCT_update_pentarchy').IsShown(GuiScope.End), IsMapMode('TCT_pentarchy') ), IsDefaultGUIMode ) )]"
-			# 		parentanchor = bottom|right
-			# 		position = { 1325 760 }
-			# 		direction = vertical
-			# 		ignoreinvisible = yes
-			# 		min_width = 170
-			# 		margin_left = 2
-			# 		margin_top = 3
-			# 		margin_bottom = 5
-			# 		spacing = 5
+				flowcontainer = {
+					visible = "[And( GetScriptedGui('TCT_update_pentarchy').IsShown(GuiScope.End), IsMapMode('TCT_pentarchy') ), IsDefaultGUIMode ) )]"
+					parentanchor = bottom|right
+					position = { 1325 760 }
+					direction = vertical
+					ignoreinvisible = yes
+					min_width = 170
+					margin_left = 2
+					margin_top = 3
+					margin_bottom = 5
+					spacing = 5
 		
-			# 		state = {
-			# 			name = _show
-			# 			using = Animation_FadeIn_Standard
-			# 		}
+					state = {
+						name = _show
+						using = Animation_FadeIn_Standard
+					}
 		
-			# 		state = {
-			# 			name = _hide
-			# 			using = Animation_FadeOut_Standard
-			# 		}
+					state = {
+						name = _hide
+						using = Animation_FadeOut_Standard
+					}
 		
-			# 		background = {
-			# 			using = Background_Area_Dark
-			# 			margin = { 10 10 }
-			# 			margin_top = 5
-			# 			color = { 0.15 0.15 0.15 0.75 }
-			# 		}
+					background = {
+						using = Background_Area_Dark
+						margin = { 10 10 }
+						margin_top = 5
+						color = { 0.15 0.15 0.15 0.75 }
+					}
 		
-			# 		text_single = {
-			# 			parentanchor = hcenter
-			# 			text = "pentarchy_LEGEND"
-			# 			default_format = "#Bold #color_white"
+					text_single = {
+						parentanchor = hcenter
+						text = "pentarchy_LEGEND"
+						default_format = "#Bold #color_white"
 						
-			# 		}
+					}
 		
-			# 		flowcontainer = {
-			# 			direction = vertical
-			# 			spacing = 20
-			# 			margin_bottom = 10
-			# 			widget = {
-			# 				hbox = {
-			# 					icon = {
-			# 						texture = "gfx/interface/colors/white.dds"
-			# 						size = { 8 8 }
-			# 						color = { 100.100 100.100 100.100 1 }
-			# 					}
-			# 					spacing = 5
-			# 					text_single = {
-			# 						margin_top = -6
-			# 						align = center
-			# 						text = "CUSTOM_pentarchy_INVESTITURE"
-			# 						default_format = "#bold"
-			# 					}
-			# 					expand = {}
-			# 				}
-			# 			}
-			# 			widget = {
-			# 				hbox = {
-			# 					icon = {
-			# 						texture = "gfx/interface/colors/white.dds"
-			# 						size = { 8 8 }
-			# 						color = { 0.98431 0.28627 0.20392 1 }
-			# 					}
-			# 					spacing = 5
-			# 					text_single = {
-			# 						margin_top = -6
-			# 						align = center
-			# 						text = "CUSTOM_pentarchy_INVESTITURE"
-			# 						default_format = "#bold"
-			# 					}
-			# 					expand = {}
-			# 				}
-			# 			}
-			# 		}
-			# 	}
-			# }
+					flowcontainer = {
+						direction = vertical
+						spacing = 20
+						margin_bottom = 10
+						widget = {
+							hbox = {
+								icon = {
+									texture = "gfx/interface/colors/white.dds"
+									size = { 8 8 }
+									color = { 100.100 100.100 100.100 1 }
+								}
+								spacing = 5
+								text_single = {
+									margin_top = -6
+									align = center
+									text = "CUSTOM_pentarchy_INVESTITURE"
+									default_format = "#bold"
+								}
+								expand = {}
+							}
+						}
+						widget = {
+							hbox = {
+								icon = {
+									texture = "gfx/interface/colors/white.dds"
+									size = { 8 8 }
+									color = { 0.98431 0.28627 0.20392 1 }
+								}
+								spacing = 5
+								text_single = {
+									margin_top = -6
+									align = center
+									text = "CUSTOM_pentarchy_INVESTITURE"
+									default_format = "#bold"
+								}
+								expand = {}
+							}
+						}
+					}
+				}
+			}
 
 			#INVESTITURE
 			button_tab = {
