@@ -16,6 +16,7 @@
  councilCardinalHolder: "Cardinal"
  councilbishop: "[ROOT.Char.Custom('GetActualBishopTitle')]"
  councilCathTheoHolder: "[CHARACTER.Custom('CathTheoHolderCounciller')]"
+ orthodox_patriarch:0 "Patriarch"
 
  cardinal_councillor_court_chaplain_christian_county:1 "Suffragan Bishop"
  cardinal_councillor_court_chaplain_christian_county_possessive:1 "Suffragan Bishop's"
@@ -57,3 +58,4 @@
  papacy_papal_majordomo:0 "Papal Majordomo"
  papacy_papal_camerlengo:0 "Сamerlengo"
  papacy_grand_inquisitor:0 "Grand Inquisitor"
+

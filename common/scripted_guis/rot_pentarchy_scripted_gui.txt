@@ -1,0 +1,90 @@
+﻿custom_map_mode_initialize = {
+	effect = {
+		set_global_variable = {
+			name = custom_map_mode
+			value = flag:none
+		}
+		TCT_map_clear_baronies = yes
+	}
+	is_valid = {
+		NOT = { global_var:custom_map_mode = flag:none	}
+	}
+}
+TCT_pentarchy_map = {
+	effect = {
+		TCT_pentarchy_map = yes
+	}
+	is_shown = {
+		global_var:custom_map_mode = flag:TCT_pentarchy_map
+	}
+	is_valid = {
+		NOT = { exists = global_var:custom_map_mode_changing }
+	}
+}
+TCT_update_pentarchy = {
+	scope = character
+
+	is_valid = {
+		
+	}
+
+	effect = {
+		clear_variable_list = TCT_pentarchs_list
+		clear_variable_list = TCT_patriarchs_list
+		
+		every_living_character = {
+			limit = { 
+				OR = {
+					has_title = title:k_papal_state
+					has_title = title:d_rome_patriarchate
+					has_title = title:d_constantinople_patriarchate
+					has_title = title:d_alexandria_patriarchate
+					has_title = title:d_antioch_patriarchate
+					has_title = title:d_jerusalem_patriarchate
+				}
+				NOT = {
+					has_title = title:k_orthodox
+				}
+			}
+			# Adds to a pentarchs list
+			root = {
+				add_to_variable_list = {
+					name = TCT_pentarchs_list
+					target = prev
+				}
+			}
+		}
+		every_living_character = {
+			limit = {
+				is_ruler = yes
+				any_held_title = { has_variable = TCT_autocephaly }
+			}
+			random_held_title = {
+				limit = { has_variable = TCT_autocephaly }
+				prev = {
+					set_variable = {
+						name = TCT_canonical_territory
+						value = prev.var:TCT_autocephaly
+					}
+				}
+			}
+			root = {
+				add_to_variable_list = {
+					name = TCT_patriarchs_list
+					target = prev
+				}
+			}
+		}
+		every_living_character = {
+			limit = {
+				has_title = title:k_orthodox
+			}
+			root = {
+				add_to_variable_list = {
+					name = TCT_ecumenical_patriarch_list
+					target = title:k_orthodox.holder
+				}
+			}
+		}
+	}
+}

@@ -85,7 +85,7 @@ pope_trait = {
 	monthly_piety_gain_mult = 0.2
 }
 
-rot_antipope = {
+TCT_antipope = {
 	index = 904
 	
 	same_faith_opinion = 10

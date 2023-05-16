@@ -421,16 +421,16 @@ scripted_effect_popethingevent = {
 
 # ROT
 
-rot_get_pope_of_target = {
+TCT_get_pope_of_target = {
 	$TARGET$ = {
 		if = {
-			limit = { exists = var:rot_antipope_of_ruler }
-			var:rot_antipope_of_ruler = { save_scope_as = pope_of_target }
+			limit = { exists = var:TCT_antipope_of_ruler }
+			var:TCT_antipope_of_ruler = { save_scope_as = pope_of_target }
 		}
 		else = {
 			every_liege_or_above = {
-				limit = { exists = var:rot_antipope_of_ruler }
-				var:rot_antipope_of_ruler = { save_scope_as = pope_of_target }
+				limit = { exists = var:TCT_antipope_of_ruler }
+				var:TCT_antipope_of_ruler = { save_scope_as = pope_of_target }
 			}
 		}
 		if = {
@@ -452,69 +452,69 @@ rot_get_pope_of_target = {
 	}
 }
 
-rot_is_pope_test = {
+TCT_is_pope_test = {
 	if = {
 		limit = { 
-			rot_is_pope_of_target_trigger = { TARGET = scope:actor POPE = root } 
+			TCT_is_pope_of_target_trigger = { TARGET = scope:actor POPE = root } 
 		}
 		root = { add_gold = 1000 }
 	}
 }
 
-rot_create_antipope = {
+TCT_create_antipope = {
 	$ANTIPOPE$ = {
-		save_scope_as = rot_antipope
-		add_trait = rot_antipope
+		save_scope_as = TCT_antipope
+		add_trait = TCT_antipope
 		add_opinion = {
-			modifier = rot_created_antipope
+			modifier = TCT_created_antipope
 			target = $CREATOR$
 		}
 		faith = {
 			add_to_variable_list = {
-				name = rot_antipopes
+				name = TCT_antipopes
 				target = prev
 			}
 		}
 		set_variable = {
-			name = rot_ruler_of_antipope
+			name = TCT_ruler_of_antipope
 			value = $CREATOR$
 		}
 	}
 	$CREATOR$ = {
 		set_variable = {
-			name = rot_antipope_of_ruler
+			name = TCT_antipope_of_ruler
 			value = $ANTIPOPE$
 		}
 	}
 }
 
-rot_remove_antipope = {
-	remove_trait = rot_antipope
+TCT_remove_antipope = {
+	remove_trait = TCT_antipope
 	faith = {
 		if = {
 			limit = { 
-				has_variable_list = rot_antipopes
+				has_variable_list = TCT_antipopes
 				is_target_in_variable_list = {
-					name = rot_antipopes
+					name = TCT_antipopes
 					target = prev
 				}
 			}
 			remove_list_variable = {
-				name = rot_antipopes
+				name = TCT_antipopes
 				target = prev
 			}
 		}
 	}
 	every_living_character = {
-		limit = { exists = var:rot_antipope_of_ruler }
+		limit = { exists = var:TCT_antipope_of_ruler }
 		if = {
-			limit = { var:rot_antipope_of_ruler = prev }
-			remove_variable = rot_antipope_of_ruler
+			limit = { var:TCT_antipope_of_ruler = prev }
+			remove_variable = TCT_antipope_of_ruler
 		}
 	}
 	if = {
-		limit = { exists = var:rot_ruler_of_antipope }
-		remove_variable = rot_ruler_of_antipope
+		limit = { exists = var:TCT_ruler_of_antipope }
+		remove_variable = TCT_ruler_of_antipope
 	}
 }
 
@@ -582,19 +582,19 @@ send_child_to_clergy_effect_for_events = {
 }
 
 removingvariableeffect = {
-	remove_variable = rot_conclave_influence
+	remove_variable = TCT_conclave_influence
 }
 
 setingvariableeffect = {
 	set_variable = {
-		name = rot_conclave_influence
+		name = TCT_conclave_influence
 		value = 1
 	}
 }
 
 changingvariableeffect = {
 	change_variable = {
-		name = rot_conclave_influence
+		name = TCT_conclave_influence
 		add = 1
 	}
 }

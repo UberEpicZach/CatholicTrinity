@@ -84,7 +84,7 @@ sainthood_event1trigger = {
 		has_trait = kinslayer
 	}
 
-	NOT =  { has_trait = rot_antipope } # Antipopes
+	NOT =  { has_trait = TCT_antipope } # Antipopes
 
 	OR = {
 		AND = {
@@ -175,13 +175,13 @@ has_nearby_saint_site = {
 	}
 }
 
-rot_is_pope_of_target_trigger = {
+TCT_is_pope_of_target_trigger = {
 	#save_temporary_scope_as = cardinal_check
 	trigger_if = {
 		limit = {
 			scope:actor.faith = {
 				NOT = { 
-					has_variable_list = rot_antipopes 
+					has_variable_list = TCT_antipopes 
 				}
 			} 
 		}
@@ -191,11 +191,11 @@ rot_is_pope_of_target_trigger = {
 		limit = {
 			$TARGET$ = { 
 				OR = {
-					has_variable = rot_antipope_of_ruler
+					has_variable = TCT_antipope_of_ruler
 					AND = {
 						exists = liege
 						any_liege_or_above = {
-							has_variable = rot_antipope_of_ruler
+							has_variable = TCT_antipope_of_ruler
 						}
 					}
 				}
@@ -204,14 +204,14 @@ rot_is_pope_of_target_trigger = {
 		OR = {
 			AND = {
 				$TARGET$ = {
-					has_variable = rot_antipope_of_ruler
-					var:rot_antipope_of_ruler = $POPE$
+					has_variable = TCT_antipope_of_ruler
+					var:TCT_antipope_of_ruler = $POPE$
 				}
 			}
 			$TARGET$ = {
 				any_liege_or_above = {
-					has_variable = rot_antipope_of_ruler
-					var:rot_antipope_of_ruler = $POPE$
+					has_variable = TCT_antipope_of_ruler
+					var:TCT_antipope_of_ruler = $POPE$
 				}
 			}
 		}
@@ -273,7 +273,7 @@ suitable_location_for_undirected_ghw_trigger = {
 }
 
 removingvariableeffecttrigger = {
-	has_variable = rot_conclave_influence
+	has_variable = TCT_conclave_influence
 }
 
 # can_be_commander_basic_trigger = {

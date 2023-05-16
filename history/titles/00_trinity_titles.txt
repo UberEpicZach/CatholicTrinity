@@ -15,3 +15,17 @@
 		}
 	}
 }
+
+d_jerusalem_patriarchate = {
+	864.1.1 = {
+		holder = TrinityChurch4
+		government = theocracy_government
+		liege = e_arabia
+	}
+	1053.1.1 = {
+		holder = TrinityChurch3
+		government = theocracy_government
+		liege = k_egypt
+	}
+}
+

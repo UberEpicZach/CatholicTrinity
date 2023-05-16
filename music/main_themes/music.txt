@@ -1,6 +1,0 @@
-﻿##### MAINTHEME
-
-main_theme_track = {
-	music = "file:/music/Trinity_Soundtrack/pdxmascarol.ogg"
-	can_be_interrupted = yes
-}

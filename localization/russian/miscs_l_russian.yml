@@ -31,7 +31,7 @@ InstallAntipope_decision_desc: "For too long we have allowed the false pretender
 InstallAntipope_decision_tooltip: "Install Antipope"
 InstallAntipope: "Install Antipope"
 InstallAntipope_confirm: "Утвердить антипапство"
-rot_creator_of_antipope: "Creator of Antipope"
+TCT_creator_of_antipope: "Creator of Antipope"
 
  EXCOMMUNICATION_0_OPINION:0 "[recipient.GetShortUIName|U] has a positive Opinion of [secondary_recipient.GetShortUIName]: $VALUE|=+0$"
  EXCOMMUNICATION_50_OPINION:0 "[recipient.GetShortUIName|U] has a positive Opinion of over 50 of [secondary_recipient.GetShortUIName]: $VALUE|=+0$"
@@ -68,9 +68,9 @@ CardinalElectionWon: "Кардинальные выборы"
 HookGainedKOH: "Вы получили влияние"
 deinvest_in_cardinal_AI_decision_effect_tooltip: "Это решение предназначено для ИИ, чтобы отказаться от инвестиций в коллегию кардиналов, пожалуйста, сообщите об ошибке, если вы видите это"
 
-trait_rot_antipope:0 "Антипапа"
-trait_rot_antipope_desc:0 "This character is an Antipope, a contender for the [faith|E] [head_of_faith|E]."
-rot_make_antipope_interaction_desc:0 "Провозгласить антипапство"
+trait_TCT_antipope:0 "Антипапа"
+trait_TCT_antipope_desc:0 "This character is an Antipope, a contender for the [faith|E] [head_of_faith|E]."
+TCT_make_antipope_interaction_desc:0 "Провозгласить антипапство"
 
 DonationCountyClergy: "Пожертвовать землю духовенству"
 DonationCountyClergy: "Пожертвовать землю духовенству"

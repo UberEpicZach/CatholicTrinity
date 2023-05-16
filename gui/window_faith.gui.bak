@@ -825,17 +825,17 @@ window = {
 								visible = "[Faith.HasDoctrineByKey('doctrine_independent_papacy_head')]"
 								text_single = {
 									visible = "[Faith.GetReligiousHead.IsValid]"
-									text = "rot_antipopes_title"
+									text = "TCT_antipopes_title"
 									default_format = "#medium"
 									layoutpolicy_horizontal = expanding
 									fontsize_min = 10
 								}
 								
-								datamodel = "[Faith.MakeScope.GetList('rot_antipopes')]"
+								datamodel = "[Faith.MakeScope.GetList('TCT_antipopes')]"
 								item = {
 									text_single = {
 										visible = "[Faith.GetReligiousHead.IsValid]"
-										text = "rot_antipopes_name"
+										text = "TCT_antipopes_name"
 										default_format = "#high"
 										layoutpolicy_horizontal = expanding
 										fontsize_min = 14
@@ -843,8 +843,8 @@ window = {
 									}
 								}
 								text_single = {
-									visible = "[GetScriptedGui( 'rot_no_antipopes' ).IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'faith', Faith.MakeScope ).End )]"
-									text = "rot_no_antipopes"
+									visible = "[GetScriptedGui( 'TCT_no_antipopes' ).IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'faith', Faith.MakeScope ).End )]"
+									text = "TCT_no_antipopes"
 									default_format = "#weak"
 									layoutpolicy_horizontal = expanding
 									fontsize_min = 14

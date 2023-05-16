@@ -11,7 +11,7 @@
 CatholicTrinityCardinalOrAntiPopeTrigger = {
 	OR = {
 		has_trait = pope_trait
-		has_trait = rot_antipope
+		has_trait = TCT_antipope
 	}
 }
 

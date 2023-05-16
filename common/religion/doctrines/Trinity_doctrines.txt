@@ -1,62 +1,16 @@
-﻿doctrine_head_of_faith = {
+﻿TCT_doctrine_head_of_faith = {
 	group = "main_group"
-	number_of_picks = 2
+	number_of_picks = 1
 
-	doctrine_no_head = {
-		visible = no
-		piety_cost = {
-			value = faith_doctrine_cost_mid
-			if = {
-				limit = { has_doctrine = doctrine_no_head }
-				multiply = faith_unchanged_doctrine_cost_mult
-			}
-		}
-		parameters = {
-			no_head_of_faith = yes
-			minimum_fervor = 25
-		}
-	}
-	doctrine_spiritual_head = {
-		visible = no
-		piety_cost = {
-			value = faith_doctrine_cost_high
-			if = {
-				limit = { has_doctrine = doctrine_spiritual_head }
-				multiply = faith_unchanged_doctrine_cost_mult
-			}
-		}
-		parameters = {
-			spiritual_head_of_faith = yes
-			spiritual_head_of_faith_claims = yes
-			spiritual_head_of_faith_gold = yes
-		}
-	}
-	doctrine_temporal_head = {
-		visible = no
-		piety_cost = {
-			value = faith_doctrine_cost_massive
-			if = {
-				limit = { has_doctrine = doctrine_temporal_head }
-				multiply = faith_unchanged_doctrine_cost_mult
-			}
-		}
+	doctrine_TCT_blank = {
 		can_pick = {
-			custom_description = {
-				text = incompatible_doctrine_theocracy_temporal_trigger
-				NOT = { flag:doctrine_theocracy_temporal = { is_in_list = selected_doctrines } }
-			}
-			custom_description = {
-				text = incompatible_doctrine_spiritual_appointment_temporal_trigger
-				NOR = {
-					flag:doctrine_clerical_succession_spiritual_appointment = { is_in_list = selected_doctrines }
-					flag:doctrine_clerical_succession_spiritual_fixed_appointment = { is_in_list = selected_doctrines }
-				}
-			}
+			always = yes
 		}
-
+		piety_cost = {
+			
+		}
 		parameters = {
-			temporal_head_of_faith = yes
-			temporal_head_of_faith_directed_holy_wars = yes
+			
 		}
 	}
 
@@ -65,6 +19,7 @@
 		is_shown = { religion_tag = christianity_religion }
 		can_pick = { 
 			religion_tag = christianity_religion 
+			always = no
 		}
 		piety_cost = {
 			value = faith_doctrine_cost_massive
@@ -77,182 +32,105 @@
 			spiritual_head_of_faith = yes
 			spiritual_head_of_faith_claims = yes
 			spiritual_head_of_faith_gold = yes
-			rot_antipopes = yes
+			TCT_antipopes = yes
 			clergy_can_fight = yes
+		}
+	}
+
+	doctrine_autocephaly_head = {
+		visible = no
+		is_shown = { religion_tag = christianity_religion }
+		can_pick = { 
+			religion_tag = christianity_religion 
+			custom_description = {
+				text = need_tenet_christian_pentarchy_trigger
+				flag:tenet_christian_pentarchy = { is_in_list = selected_doctrines }
+			}
+		}
+		piety_cost = {
+			value = faith_doctrine_cost_massive
+			if = {
+				limit = { has_doctrine = doctrine_autocephaly_head }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			spiritual_head_of_faith = yes
+			spiritual_head_of_faith_claims = yes
+			spiritual_head_of_faith_gold = yes
+			TCT_autocephaly_head = yes
 		}
 	}
 	
 }
 
-doctrine_clerical_succession = {
+TCT_general_doctrines = {
+	group = "core_tenets"
+	number_of_picks = 1
+
+	doctrine_general_TCT_blank = {
+		can_pick = {
+			always = yes
+		}
+		piety_cost = {
+			
+		}
+		parameters = {
+			
+		}
+	}
+	tenet_christian_pentarchy = {
+		icon = core_tenet_followers
+
+		is_shown = {
+			religion_tag = christianity_religion
+		}
+		
+		piety_cost = {
+			value = faith_tenet_cost_mid
+
+			# Multiplier for keeping same tenet
+			if = {
+				limit = { has_doctrine = tenet_christian_pentarchy }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		
+		can_pick = {
+			custom_description = {
+				text = doctrine_pluralism_pluralistic_trigger
+				NOT = { flag:doctrine_pluralism_pluralistic = { is_in_list = selected_doctrines } }
+			}
+			custom_description = {
+				text = doctrine_not_followers_of_peter_trigger
+				NOT = { flag:tenet_followers_of_peter = { is_in_list = selected_doctrines } }
+			}
+		}
+
+		parameters = {
+			fervor_per_holy_site = 0.1
+			pilgrimage_decision_active = yes
+		}
+	}
+}
+
+TCT_doctrine_clerical_succession = {
 	group = "clergy"
-	number_of_picks = 2
+	number_of_picks = 1
 	
-	doctrine_clerical_succession_temporal_appointment = { # Temporal, Free
-		piety_cost = {
-			value = faith_doctrine_cost_high
-			if = {
-				limit = { has_doctrine = doctrine_clerical_succession_temporal_appointment }
-				multiply = faith_unchanged_doctrine_cost_mult
-			}
-			else = {
-				if = {
-					limit = {
-						OR = { # Was Spiritual
-							has_doctrine = doctrine_clerical_succession_spiritual_fixed_appointment
-							has_doctrine = doctrine_clerical_succession_spiritual_appointment
-						}
-					}
-					multiply = faith_changed_doctrine_cost_mult_two_step
-				}
-				if = {
-					limit = {
-						OR = {	# Was Fixed
-							has_doctrine = doctrine_clerical_succession_spiritual_fixed_appointment
-							has_doctrine = doctrine_clerical_succession_temporal_fixed_appointment
-						}
-					}
-					multiply = faith_changed_doctrine_cost_mult_two_step
-				}
-			}
-			# Round up to the nearest multiple of 25
-			divide = 25
-			ceiling = yes
-			multiply = 25
-		}
 
-		parameters = {
-			clerical_appointment_ruler = yes
-			clerical_appointment_fixed = no
-		}
-	}
-	doctrine_clerical_succession_spiritual_appointment = { # Spiritual, Free
-		piety_cost = {
-			value = faith_doctrine_cost_high
-			if = {
-				limit = { has_doctrine = doctrine_clerical_succession_spiritual_appointment }
-				multiply = faith_unchanged_doctrine_cost_mult
-			}
-			else = {
-				if = {
-					limit = {
-						OR = { # Was Temporal
-							has_doctrine = doctrine_clerical_succession_temporal_fixed_appointment
-							has_doctrine = doctrine_clerical_succession_temporal_appointment
-						}
-					}
-					multiply = faith_changed_doctrine_cost_mult_two_step
-				}
-				if = {
-					limit = {
-						OR = {	# Was Fixed
-							has_doctrine = doctrine_clerical_succession_spiritual_fixed_appointment
-							has_doctrine = doctrine_clerical_succession_temporal_fixed_appointment
-						}
-					}
-					multiply = faith_changed_doctrine_cost_mult_two_step
-				}	
-			}
-			# Round up to the nearest multiple of 25
-			divide = 25
-			ceiling = yes
-			multiply = 25
-		}
-
+	doctrine_clerical_TCT_blank = {
 		can_pick = {
-			custom_description = {
-				text = incompatible_doctrine_spiritual_appointment_temporal_trigger
-				NOT = { flag:doctrine_temporal_head = { is_in_list = selected_doctrines } }
-			}
-		}		
-
-		parameters = {
-			clerical_appointment_head_of_faith = yes
-			clerical_appointment_fixed = no
+			always = yes
 		}
-	}
-	doctrine_clerical_succession_temporal_fixed_appointment = { # Temporal, Fixed
 		piety_cost = {
-			value = faith_doctrine_cost_high
-			if = {
-				limit = { has_doctrine = doctrine_clerical_succession_temporal_fixed_appointment }
-				multiply = faith_unchanged_doctrine_cost_mult
-			}
-			else = {
-				if = {
-					limit = {
-						OR = { # Was Spiritual
-							has_doctrine = doctrine_clerical_succession_spiritual_fixed_appointment
-							has_doctrine = doctrine_clerical_succession_spiritual_appointment
-						}
-					}
-					multiply = faith_changed_doctrine_cost_mult_two_step
-				}
-				if = {
-					limit = {
-						OR = {	# Was free
-							has_doctrine = doctrine_clerical_succession_spiritual_appointment
-							has_doctrine = doctrine_clerical_succession_temporal_appointment
-						}
-					}
-					multiply = faith_changed_doctrine_cost_mult_two_step
-				}
-			}
-			# Round up to the nearest multiple of 25
-			divide = 25
-			ceiling = yes
-			multiply = 25
+			
 		}
 		parameters = {
-			clerical_appointment_ruler = yes
-			clerical_appointment_fixed = yes
+			
 		}
 	}
-	doctrine_clerical_succession_spiritual_fixed_appointment = { # Spiritual, Fixed
-		piety_cost = {
-			value = faith_doctrine_cost_high
-			if = {
-				limit = { has_doctrine = doctrine_clerical_succession_spiritual_fixed_appointment }
-				multiply = faith_unchanged_doctrine_cost_mult
-			}
-			else = {
-				if = {
-					limit = {
-						OR = { # Was Temporal
-							has_doctrine = doctrine_clerical_succession_temporal_fixed_appointment
-							has_doctrine = doctrine_clerical_succession_temporal_appointment
-						}
-					}
-					multiply = faith_changed_doctrine_cost_mult_two_step
-				}
-				if = {
-					limit = {
-						OR = {	# Was Free
-							has_doctrine = doctrine_clerical_succession_spiritual_appointment
-							has_doctrine = doctrine_clerical_succession_temporal_appointment
-						}
-					}
-					multiply = faith_changed_doctrine_cost_mult_two_step
-				}
-			}
-			# Round up to the nearest multiple of 25
-			divide = 25
-			ceiling = yes
-			multiply = 25
-		}
 
-		can_pick = {
-			custom_description = {
-				text = incompatible_doctrine_spiritual_appointment_temporal_trigger
-				NOT = { flag:doctrine_temporal_head = { is_in_list = selected_doctrines } }
-			}
-		}
-
-		parameters = {
-			clerical_appointment_head_of_faith = yes
-			clerical_appointment_fixed = yes
-		}
-	}
 	doctrine_clerical_succession_investiture_law_appointment = { # Spiritual, Fixed
 		piety_cost = {
 			value = faith_doctrine_cost_high
@@ -287,6 +165,7 @@ doctrine_clerical_succession = {
 		}
 		is_shown = { religion_tag = christianity_religion }
 		can_pick = {
+			always = no
 			custom_description = {
 				text = incompatible_doctrine_spiritual_appointment_temporal_trigger
 				NOT = { flag:doctrine_temporal_head = { is_in_list = selected_doctrines } }
@@ -295,7 +174,7 @@ doctrine_clerical_succession = {
 
 		parameters = {
 			clerical_appointment_fixed = yes
-			rot_clerical_appointment_investiture = yes
+			TCT_clerical_appointment_investiture = yes
 			
 		}
 	}

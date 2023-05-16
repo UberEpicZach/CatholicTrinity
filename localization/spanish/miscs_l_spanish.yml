@@ -31,7 +31,7 @@ InstallAntipope_decision_desc: "For too long we have allowed the false pretender
 InstallAntipope_decision_tooltip: "Install Antipope"
 InstallAntipope: "Install Antipope"
 InstallAntipope_confirm: "Install Antipope"
-rot_creator_of_antipope: "Creator of Antipope"
+TCT_creator_of_antipope: "Creator of Antipope"
 
  EXCOMMUNICATION_0_OPINION:0 "[recipient.GetShortUIName|U] has a positive Opinion of [secondary_recipient.GetShortUIName]: $VALUE|=+0$"
  EXCOMMUNICATION_50_OPINION:0 "[recipient.GetShortUIName|U] has a positive Opinion of over 50 of [secondary_recipient.GetShortUIName]: $VALUE|=+0$"
@@ -68,9 +68,9 @@ CardinalElectionWon: "Cardinal Election"
 HookGainedKOH: "You have gained a Hook"
 deinvest_in_cardinal_AI_decision_effect_tooltip: "This decision is for AI to Deinvest in the College of Cardinals, Please report this as a bug if you can see this"
 
-trait_rot_antipope:0 "Antipope"
-trait_rot_antipope_desc:0 "This character is an Antipope, a contender for the [faith|E] [head_of_faith|E]."
-rot_make_antipope_interaction_desc:0 "Create an Antipope"
+trait_TCT_antipope:0 "Antipope"
+trait_TCT_antipope_desc:0 "This character is an Antipope, a contender for the [faith|E] [head_of_faith|E]."
+TCT_make_antipope_interaction_desc:0 "Create an Antipope"
 
 DonationCountyClergy: "Donate land to the Clergy"
 DonationCountyClergy: "Donate land to the Clergy"

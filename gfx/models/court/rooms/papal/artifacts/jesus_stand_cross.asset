@@ -46,3 +46,15 @@ entity = {
 	name = "jesus_stand_cross_entity"
 	pdxmesh = "jesus_stand_cross_mesh"
 }
+
+entity = {
+	name = "env_wildfire01"
+	
+	locator = { name = part1 }
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 5
+		event = { time = 0 node = "part1" particle = "wildfire02-TestFromHere" trigger_once = yes skip_forward = 2}
+	}
+	cull_radius = 4
+}

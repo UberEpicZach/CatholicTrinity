@@ -4972,7 +4972,7 @@ KoH_religiousflavour.500 = {
 			}
 		}
 		add_piety = 300
-		rot_get_pope_of_target = {
+		TCT_get_pope_of_target = {
 			TARGET = root
 		}
 		scope:pope_of_target = {
@@ -5026,7 +5026,7 @@ KoH_religiousflavour.500 = {
 			}
 		}
 		add_piety = 300
-		rot_get_pope_of_target = {
+		TCT_get_pope_of_target = {
 			TARGET = root
 		}
 		scope:pope_of_target = {
@@ -5077,7 +5077,7 @@ KoH_religiousflavour.500 = {
 			}
 		}
 		add_piety = 300
-		rot_get_pope_of_target = {
+		TCT_get_pope_of_target = {
 			TARGET = root
 		}
 		scope:pope_of_target = {
@@ -5127,7 +5127,7 @@ KoH_religiousflavour.500 = {
 			}
 		}
 		add_piety = 300
-		rot_get_pope_of_target = {
+		TCT_get_pope_of_target = {
 			TARGET = root
 		}
 		scope:pope_of_target = {
@@ -5179,7 +5179,7 @@ KoH_religiousflavour.500 = {
 			}
 		}
 		add_piety = 300
-		rot_get_pope_of_target = {
+		TCT_get_pope_of_target = {
 			TARGET = root
 		}
 		scope:pope_of_target = {
@@ -5254,7 +5254,7 @@ KoH_religiousflavour.501 = {
 			}
 		}
 		add_piety = 300
-		rot_get_pope_of_target = {
+		TCT_get_pope_of_target = {
 			TARGET = root
 		}
 		scope:pope_of_target = {
@@ -5305,7 +5305,7 @@ KoH_religiousflavour.501 = {
 			}
 		}
 		add_piety = 300
-		rot_get_pope_of_target = {
+		TCT_get_pope_of_target = {
 			TARGET = root
 		}
 		scope:pope_of_target = {
@@ -5356,7 +5356,7 @@ KoH_religiousflavour.501 = {
 			}
 		}
 		add_piety = 300
-		rot_get_pope_of_target = {
+		TCT_get_pope_of_target = {
 			TARGET = root
 		}
 		scope:pope_of_target = {
@@ -5407,7 +5407,7 @@ KoH_religiousflavour.501 = {
 			}
 		}
 		add_piety = 300
-		rot_get_pope_of_target = {
+		TCT_get_pope_of_target = {
 			TARGET = root
 		}
 		scope:pope_of_target = {
