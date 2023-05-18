@@ -301,6 +301,7 @@
   KoH_religiousflavour.58.desc: "It was a cold and snowy Christmas Eve in [provincefun.GetName], in the distance of the rolling snowly hills of the countryside. \nThe villagers had spent the day preparing for the festive celebration that evening, after months of harvest and hard work, it was time for celebration and relaxation, they were hanging wreaths of holly and ivy on the doors of their homes and stringing up twinkling lights made of beeswax candles. As the sun began to set, the villagers gathered in the town square, where a Tree stood tall and proud. \n\nA choir of Wassailers began to sing traditional Christmas hymns, Children ran and played, laughing and chasing each other around the tree. The village priest gave a short sermon, reminding the villagers of the true meaning of Christmas and the birth of Jesus.\n\nIn the season of the cold and dark, it was now time to cherish the moments where Joy could be found, amd the atmosphere was one of joy and celebration, with everyone feeling the warmth and love of the holiday season."
   KoH_religiousflavour.58.a: "A Toast to the Carolers!"
   KoH_religiousflavour.58.b: "Time for a feast!"
+  KoH_religiousflavour_58_b_tt: "Will open the Activity Planner, with a Reduced Cost for hosting a [GetActivityType('activity_feast').GetName][GetActivityType('activity_feast').GetTextIcon]"
   KoH_religiousflavour.58.c: "It is time to spend time with family."
 
   KOH_saintdaysaint_opinion: "[localsaint.GetFirstName] Day"

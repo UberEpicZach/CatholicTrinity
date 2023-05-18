@@ -3963,8 +3963,17 @@ KoH_religiousflavour.58 = {#christmas
 		animation = ecstasy
 	}
 
+	# widgets = {
+	# 	widget = {
+	# 		gui = "window_activity_jank_start_widget"
+	# 		container = "custom_widgets_container"
+	# 		controller = default
+	# 		setup_scope = { }
+	# 	}
+	# }
+
 	immediate = {
-		play_music_cue = CK2_songs_of_yuletide 
+		#play_music_cue = CK2_songs_of_yuletide 
 		if = {
 			limit = {
 				is_married = yes
@@ -3994,12 +4003,15 @@ KoH_religiousflavour.58 = {#christmas
 	}
 	option = { #feast
 		name = KoH_religiousflavour.58.b
-		capital_province = {
-			spawn_activity = {
-				type = activity_feast
-				owner = root
-			}
-		}	
+		open_view_data = {
+			view = activity_list_detail_host_window
+			data = activity_type:activity_feast
+		}
+		add_character_flag = {
+			flag = hosting_christmas_or_saint_day
+			days = 10
+		}
+		custom_tooltip = KoH_religiousflavour_58_b_tt
 	}	
 
 	option = { #family

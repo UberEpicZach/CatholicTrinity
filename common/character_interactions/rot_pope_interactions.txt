@@ -3983,16 +3983,18 @@ select_cardinal_candidate_interaction = {
 				limit = {
 					AND = {
 						is_male = yes
+						is_adult = yes
 						#And they have to actually like you enough to want to invest you.
-						opinion = {
-							target = root
-							value >= 0
-						}
+						#opinion = {
+						#	target = root
+						#	value >= 0
+						#}
 						learning >= 7
 						is_ruler = no
 						is_clergy = yes
 						is_cardinal = no
 					}
+					#always = yes
 				}
 				add_to_list = characters
 			}
@@ -4023,10 +4025,12 @@ select_cardinal_candidate_interaction = {
 		# In minimum good standing with faith
 		NOT = { has_trait = excommunicated }
 	}
+
+	
 	
 	can_be_picked = {
 		is_adult = yes
-		#is_ruler = no
+		is_ruler = no
 		is_cardinal = no
 		faith = scope:actor.faith
 		custom_tooltip = {

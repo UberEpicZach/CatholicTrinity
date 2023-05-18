@@ -29,7 +29,7 @@ TCT_christmas_real = {
 		is_adult = yes
 	}
 	random_events = {
-		112 = 0
+		10000 = 0
 		1 = KoH_religiousflavour.58 #Christmas! 
 		#1 = bp1_yearly.3004 #Christmas, but a child!! 
 		#1 = bp1_yearly.3006 # Reflecting on a great Christmas

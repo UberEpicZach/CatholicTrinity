@@ -1,2 +1,49 @@
 ﻿div2 = {	value = this	multiply = 0.5	}
 div3 = {	value = this	multiply = 0.9	}
+
+feast_activity_cost = {
+	value = 0
+	add = standard_activity_base_cost
+	if = {
+		limit = {
+			culture = {
+				has_cultural_parameter = more_expensive_feasts
+			}
+		}
+		multiply = 2
+	}
+	if = {
+		limit = {
+			exists = var:protected_alcohol_stores
+			var:protected_alcohol_stores > 0
+		}
+		multiply = 0.5
+	}
+	if = {
+		limit = {
+			has_character_flag = hosting_christmas_or_saint_day
+		}
+		multiply = -0.5
+	}
+}
+
+######################
+# FEAST STUFF
+######################
+standard_feast_cooldown_time = {
+	value = 5
+	if = {
+		limit = {
+			root.culture = {
+				has_cultural_parameter = more_frequent_feasts
+			}
+		}
+		multiply = 0.5
+	}
+	if = {
+		limit = {
+			has_character_flag = hosting_christmas_or_saint_day
+		}
+		subtract = 100
+	}
+}
