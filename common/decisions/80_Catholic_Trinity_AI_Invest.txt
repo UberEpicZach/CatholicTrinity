@@ -163,16 +163,8 @@ invest_in_cardinal_Ai = {
 			has_trait = devoted
 		}
 		modifier = {
-			add = 10
-			has_trait = mystic_1
-		}
-		modifier = {
-			add = 20
-			has_trait = mystic_2
-		}
-		modifier = {
 			add = 30
-			has_trait = mystic_3
+			has_trait = lifestyle_mystic
 		}
 		modifier = {
 			add = -10

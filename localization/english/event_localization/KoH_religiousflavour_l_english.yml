@@ -311,6 +311,8 @@
   KoH_religiousflavour.58.b: "Time for a feast!"
   KoH_religiousflavour.58.c: "It is time to spend time with family."
 
+  veterancrusadersupported:0 "Hailed a Hero"
+
   KoH_religiousflavour.250.t: "[saintlocation.GetNameNoTier], Resting place of Saint [localsaint.GetFirstNameNicknamedRegnal]."
   KoH_religiousflavour.250.desc: "Begrimed by the mud and dust of the road, we weary travelers walk where myriad pilgrims ages past have trod. At long last, I have reached the place of Saint [localsaint.GetFirstNameNicknamedRegnal]’s everlasting rest, sanctified by hallowed fame. Even poor strangers to the faith have come as if drawn by grace. With measured footsteps and sacred awe, we approach the holy fane. Pilgrims kneel in prayer before their long-sought shrine; the murmurs of the penitent, imploring saintly intercession, rise like incense in the heavenly sanctuary. \n\nYou who shine with excellence and superhuman virtue deliver us from all evil, who turn to you with confidence and enable us by your gracious protection to serve God more and more faithfully every day."
   KoH_religiousflavour.250.a: "The lovely [saintlocation.GetNameNoTier]."

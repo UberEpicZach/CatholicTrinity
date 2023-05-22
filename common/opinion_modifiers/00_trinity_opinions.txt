@@ -37,6 +37,22 @@ grantedlandtoclergy = {
 	decaying = yes
 }
 
+KOH_saintdaysaint_opinion = {
+	opinion = 30
+	decaying = yes
+	years = 3
+}
+
+veterancrusadersupported = {
+	monthly_change = 0.5
+	decaying = yes
+}
+
+veterancrusaderrefuted = {
+	monthly_change = 0.5
+	decaying = yes
+}
+
 KOH_christmas_opinion = {
 	opinion = 30
 	decaying = yes

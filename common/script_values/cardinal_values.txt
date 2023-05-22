@@ -105,7 +105,7 @@ cardinal_to_pope_base_score = {
 		add = cardinal_secular_power_bonus
 		add = cardinal_theocratic_power_bonus
 		add = cardinal_actually_is_pope_debuff
-		add = cardinal_to_pope_recent_event_modiifer
+		add = cardinal_recent_event_modiifer
 		add = cardinal_too_old_modifiier
 	}
 }
