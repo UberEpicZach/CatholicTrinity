@@ -3996,6 +3996,7 @@ KoH_religiousflavour.58 = {#christmas
 		open_view_data = {
 			view = activity_list_detail_host_window
 			data = activity_type:activity_feast
+			player = root
 		}
 		add_character_flag = {
 			flag = hosting_christmas_or_saint_day
@@ -4163,6 +4164,87 @@ KoH_religiousflavour.70 = {
 		name = KoH_religiousflavour.70.a
 
 		trigger = {
+			gold = 100 # Adjust the gold cost as desired
+		}
+
+		remove_short_term_gold = 100
+		add_prestige = -25 # Adjust the piety loss as desired
+		# Perform the baptism by the Pope (adjust the following actions as needed)
+		# Example actions:
+		# gain_trait = baptized
+		# gain_prestige = 100		
+	}
+
+	option = {
+		name = KoH_religiousflavour.70.b
+
+		trigger = {
+			gold = 50 # Adjust the gold cost as desired
+		}
+
+		remove_short_term_gold = 50
+		# Perform the baptism by the local bishop (adjust the following actions as needed)
+		# Example actions:
+		# gain_trait = baptized
+		# gain_prestige = 50
+	}
+
+	option = {
+		name = KoH_religiousflavour.70.c
+
+		trigger = {
+			gold = 25 # Adjust the gold cost as desired
+		}
+
+		remove_short_term_gold = 25
+		add_prestige = -25 # Adjust the prestige loss as desired
+		# Perform a regular baptism (adjust the following actions as needed)
+		# Example actions:
+		# gain_trait = baptized
+		# gain_prestige = 25
+	}
+}
+
+
+#Event: Baptism of my Heir / Quick and Dirty Baptism's
+KoH_religiousflavour.70 = {
+	title = KoH_religiousflavour.70.t
+	desc = KoH_religiousflavour.70.t
+	# Use appropriate localization for the event title and description
+
+	# Set the portraits of the characters involved
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+
+	lower_left_portrait = {
+		character = scope:heir
+	}
+
+	right_portrait = {
+		character = faith.religious_head
+	}
+
+	trigger = {
+		government_has_flag = government_is_feudal
+		OR = {
+			faith = faith:catholic
+			faith = faith:cathar
+			faith = faith:waldensian
+			faith = faith:lollard
+		}
+		NOT = { has_character_flag = heir_baptized } # Optional flag to prevent repeating the event
+	}
+
+	immediate = {
+		set_character_flag = heir_baptized
+	}
+
+	option = {
+		name = KoH_religiousflavour.70.a
+
+		trigger = {
 			has_gold = 100 # Adjust the gold cost as desired
 		}
 
@@ -4203,6 +4285,55 @@ KoH_religiousflavour.70 = {
 		# gain_prestige = 25
 	}
 }
+
+# #Event: Deep in Doctrine
+# deep_in_doctrine.001 = {
+# 	title = deep_in_doctrine.001.t
+# 	desc = deep_in_doctrine.001.d
+# 	# Use appropriate localization for the event title and description
+
+# 	# Set the portraits of the characters involved
+# 	left_portrait = {
+# 		character = root
+# 		animation = personality_studious
+# 	}
+
+# 	right_portrait = {
+# 		character = root.court_chaplain
+# 		animation = personality_scholarly_theologian
+# 	}
+
+# 	trigger = {
+# 		# The character should be an adult and their priest should be available
+# 		is_adult = yes
+# 		exists = cp:councillor_court_chaplain
+# 	}
+
+# 	immediate = {}
+
+# 	option = {
+# 		name = deep_in_doctrine.001.a
+
+# 		trigger = {}
+
+# 		# Gain Learning and Piety
+# 		add_learning_lifestyle_xp = 150
+# 		add_piety = 50
+# 		add_character_modifier = {
+# 			modifier = studying_theology
+# 			years = 2
+# 		}
+# 	}
+
+# 	option = {
+# 		name = deep_in_doctrine.001.b
+
+# 		trigger = {}
+
+# 		# No immediate effect
+# 	}
+# }
+
 
 # Event: Veteran of the First Crusade
 # KoH_religiousflavour.80 = {

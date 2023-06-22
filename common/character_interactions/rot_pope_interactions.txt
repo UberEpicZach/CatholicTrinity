@@ -1562,6 +1562,46 @@ hof_ask_for_gold_interaction = {
 			}
 		}
 		scope:recipient = { is_busy_in_events_localised = yes }
+
+		scope:recipient = {
+			OR = {
+				NOT = {
+					has_any_major_negative_opinion_against_character_trigger = { CHARACTER = scope:actor }
+					has_any_petty_revenge_opinion_against_character_trigger = { CHARACTER = scope:actor }
+					opinion = {
+						target = scope:actor
+						value <= 10
+					}
+				}
+				AND = {
+					has_any_major_negative_opinion_against_character_trigger = { CHARACTER = scope:actor }
+					has_any_petty_revenge_opinion_against_character_trigger = { CHARACTER = scope:actor }
+					opinion = {
+						target = scope:actor
+						value <= 10
+					}
+					OR = {
+						scope:actor = {
+							is_at_war = yes
+							any_character_war = {
+								is_attacker = scope:actor
+								OR = {
+									using_non_ghw_holy_war_cb_trigger = yes
+									using_cb = excommunication_war
+								}
+							}
+						}
+						scope:actor = {
+							is_at_war = yes
+							any_character_war = {
+								is_defender = scope:actor
+								using_non_ghw_holy_war_cb_trigger = yes
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 	
 	ai_accept = {
@@ -1855,11 +1895,43 @@ hof_ask_for_gold_interaction = {
 	}
 	
 	auto_accept = {
-		custom_description = {
-			text = "spending_hook"
-			subject = scope:actor
-			object = scope:recipient
-			scope:hook = yes
+		OR = {
+			custom_description = {
+				text = "spending_hook"
+				subject = scope:actor
+				object = scope:recipient
+				scope:hook = yes
+			}
+			custom_description = {
+				text = "lots_of_money"
+				subject = scope:actor
+				object = scope:recipient
+				scope:recipient = {
+					AND = {
+						gold >= 500
+						NOT = {
+							has_any_major_negative_opinion_against_character_trigger = { CHARACTER = scope:actor }
+							has_any_petty_revenge_opinion_against_character_trigger = { CHARACTER = scope:actor }
+							opinion = {
+								target = scope:actor
+								value <= 10
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	on_auto_accept = {
+		scope:recipient = {
+			send_interface_message = {
+				type = event_generic_good_text
+				title = KOH_lots_of_gold_pope_paid
+				desc = KOH_lots_of_gold_pope_paid_desc
+
+				left_icon = scope:recipient
+				right_icon = scope:actor
+			}
 		}
 	}
 	
@@ -2113,6 +2185,21 @@ seek_indulgences_interaction = {
 		}
 	}
 	
+	auto_accept = yes
+
+	on_auto_accept = {
+		scope:recipient = {
+			send_interface_message = {
+				type = event_generic_good_text
+				title = KOH_paid_indulgences
+				desc = KOH_paid_indulgences_desc
+
+				left_icon = scope:recipient
+				right_icon = scope:actor
+			}
+		}
+	}
+
 	# AI will do
 	
 	ai_potential = {
@@ -2852,6 +2939,11 @@ divorce_character_rel_head_interaction = {
 			subject = scope:actor
 			object = scope:recipient
 			scope:divorce_hook = yes
+		}
+		custom_description = {
+			text = "spending_hook"
+			subject = scope:actor
+			object = scope:recipient
 		}
 	}
 	
