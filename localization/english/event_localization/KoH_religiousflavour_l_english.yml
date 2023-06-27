@@ -306,10 +306,10 @@
 
   KOH_saintdaysaint_opinion: "[localsaint.GetFirstName] Day"
   KoH_religiousflavour.63.t: "[localsaint.GetFirstName] Day"
-  KoH_religiousflavour.63.desc: "Saint Day Celebration Text."
-  KoH_religiousflavour.58.a: "A Toast to the Carolers!"
-  KoH_religiousflavour.58.b: "Time for a feast!"
-  KoH_religiousflavour.58.c: "It is time to spend time with family."
+  KoH_religiousflavour.63.desc: "Under the morning sun of Saint's Day in [provincefun.GetName], the church bells echoed, signifying a day of joy ahead. Homes were adorned with vibrant flowers and unique wreaths, a testament to the unified spirit of the villagers. As the day unfolded, everyone gathered at the square under the statue of the Saint, their protector and guide. \n\nThe choir sang hymns of reverence, blending seamlessly with the laughter of the children at play. The village priest shared the Saint's teachings, inspiring the villagers to lead a life of virtue. The celebration was a testament to unity and gratitude, reflecting the Saint's spirit in every interaction. Despite life's hardships, the day was filled with joy, the village aglow with the warmth and radiance of the Saint's Day celebration"
+  KoH_religiousflavour.63.a: "A Toast to the Carolers!"
+  KoH_religiousflavour.63.b: "Time for a feast!"
+  KoH_religiousflavour.63.c: "It is time to spend time with family."
 
   veterancrusadersupported:0 "Hailed a Hero"
 

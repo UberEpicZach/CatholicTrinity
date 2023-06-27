@@ -6,6 +6,7 @@
  activity_venerate_ancestors_name:0 "[ACTIVITY.GetOwner.GetNamePossessiveOrMy|U] Ceremony to Venerate the Ancestors"
  activity_venerate_ancestors_owner:0 "Organizer"
 
+ TCTactivity_pilgrimage:0 "Saintly Tomb"
 
  # Activities
  activity_TCT_saint_days:0 "Saint Day Celebration"

@@ -619,6 +619,7 @@ on_pope_death = {
 			}
 			set_global_variable = TCT_Pope_Gregory_VII
 			save_scope_as = deadpope
+			#give_title = title:k_TCT_papal_state
 
 			create_character = {
 				location = scope:deadpope.capital_province
@@ -677,6 +678,7 @@ on_pope_death = {
 				save_scope_as = preferatus
 				add_prestige = 3000
 				add_piety = 3000
+				add_learning_skill = 3
 			}
 			create_title_and_vassal_change = {
 				type = election
@@ -686,6 +688,9 @@ on_pope_death = {
 			every_held_title = {
 				limit = {
 					tier > tier_barony
+					#NOT = {
+					#	this = title:k_TCT_papal_state
+					#}
 				}
 				every_player = {
 					add_prestige = 1
@@ -798,7 +803,7 @@ on_pope_death = {
 		}
 		else = {
 			save_scope_as = deadpope
-		
+			#get_title = title:k_TCT_papal_state
 			create_character = {
 				location = scope:deadpope.capital_province
 				age = { 30 33 }
@@ -858,6 +863,9 @@ on_pope_death = {
 			every_held_title = {
 				limit = {
 					tier > tier_barony
+					#NOT = {
+					#	this = title:k_TCT_papal_state
+					#}
 				}
 				every_player = {
 					add_prestige = 1

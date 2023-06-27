@@ -354,7 +354,7 @@ KoH_religiousflavour.4 = { #Monks have healing herbs
 	right_portrait = {
 		character = scope:monk
 	}
-	override_background = { event_background = garden }
+	override_background = { reference = garden }
 
 	trigger = {		
 		is_commanding_army = no
@@ -432,7 +432,7 @@ KoH_religiousflavour.5 = { #Monks is fantastic painter
 		character = scope:monk
 	}
 	override_background = {
-		event_background = farmland
+		reference = farmland
 	}
 
 	trigger = {		
@@ -997,7 +997,7 @@ KoH_religiousflavour.14 = { #Duty-Bound - Varaint
 # 	orphan = yes
 # 	theme = faith 
 # 	override_background = {
-# 		event_background = market
+# 		reference = market
 # 	}
 # 	left_portrait = {
 # 		character = title:c_lyon.holder
@@ -1059,7 +1059,7 @@ KoH_religiousflavour.14 = { #Duty-Bound - Varaint
 # 	desc = KoH_religiousflavour.16.desc
 # 	theme = faith 
 # 	override_background = {
-# 		event_background = market
+# 		reference = market
 # 	}
 
 # 	immediate = {
@@ -1090,7 +1090,7 @@ KoH_religiousflavour.14 = { #Duty-Bound - Varaint
 # 	desc = KoH_religiousflavour.17.desc
 # 	theme = faith 
 # 	override_background = {
-# 		event_background = market
+# 		reference = market
 # 	}
 # 	left_portrait = {
 # 		character = scope:archbishop
@@ -1175,7 +1175,7 @@ KoH_religiousflavour.14 = { #Duty-Bound - Varaint
 # 	desc = KoH_religiousflavour.18.desc
 # 	theme = faith 
 # 	override_background = {
-# 		event_background = market
+# 		reference = market
 # 	}
 
 # 	immediate = {
@@ -1199,7 +1199,7 @@ KoH_religiousflavour.14 = { #Duty-Bound - Varaint
 # 	desc = KoH_religiousflavour.19.desc
 # 	theme = faith 
 # 	override_background = {
-# 		event_background = market
+# 		reference = market
 # 	}
 
 # 	immediate = {
@@ -1226,7 +1226,7 @@ KoH_religiousflavour.14 = { #Duty-Bound - Varaint
 # 	desc = KoH_religiousflavour.20.desc
 # 	theme = faith 
 # 	override_background = {
-# 		event_background = market
+# 		reference = market
 # 	}
 
 # 	immediate = {
@@ -1297,7 +1297,7 @@ KoH_religiousflavour.14 = { #Duty-Bound - Varaint
 # 	desc = KoH_religiousflavour.21.desc
 # 	theme = faith 
 # 	override_background = {
-# 		event_background = market
+# 		reference = market
 # 	}
 
 # 	right_portrait = {
@@ -3942,7 +3942,7 @@ KoH_religiousflavour.58 = {#christmas
 	title = KoH_religiousflavour.58.t
 	desc = KoH_religiousflavour.58.desc
 	theme = family
-	override_background = { event_background = TCT_christmas }
+	override_background = { reference = TCT_christmas }
 	left_portrait = {
 		character = scope:family
 		animation = happiness
@@ -3963,26 +3963,20 @@ KoH_religiousflavour.58 = {#christmas
 	# }
 
 	immediate = {
-		#play_music_cue = CK2_songs_of_yuletide 
-		if = {
-			limit = {
-				is_married = yes
-			}
-			spouse = {
-				save_scope_as = family
-			}
-		}
-		else = {
-			limit = {
-				any_child = {
-					count >= 1
+		play_music_cue = CK2_songs_of_yuletide 
+		random_List = {
+			50 = {
+				primary_spouse ?= {
+					save_scope_as = family
 				}
 			}
-			random_child = {
-				save_scope_as = family
+			50 = {
+				random_child ?= {
+					save_scope_as = family
+				}
 			}
-		}
-		root.capital_province = {
+		}	
+		root.capital_province ?= {
 			save_scope_as = provincefun
 		}
 	}
@@ -4032,7 +4026,7 @@ KoH_religiousflavour.63 = {
 	title = KoH_religiousflavour.63.t
 	desc = KoH_religiousflavour.63.desc
 	theme = faith
-	#override_background = { event_background = TCT_christmas }
+	#override_background = { reference = TCT_christmas }
 	left_portrait = {
 		character = scope:family
 		animation = happiness
@@ -4049,26 +4043,20 @@ KoH_religiousflavour.63 = {
 		scope:saint_day_saint = {
 			save_scope_as = localsaint
 		}
-		
-		if = {
-			limit = {
-				is_married = yes
-			}
-			spouse = {
-				save_scope_as = family
-			}
-		}
-		else = {
-			limit = {
-				any_child = {
-					count >= 1
+			
+		random_List = {
+			50 = {
+				primary_spouse ?= {
+					save_scope_as = family
 				}
 			}
-			random_child = {
-				save_scope_as = family
+			50 = {
+				random_child ?= {
+					save_scope_as = family
+				}
 			}
-		}
-		root.capital_province = {
+		}	
+		root.capital_province ?= {
 			save_scope_as = provincefun
 		}
 	}
@@ -4130,7 +4118,7 @@ KoH_religiousflavour.70 = {
 	title = KoH_religiousflavour.70.t
 	desc = KoH_religiousflavour.70.t
 	# Use appropriate localization for the event title and description
-
+	orphan = yes
 	# Set the portraits of the characters involved
 	left_portrait = {
 		character = root
@@ -4157,7 +4145,7 @@ KoH_religiousflavour.70 = {
 	}
 
 	immediate = {
-		set_character_flag = heir_baptized
+		add_character_flag = heir_baptized
 	}
 
 	option = {
@@ -4211,7 +4199,7 @@ KoH_religiousflavour.70 = {
 	title = KoH_religiousflavour.70.t
 	desc = KoH_religiousflavour.70.t
 	# Use appropriate localization for the event title and description
-
+	orphan = yes
 	# Set the portraits of the characters involved
 	left_portrait = {
 		character = root
@@ -4238,7 +4226,7 @@ KoH_religiousflavour.70 = {
 	}
 
 	immediate = {
-		set_character_flag = heir_baptized
+		add_character_flag = heir_baptized
 	}
 
 	option = {
@@ -4518,7 +4506,7 @@ KoH_religiousflavour.250 = {
 		scope:saintlocation = {
 			random_in_list = {
 				variable = faith_saints_and_capital
-				save_scope_as = localsaint
+	 			save_scope_as = localsaint
 			}
 		}
 		play_music_cue = Trinity_4
@@ -4669,7 +4657,7 @@ KoH_religiousflavour.4001 = {
 	title = KoH_religiousflavour.4001.t
 	desc = KoH_religiousflavour.4001.desc
 	theme = court
-	override_background = { event_background = throne_room }
+	override_background = { reference = throne_room }
 
 	right_portrait = {
 		character = title:k_papal_state.holder
@@ -4862,7 +4850,7 @@ KoH_religiousflavour.5725 = {
 		}
 	}
 	theme = family
-	override_background = { event_background = relaxing_room }
+	override_background = { reference = relaxing_room }
 	right_portrait = {
 		character = scope:child
 		animation = happiness
@@ -5051,7 +5039,7 @@ KoH_religiousflavour.401 = {
 	title = KoH_religiousflavour.401.t
 	desc = KoH_religiousflavour.401.desc
 	theme = court
-	override_background = { event_background = throne_room }
+	override_background = { reference = throne_room }
 
 	right_portrait = {
 		character = title:k_papal_state.holder
