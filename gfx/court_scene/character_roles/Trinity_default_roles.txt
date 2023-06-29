@@ -40,19 +40,22 @@ knights = {
 						NOT = { has_trait = maimed }
 					}
 		        }
-				every_knight = {
-					limit = {
-						is_ruler = no
-						is_available_healthy_ai_adult = yes
-						is_clergy = no
-						NOT = { has_court_position = court_jester_court_position }
-						NOT = { has_short_disease_trigger = yes }
-						NOT = { has_trait = maimed }
-					}
-					add_to_list = characters
-					add_character_flag = {
-						flag = attending_tournament
-						days = 1
+				
+				scope:ruler = {
+					every_knight = {
+						limit = {
+							is_ruler = no
+							is_available_healthy_ai_adult = yes
+							is_clergy = no
+							NOT = { has_court_position = court_jester_court_position }
+							NOT = { has_short_disease_trigger = yes }
+							NOT = { has_trait = maimed }
+						}
+						add_to_list = characters
+						add_character_flag = {
+							flag = attending_tournament
+							days = 1
+						}
 					}
 				}
 			}
@@ -71,38 +74,42 @@ knights = {
 						NOT = { has_trait = maimed }
 					}
 		        }
-				every_knight = {
-					limit = {
-						OR = {
-							is_ruler = no
-							highest_held_title_tier <= tier_county
+				scope:ruler = {
+					every_knight = {
+						limit = {
+							OR = {
+								is_ruler = no
+								highest_held_title_tier <= tier_county
+							}
+							is_available_healthy_ai_adult = yes
+							is_clergy = no
+							NOT = { has_court_position = court_jester_court_position }
+							NOT = { has_short_disease_trigger = yes }
+							NOT = { has_trait = maimed }
 						}
-						is_available_healthy_ai_adult = yes
-						is_clergy = no
-						NOT = { has_court_position = court_jester_court_position }
-						NOT = { has_short_disease_trigger = yes }
-						NOT = { has_trait = maimed }
-					}
-					add_to_list = characters
-					add_character_flag = {
-						flag = attending_tournament
-						days = 1
+						add_to_list = characters
+						add_character_flag = {
+							flag = attending_tournament
+							days = 1
+						}
 					}
 				}
 			}
 			else = {
-				every_knight = {
-					limit = {
-						is_available_healthy_ai_adult = yes
-						is_clergy = no
-						NOT = { has_court_position = court_jester_court_position }
-						NOT = { has_short_disease_trigger = yes }
-						NOT = { has_trait = maimed }
-					}
-					add_to_list = characters
-					add_character_flag = {
-						flag = attending_tournament
-						days = 1
+				scope:ruler = {
+					every_knight = {
+						limit = {
+							is_available_healthy_ai_adult = yes
+							is_clergy = no
+							NOT = { has_court_position = court_jester_court_position }
+							NOT = { has_short_disease_trigger = yes }
+							NOT = { has_trait = maimed }
+						}
+						add_to_list = characters
+						add_character_flag = {
+							flag = attending_tournament
+							days = 1
+						}
 					}
 				}
 			} 

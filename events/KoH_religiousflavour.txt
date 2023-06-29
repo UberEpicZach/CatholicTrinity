@@ -50,7 +50,7 @@ KoH_religiousflavour.1 = { #A Pope and His Estates
 	}
 
 	immediate = {
-		scripted_effect_popethingevent = {}
+		scripted_effect_popethingevent = yes
 	}
 
 	option = { 
@@ -4113,166 +4113,166 @@ KoH_religiousflavour.64 = {
 	}
 }
 
-#Event: Baptism of my Heir / Quick and Dirty Baptism's
-KoH_religiousflavour.70 = {
-	title = KoH_religiousflavour.70.t
-	desc = KoH_religiousflavour.70.t
-	# Use appropriate localization for the event title and description
-	orphan = yes
-	# Set the portraits of the characters involved
-	left_portrait = {
-		character = root
-		animation = personality_rational
-	}
+# #Event: Baptism of my Heir / Quick and Dirty Baptism's
+# KoH_religiousflavour.70 = {
+# 	title = KoH_religiousflavour.70.t
+# 	desc = KoH_religiousflavour.70.t
+# 	# Use appropriate localization for the event title and description
+# 	orphan = yes
+# 	# Set the portraits of the characters involved
+# 	left_portrait = {
+# 		character = root
+# 		animation = personality_rational
+# 	}
 
-	lower_left_portrait = {
-		character = scope:heir
-	}
+# 	lower_left_portrait = {
+# 		character = scope:heir
+# 	}
 
-	right_portrait = {
-		character = faith.religious_head
-	}
+# 	right_portrait = {
+# 		character = faith.religious_head
+# 	}
 
-	trigger = {
-		government_has_flag = government_is_feudal
-		OR = {
-			faith = faith:catholic
-			faith = faith:cathar
-			faith = faith:waldensian
-			faith = faith:lollard
-		}
-		NOT = { has_character_flag = heir_baptized } # Optional flag to prevent repeating the event
-	}
+# 	trigger = {
+# 		government_has_flag = government_is_feudal
+# 		OR = {
+# 			faith = faith:catholic
+# 			faith = faith:cathar
+# 			faith = faith:waldensian
+# 			faith = faith:lollard
+# 		}
+# 		NOT = { has_character_flag = heir_baptized } # Optional flag to prevent repeating the event
+# 	}
 
-	immediate = {
-		add_character_flag = heir_baptized
-	}
+# 	immediate = {
+# 		add_character_flag = heir_baptized
+# 	}
 
-	option = {
-		name = KoH_religiousflavour.70.a
+# 	option = {
+# 		name = KoH_religiousflavour.70.a
 
-		trigger = {
-			gold = 100 # Adjust the gold cost as desired
-		}
+# 		trigger = {
+# 			gold = 100 # Adjust the gold cost as desired
+# 		}
 
-		remove_short_term_gold = 100
-		add_prestige = -25 # Adjust the piety loss as desired
-		# Perform the baptism by the Pope (adjust the following actions as needed)
-		# Example actions:
-		# gain_trait = baptized
-		# gain_prestige = 100		
-	}
+# 		remove_short_term_gold = 100
+# 		add_prestige = -25 # Adjust the piety loss as desired
+# 		# Perform the baptism by the Pope (adjust the following actions as needed)
+# 		# Example actions:
+# 		# gain_trait = baptized
+# 		# gain_prestige = 100		
+# 	}
 
-	option = {
-		name = KoH_religiousflavour.70.b
+# 	option = {
+# 		name = KoH_religiousflavour.70.b
 
-		trigger = {
-			gold = 50 # Adjust the gold cost as desired
-		}
+# 		trigger = {
+# 			gold = 50 # Adjust the gold cost as desired
+# 		}
 
-		remove_short_term_gold = 50
-		# Perform the baptism by the local bishop (adjust the following actions as needed)
-		# Example actions:
-		# gain_trait = baptized
-		# gain_prestige = 50
-	}
+# 		remove_short_term_gold = 50
+# 		# Perform the baptism by the local bishop (adjust the following actions as needed)
+# 		# Example actions:
+# 		# gain_trait = baptized
+# 		# gain_prestige = 50
+# 	}
 
-	option = {
-		name = KoH_religiousflavour.70.c
+# 	option = {
+# 		name = KoH_religiousflavour.70.c
 
-		trigger = {
-			gold = 25 # Adjust the gold cost as desired
-		}
+# 		trigger = {
+# 			gold = 25 # Adjust the gold cost as desired
+# 		}
 
-		remove_short_term_gold = 25
-		add_prestige = -25 # Adjust the prestige loss as desired
-		# Perform a regular baptism (adjust the following actions as needed)
-		# Example actions:
-		# gain_trait = baptized
-		# gain_prestige = 25
-	}
-}
+# 		remove_short_term_gold = 25
+# 		add_prestige = -25 # Adjust the prestige loss as desired
+# 		# Perform a regular baptism (adjust the following actions as needed)
+# 		# Example actions:
+# 		# gain_trait = baptized
+# 		# gain_prestige = 25
+# 	}
+# }
 
 
-#Event: Baptism of my Heir / Quick and Dirty Baptism's
-KoH_religiousflavour.70 = {
-	title = KoH_religiousflavour.70.t
-	desc = KoH_religiousflavour.70.t
-	# Use appropriate localization for the event title and description
-	orphan = yes
-	# Set the portraits of the characters involved
-	left_portrait = {
-		character = root
-		animation = personality_rational
-	}
+# #Event: Baptism of my Heir / Quick and Dirty Baptism's
+# KoH_religiousflavour.70 = {
+# 	title = KoH_religiousflavour.70.t
+# 	desc = KoH_religiousflavour.70.t
+# 	# Use appropriate localization for the event title and description
+# 	orphan = yes
+# 	# Set the portraits of the characters involved
+# 	left_portrait = {
+# 		character = root
+# 		animation = personality_rational
+# 	}
 
-	lower_left_portrait = {
-		character = scope:heir
-	}
+# 	lower_left_portrait = {
+# 		character = scope:heir
+# 	}
 
-	right_portrait = {
-		character = faith.religious_head
-	}
+# 	right_portrait = {
+# 		character = faith.religious_head
+# 	}
 
-	trigger = {
-		government_has_flag = government_is_feudal
-		OR = {
-			faith = faith:catholic
-			faith = faith:cathar
-			faith = faith:waldensian
-			faith = faith:lollard
-		}
-		NOT = { has_character_flag = heir_baptized } # Optional flag to prevent repeating the event
-	}
+# 	trigger = {
+# 		government_has_flag = government_is_feudal
+# 		OR = {
+# 			faith = faith:catholic
+# 			faith = faith:cathar
+# 			faith = faith:waldensian
+# 			faith = faith:lollard
+# 		}
+# 		NOT = { has_character_flag = heir_baptized } # Optional flag to prevent repeating the event
+# 	}
 
-	immediate = {
-		add_character_flag = heir_baptized
-	}
+# 	immediate = {
+# 		add_character_flag = heir_baptized
+# 	}
 
-	option = {
-		name = KoH_religiousflavour.70.a
+# 	option = {
+# 		name = KoH_religiousflavour.70.a
 
-		trigger = {
-			has_gold = 100 # Adjust the gold cost as desired
-		}
+# 		trigger = {
+# 			has_gold = 100 # Adjust the gold cost as desired
+# 		}
 
-		remove_short_term_gold = 100
-		lose_piety = 25 # Adjust the piety loss as desired
-		# Perform the baptism by the Pope (adjust the following actions as needed)
-		# Example actions:
-		# gain_trait = baptized
-		# gain_prestige = 100		
-	}
+# 		remove_short_term_gold = 100
+# 		lose_piety = 25 # Adjust the piety loss as desired
+# 		# Perform the baptism by the Pope (adjust the following actions as needed)
+# 		# Example actions:
+# 		# gain_trait = baptized
+# 		# gain_prestige = 100		
+# 	}
 
-	option = {
-		name = KoH_religiousflavour.70.b
+# 	option = {
+# 		name = KoH_religiousflavour.70.b
 
-		trigger = {
-			has_gold = 50 # Adjust the gold cost as desired
-		}
+# 		trigger = {
+# 			has_gold = 50 # Adjust the gold cost as desired
+# 		}
 
-		lose_gold = 50
-		# Perform the baptism by the local bishop (adjust the following actions as needed)
-		# Example actions:
-		# gain_trait = baptized
-		# gain_prestige = 50
-	}
+# 		lose_gold = 50
+# 		# Perform the baptism by the local bishop (adjust the following actions as needed)
+# 		# Example actions:
+# 		# gain_trait = baptized
+# 		# gain_prestige = 50
+# 	}
 
-	option = {
-		name = KoH_religiousflavour.70.c
+# 	option = {
+# 		name = KoH_religiousflavour.70.c
 
-		trigger = {
-			has_gold = 25 # Adjust the gold cost as desired
-		}
+# 		trigger = {
+# 			has_gold = 25 # Adjust the gold cost as desired
+# 		}
 
-		lose_gold = 25
-		lose_prestige = 25 # Adjust the prestige loss as desired
-		# Perform a regular baptism (adjust the following actions as needed)
-		# Example actions:
-		# gain_trait = baptized
-		# gain_prestige = 25
-	}
-}
+# 		lose_gold = 25
+# 		lose_prestige = 25 # Adjust the prestige loss as desired
+# 		# Perform a regular baptism (adjust the following actions as needed)
+# 		# Example actions:
+# 		# gain_trait = baptized
+# 		# gain_prestige = 25
+# 	}
+# }
 
 # #Event: Deep in Doctrine
 # deep_in_doctrine.001 = {
@@ -4683,7 +4683,7 @@ KoH_religiousflavour.4001 = {
 		    scope:newpope = {
 				group = event_group
 				animation = worried
-				outfit_tags = { bishop_outfit }
+				#outfit_tags = { bishop_outfit }
 		    }
 			scope:cardinal2 = {
 				group = event_group

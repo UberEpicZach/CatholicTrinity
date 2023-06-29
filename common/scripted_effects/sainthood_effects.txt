@@ -287,29 +287,29 @@ set_up_saint_sites_for_selection_effect = {
 	}
 }
 
-saint_site_selection_event_option_effect = {
-	# HOLY_SITE = holy_site
-	hidden_effect = {
-		set_variable = {
-			name = pilgrimage_cooldown_timer
-			years = pilgrimage_cooldown_year_amount
-		}
-	}
+# saint_site_selection_event_option_effect = {
+# 	# HOLY_SITE = holy_site
+# 	hidden_effect = {
+# 		set_variable = {
+# 			name = pilgrimage_cooldown_timer
+# 			years = pilgrimage_cooldown_year_amount
+# 		}
+# 	}
 
-	scope:saint_site_1 = {
-		spawn_activity = {
-			owner = root
-			type = activity_pilgrimage
-		}
-	}
-	if = {
-		limit = { is_ai = no }
-		calculate_pilgrimage_distance_effect = {
-			PILGRIM = root
-			HOLY_SITE = scope:saint_site_1
-		}
-	}
-}
+# 	scope:saint_site_1 = {
+# 		spawn_activity = {
+# 			owner = root
+# 			type = activity_pilgrimage
+# 		}
+# 	}
+# 	if = {
+# 		limit = { is_ai = no }
+# 		calculate_pilgrimage_distance_effect = {
+# 			PILGRIM = root
+# 			HOLY_SITE = scope:saint_site_1
+# 		}
+# 	}
+# }
 
 pledge_ghw_piety_gain_effect = {
 	if = {

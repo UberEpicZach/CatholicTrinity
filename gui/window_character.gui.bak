@@ -310,7 +310,7 @@ window = {
 				text_label_center = {
 					parentanchor = top|hcenter
 					position = { 0 85 }
-					text = "trib_suzerain"
+					raw_text = "trib_suzerain"
 					allow_outside = yes
 				}
 
@@ -3486,7 +3486,7 @@ types CharacterWindow
 				name = "other_player_name"
 				visible = "[And( Character.IsPlayer, Not( Character.IsLocalPlayer ) )]"
 
-				raw_text = " • #L [Character.GetHumanName]#!"
+				raw_text = " ï¿½ #L [Character.GetHumanName]#!"
 				tooltip = "AI_PERSONALITY_IS_PLAYER_TOOLTIP"
 				using = tooltip_se
 
@@ -3499,7 +3499,7 @@ types CharacterWindow
 				name = "ai_personality"
 				visible = "[Not( Character.IsPlayer )]"
 
-				raw_text = " • #L [Character.GetAIPersonalityNoTooltip]#!"
+				raw_text = " ï¿½ #L [Character.GetAIPersonalityNoTooltip]#!"
 				tooltip = "AI_PERSONALITY_TT"
 				using = tooltip_se
 

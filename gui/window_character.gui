@@ -317,7 +317,7 @@ window = {
 				text_label_center = {
 					parentanchor = top|hcenter
 					position = { 0 85 }
-					text = "trib_suzerain"
+					raw_text = "trib_suzerain"
 					allow_outside = yes
 				}
 
@@ -1839,7 +1839,7 @@ window = {
 					text_single = {
 						layoutpolicy_horizontal = expanding
 						align = center
-						text = "CV_TAB_TRIBS"
+						raw_text = "CV_TAB_TRIBS"
 						#visible = ""
 						default_format = "#low"
 					}
