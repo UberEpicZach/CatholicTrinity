@@ -129,11 +129,11 @@ CatholicsimFix = {
 			remove_doctrine = doctrine_consanguinity_aunt_nephew_and_uncle_niece
 			add_doctrine = doctrine_consanguinity_restricted
 		}
-		faith:orthodox = {
-			remove_doctrine = tenet_pentarchy
-			add_doctrine = tenet_christian_pentarchy
-			add_doctrine = doctrine_autocephaly_head
-		}
+		#faith:orthodox = {
+		#	remove_doctrine = tenet_pentarchy
+		#	add_doctrine = tenet_christian_pentarchy
+		#	add_doctrine = doctrine_autocephaly_head
+		#}
 		set_global_variable = {
 			name = Trinity_is_loaded
 			value = yes

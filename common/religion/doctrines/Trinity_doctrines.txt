@@ -53,6 +53,10 @@
 				}
 			}
 		}
+		parameters = {
+			temporal_head_of_faith = yes
+			temporal_head_of_faith_directed_holy_wars = yes
+		}
 	}
 	
 	doctrine_TCT_blank = {
@@ -117,55 +121,55 @@
 	
 }
 
-TCT_general_doctrines = {
-	group = "core_tenets"
-	number_of_picks = 1
+# TCT_general_doctrines = {
+# 	group = "core_tenets"
+# 	number_of_picks = 1
 
-	doctrine_general_TCT_blank = {
-		can_pick = {
-			always = yes
-		}
-		piety_cost = {
+# 	doctrine_general_TCT_blank = {
+# 		can_pick = {
+# 			always = yes
+# 		}
+# 		piety_cost = {
 			
-		}
-		parameters = {
+# 		}
+# 		parameters = {
 			
-		}
-	}
-	tenet_christian_pentarchy = {
-		icon = core_tenet_followers
+# 		}
+# 	}
+# 	tenet_christian_pentarchy = {
+# 		icon = core_tenet_followers
 
-		is_shown = {
-			religion_tag = christianity_religion
-		}
+# 		is_shown = {
+# 			religion_tag = christianity_religion
+# 		}
 		
-		piety_cost = {
-			value = faith_tenet_cost_mid
+# 		piety_cost = {
+# 			value = faith_tenet_cost_mid
 
-			# Multiplier for keeping same tenet
-			if = {
-				limit = { has_doctrine = tenet_christian_pentarchy }
-				multiply = faith_unchanged_doctrine_cost_mult
-			}
-		}
+# 			# Multiplier for keeping same tenet
+# 			if = {
+# 				limit = { has_doctrine = tenet_christian_pentarchy }
+# 				multiply = faith_unchanged_doctrine_cost_mult
+# 			}
+# 		}
 		
-		can_pick = {
-			custom_description = {
-				text = doctrine_pluralism_pluralistic_trigger
-				NOT = { flag:doctrine_pluralism_pluralistic = { is_in_list = selected_doctrines } }
-			}
-			custom_description = {
-				text = doctrine_not_followers_of_peter_trigger
-				NOT = { flag:tenet_followers_of_peter = { is_in_list = selected_doctrines } }
-			}
-		}
+# 		can_pick = {
+# 			custom_description = {
+# 				text = doctrine_pluralism_pluralistic_trigger
+# 				NOT = { flag:doctrine_pluralism_pluralistic = { is_in_list = selected_doctrines } }
+# 			}
+# 			custom_description = {
+# 				text = doctrine_not_followers_of_peter_trigger
+# 				NOT = { flag:tenet_followers_of_peter = { is_in_list = selected_doctrines } }
+# 			}
+# 		}
 
-		parameters = {
-			fervor_per_holy_site = 0.1
-			pilgrimage_decision_active = yes
-		}
-	}
-}
+# 		parameters = {
+# 			fervor_per_holy_site = 0.1
+# 			pilgrimage_decision_active = yes
+# 		}
+# 	}
+# }
 
 TCT_doctrine_clerical_succession = {
 	group = "clergy"
