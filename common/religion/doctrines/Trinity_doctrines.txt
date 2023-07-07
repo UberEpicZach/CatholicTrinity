@@ -1,6 +1,6 @@
 ﻿TCT_doctrine_head_of_faith = {
 	group = "main_group"
-	number_of_picks = 1
+	number_of_picks = 2
 
 	doctrine_no_head = {
 		visible = no
