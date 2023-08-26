@@ -67,7 +67,7 @@ can_see_my_candidate_pope = {
 refresh_cardinal_characters = {
 	# Can use arbitrary scopes
     effect = {
-        update_cardinal_window = yes
+		faith = { update_cardinal_window = yes }
     }
 } 
 

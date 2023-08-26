@@ -968,16 +968,17 @@ window = {
 										name = "dread_name"
 										text = "[dread|E]: [GetPlayer.GetDread|0]"
 										default_format = "#high"
-										max_width = 80
+										max_width = 90
 									}
 								}
 
 								expand = {}
 
 								hbox = {
-									spacing = 2
-									tooltip = "[Character.GetVassalLimitTooltip]"
 									name = "tutorial_highlight_vassal_limit"
+									spacing = 4
+									
+									tooltip = "[Character.GetVassalLimitTooltip]"
 
 									background = {
 										visible = "[GreaterThan_int32( Character.GetNumVassalsTowardsLimit, Character.GetVassalLimit )]"
@@ -1003,6 +1004,7 @@ window = {
 
 							hbox = {
 								layoutpolicy_horizontal = expanding
+								margin = { 8 0 }
 
 								text_single = {
 									margin_bottom = 4
@@ -1104,6 +1106,8 @@ window = {
 										datacontext = "[GuiLawGroup]"
 										size = { 150 32 }
 										onclick = "[OpenSuccessionLawChangeWindow(GuiLawGroup.Self)]"
+										onclick = "[MyRealmWindow.SendButtonClickedTelemetry( GuiLawGroup.GetLawGroup.GetKey )]"
+
 										text = "MRW_CHANGE_LAW"
 										tooltip = "MRW_CHANGE_LAW_TT"
 									}
@@ -1726,6 +1730,7 @@ window = {
 															button_standard_select_arrow = {
 																name = "go_to_vote"
 																onclick = "[OpenSuccessionElectionWindowForTitle(Title.Self)]"
+																onclick = "[MyRealmWindow.SendButtonClickedTelemetry( 'election' )]"
 
 																blockoverride "button_text"{
 																	text = "MY_REALM_WINDOW_VOTE"

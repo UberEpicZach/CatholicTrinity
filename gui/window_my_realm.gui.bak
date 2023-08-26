@@ -725,7 +725,7 @@ window = {
 																				visible = "[HoldingItem.GetHolding.IsConstructionInProgress]"
 																				margin = { 0 4 }
 
-																				text_label_right = {
+																				text_single = {
 																					layoutpolicy_horizontal = expanding
 																					text = "[HoldingItem.GetStatusText]"
 
@@ -736,14 +736,13 @@ window = {
 
 																				hbox = {
 																					layoutpolicy_horizontal = expanding
-																					margin_right = -1
-																					expand = {}
+																					margin_bottom = 3
 
 																					progressbar_standard = {
 																						name = "building_progressbar"
 
 																						alwaystransparent = yes
-																						size = { 180 15 }
+																						size = { 180 12 }
 																						value = "[HoldingItem.GetHolding.GetConstructionProgress]"
 																						direction = horizontal
 																					}
@@ -799,87 +798,65 @@ window = {
 					}
 
 					hbox = {
-						name = "government_filters_container"
-						margin = { 0 7 }
+						name = "vassal_filters_container"
+						margin = { 0 5 }
+						layoutpolicy_horizontal = expanding
 
-						hbox = {
-							name = "government_filters"
-							datamodel = "[MyRealmWindow.GetGovernmentTypeHeaders]"
-							visible = "[LessThan_int32(GetDataModelSize(MyRealmWindow.GetGovernmentTypeHeaders), '(int32)3')]"
-							spacing = 5
-							layoutpolicy_horizontal = expanding
+						dropdown_menu_standard = {
+							name = "government_filters_dropdown"
 
-							button_standard_clean = {
-								name = "all_governments"
-								size = { 60 33 }
-								default_format = "#low"
+							blockoverride "dropdown_properties"
+							{
+								datamodel = "[MyRealmWindow.GetGovernmentTypeFilters]"
 
-								text = "MRW_GOVERNMENT_FILTER_ALL"
-								tooltip = "MRW_GOVERNMENT_FILTER_ALL_TT"
-								using = tooltip_above
-								down = "[Not(MyRealmWindow.HasGovernmentTypeFilter)]"
-								onclick = "[MyRealmWindow.ResetGovernmentTypeFilter]"
+								onselectionchanged = "[MyRealmWindow.SelectActiveGovernmentTypeFilter]"
+								selectedindex = "[MyRealmWindow.GetActiveGovernmentTypeFilterIndex]"
 							}
 
-							item = {
-								button_standard_clean = {
-									name = "government_filter"
-									datacontext = "[GovernmentTypeHeader.GetGovernmentType]"
+							blockoverride "dropdown_active_item_properties"
+							{
+								text = "MRW_GOVERNMENT_FILTER"
+								tooltip = "MRW_GOVERNMENT_FILTER_DROPDOWN_TT"
+							}
 
-									text = "MRW_GOVERNMENT_FILTER"
-									default_format = "#low"
-
-									tooltip = "MRW_GOVERNMENT_FILTER_TT"
-									using = tooltip_above
-									down = "[GovernmentTypeHeader.IsSelected]"
-									onclick = "[GovernmentTypeHeader.OnClick]"
-								}
+							blockoverride "dropdown_item_properties"
+							{
+								text = "MRW_GOVERNMENT_FILTER"
+								tooltip = "MRW_GOVERNMENT_FILTER_TT"
 							}
 						}
 
-						hbox = {
-							name = "small_government_filters"
-							datamodel = "[MyRealmWindow.GetGovernmentTypeHeaders]"
-							visible = "[GreaterThanOrEqualTo_int32(GetDataModelSize(MyRealmWindow.GetGovernmentTypeHeaders), '(int32)3')]"
-							spacing = 2
-							layoutpolicy_horizontal = expanding
+						dropdown_menu_standard = {
+							name = "vassal_stance_filters_dropdown"
 
-							button_standard_clean = {
-								name = "all_governments"
-								size = { 56 33 }
-								default_format = "#low"
+							blockoverride "dropdown_properties"
+							{
+								datamodel = "[MyRealmWindow.GetVassalStanceFilters]"
 
-								text = "MRW_GOVERNMENT_FILTER_ALL"
-								tooltip = "MRW_GOVERNMENT_FILTER_ALL_TT"
-								using = tooltip_above
-								down = "[Not(MyRealmWindow.HasGovernmentTypeFilter)]"
-								onclick = "[MyRealmWindow.ResetGovernmentTypeFilter]"
+								onselectionchanged = "[MyRealmWindow.SelectActiveVassalStanceFilter]"
+								selectedindex = "[MyRealmWindow.GetActiveVassalStanceFilterIndex]"
 							}
 
-							item = {
-								button_standard_clean = {
-									name = "small_government_filter"
-									datacontext = "[GovernmentTypeHeader.GetGovernmentType]"
-									size = { 96 33 }
+							blockoverride "dropdown_active_item_properties"
+							{
+								text = "MRW_VASSAL_STANCE_FILTER"
+								tooltip = "MRW_VASSAL_STANCE_FILTER_DROPDOWN_TT"
+							}
 
-									text = "[GovernmentType.GetNameNoTooltip]"
-									default_format = "#low"
-
-									tooltip = "MRW_GOVERNMENT_FILTER_TT"
-									using = tooltip_above
-									down = "[GovernmentTypeHeader.IsSelected]"
-									onclick = "[GovernmentTypeHeader.OnClick]"
-								}
+							blockoverride "dropdown_item_properties"
+							{
+								text = "MRW_VASSAL_STANCE_FILTER"
+								tooltip = "MRW_VASSAL_STANCE_FILTER_TT"
 							}
 						}
 					}
 
 					text_single = {
-						visible = "[MyRealmWindow.HasGovernmentTypeFilter]"
-						margin_top = 5
+						name = "government_filter_label"
 						margin_bottom = 10
 
-						text = "[MyRealmWindow.GetGovernmentTypeFilter.GetVassalsLabel]"
+						visible = "[MyRealmWindow.HasActiveGovernmentTypeFilter]"
+						text = "[MyRealmWindow.GetActiveGovernmentTypeFilter.GetVassalsLabel]"
 					}
 
 					scrollbox = {
@@ -900,7 +877,7 @@ window = {
 								datamodel = "[CharacterSelectionList.GetList]"
 								visible = "[Not(CharacterSelectionList.IsBuildingList)]"
 								addcolumn = 545
-								addrow = 185
+								addrow = 190
 								setitemsizefromcell = yes
 
 								item = {
@@ -923,7 +900,7 @@ window = {
 								datamodel = "[CharacterSelectionList.GetList]"
 								visible = "[Not(CharacterSelectionList.IsBuildingList)]"
 								addcolumn = 545
-								addrow = 185
+								addrow = 190
 								setitemsizefromcell = yes
 
 								item = {
@@ -948,11 +925,15 @@ window = {
 
 					vbox = {
 						layoutpolicy_horizontal = expanding
-						margin = { 15 5 }
+						margin = { 15 0 }
+						margin_top = 10
+						margin_bottom = 15
 
 						vbox = {
 							layoutpolicy_horizontal = expanding
-							margin = { 0 5 }
+							margin = { 35 3 }
+							spacing = 6
+
 
 							background = {
 								using = Background_Area
@@ -962,13 +943,16 @@ window = {
 							}
 
 							hbox = {
-								spacing = 20
+								layoutpolicy_horizontal = expanding
 
 								text_single = {
 									default_format = "#high"
 									text = "MY_REALM_WINDOW_VASSAL_OPINION"
+									max_width = 160
 									tooltip = "MY_REALM_WINDOW_VASSAL_OPINION_TT"
 								}
+
+								expand = {}
 
 								hbox = {
 
@@ -984,8 +968,11 @@ window = {
 										name = "dread_name"
 										text = "[dread|E]: [GetPlayer.GetDread|0]"
 										default_format = "#high"
+										max_width = 80
 									}
 								}
+
+								expand = {}
 
 								hbox = {
 									spacing = 2
@@ -1004,15 +991,43 @@ window = {
 
 									text_single = {
 										text = "MY_REALM_WINDOW_VASSAL_LIMIT"
+										max_width = 120
 									}
 
 									text_single = {
 										text = "MY_REALM_WINDOW_VASSAL_LIMIT_VALUE"
+										max_width = 50
+									}
+								}
+							}
+
+							hbox = {
+								layoutpolicy_horizontal = expanding
+
+								text_single = {
+									margin_bottom = 4
+									text = MY_REALM_WINDOW_VASSAL_STANCES
+								}
+								spacing = 10
+								hbox = {
+									datamodel = "[GetAllVassalStances]"
+									spacing = 10
+									item = {
+										hbox = {
+											visible = "[NotEqualTo_int32( MyRealmWindow.GetNumVassalsWithStance( VassalStance.Self ), '(int32)0' )]"
+											text_single = {
+												margin_bottom = 5
+												margin_right = 5
+												margin_left = 5
+												using = Background_Area_Border
+												text = "MY_REALM_WINDOW_VASSAL_STANCE_COUNT"
+												tooltip = "MY_REALM_WINDOW_VASSAL_STANCE_COUNT_TT"
+											}
+										}
 									}
 								}
 
-
-
+								expand = {}
 							}
 						}
 					}
@@ -1036,9 +1051,9 @@ window = {
 					}
 
 					vbox = {
-						margin = { 30 15 }
+						margin = { 20 15 }
 						margin_bottom = 10
-						spacing = 8
+						spacing = 4
 						layoutpolicy_horizontal = expanding
 
 						text_label_center = {
@@ -1146,7 +1161,7 @@ window = {
 
 						blockoverride "scrollbox_content"
 						{
-							margin = { 17 10 }
+							margin = { 20 10 }
 							spacing = 10
 
 							hbox = {
@@ -1154,7 +1169,14 @@ window = {
 								layoutpolicy_horizontal = expanding
 
 								background = {
-									using =  Background_Area
+									using =  Background_Area_Dark
+									alpha = 0.8
+
+									modify_texture = {
+										texture = "gfx/interface/component_masks/mask_fade_horizontal.dds"
+										blend_mode = alphamultiply
+										mirror = horizontal
+									}
 								}
 
 								portrait_head = {
@@ -1168,20 +1190,11 @@ window = {
 								vbox = {
 									layoutpolicy_vertical = expanding
 									layoutpolicy_horizontal = expanding
-									margin = { 10 8 }
+									margin = { 5 0 }
+									margin_top = 5
 
 									vbox = {
 										layoutpolicy_horizontal = expanding
-
-										text_single = {
-											visible = "[MyRealmWindow.HasHeir]"
-											layoutpolicy_horizontal = expanding
-											layoutpolicy_vertical = expanding
-											autoresize = no
-
-											text = "MRW_YOUR_PLAYER_HEIR"
-											default_format = "#weak"
-										}
 
 										text_single = {
 											visible = "[MyRealmWindow.HasHeir]"
@@ -1192,6 +1205,30 @@ window = {
 
 											text = "[MyRealmWindow.GetCharacter.GetPlayerHeir.GetUINameNoTooltip]"
 											default_format = "#low"
+										}
+
+										text_single = {
+											name = "vassal_stances_that_prefer"
+											datacontext = "[MyRealmWindow.GetCharacter.GetPlayerHeir]"
+
+											visible = "[And( MyRealmWindow.HasHeir, Not( StringIsEmpty( MyRealmWindow.GetCharacter.GetVassalStancesThatPrefer( Character.Self ) ) ) )]"
+
+											layoutpolicy_horizontal = expanding
+											layoutpolicy_vertical = expanding
+											autoresize = no
+
+											text = "MRW_HEIR_PREFERRED"
+											using = Font_Size_Medium
+										}
+
+										text_single = {
+											visible = "[MyRealmWindow.HasHeir]"
+											layoutpolicy_horizontal = expanding
+											layoutpolicy_vertical = expanding
+											autoresize = no
+
+											text = "MRW_YOUR_PLAYER_HEIR"
+											default_format = "#weak"
 										}
 									}
 
@@ -1212,11 +1249,9 @@ window = {
 											text = "MY_REALM_WINDOW_NOT_PRIMARY_HEIR"
 										}
 									}
-								}
-							}
 
-							divider = {
-								layoutpolicy_horizontal = expanding
+									expand = {}
+								}
 							}
 
 							##### FROM REALM'S PARTITION #####
@@ -1227,11 +1262,13 @@ window = {
 									name = "their_partition_share"
 									visible = "[And(MyRealmWindow.HasPartition, DataModelHasItems(MyRealmWindow.GetMyPartitionShare))]"
 									layoutpolicy_horizontal = expanding
+									margin_left = 5
 
 									hbox = {
 										layoutpolicy_horizontal = expanding
 
-										text_label_center = {
+										text_label_left = {
+											layoutpolicy_horizontal = expanding
 											text = "MY_REALM_WINDOW_PARTITION_SHARE"
 										}
 
@@ -1266,9 +1303,21 @@ window = {
 									button_group = {
 										onclick = "[GetVariableSystem.Toggle( 'expand_partition' )]"
 
+										button_standard = {
+											size = { 510 28 }
+											
+											modify_texture = {
+												texture = "gfx/interface/component_masks/mask_fade_horizontal.dds"
+												blend_mode = alphamultiply
+												mirror = horizontal
+											}
+										}
+
 										flowcontainer = {
 											ignoreinvisible = yes
 											spacing = 5
+											margin_top = 2.5
+											margin_left = 5
 
 											widget = {
 												size = { 18 22 }
@@ -1346,6 +1395,18 @@ window = {
 												}
 
 												text_single = {
+													name = "vassal_stances_that_prefer"
+													visible = "[Not( StringIsEmpty( MyRealmWindow.GetCharacter.GetVassalStancesThatPrefer( Character.Self ) ) )]"
+
+													layoutpolicy_horizontal = expanding
+													layoutpolicy_vertical = expanding
+													autoresize = no
+
+													text = "MRW_HEIR_PREFERRED"
+													using = Font_Size_Medium
+												}
+
+												text_single = {
 													name = "heir_share"
 													datacontext = "[GetPlayer]"
 													visible = "[DataModelHasItems(TitleSuccessionItem.GetPartitionTitles)]"
@@ -1418,8 +1479,10 @@ window = {
 											}
 
 											vbox = {
+												layoutpolicy_vertical = expanding
+
 												portrait_head = {
-													name = "primary_spouse_portrait"
+													name = "heir_portrait"
 													blockoverride "portrait_button" {
 														using = tooltip_ws
 													}
@@ -1436,13 +1499,15 @@ window = {
 								name = "exceptions"
 								layoutpolicy_horizontal = expanding
 								layoutpolicy_vertical = growing
+								margin_left = 5
 
 								visible = "[DataModelHasItems(MyRealmWindow.GetSuccessionExceptions)]"
 
 								hbox = {
 									layoutpolicy_horizontal = expanding
 
-									text_label_center = {
+									text_label_left = {
+										layoutpolicy_horizontal = expanding
 										text = "MY_REALM_WINDOW_EXCEPTIONS"
 									}
 
@@ -1474,48 +1539,149 @@ window = {
 								layoutpolicy_horizontal = expanding
 								layoutpolicy_vertical = growing
 								spacing = 10
+								margin = { 5 0 }
 
 								hbox = {
 									layoutpolicy_horizontal = expanding
 
 									text_label_left = {
 										name = "line_of_succession_label"
-
+										layoutpolicy_horizontal = expanding
 										text = "MY_REALM_WINDOW_LINE_OF_SUCCESSION"
 									}
 
 									expand = {}
 								}
 
-								flowcontainer = {
+								dynamicgridbox = {
 									name = "line_of_succession_box"
-									layoutpolicy_horizontal = expanding
-									spacing = 0
-									margin_right = 10
-
 									datamodel = "[MyRealmWindow.GetLineOfSuccession]"
+									layoutpolicy_horizontal = expanding
 
 									item = {
-										portrait_head = {
-											name = "heir_portrait"
+										hbox = {
+											maximumsize = { -1 100 }
+											margin_left = 10
+											margin_bottom = 5
+											datacontext = "[LineOfSuccessionItem.GetCharacter]"
+
+											background = {
+												using = Background_Area_With_Header
+											}
+
+											vbox = {
+												layoutpolicy_vertical = growing
+												margin_bottom = 5
+												spacing = 2
+
+												hbox = {
+													layoutpolicy_horizontal = expanding
+
+													text_single = {
+														name = "heir_name"
+														raw_text = "#bold [LineOfSuccessionItem.GetOrder|V]#!  [Character.GetShortUINameNoTooltip], "
+														margin_left = 2
+														max_width = 300
+														fontsize = 20
+														fontsize_min = 14
+														using = Font_Size_Medium
+													}
+
+													text_single = {
+														name = "character_age"
+														raw_text = " [Character.GetAge]"
+														default_format = "#low"
+														tooltip = "[Character.GetDeathOrBirthDateInfo]"
+														fontsize = 20
+													}
+
+													vbox = {
+														layoutpolicy_vertical = expanding
+
+														expand = {}
+
+														icon = {
+															visible = "[Not(Character.IsDeadAndValid)]"
+															size = { 23 23 }
+															framesize = { 60 60 }
+															frame = "[Character.GetHealthIconFrame]"
+															texture = "gfx/interface/icons/character_status/icon_health.dds"
+															tooltip = "[Character.GetHealthInfo]"
+														}
+													}
+
+													expand = {}
+												}
+
+												spacer = {
+													size = { 10 3 }
+												}
+
+												hbox = {
+													layoutpolicy_horizontal = expanding
+
+													text_single = {
+														name = "character_relation_to_you"
+														text = "[Character.GetRelationToString( GetPlayer )]"
+														tooltip = "EXTENDED_RELATIONS_TOOLTIP"
+
+														fontsize_min = 13
+														align = nobaseline
+														max_width = 300
+													}
+
+													expand = {}
+												}
+
+												hbox_traits_list_small = {
+													name = "traits_list"
+													datacontext = "[LineOfSuccessionItem.GetTraitArrays]"
+												}
+
+												text_single = {
+													name = "vassal_stances_that_prefer"
+													visible = "[Not( StringIsEmpty( MyRealmWindow.GetCharacter.GetVassalStancesThatPrefer( Character.Self ) ) )]"
+
+													layoutpolicy_horizontal = expanding
+													autoresize = no
+
+													text = "MRW_HEIR_PREFERRED"
+													using = Font_Size_Medium
+												}
+
+												expand = {}
+											}
+
+											expand = {}
+
+											vbox = {
+												layoutpolicy_vertical = expanding
+
+												portrait_shoulders = {
+													name = "heir_portrait"
+													blockoverride "portrait_button" {
+														using = tooltip_ws
+													}
+												}
+
+												expand = {}
+											}
 										}
 									}
 								}
-							}
-
-							divider = {
-								layoutpolicy_horizontal = expanding
 							}
 
 							#### ELECTIONS ####
 							vbox = {
 								layoutpolicy_horizontal = expanding
 								visible = "[MyRealmWindow.CanVote]"
+								margin_left = 5
 
 								hbox = {
 									layoutpolicy_horizontal = expanding
 
-									text_label_center = {
+									text_label_left = {
+										layoutpolicy_horizontal = expanding
 										text = "MY_REALM_WINDOW_ELECTIONS"
 									}
 
@@ -1528,14 +1694,14 @@ window = {
 
 									fixedgridbox = {
 										name = "exceptions_box"
-										addcolumn = 480
+										addcolumn = 510
 										addrow = 90
 										datamodel = "[MyRealmWindow.GetTitlesCanVote]"
 
 										item = {
 											widget = {
 												name = "election_title"
-												size = { 480 90 }
+												size = { 510 90 }
 												datacontext = "[TitleItem.GetTitle]"
 
 												hbox = {
@@ -1620,7 +1786,7 @@ window = {
 						background = {
 							using = Background_Area
 							margin = { -65 0 }
-							margin_bottom = 10
+							margin_bottom = 8
 							margin_top = 3
 						}
 
@@ -1660,16 +1826,23 @@ window = {
 								using = Status_Highlight
 							}
 
-							warning_icon = {
-								visible = "[MyRealmWindow.IsOverDomainLimit]"
-								size = { 25 25 }
-								tooltip = "[Character.GetDomainLimitTooltip]"
+							flowcontainer = {
+								spacing = 5
+
+								text_single = {
+									layoutpolicy_horizontal = expanding
+									text = "MY_REALM_WINDOW_FROM_HOLDINGS"
+									align = bottom
+								}
+
+								warning_icon = {
+									visible = "[MyRealmWindow.IsOverDomainLimit]"
+									size = { 25 25 }
+									tooltip = "[Character.GetDomainLimitTooltip]"
+								}
 							}
 
-							text_single = {
-								layoutpolicy_horizontal = expanding
-								text = "MY_REALM_WINDOW_FROM_HOLDINGS"
-							}
+							expand = {}
 
 							text_single = {
 								datacontext = "[MyRealmWindow.GetDomainIncome]"
@@ -1713,16 +1886,23 @@ window = {
 								using = Status_Highlight
 							}
 
-							warning_icon = {
-								visible = "[GreaterThan_int32( Character.GetNumVassalsTowardsLimit, Character.GetVassalLimit )]"
-								size = { 25 25 }
-								tooltip = "[Character.GetVassalLimitTooltip]"
+							flowcontainer = {
+								spacing = 5
+
+								text_single = {
+									layoutpolicy_horizontal = expanding
+									text = "MY_REALM_WINDOW_FROM_VASSALS"
+									align = bottom
+								}
+
+								warning_icon = {
+									visible = "[GreaterThan_int32( Character.GetNumVassalsTowardsLimit, Character.GetVassalLimit )]"
+									size = { 25 25 }
+									tooltip = "[Character.GetVassalLimitTooltip]"
+								}
 							}
 
-							text_single = {
-								layoutpolicy_horizontal = expanding
-								text = "MY_REALM_WINDOW_FROM_VASSALS"
-							}
+							expand = {}
 
 							text_single = {
 								datacontext = "[MyRealmWindow.GetVassalsIncome]"
@@ -1910,5 +2090,17 @@ types MyRealmWindow
 		size = { 25 25 }
 		visible = "[Not( VassalContract.IsContractDefault )]"
 		tooltip = "VASSAL_CONTRACT_NOT_DEFAULT"
+		using = tooltip_sw
+	}
+
+	type vassal_stance_icon = icon
+	{
+		datacontext = "[Character.GetVassalStance]"
+		visible = "[And( Character.IsVassalOf( GetPlayer ), Not( Character.IsPlayer ) )]"
+
+		texture = "[VassalStance.GetIcon]"
+		tooltipwidget = {
+			using = vassal_stance_tooltip
+		}
 	}
 }

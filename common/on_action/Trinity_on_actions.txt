@@ -434,7 +434,7 @@ CardinalsTraits = {
 	effect = {
 		title:k_papal_state.holder = {
 			trigger_event = KoH_religiousflavour.22
-			update_cardinal_window = yes
+			faith = { update_cardinal_window = yes }
 		}
 		if = {
 			limit = {
@@ -485,7 +485,7 @@ on_cardinal_initialize = {
 		debug_log = "initializing cardinals"
 		initialize_random_cardinals = yes
 		update_preferatus = yes
-		update_cardinal_window = yes
+		faith = { update_cardinal_window = yes }
 	}
 }
 
@@ -582,7 +582,7 @@ on_cardinal_death = {
 	effect = {
 		save_scope_as = dyingcardinal
 		give_nickname = nick_cardinal
-		update_cardinal_window = yes
+		faith = { update_cardinal_window = yes }
 		update_preferatus = yes
 
 		title:k_papal_state.holder = {
@@ -614,10 +614,10 @@ on_preferatus_death = {
 		}
 	}
 	effect = {
-		update_cardinal_window = yes
+		faith = { update_cardinal_window = yes }
 		global_var:preferatus = {
 			promote_new_cardinal = yes
-			update_cardinal_window = yes
+			faith = { update_cardinal_window = yes }
 		}
 		title:k_papal_state.holder = {
 			trigger_event = KoH_religiousflavour.801
@@ -749,7 +749,7 @@ on_pope_death = {
 			scope:monk = {
 				set_player_character = scope:preferatus
 			}
-			update_cardinal_window = yes
+			faith = { update_cardinal_window = yes }
 			update_preferatus = yes
 
 			title:k_papal_state.holder = {	
@@ -924,7 +924,7 @@ on_pope_death = {
 			scope:monk = {
 				set_player_character = scope:preferatus
 			}
-			update_cardinal_window = yes
+			faith = { update_cardinal_window = yes }
 			update_preferatus = yes
 
 			title:k_papal_state.holder = {	

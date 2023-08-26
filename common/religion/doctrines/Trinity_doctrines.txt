@@ -58,18 +58,6 @@
 			temporal_head_of_faith_directed_holy_wars = yes
 		}
 	}
-	
-	doctrine_TCT_blank = {
-		can_pick = {
-			always = yes
-		}
-		piety_cost = {
-			
-		}
-		parameters = {
-			
-		}
-	}
 
 	doctrine_independent_papacy_head = {
 		visible = no
@@ -96,13 +84,14 @@
 
 	doctrine_autocephaly_head = {
 		visible = no
-		is_shown = { religion_tag = christianity_religion }
-		can_pick = { 
-			religion_tag = christianity_religion 
-			custom_description = {
-				text = need_tenet_christian_pentarchy_trigger
-				flag:tenet_christian_pentarchy = { is_in_list = selected_doctrines }
-			}
+		is_shown = { always = no religion_tag = christianity_religion }
+		can_pick = {
+			always = no 
+			# religion_tag = christianity_religion 
+			# custom_description = {
+			# 	text = need_tenet_christian_pentarchy_trigger
+			# 	flag:tenet_christian_pentarchy = { is_in_list = selected_doctrines }
+			# }
 		}
 		piety_cost = {
 			value = faith_doctrine_cost_massive
@@ -118,7 +107,32 @@
 			TCT_autocephaly_head = yes
 		}
 	}
-	
+
+	doctrine_TCT_blank = {
+		visible = no
+		can_pick = {
+			always = yes
+		}
+		piety_cost = {
+			
+		}
+		parameters = {
+			
+		}
+	}
+
+	doctrine_TCT_blank_2 = {
+		visible = no
+		can_pick = {
+			always = yes
+		}
+		piety_cost = {
+			
+		}
+		parameters = {
+			
+		}
+	}		
 }
 
 # TCT_general_doctrines = {

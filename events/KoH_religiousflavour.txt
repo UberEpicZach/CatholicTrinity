@@ -5970,7 +5970,7 @@ KoH_religiousflavour.801 = {
 	hidden = yes
 
 	immediate = {
-		update_cardinal_window = yes
+		faith = { update_cardinal_window = yes }
 	}
 }
 

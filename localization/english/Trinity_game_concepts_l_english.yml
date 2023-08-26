@@ -15,6 +15,10 @@
  TCT_doctrine_clerical_succession_desc: "While the Clerical Succession Category supports various options, some may allow for some Special Clerical Abilities such as the Investiture Doctrine."
  doctrine_TCT_blank_name:0 "No Ability"
  doctrine_TCT_blank_desc:0 "If the selection of any other option is unavailable, please select this."
+
+ doctrine_TCT_blank_2_name:0 "No Ability"
+ doctrine_TCT_blank_2_desc:0 "If the selection of any other option is unavailable, please select this."
+
  doctrine_clerical_TCT_blank_name:0 "No Ability"
  doctrine_clerical_TCT_blank_desc:0 "If the selection of any other option is unavailable, please select this."
 
