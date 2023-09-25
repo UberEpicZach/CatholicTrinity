@@ -1,208 +1,208 @@
-﻿TCT_region_pentarchy_rome = {
-	duchies = {
-		# Britania
-		d_elmet d_cynwidion d_bedford d_norfolk d_hereford d_gloucester d_canterbury d_somerset d_gwynedd d_powys d_deheubarth d_cornwall
-		# Brigantia
-		d_northumberland d_lancaster d_york
-		# Scotland
-		d_albany d_the_isles d_galloway d_western_isles d_lothian d_moray
-		# Ireland
-		d_meath d_ulster d_connacht d_leinster d_munster
+﻿# TCT_region_pentarchy_rome = {
+# 	duchies = {
+# 		# Britania
+# 		d_elmet d_cynwidion d_bedford d_norfolk d_hereford d_gloucester d_canterbury d_somerset d_gwynedd d_powys d_deheubarth d_cornwall
+# 		# Brigantia
+# 		d_northumberland d_lancaster d_york
+# 		# Scotland
+# 		d_albany d_the_isles d_galloway d_western_isles d_lothian d_moray
+# 		# Ireland
+# 		d_meath d_ulster d_connacht d_leinster d_munster
 	
-		# Alemannia
-		d_augsburg d_swabia d_baden d_alsace d_currezia
-		# Francia
-		d_west_franconia d_lower_lorraine d_trier
-		# Burgundy
-		d_east_franconia d_nurnberg d_nordgau d_regensburg
-		# Frisia
-		d_holland d_gelre d_utrecht d_frisia
-		# Langobardy
-		d_anhalt d_ostfalen d_holstein d_ostmark d_nordmark
-		# Suebia
-		d_meissen d_lausitz
-		# Saxony
-		d_westfalen d_angria
-		# Thuringia
-		d_thuringia d_hesse
-		# Rugia
-		d_achen
-		d_stettin d_pommerania d_pomerelia
+# 		# Alemannia
+# 		d_augsburg d_swabia d_baden d_alsace d_currezia
+# 		# Francia
+# 		d_west_franconia d_lower_lorraine d_trier
+# 		# Burgundy
+# 		d_east_franconia d_nurnberg d_nordgau d_regensburg
+# 		# Frisia
+# 		d_holland d_gelre d_utrecht d_frisia
+# 		# Langobardy
+# 		d_anhalt d_ostfalen d_holstein d_ostmark d_nordmark
+# 		# Suebia
+# 		d_meissen d_lausitz
+# 		# Saxony
+# 		d_westfalen d_angria
+# 		# Thuringia
+# 		d_thuringia d_hesse
+# 		# Rugia
+# 		d_achen
+# 		d_stettin d_pommerania d_pomerelia
 
-		d_ragusa d_julich d_lower_bosna
+# 		d_ragusa d_julich d_lower_bosna
 	
-		# Belgica
-		d_flanders d_brabant d_luxembourg
-		# Gaul
-		d_boulogne d_valois d_berry d_anjou d_normandy d_orleans d_champagne d_burgundy d_bar d_upper_lorraine d_brittany d_upper_burgundy
-		# Aquitaine
-		d_gascogne d_aquitaine d_armagnac d_poitou d_bourbon
-		# Narbonensis
-		d_auvergne d_toulouse d_languedoc d_provence d_savoie d_dauphine d_transjurania
+# 		# Belgica
+# 		d_flanders d_brabant d_luxembourg
+# 		# Gaul
+# 		d_boulogne d_valois d_berry d_anjou d_normandy d_orleans d_champagne d_burgundy d_bar d_upper_lorraine d_brittany d_upper_burgundy
+# 		# Aquitaine
+# 		d_gascogne d_aquitaine d_armagnac d_poitou d_bourbon
+# 		# Narbonensis
+# 		d_auvergne d_toulouse d_languedoc d_provence d_savoie d_dauphine d_transjurania
 	
-		# Tarraconensis
-		d_toledo d_cuenca d_aragon d_barcelona d_valencia d_mallorca d_murcia
-		# Baetica
-		d_cordoba d_granada d_sevilla
-		# Lusitania
-		d_beja d_badajoz d_algarve d_coimbra
-		# Gallaecia
-		d_porto d_galicia d_leon d_asturias d_castilla d_cantabria d_navarra d_viscaya
+# 		# Tarraconensis
+# 		d_toledo d_cuenca d_aragon d_barcelona d_valencia d_mallorca d_murcia
+# 		# Baetica
+# 		d_cordoba d_granada d_sevilla
+# 		# Lusitania
+# 		d_beja d_badajoz d_algarve d_coimbra
+# 		# Gallaecia
+# 		d_porto d_galicia d_leon d_asturias d_castilla d_cantabria d_navarra d_viscaya
 		
-		#Sweden
-		d_ostergotland d_gotland d_vastergotland d_svealand d_norrland d_smaland d_bergslagen
-		# d_uppland d_bergslagen
-		#Norway
-		d_viken d_agder d_vestlandi d_trandalog d_dalir d_halogaland d_iceland d_northern_isles d_jamtland
-		#Finland
-		d_karelia d_finland d_savo d_pohjanmaa
-		# d_kola
-		#Denmark
-		d_skane d_sjaelland d_jylland d_slesvig
-		#Sapmi
-		d_aarjetje d_duortnoseatnu d_giemajohka d_guoldat d_vuovdisamieana
+# 		#Sweden
+# 		d_ostergotland d_gotland d_vastergotland d_svealand d_norrland d_smaland d_bergslagen
+# 		# d_uppland d_bergslagen
+# 		#Norway
+# 		d_viken d_agder d_vestlandi d_trandalog d_dalir d_halogaland d_iceland d_northern_isles d_jamtland
+# 		#Finland
+# 		d_karelia d_finland d_savo d_pohjanmaa
+# 		# d_kola
+# 		#Denmark
+# 		d_skane d_sjaelland d_jylland d_slesvig
+# 		#Sapmi
+# 		d_aarjetje d_duortnoseatnu d_giemajohka d_guoldat d_vuovdisamieana
 	
-		# Dalmatia
-		d_krain d_syrmia d_slavonia d_macva d_dalmatia d_croatia d_bosna d_usora
-		# Pannonia
-		d_visegrad d_hewes d_somogy d_bacs d_gyor
-		# Noricum
-		d_bavaria d_salzburg d_steyermark d_osterreich d_tyrol d_carinthia
+# 		# Dalmatia
+# 		d_krain d_syrmia d_slavonia d_macva d_dalmatia d_croatia d_bosna d_usora
+# 		# Pannonia
+# 		d_visegrad d_hewes d_somogy d_bacs d_gyor
+# 		# Noricum
+# 		d_bavaria d_salzburg d_steyermark d_osterreich d_tyrol d_carinthia
 		
-		# Cisalpina
-		d_istria d_verona d_lombardia d_genoa d_emilia d_romagna d_toscana d_pisa d_ancona d_spoleto d_latium d_corsica d_sardinia d_venice d_piedmonte d_friuli
-		#Sicily
-		d_benevento d_capua d_apulia d_salerno d_calabria d_sicily
+# 		# Cisalpina
+# 		d_istria d_verona d_lombardia d_genoa d_emilia d_romagna d_toscana d_pisa d_ancona d_spoleto d_latium d_corsica d_sardinia d_venice d_piedmonte d_friuli
+# 		#Sicily
+# 		d_benevento d_capua d_apulia d_salerno d_calabria d_sicily
 		
-		# Wendish
-		d_bohemia d_znojmo d_moravia d_cherven d_lesser_poland d_wielkopolska d_mazovia d_upper_silesia d_lower_silesia d_kuyavia d_nyitra d_lower_quadia d_odeland d_ungvar
+# 		# Wendish
+# 		d_bohemia d_znojmo d_moravia d_cherven d_lesser_poland d_wielkopolska d_mazovia d_upper_silesia d_lower_silesia d_kuyavia d_nyitra d_lower_quadia d_odeland d_ungvar
 	
-		# Baltics
-		d_lithuanians d_prussia d_masuria d_samogitia d_courland d_latgalians d_esthonia d_livonia
+# 		# Baltics
+# 		d_lithuanians d_prussia d_masuria d_samogitia d_courland d_latgalians d_esthonia d_livonia
 		
-		# Mauretania
-		d_marrakesh d_fes d_rif d_sous d_tafilalt d_canarias
-		# Numidia
-		d_tlemcen d_alger d_tahert d_bejaia d_zab d_mzab 
-		# Africa
-		d_tunis d_kroumerie d_kairouan d_jerid d_gabes d_tripolitania d_syrte
-	}
-}
-TCT_region_pentarchy_constantinople = {
-	duchies = {
-		#Anatolia
-		d_aegean_islands d_ephese d_opsikion d_cilicia d_cibyrrhaeot d_anatolia d_thracesia d_optimatoi d_bucellaria d_paphlagonia d_armeniac d_sebasteia d_charsianon d_cappadocia d_chaldia
-		# Pontus
-		d_paphlagonia d_chaldia d_armeniac d_bucellaria
+# 		# Mauretania
+# 		d_marrakesh d_fes d_rif d_sous d_tafilalt d_canarias
+# 		# Numidia
+# 		d_tlemcen d_alger d_tahert d_bejaia d_zab d_mzab 
+# 		# Africa
+# 		d_tunis d_kroumerie d_kairouan d_jerid d_gabes d_tripolitania d_syrte
+# 	}
+# }
+# TCT_region_pentarchy_constantinople = {
+# 	duchies = {
+# 		#Anatolia
+# 		d_aegean_islands d_ephese d_opsikion d_cilicia d_cibyrrhaeot d_anatolia d_thracesia d_optimatoi d_bucellaria d_paphlagonia d_armeniac d_sebasteia d_charsianon d_cappadocia d_chaldia
+# 		# Pontus
+# 		d_paphlagonia d_chaldia d_armeniac d_bucellaria
 		
-		# Moesia
-		d_vidin d_turnovo d_bulgaria d_rashka d_duklja
-		# Thrace
-		d_thrace d_dobrudja d_philippopolis d_strymon d_optimatoi
-		# Epirus
-		d_epirus d_dyrrachion d_cephalonia
-		# Hellas
-		d_aegean_islands d_athens d_achaia d_krete
-		# Macedonia
-		d_strumica d_thessalonika d_thessaly
+# 		# Moesia
+# 		d_vidin d_turnovo d_bulgaria d_rashka d_duklja
+# 		# Thrace
+# 		d_thrace d_dobrudja d_philippopolis d_strymon d_optimatoi
+# 		# Epirus
+# 		d_epirus d_dyrrachion d_cephalonia
+# 		# Hellas
+# 		d_aegean_islands d_athens d_achaia d_krete
+# 		# Macedonia
+# 		d_strumica d_thessalonika d_thessaly
 		
-		# Crimea
-		d_crimea
+# 		# Crimea
+# 		d_crimea
 		
-		# Visigoths
-		d_transylvanian_alps d_muntenia d_oltenia d_moldova
-		# Ostrogoths
-		d_yedisan d_bukovina d_iasi d_bugeac
-		# Gepids
-		d_transylvania d_bihar d_temes d_transcarpathia
+# 		# Visigoths
+# 		d_transylvanian_alps d_muntenia d_oltenia d_moldova
+# 		# Ostrogoths
+# 		d_yedisan d_bukovina d_iasi d_bugeac
+# 		# Gepids
+# 		d_transylvania d_bihar d_temes d_transcarpathia
 	
-		# Slavia
-		d_cherven_cities d_volhynia d_halych d_grodno d_turov d_kiev d_pereyaslavl d_chernigov d_minsk d_polotsk d_smolensk d_karachev d_novosil d_voronezh d_pinsk d_ryazan
+# 		# Slavia
+# 		d_cherven_cities d_volhynia d_halych d_grodno d_turov d_kiev d_pereyaslavl d_chernigov d_minsk d_polotsk d_smolensk d_karachev d_novosil d_voronezh d_pinsk d_ryazan
 	
-		# Ilmenia and Vepsia
-		d_tver d_novgorod d_vepsia d_luki d_biarmia d_chudia d_vologda d_ustyug
+# 		# Ilmenia and Vepsia
+# 		d_tver d_novgorod d_vepsia d_luki d_biarmia d_chudia d_vologda d_ustyug
 	
-		# Volga-Ural
-		d_martyuba d_opolye d_nizhny_novgorod d_mordvinia d_chuvashia d_khopyor d_levedia
+# 		# Volga-Ural
+# 		d_martyuba d_opolye d_nizhny_novgorod d_mordvinia d_chuvashia d_khopyor d_levedia
 	
-	}
-}
-TCT_region_pentarchy_alexandria = {
-	duchies = {
-		# Egypt
-		d_cyrenaica d_alexandria d_delta d_cairo d_al-said  d_al-wahat d_eastern_desert 
+# 	}
+# }
+# TCT_region_pentarchy_alexandria = {
+# 	duchies = {
+# 		# Egypt
+# 		d_cyrenaica d_alexandria d_delta d_cairo d_al-said  d_al-wahat d_eastern_desert 
 		
-		#Abyssinia
-		d_aksum d_dahlaks d_lasta d_gondar d_gojjam d_showa
-		#Nubia
-		d_nobatia d_makuria d_shamir d_alwa d_sennar
-		#Blemmyia
-		d_naqis d_bazin d_baqlin
-		#Damot
-		d_damot d_kaffa d_sharka
-		#Adal
-		d_dawaro d_adal d_mora d_danakil d_zaila d_sanaag
-	}
-}
-TCT_region_pentarchy_antiochia = {
-	duchies = {
-		#Syria
-		d_damascus d_aleppo d_antioch d_edessa d_homs d_lebanon d_palmyra d_cyprus
-		# k_georgia
-		d_tao-klarjeti d_abkhazia d_georgia
-		#Armenia-proper
-		d_vaspurakan d_mesopotamia d_greater_armenia d_shirvan
-		#Atropatene
-		d_azerbaijan
-		#Sophene
-		d_diyarbakr
-		#Gordyene & Adiabene
-		d_kurdistan
+# 		#Abyssinia
+# 		d_aksum d_dahlaks d_lasta d_gondar d_gojjam d_showa
+# 		#Nubia
+# 		d_nobatia d_makuria d_shamir d_alwa d_sennar
+# 		#Blemmyia
+# 		d_naqis d_bazin d_baqlin
+# 		#Damot
+# 		d_damot d_kaffa d_sharka
+# 		#Adal
+# 		d_dawaro d_adal d_mora d_danakil d_zaila d_sanaag
+# 	}
+# }
+# TCT_region_pentarchy_antiochia = {
+# 	duchies = {
+# 		#Syria
+# 		d_damascus d_aleppo d_antioch d_edessa d_homs d_lebanon d_palmyra d_cyprus
+# 		# k_georgia
+# 		d_tao-klarjeti d_abkhazia d_georgia
+# 		#Armenia-proper
+# 		d_vaspurakan d_mesopotamia d_greater_armenia d_shirvan
+# 		#Atropatene
+# 		d_azerbaijan
+# 		#Sophene
+# 		d_diyarbakr
+# 		#Gordyene & Adiabene
+# 		d_kurdistan
 
-		#Jazira
-		d_diyarrabia d_diyarmudar d_diyarbakr d_euphrates
+# 		#Jazira
+# 		d_diyarrabia d_diyarmudar d_diyarbakr d_euphrates
 
-		#Mesopotamia
-		d_samarra d_kurdistan d_wasit d_kufa d_basra d_baghdad d_kermanshah
+# 		#Mesopotamia
+# 		d_samarra d_kurdistan d_wasit d_kufa d_basra d_baghdad d_kermanshah
 
-		#Persia
-		d_isfahan d_kirman d_yazd d_rayy d_hamadan d_fars d_hormuz d_khuzestan  
-		#k_khorasan
-		d_nishapur d_merv d_ghur d_herat d_balkh d_nasa d_kohestan
-		#k_daylam
-		d_daylam d_tabaristan d_gurgan d_azerbaijan
-		#k_transoxiana
-		d_uzboy
-		#k_makran
-		d_jabal_kufs d_makran d_sistan
-		#k_kabulistan
-		d_kabul d_zabulistan
+# 		#Persia
+# 		d_isfahan d_kirman d_yazd d_rayy d_hamadan d_fars d_hormuz d_khuzestan  
+# 		#k_khorasan
+# 		d_nishapur d_merv d_ghur d_herat d_balkh d_nasa d_kohestan
+# 		#k_daylam
+# 		d_daylam d_tabaristan d_gurgan d_azerbaijan
+# 		#k_transoxiana
+# 		d_uzboy
+# 		#k_makran
+# 		d_jabal_kufs d_makran d_sistan
+# 		#k_kabulistan
+# 		d_kabul d_zabulistan
 
-		#Siberia
-		d_ostyaki d_konda d_pelym d_kazym d_sibir d_ishim d_tara d_lanikaz
-		d_salair d_ala_tau d_vasyugan_mire d_baraba_steppe d_kulyndy_steppe
-		#Pontic Steppe
-		d_don_valley d_khazaria d_ciscaucasia d_itil d_alania d_azov d_pecheneg
-		#Volga Bulgaria
-		d_volga_bulgaria d_kazan d_bashkiria d_voronezh d_mordvinia d_chuvashia d_khopyor d_ural d_udmurtia d_martyuba d_uraltau d_aqtobe d_jalmat d_vogulia d_perm
-		#Turkestan
-		d_transcaspiana d_barsuki d_zhetysu d_tarbagatai d_jemba d_aral_il d_chah d_syr_darya d_muyunkum d_alakol d_ili-alatau
-		#Cumania
-		d_kurgan d_mugodzhar_hills d_atyrau d_turgay d_kush-murun d_saryarka d_kazakh d_kentarlau d_karkaraly d_karabas d_betpa d_semey
-	}
-	regions = {
-		ghw_region_siberia
-		ghw_region_caspian_steppe
-		dlc_ep1_mongol_trade_region
-	}
-}
-TCT_region_pentarchy_jerusalem = {
-	duchies = {
-		# Judea
-		d_sinai d_palestine d_urdunn d_amman
-		#Arabia
-		d_jawf d_oultrejourdain d_shammar d_medina d_mecca d_asir d_najd d_yamama d_al-hasa d_bahrain d_oman
-		#Yemen
-		d_sanaa d_jawf-al-yamani d_taizz d_hadramawt d_mahra
-	}
-}
+# 		#Siberia
+# 		d_ostyaki d_konda d_pelym d_kazym d_sibir d_ishim d_tara d_lanikaz
+# 		d_salair d_ala_tau d_vasyugan_mire d_baraba_steppe d_kulyndy_steppe
+# 		#Pontic Steppe
+# 		d_don_valley d_khazaria d_ciscaucasia d_itil d_alania d_azov d_pecheneg
+# 		#Volga Bulgaria
+# 		d_volga_bulgaria d_kazan d_bashkiria d_voronezh d_mordvinia d_chuvashia d_khopyor d_ural d_udmurtia d_martyuba d_uraltau d_aqtobe d_jalmat d_vogulia d_perm
+# 		#Turkestan
+# 		d_transcaspiana d_barsuki d_zhetysu d_tarbagatai d_jemba d_aral_il d_chah d_syr_darya d_muyunkum d_alakol d_ili-alatau
+# 		#Cumania
+# 		d_kurgan d_mugodzhar_hills d_atyrau d_turgay d_kush-murun d_saryarka d_kazakh d_kentarlau d_karkaraly d_karabas d_betpa d_semey
+# 	}
+# 	regions = {
+# 		ghw_region_siberia
+# 		ghw_region_caspian_steppe
+# 		dlc_ep1_mongol_trade_region
+# 	}
+# }
+# TCT_region_pentarchy_jerusalem = {
+# 	duchies = {
+# 		# Judea
+# 		d_sinai d_palestine d_urdunn d_amman
+# 		#Arabia
+# 		d_jawf d_oultrejourdain d_shammar d_medina d_mecca d_asir d_najd d_yamama d_al-hasa d_bahrain d_oman
+# 		#Yemen
+# 		d_sanaa d_jawf-al-yamani d_taizz d_hadramawt d_mahra
+# 	}
+# }
