@@ -153,7 +153,7 @@ TCT_pentarchy_map = {
 			}
 			else_if = {
 				limit = { title_province = { geographical_region = TCT_region_pentarchy_jerusalem } }
-				set_color_from_title = title:k_judea
+				set_color_from_title = title:k_israel
 				county.title_province =  {
 					set_variable = {
 						name = TCT_patriarchate_of_barony
@@ -516,7 +516,7 @@ TCT_pentarchy_test2 = {
 } 
 TCT_coa_test = {
 	
-	title:d_viennois = {
-		set_coa = title:d_viennois
+	title:c_viennois = {
+		set_coa = title:c_viennois
 	}
 } 

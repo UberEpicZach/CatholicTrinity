@@ -2093,15 +2093,14 @@ KoH_religiousflavour.31 = {
 					any_vassal = {
 						NOT = { has_character_flag = pope_bribing }
 						has_government = theocracy_government
-						opinion_modifier = {
-							who = prev
-							opinion_target = scope:popewantsit
-							multiplier = -1
+						#And they have to actually like you enough to want to invest you.
+						opinion = {
+							target = popewantsit
+							value <= -10
 						}
-						opinion_modifier = {
-							who = prev
-							opinion_target = scope:popewantsit.faith.religious_head #Excommunication target
-							multiplier = 1
+						opinion = {
+							target = scope:popewantsit.faith.religious_head
+							value >= 10
 						}
 					}
 				}
@@ -2110,16 +2109,13 @@ KoH_religiousflavour.31 = {
 				random_vassal = {
 					limit = {
 						has_government = theocracy_government
-						opinion_modifier = {
-							who = prev
-							opinion_target = scope:popewantsit
-							multiplier = 1
-							min = 0
+						opinion = {
+							target = popewantsit
+							value <= -10
 						}
-						opinion_modifier = {
-							who = prev
-							opinion_target = scope:popewantsit.faith.religious_head #Excommunication target
-							multiplier = -1
+						opinion = {
+							target = scope:popewantsit.faith.religious_head
+							value >= 10
 						}
 					}
 					save_scope_as = bishop
@@ -2381,15 +2377,13 @@ KoH_religiousflavour.34 = {
 					}
 					NOT = { has_character_flag = pope_bribing }
 					has_faith = scope:popewantsit.faith
-					opinion_modifier = {
-						who = prev
-						opinion_target = scope:popewantsit
-						multiplier = -1
+					opinion = {
+						target = popewantsit
+						value <= -10
 					}
-					opinion_modifier = {
-						who = prev
-						opinion_target = scope:popewantsit.faith.religious_head #Excommunication target
-						multiplier = 1
+					opinion = {
+						target = scope:popewantsit.faith.religious_head
+						value >= 10
 					}
 				}
 			}
@@ -2397,16 +2391,13 @@ KoH_religiousflavour.34 = {
 				random_vassal = {
 					limit = {
 						max_military_strength >= liege.max_military_strength.div2
-						opinion_modifier = {
-							who = prev
-							opinion_target = scope:popewantsit
-							multiplier = 1
-							min = 0
+						opinion = {
+							target = popewantsit
+							value <= -10
 						}
-						opinion_modifier = {
-							who = prev
-							opinion_target = scope:popewantsit.faith.religious_head #Excommunication target
-							multiplier = -1
+						opinion = {
+							target = scope:popewantsit.faith.religious_head
+							value >= 10
 						}
 					}
 					save_scope_as = powerful_vassal
@@ -6095,6 +6086,343 @@ KoH_religiousflavour.807 = {
 				add_doctrine = doctrine_spiritual_head
 			}
 			trigger_event = faith_creation.0002
+		}
+	}
+}
+
+scripted_effect nearby_crusader_state_targets = {
+	clear_variable_list = minor_cruades_possible_titles
+	title:k_jerusalem.holder = {
+		#Find a county we hold which borders a valid event target county.
+		every_sub_realm_county = {
+			limit = {
+				any_neighboring_county = {
+					holder = {
+						NOT = {
+							faith = root.faith
+							top_liege = title:k_jerusalem.holder.top_liege
+						}
+					}
+				}
+			}
+			save_scope_as = my_county
+
+			#Find a valid event target county.
+			random_neighboring_county = {
+				limit = {
+					holder = {
+						NOT = {
+							faith = root.faith
+							top_liege = title:k_jerusalem.holder.top_liege
+						}
+					}
+				}		
+
+				#Save that county's scope.
+				save_scope_as = target_county
+				add_to_list = minor_cruades_possible_titles
+
+				#Also save the county's holder.
+				holder = {
+					save_scope_as = heretic_ruler
+				}
+			}
+		}
+	}
+
+	every_in_list = {
+		list = minor_cruades_possible_titles
+		# order_by = development_level
+		# max = 15
+		# check_range_bounds = no
+		add_to_prev_list = {NAME = minor_cruades_possible_titles}
+	}
+}
+
+
+KoH_religiousflavour.810 = {
+	title = KoH_religiousflavour.810.t
+	desc = KoH_religiousflavour.810.desc
+
+	right_portrait = {
+		character = root
+		animation = personality_rational
+	}
+	widget = {
+		gui = "sea_select_culture_widget"
+		container = "custom_widgets_container"
+	}
+	theme = diplomacy_foreign_affairs_focus
+
+	immediate = {
+		remove_variable = selected_title
+		clear_variable_list = title_options
+		nearby_crusader_state_targets = yes
+	}
+
+	option = {
+		name = KoH_religiousflavour.810.a
+		if = {
+			limit = { has_variable = selected_title }
+			#create_cultural_specialist_effect = yes
+			#scope:cultural_specialist = { apply_cultural_traits_effect = yes } 
+			#recruit_courtier = scope:cultural_specialist
+			#custom_tooltip = newline.desc
+			var:selected_title = {
+				save_scope_as = selected_title
+			}
+			set_variable = {
+				name = selected_title_kingdom
+				value = var:selected_title.kingdom
+			}
+			start_war = {
+				casus_belli = minor_crusade_religious_war
+				target = var:selected_title.holder
+				target_title = var:selected_title
+				claimant = title:k_jerusalem.holder
+			}
+			every_character_war = {
+				limit = {
+					primary_attacker = root
+					using_cb = minor_crusade_religious_war
+				}
+				save_scope_as = war
+				add_attacker = title:k_jerusalem.holder
+				set_variable = {
+					name = cruasder_state_holder
+					value = title:k_jerusalem.holder
+				}
+			}
+			#add_gold = {
+			#	value = medium_gold_loss
+			#	if = {
+			#		limit = {
+			#			OR = {
+			#				has_government = anarchist_government
+			#				has_realm_law = cultural_minority_status_1
+			#			}
+			#		}
+			#		multiply = 0.5
+			#	}
+			#}
+		}
+		else = {
+			custom_tooltip = KoH_religiousflavour.810.a.cancel
+			remove_decision_cooldown = Declare_Minor_Crusade
+		}
+	}
+}
+
+#Crusader trait gained during GHW.
+#Fired on_army_enter_province
+#Hidden first event fires for the owner of the army.
+#root = owner of the army
+#scope:army = the army itself.
+KoH_religiousflavour.811 = {
+	hidden = yes
+	
+	trigger = {
+		exists = var:selected_title
+
+		OR = { #Either army owner or one of his lieges is involved in a GHW.
+			any_character_war = {
+				OR = {
+					using_cb = minor_crusade_religious_war
+				}
+				is_attacker = root
+			}
+			any_liege_or_above = {
+				faith = root.faith
+				any_character_war = {
+					OR = {
+						using_cb = minor_crusade_religious_war
+					}
+					is_attacker = root
+				}
+			}
+		}
+		scope:army = {
+			exists = army_commander
+			location = { save_temporary_scope_as = current_location }
+			army_commander = {
+				NOR = {
+					has_trait = crusader_king
+					has_trait = faith_warrior
+				}
+			}
+		}
+		var:selected_title_kingdom = { #The dejure Kingdom targeted by the GHW
+			any_in_de_jure_hierarchy = {
+				tier = tier_barony
+				title_province = { this = scope:current_location } #Any province within it.
+				# exists = holder
+				# holder = { #The province's owner must also be part of the GHW on the opposite side.
+				# 	OR = {
+				# 		any_character_war = {
+				# 			OR = {
+				# 				using_cb = minor_crusade_religious_war
+				# 			}
+				# 			is_defender = prev
+				# 		}
+				# 		any_liege_or_above = {
+				# 			any_character_war = {
+				# 				OR = {
+				# 					using_cb = minor_crusade_religious_war
+				# 				}
+				# 				is_defender = prev
+				# 			}
+				# 		}
+				# 	}
+				# }
+			}
+		}
+	}
+
+	immediate = {
+		faith = {
+			save_scope_as = the_faith
+		}
+		random_character_war = {
+			if = {
+				limit = {
+					using_cb = minor_crusade_religious_war
+				}
+				save_scope_as = war
+			}
+		}
+
+		scope:army.location = { save_scope_as = current_location }
+		root.faith = { save_scope_as = the_faith }
+		scope:war = { save_scope_as = scoped_ghw }
+		var:selected_title = { save_scope_as = selected_title }
+		var:selected_title_kingdom = { save_scope_as = target_kingdom }
+		scope:army = {
+			army_commander = { trigger_event = KoH_religiousflavour.812 }
+			army_owner = {
+				every_knight = {
+					limit = {
+						location = scope:current_location
+					}
+					trigger_event = KoH_religiousflavour.812
+				}
+			}
+		}
+	}
+}
+
+KoH_religiousflavour.812 = {
+	title = KoH_religiousflavour.812.title
+	desc = {
+		first_valid = {
+			triggered_desc = { #Crusaders
+				trigger = { faith.religion = religion:christianity_religion }
+				desc = KoH_religiousflavour.812.crusader.desc
+			}
+			triggered_desc = { #Muslims
+				trigger = { faith.religion = religion:islam_religion }
+				desc = great_holy_war.0057.mujahid.desc
+			}
+			triggered_desc = { #Everybody else
+				trigger = {
+					NOR = {
+						faith.religion = religion:christianity_religion
+						faith.religion = religion:islam_religion
+					}
+				}
+				desc = great_holy_war.0057.generic.outsiders.desc
+			}
+		}
+	}
+	theme = faith
+	override_background = {
+		reference = wilderness_scope
+	}
+	left_portrait = root
+	
+	trigger = {
+		# root.faith = scope:the_faith
+		# exists = faith.great_holy_war
+		NOR = {
+			has_trait = crusader_king
+			has_trait = faith_warrior
+		}
+		OR = {
+			is_commanding_army = yes
+			is_knight = yes
+		}
+	}
+
+	immediate = {
+		scope:war = {
+			primary_defender = {
+				capital_province = {
+					save_scope_as = background_wilderness_scope
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = KoH_religiousflavour.812.a
+		add_trait = faith_warrior
+		hidden_effect = { #Punish player sneakery.
+			trigger_event = {
+				id = KoH_religiousflavour.813
+				days = { 15 60 }
+			}
+		}
+	}
+}
+
+#Character is no longer in the Holy Land fighting infidels, not even a few weeks after getting the trait!
+KoH_religiousflavour.813 = {
+	title = KoH_religiousflavour.813.title
+	desc = KoH_religiousflavour.813.base.desc
+	theme = faith
+	left_portrait = {
+		character = root
+		animation = shame
+	}
+	
+	trigger = {
+		exists = scope:war #GHW must still be ongoing.
+		has_trait = faith_warrior
+		is_commanding_army = no #Should have stayed in command.
+		is_knight = no
+		is_imprisoned = no #Don't penalise captured faith_warriors.
+		NOR = {
+			has_trait = incapable
+			has_serious_disease_trigger = yes
+		}
+		OR = { #Character or liege must still be at war, obviously.
+			any_character_war = {
+				OR = {
+					using_cb = minor_crusade_religious_war
+				}
+				is_attacker = root
+			}
+			any_liege_or_above = {
+				faith = root.faith
+				any_character_war = {
+					OR = {
+						using_cb = minor_crusade_religious_war
+					}
+					is_attacker = root
+				}
+			}
+		}
+	}
+	
+	
+	option = {
+		name = great_holy_war.0058.a
+		if = {
+			limit = { is_ai = no } #Punish player more.
+			add_piety = major_piety_loss
+		}
+		if = {
+			limit = { has_trait = faith_warrior }
+			remove_trait = faith_warrior
 		}
 	}
 }

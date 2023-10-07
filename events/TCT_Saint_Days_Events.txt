@@ -5,7 +5,7 @@
 # 
 ###############################################################################
 
-namespace = RICE_ancestor_worship
+# namespace = RICE_ancestor_worship
 
 
 
@@ -142,108 +142,108 @@ namespace = RICE_ancestor_worship
 
 
 
-# Ancestor worship ceremony (host's POV)
-RICE_ancestor_worship.0002 = {
-	type = activity_event
-	title = RICE_ancestor_worship.0002.t
-	desc = {
-		first_valid = {
-			triggered_desc = {
-				trigger = {
-					scope:activity = {
-						has_activity_option = {
-							category = special_type
-							option = TCT_saint_days_type_secular
-						}
-					}
-				}
-				desc = RICE_ancestor_worship.0002.desc.culture
-			}
-			desc = RICE_ancestor_worship.0002.desc.religion
-		}
-	}
-	theme = faith
+# # Ancestor worship ceremony (host's POV)
+# RICE_ancestor_worship.0002 = {
+# 	type = activity_event
+# 	title = RICE_ancestor_worship.0002.t
+# 	desc = {
+# 		first_valid = {
+# 			triggered_desc = {
+# 				trigger = {
+# 					scope:activity = {
+# 						has_activity_option = {
+# 							category = special_type
+# 							option = TCT_saint_days_type_secular
+# 						}
+# 					}
+# 				}
+# 				desc = RICE_ancestor_worship.0002.desc.culture
+# 			}
+# 			desc = RICE_ancestor_worship.0002.desc.religion
+# 		}
+# 	}
+# 	theme = faith
 	
-	right_portrait = {
-		character = scope:host
-		animation = personality_zealous
-	}
+# 	right_portrait = {
+# 		character = scope:host
+# 		animation = personality_zealous
+# 	}
 
-	# immediate = {
-	# 	scope:activity.activity_owner = {
-	# 		save_scope_as = host
-	# 	}
-	# }
+# 	# immediate = {
+# 	# 	scope:activity.activity_owner = {
+# 	# 		save_scope_as = host
+# 	# 	}
+# 	# }
 	
-	option = { # Ok
-		name = RICE_ancestor_worship.0002.a
-		if = {
-			limit = {
-				scope:activity = {
-					has_activity_option = {
-						category = special_type
-						option = TCT_saint_days_type_secular
-					}
-				}
-			}
-			add_piety = { 0 RICE_ancestor_max_bonus_value }
-			add_prestige = { 40 RICE_ancestor_max_bonus_value }
-		}
-		else_if = {
-			limit = {
-				scope:activity = {
-					has_activity_option = {
-						category = special_type
-						option = TCT_saint_days_type_religious
-					}
-				}
-			}
-			add_piety = { 40 RICE_ancestor_max_bonus_value }
-			add_prestige = { 0 RICE_ancestor_max_bonus_value }
-		}
-		if = {
-			limit = {
-				scope:activity = {
-					has_activity_option = {
-						category = TCT_saint_days_cost_type
-						option = TCT_saint_days_cost_type_small
-					}
-				}
-			}
-			dynasty = {
-				add_dynasty_prestige = { 0 RICE_ancestor_max_dynasty_prestige_small_value }
-			}
-		}
-		else_if = {
-			limit = {
-				scope:activity = {
-					has_activity_option = {
-						category = TCT_saint_days_cost_type
-						option = TCT_saint_days_cost_type_large
-					}
-				}
-			}
-			dynasty = {
-				add_dynasty_prestige = { 0 RICE_ancestor_max_dynasty_prestige_large_value }
-			}
-		}
-		custom_tooltip = RICE_ancestor_worship.0002.tooltip
-	}
+# 	option = { # Ok
+# 		name = RICE_ancestor_worship.0002.a
+# 		if = {
+# 			limit = {
+# 				scope:activity = {
+# 					has_activity_option = {
+# 						category = special_type
+# 						option = TCT_saint_days_type_secular
+# 					}
+# 				}
+# 			}
+# 			add_piety = { 0 RICE_ancestor_max_bonus_value }
+# 			add_prestige = { 40 RICE_ancestor_max_bonus_value }
+# 		}
+# 		else_if = {
+# 			limit = {
+# 				scope:activity = {
+# 					has_activity_option = {
+# 						category = special_type
+# 						option = TCT_saint_days_type_religious
+# 					}
+# 				}
+# 			}
+# 			add_piety = { 40 RICE_ancestor_max_bonus_value }
+# 			add_prestige = { 0 RICE_ancestor_max_bonus_value }
+# 		}
+# 		if = {
+# 			limit = {
+# 				scope:activity = {
+# 					has_activity_option = {
+# 						category = TCT_saint_days_cost_type
+# 						option = TCT_saint_days_cost_type_small
+# 					}
+# 				}
+# 			}
+# 			dynasty = {
+# 				add_dynasty_prestige = { 0 RICE_ancestor_max_dynasty_prestige_small_value }
+# 			}
+# 		}
+# 		else_if = {
+# 			limit = {
+# 				scope:activity = {
+# 					has_activity_option = {
+# 						category = TCT_saint_days_cost_type
+# 						option = TCT_saint_days_cost_type_large
+# 					}
+# 				}
+# 			}
+# 			dynasty = {
+# 				add_dynasty_prestige = { 0 RICE_ancestor_max_dynasty_prestige_large_value }
+# 			}
+# 		}
+# 		custom_tooltip = RICE_ancestor_worship.0002.tooltip
+# 	}
 
-	after = {
-		hidden_effect = {
-			if = {
-				limit = {
-					root = scope:host
-				}
-				scope:activity = {
-					hidden_effect = { skip_activity_phase = yes }
-				}
-			}		
-		}
-	}	
+# 	after = {
+# 		hidden_effect = {
+# 			if = {
+# 				limit = {
+# 					root = scope:host
+# 				}
+# 				scope:activity = {
+# 					hidden_effect = { skip_activity_phase = yes }
+# 				}
+# 			}		
+# 		}
+# 	}	
 
-}
+# }
 
 
 # Ancestor worship ceremony (guest's POV)
@@ -287,31 +287,31 @@ RICE_ancestor_worship.0002 = {
 
 
 
-#Generic placeholder start
-RICE_ancestor_worship.0004 = {
-	type = character_event
-	title = RICE_ancestor_worship.0004.t
-	desc = RICE_ancestor_worship.0004.desc
-	theme = travel
+# #Generic placeholder start
+# RICE_ancestor_worship.0004 = {
+# 	type = character_event
+# 	title = RICE_ancestor_worship.0004.t
+# 	desc = RICE_ancestor_worship.0004.desc
+# 	theme = travel
 
-	left_portrait = root
+# 	left_portrait = root
 
 	
-	trigger = {
-		is_available_travelling = yes
-		is_landed = yes
-		exists = involved_activity
-		involved_activity = {
-			has_activity_type = activity_TCT_saint_days
-		}
-	}
+# 	trigger = {
+# 		is_available_travelling = yes
+# 		is_landed = yes
+# 		exists = involved_activity
+# 		involved_activity = {
+# 			has_activity_type = activity_TCT_saint_days
+# 		}
+# 	}
 
-	immediate = {
-		play_music_cue = mx_cue_travel_start
-	}
+# 	immediate = {
+# 		play_music_cue = mx_cue_travel_start
+# 	}
 
-	# Ok
-	option = { 
-		name = RICE_ancestor_worship.0004.a
-	}
-}
+# 	# Ok
+# 	option = { 
+# 		name = RICE_ancestor_worship.0004.a
+# 	}
+# }

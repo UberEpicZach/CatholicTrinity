@@ -1,0 +1,75 @@
+﻿# For event widget borrowed from Sunset Invasion for convenience's sake
+si_set_selected_character = {
+	scope = character
+	is_shown = { always = yes }
+	effect = {
+		if = {
+			limit = {
+				exists = var:si_selected_character
+				var:si_selected_character = scope:selected_char
+			}
+			scope:selected_char = {
+				remove_variable = si_selecting_character
+			}
+			remove_variable = si_selected_character
+		}
+		else = {
+			if = {
+				limit = {
+					exists = var:si_selected_character
+					NOT = {var:si_selected_character = scope:selected_char}
+				}
+				var:si_selected_character = {
+					remove_variable = si_selecting_character
+				}
+			}
+			set_variable = {
+				name = si_selected_character
+				value = scope:selected_char
+			}
+			scope:selected_char = {
+				set_variable = {
+					name = si_selecting_character
+					value = root
+				}
+			}
+		}
+	}
+}
+si_set_selected_province = {
+	scope = character
+	is_shown = { always = yes }
+	effect = {
+		if = {
+			limit = {
+				exists = var:si_selected_province
+				var:si_selected_province = scope:selected_province
+			}
+			scope:selected_province = {
+				remove_variable = si_selecting_character
+			}
+			remove_variable = si_selected_province
+		}
+		else = {
+			if = {
+				limit = {
+					exists = var:si_selected_province
+					NOT = {var:si_selected_province = scope:selected_province}
+				}
+				var:si_selected_province = {
+					remove_variable = si_selecting_character
+				}
+			}
+			set_variable = {
+				name = si_selected_province
+				value = scope:selected_province
+			}
+			scope:selected_province = {
+				set_variable = {
+					name = si_selecting_character
+					value = root
+				}
+			}
+		}
+	}
+}

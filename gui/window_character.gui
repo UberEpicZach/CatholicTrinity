@@ -2940,44 +2940,6 @@ window = {
 					}
 				}
 			}
-			
-			####################################
-			######### CUSTOM TRIBS TAB #########
-			####################################
-			vbox_character_list = {
-				#visible = "[GetVariableSystem.HasValue('char_gui_tabs','tribs')]"
-				visible = "[And(GetGlobalVariable('KOH_is_loaded').IsSet, GetVariableSystem.HasValue('char_gui_tabs','tribs'))]"
-				spacing = 3
-				layoutpolicy_vertical = expanding
-				layoutpolicy_horizontal = expanding
-				blockoverride "sort_buttons" {}
-				blockoverride "character_count" {}
-				blockoverride "scrollbox_margins" {
-					margin = { 0 5 }
-					margin_right = 10
-				}
-					
-				blockoverride "container_implementation" {
-					fixedgridbox = {
-						name = "characters_grid"
-						datamodel = "[Character.MakeScope.GetList('all_tributaries')]"
-						addcolumn = 590
-						addrow = 90
-						setitemsizefromcell = yes
-						item = {
-							widget_tribs_list_item = {
-								datacontext = "[Scope.GetCharacter]"
-								layoutpolicy_horizontal = expanding
-								blockoverride "own_vassal" {}
-							}
-						}
-					}
-				}
-				blockoverride "scrollbox_empty_visibility" {
-					visible = "[IsDataModelEmpty(Character.MakeScope.GetList('all_tributaries'))]"
-				}
-			}
-			# End custom tribs tab section
 		}
 
 		### EXPANDED VIEWS

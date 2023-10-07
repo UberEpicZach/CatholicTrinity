@@ -1,0 +1,116 @@
+﻿# Crew Selection sguis
+
+minor_crusades_selection_setup = { # Decision widget
+	effect = {
+		clear_variable_list = minor_cruades_possible_titles
+		title:k_jerusalem.holder = {
+			#Find a county we hold which borders a valid event target county.
+			every_sub_realm_county = {
+				limit = {
+					any_neighboring_county = {
+						holder = {
+							NOT = {
+								faith = root.faith
+								top_liege = title:k_jerusalem.holder.top_liege
+							}
+						}
+					}
+				}
+				save_scope_as = my_county
+
+				#Find a valid event target county.
+				random_neighboring_county = {
+					limit = {
+						holder = {
+							NOT = {
+								faith = root.faith
+								top_liege = title:k_jerusalem.holder.top_liege
+							}
+						}
+					}		
+
+					#Save that county's scope.
+					save_scope_as = target_county
+					add_to_list = minor_cruades_possible_titles
+
+					#Also save the county's holder.
+					holder = {
+						save_scope_as = heretic_ruler
+					}
+				}
+			}
+		}
+
+		every_in_list = {
+			list = minor_cruades_possible_titles
+			# order_by = development_level
+			# max = 15
+			# check_range_bounds = no
+			add_to_prev_list = {NAME = minor_cruades_possible_titles}
+		}
+	}
+}
+select_faith = {
+	scope = character
+	saved_scopes = {
+		faith
+	}
+	effect = {
+		remove_variable = selected_culture
+		set_variable = {
+			name = selected_faith
+			value = scope:faith
+		}
+	}
+}
+
+clear_selected_faith = {
+	scope = character
+	is_valid = {
+		exists = var:selected_faith
+	}
+	effect = {
+		remove_variable = selected_faith
+	}
+}
+
+select_title = {
+	scope = character
+	saved_scopes = {
+		titles
+	}
+	effect = {
+		remove_variable = selected_title
+		set_variable = {
+			name = selected_title
+			value = scope:title
+		}
+	}
+}
+
+clear_selected_title = {
+	scope = character
+	is_valid = {
+		exists = var:selected_title
+	}
+	effect = {
+		remove_variable = selected_title
+	}
+}
+
+clear_selected_scope = {
+	scope = character
+	is_valid = {
+		OR = {
+			exists = var:selected_culture
+			exists = var:selected_faith
+		}
+	}
+	is_shown = {
+		exists = var:selected_culture
+	}
+	effect = {
+		remove_variable = selected_culture
+		remove_variable = selected_faith
+	}
+}

@@ -22,12 +22,14 @@
  doctrine_clerical_TCT_blank_name:0 "No Ability"
  doctrine_clerical_TCT_blank_desc:0 "If the selection of any other option is unavailable, please select this."
 
-  select_cardinal_candidate_interaction:1 "Select Cardinal Candidate"
-  recipient_secondary_select_cardinal_candidate_interaction:0 "Cardinal Candidate"
-  select_cardinal_candidate_interaction_desc:0 "Select an adult member of your court, [dynasty|E] or realm to be your Cardinal Candidate for the [collegeofcardinals|E]."
-  select_cardinal_candidate_interaction_notification:0 "Selected Cardinal Candidate"
-
+ select_cardinal_candidate_interaction:1 "Select Cardinal Candidate"
+ recipient_secondary_select_cardinal_candidate_interaction:0 "Cardinal Candidate"
+ select_cardinal_candidate_interaction_desc:0 "Select an adult member of your court, [dynasty|E] or realm to be your Cardinal Candidate for the [collegeofcardinals|E]."
+ select_cardinal_candidate_interaction_notification:0 "Selected Cardinal Candidate"
+ TCT_NO_PATRIARCHATE_TITLE:0 "No Patriarchate"
  TCT_PATRIARCHATE_TITLE_NAME:0 "[kingdom.GetAdjectiveNoTooltip]an Pentarchy"
+ doctrine_autocephaly_head_name:0 "Autocephaly Head"
+ doctrine_autocephaly_head_desc:0 "Autocephaly Head Desc, Fill in Later"
  
 
  TCT_Investiture_MapMode:0 "#T Investiture Law#!: [ROOT.Province.Custom('TCT_get_InvestitureLaw_of_barony')]"
@@ -153,7 +155,7 @@
   mercenary_government_mod_desc:1 "The Papal Army is an standing army, they usually lead the military conflicts of the Papal States while the Pope stays back in rome."
   mercenary_company_mod_succession_law:1 "Papal Army"
   mercenary_company_mod_succession_law_effects:0 "Upon succession all of the Captain's [titles|E] will be given to their successor, who is generally the [knight|E] with the highest [martial|E] skill."
-  mercenary_government_adjective:0 "Papal Army"
+  mercenary_government_mod_adjective:0 "Papal Army"
   baron_mercenary_mod_male:0 "Lieutenant"
   baron_mercenary_mod_female:0 "Lieutenant"
   barony_mercenary_mod:0 "Band"

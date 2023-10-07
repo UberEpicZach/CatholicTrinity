@@ -8,6 +8,12 @@
 	}
 }
 
+on_army_enter_province = {
+	events = {
+		KoH_religiousflavour.811 #Give Crusaders their trait upon reaching the holy land.
+	}
+}
+
 TCTpentarchy = {
 	effect = {
 		### Pentarchy setups
@@ -63,7 +69,7 @@ TCT_saint_day_real = {
 		is_adult = yes
 		#exists = var:TCT_saint_day_dummychar
 	}
-	events = {
+	random_events = {
 		1000 = 0
 		1 = KoH_religiousflavour.63 #Saint Day! 
 		#1 = bp1_yearly.3004 #Christmas, but a child!! 
@@ -1096,3 +1102,4 @@ on_faith_created = {
 		KoH_religiousflavour.807
 	}
 }
+

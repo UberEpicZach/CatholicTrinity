@@ -206,14 +206,14 @@
 				# }	
 			}
 			
-			on_phase_active = {
-				if = {
-					limit = {
-						this = scope:host
-					}
-					trigger_event = RICE_ancestor_worship.0002
-				}		
-			}
+			# on_phase_active = {
+			# 	if = {
+			# 		limit = {
+			# 			this = scope:host
+			# 		}
+			# 		trigger_event = RICE_ancestor_worship.0002
+			# 	}		
+			# }
 
 			on_end = {
 				# Run conclusion stuff here

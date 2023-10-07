@@ -364,7 +364,7 @@
 
 
   KoH_religiousflavour.600.t: "Pope by Acclamation"
-  KoH_religiousflavour.600.desc: "As I stood in the Lateran Basilica, participating in the obsequies for Alexander II, I couldn't believe my ears when I heard the loud cries of the clergy and people. "Let Hildebrand be pope!" they shouted. "Blessed Peter has chosen Hildebrand the Archdeacon!" \n\n"Fearing the uncanonical election in the Liberian Basilica, I immediately fled and hid myself for some time. But eventually, I was found at the Church of San Pietro in Vincoli and elected pope by the assembled cardinals, with the due consent of the Roman clergy, amid the repeated acclamations of the people \n\nI stand now at the head of the Church...
+  KoH_religiousflavour.600.desc: "As I stood in the Lateran Basilica, participating in the obsequies for Alexander II, I couldn't believe my ears when I heard the loud cries of the clergy and people. "Let Hildebrand be pope!" they shouted. "Blessed Peter has chosen Hildebrand the Archdeacon!" \n\n"Fearing the uncanonical election in the Liberian Basilica, I immediately fled and hid myself for some time. But eventually, I was found at the Church of San Pietro in Vincoli and elected pope by the assembled cardinals, with the due consent of the Roman clergy, amid the repeated acclamations of the people \n\nI stand now at the head of the Church..."
   KoH_religiousflavour.600.a: "A long way ahead..."
 
   KoH_religiousflavour.799.t: "The Dictatus Papae"
@@ -379,7 +379,30 @@
   KoH_religiousflavour.803.desc: "Further and further do the heathens encroach upon Christendom, bound by their evil custom to pummel the longsuffering believers lower and lower into the dirt.\n\nThe leader of the Eastern schismatics, [eastern_patriarch.GetTitledFirstName] of Constantinople, is the only other ecclesiastical leader with the prestige and influence to rally common will for a solution. But he is said to be ironbound to the will of the Eastern Emperor — I, on the other hand, am in effect bound to none.\n\nI steel my nerve by uttering to myself from the 59th Psalm:\n#bold “Scatter them by Your power, and bring them down, O Lord, our shield.” #! \n\nTaking up my quill and sending word for a host of messengers, I try not to consider the first sentence of the verse. This not a time for contemplation and tolerance, but for action."
   KoH_religiousflavour.803.a: "Deus Vult!"
 
- KoH_religiousflavour.5725.t:0 "A Papal Name"
- KoH_religiousflavour.5725.desc.me:0 "I have been Elected [ROOT.Char.GetTitleAsNameNoTooltip], the Holy Leader of the Catholic Faith; following Tradition; it is my duty to take on a new Regnal Name; like all the previous Popes of Holy Past."
- birth.9004.desc:0 "[child.GetFirstNameNoTooltip].\n\nInitially I was fond of the name, but now it seems strange to my ears. What will [child.GetSheHe] think of [child.GetHerHis] name once grown up?\n\nMaybe I should change it to something better?"
- birth.9004.a:0 "Ah, a #EMP much#! better name!"
+  Declare_Minor_Crusade:0 "Declaration of A Minor Crusade"
+  Declare_Minor_Crusade_confirm:0 "Choose Selected Title"
+  Declare_Minor_Crusade_decision_desc:0 "As I gaze upon the horizon, my mind wanders to the distant lands of the Outremer. I've heard of noble peers extending their hands in support, be it through gold, troops, or even leading armed-pilgrimages to the Holy Land personally. Such acts not only bolster the defenses of the Holy Land but also serve as a testament to one's unyielding faith and piety. I feel compelled to act, to prove my commitment. Declaring a minor crusade will not only aid our Christian allies but also allow me to display my deep-rooted devotion."  
+  Declare_Minor_Crusade_decision_tooltip:0 "Deus Vult!"
+	Launch_Minor_Crusade_decision_effect_tooltip:0 "You will launch a Military Campaign for a Selected Title; on behalf of a Crusader State"
+  
+
+  KoH_religiousflavour.810.t: "To the Outremer"
+  KoH_religiousflavour.810.desc: "The preparations for the crusade are underway, but a crucial decision remains: where should our forces strike? The Crusader States are surrounded by potential targets, each with its own risks. A successful campaign could greatly aid the success our allies in the Holy Land, but failure could have dire consequences for the Christian presence in the region and leave them open to retaliation."
+  KoH_religiousflavour.810.a.cancel:0 "...On Second Thought...."
+  KoH_religiousflavour.810.a:0 "Onwards"
+  minor_crusade_religious_war:0 "Minor Religous War"
+  KoH_religiousflavour.812.title:0 "Soldier of the [the_faith.ReligiousSymbol|U]"
+  KoH_religiousflavour.812.crusader.desc:0 "Our armies stand poised to take part in the [war.GetName]. [the_faith.WarGodName] willing, we will soon rise victorious, the blood of the heathens painting the soil red."
+  KoH_religiousflavour.812.a:0 "May [the_faith.WarGodName] lead us to victory!"
+  KoH_religiousflavour.813.title:0 "Display of Cowardice"
+  KoH_religiousflavour.813.base.desc:0 "While more virtuous fighters still march on [target_kingdom.GetBaseNameNoTier], I have abandoned my armies for a safer haven. While they wage relentless war against the vile heathens, I besmirch my name and put in question my resolve to pursue this [the_faith.GHWName]."
+  KoH_religiousflavour.813.a:0 "I should not have left the field..."
+  
+  MINOR_CRUSADE_RELIGIOUS_WAR_NAME:1 "Minor [holy_war|E] for the [TITLE.GetBaseName]"
+  MINOR_CRUSADE_HOLY_WAR_COUNTY_NAME:0 "Minor [holy_war|E] for [county|E]"
+
+  KoH_religiousflavour.5725.t: "A Papal Name"
+  KoH_religiousflavour.5725.desc.me: "I have been Elected [ROOT.Char.GetTitleAsNameNoTooltip], the Holy Leader of the Catholic Faith; following Tradition; it is my duty to take on a new Regnal Name; like all the previous Popes of Holy Past."
+
+  birth.9004.desc:0 "[child.GetFirstNameNoTooltip].\n\nInitially I was fond of the name, but now it seems strange to my ears. What will [child.GetSheHe] think of [child.GetHerHis] name once grown up?\n\nMaybe I should change it to something better?"
+  birth.9004.a:0 "Ah, a #EMP much#! better name!"
