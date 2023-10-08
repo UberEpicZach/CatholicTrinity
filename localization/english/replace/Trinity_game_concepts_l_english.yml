@@ -35,7 +35,7 @@
  TCT_Investiture_MapMode:0 "#T Investiture Law#!: [ROOT.Province.Custom('TCT_get_InvestitureLaw_of_barony')]"
  TCT_FreeInvestitureMapMode:0 "Free Investiture"
  TCT_PapalInvestitureMapMode:0 "Papal Investiture"
- TCT_PENTARCHY_MAP_MODE_TOOLTIP:0 "#T Autocephaly#!: [ROOT.Province.Custom('TCT_get_patriarchate_of_barony')]"
+ #TCT_PENTARCHY_MAP_MODE_TOOLTIP:0 "#T Autocephaly#!: [ROOT.Province.Custom('TCT_get_patriarchate_of_barony')]"
  TCT_PATRIARCHATE_TITLE:0 "[Scope.GetProvince.GetCountyCapitalProvince.MakeScope.Var('TCT_patriarchate_of_barony').GetLandedTitle.GetNameNoTooltip]"
  
  TCT_open_pentarchy_window_button:0 "Autocephaly"

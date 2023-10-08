@@ -2095,7 +2095,7 @@ KoH_religiousflavour.31 = {
 						has_government = theocracy_government
 						#And they have to actually like you enough to want to invest you.
 						opinion = {
-							target = popewantsit
+							target = scope:popewantsit
 							value <= -10
 						}
 						opinion = {
@@ -2110,7 +2110,7 @@ KoH_religiousflavour.31 = {
 					limit = {
 						has_government = theocracy_government
 						opinion = {
-							target = popewantsit
+							target = scope:popewantsit
 							value <= -10
 						}
 						opinion = {
@@ -2378,7 +2378,7 @@ KoH_religiousflavour.34 = {
 					NOT = { has_character_flag = pope_bribing }
 					has_faith = scope:popewantsit.faith
 					opinion = {
-						target = popewantsit
+						target = scope:popewantsit
 						value <= -10
 					}
 					opinion = {
@@ -2392,7 +2392,7 @@ KoH_religiousflavour.34 = {
 					limit = {
 						max_military_strength >= liege.max_military_strength.div2
 						opinion = {
-							target = popewantsit
+							target = scope:popewantsit
 							value <= -10
 						}
 						opinion = {
@@ -6156,7 +6156,7 @@ KoH_religiousflavour.810 = {
 
 	immediate = {
 		remove_variable = selected_title
-		clear_variable_list = title_options
+		clear_variable_list = minor_cruades_possible_titles
 		nearby_crusader_state_targets = yes
 	}
 
@@ -6423,6 +6423,93 @@ KoH_religiousflavour.813 = {
 		if = {
 			limit = { has_trait = faith_warrior }
 			remove_trait = faith_warrior
+		}
+	}
+}
+
+#Crusader gets an event to decide to try to carve out a Crusader State during a GHW.
+#Fired on_army_enter_province
+#Hidden first event fires for the owner of the army.
+#root = owner of the army
+#scope:army = the army itself.
+great_holy_war.0060 = {
+	hidden = yes
+	
+	trigger = {
+		exists = root.faith.great_holy_war
+		OR = { #Either army owner or one of his lieges is involved in a GHW.
+			any_character_war = {
+				OR = {
+					using_cb = undirected_great_holy_war
+					using_cb = directed_great_holy_war
+				}
+				is_attacker = root
+			}
+			any_liege_or_above = {
+				faith = root.faith
+				any_character_war = {
+					OR = {
+						using_cb = undirected_great_holy_war
+						using_cb = directed_great_holy_war
+					}
+					is_attacker = root
+				}
+			}
+		}
+		scope:army = {
+			exists = army_commander
+			location = { save_temporary_scope_as = current_location }
+			army_commander = {
+				NOR = {
+					has_trait = crusader_king
+					has_trait = faith_warrior
+				}
+			}
+		}
+		root.faith.great_holy_war.ghw_target_title = { #The dejure Kingdom targeted by the GHW
+			any_in_de_jure_hierarchy = {
+				tier = tier_barony
+				title_province = { this = scope:current_location } #Any province within it.
+				exists = holder
+				holder = { #The province's owner must also be part of the GHW on the opposite side.
+					OR = {
+						any_character_war = {
+							OR = {
+								using_cb = undirected_great_holy_war
+								using_cb = directed_great_holy_war
+							}
+							is_defender = prev
+						}
+						any_liege_or_above = {
+							any_character_war = {
+								OR = {
+									using_cb = undirected_great_holy_war
+									using_cb = directed_great_holy_war
+								}
+								is_defender = prev
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		scope:army.location = { save_scope_as = current_location }
+		faith = { save_scope_as = the_faith }
+		faith.great_holy_war = { save_scope_as = scoped_ghw }
+		faith.great_holy_war.ghw_target_title = { save_scope_as = target_kingdom }
+		scope:army = {
+			army_commander = { trigger_event = great_holy_war.0057 }
+			army_owner = {
+				every_knight = {
+					limit = {
+						location = scope:current_location
+					}
+					trigger_event = great_holy_war.0057
+				}
+			}
 		}
 	}
 }

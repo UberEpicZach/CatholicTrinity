@@ -104,26 +104,26 @@
 @data_after_lighting_blend = 				0.5
 
 
-TCT_pentarchy = {
-	color_mode = baronies
-	small_map_names = baronies
-	selection = counties
-	fill_in_impassable = no
+# TCT_pentarchy = {
+# 	color_mode = baronies
+# 	small_map_names = baronies
+# 	selection = counties
+# 	fill_in_impassable = no
 	
-	barony_description = TCT_PENTARCHY_MAP_MODE_TOOLTIP
-	gradient_parameters = {
-		gradient_alpha_inside = 	@filled_near_gradient_alpha_inside
-		gradient_alpha_outside = 	@filled_near_gradient_alpha_outside
-		gradient_width = 			@filled_near_gradient_width
-		gradient_color_mult =		@filled_near_gradient_color_mult
-		edge_width = 				@filled_near_edge_width
-		edge_sharpness = 			@filled_near_edge_sharpness
-		edge_alpha = 				@filled_near_edge_alpha
+# 	barony_description = TCT_PENTARCHY_MAP_MODE_TOOLTIP
+# 	gradient_parameters = {
+# 		gradient_alpha_inside = 	@filled_near_gradient_alpha_inside
+# 		gradient_alpha_outside = 	@filled_near_gradient_alpha_outside
+# 		gradient_width = 			@filled_near_gradient_width
+# 		gradient_color_mult =		@filled_near_gradient_color_mult
+# 		edge_width = 				@filled_near_edge_width
+# 		edge_sharpness = 			@filled_near_edge_sharpness
+# 		edge_alpha = 				@filled_near_edge_alpha
 		
-		before_lighting_blend =		@filled_near_before_lighting_blend
-		after_lighting_blend =		@filled_near_after_lighting_blend
-	}
-}
+# 		before_lighting_blend =		@filled_near_before_lighting_blend
+# 		after_lighting_blend =		@filled_near_after_lighting_blend
+# 	}
+# }
 
 TCT_investiture = {
 	color_mode = baronies

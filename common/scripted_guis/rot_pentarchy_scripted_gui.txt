@@ -10,17 +10,17 @@
 		NOT = { global_var:custom_map_mode = flag:none	}
 	}
 }
-TCT_pentarchy_map = {
-	effect = {
-		TCT_pentarchy_map = yes
-	}
-	is_shown = {
-		global_var:custom_map_mode = flag:TCT_pentarchy_map
-	}
-	is_valid = {
-		NOT = { exists = global_var:custom_map_mode_changing }
-	}
-}
+# TCT_pentarchy_map = {
+# 	effect = {
+# 		TCT_pentarchy_map = yes
+# 	}
+# 	is_shown = {
+# 		global_var:custom_map_mode = flag:TCT_pentarchy_map
+# 	}
+# 	is_valid = {
+# 		NOT = { exists = global_var:custom_map_mode_changing }
+# 	}
+# }
 TCT_update_pentarchy = {
 	scope = character
 

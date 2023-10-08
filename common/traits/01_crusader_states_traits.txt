@@ -9,7 +9,7 @@
 
 crusader_state_trait = {
 	index = 900
-	fame = yes
+	category = fame
 
 
 	#Diplomatic Range to reach and marry europe 

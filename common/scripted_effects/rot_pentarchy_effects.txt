@@ -5,518 +5,563 @@
 		}
 	}
 }
-TCT_pentarchy_map = {
-	every_ruler = {
-		limit = {
-			highest_held_title_tier >= tier_kingdom
-			faith.religious_head_title = title:k_orthodox
-		}
+
+
+de_jure_changes_asia_minor = {
+	create_title_and_vassal_change = {
+		type = created
+		save_scope_as = rum_duchies
+		add_claim_on_loss = no
 	}
-	every_barony = {
-		if = {
+	
+	title:k_pontus = {
+		every_in_de_jure_hierarchy = {
 			limit = {
-				OR = {
-					county.holder.top_liege.faith = {
-						has_doctrine = doctrine_autocephaly_head
-					}
-					county.faith = {
-						has_doctrine = doctrine_autocephaly_head
-					}
-				}
+				tier = tier_county
 			}
-			if = {
-				limit = {
-					county.holder.top_liege.primary_title = {
-						tier < tier_kingdom
-						empire = {
-							has_variable = TCT_patriarchate
-						}
-					}
-				}
-				set_color_from_title = county.holder.top_liege.primary_title.empire.var:TCT_patriarchate
-				county.title_province =  {
-					set_variable = {
-						name = TCT_patriarchate_of_barony
-						value = county.holder.top_liege.primary_title.empire.var:TCT_patriarchate
-					}
-				}
+			set_de_jure_liege_title = title:k_rum
+			change_title_holder = {
+				holder = character:41701
+				change = scope:rum_duchies
 			}
-			else_if = {
-				limit = {
-					county.holder.top_liege.primary_title = {
-						tier < tier_kingdom
-						kingdom = {
-							has_variable = TCT_patriarchate
-						}
-					}
-				}
-				set_color_from_title = county.holder.top_liege.primary_title.kingdom.var:TCT_patriarchate
-				county.title_province =  {
-					set_variable = {
-						name = TCT_patriarchate_of_barony
-						value = county.holder.top_liege.primary_title.kingdom.var:TCT_patriarchate
-					}
-				}
-			}
-			else_if = {
-				limit = {
-					county.holder.top_liege.primary_title = {
-						has_variable = TCT_patriarchate
-					}
-				}
-				set_color_from_title = county.holder.top_liege.primary_title.var:TCT_patriarchate
-				county.title_province =  {
-					set_variable = {
-						name = TCT_patriarchate_of_barony
-						value = county.holder.top_liege.primary_title.var:TCT_patriarchate
-					}
-				}
-			}
-			else_if = {
-				limit = {
-					empire = {
-						has_variable = TCT_patriarchate
-					}
-				}
-				set_color_from_title = empire.var:TCT_patriarchate
-				county.title_province =  {
-					set_variable = {
-						name = TCT_patriarchate_of_barony
-						value = empire.var:TCT_patriarchate
-					}
-				}
-			}
-			else_if = {
-				limit = {
-					kingdom = {
-						has_variable = TCT_patriarchate
-					}
-				}
-				set_color_from_title = kingdom.var:TCT_patriarchate
-				county.title_province =  {
-					set_variable = {
-						name = TCT_patriarchate_of_barony
-						value = kingdom.var:TCT_patriarchate
-					}
-				}
-			}
-			else_if = {
-				limit = { title_province = { geographical_region = TCT_region_pentarchy_rome } }
-				set_color_from_title = title:k_papal_state
-				county.title_province =  {
-					set_variable = {
-						name = TCT_patriarchate_of_barony
-						value = title:d_rome_patriarchate
-					}
-				}
-			}
-			else_if = {
-				limit = { title_province = { geographical_region = TCT_region_pentarchy_constantinople } }
-				set_color_from_title = title:e_byzantium
-				county.title_province =  {
-					set_variable = {
-						name = TCT_patriarchate_of_barony
-						value = title:d_constantinople_patriarchate
-					}
-				}
-			}
-			else_if = {
-				limit = { title_province = { geographical_region = TCT_region_pentarchy_alexandria } }
-				set_color_from_title = title:d_alexandria
-				county.title_province =  {
-					set_variable = {
-						name = TCT_patriarchate_of_barony
-						value = title:d_alexandria_patriarchate
-					}
-				}
-			}
-			else_if = {
-				limit = { 
-					title_province = {
-						OR = {
-							geographical_region = TCT_region_pentarchy_antiochia 
-							geographical_region = world_india
-							geographical_region = world_steppe_tarim
-							geographical_region = world_tibet
-							geographical_region = world_burma
-							geographical_region = world_steppe_east
-						} 
-					}
-				}
-				set_color_from_title = title:d_edessa
-				county.title_province =  {
-					set_variable = {
-						name = TCT_patriarchate_of_barony
-						value = title:d_antioch_patriarchate
-					}
-				}
-			}
-			else_if = {
-				limit = { title_province = { geographical_region = TCT_region_pentarchy_jerusalem } }
-				set_color_from_title = title:k_israel
-				county.title_province =  {
-					set_variable = {
-						name = TCT_patriarchate_of_barony
-						value = title:d_jerusalem_patriarchate
-					}
-				}
-			}
-		}
-		else = {
-			set_color_from_title = title:d_line_map_base
 		}
 	}
+	
+	title:k_anatolia = {
+		every_in_de_jure_hierarchy = {
+			limit = {
+				tier = tier_county
+			}
+			set_de_jure_liege_title = title:k_rum
+			change_title_holder = {
+				holder = character:41701
+				change = scope:rum_duchies
+			}
+		}
+	}
+	
+	# Not doing this for k_nikaea
+	
+	resolve_title_and_vassal_change = scope:rum_duchies
+	
+	# Not changing this de jure either. De Jure is such a weird mechanic, I hate it
+	#title:k_rum = {
+	#	set_de_jure_liege_title = title:e_persia
+	#}
 }
-TCT_get_patriarch_of_target = {
-	if = {
-		limit = {
-			$TARGET$ = {
-				faith = { has_doctrine = doctrine_autocephaly_head }
-				exists = capital_province
-			}
-		}
-		if = {
-			limit = {
-				$TARGET$.top_liege.capital_province.empire = { has_variable = TCT_patriarchate }
-			}
-			$TARGET$.top_liege.capital_province.empire.var:TCT_patriarchate.holder = { save_scope_as = patriarch }
-		}
-		else_if = {
-			limit = {
-				$TARGET$.top_liege.capital_province.kingdom = { has_variable = TCT_patriarchate }
-			}
-			$TARGET$.top_liege.capital_province.kingdom.var:TCT_patriarchate.holder = { save_scope_as = patriarch }
-		}
-		else_if = {
-			limit = { 
-				$TARGET$.capital_province = { geographical_region = TCT_region_pentarchy_rome } 
-			}
-			title:k_papal_state.holder = { save_scope_as = patriarch }
-		}
-		else_if = {
-			limit = { 
-				$TARGET$.capital_province = { geographical_region = TCT_region_pentarchy_rome } 
-			}
-			title:d_rome_patriarchate.holder = { save_scope_as = patriarch }
-		}
-		else_if = {
-			limit = { 
-				$TARGET$.capital_province = { geographical_region = TCT_region_pentarchy_constantinople } 
-			}
-			title:d_constantinople_patriarchate.holder = { save_scope_as = patriarch }
-		}
-		else_if = {
-			limit = { 
-				$TARGET$.capital_province = { geographical_region = TCT_region_pentarchy_alexandria } 
-			}
-			title:d_alexandria_patriarchate.holder = { save_scope_as = patriarch }
-		}
-		else_if = {
-			limit = { 
-				$TARGET$.capital_province = { 
-					OR = {
-						geographical_region = TCT_region_pentarchy_antiochia 
-						geographical_region = world_india
-						geographical_region = world_steppe_tarim
-						geographical_region = world_tibet
-						geographical_region = world_burma
-						geographical_region = world_steppe_east 
-					}
-				}
-			}
-			title:d_antioch_patriarchate.holder = { save_scope_as = patriarch }
-		}
-		else_if = {
-			limit = { 
-				$TARGET$.capital_province = { geographical_region = TCT_region_pentarchy_jerusalem } 
-			}
-			title:d_jerusalem_patriarchate.holder = { save_scope_as = patriarch }
-		}
-	}
-	else_if = {
-		limit = {
-			$TARGET$ = {
-				faith = { has_doctrine = doctrine_autocephaly_head }
-				exists = liege.capital_province
-			}
-		}
-		if = {
-			limit = {
-				$TARGET$.top_liege.capital_province.empire = { has_variable = TCT_patriarchate }
-			}
-			$TARGET$.top_liege.capital_province.empire.var:TCT_patriarchate.holder = { save_scope_as = patriarch }
-		}
-		else_if = {
-			limit = {
-				$TARGET$.top_liege.capital_province.kingdom = { has_variable = TCT_patriarchate }
-			}
-			$TARGET$.top_liege.capital_province.kingdom.var:TCT_patriarchate.holder = { save_scope_as = patriarch }
-		}
-		else_if = {
-			limit = { 
-				$TARGET$.liege.capital_province = { geographical_region = TCT_region_pentarchy_rome } 
-			}
-			title:k_papal_state.holder = { save_scope_as = patriarch }
-		}
-		else_if = {
-			limit = { 
-				$TARGET$.liege.capital_province = { geographical_region = TCT_region_pentarchy_rome } 
-			}
-			title:d_rome_patriarchate.holder = { save_scope_as = patriarch }
-		}
-		else_if = {
-			limit = { 
-				$TARGET$.liege.capital_province = { geographical_region = TCT_region_pentarchy_constantinople } 
-			}
-			title:d_constantinople_patriarchate.holder = { save_scope_as = patriarch }
-		}
-		else_if = {
-			limit = { 
-				$TARGET$.liege.capital_province = { geographical_region = TCT_region_pentarchy_alexandria } 
-			}
-			title:d_alexandria_patriarchate.holder = { save_scope_as = patriarch }
-		}
-		else_if = {
-			limit = { 
-				$TARGET$.liege.capital_province = { 
-					OR = {
-						geographical_region = TCT_region_pentarchy_antiochia 
-						geographical_region = world_india
-						geographical_region = world_steppe_tarim
-						geographical_region = world_tibet
-						geographical_region = world_burma
-						geographical_region = world_steppe_east 
-					}
-				}
-			}
-			title:d_antioch_patriarchate.holder = { save_scope_as = patriarch }
-		}
-		else_if = {
-			limit = { 
-				$TARGET$.liege.capital_province = { geographical_region = TCT_region_pentarchy_jerusalem } 
-			}
-			title:d_jerusalem_patriarchate.holder = { save_scope_as = patriarch }
-		}
-	}
-	else_if = {
-		limit = {
-			$TARGET$ = {
-				faith = { has_doctrine = doctrine_autocephaly_head }
-				exists = location
-			}
-		}
-		if = {
-			limit = {
-				$TARGET$.top_liege.capital_province.empire = { has_variable = TCT_patriarchate }
-			}
-			$TARGET$.top_liege.capital_province.empire.var:TCT_patriarchate.holder = { save_scope_as = patriarch }
-		}
-		else_if = {
-			limit = {
-				$TARGET$.top_liege.capital_province.kingdom = { has_variable = TCT_patriarchate }
-			}
-			$TARGET$.top_liege.capital_province.kingdom.var:TCT_patriarchate.holder = { save_scope_as = patriarch }
-		}
-		else_if = {
-			limit = { 
-				$TARGET$.location = { geographical_region = TCT_region_pentarchy_rome } 
-			}
-			title:k_papal_state.holder = { save_scope_as = patriarch }
-		}
-		else_if = {
-			limit = { 
-				$TARGET$.location = { geographical_region = TCT_region_pentarchy_rome } 
-			}
-			title:d_rome_patriarchate.holder = { save_scope_as = patriarch }
-		}
-		else_if = {
-			limit = { 
-				$TARGET$.location = { geographical_region = TCT_region_pentarchy_constantinople } 
-			}
-			title:d_constantinople_patriarchate.holder = { save_scope_as = patriarch }
-		}
-		else_if = {
-			limit = { 
-				$TARGET$.location = { geographical_region = TCT_region_pentarchy_alexandria } 
-			}
-			title:d_alexandria_patriarchate.holder = { save_scope_as = patriarch }
-		}
-		else_if = {
-			limit = { 
-				$TARGET$.location = { 
-					OR = {
-						geographical_region = TCT_region_pentarchy_antiochia 
-						geographical_region = world_india
-						geographical_region = world_steppe_tarim
-						geographical_region = world_tibet
-						geographical_region = world_burma
-						geographical_region = world_steppe_east 
-					}
-				}
-			}
-			title:d_antioch_patriarchate.holder = { save_scope_as = patriarch }
-		}
-		else_if = {
-			limit = { 
-				$TARGET$.location = { geographical_region = TCT_region_pentarchy_jerusalem } 
-			}
-			title:d_jerusalem_patriarchate.holder = { save_scope_as = patriarch }
-		}
-	}
-	else = {
-		$TARGET$.faith.religious_head = { save_scope_as = patriarch }
-	}
-} 
-TCT_create_patriarchate = {
-	$AUTOCEPHALY$ = {
-		save_scope_as = kingdom
-	}
-	create_dynamic_title = {
-		tier = duchy
-		name = TCT_PATRIARCHATE_TITLE_NAME
-	}
-	scope:new_title = {
-		set_capital_county = $AUTOCEPHALY$.title_capital_county
-		set_color_from_title = $AUTOCEPHALY$
-		set_coa = $AUTOCEPHALY$
+
+# TCT_pentarchy_map = {
+# 	every_ruler = {
+# 		limit = {
+# 			highest_held_title_tier >= tier_kingdom
+# 			faith.religious_head_title = title:k_orthodox
+# 		}
+# 	}
+# 	every_barony = {
+# 		if = {
+# 			limit = {
+# 				OR = {
+# 					county.holder.top_liege.faith = {
+# 						has_doctrine = doctrine_autocephaly_head
+# 					}
+# 					county.faith = {
+# 						has_doctrine = doctrine_autocephaly_head
+# 					}
+# 				}
+# 			}
+# 			if = {
+# 				limit = {
+# 					county.holder.top_liege.primary_title = {
+# 						tier < tier_kingdom
+# 						empire = {
+# 							has_variable = TCT_patriarchate
+# 						}
+# 					}
+# 				}
+# 				set_color_from_title = county.holder.top_liege.primary_title.empire.var:TCT_patriarchate
+# 				county.title_province =  {
+# 					set_variable = {
+# 						name = TCT_patriarchate_of_barony
+# 						value = county.holder.top_liege.primary_title.empire.var:TCT_patriarchate
+# 					}
+# 				}
+# 			}
+# 			else_if = {
+# 				limit = {
+# 					county.holder.top_liege.primary_title = {
+# 						tier < tier_kingdom
+# 						kingdom = {
+# 							has_variable = TCT_patriarchate
+# 						}
+# 					}
+# 				}
+# 				set_color_from_title = county.holder.top_liege.primary_title.kingdom.var:TCT_patriarchate
+# 				county.title_province =  {
+# 					set_variable = {
+# 						name = TCT_patriarchate_of_barony
+# 						value = county.holder.top_liege.primary_title.kingdom.var:TCT_patriarchate
+# 					}
+# 				}
+# 			}
+# 			else_if = {
+# 				limit = {
+# 					county.holder.top_liege.primary_title = {
+# 						has_variable = TCT_patriarchate
+# 					}
+# 				}
+# 				set_color_from_title = county.holder.top_liege.primary_title.var:TCT_patriarchate
+# 				county.title_province =  {
+# 					set_variable = {
+# 						name = TCT_patriarchate_of_barony
+# 						value = county.holder.top_liege.primary_title.var:TCT_patriarchate
+# 					}
+# 				}
+# 			}
+# 			else_if = {
+# 				limit = {
+# 					empire = {
+# 						has_variable = TCT_patriarchate
+# 					}
+# 				}
+# 				set_color_from_title = empire.var:TCT_patriarchate
+# 				county.title_province =  {
+# 					set_variable = {
+# 						name = TCT_patriarchate_of_barony
+# 						value = empire.var:TCT_patriarchate
+# 					}
+# 				}
+# 			}
+# 			else_if = {
+# 				limit = {
+# 					kingdom = {
+# 						has_variable = TCT_patriarchate
+# 					}
+# 				}
+# 				set_color_from_title = kingdom.var:TCT_patriarchate
+# 				county.title_province =  {
+# 					set_variable = {
+# 						name = TCT_patriarchate_of_barony
+# 						value = kingdom.var:TCT_patriarchate
+# 					}
+# 				}
+# 			}
+# 			else_if = {
+# 				limit = { title_province = { geographical_region = TCT_region_pentarchy_rome } }
+# 				set_color_from_title = title:k_papal_state
+# 				county.title_province =  {
+# 					set_variable = {
+# 						name = TCT_patriarchate_of_barony
+# 						value = title:d_rome_patriarchate
+# 					}
+# 				}
+# 			}
+# 			else_if = {
+# 				limit = { title_province = { geographical_region = TCT_region_pentarchy_constantinople } }
+# 				set_color_from_title = title:e_byzantium
+# 				county.title_province =  {
+# 					set_variable = {
+# 						name = TCT_patriarchate_of_barony
+# 						value = title:d_constantinople_patriarchate
+# 					}
+# 				}
+# 			}
+# 			else_if = {
+# 				limit = { title_province = { geographical_region = TCT_region_pentarchy_alexandria } }
+# 				set_color_from_title = title:d_alexandria
+# 				county.title_province =  {
+# 					set_variable = {
+# 						name = TCT_patriarchate_of_barony
+# 						value = title:d_alexandria_patriarchate
+# 					}
+# 				}
+# 			}
+# 			else_if = {
+# 				limit = { 
+# 					title_province = {
+# 						OR = {
+# 							geographical_region = TCT_region_pentarchy_antiochia 
+# 							geographical_region = world_india
+# 							geographical_region = world_steppe_tarim
+# 							geographical_region = world_tibet
+# 							geographical_region = world_burma
+# 							geographical_region = world_steppe_east
+# 						} 
+# 					}
+# 				}
+# 				set_color_from_title = title:d_edessa
+# 				county.title_province =  {
+# 					set_variable = {
+# 						name = TCT_patriarchate_of_barony
+# 						value = title:d_antioch_patriarchate
+# 					}
+# 				}
+# 			}
+# 			else_if = {
+# 				limit = { title_province = { geographical_region = TCT_region_pentarchy_jerusalem } }
+# 				set_color_from_title = title:k_israel
+# 				county.title_province =  {
+# 					set_variable = {
+# 						name = TCT_patriarchate_of_barony
+# 						value = title:d_jerusalem_patriarchate
+# 					}
+# 				}
+# 			}
+# 		}
+# 		else = {
+# 			set_color_from_title = title:d_line_map_base
+# 		}
+# 	}
+# }
+# TCT_get_patriarch_of_target = {
+# 	if = {
+# 		limit = {
+# 			$TARGET$ = {
+# 				faith = { has_doctrine = doctrine_autocephaly_head }
+# 				exists = capital_province
+# 			}
+# 		}
+# 		if = {
+# 			limit = {
+# 				$TARGET$.top_liege.capital_province.empire = { has_variable = TCT_patriarchate }
+# 			}
+# 			$TARGET$.top_liege.capital_province.empire.var:TCT_patriarchate.holder = { save_scope_as = patriarch }
+# 		}
+# 		else_if = {
+# 			limit = {
+# 				$TARGET$.top_liege.capital_province.kingdom = { has_variable = TCT_patriarchate }
+# 			}
+# 			$TARGET$.top_liege.capital_province.kingdom.var:TCT_patriarchate.holder = { save_scope_as = patriarch }
+# 		}
+# 		else_if = {
+# 			limit = { 
+# 				$TARGET$.capital_province = { geographical_region = TCT_region_pentarchy_rome } 
+# 			}
+# 			title:k_papal_state.holder = { save_scope_as = patriarch }
+# 		}
+# 		else_if = {
+# 			limit = { 
+# 				$TARGET$.capital_province = { geographical_region = TCT_region_pentarchy_rome } 
+# 			}
+# 			title:d_rome_patriarchate.holder = { save_scope_as = patriarch }
+# 		}
+# 		else_if = {
+# 			limit = { 
+# 				$TARGET$.capital_province = { geographical_region = TCT_region_pentarchy_constantinople } 
+# 			}
+# 			title:d_constantinople_patriarchate.holder = { save_scope_as = patriarch }
+# 		}
+# 		else_if = {
+# 			limit = { 
+# 				$TARGET$.capital_province = { geographical_region = TCT_region_pentarchy_alexandria } 
+# 			}
+# 			title:d_alexandria_patriarchate.holder = { save_scope_as = patriarch }
+# 		}
+# 		else_if = {
+# 			limit = { 
+# 				$TARGET$.capital_province = { 
+# 					OR = {
+# 						geographical_region = TCT_region_pentarchy_antiochia 
+# 						geographical_region = world_india
+# 						geographical_region = world_steppe_tarim
+# 						geographical_region = world_tibet
+# 						geographical_region = world_burma
+# 						geographical_region = world_steppe_east 
+# 					}
+# 				}
+# 			}
+# 			title:d_antioch_patriarchate.holder = { save_scope_as = patriarch }
+# 		}
+# 		else_if = {
+# 			limit = { 
+# 				$TARGET$.capital_province = { geographical_region = TCT_region_pentarchy_jerusalem } 
+# 			}
+# 			title:d_jerusalem_patriarchate.holder = { save_scope_as = patriarch }
+# 		}
+# 	}
+# 	else_if = {
+# 		limit = {
+# 			$TARGET$ = {
+# 				faith = { has_doctrine = doctrine_autocephaly_head }
+# 				exists = liege.capital_province
+# 			}
+# 		}
+# 		if = {
+# 			limit = {
+# 				$TARGET$.top_liege.capital_province.empire = { has_variable = TCT_patriarchate }
+# 			}
+# 			$TARGET$.top_liege.capital_province.empire.var:TCT_patriarchate.holder = { save_scope_as = patriarch }
+# 		}
+# 		else_if = {
+# 			limit = {
+# 				$TARGET$.top_liege.capital_province.kingdom = { has_variable = TCT_patriarchate }
+# 			}
+# 			$TARGET$.top_liege.capital_province.kingdom.var:TCT_patriarchate.holder = { save_scope_as = patriarch }
+# 		}
+# 		else_if = {
+# 			limit = { 
+# 				$TARGET$.liege.capital_province = { geographical_region = TCT_region_pentarchy_rome } 
+# 			}
+# 			title:k_papal_state.holder = { save_scope_as = patriarch }
+# 		}
+# 		else_if = {
+# 			limit = { 
+# 				$TARGET$.liege.capital_province = { geographical_region = TCT_region_pentarchy_rome } 
+# 			}
+# 			title:d_rome_patriarchate.holder = { save_scope_as = patriarch }
+# 		}
+# 		else_if = {
+# 			limit = { 
+# 				$TARGET$.liege.capital_province = { geographical_region = TCT_region_pentarchy_constantinople } 
+# 			}
+# 			title:d_constantinople_patriarchate.holder = { save_scope_as = patriarch }
+# 		}
+# 		else_if = {
+# 			limit = { 
+# 				$TARGET$.liege.capital_province = { geographical_region = TCT_region_pentarchy_alexandria } 
+# 			}
+# 			title:d_alexandria_patriarchate.holder = { save_scope_as = patriarch }
+# 		}
+# 		else_if = {
+# 			limit = { 
+# 				$TARGET$.liege.capital_province = { 
+# 					OR = {
+# 						geographical_region = TCT_region_pentarchy_antiochia 
+# 						geographical_region = world_india
+# 						geographical_region = world_steppe_tarim
+# 						geographical_region = world_tibet
+# 						geographical_region = world_burma
+# 						geographical_region = world_steppe_east 
+# 					}
+# 				}
+# 			}
+# 			title:d_antioch_patriarchate.holder = { save_scope_as = patriarch }
+# 		}
+# 		else_if = {
+# 			limit = { 
+# 				$TARGET$.liege.capital_province = { geographical_region = TCT_region_pentarchy_jerusalem } 
+# 			}
+# 			title:d_jerusalem_patriarchate.holder = { save_scope_as = patriarch }
+# 		}
+# 	}
+# 	else_if = {
+# 		limit = {
+# 			$TARGET$ = {
+# 				faith = { has_doctrine = doctrine_autocephaly_head }
+# 				exists = location
+# 			}
+# 		}
+# 		if = {
+# 			limit = {
+# 				$TARGET$.top_liege.capital_province.empire = { has_variable = TCT_patriarchate }
+# 			}
+# 			$TARGET$.top_liege.capital_province.empire.var:TCT_patriarchate.holder = { save_scope_as = patriarch }
+# 		}
+# 		else_if = {
+# 			limit = {
+# 				$TARGET$.top_liege.capital_province.kingdom = { has_variable = TCT_patriarchate }
+# 			}
+# 			$TARGET$.top_liege.capital_province.kingdom.var:TCT_patriarchate.holder = { save_scope_as = patriarch }
+# 		}
+# 		else_if = {
+# 			limit = { 
+# 				$TARGET$.location = { geographical_region = TCT_region_pentarchy_rome } 
+# 			}
+# 			title:k_papal_state.holder = { save_scope_as = patriarch }
+# 		}
+# 		else_if = {
+# 			limit = { 
+# 				$TARGET$.location = { geographical_region = TCT_region_pentarchy_rome } 
+# 			}
+# 			title:d_rome_patriarchate.holder = { save_scope_as = patriarch }
+# 		}
+# 		else_if = {
+# 			limit = { 
+# 				$TARGET$.location = { geographical_region = TCT_region_pentarchy_constantinople } 
+# 			}
+# 			title:d_constantinople_patriarchate.holder = { save_scope_as = patriarch }
+# 		}
+# 		else_if = {
+# 			limit = { 
+# 				$TARGET$.location = { geographical_region = TCT_region_pentarchy_alexandria } 
+# 			}
+# 			title:d_alexandria_patriarchate.holder = { save_scope_as = patriarch }
+# 		}
+# 		else_if = {
+# 			limit = { 
+# 				$TARGET$.location = { 
+# 					OR = {
+# 						geographical_region = TCT_region_pentarchy_antiochia 
+# 						geographical_region = world_india
+# 						geographical_region = world_steppe_tarim
+# 						geographical_region = world_tibet
+# 						geographical_region = world_burma
+# 						geographical_region = world_steppe_east 
+# 					}
+# 				}
+# 			}
+# 			title:d_antioch_patriarchate.holder = { save_scope_as = patriarch }
+# 		}
+# 		else_if = {
+# 			limit = { 
+# 				$TARGET$.location = { geographical_region = TCT_region_pentarchy_jerusalem } 
+# 			}
+# 			title:d_jerusalem_patriarchate.holder = { save_scope_as = patriarch }
+# 		}
+# 	}
+# 	else = {
+# 		$TARGET$.faith.religious_head = { save_scope_as = patriarch }
+# 	}
+# } 
+# TCT_create_patriarchate = {
+# 	$AUTOCEPHALY$ = {
+# 		save_scope_as = kingdom
+# 	}
+# 	create_dynamic_title = {
+# 		tier = duchy
+# 		name = TCT_PATRIARCHATE_TITLE_NAME
+# 	}
+# 	scope:new_title = {
+# 		set_capital_county = $AUTOCEPHALY$.title_capital_county
+# 		set_color_from_title = $AUTOCEPHALY$
+# 		set_coa = $AUTOCEPHALY$
 		
-		set_definitive_form = yes
-		set_can_be_named_after_dynasty = no
-		set_landless_title = yes
+# 		set_definitive_form = yes
+# 		set_can_be_named_after_dynasty = no
+# 		set_landless_title = yes
 		
-		set_no_automatic_claims = yes
-		set_always_follows_primary_heir = yes
-		set_destroy_if_invalid_heir = yes
+# 		set_no_automatic_claims = yes
+# 		set_always_follows_primary_heir = yes
+# 		set_destroy_if_invalid_heir = yes
 		
-		set_variable = {
-			name = TCT_autocephaly
-			value = $AUTOCEPHALY$
-		}
-	}
-	create_character = {
-		location = $CREATOR$.capital_province
-		template = TCT_patriarch_template
-		culture = $CREATOR$.culture
-		faith = $CREATOR$.faith
-		gender_female_chance = 0
-		save_scope_as = patriarch
-		after_creation = {
-			get_title = scope:new_title
-			if = {
-				limit = {
-					$CREATOR$.primary_title = { tier > tier_duchy }
-				}
-				create_title_and_vassal_change = {
-					type = created
-					save_scope_as = change
-					add_claim_on_loss = no
-				}
-				change_liege = {
-					liege = $CREATOR$
-					change = scope:change
-				}
-				resolve_title_and_vassal_change = scope:change
-			}
-			change_government = theocracy_government
-			$AUTOCEPHALY$ = {
-				set_variable = {
-					name = TCT_patriarchate
-					value = prev.primary_title
-				}
-			}
-		}
-	}
-} 
-TCT_pentarchy_test = {
-	primary_title = { 
-		random_in_de_jure_hierarchy = {
-			limit = {
-				tier = tier_kingdom
-			}
-			save_scope_as = kingdom
-		}
-	}
-	create_dynamic_title = {
-		tier = duchy
-		name = TCT_PATRIARCHATE_TITLE_NAME
-	}
-	scope:new_title = {
-		set_capital_county = scope:kingdom.title_capital_county
-		set_color_from_title = scope:kingdom
-		set_coa = scope:kingdom
+# 		set_variable = {
+# 			name = TCT_autocephaly
+# 			value = $AUTOCEPHALY$
+# 		}
+# 	}
+# 	create_character = {
+# 		location = $CREATOR$.capital_province
+# 		template = TCT_patriarch_template
+# 		culture = $CREATOR$.culture
+# 		faith = $CREATOR$.faith
+# 		gender_female_chance = 0
+# 		save_scope_as = patriarch
+# 		after_creation = {
+# 			get_title = scope:new_title
+# 			if = {
+# 				limit = {
+# 					$CREATOR$.primary_title = { tier > tier_duchy }
+# 				}
+# 				create_title_and_vassal_change = {
+# 					type = created
+# 					save_scope_as = change
+# 					add_claim_on_loss = no
+# 				}
+# 				change_liege = {
+# 					liege = $CREATOR$
+# 					change = scope:change
+# 				}
+# 				resolve_title_and_vassal_change = scope:change
+# 			}
+# 			change_government = theocracy_government
+# 			$AUTOCEPHALY$ = {
+# 				set_variable = {
+# 					name = TCT_patriarchate
+# 					value = prev.primary_title
+# 				}
+# 			}
+# 		}
+# 	}
+# } 
+# TCT_pentarchy_test = {
+# 	primary_title = { 
+# 		random_in_de_jure_hierarchy = {
+# 			limit = {
+# 				tier = tier_kingdom
+# 			}
+# 			save_scope_as = kingdom
+# 		}
+# 	}
+# 	create_dynamic_title = {
+# 		tier = duchy
+# 		name = TCT_PATRIARCHATE_TITLE_NAME
+# 	}
+# 	scope:new_title = {
+# 		set_capital_county = scope:kingdom.title_capital_county
+# 		set_color_from_title = scope:kingdom
+# 		set_coa = scope:kingdom
 		
-		set_definitive_form = yes
-		set_can_be_named_after_dynasty = no
-		set_landless_title = yes
+# 		set_definitive_form = yes
+# 		set_can_be_named_after_dynasty = no
+# 		set_landless_title = yes
 		
-		set_no_automatic_claims = yes
-		set_always_follows_primary_heir = yes
-		set_destroy_if_invalid_heir = yes
+# 		set_no_automatic_claims = yes
+# 		set_always_follows_primary_heir = yes
+# 		set_destroy_if_invalid_heir = yes
 		
-		set_variable = {
-			name = TCT_autocephaly
-			value = scope:kingdom
-		}
-	}
-	create_character = {
-		location = root.capital_province
-		template = TCT_patriarch_template
-		culture = root.culture
-		faith = root.faith
-		save_scope_as = patriarch
-		after_creation = {
-			get_title = scope:new_title
-			if = {
-				limit = {
-					root.primary_title = { tier > tier_duchy }
-				}
-				create_title_and_vassal_change = {
-					type = created
-					save_scope_as = change
-					add_claim_on_loss = no
-				}
-				change_liege = {
-					liege = root
-					change = scope:change
-				}
-				resolve_title_and_vassal_change = scope:change
-			}
-			primary_title = {
-				if = {
-					limit = {
-						has_variable = TCT_autocephaly
-					}
-					root = {
-						set_variable = {
-							name = TCT_autocephaly
-							value = 2
-						}
-					}
-				}
-			}
-			change_government = theocracy_government
-			scope:kingdom = {
-				set_variable = {
-					name = TCT_patriarchate
-					value = prev.primary_title
-				}
-			}
-		}
-	}
-} 
-TCT_pentarchy_test2 = {
+# 		set_variable = {
+# 			name = TCT_autocephaly
+# 			value = scope:kingdom
+# 		}
+# 	}
+# 	create_character = {
+# 		location = root.capital_province
+# 		template = TCT_patriarch_template
+# 		culture = root.culture
+# 		faith = root.faith
+# 		save_scope_as = patriarch
+# 		after_creation = {
+# 			get_title = scope:new_title
+# 			if = {
+# 				limit = {
+# 					root.primary_title = { tier > tier_duchy }
+# 				}
+# 				create_title_and_vassal_change = {
+# 					type = created
+# 					save_scope_as = change
+# 					add_claim_on_loss = no
+# 				}
+# 				change_liege = {
+# 					liege = root
+# 					change = scope:change
+# 				}
+# 				resolve_title_and_vassal_change = scope:change
+# 			}
+# 			primary_title = {
+# 				if = {
+# 					limit = {
+# 						has_variable = TCT_autocephaly
+# 					}
+# 					root = {
+# 						set_variable = {
+# 							name = TCT_autocephaly
+# 							value = 2
+# 						}
+# 					}
+# 				}
+# 			}
+# 			change_government = theocracy_government
+# 			scope:kingdom = {
+# 				set_variable = {
+# 					name = TCT_patriarchate
+# 					value = prev.primary_title
+# 				}
+# 			}
+# 		}
+# 	}
+# } 
+# TCT_pentarchy_test2 = {
 	
-	TCT_get_patriarch_of_target = {
-		TARGET = root
-	}
-	set_variable = {
-		name = test_var
-		value = scope:patriarch
-	}
-} 
-TCT_coa_test = {
+# 	TCT_get_patriarch_of_target = {
+# 		TARGET = root
+# 	}
+# 	set_variable = {
+# 		name = test_var
+# 		value = scope:patriarch
+# 	}
+# } 
+# TCT_coa_test = {
 	
-	title:c_viennois = {
-		set_coa = title:c_viennois
-	}
-} 
+# 	title:c_viennois = {
+# 		set_coa = title:c_viennois
+# 	}
+# } 

@@ -468,9 +468,11 @@ Declare_Minor_Crusade = {
 		is_alive = yes
 		religion = { exists = var:variable_ghw_unlocked }
 		NOT = { is_decision_on_cooldown = Declare_Minor_Crusade }
+		is_pope = no
 	}
 
 	is_valid = {
+		is_pope = no
 		has_faith = faith:catholic
 		is_ruler = yes
 		is_landed = yes
