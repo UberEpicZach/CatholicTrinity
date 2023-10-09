@@ -1,0 +1,59 @@
+﻿#Setup values
+holy_order_gold_cost = {
+	value = 500
+	if = {
+		limit = {
+			is_ai = yes
+		}
+		add = -300
+	}
+	if = {
+		limit = {
+			has_trait = crusader_state_trait
+		}
+		add = -250
+	}
+}
+
+holy_order_piety_cost = {
+	value = 1000
+	if = {
+		limit = {
+			is_ai = yes
+		}
+		add = -600
+	}
+	if = {
+		limit = {
+			has_trait = crusader_state_trait
+		}
+		add = -400
+	}
+}
+
+holy_war_cb_piety_cost_multiplier = {
+	value = 1
+
+	if = {
+		limit = {
+			scope:attacker = {
+				faith = { has_doctrine_parameter = cheaper_holy_wars_active }
+			}
+		}
+		multiply = {
+			value = 0.8
+			desc = CB_REDUCED_HOLY_WAR_COST
+		}
+	}
+	if = {
+		limit = {
+			scope:attacker = {
+				has_trait = crusader_state_trait
+			}
+		}
+		multiply = {
+			value = 0.9
+			desc = CB_CRUSADER_STATE_COST
+		}
+	}
+}

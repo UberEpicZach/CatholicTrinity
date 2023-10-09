@@ -118,8 +118,8 @@ ProclaimDictatusPapae = {
 	desc = ProclaimDictatusPapae_decision_desc
 	selection_tooltip = ProclaimDictatusPapae_decision_tooltip
 	major = yes
-	ai_check_interval = 2
-
+	ai_check_interval = 1
+	#ai_goal = yes
 	is_shown = {
 		NOT = { exists = global_var:dictatuspapae }
 		faith = faith:catholic
@@ -127,7 +127,7 @@ ProclaimDictatusPapae = {
 		is_landed = yes
 		is_pope = yes
 		has_government = theocracy_government
-		is_at_war = no
+		#is_at_war = no
 		is_alive = yes
 		any_independent_ruler = { OR = { has_realm_law = free_investiture_early has_realm_law = free_investiture_late }}
 	}
@@ -139,7 +139,7 @@ ProclaimDictatusPapae = {
 		is_landed = yes
 		is_pope = yes
 		has_government = theocracy_government
-		is_at_war = no
+		#is_at_war = no
 		is_alive = yes
 		any_independent_ruler = {
 			OR = {
@@ -148,21 +148,22 @@ ProclaimDictatusPapae = {
 			}
 		}
 		learning >= 16
-		prestige_level >= high_prestige_level
-		piety_level >= high_piety_level
+		prestige_level >= medium_prestige_level
+		piety_level >= medium_piety_level
 		is_independent_ruler = yes
+		gold >= 250
 	}
 
 	cost = {
-		gold = {
-			value = 250
-		}
-		piety = {
-			value = 1000
-		}
-		prestige = {
-			value = 2500
-		}
+		# gold = {
+		# 	value = 250
+		# }
+		# piety = {
+		# 	value = 1000
+		# }
+		# prestige = {
+		# 	value = 2500
+		# }
 	}
 
 	effect = {
@@ -170,10 +171,12 @@ ProclaimDictatusPapae = {
 			id = KoH_religiousflavour.799
 			days = 1
 		}
+		remove_short_term_gold = 250
+		add_prestige = -2500
+		add_piety = 2000
 	}
-
 	ai_will_do = {
-		base = 10000
+		base = 1000
 	}
 
 	ai_potential = {
@@ -401,18 +404,18 @@ DonationCountyClergy = {
 			add = 50
 			has_trait = devoted
 		}
-		modifier = {
-			add = 10
-			has_trait = mystic_1
-		}
-		modifier = {
-			add = 20
-			has_trait = mystic_2
-		}
-		modifier = {
-			add = 30
-			has_trait = mystic_3
-		}
+		# modifier = {
+		# 	add = 10
+		# 	has_trait = mystic_1
+		# }
+		# modifier = {
+		# 	add = 20
+		# 	has_trait = mystic_2
+		# }
+		# modifier = {
+		# 	add = 30
+		# 	has_trait = mystic_3
+		# }
 		modifier = {
 			add = -10
 			has_trait = murderer 
@@ -445,5 +448,94 @@ DonationCountyClergy = {
 			add = -5
 			has_trait = fornicator 
 		}
+	}
+}
+
+Declare_Minor_Crusade = {
+	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
+
+	desc = Declare_Minor_Crusade_decision_desc
+	selection_tooltip = Declare_Minor_Crusade_decision_tooltip
+	major = yes
+
+	ai_check_interval = 6
+
+	is_shown = {
+		has_faith = faith:catholic
+		is_ruler = yes
+		is_landed = yes
+		is_at_war = no
+		is_alive = yes
+		religion = { exists = var:variable_ghw_unlocked }
+		NOT = { is_decision_on_cooldown = Declare_Minor_Crusade }
+		is_pope = no
+	}
+
+	is_valid = {
+		is_pope = no
+		has_faith = faith:catholic
+		is_ruler = yes
+		is_landed = yes
+		is_at_war = no
+		is_alive = yes
+		religion = { exists = var:variable_ghw_unlocked }
+		faith = {
+			NOT = { 
+				exists = great_holy_war
+				#exists = var:variable_ghw_cooldown
+				religion = { exists = var:variable_first_ghw_cooldown }
+			}
+			OR = {
+				has_doctrine_parameter = great_holy_wars_active
+				AND = {
+					has_doctrine_parameter = great_holy_wars_active_if_reformed
+					NOT = { has_doctrine_parameter = unreformed }
+				}
+				has_doctrine = divine_destiny_doctrine #SPECIAL: Has become the Chakravarti
+			}
+			has_doctrine = doctrine_spiritual_head
+			NOR = {
+				has_doctrine = unreformed_faith_doctrine
+				AND = {
+					has_doctrine = tenet_dharmic_pacifism
+					NOT = { has_doctrine = divine_destiny_doctrine }
+				}
+				has_doctrine = tenet_pacifism
+			}
+		}
+		prestige_level >= medium_prestige_level
+	}
+
+	cost = {
+		gold = {
+			value = 300
+		}
+	}
+
+	# widget = {
+	# 	gui = "sea_select_culture_widget"
+	# 	container = "custom_widgets_container"
+	# }
+	# 	# Gem List
+
+	# 	item = {
+	# 		value = has_eyegem_red
+	# 		localization  = {
+	# 			desc = replace_eye_gem_option_red
+	# 		}
+	# 		icon = "gfx/interface/icons/traits/one_eyed_red_trait.dds"
+
+	# 		ai_chance = {
+	# 			value = { 0 10 }
+	# 		}
+	# 	}
+	# }
+
+
+	cooldown = { years = 30 }
+
+	effect = {
+		custom_tooltip = Launch_Minor_Crusade_decision_effect_tooltip
+		trigger_event = KoH_religiousflavour.810
 	}
 }

@@ -36,21 +36,6 @@ story_saint_day = {
 	# by Uber
 	
 	on_setup = {
-		global_var:TCT_saint_day_dummychar = {
-			var:TCT_saint_day_saint = {
-				save_scope_as = localsaint
-			}
-		}
-		faith = {
-			add_to_variable_list = {
-				name = faith_saints_days
-				target = scope:localsaint
-			}
-			add_to_variable_list = {
-				name = faith_saints_days_stories
-				target = scope:story
-			}
-		}
 	}
 
 	on_end = {
@@ -59,15 +44,45 @@ story_saint_day = {
 	}
 
 	effect_group = {
-		years = 1
+		months = 1
 		
 		triggered_effect = {
 			trigger = {
 				always = yes
 			}
 			effect = {
+				story_owner = {
+					random_in_list = {
+						variable = saint_day_saint
+						save_scope_as = saint_day_saint
+					}
+					faith = {
+						random_in_list = {
+							variable = faith_capital
+							limit = {
+								has_variable_list = faith_saints_and_capital
+								any_in_list = {
+									variable = faith_saints_and_capital
+									save_temporary_scope_as = localsaint
+								}
+								scope:localsaint = {
+									this = scope:saint_day_saint
+								}
+							}
+							save_scope_as = saint_day_saint_tomb_location
+						}
+					}
+				}
 				faith:catholic = {
 					every_faith_ruler = {
+						limit = {
+							capital_county = {
+								squared_distance = {
+									target = scope:saint_day_saint_tomb_location
+									value <= squared_distance_small #150 map-pixels. Roughly one Wales away (top to bottom).
+								}
+							}	
+						}
 						trigger_event = { on_action = TCT_saint_day_real }
 					}
 				}

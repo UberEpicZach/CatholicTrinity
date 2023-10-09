@@ -1,5 +1,5 @@
 ﻿cardinal_priest = {
-    fame = yes
+    category = fame
     learning = 2
 
     random_creation = 0
@@ -22,7 +22,7 @@
 }
 
 cardinal_bishop = {
-    fame = yes
+    category = fame
     learning = 2
 
     random_creation = 0
@@ -46,7 +46,7 @@ cardinal_bishop = {
 }
 
 cardinal_archbishop = {
-    fame = yes
+    category = fame
     learning = 2
     stewardship = 1
 

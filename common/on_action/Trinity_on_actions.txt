@@ -8,6 +8,12 @@
 	}
 }
 
+on_army_enter_province = {
+	events = {
+		KoH_religiousflavour.811 #Give Crusaders their trait upon reaching the holy land.
+	}
+}
+
 TCTpentarchy = {
 	effect = {
 		### Pentarchy setups
@@ -49,7 +55,7 @@ TCT_christmas_real = {
 		is_adult = yes
 	}
 	random_events = {
-		112 = 0
+		10000 = 0
 		1 = KoH_religiousflavour.58 #Christmas! 
 		#1 = bp1_yearly.3004 #Christmas, but a child!! 
 		#1 = bp1_yearly.3006 # Reflecting on a great Christmas
@@ -63,9 +69,9 @@ TCT_saint_day_real = {
 		is_adult = yes
 		#exists = var:TCT_saint_day_dummychar
 	}
-	events = {
-		#112 = 0
-		KoH_religiousflavour.63 #Saint Day! 
+	random_events = {
+		1000 = 0
+		1 = KoH_religiousflavour.63 #Saint Day! 
 		#1 = bp1_yearly.3004 #Christmas, but a child!! 
 		#1 = bp1_yearly.3006 # Reflecting on a great Christmas
 		#1 = bp1_yearly.3006 # Last Christmas I gave you my heart
@@ -434,7 +440,7 @@ CardinalsTraits = {
 	effect = {
 		title:k_papal_state.holder = {
 			trigger_event = KoH_religiousflavour.22
-			update_cardinal_window = yes
+			faith = { update_cardinal_window = yes }
 		}
 		if = {
 			limit = {
@@ -485,7 +491,7 @@ on_cardinal_initialize = {
 		debug_log = "initializing cardinals"
 		initialize_random_cardinals = yes
 		update_preferatus = yes
-		update_cardinal_window = yes
+		faith = { update_cardinal_window = yes }
 	}
 }
 
@@ -556,24 +562,24 @@ on_person_death_saint = {
     }
 }
 
-pilgrimage_destination_events = {
-	first_valid_on_action = {
-		hajj_destination_events
-		christian_destination_events
-		jewish_destination_events
-		muslim_destination_events
-		hindu_destination_events
-		buddhist_destination_events
-		jain_destination_events
-		zoroastrian_destination_events
-		norse_destination_events
-		tengri_destination_events
-		pagan_destination_events
-		#saintly_tomb_destination_events
-		pilgrimage_generic_destination_events
+# pilgrimage_destination_events = {
+# 	first_valid_on_action = {
+# 		hajj_destination_events
+# 		christian_destination_events
+# 		jewish_destination_events
+# 		muslim_destination_events
+# 		hindu_destination_events
+# 		buddhist_destination_events
+# 		jain_destination_events
+# 		zoroastrian_destination_events
+# 		norse_destination_events
+# 		tengri_destination_events
+# 		pagan_destination_events
+# 		#saintly_tomb_destination_events
+# 		pilgrimage_generic_destination_events
 
-	}
-}
+# 	}
+# }
 
 on_cardinal_death = {
 	trigger = {
@@ -582,7 +588,7 @@ on_cardinal_death = {
 	effect = {
 		save_scope_as = dyingcardinal
 		give_nickname = nick_cardinal
-		update_cardinal_window = yes
+		faith = { update_cardinal_window = yes }
 		update_preferatus = yes
 
 		title:k_papal_state.holder = {
@@ -614,10 +620,10 @@ on_preferatus_death = {
 		}
 	}
 	effect = {
-		update_cardinal_window = yes
+		faith = { update_cardinal_window = yes }
 		global_var:preferatus = {
 			promote_new_cardinal = yes
-			update_cardinal_window = yes
+			faith = { update_cardinal_window = yes }
 		}
 		title:k_papal_state.holder = {
 			trigger_event = KoH_religiousflavour.801
@@ -644,6 +650,7 @@ on_pope_death = {
 			}
 			set_global_variable = TCT_Pope_Gregory_VII
 			save_scope_as = deadpope
+			#give_title = title:k_TCT_papal_state
 
 			create_character = {
 				location = scope:deadpope.capital_province
@@ -702,6 +709,7 @@ on_pope_death = {
 				save_scope_as = preferatus
 				add_prestige = 3000
 				add_piety = 3000
+				add_learning_skill = 3
 			}
 			create_title_and_vassal_change = {
 				type = election
@@ -711,6 +719,9 @@ on_pope_death = {
 			every_held_title = {
 				limit = {
 					tier > tier_barony
+					#NOT = {
+					#	this = title:k_TCT_papal_state
+					#}
 				}
 				every_player = {
 					add_prestige = 1
@@ -744,7 +755,7 @@ on_pope_death = {
 			scope:monk = {
 				set_player_character = scope:preferatus
 			}
-			update_cardinal_window = yes
+			faith = { update_cardinal_window = yes }
 			update_preferatus = yes
 
 			title:k_papal_state.holder = {	
@@ -754,6 +765,7 @@ on_pope_death = {
 					location = scope:deadpope.capital_province
 					faith = scope:deadpope.faith
 					culture = scope:deadpope.culture
+					gender = male
 					learning = { 10 12 }
 					save_scope_as = duplicatename
 					after_creation = {
@@ -822,7 +834,7 @@ on_pope_death = {
 		}
 		else = {
 			save_scope_as = deadpope
-		
+			#get_title = title:k_TCT_papal_state
 			create_character = {
 				location = scope:deadpope.capital_province
 				age = { 30 33 }
@@ -882,6 +894,9 @@ on_pope_death = {
 			every_held_title = {
 				limit = {
 					tier > tier_barony
+					#NOT = {
+					#	this = title:k_TCT_papal_state
+					#}
 				}
 				every_player = {
 					add_prestige = 1
@@ -915,13 +930,14 @@ on_pope_death = {
 			scope:monk = {
 				set_player_character = scope:preferatus
 			}
-			update_cardinal_window = yes
+			faith = { update_cardinal_window = yes }
 			update_preferatus = yes
 
 			title:k_papal_state.holder = {	
 				add_gold = scope:deadpope.gold
 
 				create_character = {
+					gender = male
 					location = scope:deadpope.capital_province
 					faith = scope:deadpope.faith
 					culture = scope:deadpope.culture
@@ -1086,3 +1102,4 @@ on_faith_created = {
 		KoH_religiousflavour.807
 	}
 }
+

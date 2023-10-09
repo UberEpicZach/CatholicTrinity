@@ -1,4 +1,4 @@
-﻿TCT_region_pentarchy_rome = {
+TCT_region_pentarchy_rome = {
 	duchies = {
 		# Britania
 		d_elmet d_cynwidion d_bedford d_norfolk d_hereford d_gloucester d_canterbury d_somerset d_gwynedd d_powys d_deheubarth d_cornwall

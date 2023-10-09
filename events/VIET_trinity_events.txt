@@ -316,7 +316,7 @@ VIETtrinity.0004 = {
 	title = VIETtrinity.0004.t
 	desc = VIETtrinity.0004.desc
 	theme = diplomacy_foreign_affairs_focus
-	override_background = { event_background = council_chamber }
+	override_background = { reference = council_chamber }
 	
 	right_portrait = {
 		character = root
@@ -551,7 +551,7 @@ VIETtrinity.0007 = {
 	title = VIETtrinity.0007.t
 	desc = VIETtrinity.0007.desc
 	theme = faith
-	override_background = { event_background = council_chamber }
+	override_background = { reference = council_chamber }
 	
 	left_portrait = {
 		character = root
@@ -818,7 +818,7 @@ VIETtrinity.0011 = {
 	title = VIETtrinity.0011.t
 	desc = VIETtrinity.0011.desc
 	theme = faith
-	override_background = { event_background = study }
+	override_background = { reference = study }
 	
 	left_portrait = {
 		character = root
@@ -877,7 +877,7 @@ VIETtrinity.0012 = {
 	title = VIETtrinity.0012.t
 	desc = VIETtrinity.0012.desc
 	theme = faith
-	override_background = { event_background = study }
+	override_background = { reference = study }
 	
 	left_portrait = {
 		character = root
@@ -948,7 +948,7 @@ VIETtrinity.0013 = {
 	title = VIETtrinity.0013.t
 	desc = VIETtrinity.0013.desc
 	theme = corruption
-	override_background = { event_background = council_chamber }
+	override_background = { reference = council_chamber }
 	
 	left_portrait = {
 		character = root

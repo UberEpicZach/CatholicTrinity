@@ -10,7 +10,7 @@ d_line_map_free_investiture = {
 	can_create = { always = no }
 }
 
-d_line_map_papal_investiture  = {
+d_line_map_papal_investiture = {
 	color = { 255 255 255 }
 	capital = c_roma
 	can_create = { always = no }

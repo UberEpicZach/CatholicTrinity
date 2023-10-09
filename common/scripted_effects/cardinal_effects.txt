@@ -107,7 +107,7 @@ select_highest_scoring_character_cardinal_candidate = {
 		}
 		# Select player's best candidate:
 		ordered_in_list = {
-			limit = {exists = this is_alive = yes}
+			limit = {exists = this is_alive = yes NOT = { is_cardinal = yes}}
 			list = highest_scoring_character_cardinal_candidates
 			order_by = bishop_to_cardinal_score
 			position = 0
@@ -154,7 +154,7 @@ promote_new_cardinal = {
 				}
 			}
 			var:beneficiary = { 
-				remove_variabe = has_set_cardinal_player_candidate
+				remove_variable = has_set_cardinal_player_candidate
 			}
 		}
 		if = {
@@ -660,7 +660,7 @@ popeetitlechange = {
 	scope:monk = {
 		set_player_character = scope:preferatus
 	}
-	update_cardinal_window = yes
+	faith = { update_cardinal_window = yes }
 	update_preferatus = yes
 
 	scope:deadpope = {

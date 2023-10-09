@@ -11,7 +11,18 @@ court_chaplain_cant_reassign_doctrines = {
 has_investiture_cooldown = {
 	first_not = investiture_is_on_cooldown
 }
+
 court_chaplain_cant_reassign_investiture = {
 	first = court_chaplain_cant_reassign_investiture
 	first_not = court_chaplain_cant_reassign_investiture
+}
+
+create_dynamic_crusader_state = {
+	first = create_dynamic_crusader_state
+	first_not = create_dynamic_crusader_state
+}
+
+lots_of_money = {
+	first = lots_of_money
+	first_not = lots_of_money
 }

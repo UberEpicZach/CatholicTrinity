@@ -1,0 +1,4 @@
+﻿l_english:
+ 
+ doctrine_parameter_tct_clerical_appointment_investiture:0 "[realm_priest|E] and [court_chaplain|E] appointments are determined through the laws of investiture"
+ doctrine_parameter_tct_antipopes:0 "Rulers with [free_investiture|E] can appoint Antipopes, contenders to the Papacy"

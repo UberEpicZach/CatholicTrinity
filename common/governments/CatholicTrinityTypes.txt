@@ -21,7 +21,7 @@ mercenary_government_mod = {
 	color = hsv{ 0.00 0.00 0.66 }
 }
 
-# # Head of faith will always get this if possible
+# Head of faith will always get this if possible
 theocracy_government = {
 	primary_holding = church_holding
 	valid_holdings = { castle_holding }
@@ -38,5 +38,8 @@ theocracy_government = {
 	}
 
 	vassal_contract = { theocracy_government_obligations }
+
+	# Use flags instead of has_government for moddability if possible (i.e., wherever not visible to the player).
+	flag = government_is_theocracy
 	color = hsv{ 0.00 0.00 0.78 }
 }

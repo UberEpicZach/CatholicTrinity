@@ -1,0 +1,105 @@
+﻿l_english:
+
+  I_INVESTITURE: "#l [investiture|E]"
+  I_PAPAL: "[papal_investiture|E]"
+  I_FREE: "[free_investiture|E]"
+
+ appoint_governor:0 "Appoint Bishopric Successor"
+
+ public_opinion_positive: "High Public Opinion!"
+ refusedpope: "Refused the Pope."
+
+ KOH_lots_of_gold_pope_paid:0 "[actor.GetName] Asked for Gold"
+ KOH_lots_of_gold_pope_paid_desc:0 "Because of the ample gold in your Papal Treasury, [actor.GetName] asked for and received funds from the Papacy."
+
+ KOH_paid_indulgences:0 "[actor.GetName] Paid Indulgence"
+ KOH_paid_indulgences_desc:0 ""As a devoted [actor.GetFaith.GetAdherentName], I occasionally stumble. To make amends, I intend to donate this gold sum to the Church" \n\n[actor.GetName] Has Paid an Indulgence to the Church." 
+ 
+ invest_in_cardinal_AI_decision_desc: "This decision is for AI to Invest in the College of Cardinals, Please report this as a bug if  you can see this"
+ invest_in_cardinal_AI_decision_tooltip: "This decision is for AI to Invest in the College of Cardinals, Please report this as a bug if  you can see this"
+ invest_in_cardinal_AI: "AI Invest in College"
+ invest_in_cardinal_Ai: "AI Invest in College"
+ invest_in_cardinal_Ai_confirm: "AI Invest in College"
+ invest_in_cardinal_AI_confirm: "AI Invest in College"
+ deinvest_in_cardinal_AI_decision_desc: "This decision is for AI to Deinvest in the College of Cardinals, Please report this as a bug  if you can see this"
+ deinvest_in_cardinal_AI_decision_tooltip: "This decision is for AI to Deinvest in the College of Cardinals, Please report this as a  bug if you can see this"
+ deinvest_in_cardinal_AI: "AI DeInvest in College"
+ deinvest_in_cardinal_AI_confirm: "AI DeInvest in College"
+ 
+ Launch_Crusade: "Declare a Crusade."
+ Launch_Crusade_decision_effect_tooltip: "You will start the countdown for a Crusade\n\nDue to limitations, the game will choose a  Target for you initially, you must use the redirect crusade option to chose a target yourself."
+ Launch_Crusade_decision_tooltip: ""You will start the countdown for a Crusade\n\nDue to limitations, the game will choose a Target for  you initially, you must use the redirect crusade option to chose a target yourself.""
+ Launch_Crusade_decision_desc: "The armies of the infidels inch ever closer. As the Vicar of Christ and holder of the Keys to the  Kingdom, it is my sacred duty to rally all Christendom to the banner of the Lord."
+ Launch_Crusade: "Declare a Crusade."
+ Launch_Crusade_confirm: "By grace of god...."
+ 
+ InstallAntipope_decision_desc: "For too long we have allowed the false pretender to rest on the Throne of St. Peter. It is now time to  stand up and restore the true Vicar of Christ to his rightful position within the Holy See."
+ InstallAntipope_decision_tooltip: "Install Antipope"
+ InstallAntipope: "Install Antipope"
+ InstallAntipope_confirm: "Install Antipope"
+ TCT_creator_of_antipope: "Creator of Antipope"
+
+ EXCOMMUNICATION_0_OPINION:0 "[recipient.GetShortUIName|U] has a positive Opinion of [secondary_recipient.GetShortUIName]: $VALUE|=+0$"
+ EXCOMMUNICATION_50_OPINION:0 "[recipient.GetShortUIName|U] has a positive Opinion of over 50 of [secondary_recipient.GetShortUIName]: $VALUE|=+0$"
+ EXCOMMUNICATION_99_OPINION:0 "[recipient.GetShortUIName|U] has a positive Opinion of over 99 of [secondary_recipient.GetShortUIName]: $VALUE|=+0$" 
+
+ ProclaimDictatusPapae_decision_desc: "Following the decline of the Western Roman Empire, [investiture|E] was performed by members of  the ruling nobility despite theoretically being a task of the church. Secular rulers across Christendom have appointed Bishops to  enrich themselves and their family through nepotistic practices. Perhaps it is time to remind the Kings of Europe that the Catholic  Church was founded by God alone, and as the successor to St Peter the Pope alone has the authority to appoint or depose churchmen."
+ ProclaimDictatusPapae_decision_tooltip: "This will increase your hatred of rulers with [Free_investiture|E] by -50 Opinion."
+ ProclaimDictatusPapae: "Proclaim the Dictatus Papae"
+ ProclaimDictatusPapae_confirm: "Proclaim the Dictatus Papae!"
+ 
+ take_free_investiture_early_AI: "take_free_investiture_early_AI"
+ take_free_investiture_AI: "take_free_investiture_early_AI"
+ take_free_investiture_AI_decision_tooltip: "take_free_investiture_early_AI"
+ take_free_investiture_AI_decision_desc: "take_free_investiture_early_AI"
+ take_free_investiture_early_AI_confirm: "take_free_investiture_early_AI"
+ 
+ take_free_investiture_late_AI_decision_desc: "take_free_investiture_late_AI"
+ take_free_investiture_late_AI_decision_tooltip: "take_free_investiture_late_AI"
+ take_free_investiture_late_AI: "take_free_investiture_late_AI"
+ take_free_investiture_late_AI_confirm: "take_free_investiture_late_AI_AI"
+ 
+ take_papal_investiture_early_AI_decision_desc: "take_papal_investiture_early_AI"
+ take_papal_investiture_early_AI_decision_tooltip: "take_papal_investiture_early_AI"
+ take_papal_investiture_early_AI: "take_papal_investiture_early_AI"
+ take_papal_investiture_early_AI_confirm: "take_papal_investiture_early_AI"
+ 
+ 
+ take_papal_investiture_late_AI_decision_desc: "take_papal_investiture_late_AI"
+ take_papal_investiture_late_AI_decision_tooltip: "take_papal_investiture_late_AI"
+ take_papal_investiture_late_AI: "take_papal_investiture_late_AI"
+ take_papal_investiture_late_AI_confirm: "take_papal_investiture_late_AI"
+ 
+ CardinalElectionWon: "Cardinal Election"
+ HookGainedKOH: "You have gained a Hook"
+ deinvest_in_cardinal_AI_decision_effect_tooltip: "This decision is for AI to Deinvest in the College of Cardinals, Please report this  as a bug if you can see this"
+ 
+ trait_TCT_antipope:0 "Antipope"
+ trait_TCT_antipope_desc:0 "This character is an Antipope, a contender for the [faith|E] [head_of_faith|E]."
+ TCT_make_antipope_interaction_desc:0 "Create an Antipope"
+ 
+ DonationCountyClergy: "Donate land to the Clergy"
+ DonationCountyClergy: "Donate land to the Clergy"
+ DonationCountyClergy_decision_tooltip: "You will donate a county to the Clergy"
+ DonationCountyClergy_decision_desc: "The act of donation, of giving away, is a most pious thing. And most would say that the Clergy  are always in need of more land to administer, land on which they can guide the people down the right path in life. As such, I could  give away a bit of my own lands to the Clergy, and be seen as a most Pious person for it"
+ DonationCountyClergy_confirm: "Let us decide.."
+ 
+ investiture_early_singular: "[investiture|E]"
+ investiture_late_singular: "[investiture|E]"
+
+environment_standard: "You shouldn't see this"
+environment_saint: "You shouldn't see this, but for saints!"
+ 
+close_tooltip: "Close"
+increased_fervor: "Fervor Change"
+
+ d_rome_patriarchate:0 "Roman Patriarchy"
+ d_rome_patriarchate_adj:0 "Roman"
+ d_constantinople_patriarchate:0 "Constantinopolitan Patriarchy"
+ d_constantinople_patriarchate_adj:0 "Patriarchal"
+ d_alexandria_patriarchate:0 "Alexandrian Patriarchy"
+ d_alexandria_patriarchate_adj:0 "Patriarchal"
+ d_antioch_patriarchate:0 "Antiochian Patriarchy"
+ d_antioch_patriarchate_adj:0 "Patriarchal"
+ d_jerusalem_patriarchate:0 "Jerusalemite Patriarchy"
+ d_jerusalem_patriarchate_adj:0 "Patriarchal"

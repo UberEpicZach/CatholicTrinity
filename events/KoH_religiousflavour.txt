@@ -50,7 +50,7 @@ KoH_religiousflavour.1 = { #A Pope and His Estates
 	}
 
 	immediate = {
-		scripted_effect_popethingevent = {}
+		scripted_effect_popethingevent = yes
 	}
 
 	option = { 
@@ -354,7 +354,7 @@ KoH_religiousflavour.4 = { #Monks have healing herbs
 	right_portrait = {
 		character = scope:monk
 	}
-	override_background = { event_background = garden }
+	override_background = { reference = garden }
 
 	trigger = {		
 		is_commanding_army = no
@@ -432,7 +432,7 @@ KoH_religiousflavour.5 = { #Monks is fantastic painter
 		character = scope:monk
 	}
 	override_background = {
-		event_background = farmland
+		reference = farmland
 	}
 
 	trigger = {		
@@ -849,9 +849,7 @@ KoH_religiousflavour.13 = { #Duty-Bound
 				age >= 19
 				has_government = theocracy_government
 				OR = {
-					has_trait = reveler_1
-					has_trait = reveler_2
-					has_trait = reveler_3
+					has_trait = lifestyle_reveler
 					has_trait = drunkard
 					has_trait = lustful 
 				}
@@ -866,9 +864,7 @@ KoH_religiousflavour.13 = { #Duty-Bound
 					age >= 19
 					has_government = theocracy_government
 					OR = {
-						has_trait = reveler_1
-						has_trait = reveler_2
-						has_trait = reveler_3
+						has_trait = lifestyle_reveler
 						has_trait = drunkard
 						has_trait = lustful 
 					}
@@ -932,9 +928,7 @@ KoH_religiousflavour.14 = { #Duty-Bound - Varaint
 				dynasty = root.dynasty
 				has_government = theocracy_government
 				OR = {
-					has_trait = reveler_1
-					has_trait = reveler_2
-					has_trait = reveler_3
+					has_trait = lifestyle_reveler
 					has_trait = drunkard
 					has_trait = lustful 
 				}
@@ -953,9 +947,7 @@ KoH_religiousflavour.14 = { #Duty-Bound - Varaint
 							dynasty = root.dynasty
 							has_government = theocracy_government
 							OR = {
-								has_trait = reveler_1
-								has_trait = reveler_2
-								has_trait = reveler_3
+								has_trait = lifestyle_reveler
 								has_trait = drunkard
 								has_trait = lustful 
 							}
@@ -999,333 +991,333 @@ KoH_religiousflavour.14 = { #Duty-Bound - Varaint
 	}
 }
 #Waldensians in Lyon
-KoH_religiousflavour.15 = {
-	title = KoH_religiousflavour.15.t
-	desc = KoH_religiousflavour.15.desc
-	orphan = yes
-	theme = faith 
-	override_background = {
-		event_background = market
-	}
-	left_portrait = {
-		character = title:c_lyon.holder
-	}
-	right_portrait = {
-		character = scope:peter
-	}
+# KoH_religiousflavour.15 = {
+# 	title = KoH_religiousflavour.15.t
+# 	desc = KoH_religiousflavour.15.desc
+# 	orphan = yes
+# 	theme = faith 
+# 	override_background = {
+# 		reference = market
+# 	}
+# 	left_portrait = {
+# 		character = title:c_lyon.holder
+# 	}
+# 	right_portrait = {
+# 		character = scope:peter
+# 	}
 
-	trigger = {
-		this = title:c_forez.holder
-	}
+# 	trigger = {
+# 		this = title:c_forez.holder
+# 	}
 
-	immediate = {
-		create_character = {
-			name = "Pèire de Vaudès"
-			gender_female_chance = 0
-			dynasty = no
-			trait = heresiarch
-			location = root
-			age = { 40 50 }
-			learning = 18
-			faith = faith:waldensian
-			culture = culture:french
-			save_scope_as = peter
-		}
+# 	immediate = {
+# 		create_character = {
+# 			name = "Pèire de Vaudès"
+# 			gender_female_chance = 0
+# 			dynasty = no
+# 			trait = heresiarch
+# 			location = root
+# 			age = { 40 50 }
+# 			learning = 18
+# 			faith = faith:waldensian
+# 			culture = culture:french
+# 			save_scope_as = peter
+# 		}
 
-		title:c_lyon.holder = {
-			save_scope_as = archbishop
-		}
-	}
+# 		title:c_lyon.holder = {
+# 			save_scope_as = archbishop
+# 		}
+# 	}
 
-	option = { 
-		name = KoH_religiousflavour.15.a
-		title:c_provence.holder = {
-			trigger_event = {
-				id = KoH_religiousflavour.16
-				days = { 5 10 }
-			}
-		}
+# 	option = { 
+# 		name = KoH_religiousflavour.15.a
+# 		title:c_provence.holder = {
+# 			trigger_event = {
+# 				id = KoH_religiousflavour.16
+# 				days = { 5 10 }
+# 			}
+# 		}
 
-		title:c_savoie.holder = {
-			trigger_event = {
-				id = KoH_religiousflavour.16
-				days = { 5 10 }
-			}
-		}
-	}
-	option = { 
-		name = KoH_religiousflavour.15.b
-		trigger_event = {
-			id = KoH_religiousflavour.17
-			days = { 5 10 }
-		}
-	}
-}
+# 		title:c_savoie.holder = {
+# 			trigger_event = {
+# 				id = KoH_religiousflavour.16
+# 				days = { 5 10 }
+# 			}
+# 		}
+# 	}
+# 	option = { 
+# 		name = KoH_religiousflavour.15.b
+# 		trigger_event = {
+# 			id = KoH_religiousflavour.17
+# 			days = { 5 10 }
+# 		}
+# 	}
+# }
 
-KoH_religiousflavour.16 = {
-	title = KoH_religiousflavour.16.t
-	desc = KoH_religiousflavour.16.desc
-	theme = faith 
-	override_background = {
-		event_background = market
-	}
+# KoH_religiousflavour.16 = {
+# 	title = KoH_religiousflavour.16.t
+# 	desc = KoH_religiousflavour.16.desc
+# 	theme = faith 
+# 	override_background = {
+# 		reference = market
+# 	}
 
-	immediate = {
-		random_held_title = {
-			limit = { tier = tier_county }
-			save_scope_as = Waldensians_county
-		}
+# 	immediate = {
+# 		random_held_title = {
+# 			limit = { tier = tier_county }
+# 			save_scope_as = Waldensians_county
+# 		}
 
-		scope:Waldensians_county = {
-			set_county_faith = faith:waldensian
+# 		scope:Waldensians_county = {
+# 			set_county_faith = faith:waldensian
 
-			add_county_modifier = {
-				modifier = bastion_of_waldensianism_revolt_risk_modifier
-				years = 20
-			}
-		}
-	}
+# 			add_county_modifier = {
+# 				modifier = bastion_of_waldensianism_revolt_risk_modifier
+# 				years = 20
+# 			}
+# 		}
+# 	}
 
-	option = { 
-		name = KoH_religiousflavour.16.a
-
-
-	}
-}
-
-KoH_religiousflavour.17 = {
-	title = KoH_religiousflavour.17.t
-	desc = KoH_religiousflavour.17.desc
-	theme = faith 
-	override_background = {
-		event_background = market
-	}
-	left_portrait = {
-		character = scope:archbishop
-	}
-	right_portrait = {
-		character = root
-	}
-
-	immediate = {
-		title:c_lyon.holder = {
-			save_scope_as = archbishop
-		}
-
-	}
-
-	option = { 
-		name = KoH_religiousflavour.17.a
-
-		scope:archbishop = {
-			add_opinion = {
-			target = root
-			modifier = pious_opinion
-			opinion = 10
-			}
-		}
-
-		add_piety = 50 
-
-		trigger_event = {
-			id = KoH_religiousflavour.18
-			days = 3 
-		}
-	}
-
-	option = { 
-		name = KoH_religiousflavour.17.b
-		custom_tooltip = KoH_religiousflavour.17.b.tt
-
-		scope:archbishop = {
-			add_opinion = {
-			target = root
-			modifier = temporal_condemnation_opinion
-			opinion = -30
-			}
-		}
-
-		trigger_event = {
-			id = KoH_religiousflavour.19
-			days = {10 20}
-		}
-	}
-
-	option = { 
-		name = KoH_religiousflavour.17.c
-		custom_tooltip = KoH_religiousflavour.17.c.tt
-
-		scope:archbishop = {
-			set_relation_rival = root
-		}
-
-		set_relation_rival = scope:archbishop
-
-		set_character_faith_with_conversion = faith:waldensian
-		add_piety = major_piety_loss
-
-		add_internal_flag = dangerous
+# 	option = { 
+# 		name = KoH_religiousflavour.16.a
 
 
-		trigger_event = {
-			id = KoH_religiousflavour.20
-			days = 3 
-		}
+# 	}
+# }
 
-		ai_chance = {
-			base = 80
-		}
-	}
-}
+# KoH_religiousflavour.17 = {
+# 	title = KoH_religiousflavour.17.t
+# 	desc = KoH_religiousflavour.17.desc
+# 	theme = faith 
+# 	override_background = {
+# 		reference = market
+# 	}
+# 	left_portrait = {
+# 		character = scope:archbishop
+# 	}
+# 	right_portrait = {
+# 		character = root
+# 	}
 
-KoH_religiousflavour.18 = {
-	title = KoH_religiousflavour.18.t
-	desc = KoH_religiousflavour.18.desc
-	theme = faith 
-	override_background = {
-		event_background = market
-	}
+# 	immediate = {
+# 		title:c_lyon.holder = {
+# 			save_scope_as = archbishop
+# 		}
 
-	immediate = {
-		title:c_forez = {
-			change_development_level = -2
+# 	}
 
-			add_county_modifier = {
-				modifier = Massacre_of_Feurs
-				years = 10
-			}
-		}
-	}
+# 	option = { 
+# 		name = KoH_religiousflavour.17.a
 
-	option = { 
-		name = KoH_religiousflavour.18.a	
-	}
-}
+# 		scope:archbishop = {
+# 			add_opinion = {
+# 			target = root
+# 			modifier = pious_opinion
+# 			opinion = 10
+# 			}
+# 		}
 
-KoH_religiousflavour.19 = {
-	title = KoH_religiousflavour.19.t
-	desc = KoH_religiousflavour.19.desc
-	theme = faith 
-	override_background = {
-		event_background = market
-	}
+# 		add_piety = 50 
 
-	immediate = {
-		add_excommunication_actual_effect = yes
-	}
+# 		trigger_event = {
+# 			id = KoH_religiousflavour.18
+# 			days = 3 
+# 		}
+# 	}
 
-	option = { 
-		name = KoH_religiousflavour.19.a	
+# 	option = { 
+# 		name = KoH_religiousflavour.17.b
+# 		custom_tooltip = KoH_religiousflavour.17.b.tt
 
-		title:c_forez = {
-			set_county_faith = faith:waldensian
+# 		scope:archbishop = {
+# 			add_opinion = {
+# 			target = root
+# 			modifier = temporal_condemnation_opinion
+# 			opinion = -30
+# 			}
+# 		}
 
-			add_county_modifier = {
-				modifier = KOH_Religious_Tolerance
-				years = 20
-			}
-		}
-		set_nickname_effect = { NICKNAME = nick_the_tolerant }
-	}
-}
+# 		trigger_event = {
+# 			id = KoH_religiousflavour.19
+# 			days = {10 20}
+# 		}
+# 	}
 
-KoH_religiousflavour.20 = {
-	title = KoH_religiousflavour.20.t
-	desc = KoH_religiousflavour.20.desc
-	theme = faith 
-	override_background = {
-		event_background = market
-	}
+# 	option = { 
+# 		name = KoH_religiousflavour.17.c
+# 		custom_tooltip = KoH_religiousflavour.17.c.tt
 
-	immediate = {
-		add_excommunication_actual_effect = yes
-	}
+# 		scope:archbishop = {
+# 			set_relation_rival = root
+# 		}
 
-	option = { 
-		name = KoH_religiousflavour.20.a	
+# 		set_relation_rival = scope:archbishop
 
-		add_trait = heresiarch
-		add_trait = paragon
+# 		set_character_faith_with_conversion = faith:waldensian
+# 		add_piety = major_piety_loss
 
-		set_nickname_effect = { NICKNAME = nick_the_waldensian }
-
-		add_piety = 1000
-
-		title:c_forez = {
-			set_county_faith = faith:waldensian
-
-			add_county_modifier = {
-				modifier = Birthplace_of_Waldensianism
-				years = 100
-			}
-		}
-
-		title:c_lyon = {
-			set_county_faith = faith:waldensian
+# 		add_internal_flag = dangerous
 
 
-			add_county_modifier = {
-				modifier = Birthplace_of_Waldensianism
-				years = 100
-			}
-		}
+# 		trigger_event = {
+# 			id = KoH_religiousflavour.20
+# 			days = 3 
+# 		}
 
-		faith:waldensian = {
-			change_fervor = {
-				value = 28
-				desc = Birthplace_of_Waldensianism
-			}
-		}
+# 		ai_chance = {
+# 			base = 80
+# 		}
+# 	}
+# }
 
-		title:c_roma.holder = {
-			add_opinion = {
-				target = root
-				modifier = temporal_condemnation_opinion
-				opinion = -30
-			}
-		}
+# KoH_religiousflavour.18 = {
+# 	title = KoH_religiousflavour.18.t
+# 	desc = KoH_religiousflavour.18.desc
+# 	theme = faith 
+# 	override_background = {
+# 		reference = market
+# 	}
 
-		every_ruler = {
-			limit = {
-				AND = {
-					NOT = { this = title:c_forez.holder }
-					has_religion = religion:christianity_religion
-				}
-			}
-			trigger_event = {
-				id = KoH_religiousflavour.21
-				days = 10
-			}
-		}
-	}
-}
+# 	immediate = {
+# 		title:c_forez = {
+# 			change_development_level = -2
 
-KoH_religiousflavour.21 = {
-	title = KoH_religiousflavour.21.t
-	desc = KoH_religiousflavour.21.desc
-	theme = faith 
-	override_background = {
-		event_background = market
-	}
+# 			add_county_modifier = {
+# 				modifier = Massacre_of_Feurs
+# 				years = 10
+# 			}
+# 		}
+# 	}
 
-	right_portrait = {
-		character = title:c_forez.holder
-	}
+# 	option = { 
+# 		name = KoH_religiousflavour.18.a	
+# 	}
+# }
 
-	immediate = {
-		title:c_forez.holder = {
-			save_scope_as = forez
-		}
+# KoH_religiousflavour.19 = {
+# 	title = KoH_religiousflavour.19.t
+# 	desc = KoH_religiousflavour.19.desc
+# 	theme = faith 
+# 	override_background = {
+# 		reference = market
+# 	}
 
-		title:c_roma.holder = {
-			save_scope_as = pope
-		}
-	}
+# 	immediate = {
+# 		add_excommunication_actual_effect = yes
+# 	}
 
-	option = { 
-		name = KoH_religiousflavour.21.a	
-	}
-}
+# 	option = { 
+# 		name = KoH_religiousflavour.19.a	
+
+# 		title:c_forez = {
+# 			set_county_faith = faith:waldensian
+
+# 			add_county_modifier = {
+# 				modifier = KOH_Religious_Tolerance
+# 				years = 20
+# 			}
+# 		}
+# 		set_nickname_effect = { NICKNAME = nick_the_tolerant }
+# 	}
+# }
+
+# KoH_religiousflavour.20 = {
+# 	title = KoH_religiousflavour.20.t
+# 	desc = KoH_religiousflavour.20.desc
+# 	theme = faith 
+# 	override_background = {
+# 		reference = market
+# 	}
+
+# 	immediate = {
+# 		add_excommunication_actual_effect = yes
+# 	}
+
+# 	option = { 
+# 		name = KoH_religiousflavour.20.a	
+
+# 		add_trait = heresiarch
+# 		add_trait = paragon
+
+# 		set_nickname_effect = { NICKNAME = nick_the_waldensian }
+
+# 		add_piety = 1000
+
+# 		title:c_forez = {
+# 			set_county_faith = faith:waldensian
+
+# 			add_county_modifier = {
+# 				modifier = Birthplace_of_Waldensianism
+# 				years = 100
+# 			}
+# 		}
+
+# 		title:c_lyon = {
+# 			set_county_faith = faith:waldensian
+
+
+# 			add_county_modifier = {
+# 				modifier = Birthplace_of_Waldensianism
+# 				years = 100
+# 			}
+# 		}
+
+# 		faith:waldensian = {
+# 			change_fervor = {
+# 				value = 28
+# 				desc = Birthplace_of_Waldensianism
+# 			}
+# 		}
+
+# 		title:c_roma.holder = {
+# 			add_opinion = {
+# 				target = root
+# 				modifier = temporal_condemnation_opinion
+# 				opinion = -30
+# 			}
+# 		}
+
+# 		every_ruler = {
+# 			limit = {
+# 				AND = {
+# 					NOT = { this = title:c_forez.holder }
+# 					has_religion = religion:christianity_religion
+# 				}
+# 			}
+# 			trigger_event = {
+# 				id = KoH_religiousflavour.21
+# 				days = 10
+# 			}
+# 		}
+# 	}
+# }
+
+# KoH_religiousflavour.21 = {
+# 	title = KoH_religiousflavour.21.t
+# 	desc = KoH_religiousflavour.21.desc
+# 	theme = faith 
+# 	override_background = {
+# 		reference = market
+# 	}
+
+# 	right_portrait = {
+# 		character = title:c_forez.holder
+# 	}
+
+# 	immediate = {
+# 		title:c_forez.holder = {
+# 			save_scope_as = forez
+# 		}
+
+# 		title:c_roma.holder = {
+# 			save_scope_as = pope
+# 		}
+# 	}
+
+# 	option = { 
+# 		name = KoH_religiousflavour.21.a	
+# 	}
+# }
 
 #cardinal names
 KoH_religiousflavour.22 = {
@@ -2101,15 +2093,14 @@ KoH_religiousflavour.31 = {
 					any_vassal = {
 						NOT = { has_character_flag = pope_bribing }
 						has_government = theocracy_government
-						opinion_modifier = {
-							who = prev
-							opinion_target = scope:popewantsit
-							multiplier = -1
+						#And they have to actually like you enough to want to invest you.
+						opinion = {
+							target = scope:popewantsit
+							value <= -10
 						}
-						opinion_modifier = {
-							who = prev
-							opinion_target = scope:popewantsit.faith.religious_head #Excommunication target
-							multiplier = 1
+						opinion = {
+							target = scope:popewantsit.faith.religious_head
+							value >= 10
 						}
 					}
 				}
@@ -2118,16 +2109,13 @@ KoH_religiousflavour.31 = {
 				random_vassal = {
 					limit = {
 						has_government = theocracy_government
-						opinion_modifier = {
-							who = prev
-							opinion_target = scope:popewantsit
-							multiplier = 1
-							min = 0
+						opinion = {
+							target = scope:popewantsit
+							value <= -10
 						}
-						opinion_modifier = {
-							who = prev
-							opinion_target = scope:popewantsit.faith.religious_head #Excommunication target
-							multiplier = -1
+						opinion = {
+							target = scope:popewantsit.faith.religious_head
+							value >= 10
 						}
 					}
 					save_scope_as = bishop
@@ -2389,15 +2377,13 @@ KoH_religiousflavour.34 = {
 					}
 					NOT = { has_character_flag = pope_bribing }
 					has_faith = scope:popewantsit.faith
-					opinion_modifier = {
-						who = prev
-						opinion_target = scope:popewantsit
-						multiplier = -1
+					opinion = {
+						target = scope:popewantsit
+						value <= -10
 					}
-					opinion_modifier = {
-						who = prev
-						opinion_target = scope:popewantsit.faith.religious_head #Excommunication target
-						multiplier = 1
+					opinion = {
+						target = scope:popewantsit.faith.religious_head
+						value >= 10
 					}
 				}
 			}
@@ -2405,16 +2391,13 @@ KoH_religiousflavour.34 = {
 				random_vassal = {
 					limit = {
 						max_military_strength >= liege.max_military_strength.div2
-						opinion_modifier = {
-							who = prev
-							opinion_target = scope:popewantsit
-							multiplier = 1
-							min = 0
+						opinion = {
+							target = scope:popewantsit
+							value <= -10
 						}
-						opinion_modifier = {
-							who = prev
-							opinion_target = scope:popewantsit.faith.religious_head #Excommunication target
-							multiplier = -1
+						opinion = {
+							target = scope:popewantsit.faith.religious_head
+							value >= 10
 						}
 					}
 					save_scope_as = powerful_vassal
@@ -2671,8 +2654,6 @@ KoH_religiousflavour.37 = {
 #Event 1
 
 #The Cadaver Synod
-
-
 
 ## Pope learns that a catholic ruler has a heretic advisor
 
@@ -3952,7 +3933,7 @@ KoH_religiousflavour.58 = {#christmas
 	title = KoH_religiousflavour.58.t
 	desc = KoH_religiousflavour.58.desc
 	theme = family
-	override_background = { event_background = TCT_christmas }
+	override_background = { reference = TCT_christmas }
 	left_portrait = {
 		character = scope:family
 		animation = happiness
@@ -3963,27 +3944,30 @@ KoH_religiousflavour.58 = {#christmas
 		animation = ecstasy
 	}
 
+	# widgets = {
+	# 	widget = {
+	# 		gui = "window_activity_jank_start_widget"
+	# 		container = "custom_widgets_container"
+	# 		controller = default
+	# 		setup_scope = { }
+	# 	}
+	# }
+
 	immediate = {
 		play_music_cue = CK2_songs_of_yuletide 
-		if = {
-			limit = {
-				is_married = yes
-			}
-			spouse = {
-				save_scope_as = family
-			}
-		}
-		else = {
-			limit = {
-				any_child = {
-					count >= 1
+		random_List = {
+			50 = {
+				primary_spouse ?= {
+					save_scope_as = family
 				}
 			}
-			random_child = {
-				save_scope_as = family
+			50 = {
+				random_child ?= {
+					save_scope_as = family
+				}
 			}
-		}
-		root.capital_province = {
+		}	
+		root.capital_province ?= {
 			save_scope_as = provincefun
 		}
 	}
@@ -3994,12 +3978,16 @@ KoH_religiousflavour.58 = {#christmas
 	}
 	option = { #feast
 		name = KoH_religiousflavour.58.b
-		capital_province = {
-			spawn_activity = {
-				type = activity_feast
-				owner = root
-			}
-		}	
+		open_view_data = {
+			view = activity_list_detail_host_window
+			data = activity_type:activity_feast
+			player = root
+		}
+		add_character_flag = {
+			flag = hosting_christmas_or_saint_day
+			days = 10
+		}
+		custom_tooltip = KoH_religiousflavour_58_b_tt
 	}	
 
 	option = { #family
@@ -4029,7 +4017,7 @@ KoH_religiousflavour.63 = {
 	title = KoH_religiousflavour.63.t
 	desc = KoH_religiousflavour.63.desc
 	theme = faith
-	#override_background = { event_background = TCT_christmas }
+	#override_background = { reference = TCT_christmas }
 	left_portrait = {
 		character = scope:family
 		animation = happiness
@@ -4040,49 +4028,46 @@ KoH_religiousflavour.63 = {
 		animation = ecstasy
 	}
 
+	cooldown = { years = 20 }
+
 	immediate = {
-		global_var:TCT_saint_day_dummychar = {
-			var:TCT_saint_day_saint = {
-				save_scope_as = localsaint
-			}
+		scope:saint_day_saint = {
+			save_scope_as = localsaint
 		}
-		
-		if = {
-			limit = {
-				is_married = yes
-			}
-			spouse = {
-				save_scope_as = family
-			}
-		}
-		else = {
-			limit = {
-				any_child = {
-					count >= 1
+			
+		random_List = {
+			50 = {
+				primary_spouse ?= {
+					save_scope_as = family
 				}
 			}
-			random_child = {
-				save_scope_as = family
+			50 = {
+				random_child ?= {
+					save_scope_as = family
+				}
 			}
-		}
-		root.capital_province = {
+		}	
+		root.capital_province ?= {
 			save_scope_as = provincefun
 		}
 	}
 
 	option = { #wassailing
-		name = KoH_religiousflavour.58.a
+		name = KoH_religiousflavour.63.a
 		add_stress = medium_stress_loss
 	}
 	option = { #feast
-		name = KoH_religiousflavour.58.b
-		capital_province = {
-			spawn_activity = {
-				type = activity_feast
-				owner = root
-			}
-		}	
-	}	
+		name = KoH_religiousflavour.63.b
+		add_character_flag = {
+			flag = opening_window
+			days = 2
+		}
+		add_character_flag = {
+			flag = hosting_saint_day
+			days = 30
+		}
+		#custom_tooltip = KoH_religiousflavour_63_b_tt
+	}		
 
 	option = { #family
 		name = KoH_religiousflavour.58.c
@@ -4093,10 +4078,398 @@ KoH_religiousflavour.63 = {
 			add_opinion = {
 				modifier = KOH_saintdaysaint_opinion
 				target = root
+				opinion = 20
 			}
 		}
 	}
+	after = {
+		if = {
+			limit = {
+				has_character_flag = opening_window
+			}
+			trigger_event = KoH_religiousflavour.64
+		}
+	}
 }
+
+KoH_religiousflavour.64 = {
+	hidden = yes 
+
+	immediate = {
+		open_view_data = {
+			view = activity_list_detail_host_window
+			data = activity_type:activity_TCT_saint_days
+			player = root
+		}
+	}
+}
+
+# #Event: Baptism of my Heir / Quick and Dirty Baptism's
+# KoH_religiousflavour.70 = {
+# 	title = KoH_religiousflavour.70.t
+# 	desc = KoH_religiousflavour.70.t
+# 	# Use appropriate localization for the event title and description
+# 	orphan = yes
+# 	# Set the portraits of the characters involved
+# 	left_portrait = {
+# 		character = root
+# 		animation = personality_rational
+# 	}
+
+# 	lower_left_portrait = {
+# 		character = scope:heir
+# 	}
+
+# 	right_portrait = {
+# 		character = faith.religious_head
+# 	}
+
+# 	trigger = {
+# 		government_has_flag = government_is_feudal
+# 		OR = {
+# 			faith = faith:catholic
+# 			faith = faith:cathar
+# 			faith = faith:waldensian
+# 			faith = faith:lollard
+# 		}
+# 		NOT = { has_character_flag = heir_baptized } # Optional flag to prevent repeating the event
+# 	}
+
+# 	immediate = {
+# 		add_character_flag = heir_baptized
+# 	}
+
+# 	option = {
+# 		name = KoH_religiousflavour.70.a
+
+# 		trigger = {
+# 			gold = 100 # Adjust the gold cost as desired
+# 		}
+
+# 		remove_short_term_gold = 100
+# 		add_prestige = -25 # Adjust the piety loss as desired
+# 		# Perform the baptism by the Pope (adjust the following actions as needed)
+# 		# Example actions:
+# 		# gain_trait = baptized
+# 		# gain_prestige = 100		
+# 	}
+
+# 	option = {
+# 		name = KoH_religiousflavour.70.b
+
+# 		trigger = {
+# 			gold = 50 # Adjust the gold cost as desired
+# 		}
+
+# 		remove_short_term_gold = 50
+# 		# Perform the baptism by the local bishop (adjust the following actions as needed)
+# 		# Example actions:
+# 		# gain_trait = baptized
+# 		# gain_prestige = 50
+# 	}
+
+# 	option = {
+# 		name = KoH_religiousflavour.70.c
+
+# 		trigger = {
+# 			gold = 25 # Adjust the gold cost as desired
+# 		}
+
+# 		remove_short_term_gold = 25
+# 		add_prestige = -25 # Adjust the prestige loss as desired
+# 		# Perform a regular baptism (adjust the following actions as needed)
+# 		# Example actions:
+# 		# gain_trait = baptized
+# 		# gain_prestige = 25
+# 	}
+# }
+
+
+# #Event: Baptism of my Heir / Quick and Dirty Baptism's
+# KoH_religiousflavour.70 = {
+# 	title = KoH_religiousflavour.70.t
+# 	desc = KoH_religiousflavour.70.t
+# 	# Use appropriate localization for the event title and description
+# 	orphan = yes
+# 	# Set the portraits of the characters involved
+# 	left_portrait = {
+# 		character = root
+# 		animation = personality_rational
+# 	}
+
+# 	lower_left_portrait = {
+# 		character = scope:heir
+# 	}
+
+# 	right_portrait = {
+# 		character = faith.religious_head
+# 	}
+
+# 	trigger = {
+# 		government_has_flag = government_is_feudal
+# 		OR = {
+# 			faith = faith:catholic
+# 			faith = faith:cathar
+# 			faith = faith:waldensian
+# 			faith = faith:lollard
+# 		}
+# 		NOT = { has_character_flag = heir_baptized } # Optional flag to prevent repeating the event
+# 	}
+
+# 	immediate = {
+# 		add_character_flag = heir_baptized
+# 	}
+
+# 	option = {
+# 		name = KoH_religiousflavour.70.a
+
+# 		trigger = {
+# 			has_gold = 100 # Adjust the gold cost as desired
+# 		}
+
+# 		remove_short_term_gold = 100
+# 		lose_piety = 25 # Adjust the piety loss as desired
+# 		# Perform the baptism by the Pope (adjust the following actions as needed)
+# 		# Example actions:
+# 		# gain_trait = baptized
+# 		# gain_prestige = 100		
+# 	}
+
+# 	option = {
+# 		name = KoH_religiousflavour.70.b
+
+# 		trigger = {
+# 			has_gold = 50 # Adjust the gold cost as desired
+# 		}
+
+# 		lose_gold = 50
+# 		# Perform the baptism by the local bishop (adjust the following actions as needed)
+# 		# Example actions:
+# 		# gain_trait = baptized
+# 		# gain_prestige = 50
+# 	}
+
+# 	option = {
+# 		name = KoH_religiousflavour.70.c
+
+# 		trigger = {
+# 			has_gold = 25 # Adjust the gold cost as desired
+# 		}
+
+# 		lose_gold = 25
+# 		lose_prestige = 25 # Adjust the prestige loss as desired
+# 		# Perform a regular baptism (adjust the following actions as needed)
+# 		# Example actions:
+# 		# gain_trait = baptized
+# 		# gain_prestige = 25
+# 	}
+# }
+
+# #Event: Deep in Doctrine
+# deep_in_doctrine.001 = {
+# 	title = deep_in_doctrine.001.t
+# 	desc = deep_in_doctrine.001.d
+# 	# Use appropriate localization for the event title and description
+
+# 	# Set the portraits of the characters involved
+# 	left_portrait = {
+# 		character = root
+# 		animation = personality_studious
+# 	}
+
+# 	right_portrait = {
+# 		character = root.court_chaplain
+# 		animation = personality_scholarly_theologian
+# 	}
+
+# 	trigger = {
+# 		# The character should be an adult and their priest should be available
+# 		is_adult = yes
+# 		exists = cp:councillor_court_chaplain
+# 	}
+
+# 	immediate = {}
+
+# 	option = {
+# 		name = deep_in_doctrine.001.a
+
+# 		trigger = {}
+
+# 		# Gain Learning and Piety
+# 		add_learning_lifestyle_xp = 150
+# 		add_piety = 50
+# 		add_character_modifier = {
+# 			modifier = studying_theology
+# 			years = 2
+# 		}
+# 	}
+
+# 	option = {
+# 		name = deep_in_doctrine.001.b
+
+# 		trigger = {}
+
+# 		# No immediate effect
+# 	}
+# }
+
+
+# Event: Veteran of the First Crusade
+# KoH_religiousflavour.80 = {
+# 	title = KoH_religiousflavour.80.t
+# 	desc = KoH_religiousflavour.80.desc
+# 	# Use appropriate localization for the event title and description
+
+# 	# Set the portraits of the characters involved
+# 	left_portrait = {
+# 		character = scope:main_character
+# 	}
+
+# 	right_portrait = {
+# 		character = scope:veteran_crusader
+# 		animation = sword_yield_start
+# 	}
+
+# 	trigger = {
+# 		is_feudal = yes
+# 		faith = faith:catholic
+# 		NOT = { has_character_modifier = veteran_of_first_crusade_modifier }
+# 		OR = {
+# 			faith = faith:cathar
+# 			faith = faith:lollard
+# 			faith = faith:waldensian
+# 		}
+# 		# Add any additional trigger conditions (e.g., pilgrimage related) as needed
+# 	}
+
+# 	immediate = {
+# 		#Generate a character to represent this older vet!
+# 		create_character = {
+# 			template = veteran_crusader_knight_character
+# 			dynasty = none
+# 			gender = male
+# 			location = root.location
+# 			save_scope_as = veteran_crusader
+# 		}
+# 	}
+
+# 	option = {
+# 		name = KoH_religiousflavour.80.a
+# 		# Use appropriate localization for the option name
+
+# 		trigger = {
+# 			OR = {
+# 				probably_unintelligent_trigger = yes
+# 			}
+# 		}
+
+# 		# Tell your retinue to hail the man as a hero
+# 		scope:veteran_crusader = {
+# 			add_opinion = {
+# 				target = root
+# 				modifier = veterancrusadersupported
+# 				opinion = 20
+# 			}
+# 			add_prestige = 500
+# 		}
+# 		add_prestige = 100
+
+
+# 		trigger_event = {
+# 			id = KoH_religiousflavour.81
+# 			days = 1
+# 		}
+# 	}
+
+# 	option = {
+# 		name = KoH_religiousflavour.80.b
+# 		# Use appropriate localization for the option name
+
+# 		trigger = {
+# 			has_trait = low_intrigue
+# 		}
+
+# 		# Knight exposes the man as a fraud
+# 		lose_prestige = 50
+# 		lose_opinion = { who = ROOT modifier = opinion_modifier value = 15 }
+# 	}
+
+# 	option = {
+# 		name = KoH_religiousflavour.80.c
+# 		# Use appropriate localization for the option name
+
+# 		trigger = {
+# 			has_trait = scholar
+# 			OR = {
+# 				learning = 15
+# 				learning = 20
+# 			}
+# 		}
+
+# 		# Expose the man's lies and confront him
+# 		add_prestige = -50
+# 		lose_opinion = { who = ROOT modifier = opinion_modifier value = 15 }
+
+# 		# Start a six-month timer to trigger the event "A Familiar Visitor"
+# 		#start_timer = {
+# 		#	days = 180
+# 		#	# Add the trigger for the event "A Familiar Visitor" as needed
+# 		#}
+# 	}
+
+# 	option = {
+# 		name = KoH_religiousflavour.80.d
+# 		# Use appropriate localization for the option name
+
+# 		trigger = {
+# 			has_trait = compassionate
+# 			has_trait = forgiving
+# 		}
+
+# 		# Give the man some charity
+# 		remove_short_term_gold = 10
+# 		add_stress = minor_stress_loss
+# 		scope:veteran_crusader = {
+# 			add_opinion = {
+# 				target = root
+# 				modifier = veterancrusadersupported
+# 				opinion = 10
+# 			}
+# 		}
+# 	}
+
+# 	option = {
+# 		name = veteran_option5
+# 		# Use appropriate localization for the option name
+
+# 		trigger = {
+# 			has_trait = sadistic
+# 			has_trait = callous
+# 			has_trait = arrogant
+# 		}
+
+# 		# Punish the man for his lies
+# 		gain_dread = 25
+# 		gain_prestige = 100
+# 		lose_stress = 25
+# 	}
+
+# 	option = {
+# 		name = veteran_option6
+# 		# Use appropriate localization for the option name
+
+# 		trigger = {
+# 			has_trait = compassionate
+# 			has_trait = forgiving
+# 		}
+
+# 		# Repent for the lies and gain piety
+# 		gain_piety = 50
+# 		gain_prestige = 10
+# 	}
+# }
+
+
 
 #Ending a Pilgrimage to a Saintly Tomb
 KoH_religiousflavour.250 = { 
@@ -4124,7 +4497,7 @@ KoH_religiousflavour.250 = {
 		scope:saintlocation = {
 			random_in_list = {
 				variable = faith_saints_and_capital
-				save_scope_as = localsaint
+	 			save_scope_as = localsaint
 			}
 		}
 		play_music_cue = Trinity_4
@@ -4275,7 +4648,7 @@ KoH_religiousflavour.4001 = {
 	title = KoH_religiousflavour.4001.t
 	desc = KoH_religiousflavour.4001.desc
 	theme = court
-	override_background = { event_background = throne_room }
+	override_background = { reference = throne_room }
 
 	right_portrait = {
 		character = title:k_papal_state.holder
@@ -4301,7 +4674,7 @@ KoH_religiousflavour.4001 = {
 		    scope:newpope = {
 				group = event_group
 				animation = worried
-				outfit_tags = { bishop_outfit }
+				#outfit_tags = { bishop_outfit }
 		    }
 			scope:cardinal2 = {
 				group = event_group
@@ -4468,7 +4841,7 @@ KoH_religiousflavour.5725 = {
 		}
 	}
 	theme = family
-	override_background = { event_background = relaxing_room }
+	override_background = { reference = relaxing_room }
 	right_portrait = {
 		character = scope:child
 		animation = happiness
@@ -4657,7 +5030,7 @@ KoH_religiousflavour.401 = {
 	title = KoH_religiousflavour.401.t
 	desc = KoH_religiousflavour.401.desc
 	theme = court
-	override_background = { event_background = throne_room }
+	override_background = { reference = throne_room }
 
 	right_portrait = {
 		character = title:k_papal_state.holder
@@ -5588,7 +5961,7 @@ KoH_religiousflavour.801 = {
 	hidden = yes
 
 	immediate = {
-		update_cardinal_window = yes
+		faith = { update_cardinal_window = yes }
 	}
 }
 
@@ -5713,6 +6086,430 @@ KoH_religiousflavour.807 = {
 				add_doctrine = doctrine_spiritual_head
 			}
 			trigger_event = faith_creation.0002
+		}
+	}
+}
+
+scripted_effect nearby_crusader_state_targets = {
+	clear_variable_list = minor_cruades_possible_titles
+	title:k_jerusalem.holder = {
+		#Find a county we hold which borders a valid event target county.
+		every_sub_realm_county = {
+			limit = {
+				any_neighboring_county = {
+					holder = {
+						NOT = {
+							faith = root.faith
+							top_liege = title:k_jerusalem.holder.top_liege
+						}
+					}
+				}
+			}
+			save_scope_as = my_county
+
+			#Find a valid event target county.
+			random_neighboring_county = {
+				limit = {
+					holder = {
+						NOT = {
+							faith = root.faith
+							top_liege = title:k_jerusalem.holder.top_liege
+						}
+					}
+				}		
+
+				#Save that county's scope.
+				save_scope_as = target_county
+				add_to_list = minor_cruades_possible_titles
+
+				#Also save the county's holder.
+				holder = {
+					save_scope_as = heretic_ruler
+				}
+			}
+		}
+	}
+
+	every_in_list = {
+		list = minor_cruades_possible_titles
+		# order_by = development_level
+		# max = 15
+		# check_range_bounds = no
+		add_to_prev_list = {NAME = minor_cruades_possible_titles}
+	}
+}
+
+
+KoH_religiousflavour.810 = {
+	title = KoH_religiousflavour.810.t
+	desc = KoH_religiousflavour.810.desc
+
+	right_portrait = {
+		character = root
+		animation = personality_rational
+	}
+	widget = {
+		gui = "sea_select_culture_widget"
+		container = "custom_widgets_container"
+	}
+	theme = diplomacy_foreign_affairs_focus
+
+	immediate = {
+		remove_variable = selected_title
+		clear_variable_list = minor_cruades_possible_titles
+		nearby_crusader_state_targets = yes
+	}
+
+	option = {
+		name = KoH_religiousflavour.810.a
+		if = {
+			limit = { has_variable = selected_title }
+			#create_cultural_specialist_effect = yes
+			#scope:cultural_specialist = { apply_cultural_traits_effect = yes } 
+			#recruit_courtier = scope:cultural_specialist
+			#custom_tooltip = newline.desc
+			var:selected_title = {
+				save_scope_as = selected_title
+			}
+			set_variable = {
+				name = selected_title_kingdom
+				value = var:selected_title.kingdom
+			}
+			start_war = {
+				casus_belli = minor_crusade_religious_war
+				target = var:selected_title.holder
+				target_title = var:selected_title
+				claimant = title:k_jerusalem.holder
+			}
+			every_character_war = {
+				limit = {
+					primary_attacker = root
+					using_cb = minor_crusade_religious_war
+				}
+				save_scope_as = war
+				add_attacker = title:k_jerusalem.holder
+				set_variable = {
+					name = cruasder_state_holder
+					value = title:k_jerusalem.holder
+				}
+			}
+			#add_gold = {
+			#	value = medium_gold_loss
+			#	if = {
+			#		limit = {
+			#			OR = {
+			#				has_government = anarchist_government
+			#				has_realm_law = cultural_minority_status_1
+			#			}
+			#		}
+			#		multiply = 0.5
+			#	}
+			#}
+		}
+		else = {
+			custom_tooltip = KoH_religiousflavour.810.a.cancel
+			remove_decision_cooldown = Declare_Minor_Crusade
+		}
+	}
+}
+
+#Crusader trait gained during GHW.
+#Fired on_army_enter_province
+#Hidden first event fires for the owner of the army.
+#root = owner of the army
+#scope:army = the army itself.
+KoH_religiousflavour.811 = {
+	hidden = yes
+	
+	trigger = {
+		exists = var:selected_title
+
+		OR = { #Either army owner or one of his lieges is involved in a GHW.
+			any_character_war = {
+				OR = {
+					using_cb = minor_crusade_religious_war
+				}
+				is_attacker = root
+			}
+			any_liege_or_above = {
+				faith = root.faith
+				any_character_war = {
+					OR = {
+						using_cb = minor_crusade_religious_war
+					}
+					is_attacker = root
+				}
+			}
+		}
+		scope:army = {
+			exists = army_commander
+			location = { save_temporary_scope_as = current_location }
+			army_commander = {
+				NOR = {
+					has_trait = crusader_king
+					has_trait = faith_warrior
+				}
+			}
+		}
+		var:selected_title_kingdom = { #The dejure Kingdom targeted by the GHW
+			any_in_de_jure_hierarchy = {
+				tier = tier_barony
+				title_province = { this = scope:current_location } #Any province within it.
+				# exists = holder
+				# holder = { #The province's owner must also be part of the GHW on the opposite side.
+				# 	OR = {
+				# 		any_character_war = {
+				# 			OR = {
+				# 				using_cb = minor_crusade_religious_war
+				# 			}
+				# 			is_defender = prev
+				# 		}
+				# 		any_liege_or_above = {
+				# 			any_character_war = {
+				# 				OR = {
+				# 					using_cb = minor_crusade_religious_war
+				# 				}
+				# 				is_defender = prev
+				# 			}
+				# 		}
+				# 	}
+				# }
+			}
+		}
+	}
+
+	immediate = {
+		faith = {
+			save_scope_as = the_faith
+		}
+		random_character_war = {
+			if = {
+				limit = {
+					using_cb = minor_crusade_religious_war
+				}
+				save_scope_as = war
+			}
+		}
+
+		scope:army.location = { save_scope_as = current_location }
+		root.faith = { save_scope_as = the_faith }
+		scope:war = { save_scope_as = scoped_ghw }
+		var:selected_title = { save_scope_as = selected_title }
+		var:selected_title_kingdom = { save_scope_as = target_kingdom }
+		scope:army = {
+			army_commander = { trigger_event = KoH_religiousflavour.812 }
+			army_owner = {
+				every_knight = {
+					limit = {
+						location = scope:current_location
+					}
+					trigger_event = KoH_religiousflavour.812
+				}
+			}
+		}
+	}
+}
+
+KoH_religiousflavour.812 = {
+	title = KoH_religiousflavour.812.title
+	desc = {
+		first_valid = {
+			triggered_desc = { #Crusaders
+				trigger = { faith.religion = religion:christianity_religion }
+				desc = KoH_religiousflavour.812.crusader.desc
+			}
+			triggered_desc = { #Muslims
+				trigger = { faith.religion = religion:islam_religion }
+				desc = great_holy_war.0057.mujahid.desc
+			}
+			triggered_desc = { #Everybody else
+				trigger = {
+					NOR = {
+						faith.religion = religion:christianity_religion
+						faith.religion = religion:islam_religion
+					}
+				}
+				desc = great_holy_war.0057.generic.outsiders.desc
+			}
+		}
+	}
+	theme = faith
+	override_background = {
+		reference = wilderness_scope
+	}
+	left_portrait = root
+	
+	trigger = {
+		# root.faith = scope:the_faith
+		# exists = faith.great_holy_war
+		NOR = {
+			has_trait = crusader_king
+			has_trait = faith_warrior
+		}
+		OR = {
+			is_commanding_army = yes
+			is_knight = yes
+		}
+	}
+
+	immediate = {
+		scope:war = {
+			primary_defender = {
+				capital_province = {
+					save_scope_as = background_wilderness_scope
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = KoH_religiousflavour.812.a
+		add_trait = faith_warrior
+		hidden_effect = { #Punish player sneakery.
+			trigger_event = {
+				id = KoH_religiousflavour.813
+				days = { 15 60 }
+			}
+		}
+	}
+}
+
+#Character is no longer in the Holy Land fighting infidels, not even a few weeks after getting the trait!
+KoH_religiousflavour.813 = {
+	title = KoH_religiousflavour.813.title
+	desc = KoH_religiousflavour.813.base.desc
+	theme = faith
+	left_portrait = {
+		character = root
+		animation = shame
+	}
+	
+	trigger = {
+		exists = scope:war #GHW must still be ongoing.
+		has_trait = faith_warrior
+		is_commanding_army = no #Should have stayed in command.
+		is_knight = no
+		is_imprisoned = no #Don't penalise captured faith_warriors.
+		NOR = {
+			has_trait = incapable
+			has_serious_disease_trigger = yes
+		}
+		OR = { #Character or liege must still be at war, obviously.
+			any_character_war = {
+				OR = {
+					using_cb = minor_crusade_religious_war
+				}
+				is_attacker = root
+			}
+			any_liege_or_above = {
+				faith = root.faith
+				any_character_war = {
+					OR = {
+						using_cb = minor_crusade_religious_war
+					}
+					is_attacker = root
+				}
+			}
+		}
+	}
+	
+	
+	option = {
+		name = great_holy_war.0058.a
+		if = {
+			limit = { is_ai = no } #Punish player more.
+			add_piety = major_piety_loss
+		}
+		if = {
+			limit = { has_trait = faith_warrior }
+			remove_trait = faith_warrior
+		}
+	}
+}
+
+#Crusader gets an event to decide to try to carve out a Crusader State during a GHW.
+#Fired on_army_enter_province
+#Hidden first event fires for the owner of the army.
+#root = owner of the army
+#scope:army = the army itself.
+great_holy_war.0060 = {
+	hidden = yes
+	
+	trigger = {
+		exists = root.faith.great_holy_war
+		OR = { #Either army owner or one of his lieges is involved in a GHW.
+			any_character_war = {
+				OR = {
+					using_cb = undirected_great_holy_war
+					using_cb = directed_great_holy_war
+				}
+				is_attacker = root
+			}
+			any_liege_or_above = {
+				faith = root.faith
+				any_character_war = {
+					OR = {
+						using_cb = undirected_great_holy_war
+						using_cb = directed_great_holy_war
+					}
+					is_attacker = root
+				}
+			}
+		}
+		scope:army = {
+			exists = army_commander
+			location = { save_temporary_scope_as = current_location }
+			army_commander = {
+				NOR = {
+					has_trait = crusader_king
+					has_trait = faith_warrior
+				}
+			}
+		}
+		root.faith.great_holy_war.ghw_target_title = { #The dejure Kingdom targeted by the GHW
+			any_in_de_jure_hierarchy = {
+				tier = tier_barony
+				title_province = { this = scope:current_location } #Any province within it.
+				exists = holder
+				holder = { #The province's owner must also be part of the GHW on the opposite side.
+					OR = {
+						any_character_war = {
+							OR = {
+								using_cb = undirected_great_holy_war
+								using_cb = directed_great_holy_war
+							}
+							is_defender = prev
+						}
+						any_liege_or_above = {
+							any_character_war = {
+								OR = {
+									using_cb = undirected_great_holy_war
+									using_cb = directed_great_holy_war
+								}
+								is_defender = prev
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		scope:army.location = { save_scope_as = current_location }
+		faith = { save_scope_as = the_faith }
+		faith.great_holy_war = { save_scope_as = scoped_ghw }
+		faith.great_holy_war.ghw_target_title = { save_scope_as = target_kingdom }
+		scope:army = {
+			army_commander = { trigger_event = great_holy_war.0057 }
+			army_owner = {
+				every_knight = {
+					limit = {
+						location = scope:current_location
+					}
+					trigger_event = great_holy_war.0057
+				}
+			}
 		}
 	}
 }
