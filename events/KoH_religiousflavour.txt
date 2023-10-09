@@ -6432,9 +6432,8 @@ KoH_religiousflavour.813 = {
 #Hidden first event fires for the owner of the army.
 #root = owner of the army
 #scope:army = the army itself.
-great_holy_war.0060 = {
+KoH_religiousflavour.814 = {
 	hidden = yes
-	
 	trigger = {
 		exists = root.faith.great_holy_war
 		OR = { #Either army owner or one of his lieges is involved in a GHW.
@@ -6456,37 +6455,47 @@ great_holy_war.0060 = {
 				}
 			}
 		}
-		scope:army = {
-			exists = army_commander
-			location = { save_temporary_scope_as = current_location }
-			army_commander = {
-				NOR = {
-					has_trait = crusader_king
-					has_trait = faith_warrior
+		location = {
+			any_army_in_location = { 
+				army_owner = root
+				exists = army_commander
+				army_commander = {
+					NOR = {
+						has_trait = crusader_king
+						has_trait = faith_warrior
+					}
 				}
+				location = { save_temporary_scope_as = army_location}
 			}
 		}
-		root.faith.great_holy_war.ghw_target_title = { #The dejure Kingdom targeted by the GHW
-			any_in_de_jure_hierarchy = {
-				tier = tier_barony
-				title_province = { this = scope:current_location } #Any province within it.
-				exists = holder
-				holder = { #The province's owner must also be part of the GHW on the opposite side.
-					OR = {
-						any_character_war = {
+		any_character_war = {
+			OR = {
+				using_cb = undirected_great_holy_war
+				using_cb = directed_great_holy_war
+			}
+			any_war_defender = {
+				any_realm_province = {
+					this = scope:army_location #Any province within it.
+					barony = {
+						exists = holder
+						holder = { #The province's owner must also be part of the GHW on the opposite side.
 							OR = {
-								using_cb = undirected_great_holy_war
-								using_cb = directed_great_holy_war
-							}
-							is_defender = prev
-						}
-						any_liege_or_above = {
-							any_character_war = {
-								OR = {
-									using_cb = undirected_great_holy_war
-									using_cb = directed_great_holy_war
+								any_character_war = {
+									OR = {
+										using_cb = undirected_great_holy_war
+										using_cb = directed_great_holy_war
+									}
+									is_defender = prev
 								}
-								is_defender = prev
+								any_liege_or_above = {
+									any_character_war = {
+										OR = {
+											using_cb = undirected_great_holy_war
+											using_cb = directed_great_holy_war
+										}
+										is_defender = prev
+									}
+								}
 							}
 						}
 					}
@@ -6496,20 +6505,64 @@ great_holy_war.0060 = {
 	}
 
 	immediate = {
-		scope:army.location = { save_scope_as = current_location }
+		#scope:army.location = { save_scope_as = current_location_real }
 		faith = { save_scope_as = the_faith }
 		faith.great_holy_war = { save_scope_as = scoped_ghw }
-		faith.great_holy_war.ghw_target_title = { save_scope_as = target_kingdom }
-		scope:army = {
-			army_commander = { trigger_event = great_holy_war.0057 }
-			army_owner = {
-				every_knight = {
-					limit = {
-						location = scope:current_location
-					}
-					trigger_event = great_holy_war.0057
+		location = {
+			barony.county = {
+				save_scope_as = target_county
+				duchy = {
+					save_scope_as = target_duchy
 				}
 			}
 		}
+		faith.great_holy_war.ghw_target_title = { save_scope_as = target_kingdom }
+		scope:army = {
+			army_owner = {
+				trigger_event = KoH_religiousflavour.815
+			}
+		}
+	}
+}
+
+#Declare the War
+KoH_religiousflavour.815 = {
+	title = KoH_religiousflavour.815.t
+	desc = KoH_religiousflavour.815.d
+	theme = faith
+	left_portrait = {
+		character = root
+		animation = shame
+	}
+	
+	trigger = {
+		#exists = scope:target_duchy
+	}
+	
+	immediate = {
+	}
+
+	#Declare the War
+	option = {
+		name = KoH_religiousflavour.815.a
+	}
+
+	#Focus on the main crusade
+	option = {
+		name = KoH_religiousflavour.815.a
+
+		faith.great_holy_war.ghw_war = { remove_participant = root }
+		root.faith.great_holy_war = {
+			unpledge_attacker = root
+		}
+
+		start_war = {
+			cb = crusader_state_event_war
+			target = scope:target_duchy.holder.top_liege
+			target_title = scope:target_duchy
+			claimant = root
+		}
+
+		#faith.great_holy_war.ghw_war = { add_attacker = root }
 	}
 }

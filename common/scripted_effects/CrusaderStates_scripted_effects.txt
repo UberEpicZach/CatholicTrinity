@@ -1,5 +1,4 @@
-﻿WarDuchyEffect = {
-    save_scope_as = war_attacker
+﻿crusader_states_foundation_get_duchy_scopes = {
 	faith = {
 		great_holy_war = {
 			random_pledged_attacker = {
@@ -38,7 +37,7 @@
 						duchy = {
 							every_in_de_jure_hierarchy = {
 								limit = { tier = tier_county }
-								scope:beneficiary = {
+								scope:recipient = {
 									add_to_variable_list = {
 										name = counties_transferred
 										target = prev
@@ -51,7 +50,16 @@
 			}
 		}
 	}
+}
 
+crusader_states_foundation_beneficiary_effect = {
+    save_scope_as = war_attacker
+
+	scope:beneficiary = { 
+		save_scope_as = recipient
+	}
+
+	crusader_states_foundation_get_duchy_scopes = yes
 	scope:beneficiary = { 
 		add_trait = crusader_state_trait
 		save_scope_as = founder
@@ -148,59 +156,14 @@
 	}
 }
 
-WarDuchyEffect_forSelf = {
+crusader_states_foundation_self_effect = {
     save_scope_as = war_attacker
-	faith = {
-		great_holy_war = {
-			random_pledged_attacker = {
-				limit = {
-					exists = ghw_beneficiary
-					this = scope:war_attacker
-				}
-				ghw_beneficiary = {
-					save_scope_as = beneficiary
-				}
-			}
-			ghw_target_title = { save_scope_as = target_kingdom }
-			ghw_war = {
-				primary_defender = {
-					save_scope_as = defender
-					random_sub_realm_county = {
-						limit = {
-							duchy = {
-								any_in_de_jure_hierarchy = {
-									count = all
-									trigger_if = {
-										limit = { tier = tier_county }
-										holder.top_liege = scope:defender
-										NOT  = { county_controller = holder }
-										exists = var:occupant
-										var:occupant = scope:war_attacker
-									}
-								}
-							}
-							NOT = {
-								kingdom = {
-									this = scope:target_kingdom
-								}
-							}
-						}
-						duchy = {
-							every_in_de_jure_hierarchy = {
-								limit = { tier = tier_county }
-								scope:war_attacker = {
-									add_to_variable_list = {
-										name = counties_transferred
-										target = prev
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
+
+	scope:war_attacker = {
+		save_scope_as = recipient
 	}
+
+	crusader_states_foundation_get_duchy_scopes = yes
 	scope:war_attacker = { 
 		save_scope_as = founder
 		random_in_list = {
@@ -248,9 +211,8 @@ WarDuchyEffect_forSelf = {
 	}
 }
 
-WarDuchyEffect_forSelfButDepose = { #stay and leave home propertise
+crusader_states_foundation_selfdespose_effect = { #stay and leave home propertise
     save_scope_as = war_attacker
-	
 
 	scope:war_attacker = {
 		if = {
@@ -274,58 +236,11 @@ WarDuchyEffect_forSelfButDepose = { #stay and leave home propertise
 		}
 	}
 
-	
-	faith = {
-		great_holy_war = {
-			random_pledged_attacker = {
-				limit = {
-					exists = ghw_beneficiary
-					this = scope:war_attacker
-				}
-				ghw_beneficiary = {
-					save_scope_as = beneficiary
-				}
-			}
-			ghw_target_title = { save_scope_as = target_kingdom }
-			ghw_war = {
-				primary_defender = {
-					save_scope_as = defender
-					random_sub_realm_county = {
-						limit = {
-							duchy = {
-								any_in_de_jure_hierarchy = {
-									count = all
-									trigger_if = {
-										limit = { tier = tier_county }
-										holder.top_liege = scope:defender
-										NOT  = { county_controller = holder }
-										exists = var:occupant
-										var:occupant = scope:war_attacker
-									}
-								}
-							}
-							NOT = {
-								kingdom = {
-									this = scope:target_kingdom
-								}
-							}
-						}
-						duchy = {
-							every_in_de_jure_hierarchy = {
-								limit = { tier = tier_county }
-								scope:war_attacker = {
-									add_to_variable_list = {
-										name = counties_transferred
-										target = prev
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
+	scope:war_attacker = {
+		save_scope_as = recipient
 	}
+	
+	crusader_states_foundation_get_duchy_scopes = yes
 
 	scope:war_attacker = { 
 		add_trait = crusader_state_trait
@@ -491,47 +406,47 @@ WarDuchyEffect_trigger = {
 	}
 }
 
-WarDuchyEffect_localization = {
-    save_scope_as = war_attacker
-	faith = {
-		great_holy_war = {
-			random_pledged_attacker = {
-				limit = {
-					exists = ghw_beneficiary
-					this = scope:war_attacker
-				}
-				ghw_beneficiary = {
-					save_scope_as = beneficiary
-				}
-			}
-			ghw_war = {
-				primary_defender = {
-					save_scope_as = defender
-					random_sub_realm_county = {
-						limit = {
-							duchy = {
-								any_in_de_jure_hierarchy = {
-									count = all
-									trigger_if = {
-										limit = { tier = tier_county }
-										holder.top_liege = scope:defender
-										NOT  = { county_controller = holder }
-										exists = var:occupant
-										var:occupant = scope:war_attacker
-									}
-								}
-							}
-						}
-						duchy = {
-							save_scope_as = duchyforloc
-						}
-						save_scope_as = countyforloc
-					}
-				}
-			}
-		}
-	}
-}
+# WarDuchyEffect_localization = {
+#     save_scope_as = war_attacker
+# 	faith = {
+# 		great_holy_war = {
+# 			random_pledged_attacker = {
+# 				limit = {
+# 					exists = ghw_beneficiary
+# 					this = scope:war_attacker
+# 				}
+# 				ghw_beneficiary = {
+# 					save_scope_as = beneficiary
+# 				}
+# 			}
+# 			ghw_war = {
+# 				primary_defender = {
+# 					save_scope_as = defender
+# 					random_sub_realm_county = {
+# 						limit = {
+# 							duchy = {
+# 								any_in_de_jure_hierarchy = {
+# 									count = all
+# 									trigger_if = {
+# 										limit = { tier = tier_county }
+# 										holder.top_liege = scope:defender
+# 										NOT  = { county_controller = holder }
+# 										exists = var:occupant
+# 										var:occupant = scope:war_attacker
+# 									}
+# 								}
+# 							}
+# 						}
+# 						duchy = {
+# 							save_scope_as = duchyforloc
+# 						}
+# 						save_scope_as = countyforloc
+# 					}
+# 				}
+# 			}
+# 		}
+# 	}
+# }
 
 ChangeHeirEffect = {
 	save_scope_as = war_attacker
@@ -560,5 +475,55 @@ ChangeHeirEffect = {
 			}
 			set_designated_heir = scope:childforheir
 		}
+	}
+}
+
+CrusaderState_foundation_event = {
+    save_scope_as = war_attacker
+
+	scope:war_attacker = { 
+		save_scope_as = founder
+		random_in_list = {
+			variable = titles_taken
+			save_scope_as = old_title
+		}
+
+		create_dynamic_title = {
+			tier = duchy
+			name = NEW_CREATED_TITLE_NAME
+		}
+		
+		create_title_and_vassal_change = {
+			type = conquest_holy_war
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+
+		every_in_list = {
+			variable = titles_taken
+			change_title_holder = {
+				holder = PREV
+				change = scope:change
+			}
+		}
+
+		resolve_title_and_vassal_change = scope:change
+
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+
+		scope:new_title = {
+			set_coa = scope:old_title
+			set_color_from_title = scope:war_attacker.primary_title
+			change_title_holder = {
+				holder = PREV
+				change = scope:change
+			}
+		}
+
+		resolve_title_and_vassal_change = scope:change
 	}
 }

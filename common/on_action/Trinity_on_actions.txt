@@ -12,6 +12,30 @@ on_army_enter_province = {
 	events = {
 		KoH_religiousflavour.811 #Give Crusaders their trait upon reaching the holy land.
 	}
+	on_actions = {
+		TCT_Crusader_State_GHW
+	}
+}
+
+TCT_Crusader_State_GHW = {
+	trigger = {
+		exists = root.faith.great_holy_war
+		# NOT = {
+		# 	root.faith.great_holy_war = {
+		# 		list_size = {
+		# 			name = current_crusader_states
+		# 			value > 4
+		# 		}
+		# 	}
+		# }
+	}
+	events = {
+		#KoH_religiousflavour.814 # Start a war for a Crusader State
+	}
+	random_events = {
+		chance_of_no_event = 50
+		10000 = KoH_religiousflavour.814 # Start a war for a Crusader State
+	}
 }
 
 TCTpentarchy = {

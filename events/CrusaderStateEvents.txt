@@ -65,7 +65,7 @@ CrusaderStateEvents.1 = { #
 	option = {  #beneficiary 
 		name = CrusaderStateEvents.1.a
 		custom_tooltip = benefiticary_cruasder_state	
-		WarDuchyEffect = yes
+		crusader_states_foundation_beneficiary_effect = yes
 		scope:beneficiary = {
 			add_character_modifier = {
 				modifier = settledcrusadersgood
@@ -190,7 +190,7 @@ CrusaderStateEvents.1 = { #
 			}
 		}
 
-		WarDuchyEffect_forSelf = yes
+		crusader_states_foundation_self_effect = yes
 		
 		scope:war_attacker = {
 			add_character_flag = {
@@ -221,7 +221,7 @@ CrusaderStateEvents.1 = { #
 		custom_tooltip = adbicate_cruasder_state			
 		
 		hidden_effect = {
-			WarDuchyEffect_forSelfButDepose = yes
+			crusader_states_foundation_selfdespose_effect = yes
 
 			trigger_event = {
 				days = 1 

@@ -34,3 +34,54 @@ CrusaderStates_trigger = {
 	exists = var:CrusaderState_variable
 	has_variable = CrusaderState_variable
 }
+
+
+KoH_religiousflavour_814_duchy_trigger = {
+	location = {
+		any_army_in_location = { 
+			army_owner = root
+			exists = army_commander
+			army_commander = {
+				NOR = {
+					has_trait = crusader_king
+					has_trait = faith_warrior
+				}
+			}
+			location = { save_temporary_scope_as = army_location}
+		}
+	}
+	any_character_war = {
+		OR = {
+			using_cb = undirected_great_holy_war
+			using_cb = directed_great_holy_war
+		}
+		any_war_defender = {
+			any_realm_province = {
+				this = scope:army_location #Any province within it.
+				barony = {
+					exists = holder
+					holder = { #The province's owner must also be part of the GHW on the opposite side.
+						OR = {
+							any_character_war = {
+								OR = {
+									using_cb = undirected_great_holy_war
+									using_cb = directed_great_holy_war
+								}
+								is_defender = prev
+							}
+							any_liege_or_above = {
+								any_character_war = {
+									OR = {
+										using_cb = undirected_great_holy_war
+										using_cb = directed_great_holy_war
+									}
+									is_defender = prev
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
