@@ -33,9 +33,51 @@ cardinal_story = {
 }
 
 story_saint_day = {
-	# by Uber
+	# by Uber & Kaepora
 	
 	on_setup = {
+		set_variable = {
+			name = saint_day_saint
+			value = story_owner.var:saint_day_saint
+		}
+		set_variable = {
+			name = saint_day_saint_tomb_location
+			value = story_owner.var:saint_day_saint_tomb_location
+		}
+	}
+	
+	on_owner_death = {
+		scope:story.var:saint_day_saint.faith = { #debug
+			every_in_list = {
+				list = faith_saint_day_holders
+				limit = {
+					this = scope:story_owner
+				}
+			remove_from_list = faith_saint_day_holders
+			}
+		}
+
+		create_character = {
+			location = scope:story.var:saint_day_saint_tomb_location
+			gender = male
+			age = { 16 50 }
+			trait = education_learning_2
+			trait = devoted
+			faith = scope:story.var:saint_day_saint.faith
+			culture = scope:story.var:saint_day_saint_tomb_location.culture #time goes on
+			learning = { 10 12 }
+			save_scope_as = new_saint_day_holder
+		}
+		
+		make_story_owner = scope:new_saint_day_holder
+		faith = { #debug
+			add_to_variable_list = {
+				name = faith_saint_day_holders
+				target = scope:new_saint_day_holder
+			}
+		}
+		#trigger notification for new_saint_day_holder.liege: A monk has arrived!
+		
 	}
 
 	on_end = {
@@ -44,44 +86,23 @@ story_saint_day = {
 	}
 
 	effect_group = {
-		months = 1
+		years = 1
 		
 		triggered_effect = {
-			trigger = {
-				always = yes
+			trigger = { #safety checks
+				exists = scope:story.var:saint_day_saint
+				exists = scope:story.var:saint_day_saint_tomb_location
 			}
 			effect = {
-				story_owner = {
-					random_in_list = {
-						variable = saint_day_saint
-						save_scope_as = saint_day_saint
-					}
-					faith = {
-						random_in_list = {
-							variable = faith_capital
-							limit = {
-								has_variable_list = faith_saints_and_capital
-								any_in_list = {
-									variable = faith_saints_and_capital
-									save_temporary_scope_as = localsaint
-								}
-								scope:localsaint = {
-									this = scope:saint_day_saint
-								}
-							}
-							save_scope_as = saint_day_saint_tomb_location
-						}
-					}
-				}
 				faith:catholic = {
 					every_faith_ruler = {
 						limit = {
-							capital_county = {
+							capital_county ?= {
 								squared_distance = {
-									target = scope:saint_day_saint_tomb_location
+									target = scope:story.var:saint_day_saint_tomb_location
 									value <= squared_distance_small #150 map-pixels. Roughly one Wales away (top to bottom).
 								}
-							}	
+							}
 						}
 						trigger_event = { on_action = TCT_saint_day_real }
 					}

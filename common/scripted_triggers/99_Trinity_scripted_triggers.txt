@@ -89,34 +89,51 @@ sainthood_event1trigger = {
 	OR = {
 		AND = {
 			highest_held_title_tier = tier_empire
-			piety >= 1250
+			piety >= 3000
 		}
 		AND = {
 			highest_held_title_tier = tier_kingdom
-			piety >= 1000
+			piety >= 2500
 		}
 		AND = {
 			highest_held_title_tier = tier_duchy
-			piety >= 750
+			piety >= 2000
 		}
 		AND = {
 			highest_held_title_tier = tier_county
-			piety >= 500
+			piety >= 1500
 		}
 		AND = {
 			highest_held_title_tier = tier_barony
-			piety >= 250
+			piety >= 1000
 		}
 		AND = {
 			is_landed = no
-			piety >= 150
+			piety >= 1000
 		}
 	}
+
+	has_religion = religion:christianity_religion
+	num_virtuous_traits >= 2
 	has_vice_trigger = no
 	has_benevolent_trait_trigger = yes
 	has_virtue_trigger = yes
 	is_adult = yes
 }
+
+#sainthood_event2trigger = { #WIP for KoH_sainthood.2 #Decision if to be Beatified
+#	NOR = {
+#		has_trait = excommunicated
+#		has_trait = drunkard
+#		has_trait = lifestyle_reveler
+#		has_trait = cannibal
+#		#controls_religion = yes
+#		has_faith = faith:waldensian
+#		has_trait = kinslayer
+#	}
+#
+#	NOT =  { has_trait = TCT_antipope } # Antipopes
+#}
 
 CatholicTrinityModule_is_loaded = { always = yes }
 

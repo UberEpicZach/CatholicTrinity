@@ -4031,7 +4031,7 @@ KoH_religiousflavour.63 = {
 	cooldown = { years = 20 }
 
 	immediate = {
-		scope:saint_day_saint = {
+		scope:story.var:saint_day_saint = {
 			save_scope_as = localsaint
 		}
 			
@@ -4056,18 +4056,18 @@ KoH_religiousflavour.63 = {
 		name = KoH_religiousflavour.63.a
 		add_stress = medium_stress_loss
 	}
-	option = { #feast
-		name = KoH_religiousflavour.63.b
-		add_character_flag = {
-			flag = opening_window
-			days = 2
-		}
-		add_character_flag = {
-			flag = hosting_saint_day
-			days = 30
-		}
-		#custom_tooltip = KoH_religiousflavour_63_b_tt
-	}		
+	#option = { #feast
+	#	name = KoH_religiousflavour.63.b
+	#	add_character_flag = {
+	#		flag = opening_window
+	#		days = 2
+	#	}
+	#	add_character_flag = {
+	#		flag = hosting_saint_day
+	#		days = 30
+	#	}
+	#	#custom_tooltip = KoH_religiousflavour_63_b_tt
+	#}		
 
 	option = { #family
 		name = KoH_religiousflavour.58.c
@@ -4078,18 +4078,19 @@ KoH_religiousflavour.63 = {
 			add_opinion = {
 				modifier = KOH_saintdaysaint_opinion
 				target = root
-				opinion = 20
+				opinion = 5 #20
 			}
 		}
 	}
-	after = {
-		if = {
-			limit = {
-				has_character_flag = opening_window
-			}
-			trigger_event = KoH_religiousflavour.64
-		}
-	}
+	# Work in Progress
+	#after = {
+	#	if = {
+	#		limit = {
+	#			has_character_flag = opening_window
+	#		}
+	#		trigger_event = KoH_religiousflavour.64
+	#	}
+	#}
 }
 
 KoH_religiousflavour.64 = {

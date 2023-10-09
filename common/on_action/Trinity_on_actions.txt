@@ -70,7 +70,7 @@ TCT_saint_day_real = {
 		#exists = var:TCT_saint_day_dummychar
 	}
 	random_events = {
-		1000 = 0
+		82 = 0 #was 1000 = 0 for monthly effect group
 		1 = KoH_religiousflavour.63 #Saint Day! 
 		#1 = bp1_yearly.3004 #Christmas, but a child!! 
 		#1 = bp1_yearly.3006 # Reflecting on a great Christmas
