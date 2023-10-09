@@ -152,17 +152,17 @@ CatholicsimFix = {
 
 on_character_faith_change = {
 	on_actions = {
-		characterfaithchangeROT
+		characterfaithchangeTCT
 	}
 }
 
 on_faith_conversion = {
 	on_actions = {
-		faithconversionROT
+		faithconversionTCT
 	}
 }
 
-characterfaithchangeROT = {
+characterfaithchangeTCT = {
 	effect = {
 		if = {
 			limit = {
@@ -197,7 +197,7 @@ characterfaithchangeROT = {
 	}
 }
 
-faithconversionROT = {
+faithconversionTCT = {
 	effect = {
 		if = {
 			limit = {

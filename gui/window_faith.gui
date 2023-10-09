@@ -878,7 +878,7 @@ window = {
 							}
 
 							expand = {}
-							vbox = { #ROT
+							vbox = { #TCT
 								layoutpolicy_horizontal = expanding
 								#layoutpolicy_vertical = expanding
 								
