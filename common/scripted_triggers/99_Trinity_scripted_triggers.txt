@@ -413,3 +413,38 @@ triggerforKoH_religiousflavour9 = {
 		NOT = { is_clergy = yes }
 	}
 }
+
+tct_investiture_struggle_switch_sides_decision_liege_requirements_trigger = {
+	OR = {
+		is_independent_ruler = yes
+		custom_description = {
+			text = name_read_in_friday_prayer_crown_authority
+			is_independent_ruler = no
+			liege ?= { has_realm_law = crown_authority_0  }
+		}
+		AND = {
+			has_trait = tct_papal_supporter
+			liege = { has_title = title:e_hre }
+		}
+		# We have to trigger_if this for tooltip reasons.
+		trigger_if = {
+			limit = { is_independent_ruler = no }
+			liege = { government_has_flag = government_is_tribal }
+		}
+	}
+}
+
+tct_investiture_struggle_character_involved_in_struggle_trigger = {
+	any_character_struggle = {
+		involvement = involved
+		is_struggle_type = investiture_controversy_struggle
+	}
+}
+
+tct_investiture_struggle_is_the_emperor = {
+	AND = {
+		any_held_title = {
+			this = title:e_hre
+		}
+	}
+}

@@ -1,0 +1,28 @@
+﻿l_english:
+
+ #Struggle 
+ game_concept_investiture_controversy_struggle: "Investiture Controversy"
+ game_concept_investiture_controversy_struggle_desc: "The $game_concept_investiture_controversy_struggle$" 
+ investiture_controversy_struggle:0 "$game_concept_investiture_controversy_struggle$"
+
+
+ #Decisions
+ tct_investiture_struggle_switch_sides_decision.supporter_turns_detractor.t: "Become Papal Supporter"
+ tct_investiture_struggle_switch_sides_decision.detractor.turns_supporter.t: "Become Imperial Supporter"
+ tct_investiture_struggle_switch_sides_decision.neutral.t: "Declare Stance in the $investiture_controversy_struggle$"
+ tct_investiture_struggle_switch_sides_decision.supporter_turns_detractor.desc.boilerplate: "The Friday Prayer is the most important religious ceremony of the week, ending with a recitation of the realm's spiritual and temporal sovereigns."
+ tct_investiture_struggle_switch_sides_decision.supporter_turns_detractor.desc: "$tct_investiture_struggle_switch_sides_decision.supporter_turns_detractor.desc.boilerplate$\n\nBy removing the caliph's name from this list, I declare to all the Ummah that I consider #EMP myself#! the foremost master of my domain."
+ tct_investiture_struggle_switch_sides_decision.detractor.turns_supporter.desc: "$tct_investiture_struggle_switch_sides_decision.supporter_turns_detractor.desc.boilerplate$\n\nBy emphasizing the preeminence of the caliph at the start of this list, I publicly mark myself as a loyal vassal to the hierarch of Sunni orthodoxy."
+ tct_investiture_struggle_switch_sides_decision.neutral.desc: "$tct_investiture_struggle_switch_sides_decision.supporter_turns_detractor.desc.boilerplate$\n\nBy altering who is read in the list in my realm, and where they place, I can announce where my true loyalties lie."
+ tct_investiture_struggle_switch_sides_decision.tt.orthodox_sunnis_only: "Your [head_of_faith|E] [title|E] must be the [GetTitleByKey('d_sunni').GetName]"
+ tct_investiture_struggle_switch_sides_decision.tt.sunni_caliph_must_exist: "There is no caliph to emphasize or omit at present"
+ tct_investiture_struggle_switch_sides_decision.tt.sunni_caliph_cannot_change_prayer_order: "You #BOL are#! the caliph!"
+ tct_investiture_struggle_switch_sides_decision.tt.require_new_caliph_or_modifier_lapse: "You have sworn too recently — either your [modifier|E] must expire, or the caliph must change"
+ tct_investiture_struggle_switch_sides_decision.tt.require_new_caliph_or_flag_lapse: "You have defied the caliph too recently — either some decades must pass, or the caliph must change"
+ tct_investiture_struggle_switch_sides_decision.tt.caliph_murderers_cant_become_supporters: "You killed a caliph who wasn't part of your [dynasty|E] — no one will take your support seriously"
+ tct_investiture_struggle_switch_sides_decision.tt.become_supporter: "Have the caliph's name read first and most elaborately"
+ tct_investiture_struggle_switch_sides_decision.tt.become_detractor: "Remove the caliph from the list"
+ tct_investiture_struggle_switch_sides_decision.tt.fallback_validity: "#N Otherwise you may still take the [decision|E], at the cost of [stress|E] and extra [piety|E]#!"
+ tct_investiture_struggle_switch_sides_decision_confirm: "For all to hear!"
+ tct_investiture_struggle_switch_sides_decision_tooltip: "Change your allegiance in the [persian_struggle|E]" 
+ name_read_in_friday_prayer_crown_authority: "Your [liege|E] has the law [autonomous_vassals_crown_authority|E]"

@@ -94,4 +94,74 @@ TCT_antipope = {
 	monthly_prestige = 0.2
 }
 
-#RESERVED IN INDEX 905 - 910
+tct_imperial_supporter = {
+	icon = "tct_imperial_supporter.dds"
+	opposites = {
+		tct_papal_supporter
+	}
+	potential = {
+		OR = {
+			any_character_struggle = { this = struggle:investiture_controversy_struggle }
+			has_title = title:e_hre
+		}
+	}
+
+	shown_in_ruler_designer = no
+
+	flag = can_use_install_loyalist_cb
+	
+	same_opinion = 10
+	opposite_opinion = -30
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_tct_imperial_supporter_desc
+			}
+			triggered_desc = {
+				trigger = { has_title = title:d_sunni }
+				desc = trait_tct_imperial_supporter_character_is_caliph_desc
+			}
+			desc = trait_tct_imperial_supporter_character_desc
+		}
+	}
+}
+
+tct_papal_supporter = {
+	icon = "tct_papal_supporter.dds"
+	opposites = {
+		tct_imperial_supporter
+	}
+	potential = {
+		OR = {
+			any_character_struggle = { this = struggle:investiture_controversy_struggle }
+			has_title = title:k_papal_state
+		}
+	}
+
+	shown_in_ruler_designer = no
+
+    flag = can_foment_revolt_interaction
+	
+	same_opinion = 10
+	opposite_opinion = -30
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_tct_papal_supporter_desc
+			}
+			triggered_desc = {
+				trigger = { has_title = title:d_sunni }
+				desc = trait_tct_papal_supporter_character_is_caliph_desc
+			}
+			desc = trait_tct_papal_supporter_character_desc
+		}
+	}
+}

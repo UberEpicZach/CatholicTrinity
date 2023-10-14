@@ -1,0 +1,83 @@
+﻿namespace = tct_investiture_struggle
+
+scripted_trigger tct_investiture_struggle_0001_valid_ai_struggle_char_trigger = {
+	# Basic checks.
+	can_execute_decision = fp3_name_read_in_friday_prayer_decision
+	is_ai = yes
+	# Suitability for switchin' checks.
+	OR = {
+		# If they're gonna become a supporter, it should make sense.
+		AND = {
+			opinion = {
+				target = title:d_sunni.holder
+				value >= low_positive_opinion
+			}
+			OR = {
+				# We check for the opposite, since you're flipflopping.
+				has_trait = fp3_struggle_detractor
+				NOR = {
+					has_trait = fp3_struggle_supporter
+					has_trait = fp3_struggle_detractor
+				}
+			}
+		}
+		# If they're gonna become a detractor, that should make sense too.
+		AND = {
+			opinion = {
+				target = title:d_sunni.holder
+				value <= low_negative_opinion
+			}
+			OR = {
+				# We check for the opposite, since you're flipflopping.
+				has_trait = fp3_struggle_supporter
+				NOR = {
+					has_trait = fp3_struggle_supporter
+					has_trait = fp3_struggle_detractor
+				}
+			}
+		}
+	}
+}
+
+
+tct_investiture_struggle.0001 = {
+	hidden = yes
+	scope = none
+	scope = struggle
+
+	# If the struggle ends, break the loop.
+	trigger = { exists = struggle:investiture_controversy_struggle }
+
+	immediate = {
+		if = {
+			# If there isn't a caliph at present, then stop trying to make people talk about them.
+			limit = { exists = title:e_hre.holder }
+			struggle:investiture_controversy_struggle = {
+				every_involved_ruler = {
+					limit = { fp3_struggle_0001_valid_ai_struggle_char_trigger = yes }
+					random = {
+						#chance = fp3_struggle_switch_sides_value
+						chance = 20
+						execute_decision = tct_investiture_struggle_switch_sides_decision
+					}
+				}
+				every_interloper_ruler = {
+					limit = { fp3_struggle_0001_valid_ai_struggle_char_trigger = yes }
+					random = {
+						#chance = fp3_struggle_switch_sides_value
+						chance = 20
+						execute_decision = tct_investiture_struggle_switch_sides_decision
+					}
+				}
+			}
+		}
+	}
+
+	after = {
+		# Cue this event up again for the next time around.
+		trigger_event = {
+			id = tct_investiture_struggle.0001
+			years = { 3 5 }
+		}
+	}
+}

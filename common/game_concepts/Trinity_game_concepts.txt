@@ -69,3 +69,23 @@ cardinal_archbishop = {
 	parent = cardinals
 	alias = { cardinal_archbishops }
 }
+
+###################################
+# Struggle Stuff
+###################################
+investiture_controversy_struggle = {
+	alias = { struggle_region_region }
+	parent = struggle
+}
+
+# struggle_persia_phase_stabilisation = {
+# 	parent = persian_struggle
+# }
+
+# struggle_persia_phase_unrest = {
+# 	parent = persian_struggle
+# }
+
+# struggle_persia_phase_concession = {
+# 	parent = persian_struggle
+# }
