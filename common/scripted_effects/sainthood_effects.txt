@@ -34,28 +34,29 @@
 			trait = devoted
 			faith = root.faith
 			culture = scope:saint_capital_province.culture
-			learning = { 10 12 }
+			learning = { 8 10 }
+			dynasty = none
 			save_scope_as = saint_day_holder
 		}
 
-		faith = { #debug
-			add_to_variable_list = {
-				name = faith_saint_day_holders
-				target = scope:saint_day_holder
-			}
-			#set_variable = {
-			#	name = recent_denomination
-			#	value = yes
-			#	years = 20
-			#}
-		}
+		#faith = { #DEBUG
+		#	add_to_variable_list = {
+		#		name = faith_saint_day_holders
+		#		target = scope:saint_day_holder
+		#	}
+		#	#set_variable = {
+		#	#	name = recent_denomination
+		#	#	value = yes
+		#	#	years = 20
+		#	#}
+		#} #/DEBUG
 
 		scope:saint_day_holder = {
 			#add_gold = 10
 			#add_prestige = 10
 			set_variable = {
 				name = saint_day_saint
-				value = scope:saint_person
+				value = scope:new_saint
 			}
 			set_variable = {
 				name = saint_day_saint_tomb_location

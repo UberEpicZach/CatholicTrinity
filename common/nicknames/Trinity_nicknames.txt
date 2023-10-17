@@ -1,3 +1,18 @@
 ﻿nick_pope = { is_prefix = yes }
 nick_cardinal = { is_prefix = yes }
 nick_the_tolerant = {}
+
+#Sainthood
+nick_the_ascetic = {}
+nick_the_merciful_saint = {}
+nick_the_zealous = {}
+nick_the_venerable_saint = {}
+nick_the_bard_saint = {}
+nick_the_apostle_saint = {}
+nick_the_virgin = {}
+#nick_of_province = {}
+nick_the_enlightener = {}
+nick_the_miracle_worker_saint = {}
+nick_hammer_of_heretics = {}
+nick_of_the_desert = {}
+nick_the_flagellant = {}

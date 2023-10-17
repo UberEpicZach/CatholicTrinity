@@ -557,6 +557,12 @@ on_theocrat_investiture_death = {
 }
 
 on_person_death_saint = {
+	trigger = { # simple checks to improve performance
+		has_religion = religion:christianity_religion
+		num_virtuous_traits >= 2
+		piety_level >= 1
+		is_adult = yes
+	}
     events = {
         KoH_sainthood.1
     }

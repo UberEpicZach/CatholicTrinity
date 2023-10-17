@@ -2,3 +2,43 @@
  nick_pope:0 "Pope"
  nick_cardinal:0 "Cardinal"
  nick_the_tolerant:0 "The Tolerant"
+ 
+ #Sainthood
+ nick_the_ascetic:0 "the Ascetic"
+ nick_the_ascetic_desc:1 "[CHARACTER.GetShortUINameNoTooltipNoFormat|U] is renowned for [CharYourHerHis(CHARACTER)] stern self-discipline and abstention from worldly pleasures in pursuit of spiritual enlightenment."
+ 
+ nick_the_merciful_saint:0 "the Merciful"
+ nick_the_merciful_saint_desc:1 "Where others judge, [CHARACTER.GetShortUINameNoTooltipNoFormat|U] offers compassion; where others punish, [CharYouSheHe(CHARACTER)] grants mercy."
+ 
+ nick_the_zealous:0 "the Zealous"
+ nick_the_zealous_desc:1 "No one can question [CHARACTER.GetShortUINameNoTooltipNoFormat|U]'s passionate dedication to [CHARACTER.GetFaith.GetNameNoTooltip], as [CharYouSheHe(CHARACTER)] fervently promotes and defends it."
+ 
+ nick_the_venerable_saint:0 "the Venerable"
+ nick_the_venerable_saint_desc:1 "Respected and revered by many, [CHARACTER.GetShortUINameNoTooltipNoFormat|U]'s virtuous life serves as an example for all followers of [CHARACTER.GetFaith.GetNameNoTooltip]."
+ 
+ nick_the_bard_saint:0 "the Bard"
+ nick_the_bard_saint_desc:1 "[CHARACTER.GetShortUINameNoTooltipNoFormat|U] blends faith with melody, spreading the teachings of [CHARACTER.GetFaith.GetNameNoTooltip] through song and poetry."
+ 
+ nick_the_apostle_saint:0 "the Apostle"
+ nick_the_apostle_saint_desc:1 "With a mission to spread the word of [CHARACTER.GetFaith.GetNameNoTooltip], [CHARACTER.GetShortUINameNoTooltipNoFormat|U]'s evangelical zeal mirrors that of the original apostles."
+ 
+ nick_the_virgin:0 "the Virgin"
+ nick_the_virgin_desc:1 "Living a life of purity and chastity, [CHARACTER.GetShortUINameNoTooltipNoFormat|U] dedicates [CharYourHerHis(CHARACTER)] soul entirely to [CHARACTER.GetFaith.GetNameNoTooltip]."
+ 
+ #nick_of_province:0 "of [saint_capital_province.GetName]"
+ #nick_of_province_desc:1 "Bound to the land of [CHARACTER.GetProvince.GetName], [CHARACTER.GetShortUINameNoTooltipNoFormat|U]'s deeds and devotion resonate through every corner of the province."
+ 
+ nick_the_enlightener:0 "the Enlightener"
+ nick_the_enlightener_desc:1 "[CHARACTER.GetShortUINameNoTooltipNoFormat|U]'s teachings illuminate the true essence of [CHARACTER.GetFaith.GetNameNoTooltip], guiding many out of darkness. "
+ 
+ nick_the_miracle_worker_saint:0 "the Miracle Worker"
+ nick_the_miracle_worker_saint_desc:1 "Through divine intervention, [CHARACTER.GetShortUINameNoTooltipNoFormat|U] performs wonders that attest to [CharYourHerHis(CHARACTER)] deep connection with [CHARACTER.GetFaith.CreatorName]."
+ 
+ nick_hammer_of_heretics:0 "the Hammer of Heretics"
+ nick_hammer_of_heretics_desc:1 "With unyielding conviction, [CHARACTER.GetShortUINameNoTooltipNoFormat|U] confronts and refutes any who stray from the true teachings of [CHARACTER.GetFaith.GetNameNoTooltip]."
+ 
+ nick_of_the_desert:0 "of the Desert"
+ nick_of_the_desert_desc:1 "In the vastness of the desert, [CHARACTER.GetShortUINameNoTooltipNoFormat|U] finds solace and communion with [CHARACTER.GetFaith.CreatorName], living a life of profound contemplation."
+
+ nick_the_flagellant:0 "the Flagellant"
+ nick_of_the_desert_desc:1 "Driven by an unyielding desire for penance and spiritual purification, [CHARACTER.GetShortUINameNoTooltipNoFormat|U] embraces self-inflicted suffering, seeking closeness to [CHARACTER.GetFaith.CreatorName] through physical atonement."

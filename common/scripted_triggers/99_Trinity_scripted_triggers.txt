@@ -62,6 +62,18 @@ has_virtue_trigger = {
 	}
 }
 
+has_criminal_trait_trigger = {
+	OR = {
+		has_trait = incestuous
+		has_trait = adulterer
+		has_trait = fornicator
+		has_trait = deviant
+		has_trait = witch
+		has_trait = sodomite
+		has_trait = cannibal
+	}
+}
+
 sainthood_temple_exists = {
 	faith:catholic = {
 		any_faith_ruler = {
@@ -78,10 +90,11 @@ sainthood_event1trigger = {
 		has_trait = excommunicated
 		has_trait = drunkard
 		has_trait = lifestyle_reveler
-		has_trait = cannibal
 		#controls_religion = yes
 		has_faith = faith:waldensian
 		has_trait = kinslayer
+		has_impious_trait_trigger = yes
+		has_criminal_trait_trigger = yes
 	}
 
 	NOT =  { has_trait = TCT_antipope } # Antipopes
@@ -89,23 +102,23 @@ sainthood_event1trigger = {
 	OR = {
 		AND = {
 			highest_held_title_tier = tier_empire
-			piety >= 3000
+			piety >= 3500
 		}
 		AND = {
 			highest_held_title_tier = tier_kingdom
-			piety >= 2500
+			piety >= 3000
 		}
 		AND = {
 			highest_held_title_tier = tier_duchy
-			piety >= 2000
+			piety >= 2500
 		}
 		AND = {
 			highest_held_title_tier = tier_county
-			piety >= 1500
+			piety >= 2000
 		}
 		AND = {
 			highest_held_title_tier = tier_barony
-			piety >= 1000
+			piety >= 1500
 		}
 		AND = {
 			is_landed = no
@@ -113,27 +126,28 @@ sainthood_event1trigger = {
 		}
 	}
 
-	has_religion = religion:christianity_religion
-	num_virtuous_traits >= 2
 	has_vice_trigger = no
 	has_benevolent_trait_trigger = yes
 	has_virtue_trigger = yes
-	is_adult = yes
 }
 
-#sainthood_event2trigger = { #WIP for KoH_sainthood.2 #Decision if to be Beatified
-#	NOR = {
-#		has_trait = excommunicated
-#		has_trait = drunkard
-#		has_trait = lifestyle_reveler
-#		has_trait = cannibal
-#		#controls_religion = yes
-#		has_faith = faith:waldensian
-#		has_trait = kinslayer
-#	}
-#
-#	NOT =  { has_trait = TCT_antipope } # Antipopes
-#}
+
+sainthood_pious_bishop = {
+	NOR = {
+		has_trait = excommunicated
+		has_trait = drunkard
+		has_trait = lifestyle_reveler
+		#controls_religion = yes
+		has_faith = faith:waldensian
+		has_trait = kinslayer
+		has_impious_trait_trigger = yes
+	}
+
+	NOT =  { has_trait = TCT_antipope } # Antipopes
+
+	piety_level >= 1
+	num_sinful_traits < 1
+}
 
 CatholicTrinityModule_is_loaded = { always = yes }
 
