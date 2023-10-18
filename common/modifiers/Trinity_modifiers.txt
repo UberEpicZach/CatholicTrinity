@@ -43,3 +43,17 @@ murdered_biship_modifier = {
 	general_opinion = -20
 	clergy_opinion = -90
 }
+
+investiture_controversy_struggle_switch_sides_support_emperor = {
+	icon = prestige_positive
+	monthly_piety_gain_per_happy_powerful_vassal_mult = 0.05
+	diplomacy = 2
+	title_creation_cost_mult = -0.2
+}
+
+investiture_controversy_struggle_switch_sides_support_papal = {
+	icon = piety_positive
+	religious_head_opinion = 20
+	learning = 2
+	diplomacy_per_piety_level = 1
+}

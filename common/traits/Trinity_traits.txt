@@ -95,7 +95,7 @@ TCT_antipope = {
 }
 
 tct_imperial_supporter = {
-	icon = "tct_imperial_supporter.dds"
+	icon = "imperial_supporter.dds"
 	opposites = {
 		tct_papal_supporter
 	}
@@ -131,7 +131,7 @@ tct_imperial_supporter = {
 }
 
 tct_papal_supporter = {
-	icon = "tct_papal_supporter.dds"
+	icon = "papal_supporter.dds"
 	opposites = {
 		tct_imperial_supporter
 	}

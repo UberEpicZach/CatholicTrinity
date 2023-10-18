@@ -1,0 +1,540 @@
+﻿namespace = tct_investiture_struggle
+
+scripted_trigger tct_investiture_struggle_0001_valid_ai_struggle_char_trigger = {
+	# Basic checks.
+	can_execute_decision = fp3_name_read_in_friday_prayer_decision
+	is_ai = yes
+	# Suitability for switchin' checks.
+	OR = {
+		# If they're gonna become a supporter, it should make sense.
+		AND = {
+			opinion = {
+				target = title:e_hre.holder
+				value >= low_positive_opinion
+			}
+			OR = {
+				# We check for the opposite, since you're flipflopping.
+				has_trait = tct_papal_supporter
+				NOR = {
+					has_trait = tct_imperial_supporter
+					has_trait = tct_papal_supporter
+				}
+			}
+		}
+		# If they're gonna become a detractor, that should make sense too.
+		AND = {
+			opinion = {
+				target = title:e_hre.holder
+				value <= low_negative_opinion
+			}
+			OR = {
+				# We check for the opposite, since you're flipflopping.
+				has_trait = tct_imperial_supporter
+				NOR = {
+					has_trait = tct_imperial_supporter
+					has_trait = tct_papal_supporter
+				}
+			}
+		}
+	}
+}
+
+
+tct_investiture_struggle.0001 = {
+	hidden = yes
+	scope = none
+	scope = struggle
+
+	# If the struggle ends, break the loop.
+	trigger = { exists = struggle:investiture_controversy_struggle }
+
+	immediate = {
+		if = {
+			# If there isn't a caliph at present, then stop trying to make people talk about them.
+			limit = { exists = title:e_hre.holder }
+			struggle:investiture_controversy_struggle = {
+				every_involved_ruler = {
+					limit = { fp3_struggle_0001_valid_ai_struggle_char_trigger = yes }
+					random = {
+						#chance = fp3_struggle_switch_sides_value
+						chance = 20
+						execute_decision = tct_investiture_struggle_switch_sides_decision
+					}
+				}
+				every_interloper_ruler = {
+					limit = { fp3_struggle_0001_valid_ai_struggle_char_trigger = yes }
+					random = {
+						#chance = fp3_struggle_switch_sides_value
+						chance = 20
+						execute_decision = tct_investiture_struggle_switch_sides_decision
+					}
+				}
+			}
+		}
+	}
+
+	after = {
+		# Cue this event up again for the next time around.
+		trigger_event = {
+			id = tct_investiture_struggle.0001
+			years = { 3 5 }
+		}
+	}
+}
+
+##################################################
+# #Islamic Decision Events
+# 0015-0016 - Friday Prayer Politics
+# by Ewan Cowhig Croft
+##################################################
+
+scripted_effect tct_investiture_struggle_0015_apply_rebellious_stress_effect = {
+	stress_impact = {
+		arrogant = miniscule_stress_impact_loss
+		ambitious = minor_stress_impact_loss
+		disloyal = minor_stress_impact_loss
+		humble = minor_stress_impact_gain
+		content = medium_stress_impact_gain
+		loyal = major_stress_impact_gain
+	}
+}
+
+scripted_effect tct_investiture_struggle_apply_seditious_intent_effect = {
+	add_prestige = major_prestige_gain
+	save_scope_as = prestige_gained
+	reverse_add_opinion = {
+		target = liege
+		modifier = fp3_plotting_rebellion_opinion
+		opinion = -30
+	}
+	# Notify the liege.
+	hidden_effect = {
+		liege = {
+			send_interface_toast = {
+				title = tct_investiture_struggle.0015.vassal_semi_rebel
+				left_icon = root
+				reverse_add_opinion = {
+					target = root
+					modifier = respect_opinion
+					opinion = -30
+				}
+			}
+		}
+	}
+}
+
+# Your name is read in the Friday Prayer
+tct_investiture_struggle.0015 = {
+	type = character_event
+	title = tct_investiture_struggle.0015.t
+	desc = {
+		# Who are we switching to?
+		first_valid = {
+			# Supporter: switching to detractor.
+			triggered_desc = {
+				trigger = { has_trait = tct_papal_supporter }
+				desc = tct_investiture_struggle.0015.desc.switch.supporter_becoming_detractor
+			}
+			# Detractor: switching to supporter.
+			triggered_desc = {
+				trigger = { has_trait = tct_imperial_supporter }
+				desc = tct_investiture_struggle.0015.desc.switch.detractor_becoming_supporter
+			}
+			# Neutral: switching to either.
+			desc = tct_investiture_struggle.0015.desc.switch.presently_neutral
+		}
+		# Do we have a liege to consider?
+		first_valid = {
+			# Yes, and we're making our alignment choice in the event.
+			triggered_desc = {
+				trigger = {
+					NOR = {
+						has_trait = tct_imperial_supporter
+						has_trait = tct_papal_supporter
+					}
+					liege ?= {
+						OR = {
+							has_trait = tct_imperial_supporter
+							has_trait = tct_papal_supporter
+						}
+					}
+				}
+				desc = tct_investiture_struggle.0015.desc.liege.presently_neutral
+			}
+			# Yes, and we'll be aligning with them.
+			triggered_desc = {
+				trigger = {
+					OR = {
+						AND = {
+							has_trait = tct_imperial_supporter
+							liege ?= { has_trait = tct_imperial_supporter }
+						}
+						AND = {
+							has_trait = tct_papal_supporter
+							liege ?= { has_trait = tct_papal_supporter }
+						}
+					}
+				}
+				desc = tct_investiture_struggle.0015.desc.liege.aligning
+			}
+			# Yes, and we'll be contradicting them.
+			triggered_desc = {
+				trigger = {
+					OR = {
+						AND = {
+							has_trait = tct_imperial_supporter
+							liege ?= { has_trait = tct_papal_supporter }
+						}
+						AND = {
+							has_trait = tct_papal_supporter
+							liege ?= { has_trait = tct_imperial_supporter }
+						}
+					}
+				}
+				desc = tct_investiture_struggle.0015.desc.liege.contradicting
+			}
+			# Yes, and they don't much care.
+			triggered_desc = {
+				trigger = {
+					liege ?= {
+						NOR = {
+							has_trait = tct_imperial_supporter
+							has_trait = tct_papal_supporter
+						}
+					}
+				}
+			}
+			# Else no, and we need no loc.
+		}
+	}
+	theme = faith
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	right_portrait = {
+		character = scope:right_portrait
+		triggered_animation = {
+			trigger = {
+				OR = {
+					AND = {
+						has_trait = tct_imperial_supporter
+						scope:right_portrait = { has_trait = tct_imperial_supporter }
+					}
+					AND = {
+						has_trait = tct_papal_supporter
+						scope:right_portrait = { has_trait = tct_papal_supporter }
+					}
+				}
+			}
+			animation = admiration
+		}
+		triggered_animation = {
+			trigger = {
+				OR = {
+					AND = {
+						has_trait = tct_imperial_supporter
+						scope:right_portrait = { has_trait = tct_papal_supporter}
+					}
+					AND = {
+						has_trait = tct_papal_supporter
+						scope:right_portrait = { has_trait = tct_imperial_supporter }
+					}
+				}
+			}
+			animation = anger
+		}
+	}
+	lower_center_portrait = { character = scope:lower_centre_portrait }
+
+
+	immediate = {
+		title:e_hre.holder = {
+			save_scope_as = emperor
+		}
+		title:e_hre = {
+			save_scope_as = empire
+		}
+		title:k_papal_state.holder = {
+			save_scope_as = pope
+		}
+		title:k_papal_state = {
+			save_scope_as = papal_state
+		}
+
+
+
+		# Work out who goes in the righthand portrait slot.
+		## Do we have a suitable liege?
+		if = {
+			limit = {
+				is_independent_ruler = no
+				liege = {
+					OR = {
+						has_trait = tct_imperial_supporter
+						has_trait = tct_papal_supporter
+					}
+					NOT = { has_title = title:e_hre }
+				}
+			}
+			liege = { save_scope_as = right_portrait }
+			# In which case, we try to put the caliph in the bottom slot.
+			title:e_hre.holder = {
+				if = {
+					limit = {
+						NOT = { this = root.liege }
+					}
+					save_scope_as = lower_centre_portrait
+				}
+			}
+		}
+		## If we don't, it's the caliph.
+		else = {
+			title:e_hre.holder = { save_scope_as = right_portrait }
+			# If we still have a liege, we put them in the bottom slot as they're mentioned in the copy — even though it's for not much caring.
+			if = {
+				limit = { is_independent_ruler = no }
+				liege = { save_scope_as = lower_centre_portrait }
+			}
+		}
+		## If we're flipflopping, apply base logic.
+		if = {
+			limit = {
+				OR = {
+					has_trait = tct_imperial_supporter
+					has_trait = tct_papal_supporter
+				}
+			}
+			investiture_controversy_struggle_switch_sides_scripted_effect = yes
+			# For ease of reference, we save a scope to avoid rechecking this constantly.
+			save_scope_value_as = {
+				name = change_type
+				value = flag:flipflop
+			}
+		}
+		## If we're neutral, we only flag that — we'll make our actual choice in the options.
+		else = {
+			save_scope_value_as = {
+				name = change_type
+				value = flag:neutral
+			}
+		}
+	}
+
+	# Neutral: become a Papal supporter, irritate liege if HRE.
+	option = {
+		name = tct_investiture_struggle.0015.a
+		flavor = tct_investiture_struggle.0015.a.tt
+		trigger = {
+			scope:change_type = flag:neutral
+			liege ?= {
+				NOR = {
+					this = prev
+					this = title:e_hre.holder
+				}
+			}
+		}
+
+		# Switch traits.
+		investiture_controversy_struggle_switch_sides_become_papal_supporter_effect = yes
+		# Annoy your liege.
+		tct_investiture_struggle_apply_seditious_intent_effect = yes
+		# Apply the remainder effects.
+		investiture_controversy_struggle_switch_sides_sundry_changes_effect = yes
+		#read_name_in_friday_prayer_guts_apply_house_unity_changes_effect = yes
+
+		tct_investiture_struggle_0015_apply_rebellious_stress_effect = yes
+		ai_chance = {
+			base = 1
+			ai_value_modifier = {
+				ai_boldness = 1
+				ai_honor = -0.25
+			}
+			opinion_modifier = {
+				opinion_target = liege
+				multiplier = -1
+			}
+		}
+	}
+
+	# Neutral: become a imperial supporter, ignore liege.
+	option = {
+		name = tct_investiture_struggle.0015.b
+		trigger = { scope:change_type = flag:neutral }
+
+		# Switch traits.
+		investiture_controversy_struggle_switch_sides_become_imperial_supporter_effect = yes
+		# Apply the remainder effects.
+		investiture_controversy_struggle_switch_sides_sundry_changes_effect = yes
+		#read_name_in_friday_prayer_guts_apply_house_unity_changes_effect = yes
+
+		# No extra stress on ignore.
+		ai_chance = {
+			base = 1
+			ai_value_modifier = {
+				ai_honor = 0.5
+				ai_boldness = -0.25
+			}
+			opinion_modifier = {
+				opinion_target = liege
+				multiplier = 1
+			}
+		}
+	}
+
+	# Neutral: become a papal supporter detractor, irritate liege.
+	option = {
+		name = tct_investiture_struggle.0015.c
+		flavor = tct_investiture_struggle.0015.c.tt
+		trigger = {
+			scope:change_type = flag:neutral
+			liege ?= {
+				NOR = {
+					this = prev
+					this = title:e_hre.holder
+				}
+			}
+		}
+
+		# Switch traits.
+		investiture_controversy_struggle_switch_sides_become_papal_supporter_effect = yes
+		# Annoy your liege.
+		tct_investiture_struggle_apply_seditious_intent_effect = yes
+		# Apply the remainder effects.
+		investiture_controversy_struggle_switch_sides_sundry_changes_effect = yes
+		#read_name_in_friday_prayer_guts_apply_house_unity_changes_effect = yes
+
+		tct_investiture_struggle_0015_apply_rebellious_stress_effect = yes
+		ai_chance = {
+			base = 1
+			ai_value_modifier = {
+				ai_boldness = 1
+				ai_honor = -0.25
+			}
+			opinion_modifier = {
+				opinion_target = liege
+				multiplier = -1
+			}
+		}
+	}
+
+	# Neutral: become a papal detractor, ignore liege.
+	option = {
+		name = tct_investiture_struggle.0015.d
+		trigger = { scope:change_type = flag:neutral }
+
+		# Switch traits.
+		investiture_controversy_struggle_switch_sides_become_papal_supporter_effect = yes
+		# Apply the remainder effects.
+		investiture_controversy_struggle_switch_sides_sundry_changes_effect = yes
+		#read_name_in_friday_prayer_guts_apply_house_unity_changes_effect = yes
+
+		# No extra stress on ignore.
+		ai_chance = {
+			base = 1
+			ai_value_modifier = {
+				ai_honor = 0.5
+				ai_boldness = -0.25
+			}
+			opinion_modifier = {
+				opinion_target = liege
+				multiplier = 1
+			}
+		}
+	}
+
+	# Flipflopped + irritate liege.
+	option = {
+		name = tct_investiture_struggle.0015.e
+		flavor = tct_investiture_struggle.0015.e.tt
+		trigger = {
+			scope:change_type = flag:flipflop
+			liege ?= {
+				NOR = {
+					this = prev
+					this = title:e_hre.holder
+				}
+			}
+		}
+
+		# Annoy your liege.
+		tct_investiture_struggle_apply_seditious_intent_effect = yes
+
+		tct_investiture_struggle_0015_apply_rebellious_stress_effect = yes
+		ai_chance = {
+			base = 1
+			ai_value_modifier = {
+				ai_boldness = 1
+				ai_honor = -0.25
+			}
+			opinion_modifier = {
+				opinion_target = liege
+				multiplier = -1
+			}
+		}
+	}
+
+	# Flipflopped + ignore liege.
+	option = {
+		name = tct_investiture_struggle.0015.f
+		trigger = { scope:change_type = flag:flipflop }
+
+		# No further effects.
+
+		# No extra stress on ignore.
+		ai_chance = {
+			base = 1
+			ai_value_modifier = {
+				ai_honor = 0.5
+				ai_boldness = -0.25
+			}
+			opinion_modifier = {
+				opinion_target = liege
+				multiplier = 1
+			}
+		}
+	}
+
+	after = {
+		# Plus this can be a catalyst.
+		hidden_effect = {
+			if = {
+				limit = {
+					is_important_or_vip_struggle_character = yes
+					OR = {
+						AND = {
+							any_character_struggle = { phase_has_catalyst = catalyst_became_imperial_supporter_tct }
+							has_trait = tct_imperial_supporter
+						}
+						AND = {
+							any_character_struggle = { phase_has_catalyst = catalyst_became_papal_supporter_tct }
+							has_trait = tct_papal_supporter
+						}
+					}
+				}
+				## Is the character now a supporter? Move towards stabilisation.
+				if = {
+					limit = { has_trait = tct_imperial_supporter }
+					every_character_struggle = {
+						activate_struggle_catalyst = {
+							catalyst = catalyst_became_imperial_supporter_tct
+							character = root
+						}
+						log_debug_variable_for_persian_struggle_effect = { VAR = stabil_catalyst_became_imperial_supporter_tct }
+					}
+				}
+				## Is the character now a detractor? Move towards unrest.
+				if = {
+					limit = { has_trait = tct_papal_supporter }
+					every_character_struggle = {
+						activate_struggle_catalyst = {
+							catalyst = catalyst_became_imperial_supporter_tct
+							character = root
+						}
+						log_debug_variable_for_persian_struggle_effect = { VAR = unrest_catalyst_became_imperial_supporter_tct }
+					}
+				}
+			}
+		}
+	}
+}

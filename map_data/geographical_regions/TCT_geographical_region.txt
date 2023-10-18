@@ -210,12 +210,12 @@
 
 custom_investiture_struggle = {
 	duchies = {
-		#d_burgundy d_provence d_savoie d_dauphine d_upper_burgundy d_transjurania
+		d_burgundy d_provence d_savoie d_dauphine d_upper_burgundy d_transjurania d_bar
 		# Bohemia
 		d_bohemia d_moravia
 		# Saxony
 		d_anhalt d_angria d_westfalen d_ostfalen d_meissen d_lausitz d_holstein d_thuringia d_ostmark d_northmark
-		d_holland d_gelre d_brabant d_utrecht
+		d_holland d_gelre d_brabant d_utrecht d_frisia
 		d_luxembourg d_brabant d_julich d_upper_lorraine d_lower_lorraine
 		d_bavaria d_nordgau d_salzburg d_augsburg d_steyermark d_osterreich d_tyrol d_carinthia d_krain d_istria
 		d_east_franconia d_west_franconia d_hesse d_currezia d_alsace d_swabia
@@ -225,6 +225,6 @@ custom_investiture_struggle = {
 		d_romagna d_ancona d_spoleto
 		#k_sardinia (exempting Sardinia)
 		d_corsica
-		#Exclude k_venezia and d_latium
-	}
+		d_latium d_venice
+	} 
 }

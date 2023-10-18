@@ -1,10 +1,44 @@
 ﻿l_english:
 
+ tct_papal_supporter:0 "Papal Supporter"
+ tct_imperial_supporter:0 "Imperial Supporter"
+ trait_tct_papal_supporter:0 "Papal Supporter"
+ trait_tct_imperial_supporter:0 "Imperial Supporter"
+ 
  #Struggle 
  game_concept_investiture_controversy_struggle: "Investiture Controversy"
  game_concept_investiture_controversy_struggle_desc: "The $game_concept_investiture_controversy_struggle$" 
  investiture_controversy_struggle:0 "$game_concept_investiture_controversy_struggle$"
 
+ custom.every_opposed_involved_struggle_ruler.imperal_supporter: "Every [GetTrait('tct_imperial_supporter').GetName( GetNullCharacter )] [struggle_involved|E] [ruler|E]"
+ custom.every_opposed_interloper_struggle_ruler.imperal_supporter: "Every [GetTrait('tct_imperial_supporter').GetName( GetNullCharacter )] [struggle_interloper|E] [ruler|E]"
+ custom.every_opposed_involved_struggle_ruler.papal_supporter: "Every [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )] [struggle_involved|E] [ruler|E]"
+ custom.every_opposed_interloper_struggle_ruler.papal_supporter: "Every [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )] [struggle_interloper|E] [ruler|E]"
+
+ catalyst_became_imperial_supporter_tct: "An important [character|E] took the [decision|E] to become a [GetTrait('tct_imperial_supporter').GetName( GetNullCharacter )]"
+ catalyst_became_imperial_supporter_tct_desc: "Important [character|E] takes the [decision|E] to become a [GetTrait('tct_imperial_supporter').GetName( GetNullCharacter )]"
+ catalyst_became_detractor_tct: "An important [character|E] took the [decision|E] to become a [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )]"
+ catalyst_became_detractor_tct_desc: "Important [character|E] takes the [decision|E] to become a [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )]"
+
+
+ tct_investiture_struggle.0015.t: "Announcements at Court"
+ tct_investiture_struggle.0015.desc.switch.supporter_becoming_detractor: "I have declared that henceforth, in my lands, that we will support the [papal_state.GetName] in the name of the Church."
+ tct_investiture_struggle.0015.desc.switch.detractor_becoming_supporter: "I have declared that henceforth, in my lands, that we will support the [emperor.GetName] in full strength."
+ tct_investiture_struggle.0015.desc.switch.presently_neutral: "Rulers all around me are picking sides, either supporting the unity of the [empire.GetName] or asserting their support for the [papal_state.GetName].\n\nThough I am currently undeclared, changing my stance is a simple matter."
+ tct_investiture_struggle.0015.desc.liege.presently_neutral: "Doubtless my [ROOT.Char.GetLiege.GetTitledFirstName] hopes I intend to follow in [ROOT.Char.GetLiege.GetHerHis] footsteps on this issue."
+ tct_investiture_struggle.0015.desc.liege.aligning: "Fortunately, this brings me into perfect alignment with my liege [ROOT.Char.GetLiege.GetTitledFirstName], who shares my new beliefs."
+ tct_investiture_struggle.0015.desc.liege.contradicting: "Still, it is concerning that my liege [ROOT.Char.GetLiege.GetTitledFirstName] does not share my position, and will likely think poorly of my new stance."
+ tct_investiture_struggle.0015.desc.liege.fallback: "Though of great importance to myself and [emperor.GetName], I doubt my liege [ROOT.Char.GetLiege.GetTitledFirstName] much cares for such internal politics."
+ tct_investiture_struggle.0015.a: "I support my [emperor.GetName], but not my [ROOT.Char.GetLiege.GetTitleAsNameNoTooltip]."
+ tct_investiture_struggle.0015.a.tt: "Your name is read instead of [ROOT.Char.Custom2('YourCharacterIntroduction', ROOT.Char.GetLiege)]"
+ tct_investiture_struggle.0015.b: "[emperor.GetShortUIName] has my loyalty!"
+ tct_investiture_struggle.0015.c: "I am more important than either of these fools."
+ tct_investiture_struggle.0015.c.tt: "$tct_investiture_struggle.0015.a.tt$"
+ tct_investiture_struggle.0015.d: "[emperor.GetHerHis|U] place is at [emperor.GetCapitalLocation.GetTitle.GetNameNoTierNoTooltip], not [ROOT.Char.GetCapitalLocation.GetTitle.GetNameNoTierNoTooltip]."
+ tct_investiture_struggle.0015.e: "Perhaps my name should replace my liege's..."
+ tct_investiture_struggle.0015.e.tt: "$tct_investiture_struggle.0015.a.tt$"
+ tct_investiture_struggle.0015.f: "I have done a bold thing here."
+ tct_investiture_struggle.0015.vassal_semi_rebel: "Vassal Rubbishes your Suzerainty"
 
  #Decisions
  tct_investiture_struggle_switch_sides_decision.supporter_turns_detractor.t: "Become Papal Supporter"

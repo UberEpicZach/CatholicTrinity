@@ -1,0 +1,179 @@
+﻿##### Struggle Ending #####
+end_investiture_controversy_struggle_effect = {
+	if = {
+		limit = {
+			exists = title:e_hre.holder
+			title:e_hre.holder = { has_character_modifier = fp3_struggle_caliph_super_suspicious_modifier }
+		}
+		title:e_hre.holder = { remove_character_modifier = fp3_struggle_caliph_super_suspicious_modifier }
+	}
+
+	every_in_global_list = { # We de-flag chars (surprisingly performance friendly, from all possible options)
+		variable = fp3_intro_flag_character_list
+		if = {
+			limit = { has_character_flag = fp3_struggle_intro_event_flag } # Since only alive chars have flags, we don't need to check for anything else
+			remove_character_flag = fp3_struggle_intro_event_flag
+		}
+	}
+
+	# Global variable tracking.
+	## For usage in councillor tasks.
+	set_global_variable = {
+		name = fp3_struggle_ending
+		value = $FLAG$
+	}
+	## For debug purposes.
+	if = {
+		limit = { gather_debug_variables_for_persian_struggle_trigger = yes }
+		increment_global_variable_effect = {
+			VAL = current_year
+			VAR = sp_end_date
+		}
+	}
+
+	every_player = {
+		limit = { fp3_does_this_player_care_about_the_persian_struggle = yes } # Needs to be checked before the struggle ends due to race condition issues
+		add_to_list = player_to_notify # Making a list so stuff is tiggered after the struggle ends, to make extra sure I don't break anything.
+	}
+
+	every_in_list = { # Then we *actually* notify palyers, making sure the struggle has already ended
+		list = player_to_notify
+		limit = {
+			NOT = { this = root }
+		}
+		trigger_event = $EVENT$
+	}
+	struggle:persian_struggle ?= { end_struggle = $ENDING$ }
+}
+
+investiture_controversy_struggle_switch_sides_sundry_changes_effect = {
+	# More like notoriety, but potato-potatoe.
+	if = {
+		limit = {
+			NOT = { exists = scope:prestige_gained }
+		}
+		add_prestige = medium_prestige_gain
+	}
+	# Are we getting an extra surcharge of stress?
+	if = {
+		limit = { tct_investiture_struggle_switch_sides_decision_liege_requirements_trigger = no }
+		add_stress = major_stress_gain
+	}
+	# Plus check who the current caliph is so we can see who you swore to.
+	set_variable = {
+		name = last_explicit_hre_ruler
+		value = title:e_hre.holder
+	}
+}
+
+investiture_controversy_struggle_switch_sides_become_imperial_supporter_effect = {
+	hidden_effect = { remove_trait = tct_papal_supporter }
+	add_trait_force_tooltip = tct_imperial_supporter
+	add_character_modifier = {
+		modifier = investiture_controversy_struggle_switch_sides_support_emperor
+		years = 20
+	}
+}
+
+investiture_controversy_struggle_switch_sides_become_papal_supporter_effect = {
+	hidden_effect = { remove_trait = tct_imperial_supporter }
+	add_trait_force_tooltip = tct_papal_supporter
+	add_character_modifier = {
+		modifier = investiture_controversy_struggle_switch_sides_support_papal
+		years = 20
+	}
+}
+
+investiture_controversy_struggle_switch_sides_scripted_effect = {
+	# Apply the appropriate modifier.
+	## Neutrals pick in the event.
+	if = {
+		limit = {
+			NOR = {
+				has_trait = tct_imperial_supporter
+				has_trait = tct_papal_supporter
+			}
+		}
+		show_as_tooltip = {
+			random_list = {
+				# Become a supporter.
+				100 = {
+					show_chance = no
+					desc = fp3_name_read_in_friday_prayer_decision.tt.become_supporter
+					investiture_controversy_struggle_switch_sides_become_imperial_supporter_effect = yes
+				}
+				# Become a detractor.
+				100 = {
+					show_chance = no
+					desc = fp3_name_read_in_friday_prayer_decision.tt.become_detractor
+					investiture_controversy_struggle_switch_sides_become_papal_supporter_effect = yes
+				}
+			}
+		}
+	}
+	## Supporters become Detractors.
+	else_if = {
+		limit = { has_trait = tct_imperial_supporter }
+		investiture_controversy_struggle_switch_sides_become_papal_supporter_effect = yes
+		struggle:investiture_controversy_struggle = {
+			every_involved_ruler = {
+				custom = custom.every_opposed_involved_struggle_ruler.imperal_supporter
+				limit = {
+					NOT = { this = root }
+					has_trait = tct_imperial_supporter
+				}
+				add_opinion = {
+					target = root
+					modifier = turncoat_opinion
+					opinion = -40
+				}
+			}
+			every_interloper_ruler = {
+				custom = custom.every_opposed_interloper_struggle_ruler.imperal_supporter
+				limit = {
+					NOT = { this = root }
+					has_trait = tct_imperial_supporter
+				}
+				add_opinion = {
+					target = root
+					modifier = turncoat_opinion
+					opinion = -20
+				}
+			}
+		}
+	}
+	## Detractors become Supporters.
+	else_if = {
+		limit = { has_trait = tct_papal_supporter }
+		investiture_controversy_struggle_switch_sides_become_imperial_supporter_effect = yes
+		struggle:investiture_controversy_struggle = {
+			every_involved_ruler = {
+				custom = custom.every_opposed_involved_struggle_ruler.papal_supporter
+				limit = {
+					NOT = { this = root }
+					has_trait = tct_papal_supporter
+				}
+				add_opinion = {
+					target = root
+					modifier = turncoat_opinion
+					opinion = -40
+				}
+			}
+			every_interloper_ruler = {
+				custom = custom.every_opposed_interloper_struggle_ruler.detractor
+				limit = {
+					NOT = { this = root }
+					has_trait = tct_papal_supporter
+				}
+				add_opinion = {
+					target = root
+					modifier = turncoat_opinion
+					opinion = -20
+				}
+			}
+		}
+	}
+	# Finish things off.
+	investiture_controversy_struggle_switch_sides_sundry_changes_effect = yes
+	read_name_in_friday_prayer_guts_apply_house_unity_changes_effect = yes
+}

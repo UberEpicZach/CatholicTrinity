@@ -1,0 +1,2 @@
+﻿catalyst_became_imperial_supporter_tct = {}
+catalyst_became_papal_supporter_tct = {}
