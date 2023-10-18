@@ -33,6 +33,7 @@ autoerrorfixer.1 = {
 		fix_variable_error = {ERROR = faith_saint_day_dummy_chars}
 		fix_variable_error = {ERROR = TCT_commissioned_sisitine_chapel}
 		fix_variable_error = {ERROR = pilgrimage_cooldown_timer}
+		fix_variable_error = {ERROR = hosting_saint_day}
 	}
 }
 autoerrorfixer.2 = {

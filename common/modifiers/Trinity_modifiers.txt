@@ -6,14 +6,6 @@
 	monthly_piety_gain_mult = 0.3
 }
 
-
-saintly_tomb = {
-	icon = county_modifier_opinion_positive
-	monthly_income = 1.5
-	development_growth_factor = medium_development_growth_gain
-	development_growth = 0.15
-}
-
 koh_governs_vast_estates = {
 	icon = feast_positive
 	monthly_income = 1
@@ -56,4 +48,23 @@ investiture_controversy_struggle_switch_sides_support_papal = {
 	religious_head_opinion = 20
 	learning = 2
 	diplomacy_per_piety_level = 1
+}
+#Sainthood
+local_veneration = {
+	icon = county_modifier_opinion_positive
+	monthly_income = 0.1
+	development_growth_factor = tiny_development_growth_gain
+}
+
+labor_instead_of_masses = {
+	icon = county_modifier_opinion_negative
+	tax_mult = 0.05
+	county_opinion_add = -10
+}
+
+saintly_tomb = {
+	icon = county_modifier_opinion_positive
+	monthly_income = 1.5
+	development_growth_factor = medium_development_growth_gain
+	development_growth = 0.15
 }

@@ -64,3 +64,14 @@ holidays_bouquet = {
 	decaying = yes
 	years = 5
 }
+
+#Sainthood
+TCT_opinion_supported_priest = {
+	opinion = 5
+	years = 5
+}
+
+TCT_opinion_annoyed_priest = {
+	opinion = -20
+	years = 5
+}

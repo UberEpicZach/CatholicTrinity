@@ -1,0 +1,161 @@
+﻿saint_desc = {
+	type = character
+	random_valid = yes
+	
+	text = {
+		trigger = {
+			has_nickname = nick_the_pious
+		}
+		localization_key = saint_desc_nick_the_pious
+	}
+	text = {
+		trigger = {
+			has_nickname = nick_the_holy 
+		}
+		localization_key = saint_desc_nick_the_holy
+	}
+	text = {
+		trigger = {
+			has_nickname = nick_the_theologian
+		}
+		localization_key = saint_desc_nick_the_theologian
+	}
+	text = {
+		trigger = {
+			has_nickname = nick_the_enlightened
+		}
+		localization_key = saint_desc_nick_the_enlightened
+	}
+	text = {
+		trigger = {
+			has_nickname = nick_the_confessor
+		}
+		localization_key = saint_desc_nick_the_confessor
+	}
+	text = {
+		trigger = {
+			has_nickname = nick_the_chaste
+		}
+		localization_key = saint_desc_nick_the_chaste
+	}
+	text = {
+		trigger = {
+			has_nickname = nick_the_wise
+		}
+		localization_key = saint_desc_nick_the_wise
+	}
+	text = {
+		trigger = {
+			has_nickname = nick_the_pilgrim
+		}
+		localization_key = saint_desc_nick_the_pilgrim
+	}
+	text = {
+		trigger = {
+			has_nickname = nick_the_divine
+		}
+		localization_key = saint_desc_nick_the_divine
+	}
+	text = {
+		trigger = {
+			has_nickname = nick_the_martyr
+		}
+		localization_key = saint_desc_nick_the_martyr
+	}
+	text = {
+		trigger = {
+			has_nickname = nick_the_architect
+		}
+		localization_key = saint_desc_nick_the_architect
+	}
+	text = {
+		trigger = {
+			has_nickname = nick_the_ascetic
+		}
+		localization_key = saint_desc_nick_the_ascetic
+	}
+	text = {
+		trigger = {
+			has_nickname = nick_the_merciful_saint
+		}
+		localization_key = saint_desc_nick_the_merciful_saint
+	}
+	text = {
+		trigger = {
+			has_nickname = nick_the_zealous
+		}
+		localization_key = saint_desc_nick_the_zealous
+	}
+	text = {
+		trigger = {
+			has_nickname = nick_the_venerable_saint
+		}
+		localization_key = saint_desc_nick_the_venerable_saint
+	}
+	text = {
+		trigger = {
+			has_nickname = nick_the_bard_saint
+		}
+		localization_key = saint_desc_nick_the_bard_saint
+	}
+	text = {
+		trigger = {
+			has_nickname = nick_the_just
+		}
+		localization_key = saint_desc_nick_the_just
+	}
+	text = {
+		trigger = {
+			has_nickname = nick_the_great
+		}
+		localization_key = saint_desc_nick_the_great
+	}
+	text = {
+		trigger = {
+			has_nickname = nick_the_apostle_saint
+		}
+		localization_key = saint_desc_nick_the_apostle_saint
+	}
+	text = {
+		trigger = {
+			has_nickname = nick_the_virgin
+		}
+		localization_key = saint_desc_nick_the_virgin
+	}
+	text = {
+		trigger = {
+			has_nickname = nick_the_enlightener
+		}
+		localization_key = saint_desc_nick_the_enlightener
+	}
+	text = {
+		trigger = {
+			has_nickname = nick_the_miracle_worker_saint
+		}
+		localization_key = saint_desc_nick_the_miracle_worker_saint
+	}
+	#text = {
+	#	trigger = {
+	#		has_nickname = nick_of_province
+	#	}
+	#	localization_key = saint_desc_nick_of_province
+	#}
+	text = {
+		trigger = {
+			has_nickname = nick_hammer_of_heretics
+		}
+		localization_key = saint_desc_nick_hammer_of_heretics
+	}
+	text = {
+		trigger = {
+			has_nickname = nick_of_the_desert
+		}
+		localization_key = saint_desc_nick_of_the_desert
+	}
+	text = {
+		trigger = {
+			has_nickname = nick_the_flagellant
+		}
+		localization_key = saint_desc_nick_the_flagellant
+	}
+}
