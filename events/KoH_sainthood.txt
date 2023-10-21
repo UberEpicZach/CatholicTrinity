@@ -36,8 +36,9 @@ KoH_sainthood.1 = {
 		if = {
 			limit = {
 				scope:saint_capital_province ?= {
-					NOT = {
+					NOR = {
 						has_province_modifier = local_veneration
+						has_province_modifier = saintly_tomb
 					}
 					faith.religion = scope:saint_person.faith.religion
 				}
@@ -62,7 +63,7 @@ KoH_sainthood.1 = {
 				province_owner ?= {
 					trigger_event = {
 						id = KoH_sainthood.2
-						days = 1 #to make saint person unprunable
+						days = 1 #to make dead saint person unprunable
 						#days = 60 #DEBUG
 					}
 					liege ?= {
@@ -85,11 +86,6 @@ KoH_sainthood.1 = {
 		random = {
 			#Potential for canonization
 			chance = 10
-			#Sinful priests are less likely to promote sainthood
-			modifier = {
-				factor = 0.8
-				sainthood_pious_bishop = no
-			}
 
 			#Cynical people are less likely to be Canonized
 			modifier = {
@@ -415,45 +411,25 @@ KoH_sainthood.2 = { # Notification about Local Veneration
 						}
 					}
 
-					#faith = { #DEBUG
-					#	add_to_variable_list = {
-					#		name = episcopal_investigator
-					#		target = scope:local_priest
-					#	}
-					#	add_to_variable_list = {
-					#		name = local_parish
-					#		target = scope:local_parish
-					#	}
-					#} #/DEBUG
-
 					random = {
 						#Potential for beatification
-						chance = 10
+						chance = 20
 
 						#More likely to commence investigation if saint person is of same culture
 						modifier = {
 							factor = 2
 							culture = scope:saint_person.culture
 						}
+
+						#Sinful priests are less likely to promote sainthood
+						modifier = {
+							factor = 0.5
+							sainthood_pious_bishop = no
+						}
 				
 						modifier = {
-							factor = 0.8
+							factor = 0.5
 							has_trait = cynical
-						}
-				
-						#Reduced chance for Popes / Antipopes to become Saints
-						modifier = {
-							factor = 0.4
-							OR = {
-								has_title = title:k_papal_state
-								#has_claim_on = title:k_papal_state
-							}
-						}
-				
-						#Religions without a Religious Head cannot Canonize
-						modifier = {
-							factor = 0 
-							NOT = { exists = scope:saint_person.faith.religious_head }
 						}
 
 						#Players who don't have a saintly bloodline have a higher chance of becoming a Saint
@@ -466,148 +442,17 @@ KoH_sainthood.2 = { # Notification about Local Veneration
 								}
 							}
 						}
-				
-						#Positive has_has_traits increase your chances of becoming a Saint
-						modifier = {
-							factor = 1.5
-							has_trait = patient
-						}
-						modifier = {
-							factor = 1.5
-							has_trait = diligent
-						}
-						modifier = {
-							factor = 1.5
-							has_trait = compassionate
-						}
-						modifier = {
-							factor = 1.5
-							has_trait = chaste
-						}
-						modifier = {
-							factor = 1.5
-							has_trait = generous
-						}
-						modifier = {
-							factor = 1.5
-							has_trait = temperate
-						}
-						modifier = {
-							factor = 1.5
-							has_trait = humble 
-						}
-						modifier = {
-							factor = 1.2
-							has_trait = just
-						}
-						modifier = {
-							factor = 1.2
-							has_trait = holy_warrior
-						}
-						#modifier = { #TO DO
-						#	factor = 1.2
-						#	scope:saint_person = {
-						#		is_martyr = yes
+
+						#faith = { #DEBUG
+						#	add_to_variable_list = {
+						#		name = episcopal_investigator
+						#		target = scope:local_priest
 						#	}
-						#}
-			
-						#Having the bloodline of a Saint severely decrease your chance of becoming a Saint
-						modifier = {
-							factor = 0.2
-							dynasty ?= {
-								has_dynasty_modifier = saintly_bloodline
-							}
-						}
-			
-						#Extra high piety increases your chance of becoming a Saint
-						# It's >= for christs' sake!
-						modifier = {
-							factor = 1.2
-							piety >= 1000
-						}
-						modifier = {
-							factor = 1.2 
-							piety >= 1500
-						}
-						modifier = {
-							factor = 1.2
-							piety >= 2000
-						}
-						modifier = {
-							factor = 1.2
-							piety >= 2500
-						}
-						modifier = {
-							factor = 1.2
-							piety >= 3000
-						}
-						modifier = {
-							factor = 1.2
-							piety >= 3500
-						}
-						modifier = {
-							factor = 1.2
-							piety >= 4000
-						}
-						modifier = {
-							factor = 1.2
-							piety >= 4500
-						}
-						modifier = {
-							factor = 1.2
-							piety >= 5000
-						}
-						modifier = {
-							factor = 1.2
-							piety >= 5500
-						}
-						modifier = {
-							factor = 1.2
-							piety >= 6000
-						}
-						modifier = {
-							factor = 1.2
-							piety >= 6500
-						}
-						modifier = {
-							factor = 1.2 
-							piety >= 7000
-						}
-						modifier = {
-							factor = 1.2
-							piety >= 7500
-						}
-						modifier = {
-							factor = 1.2
-							piety >= 8000
-						}
-						modifier = {
-							factor = 1.2
-							piety >= 8500
-						}
-						modifier = {
-							factor = 1.2
-							piety >= 9000
-						}
-						modifier = {
-							factor = 1.2
-							piety >= 9500
-						}
-						modifier = {
-							factor = 1.2
-							piety >= 10000
-						}
-				
-						#Level of Piety
-						modifier = {
-							factor = {
-								value = 1
-								add = {
-									add = piety_level
-									multiply = 0.2
-								}
-							}
-						}
+						#	add_to_variable_list = {
+						#		name = local_parish
+						#		target = scope:local_parish
+						#	}
+						#} #/DEBUG
 
 						scope:saint_person = {
 							make_unprunable = yes
@@ -886,6 +731,7 @@ KoH_sainthood.4 = {
 		scope:local_bishop ?= {
 			if = {
 				limit = {
+					exists = scope:chaplain
 					NOT = {
 						this = scope:chaplain
 					}
@@ -1084,7 +930,7 @@ KoH_sainthood.6 = { # Beatification
 		}
 
 		ai_chance = {
-			base = 100
+			base = 80
 		}
 	}
 
@@ -1099,7 +945,7 @@ KoH_sainthood.6 = { # Beatification
 			}
 		}
 		ai_chance = {
-			base = 0
+			base = 20
 		}
 	}
 }

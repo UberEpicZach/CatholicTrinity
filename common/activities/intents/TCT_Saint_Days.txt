@@ -1,7 +1,62 @@
-﻿
-
-TCT_saint_days_respect_intent = {
+﻿TCT_saint_days_reverence_intent = {
 	icon = pious_intent
+
+	auto_complete = yes
+
+	is_shown = {
+
+	}
+
+	on_invalidated = {
+		trigger_event = activity_system.0090
+	}
+
+	ai_will_do = {
+		value = 1
+		add = ai_zeal
+		if = {
+			limit = {
+				ai_boldness > 0
+			}
+			add = {
+				value = ai_boldness
+				divide = 2
+			}
+		}
+		if = {
+			limit = {
+				has_trait = zealous
+			}
+			add = 50
+		}
+		if = {
+			limit = {
+				OR = {
+					has_trait = diligent
+					has_trait = ambitious
+				}
+			}
+			add = 10
+		}
+		if = {
+			limit = {
+				OR = {
+					has_trait = shy
+					has_trait = humble
+					has_trait = reclusive
+				}
+			}
+			subtract = 10
+		}
+	}
+
+	scripted_animation = {
+		animation = personality_honorable
+	}
+}
+
+TCT_saint_days_gratitude_intent = {
+	icon = altruism_intent
 
 	auto_complete = yes
 
@@ -14,7 +69,69 @@ TCT_saint_days_respect_intent = {
 	}
 
 	ai_will_do = {
+		value = 5
+		if = {
+			limit = {
+				OR = {
+					has_trait = content
+					has_trait = compassionate
+				}
+			}
+			add = 10
+		}
+		if = {
+			limit = {
+				OR = {
+					has_trait = sadistic
+					has_trait = vengeful
+					has_trait = wrathful
+				}
+			}
+			subtract = 10
+		}
+	}
+
+	scripted_animation = {
+		animation = personality_content
+	}
+}
+
+TCT_saint_days_atonement_intent = {
+	icon = reduce_stress_intent
+
+	auto_complete = yes
+
+	is_shown = {
+
+	}
+
+	on_invalidated = {
+		trigger_event = activity_system.0090
+	}
+
+	ai_will_do = {
 		value = 1
+		add = stress
+		if = {
+			limit = {
+				OR = {
+					has_trait = lazy
+					has_trait = arbitrary
+					has_trait = patient
+					has_trait = honest
+				}
+			}
+			add = 10
+		}
+		if = {
+			limit = {
+				OR = {
+					has_trait = impatient
+					has_trait = arrogant
+				}
+			}
+			subtract = 10
+		}
 	}
 
 	scripted_animation = {

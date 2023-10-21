@@ -1,11 +1,14 @@
 ﻿activity_TCT_saint_days = {
 	is_shown = {
 		has_character_flag = hosting_saint_day
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}
+			is_at_war = no
+			short_term_gold >= pilgrimage_base_cost
+		}
 	}
-
-	#can_start = {
-	#	any_realm_county = { this = title:c_shazhou }
-	#}
 
 	can_start_showing_failures_only = {
 		is_available_adult = yes
@@ -16,16 +19,17 @@
 			has_variable = activity_invalidated
 		}
 		scope:host = {
+			is_imprisoned = no
 			is_landed = yes
 			NOT = { is_incapable = yes }
 		}
-		# If no one shows up
-		# trigger_if = {
-		# 	limit = {
-		# 		is_current_phase_active = yes
-		# 	}
-		# 	has_attending_activity_guests = yes
-		# }
+		# Converting mid-activity is a big no-no.
+		scope:activity = {
+			OR = {
+				NOT = { has_variable = starting_faith }
+				scope:host.faith = var:starting_faith
+			}
+		}
 	}
 
 	on_invalidated = {
@@ -56,16 +60,6 @@
 				trigger_event = activity_system.0331
 			}
 		}
-		# if = { # No one shows up
-		# 	limit = {
-		# 		has_attending_activity_guests = no
-		# 	}
-		# 	scope:activity = {
-		# 		activity_type = { save_scope_as = activity_type }
-		# 		activity_location = { save_scope_as = location }
-		# 	}
-		# 	scope:host = { trigger_event = activity_system.0100 }
-		# }
 	}
 
 	on_host_death = {
@@ -78,7 +72,7 @@
 
 	province_filter = realm
 	ai_province_filter = realm
-	wait_time_before_start = { months = 1 }
+	wait_time_before_start = {days = 14 }
 
 	province_description = {
 		#Does this have a temple holding?
@@ -94,90 +88,234 @@
 	# OPTIONS
 	###################
 
-	###################
-	# OPTIONS
-	###################
-
 	special_option_category = special_type
 
 	options = {
-
 		#########
-		# SECULAR VS RELIGIOUS
+		# TYPE OF VISIT
 		#########
-
-		# Special type HAS to be "special_type" to pop up the pretty art
 		special_type = {
-			TCT_saint_days_type_secular = {
-				# Normally, default = yes will make one option the default
-				default = {
-					NOT = { faith = { has_doctrine = tenet_ancestor_worship } }
-				}
-				ai_will_do = {
-					value = 10
-				}
-			}
-			# Only available if following an appropriate religion
-			TCT_saint_days_type_religious = {
-				default = {
-					faith = { has_doctrine = tenet_ancestor_worship }
-				}		
-				is_valid = {
-					OR = {
-						# Faiths with ancestor worship tenet
-						faith = { has_doctrine = tenet_ancestor_worship }
-						# Religions without ancestor worship, but should get it anyways
-						religion = religion:taoism_religion
-						religion = religion:buddhism_religion
-						religion = religion:hellenism_religion
-					}
-				}
+			TCT_saint_days_type_reverence = {
+				default = yes	
 				ai_will_do = {
 					value = 10
 					if = {
 						limit = {
 							has_trait = zealous
 						}
+						add = 5
+					}
+					if = {
+						limit = {
+							has_trait = diligent
+						}
+						add = 5
+					}
+					if = {
+						limit = {
+							has_trait = ambitious
+						}
+						add = 5
+					}
+				}
+			}
+			TCT_saint_days_type_tradition = {		
+				ai_will_do = {
+					value = 10
+					if = {
+						limit = {
+							has_trait = just
+						}
+						add = 5
+					}
+					if = {
+						limit = {
+							has_trait = honest
+						}
+						add = 5
+					}
+				}
+			}
+			TCT_saint_days_type_festivity = {		
+				ai_will_do = {
+					value = 10
+					if = {
+						limit = {
+							has_trait = gregarious
+						}
+						add = 5
+					}
+					if = {
+						limit = {
+							has_trait = lifestyle_reveler
+						}
 						add = 10
 					}
 					if = {
 						limit = {
-							has_trait = cynical
+							has_trait = drunkard
 						}
-						add = -10
+						add = 10
 					}
 				}
 			}
 		}
 
 		#########
-		# SIZE OF OFFERING OPTION
+		# SIZE OF DONATION OPTION
 		#########
 		TCT_saint_days_cost_type = {
 			TCT_saint_days_cost_type_small = {
-				default = yes			
+				default = yes
+				cost = {
+					gold = tiny_gold_value
+				}
 				ai_will_do = {
 					value = 15
 				}
 			}
 			TCT_saint_days_cost_type_large = {
-				cost = { 
-					gold = {
-						add = {
-							value = 0
-							desc = TCT_saint_days_offering_amount
-							add = {
-								value = 50
-								desc = TCT_saint_days_offering_amount
-							}
-						}
-					}
+				cost = {
+					gold = medium_gold_value 
 				}				
 				ai_will_do = {
 					value = 5
 					if = {
 						limit = {
-							short_term_gold <= 50
+							short_term_gold <= medium_gold_value
+						}
+						subtract = {
+							value = 10
+						}
+					}
+				}
+			}
+		}
+		#########
+		# PROCESSION OPTION
+		#########
+		TCT_saint_days_procession_type = {
+			TCT_saint_days_procession_type_modest = {
+				default = yes			
+
+				# Entourage option grabbing suitable bodyguards & maybe someone from court who really likes you, + randos.
+				travel_entourage_selection = { 
+					weight = pilgrimage_entourage_base_set_weighting_value
+					max = pilgrimage_entourage_pomp_appropriate_max_value
+					invite_rule_order = 1
+				}
+
+				ai_will_do = {
+					value = 15
+				}
+			}
+			TCT_saint_days_procession_type_sizeable = {
+				cost = {
+					gold = {
+						add = {
+							add = {
+								value = 50
+								desc = TCT_saint_days_procession_cost_sizeable
+							}
+							add = {
+								value = 50 
+								multiply = activity_cost_scale_by_tier
+								subtract = 50
+								desc = activity_cost_scale_by_tier_desc
+							}
+							add = {
+								value = 50 
+								multiply = activity_cost_scale_by_era
+								subtract = 50 
+								desc = activity_cost_scale_by_era_desc
+							}
+							if = {
+								limit = {
+									dynasty ?= { has_dynasty_perk = ep2_activities_legacy_1 }
+								}
+								subtract = {
+									value = 50
+									multiply = ep2_activities_legacy_1_pilgrimages_discount_value
+									desc = ep2_activities_legacy_track
+								}
+							}
+						}
+					}
+				}
+
+				#Entourage option grabbing most people suitable from court, + randos.
+				travel_entourage_selection = {
+					weight = {
+						add = pilgrimage_entourage_base_set_weighting_value
+						add = pilgrimage_entourage_extras_set_weighting_value
+					}
+
+					max = pilgrimage_entourage_pomp_ceremonial_max_value
+					invite_rule_order = 1
+				}
+
+				ai_will_do = {
+					value = 5
+					if = {
+						limit = {
+							short_term_gold <= 100
+						}
+						subtract = {
+							value = 10
+						}
+					}
+				}
+			}
+			TCT_saint_days_procession_type_grand = {
+				cost = {
+					gold = {
+						add = {
+							add = {
+								value = 100
+								desc = TCT_saint_days_procession_cost_grand
+							}
+							add = {
+								value = 100 
+								multiply = activity_cost_scale_by_tier
+								subtract = 100
+								desc = activity_cost_scale_by_tier_desc
+							}
+							add = {
+								value = 100 
+								multiply = activity_cost_scale_by_era
+								subtract = 100 
+								desc = activity_cost_scale_by_era_desc
+							}
+							if = {
+								limit = {
+									dynasty ?= { has_dynasty_perk = ep2_activities_legacy_1 }
+								}
+								subtract = {
+									value = 100
+									multiply = ep2_activities_legacy_1_pilgrimages_discount_value
+									desc = ep2_activities_legacy_track
+								}
+							}
+						}
+					}
+				}
+
+				#Entourage option grabbing most people suitable from court, + randos.
+				travel_entourage_selection = {
+					weight = {
+						add = pilgrimage_entourage_base_set_weighting_value
+						add = pilgrimage_entourage_extras_set_weighting_value
+					}
+
+					max = pilgrimage_entourage_pomp_ceremonial_max_value
+					invite_rule_order = 1
+				}
+
+				ai_will_do = {
+					value = 5
+					if = {
+						limit = {
+							short_term_gold <= 200
 						}
 						subtract = {
 							value = 10
@@ -194,38 +332,25 @@
 	###################
 
 	phases = {
-		TCT_saint_days_veneration_phase = {
+		TCT_saint_days_devotion_phase = {
 			is_predefined = yes
-
-			on_enter_phase = {
-				# if = {
-				# 	limit = {
-				# 		this = scope:host
-				# 	}
-				# 	trigger_event = tarim_basin.0058
-				# }	
-			}
 			
-			# on_phase_active = {
-			# 	if = {
-			# 		limit = {
-			# 			this = scope:host
-			# 		}
-			# 		trigger_event = RICE_ancestor_worship.0002
-			# 	}		
-			# }
+			on_phase_active = {
+				if = {
+					limit = {
+						this = scope:host
+					}
+					trigger_event = TCT_saint_days.0004
+				}
+			}
 
 			on_end = {
-				# Run conclusion stuff here
-				# if = {
-				# 	limit = { this = scope:host }
-				# 	scope:activity = { progress_activity_phase_after = { weeks = 2 } }
-				# }
+
 			}
 		}
 	}
 
-	max_guest_arrival_delay_time = { months = 1 }
+	max_guest_arrival_delay_time = { days = 14 }
 
 	# desc is only shown in debug AI watch window
 	ai_will_do = {
@@ -256,6 +381,18 @@
 			}
 			add = 25
 		}
+		if = {
+			limit = {
+				has_trait = sadistic
+			}
+			add = -25
+		}
+		if = {
+			limit = {
+				has_trait = compassionate
+			}
+			add = 25
+		}
 		
 		#Can you actually afford this?
 		if = {
@@ -270,23 +407,11 @@
 
 	ai_will_select_province = {
 		value = 10
-		# if = {
-		# 	limit = {
-		# 		this = scope:host.capital_province
-		# 	}
-		# 	add = {
-		# 		value = 30
-		# 		desc = "Capital Province preferred"
-		# 	}
-		# }
 	}
 	
 	is_location_valid = {
 		has_holding_type = church_holding
 	}
-
-	max_province_icons = 3
-
 	
 	province_score = {
 		value = 0
@@ -302,19 +427,8 @@
 			add = {
 				value = 0
 				add = {
-					value = 10
+					value = RICE_ancestor_activity_cost
 					desc = hunt_base_cost
-				}
-			}
-			if = {
-				limit = {
-					scope:province ?= {
-						has_holding_type = church_holding
-					}
-				}
-				subtract = {
-					value = 25
-					desc = activity_TCT_saint_days_temple_holding_reduced_cost
 				}
 			}
 		}
@@ -322,7 +436,28 @@
 
 	ui_predicted_cost = {
 		gold = {
-			value = 10
+			value = RICE_ancestor_activity_cost
+
+			# Options
+			add = { # Donations Option 
+				value = tiny_gold_value # Small Cost
+				add = medium_gold_value # Large Cost
+				# Scale option costs by tier and era
+				multiply = activity_cost_scale_by_tier
+				multiply = activity_cost_scale_by_era
+				# Divide by the number of option levels to get an average option cost
+				divide = 4
+			}
+			add = { # Procession Option 
+				value = 0 # Modest Cost
+				add = 50 # Sizeable Cost
+				add = 100 # Grand Cost
+				# Scale option costs by tier and era
+				multiply = activity_cost_scale_by_tier
+				multiply = activity_cost_scale_by_era
+				# Divide by the number of option levels to get an average option cost
+				divide = 4
+			}
 
 			# Make it a multiple of 5 (rounded up)
 			divide = 5 
@@ -340,15 +475,6 @@
 
 	}
 
-	on_start = {
-		
-	}
-
-	# Once you arrive at the springs, trigger the relevant event(s)
-	on_leave_travel_state = {
-
-	}
-
 	on_enter_passive_state = {	
 		
 	}
@@ -363,47 +489,48 @@
 	allow_zero_guest_invites = yes
 
 	guest_invite_rules = {
-		# rules = {
+		rules = {
+			# Relations.
+			2 = activity_invite_rule_lovers
+			2 = activity_invite_rule_rivals_if_appropriate
 
-		# 	# Family.
-		# 	1 = activity_invite_rule_close_family
-		# 	2 = activity_invite_rule_extended_family
+			# Family.
+			3 = activity_invite_rule_extended_family
 
-		# 	# Misc landless.
-		# 	3 = activity_invite_rule_courtiers # Courtiers doesn't include knights
-		# 	4 = activity_invite_rule_knights
+			# Misc landless.
+			5 = activity_invite_rule_knights
 
-		# 	# Misc landed
-		# 	5 = activity_invite_rule_vassals
-		# }
+			# MP 
+			6 = activity_invite_mp
+		}
 		defaults = {
-			2 = activity_invite_rule_courtiers
-			3 = activity_invite_rule_knights
-			1 = activity_invite_rule_extended_family
+			1 = activity_invite_rule_friends
 			1 = activity_invite_rule_close_family
-			4 = activity_invite_rule_vassals
+			3 = activity_invite_rule_courtiers
+			4 = activity_invite_rule_guests
+			1 = activity_invite_spouses
 		}
 	}
 
 	can_be_activity_guest = {
+		faith.religion = scope:host.faith.religion
 		is_adult = yes
 		is_available = yes
 		in_diplomatic_range = scope:host
 		OR = {
 			is_landed = no
-			is_ai = yes
+			dynasty = scope:host.dynasty
 		}
-		dynasty = scope:host.dynasty
 	}
 
 	host_intents = {
-		intents = { TCT_saint_days_respect_intent }
-		default = TCT_saint_days_respect_intent
+		intents = { TCT_saint_days_reverence_intent TCT_saint_days_gratitude_intent TCT_saint_days_atonement_intent }
+		default = TCT_saint_days_reverence_intent
 	}
 
 	guest_intents = {
-		intents = { TCT_saint_days_respect_intent }
-		default = TCT_saint_days_respect_intent
+		intents = { TCT_saint_days_reverence_intent TCT_saint_days_gratitude_intent TCT_saint_days_atonement_intent }
+		default = TCT_saint_days_reverence_intent
 	}
 
 	guest_join_chance = {
@@ -434,32 +561,8 @@
 		}
 	}
 
-	### Graphics
-	# map_entity = {
-	# 	trigger = {
-	# 		activity_location.culture = {
-	# 			OR = {
-	# 				has_graphical_mena_culture_group_trigger = yes
-	# 				has_graphical_steppe_culture_group_trigger = yes
-	# 				has_graphical_african_culture_group_trigger = yes
-	# 			}
-	# 		}
-	# 	}
-	# 	reference = "building_mena_feast_01_entity"
-	# }
-
-	# map_entity = {
-	# 	trigger = {
-	# 		activity_location.culture = {
-	# 			has_graphical_india_culture_group_trigger = yes
-	# 		}
-	# 	}
-	# 	reference = "building_indian_feast_01_entity"
-	# }
-	
-	# map_entity = "building_western_feast_01_entity"
-
-	# Travel
+	## Graphics
+	# Travel # Do we need these??
 	background = { # Bridge
 		trigger = {
 			NOT = { scope:host.location = scope:activity.activity_location }
@@ -478,7 +581,6 @@
 		environment = "environment_travel_bridge"
 		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
 	}
-	
 	background = { # Farmland, settled
 		trigger = {
 			NOT = { scope:host.location = scope:activity.activity_location }
@@ -503,7 +605,6 @@
 		environment = "environment_event_farms"
 		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
 	}
-
 	background = { #Desert, settled
 		trigger = {
 			NOT = { scope:host.location = scope:activity.activity_location }
@@ -528,7 +629,6 @@
 		environment = "environment_event_bp1_desert"
 		ambience = "event:/SFX/Events/Backgrounds/desert_day"
 	}
-
 	background = { #forest snowy
 		trigger = {
 			NOT = { scope:host.location = scope:activity.activity_location }
@@ -538,7 +638,6 @@
 		environment = "environment_hunt_snowy_forest"
 		ambience = "event:/SFX/Events/Backgrounds/mountains_day" 
 	}
-
 	background = { #forest_pine
 		trigger = {
 			NOT = { scope:host.location = scope:activity.activity_location }
@@ -550,7 +649,6 @@
 		environment = "environment_event_forest_pine"
 		ambience = "event:/SFX/Events/Backgrounds/coniferous_forest_day"
 	}
-
 	background = { #forest
 		trigger = {
 			NOT = { scope:host.location = scope:activity.activity_location }
@@ -562,7 +660,6 @@
 		environment = "environment_event_forest"
 		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
 	}
-
 	background = { #mountains, settled
 		trigger = {
 			NOT = { scope:host.location = scope:activity.activity_location }
@@ -587,7 +684,6 @@
 		environment = "environment_event_mountains"
 		ambience = "event:/SFX/Events/Backgrounds/mountains_day"
 	}
-
 	background = { #steppe, settled
 		trigger = {
 			NOT = { scope:host.location = scope:activity.activity_location }
@@ -612,7 +708,6 @@
 		environment = "environment_event_steppe"
 		ambience = "event:/SFX/Events/Backgrounds/steppe_day"
 	}
-
 	background = { #drylands (formerly desert)
 		trigger = {
 			NOT = { scope:host.location = scope:activity.activity_location }
@@ -624,7 +719,6 @@
 		environment = "environment_event_desert"
 		ambience = "event:/SFX/Events/Backgrounds/desert_day"
 	}
-
 	background = { #wetlands
 		trigger = {
 			NOT = { scope:host.location = scope:activity.activity_location }
@@ -636,7 +730,6 @@
 		environment = "environment_event_bp1_wetlands" 
 		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
 	}
-
 	background = { #jungle
 		trigger = {
 			NOT = { scope:host.location = scope:activity.activity_location }
@@ -648,7 +741,6 @@
 		environment = "environment_event_bp1_jungle"
 		ambience = "event:/SFX/Events/Backgrounds/deciduous_forest_day"
 	}
-
 	background = { #plains, settled
 		trigger = {
 			NOT = { scope:host.location = scope:activity.activity_location }
@@ -673,7 +765,6 @@
 		environment = "environment_event_bp1_plains"
 		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
 	}
-
 	background = { #hills, settled
 		trigger = {
 			NOT = { scope:host.location = scope:activity.activity_location }
@@ -698,7 +789,6 @@
 		environment = "environment_event_bp1_hills"
 		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
 	}
-
 	background = { #sea
 		trigger = {
 			NOT = { scope:host.location = scope:activity.activity_location }
@@ -710,28 +800,31 @@
 		environment = "environment_event_fp1_ocean"
 		ambience = "event:/DLC/FP1/SFX/Events/event_ocean_longship"
 	}
-	#Fallback
+
+	# Festival
 	background = {
 		trigger = {
-			OR = {
-				scope:host = {
-					has_government = tribal_government
-					faith = {
-						religion = { is_in_family = rf_pagan }
+			activity_location = {
+				province_owner ?= {
+					OR = {
+						government_has_flag = government_is_clan
+						government_has_flag = government_is_tribal
 					}
+				}
+				NOT = {
+					geographical_region = graphical_mena
 				}
 			}
 		}
-		texture = "gfx/interface/illustrations/event_scenes/ep2_holysite_tribal.dds"
-		environment = "environment_event_garden"
-		ambience = "event:/DLC/FP1/SFX/Events/event_temple"
+		texture = "gfx/interface/illustrations/event_scenes/ep2_tournament_tribal.dds"
+		environment = "environment_village_festival"
+		ambience = "event:/DLC/EP2/SFX/Events/Backgrounds/evn_background_festival_western"
 	}
-	background = {
-		texture = "gfx/interface/illustrations/event_scenes/temple.dds"
-		environment = "environment_event_temple"
-		ambience = "event:/SFX/Events/Backgrounds/temple_generic"
+	background = { #Western (standard/fallback)
+		texture = "gfx/interface/illustrations/event_scenes/ep2_village_festival_western.dds"
+		environment = "environment_village_festival"
+		ambience = "event:/SFX/Events/Backgrounds/corner_of_tavern"
 	}
-
 
 	window_characters = {
 
@@ -748,7 +841,31 @@
 			}
 
 			scripted_animation = {
-				animation = throne_room_bow_1
+				triggered_animation = {
+					trigger = {
+						scope:character = {
+							has_activity_intent = TCT_saint_days_reverence_intent
+						}
+					}
+					animation = { personality_zealous personality_honorable toast_goblet thinking }
+				}
+				triggered_animation = {
+					trigger = {
+						scope:character = {
+							has_activity_intent = TCT_saint_days_gratitude_intent
+						
+						}
+					}
+					animation = { personality_compassionate personality_content happiness steward drink_goblet toast }
+				}
+				triggered_animation = {
+					trigger = {
+						scope:character = {
+							has_activity_intent = TCT_saint_days_atonement_intent
+						}
+					}
+					animation = { throne_room_bow_1 throne_room_bow_2 }
+				}
 			}
 		}
 
@@ -765,7 +882,31 @@
 			}
 
 			scripted_animation = {
-				animation = throne_room_bow_2
+				triggered_animation = {
+					trigger = {
+						scope:character = {
+							has_activity_intent = TCT_saint_days_reverence_intent
+						}
+					}
+					animation = { personality_zealous personality_honorable toast_goblet thinking }
+				}
+				triggered_animation = {
+					trigger = {
+						scope:character = {
+							has_activity_intent = TCT_saint_days_gratitude_intent
+						
+						}
+					}
+					animation = { personality_compassionate personality_content happiness steward drink_goblet toast }
+				}
+				triggered_animation = {
+					trigger = {
+						scope:character = {
+							has_activity_intent = TCT_saint_days_atonement_intent
+						}
+					}
+					animation = { throne_room_bow_1 throne_room_bow_2 }
+				}
 			}
 		}
 		
@@ -784,7 +925,31 @@
 			}
 
 			scripted_animation = {
-				animation = personality_zealous
+				triggered_animation = {
+					trigger = {
+						scope:character = {
+							has_activity_intent = TCT_saint_days_reverence_intent
+						}
+					}
+					animation = { personality_zealous personality_honorable toast_goblet thinking }
+				}
+				triggered_animation = {
+					trigger = {
+						scope:character = {
+							has_activity_intent = TCT_saint_days_gratitude_intent
+						
+						}
+					}
+					animation = { personality_compassionate personality_content happiness steward drink_goblet toast }
+				}
+				triggered_animation = {
+					trigger = {
+						scope:character = {
+							has_activity_intent = TCT_saint_days_atonement_intent
+						}
+					}
+					animation = { throne_room_bow_1 throne_room_bow_2 }
+				}
 			}
 		}
 		
