@@ -5940,10 +5940,53 @@ KoH_religiousflavour.800 = {
 
 	option = { 
 		name = KoH_religiousflavour.800.a
+		trigger = {
+			NOT = {
+				this = title:e_hre.holder
+			}
+		}
 
 		ai_chance = {	
 			base = 100
 		}
+	}
+
+	#Who does he think he is?
+
+	option = {
+		name = KoH_religiousflavour.800.b
+		trigger = {
+			this = title:e_hre.holder
+		}
+		custom_tooltip = KoH_religiousflavour.800.b.imperial_refusal
+		title:k_papal_state.holder = {
+			add_opinion = {
+				target = title:k_papal_state.holder
+				modifier = insulted_opinion
+				value = -60
+			}
+		}
+		title:e_hre.holder = {
+			add_opinion = {
+				target = title:e_hre.holder
+				modifier = insulted_opinion
+				value = -60
+			}
+		}
+		start_struggle = {
+			struggle_type = investiture_controversy_struggle
+			start_phase = investiture_controversy_phase_unrest
+		}
+	}
+
+	# We submit
+	option = {
+		name = KoH_religiousflavour.800.c
+		trigger = {
+			this = title:e_hre.holder
+		}
+
+		add_realm_law = papal_investiture_late
 	}
 }
 

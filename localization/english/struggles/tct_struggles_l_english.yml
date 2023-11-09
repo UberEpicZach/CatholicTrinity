@@ -1,0 +1,12 @@
+﻿l_english:
+ investiture_controversy_struggle:0 "Investiture Controversy"
+ investiture_controversy_struggle_desc:1 "The $game_concept_investiture_controversy_struggle$" 
+ investiture_controversy_phase_unrest:0 "Unrest"
+ investiture_controversy_phase_unrest_desc:0 "To be Localized"
+ investiture_controversy_phase_hostility:0 "Hostility"
+ investiture_controversy_phase_hostility_desc:0 "To be Localized"
+ investiture_controversy_phase_conciliation:0 "Conciliation"
+ investiture_controversy_phase_conciliation_desc:0 "To be Localized"
+ investiture_controversy_ending_phase_compromise:0 "Compromise"
+ investiture_controversy_ending_phase_compromise_desc:0 "To be Localized"
+

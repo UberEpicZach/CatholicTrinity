@@ -432,7 +432,7 @@ tct_investiture_struggle_switch_sides_decision_liege_requirements_trigger = {
 	OR = {
 		is_independent_ruler = yes
 		custom_description = {
-			text = name_read_in_friday_prayer_crown_authority
+			text = name_read_in_friday_prayer_crown_authority #"Your [liege|E] has the law [autonomous_vassals_crown_authority|E]"
 			is_independent_ruler = no
 			liege ?= { has_realm_law = crown_authority_0  }
 		}
@@ -440,11 +440,11 @@ tct_investiture_struggle_switch_sides_decision_liege_requirements_trigger = {
 			has_trait = tct_papal_supporter
 			liege = { has_title = title:e_hre }
 		}
-		# We have to trigger_if this for tooltip reasons.
-		trigger_if = {
-			limit = { is_independent_ruler = no }
-			liege = { government_has_flag = government_is_tribal }
-		}
+		# # We have to trigger_if this for tooltip reasons.
+		# trigger_if = {
+		# 	limit = { is_independent_ruler = no }
+		# 	liege = { government_has_flag = government_is_tribal }
+		# }
 	}
 }
 
@@ -462,3 +462,66 @@ tct_investiture_struggle_is_the_emperor = {
 		}
 	}
 }
+
+
+fp3_struggle_involves_one_supporter_and_one_detractor = {
+	OR = {
+		AND = {
+			$FIRST$ = { has_trait = fp3_struggle_detractor }
+			$SECOND$ = { has_trait = fp3_struggle_supporter }
+		}
+		AND = {
+			$FIRST$ = { has_trait = fp3_struggle_supporter }
+			$SECOND$ = { has_trait = fp3_struggle_detractor }
+		}
+		AND = {
+			$FIRST$ = { has_trait = tct_imperial_supporter }
+			$SECOND$ = { has_trait = tct_papal_supporter }
+		}
+		AND = {
+			$FIRST$ = { has_trait = tct_papal_supporter }
+			$SECOND$ = { has_trait = tct_imperial_supporter }
+		}
+	}
+}
+
+tct_investiture_struggle_is_valid_loyal_puppet_of_emperor = { # Install a suitable lackey to do your bidding
+	has_trait = tct_imperial_supporter
+	# Can't be friends w/liege or indebted to them
+	liege ?= {
+		NOR = {
+			has_relation_friend = prev
+			has_hook = prev
+		}
+	}
+	#primary_title.tier >= tier_county # We don't want to promote baron to avoid having Republic or Theocracies realms
+}
+
+tct_investiture_struggle_is_valid_loyal_puppet_of_papal = {
+	has_trait = tct_papal_supporter
+	# Can't be friends w/liege or indebted to them
+	liege ?= {
+		NOR = {
+			has_relation_friend = prev
+			has_hook = prev
+		}
+	}
+	#primary_title.tier >= tier_county # We don't want to promote baron to avoid having Republic or Theocracies realms
+}
+
+testing_opinions = {
+	title:e_hre.holder = {
+		any_character_struggle = { phase_has_catalyst = tct_papal_hre_opinions }
+		opinion = {
+			target = title:k_papal_state.holder
+			value <= 0
+		}
+	}
+	title:k_papal_state.holder = {
+		opinion = {
+			target = title:e_hre.holder
+			value <= 0
+		}
+	}
+}
+

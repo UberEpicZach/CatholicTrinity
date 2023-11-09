@@ -211,7 +211,7 @@ predict_new_cardinal = {
 initialize_random_cardinal = {
 	ordered_cardinal_candidate_ruler = {
 		order_by = bishop_to_cardinal_score
-		limit = { is_male = yes NOT = { this = character:7853 } }
+		limit = { is_male = yes NOT = { this = character:7853 this = character:2010 } }
 		position = 0
 		#realm_priest = {
 		become_initial_cardinal = yes 

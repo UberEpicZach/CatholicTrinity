@@ -1,0 +1,168 @@
+﻿#FILE OF ALL INVESTITURE CONTROVERSY ON ACTIONS
+# on
+#
+#
+#
+#on_war_won_attacker - for Struggle Catalysts
+
+
+on_game_start = {
+	on_actions = {
+		Investiture_Controversy_Game_Start	
+	}
+}
+
+on_game_start_after_lobby = {
+	on_actions = {
+		delay = { days = 1 }
+		Investiture_Controversy_Game_Start_After_Lobby
+	}
+}
+
+Investiture_Controversy_Game_Start_After_Lobby = {
+	effect = {
+		Investiture_Controversy_Game_Start_After_Lobby_1066 = yes
+	}
+}
+
+Investiture_Controversy_Game_Start = {
+	effect = {
+		Investiture_Controversy_Game_Start_1066 = yes #Improve some historical traits of people important to the Investiture Controversy Struggle
+	}
+}
+
+
+
+
+
+
+
+# called for when a casus belli resolves in one of the following ways.
+# same scopes are available in these events as in the CBs themselves, this just fires for all CBs instead of a specific CB.
+# note that any events/effects fired here WILL NOT show up in the war summary tooltip; they fire at the same time as the war resolution, but are not actually part of the war resolution itself.
+
+on_war_won_attacker = { # As in, won BY attacker. Only one of the two on_actions runs when a war ends.
+	# The war notifications are handled in `effect` instead of `events` due to order of operations.
+	# `effect` fires on THIS tick, `events` fires on the NEXT tick, and the war gets destroyed between this tick and the next.
+	on_actions = {
+		tct_on_war_won_attacker
+	}
+}
+
+tct_on_war_won_attacker = {
+	effect = {
+		# Struggle Catalysts
+		## Special war checks for the hre emperor / pope?.		
+		scope:defender = {
+			if = {
+				limit = {
+					tct_investiture_struggle_is_the_emperor = yes
+					scope:war = {
+						NOT = { has_variable = used_for_struggle_catalyst_on_war_ended }
+						using_civil_war_cb_trigger = yes
+					}
+				}
+				# Direct scope because this is emperor-specific.
+				struggle:investiture_controversy_struggle = {
+					if = {
+						limit = { phase_has_catalyst = catalyst_hre_emperor_loses_revolt_war }
+						activate_struggle_catalyst = {
+							catalyst = catalyst_hre_emperor_loses_revolt_war
+							character = scope:defender
+						}
+						scope:war = { set_variable = used_for_struggle_catalyst_on_war_ended }
+						#log_debug_variable_for_persian_struggle_effect = { VAR = concession_catalyst_hre_emperor_loses_revolt_war }
+					}
+				}
+			}
+		}
+		## (Mostly) general checks.
+		scope:attacker = {
+			# Win any war in the struggle region.
+			if = {
+				limit = {
+					scope:war = {
+						NOT = { has_variable = used_for_struggle_catalyst_on_war_ended }
+					}
+					any_character_struggle = {
+						involvement = involved
+						activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
+							CATALYST = catalyst_win_any_war_within_the_region
+							CHAR = scope:defender
+						}
+					}
+				}
+				every_character_struggle = {
+					limit = {
+						activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
+							CATALYST = catalyst_win_any_war_within_the_region
+							CHAR = scope:defender
+						}
+					}
+					activate_struggle_catalyst = {
+						catalyst = catalyst_win_any_war_within_the_region
+						character = scope:attacker
+					}
+					scope:war = { set_variable = used_for_struggle_catalyst_on_war_ended }
+				}
+			}
+			# During the Investiture Controversy Struggle, a supporter wins any war in the region.
+			investiture_controversy_struggle_apply_imperial_supporter_papal_supporter_war_won_catalysts_effect = yes
+		}
+	}
+}
+
+
+on_death = {
+	on_actions = {
+		tct_on_death
+	}
+}
+
+tct_on_death = {
+	effect = {
+		if = {
+			limit = { exists = scope:killer }
+			if = {
+				limit = {
+					has_trait = tct_imperial_supporter
+					scope:killer = {
+						has_trait = tct_papal_supporter
+					}
+					any_character_struggle = {
+						involvement = involved
+						phase_has_catalyst = tct_catalyst_unnatural_death_supporter
+					}
+				}
+				every_character_struggle = {
+					involvement = involved
+					activate_struggle_catalyst = {
+						catalyst = tct_catalyst_unnatural_death_supporter
+						character = root
+					}
+					log_debug_variable_for_persian_struggle_effect = { VAR = unrest_catalyst_unnatural_death_supporter }
+				}
+			}
+			if = {
+				limit = {
+					has_trait = tct_papal_supporter
+					scope:killer = {
+						has_trait = tct_imperial_supporter
+					}
+					any_character_struggle = {
+						involvement = involved
+						phase_has_catalyst = tct_catalyst_unnatural_death_supporter
+					}
+				}
+				every_character_struggle = {
+					involvement = involved
+					activate_struggle_catalyst = {
+						catalyst = tct_catalyst_unnatural_death_supporter
+						character = root
+					}
+					log_debug_variable_for_persian_struggle_effect = { VAR = unrest_catalyst_unnatural_death_supporter }
+				}
+			}
+		}
+	}
+}

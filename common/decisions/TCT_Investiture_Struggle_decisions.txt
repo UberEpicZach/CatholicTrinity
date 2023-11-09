@@ -6,46 +6,46 @@
 	# We check this via the struggle itself.
 	ai_check_interval = 0
 
-	title = {
+	title = { #TITLES ARE GOOD
 		first_valid = {
-			# Supporter turns Detractor.
+			# Imperial Supporter turns Papal Supporter.
 			triggered_desc = {
 				trigger = { has_trait = tct_imperial_supporter }
-				desc = tct_investiture_struggle_switch_sides_decision.supporter_turns_detractor.t
+				desc = tct_investiture_struggle_switch_sides_decision.imperial_supporter_turns_papal_supporter.t
 			}
-			# Detractor turns Supporter.
+			# Papal Supporter turns Imperial Supporter.
 			triggered_desc = {
 				trigger = { has_trait = tct_papal_supporter }
-				desc = tct_investiture_struggle_switch_sides_decision.detractor.turns_supporter.t
+				desc = tct_investiture_struggle_switch_sides_decision.papal_supporter_turns_imperial_supporter.t
 			}
 			# Neither trait.
 			desc = tct_investiture_struggle_switch_sides_decision.neutral.t
 		}
 	}
 
-	desc = {
+	desc = { #DESC ARE GOOD
 		first_valid = {
-			# Supporter turns Detractor.
+			# Supporter turns papal_supporter.
 			triggered_desc = {
 				trigger = { has_trait = tct_imperial_supporter }
-				desc = tct_investiture_struggle_switch_sides_decision.supporter_turns_detractor.desc
+				desc = tct_investiture_struggle_switch_sides_decision.imperial_supporter_turns_papal_supporter.desc
 			}
-			# Detractor turns Supporter.
+			# papal_supporter turns Imperial Supporter.
 			triggered_desc = {
 				trigger = { has_trait = tct_papal_supporter }
-				desc = tct_investiture_struggle_switch_sides_decision.detractor.turns_supporter.desc
+				desc = tct_investiture_struggle_switch_sides_decision.papal_supporter_turns_imperial_supporter.desc
 			}
 			# Neither trait.
 			desc = tct_investiture_struggle_switch_sides_decision.neutral.desc
 		}
 	}
 
-	is_shown = {
+	is_shown = { #IS SHOWN IS GOOD
 		any_character_struggle = { this = struggle:investiture_controversy_struggle }
 		has_religion = religion:christianity_religion
 	}
 
-	is_valid = {
+	is_valid = {  # IS VALID IS GOOD
 		OR = {
 			tct_investiture_struggle_switch_sides_decision_liege_requirements_trigger = yes
 			trigger_if = {
@@ -66,16 +66,10 @@
 			}
 			NOT = { is_allied_to = title:e_hre.holder }
 		}
-		NOT = { this = title:e_hre.holder }
 	}
 
-	is_valid_showing_failures_only = {
+	is_valid_showing_failures_only = { # IS VALID IS GOOD
 		is_available_adult = yes
-		# custom_tooltip = {
-		# 	text = tct_investiture_struggle_switch_sides_decision.tt.orthodox_sunnis_only
-		# 	has_religion = religion:islam_religion
-		# 	faith.religious_head ?= title:e_hre.holder
-		# }
 		custom_tooltip = {
 			text = tct_investiture_struggle_switch_sides_decision.tt.hre_emperor_must_exist
 			exists = title:e_hre.holder
@@ -83,15 +77,15 @@
 		custom_tooltip = {
 			text = tct_investiture_struggle_switch_sides_decision.tt.hre_emperor_cannot_change_prayer_order
 			NOT = { has_title = title:e_hre }
-		}
+		} 
 		# If you've already got the modifier, then you can't flipflop unless the emperor changes.
 		trigger_if = {
 			limit = {
 				has_variable = switch_sides_decision_emperor
 				title:e_hre.holder ?= var:switch_sides_decision_emperor
 				OR = {
-					has_character_modifier = tct_investiture_struggle_modifier
-					has_character_modifier = fp3_displayed_pious_submission_to_emperor_modifier
+					has_character_modifier = investiture_controversy_struggle_switch_sides_support_emperor
+					has_character_modifier = investiture_controversy_struggle_switch_sides_support_papal
 				}
 			}
 			custom_tooltip = {
@@ -141,7 +135,7 @@
 		}
 	}
 
-	effect = {
+	effect = { #WORK ON THIS
 		show_as_tooltip = { investiture_controversy_struggle_switch_sides_scripted_effect = yes }
 		trigger_event = tct_investiture_struggle.0015
 	}

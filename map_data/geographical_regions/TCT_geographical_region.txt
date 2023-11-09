@@ -210,7 +210,8 @@
 
 custom_investiture_struggle = {
 	duchies = {
-		d_burgundy d_provence d_savoie d_dauphine d_upper_burgundy d_transjurania d_bar
+		#d_burgundy Removed
+		d_provence d_savoie d_dauphine d_upper_burgundy d_transjurania d_bar
 		# Bohemia
 		d_bohemia d_moravia
 		# Saxony

@@ -4,7 +4,21 @@
  tct_imperial_supporter:0 "Imperial Supporter"
  trait_tct_papal_supporter:0 "Papal Supporter"
  trait_tct_imperial_supporter:0 "Imperial Supporter"
+ bookmark_hre: "Heinrich IV"
+ bookmark_pope: "Pope Alexander II"
+ d_saxony:0 "Saxony"
+ building_type_tct_leisure_palace_01:0 "Leisure Palaces"
+ building_type_tct_leisure_palace_01_desc:0 "While staying in one lavishly luxuriant castle is fine, having a few more to choose between never hurts."
+ building_tct_leisure_palace_01:0 "Chateau"
+ building_tct_leisure_palace_01_desc:0 "When the burdens of responsibility become too much (or an angry mob of peasants is storming the gates), there's no place like the rural, far-away chateau for some impromptu relaxation!"
+ building_tct_leisure_palace_02:0 "Imperial Palace"
+ building_tct_leisure_palace_02_desc:0 "The Imperial Palace of Goslar is located at the foot of the Harz Mountains, far away from the menial lives of our toiling subjects. There's truly no better way to display royal power and prestige, and the simple fact that we are #emphasis better#! than everyone else."
+ building_tct_leisure_palace_03:0 "Winter Palace"
+ building_tct_leisure_palace_03_desc:0 "The winter palace is designed to house the royal family during the harsher months of the year. With a well-stocked larder and a defensible position, it towers over any shivering subjects that have the privilege to work nearby."
  
+ investiture_controversy_struggle_switch_sides_support_papal:  "Supporting the Papacy"
+ investiture_controversy_struggle_switch_sides_support_emperor: "Supporting the Emperor"
+
  #Struggle 
  game_concept_investiture_controversy_struggle: "Investiture Controversy"
  game_concept_investiture_controversy_struggle_desc: "The $game_concept_investiture_controversy_struggle$" 
@@ -17,13 +31,13 @@
 
  catalyst_became_imperial_supporter_tct: "An important [character|E] took the [decision|E] to become a [GetTrait('tct_imperial_supporter').GetName( GetNullCharacter )]"
  catalyst_became_imperial_supporter_tct_desc: "Important [character|E] takes the [decision|E] to become a [GetTrait('tct_imperial_supporter').GetName( GetNullCharacter )]"
- catalyst_became_detractor_tct: "An important [character|E] took the [decision|E] to become a [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )]"
- catalyst_became_detractor_tct_desc: "Important [character|E] takes the [decision|E] to become a [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )]"
+ catalyst_became_papal_supporter_tct: "An important [character|E] took the [decision|E] to become a [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )]"
+ catalyst_became_papal_supporter_tct_desc: "Important [character|E] takes the [decision|E] to become a [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )]"
 
 
  tct_investiture_struggle.0015.t: "Announcements at Court"
- tct_investiture_struggle.0015.desc.switch.supporter_becoming_detractor: "I have declared that henceforth, in my lands, that we will support the [papal_state.GetName] in the name of the Church."
- tct_investiture_struggle.0015.desc.switch.detractor_becoming_supporter: "I have declared that henceforth, in my lands, that we will support the [emperor.GetName] in full strength."
+ tct_investiture_struggle.0015.desc.switch.supporter_becoming_papal_supporter: "I have declared that henceforth, in my lands, that we will support the [papal_state.GetName] in the name of the Church."
+ tct_investiture_struggle.0015.desc.switch.papal_supporter_becoming_supporter: "I have declared that henceforth, in my lands, that we will support the [emperor.GetName] in full strength."
  tct_investiture_struggle.0015.desc.switch.presently_neutral: "Rulers all around me are picking sides, either supporting the unity of the [empire.GetName] or asserting their support for the [papal_state.GetName].\n\nThough I am currently undeclared, changing my stance is a simple matter."
  tct_investiture_struggle.0015.desc.liege.presently_neutral: "Doubtless my [ROOT.Char.GetLiege.GetTitledFirstName] hopes I intend to follow in [ROOT.Char.GetLiege.GetHerHis] footsteps on this issue."
  tct_investiture_struggle.0015.desc.liege.aligning: "Fortunately, this brings me into perfect alignment with my liege [ROOT.Char.GetLiege.GetTitledFirstName], who shares my new beliefs."
@@ -41,13 +55,13 @@
  tct_investiture_struggle.0015.vassal_semi_rebel: "Vassal Rubbishes your Suzerainty"
 
  #Decisions
- tct_investiture_struggle_switch_sides_decision.supporter_turns_detractor.t: "Become Papal Supporter"
- tct_investiture_struggle_switch_sides_decision.detractor.turns_supporter.t: "Become Imperial Supporter"
+ tct_investiture_struggle_switch_sides_decision.imperial_supporter_turns_papal_supporter.t: "Become Papal Supporter"
+ tct_investiture_struggle_switch_sides_decision.papal_supporter_turns_imperial_supporter.t: "Become Imperial Supporter"
  tct_investiture_struggle_switch_sides_decision.neutral.t: "Declare Stance in the $investiture_controversy_struggle$"
- tct_investiture_struggle_switch_sides_decision.supporter_turns_detractor.desc.boilerplate: "The Friday Prayer is the most important religious ceremony of the week, ending with a recitation of the realm's spiritual and temporal sovereigns."
- tct_investiture_struggle_switch_sides_decision.supporter_turns_detractor.desc: "$tct_investiture_struggle_switch_sides_decision.supporter_turns_detractor.desc.boilerplate$\n\nBy removing the caliph's name from this list, I declare to all the Ummah that I consider #EMP myself#! the foremost master of my domain."
- tct_investiture_struggle_switch_sides_decision.detractor.turns_supporter.desc: "$tct_investiture_struggle_switch_sides_decision.supporter_turns_detractor.desc.boilerplate$\n\nBy emphasizing the preeminence of the caliph at the start of this list, I publicly mark myself as a loyal vassal to the hierarch of Sunni orthodoxy."
- tct_investiture_struggle_switch_sides_decision.neutral.desc: "$tct_investiture_struggle_switch_sides_decision.supporter_turns_detractor.desc.boilerplate$\n\nBy altering who is read in the list in my realm, and where they place, I can announce where my true loyalties lie."
+ tct_investiture_struggle_switch_sides_decision.imperial_supporter_turns_papal_supporter.desc.boilerplate: "The Friday Prayer is the most important religious ceremony of the week, ending with a recitation of the realm's spiritual and temporal sovereigns."
+ tct_investiture_struggle_switch_sides_decision.imperial_supporter_turns_papal_supporter.desc: "$tct_investiture_struggle_switch_sides_decision.imperial_supporter_turns_papal_supporter.desc.boilerplate$\n\nBy removing the caliph's name from this list, I declare to all the Ummah that I consider #EMP myself#! the foremost master of my domain."
+ tct_investiture_struggle_switch_sides_decision.papal_supporter_turns_imperial_supporter.desc: "$tct_investiture_struggle_switch_sides_decision.imperial_supporter_turns_papal_supporter.desc.boilerplate$\n\nBy emphasizing the preeminence of the caliph at the start of this list, I publicly mark myself as a loyal vassal to the hierarch of Sunni orthodoxy."
+ tct_investiture_struggle_switch_sides_decision.neutral.desc: "$tct_investiture_struggle_switch_sides_decision.imperial_supporter_turns_papal_supporter.desc.boilerplate$\n\nBy altering who is read in the list in my realm, and where they place, I can announce where my true loyalties lie."
  tct_investiture_struggle_switch_sides_decision.tt.orthodox_sunnis_only: "Your [head_of_faith|E] [title|E] must be the [GetTitleByKey('d_sunni').GetName]"
  tct_investiture_struggle_switch_sides_decision.tt.sunni_caliph_must_exist: "There is no caliph to emphasize or omit at present"
  tct_investiture_struggle_switch_sides_decision.tt.sunni_caliph_cannot_change_prayer_order: "You #BOL are#! the caliph!"
@@ -55,8 +69,22 @@
  tct_investiture_struggle_switch_sides_decision.tt.require_new_caliph_or_flag_lapse: "You have defied the caliph too recently — either some decades must pass, or the caliph must change"
  tct_investiture_struggle_switch_sides_decision.tt.caliph_murderers_cant_become_supporters: "You killed a caliph who wasn't part of your [dynasty|E] — no one will take your support seriously"
  tct_investiture_struggle_switch_sides_decision.tt.become_supporter: "Have the caliph's name read first and most elaborately"
- tct_investiture_struggle_switch_sides_decision.tt.become_detractor: "Remove the caliph from the list"
+ tct_investiture_struggle_switch_sides_decision.tt.become_papal_supporter: "Remove the caliph from the list"
  tct_investiture_struggle_switch_sides_decision.tt.fallback_validity: "#N Otherwise you may still take the [decision|E], at the cost of [stress|E] and extra [piety|E]#!"
  tct_investiture_struggle_switch_sides_decision_confirm: "For all to hear!"
  tct_investiture_struggle_switch_sides_decision_tooltip: "Change your allegiance in the [persian_struggle|E]" 
  name_read_in_friday_prayer_crown_authority: "Your [liege|E] has the law [autonomous_vassals_crown_authority|E]"
+
+
+
+ character_cannot_be_targetted:0 "This target can't be targetted"
+
+
+ #EVENT LOC
+ tct_neutral_struggle.0002.t: "Goslar, Silver Mines and the Saxons"
+ tct_neutral_struggle.0002.desc: "The air within the Imperial Palace of Goslar feels thick, a blend of past choices and the promise of a relentless future. Ah, the Saxons—a thorn in the flesh, one that dates back to the reign of my late father. Goslar, this palace which is supposed to signify unity, has instead become a chokehold upon their livelihoods. It's a bitter draught to swallow, but who am I to deny the burdens of lineage? \n\nYet, I stand resolute in my intentions. The silver mines of Rammelsberg, the fortresses that rise like dragons along the Harz mountains—these are not mere whims of a tyrant. They are bastions of imperial strength, each stone, each shimmering vein of silver, an expression of our indomitable will. My ministeriales, their Swabian roots notwithstanding, are the sinew and bone of this vision. If the Saxons see this as a threat, it is only because they are blinded by their own insecurities. They'll soon come to understand, either willingly or through the firm hand of my governance, that the grand tapestry of the Empire leaves no room for petty dissension."
+ tct_neutral_struggle.0002.a: "All in good time.."
+
+ tct_neutral_struggle.0003.t: "Goslar, Silver Mines and the Salians"
+ tct_neutral_struggle.0003.desc: "Dark are the days since Henry IV ascended the throne, casting his shadow over Saxon lands like a hawk circling its prey. My heart beats with indignation as I hear of the Emperor's deeds, his Rhenish Franconian heritage betraying no love for us. Goslar, that accursed palace, has not only consumed our wealth but has become a symbol of subjugation. I can feel the resentment simmering among my countrymen, a cauldron set to boil over. \n\nIn the heart of the Harz mountains, he plunders our silver and erects fortresses as if adorning his realm with trophies of conquest. The Harzburg castle and its ilk serve as reminders of his authority. But the true insult lies in the Swabian ministeriales he has unleashed upon us, men who raid our villages and tarnish our honor. Henry might see this as an assertion of royal power, but we see it for what it is—an invasion, a threat to our existence. This unrest finds echoes even among the Empire's great princes. If Henry believes that castles and ministeriales can quash the Saxon spirit, he is gravely mistaken. The time for passive support is dwindling; the moment for action draws near."
+ tct_neutral_struggle.0003.a: "All in good time.."

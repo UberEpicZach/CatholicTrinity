@@ -1,0 +1,43 @@
+﻿bm_investiture= { #The initial map for bookmarks is set in interface\bookmarks. This is a .dds file that would need edited. For now a placeholder works. 
+	start_date = 1066.9.15
+	is_playable = yes
+	default = yes
+	group = bm_group_1066
+	recommended = yes
+	weight = { value = 500 }
+	# #Holy Roman Emperor Heinrich IV
+	character = {
+		name = "bookmark_hre" #Holy Roman Emperor Heinrich IV
+		dynasty_house = house_salian
+		dynasty_splendor_level = 3
+		type = male
+		history_id = 1316
+		birth = 1050.1.12
+		title = e_hre
+		government = feudal_government
+		culture = franconian
+		religion = catholic
+		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_MEDIUM"
+		position = { 750 400 }
+		
+		animation = worry
+
+	}
+	# Pope Alexander II 2008
+	character = {
+		name = "bookmark_pope" # Alexander
+		dynasty = 13014
+		dynasty_splendor_level = 1
+		type = male
+		history_id = 2008
+		birth = 1019.1.1
+		title = k_papal_state
+		government = theocracy_government
+		religion = catholic
+		culture = italian
+		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_MEDIUM"
+		position = { 750 700 }
+		
+		animation = disapproval
+	}
+}

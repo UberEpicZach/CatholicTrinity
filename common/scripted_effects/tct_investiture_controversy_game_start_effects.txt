@@ -1,0 +1,127 @@
+﻿Investiture_Controversy_Game_Start_1066 = {
+	#1066 Improved some historical traits of people important to the Investiture Controversy Struggle
+
+	character:2010 = {
+		title:k_papal_state.holder = {
+			add_courtier ?= prev
+			assign_councillor_type = {
+				type = councillor_chancellor
+				remove_existing_councillor = yes
+				target = prev
+			}
+		}
+		set_variable = {
+			name = block_fire_councillor
+			value = title:k_papal_state.holder
+			years = 20
+		}
+		add_trait = temperate
+		add_trait = brave
+		add_trait = diligent
+		add_trait = honest
+		add_trait = just
+		add_trait = humble
+		if = {
+			limit = {
+				martial < 4
+			}
+			add_martial_skill = 6
+		}
+		if = {
+			limit = {
+				diplomacy < 15
+			}
+			add_diplomacy_skill = 10
+		}
+		if = {
+			limit = {
+				stewardship < 8
+			}
+			add_stewardship_skill = 6
+		}
+		if = {
+			limit = {
+				intrigue < 5
+			}
+			add_intrigue_skill = 8
+		}
+		if = {
+			limit = {
+				learning < 10
+			}
+			add_learning_skill = 10
+		}
+	}
+
+	title:e_hre.holder = {
+		create_title_and_vassal_change = {
+			type = revoked
+			save_scope_as = change
+		}
+		title:c_gottingen = {
+			change_title_holder = {
+				holder = title:e_hre.holder
+				change = scope:change
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+		trigger_event = {
+			id = tct_neutral_struggle.0002
+			days = 1
+		}
+	}
+
+	title:c_gottingen.title_province = { add_building = tct_leisure_palace_02 }
+
+
+	title:k_italy = { set_de_jure_liege_title = title:e_hre }
+
+	title:k_romagna = {
+		change_de_jure_drift_progress = {
+			target = title:e_hre
+			value = medium_de_jure_drift_progress_gain
+		} 
+	}
+
+	title:d_ostfalen = {
+		set_title_name = d_saxony
+		set_coa = d_anhalt
+	}
+	title:d_ostfalen.holder = {
+		set_primary_title_to = title:d_ostfalen
+	}
+
+
+}
+
+Investiture_Controversy_Game_Start_After_Lobby_1066 = {
+	#1066 Improved some historical traits of people important to the Investiture Controversy Struggle
+
+	title:e_hre.holder = {
+		if = {
+			limit = {
+				stewardship <= 5
+			}
+			every_character_artifact = { 
+				limit = { 
+					has_variable = reichskrone	
+				}
+			 
+				equip_artifact_to_owner_replace = yes
+				add_artifact_modifier = artifact_domain_limit_2_modifier 
+			}
+		}
+		else = {
+			limit = {
+				stewardship >= 5
+			}
+			every_character_artifact = { 
+				limit = { 
+					has_variable = reichskrone	
+				}
+				equip_artifact_to_owner_replace = yes
+				add_artifact_modifier = artifact_domain_limit_1_modifier 
+			}
+		}
+	}
+}

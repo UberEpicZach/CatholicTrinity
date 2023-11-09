@@ -1,4 +1,149 @@
-﻿##### Struggle Ending #####
+﻿investiture_controversy_struggle_apply_imperial_supporter_papal_supporter_war_won_catalysts_effect = {
+	#This is scope:attacker scope
+	## Unfair wars.
+	if = {
+		limit = {
+			has_trait = tct_imperial_supporter
+			scope:defender = {
+				has_trait = tct_papal_supporter
+			}
+			highest_held_title_tier > scope:loser.highest_held_title_tier
+			scope:war = {
+				NOT = { has_variable = used_for_struggle_catalyst_on_war_ended }
+			}
+			any_character_struggle = {
+				involvement = involved
+				activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
+					CATALYST = tct_catalyst_supporter_win_unfair_war_within_the_region
+					CHAR = scope:loser
+				}
+			}
+		}
+		every_character_struggle = {
+			involvement = involved
+			limit = {
+				activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
+					CATALYST = tct_catalyst_supporter_win_unfair_war_within_the_region
+					CHAR = scope:loser
+				}
+			}
+			activate_struggle_catalyst = {
+				catalyst = tct_catalyst_supporter_win_unfair_war_within_the_region
+				character = scope:winner
+			}
+			scope:war = { set_variable = used_for_struggle_catalyst_on_war_ended }
+			#log_debug_variable_for_persian_struggle_effect = { VAR = stabil_tct_catalyst_supporter_win_unfair_war_within_the_region }
+		}
+	}
+	## Fair wars.
+	else_if = {
+		limit = {
+			has_trait = tct_imperial_supporter
+			scope:defender = {
+				has_trait = tct_papal_supporter
+			}
+			highest_held_title_tier <= scope:loser.highest_held_title_tier
+			scope:war = {
+				NOT = { has_variable = used_for_struggle_catalyst_on_war_ended }
+			}
+			any_character_struggle = {
+				involvement = involved
+				activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
+					CATALYST = tct_catalyst_supporter_win_fair_war_within_the_region
+					CHAR = scope:loser
+				}
+			}
+		}
+		every_character_struggle = {
+			involvement = involved
+			limit = {
+				activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
+					CATALYST = tct_catalyst_supporter_win_fair_war_within_the_region
+					CHAR = scope:loser
+				}
+			}
+			activate_struggle_catalyst = {
+				catalyst = tct_catalyst_supporter_win_fair_war_within_the_region
+				character = scope:winner
+			}
+			scope:war = { set_variable = used_for_struggle_catalyst_on_war_ended }
+			#log_debug_variable_for_persian_struggle_effect = { VAR = stabil_tct_catalyst_supporter_win_fair_war_within_the_region }
+		}
+	}
+	# During the Investiture Controversy Struggle, a Papal Supporter wins any war in the region.
+	## Unfair wars.
+	else_if = {
+		limit = {
+			has_trait = tct_papal_supporter
+			scope:defender = {
+				has_trait = tct_imperial_supporter
+			}
+			highest_held_title_tier > scope:loser.highest_held_title_tier
+			scope:war = {
+				NOT = { has_variable = used_for_struggle_catalyst_on_war_ended }
+			}
+			any_character_struggle = {
+				involvement = involved
+				activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
+					CATALYST = tct_catalyst_detractor_win_unfair_war_within_the_region
+					CHAR = scope:loser
+				}
+			}
+		}
+		every_character_struggle = {
+			involvement = involved
+			limit = {
+				activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
+					CATALYST = tct_catalyst_detractor_win_unfair_war_within_the_region
+					CHAR = scope:loser
+				}
+			}
+			activate_struggle_catalyst = {
+				catalyst = tct_catalyst_detractor_win_unfair_war_within_the_region
+				character = scope:winner
+			}
+			scope:war = { set_variable = used_for_struggle_catalyst_on_war_ended }
+			#log_debug_variable_for_persian_struggle_effect = { VAR = unrest_tct_catalyst_detractor_win_unfair_war_within_the_region }
+		}
+	}
+	## Fair wars.
+	else_if = {
+		limit = {
+			has_trait = tct_papal_supporter
+			scope:defender = {
+				has_trait = tct_imperial_supporter
+			}
+			highest_held_title_tier <= scope:loser.highest_held_title_tier
+			scope:war = {
+				NOT = { has_variable = used_for_struggle_catalyst_on_war_ended }
+			}
+			any_character_struggle = {
+				involvement = involved
+				activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
+					CATALYST = tct_catalyst_detractor_win_fair_war_within_the_region
+					CHAR = scope:loser
+				}
+			}
+		}
+		every_character_struggle = {
+			involvement = involved
+			limit = {
+				activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
+					CATALYST = tct_catalyst_detractor_win_fair_war_within_the_region
+					CHAR = scope:loser
+				}
+			}
+			activate_struggle_catalyst = {
+				catalyst = tct_catalyst_detractor_win_fair_war_within_the_region
+				character = scope:winner
+			}
+			scope:war = { set_variable = used_for_struggle_catalyst_on_war_ended }
+			#log_debug_variable_for_persian_struggle_effect = { VAR = unrest_tct_catalyst_detractor_win_fair_war_within_the_region }
+		}
+	}
+}
+
+##### Struggle Ending #####
 end_investiture_controversy_struggle_effect = {
 	if = {
 		limit = {
@@ -43,7 +188,7 @@ end_investiture_controversy_struggle_effect = {
 		}
 		trigger_event = $EVENT$
 	}
-	struggle:persian_struggle ?= { end_struggle = $ENDING$ }
+	struggle:investiture_controversy_struggle ?= { end_struggle = $ENDING$ }
 }
 
 investiture_controversy_struggle_switch_sides_sundry_changes_effect = {
@@ -61,7 +206,7 @@ investiture_controversy_struggle_switch_sides_sundry_changes_effect = {
 	}
 	# Plus check who the current caliph is so we can see who you swore to.
 	set_variable = {
-		name = last_explicit_hre_ruler
+		name = switch_sides_decision_emperor
 		value = title:e_hre.holder
 	}
 }
@@ -96,13 +241,13 @@ investiture_controversy_struggle_switch_sides_scripted_effect = {
 		}
 		show_as_tooltip = {
 			random_list = {
-				# Become a supporter.
+				# Become a imperial supporter.
 				100 = {
 					show_chance = no
 					desc = fp3_name_read_in_friday_prayer_decision.tt.become_supporter
 					investiture_controversy_struggle_switch_sides_become_imperial_supporter_effect = yes
 				}
-				# Become a detractor.
+				# Become a papal supporter.
 				100 = {
 					show_chance = no
 					desc = fp3_name_read_in_friday_prayer_decision.tt.become_detractor
@@ -111,7 +256,7 @@ investiture_controversy_struggle_switch_sides_scripted_effect = {
 			}
 		}
 	}
-	## Supporters become Detractors.
+	## Imperial Supporters become Papal Supporter.
 	else_if = {
 		limit = { has_trait = tct_imperial_supporter }
 		investiture_controversy_struggle_switch_sides_become_papal_supporter_effect = yes
@@ -175,5 +320,59 @@ investiture_controversy_struggle_switch_sides_scripted_effect = {
 	}
 	# Finish things off.
 	investiture_controversy_struggle_switch_sides_sundry_changes_effect = yes
-	read_name_in_friday_prayer_guts_apply_house_unity_changes_effect = yes
+	#read_name_in_friday_prayer_guts_apply_house_unity_changes_effect = yes
+}
+
+hre_pope_opinion_check_catalyst = {
+	if = {
+		limit = {
+			title:e_hre.holder = {
+				any_character_struggle = { phase_has_catalyst = tct_papal_hre_opinions }
+				opinion = {
+					target = title:k_papal_state.holder
+					value <= 0
+				}
+			}
+			title:k_papal_state.holder = {
+				opinion = {
+					target = title:e_hre.holder
+					value <= 0
+				}
+			}
+		}
+		title:e_hre.holder = {
+			every_character_struggle = {
+				activate_struggle_catalyst = {
+					catalyst = tct_papal_hre_opinions
+					character = title:e_hre.holder
+				}
+			}
+		}
+	}
+}
+
+# decrease contractual obligations
+autonomony_obligations_faction_contract_decrease_effect = {
+	if = {
+		limit = {
+			vassal_contract_obligation_level:feudal_government_levies > vassal_contract_obligation_level:feudal_government_taxes
+			vassal_contract_obligation_level_can_be_decreased = feudal_government_levies
+		}
+		vassal_contract_decrease_obligation_level = feudal_government_levies
+	}
+	else_if = {
+		limit = {
+			vassal_contract_obligation_level:feudal_government_taxes > vassal_contract_obligation_level:feudal_government_levies
+			vassal_contract_obligation_level_can_be_decreased = feudal_government_taxes
+		}
+		vassal_contract_decrease_obligation_level = feudal_government_taxes
+	}
+	else = {
+		if = {
+			limit = { vassal_contract_obligation_level_can_be_decreased = feudal_government_taxes }
+			vassal_contract_decrease_obligation_level = feudal_government_levies
+		}
+		else = { vassal_contract_decrease_obligation_level = feudal_government_taxes }
+	}
+	#hidden_effect = { set_vassal_contract_modification_blocked = yes }
 }
