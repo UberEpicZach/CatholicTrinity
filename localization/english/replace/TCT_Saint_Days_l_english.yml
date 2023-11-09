@@ -1,44 +1,109 @@
 ﻿l_english:
-
+ 
  # MISC
- RICE_all_in_attendance:0 "Everyone attending the ceremony"
- activity_venerate_ancestors:0 "Ceremony to Venerate the Ancestors"
- activity_venerate_ancestors_name:0 "[ACTIVITY.GetOwner.GetNamePossessiveOrMy|U] Ceremony to Venerate the Ancestors"
- activity_venerate_ancestors_owner:0 "Organizer"
-
- TCTactivity_pilgrimage:0 "Saintly Tomb"
-
+ #TCTactivity_pilgrimage:0 "Saintly Tomb"
+ 
+ #Modifiers
+ saint_days_procession: "Held a Grand Procession"
+ 
+ # Events
+ TCT_saintdaysaint_opinion: "Saint's Day"
+ TCT_saint_days_procession_opinion: "Saint's Day Procession"
+ TCT_saint_days.0001.t: "[localsaint.GetFirstNameNicknamed]'s Day"
+ TCT_saint_days.0001.desc.a: "Under the morning sun of Saint's Day in [provincefun.GetName], the church bells echoed, signifying a day of joy ahead. Homes were adorned with vibrant flowers  andunique wreaths, a testament to the unified spirit of the villagers. As the day unfolded, everyone gathered at the square under the statue of the Saint, their protector and guide. \n\nThe  choirsang hymns of reverence, blending seamlessly with the laughter of the children at play. The village priest shared the teachings of [localsaint.GetFirstNameNicknamed], inspiring the villagers  tolead a life of virtue. The celebration was a testament to unity and gratitude, reflecting the Saint's spirit in every interaction. Despite life's hardships, the day was filled with joy, thevillage  aglow with the warmth and radiance of the Saint's Day celebration"
+ TCT_saint_days.0001.desc.b: "As dawn broke on the Saint's Day in [provincefun.GetName], the melodic chimes of church bells set the tone for a jubilant day ahead. Every doorstep was graced  withcolorful blossoms and intricate garlands, symbolizing the communal bond of the townsfolk. When midday approached, a sea of people congregated around the Saint's monument, their guardian  andmentor. \n\nThe harmonious voices of the choir elevated the atmosphere, complemented by the playful giggles of children. The local clergyman recounted tales of [localsaint.GetFirstNameNicknamed], urging everyone to walk the path of righteousness. Every smile, prayer, and song embodied the essence of the Saint, making the day a radiant beacon of unity and thanksgiving."
+ TCT_saint_days.0001.desc.c: "On the cherished morning of Saint's Day in [provincefun.GetName], the rhythmic tolling of church bells heralded a day filled with hope and unity. Houses  flauntedbright petals and handcrafted wreaths, capturing the collective heart of the inhabitants. As the sun reached its zenith, the townspeople assembled around the Saint's effigy, honoring their  eternalbeacon. \n\nMelodies of devotion filled the air, interwoven with the innocent mirth of young ones. The village cleric spoke of [localsaint.GetFirstNameNicknamed]'s values, invigorating  everyonewith a renewed sense of purpose. Every moment was a tribute to togetherness and appreciation, mirroring the Saint's essence in every gesture. Amidst life's trials, the day shone bright,  envelopedin the blessings of the Saint's Day festivities."
+ TCT_saint_days.0001.desc.d: "With the first light of Saint's Day illuminating [provincefun.GetName], church bells resonated, promising a day of collective celebration. Residences displayed  anarray of flowers and artistic wreaths, mirroring the villagers' shared spirit. As afternoon approached, the populace rallied around the statue of their cherished Saint, seeking guidance  andprotection. \n\nSacred songs, performed by the choir, harmonized with the delightful sounds of playful youth. The village's spiritual leader shared wisdom from [localsaint.GetFirstNameNicknamed], instilling a drive for moral living. Every interaction was a demonstration of unity and thankfulness, encapsulating the Saint's ethos. Through all of life's challenges, the village was awash withthe  love and splendor of the Saint's Day observance."
+ TCT_saint_days.0001.a: "Time for a feast!"
+ TCT_saint_days.0001.a.tooltip: "You start a [GetActivityType( 'activity_TCT_saint_days' ).GetName]\n\n#emphasis Historical Context:#! Saint's Day, also known as a Feast Day, is a Christian tradition that commemorates the life, works,  andmartyrdom of saints. The manner in which these days are celebrated can vary widely depending on the specific saint, the country, and the particular Christian tradition. Some of these  traditionsmay encompass church services, processions, holidays and feasting."
+ TCT_saint_days.0001.b: "A toast to the carolers!"
+ TCT_saint_days.0001.c: "I will spend the holidays with my family."
+ 
+ TCT_saint_days.0003.t: "Preparing Saint's Day Celebration"
+ TCT_saint_days.0003.desc: "I have chosen to orchestrate a grand [ROOT.Char.GetInvolvedActivity.GetShortName]. The accommodations of the [ROOT.Char.GetTravelPlan.GetData.GetNextDestination.GetProvince.GetTitle.GetName] seem befitting of such a solemn occasion.\nMessages to the esteemed members of the [ROOT.Char.GetDynasty.GetName] dynasty within my realm have been dispatched, beckoning them to come forth and join in this sacred celebration. This day holds great significance, and their presence would magnify its reverence."
+ TCT_saint_days.0003.a: "It shall be a day to remember."
+ 
+ TCT_saint_days.0004.t: "Advent in [location.GetName]"
+ TCT_saint_days.0004.desc.a: "As the dawn's first light painted the horizon, the town's streets hummed with an anticipatory energy. I bestowed humble donations upon the church, a testament to my personal connection with every soul in the realm. This gesture of love and humility was then mirrored in a modest procession. Leading my people, we journeyed together through the cobbled streets, our steps synchronized, reflecting the intimacy and earnest spirit of the community. Our destination was the hallowed grounds of the church, where we would pay homage on this Saint's Day."
+ TCT_saint_days.0004.desc.b: "Under a cerulean sky, I emerged with humble offerings, a symbol of my unyielding commitment to my people and the church. Even though the donations were modest, they were a reflection of the depth of our shared bond. What followed was a sizeable procession, its length a sight to behold, winding through the streets of [location.GetName]. Leading this assembly, we moved as one to the church, our steps echoing the harmonious spirit of Saint's Day."
+ TCT_saint_days.0004.desc.c: "With the sun high and radiant, I came forth with my humble donations, a testament to my belief that true leadership is in service and humility. The juxtaposition was evident when these modest offerings gave birth to a grand procession. The streets were a sea of faces, banners flying high, music filling the air as I led the enthusiastic multitude. Our destination: the church, where every heart would come together in reverence of the Saint's Day."
+ TCT_saint_days.0004.desc.d: "As morning dew still clung to the leaves, I approached with generous donations, an embodiment of my dedication and benevolence towards my realm. These plentiful gifts, given from the heart, were followed by a modest procession. It was a reminder that true magnanimity is not always in grand displays, but in genuine intentions. Leading my people, we moved in quiet reverence towards the church, every step a tribute to the sacredness of the Saint's Day."
+ TCT_saint_days.0004.desc.e: "With the town bathed in golden light, my generous contributions were laid before the church, a clear sign of my commitment and love for my people and land. This grand gesture set the stage for a sizeable procession. A harmonious blend of grandeur and devotion, it weaved through the town's arteries, with me at the forefront. Our collective spirits were high as we approached the church, ready to honor the Saint's Day in all its glory."
+ TCT_saint_days.0004.desc.f: "As bells tolled in the distance, I, with a heart full of gratitude, presented my generous offerings to the church, setting a precedent for the realm's prosperity and benevolence. The donations were only rivaled by the ensuing grand procession. A spectacle of unparalleled magnitude unfolded as I led the vast assembly through town, the vibrant pageantry capturing the essence of celebration. The church, our final destination, awaited our arrival, where together, we would immerse ourselves in the reverence and joy of Saint's Day."
+ TCT_saint_days.0004.a: "Lead the march to the church!"
+ TCT_saint_days.0004.opinion.tooltip.a: "[direct_vassal|E] Opinion: #P +5#!"
+ TCT_saint_days.0004.opinion.tooltip.b: "[direct_vassal|E] Opinion: #P +10#!\nSaint's Day Attendants Opinion: #P +5#!"
+ TCT_saint_days.0004.a.tooltip: "All [family_members|E] attending the ceremony gain a random amount of [prestige|E] and [piety|E] depending on their [virtues|E] and [sins|E], and the [dynasty_prestige_level|E] of your [dynasty|E]"
+ 
+ TCT_saint_days.0005.t: "Saint's Day Celebration"
+ TCT_saint_days.0005.desc.reverence_reverence: "Today, we gather with a profound depth of emotion and unwavering solemnity, setting aside the mundanity of our daily lives to truly honor Saint's Day. Engaging in the intricate rituals and invocations specific to the [ROOT.Char.GetFaith.GetName] faith, we pour our souls into venerating the Saint. We take this moment to remember every sacrifice, every teaching, and every guiding light they've provided. Families, friends, and strangers alike come together, unified by a shared reverence. Our collective prayer is that our sincere devotion finds resonance in the celestial realms, ensuring that the wisdom of the Saint forever remains our guiding star."
+ TCT_saint_days.0005.desc.tradition_reverence: "On this day, as the familiar chants and rituals of Saint's Day envelop our senses, we're transported back through the annals of our rich [ROOT.Char.GetCulture.GetName] history. Each rite, each word uttered, bridges the past and present, allowing us to touch the essence of our forebearers. But beyond the traditions, there lies a deep-seated respect for the Saint and their teachings. As families bond, stories of yesteryears intermingle with teachings of righteousness, ensuring that our past remains a beacon for our future."
+ TCT_saint_days.0005.desc.festivity_reverence: "While the streets brim with jubilation, laughter, and songs, a deeper, more somber emotion anchors the Saint's Day celebrations. Amidst the festivities, moments of silent prayer and reflection are held, where the devout meditate upon the Saint's teachings. The joyous atmosphere serves as a backdrop, a reminder that while we celebrate, we must never lose sight of the divine blessings and guidance we've received."
+ TCT_saint_days.0005.desc.reverence_gratitude: "In the sacred ambiance of Saint's Day, gratitude and reverence become inseparable emotions. As the fragrant incense wafts through the air and the [ROOT.Char.GetFaith.GetName] rites unfold, hearts brim with thankfulness. Each story shared, each miracle recounted, amplifies the community's collective gratitude for the Saint's benevolent presence in our lives. It's a day where thankfulness is not just felt but lived, celebrated, and passed down."
+ TCT_saint_days.0005.desc.tradition_gratitude: "Embracing the age-old traditions of Saint's Day, every member of the [ROOT.Char.GetCulture.GetName] community also carries a heart filled with gratitude. The rituals, chants, and customs are more than just echoes of the past; they're expressions of heartfelt appreciation for a Saint who has shaped the very fabric of our culture. As traditions are passed down, so are tales of gratitude, ensuring that future generations understand the depth of our appreciation."
+ TCT_saint_days.0005.desc.festivity_gratitude: "The vibrant festivities of Saint's Day are a spectacle for the senses, yet beneath the surface, gratitude flows like a quiet undercurrent. Every dance step, every song sung, every feast shared, carries with it a silent 'thank you' to the Saint. As day turns to night and families gather around, tales of joy intermingle with tales of blessings received, encapsulating the spirit of gratitude that defines this special day."
+ TCT_saint_days.0005.desc.reverence_atonement: "Saint's Day is not just an occasion to honor; it's a time for introspection. As we engage in [ROOT.Char.GetFaith.GetName] rituals with deep reverence, many amongst us also seek atonement. The ceremonies, while celebratory, also provide a sanctuary for souls seeking to mend their ways, drawing strength from the Saint's teachings and seeking forgiveness for past indiscretions."
+ TCT_saint_days.0005.desc.tradition_atonement: "Steeped in the traditions of the [ROOT.Char.GetCulture.GetName], Saint's Day also provides an avenue for personal redemption. As the old stories and customs are recounted, they often carry tales of atonement, of individuals who found their way back to righteousness guided by the Saint. It's a potent reminder that while we honor and celebrate, we must also reflect and rectify."
+ TCT_saint_days.0005.desc.festivity_atonement: "Amidst the lively celebrations of Saint's Day, there's a space for reflection and redemption. Even as the streets come alive with merriment, many souls turn inwards, seeking the Saint's guidance in their quest for atonement. The day's festivities, while exuberant, also offer moments of quiet contemplation, allowing individuals to reconcile with their past and embrace a future in line with the Saint's teachings."
+ TCT_saint_days.0005.a: "Today, we honor the Saint."
+ 
  # Activities
- activity_TCT_saint_days:0 "Saint Day Celebration"
- activity_TCT_saint_days_desc:0 "By showing love and respect to our ancestors, we can reinforce the ties that bind our family together. The ancestors deserve to be honored and venerated in a lengthy ceremony."
- activity_TCT_saint_days_selection_tooltip: "Venerate your ancestors with any [dynasty_members|E] in your [court|E].\n\nAnticipated Rewards:\n$BULLET_WITH_TAB$Gain random amounts of [piety_i|E][piety|E], [prestige_i|E][prestige|E], and [dynasty_prestige_i|E][dynasty_prestige|E] (up to a maximum of #V [piety_i] [GetPlayer.MakeScope.ScriptValue('RICE_ancestor_max_bonus_value')]#!, #V [prestige_i] [GetPlayer.MakeScope.ScriptValue('RICE_ancestor_max_bonus_value')]#!, and #V [dynasty_prestige_i] [GetPlayer.MakeScope.ScriptValue('RICE_ancestor_max_dynasty_prestige_large_value')]#!)\n\n#weak The maximum amount of these resources you can gain depends on your [dynasty_prestige_level|E], [virtues|E], and [sins|E]#!"
- activity_TCT_saint_days_host_desc: "\n$BULLET_WITH_TAB$Gain random amounts of [piety_i|E][piety|E], [prestige_i|E][prestige|E], and [dynasty_prestige_i|E][dynasty_prestige|E]"
- activity_TCT_saint_days_guest_desc: "\n$BULLET_WITH_TAB$Gain random amounts of [piety_i|E][piety|E] and [prestige_i|E][prestige|E]"
+ activity_TCT_saint_days: "Saint's Day Celebration"
+ activity_TCT_saint_days_desc: "Saint's Day is a revered tradition, a time to honor the divine intercessors who've guided our faith and protected our realm. By celebrating these sacred figures, we not only deepen our spiritual bond but also unite our community in gratitude and reverence. It is a day of solemnity, joy, and reflection, where we come together to pay homage to their holy legacy."
+ activity_TCT_saint_days_selection_tooltip: "Commune with the divine and celebrate the saints that have blessed your realm and faith\n\nAnticipated Rewards:\n$EFFECT_LIST_BULLET$[piety_i|E] [piety|E]\n$EFFECT_LIST_BULLET$[prestige_i|E] [prestige|E]\n$EFFECT_LIST_BULLET$[dynasty_prestige_i|E] [dynasty_prestige|E]\n$EFFECT_LIST_BULLET$[opinion_i|E] [opinion|E]\n$EFFECT_LIST_BULLET$[stress_loss_i|E] [stress|E] Loss"
+ 
+ TCT_saint_days_procession_cost_sizeable: "Sizeable Procession Cost"
+ TCT_saint_days_procession_cost_grand: "Grand Procession Cost"
+  
+ activity_TCT_saint_days_host_desc: "$BULLET_WITH_TAB$Gain random amounts of [piety_i|E][piety|E], [prestige_i|E][prestige|E], and [dynasty_prestige_i|E][dynasty_prestige|E] (up to a maximum of #V [piety_i] [GetPlayer.MakeScope.ScriptValue('RICE_ancestor_max_bonus_value')]#!, #V [prestige_i] [GetPlayer.MakeScope.ScriptValue('RICE_ancestor_max_bonus_value')]#!, and #V [dynasty_prestige_i] [GetPlayer.MakeScope.ScriptValue('RICE_ancestor_max_dynasty_prestige_large_value')]#!)\n$BULLET_WITH_TAB$Guest [opinion|E]\n$BULLET_WITH_TAB$May lose[stress_loss_i|E][stress|E]\n\n#weak The maximum amount of these resources you can gain is influenced by your [dynasty_prestige_level|E], your adherence to [virtues|E], and your avoidance of [sins|E]#!."
+ activity_TCT_saint_days_guest_desc: "\n$EFFECT_LIST_BULLET$[piety_i|E] [piety|E]\n$EFFECT_LIST_BULLET$[prestige_i|E] [prestige|E]\n$EFFECT_LIST_BULLET$[dynasty_prestige_i|E] [dynasty_prestige|E]\n$EFFECT_LIST_BULLET$[opinion_i|E] [opinion|E]\n$EFFECT_LIST_BULLET$[stress_loss_i|E][stress|E] Loss"
+ 
  activity_TCT_saint_days_province_desc: "" # Fallback option
- activity_TCT_saint_days_temple_holding_desc: "\n#P ++ [church_holding|E]#!\n#weak This will reduce the [gold|E] cost of this [activity|E].#!"
- activity_TCT_saint_days_temple_holding_reduced_cost: "[church_holding|E]"
+ activity_TCT_saint_days_temple_holding_desc: "#P [church_holding|E]#!\n#weak A church, with its sanctified grounds and spiritual ambiance, serves as the perfect setting for the observance of Saint's Day. Within its consecrated walls, one feels a profound bond with the divine, fostering a deeper contemplation of the saint's life and teachings. Additionally, the solemnity of the church setting amplifies the collective devotion, drawing the community closer in prayer and festivity.#!"
+
  #activity_TCT_saint_days_holy_site_desc: ""\n#P +++ [holy_site|E]#!"
  activity_TCT_saint_days_destination_selection: ""
  activity_TCT_saint_days_guest_help_text: "$activity_TCT_saint_days$"
- activity_TCT_saint_days_predicted_cost: "The cost of the Ancestor Veneration depends on the [activity_options|E] you select."
- activity_TCT_saint_days_conclusion_desc: "The [GetActivityType( 'activity_TCT_saint_days' ).GetName] is over. We can only hope that the ancestors were pleased with our offerings!"
- TCT_saint_days_type_secular: "Lay Ceremony"
- TCT_saint_days_type_secular_desc: "$EFFECT_LIST_BULLET$ The ceremony focuses on the ancestors themselves, with less involvement from [GetPlayer.GetFaith.GetAdjective] [GetPlayer.Custom('DefaultPriestTitlePlural')].\n$EFFECT_LIST_BULLET$ The minimum amount of [prestige_i|E] [prestige|E] you randomly gain is higher than compared to a #bold Sacred#! Ceremony.\n\n#weak Though it is foolish to deny the otherworldly dimensions of venerating our ancestors, let us focus on how they were as people, first and foremost, as we remember and honor them!#!"
- TCT_saint_days_type_religious: "Sacred Ceremony"
- TCT_saint_days_type_religious_desc: "$EFFECT_LIST_BULLET$ The ceremony will greatly involve [GetPlayer.GetFaith.GetAdjective] [GetPlayer.Custom('DefaultPriestTitlePlural')], so that we honor not only our ancestors, but [GetPlayer.GetFaith.PantheonTerm] as well!\n$EFFECT_LIST_BULLET$ The minimum  amount of [piety_i|E] [piety|E] you randomly gain is higher than compared to a #bold Lay#! Ceremony.\n\n#weak By venerating our ancestors, we build bonds between not only each other, but between ourselves and the divine as well.#!"
- TCT_saint_days_cost_type: "Offerings"
- TCT_saint_days_cost_type_small: "Modest"
- TCT_saint_days_cost_type_small_desc: "$EFFECT_LIST_BULLET$ Give the ancestors a modest but respectable offering.\n$EFFECT_LIST_BULLET$ Your [dynasty|E] will gain only up to #V [dynasty_prestige_i] [GetPlayer.MakeScope.ScriptValue('RICE_ancestor_max_dynasty_prestige_small_value')]#!.\n\n#weak Rather than overwhelming our ancestors with extravagant but frivolous gifts, we should focus on actually honoring them by presenting them with modest but carefully chosen and thoughtful offerings.#!"
- TCT_saint_days_cost_type_large: "Large"
- TCT_saint_days_cost_type_large_desc: "$EFFECT_LIST_BULLET$ Give the ancestors a large, grand offering.\n$EFFECT_LIST_BULLET$ Your [dynasty|E] will gain up to #V [dynasty_prestige_i] [GetPlayer.MakeScope.ScriptValue('RICE_ancestor_max_dynasty_prestige_large_value')]#!.\n\n#weak We are only here because of our ancestors, so they deserve only the very best of offerings!#!"
- TCT_saint_days_veneration_phase: "Veneration"
- TCT_saint_days_veneration_phase_desc: "We are nothing without our ancestors."
- TCT_saint_days_respect_intent_header: "Respect:"
- TCT_saint_days_respect_intent: "Respect"
- TCT_saint_days_respect_intent_desc: "By respecting our ancestors, we respect ourselves."
- TCT_saint_days_completed_log_title:0 "Completed an Ancestor Veneration Ceremony"
- TCT_saint_days_completed_log:0 "[CHARACTER.GetShortUIName|U] completed [CHARACTER.GetHerHis] Ancestor Veneration Ceremony"
- TCT_saint_days_offering_amount:0 "Offering Size"
+ activity_TCT_saint_days_predicted_cost: "The cost of the Saint's Day celebration depends on the [activity_options|E] you select."
+ activity_TCT_saint_days_conclusion_desc: "As the final hymns fade and the echoes of our [GetActivityType( 'activity_TCT_saint_days' ).GetName] wane, we cast hopeful eyes skyward. May the saints, in their eternal grace, have smiled upon our heartfelt homage, and may our fervent celebrations fortify our communion with the heavens above."
+
+ TCT_saint_days_type_reverence: "Spiritual Reverence"
+ TCT_saint_days_type_reverence_desc: "\n$EFFECT_LIST_BULLET$ Gain [piety_i|E] #V 100#! on top of other [piety|E] gains\n\n#weak The true essence of the Saint's Day lies in genuine reverence and spiritual contemplation, focusing on the Saint's teachings and sacrifices. Pious individuals seek solace in sequestered prayers, aspiring to walk the righteous path of the saints who braved the tribulations of their times.#!"
+ TCT_saint_days_type_tradition: "Upholding Tradition"
+ TCT_saint_days_type_tradition_desc: "\n$EFFECT_LIST_BULLET$ Gain [prestige_i|E] #V 100#! on top of other [prestige|E] gains\n\n#weak Celebrating the Saint's Day is more than a personal act; it's a way to uphold traditions, promote social cohesion, and show respect for our shared history and culture. These traditions act as threads binding communities together, ensuring that the tales of valor, sacrifice, and divinity are passed down through generations.#!"
+ TCT_saint_days_type_festivity: "Joyful Festivity"
+ TCT_saint_days_type_festivity_desc: "\n$EFFECT_LIST_BULLET$ Lose much more [stress_loss_i|E] [stress|E] compared to the other options\n\n#weak Sometimes, the best way to honor the Saint is to revel in the joy of life, community, and festivity, reminding ourselves of the blessings we've received. These festivities often mirror a fusion of pagan revelries and [GetPlayer.GetFaith.GetAdjective] traditions. From harvest feasts to midsummer dances, they provide a respite from daily hardships, reaffirming the community spirit and the protective gaze of the saints above.#!"
+
+ TCT_saint_days_cost_type: "Donations"
+ TCT_saint_days_cost_type_small: "Humble"
+ TCT_saint_days_cost_type_small_desc: "$EFFECT_LIST_BULLET$ Make a humble but sincere donation in the name of the saint.\n$EFFECT_LIST_BULLET$ Your [dynasty|E] will gain only up to #V [dynasty_prestige_i] [GetPlayer.MakeScope.ScriptValue('RICE_ancestor_max_dynasty_prestige_small_value')]#!.\n\n#weak It's not the size of the donation that counts, but the genuine devotion and intent behind it. Honoring the saint with a humble contribution can sometimes carry more weight than grand displays.#!"
+ TCT_saint_days_cost_type_large: "Generous"
+ TCT_saint_days_cost_type_large_desc: "$EFFECT_LIST_BULLET$ Make a generous, lavish donation in the name of the saint.\n$EFFECT_LIST_BULLET$ Your [dynasty|E] will gain up to #V [dynasty_prestige_i] [GetPlayer.MakeScope.ScriptValue('RICE_ancestor_max_dynasty_prestige_large_value')]#!.\n\n#weak Our devotion to the saints is a testament to our faith. Through our generous contributions, we show our deep respect and gratitude for their divine intercession in our lives.#!"
+
+ TCT_saint_days_procession_type: "Procession"
+ TCT_saint_days_procession_type_modest: "Modest Procession"
+ TCT_saint_days_procession_type_modest_desc: "$EFFECT_LIST_BULLET$ Gain [piety_i|E] #V 10#!\n$EFFECT_LIST_BULLET$ Close family members receive an opinion bonus\n\n#weak A humble procession, consisting only of close family members and a few trusted advisors. This intimate gathering signifies deep personal respect for the saints, without drawing much attention or requiring extensive resources."
+ TCT_saint_days_procession_type_sizeable: "Sizeable Procession"
+ TCT_saint_days_procession_type_sizeable_desc: "$EFFECT_LIST_BULLET$ Gain [piety_i|E] #V 50#!\n$EFFECT_LIST_BULLET$ Gain [prestige_i|E] #V 50#!\n$EFFECT_LIST_BULLET$ Close family members and vassals receive an opinion bonus\n\n#weak A more significant gathering that includes extended family, notable vassals, and a retinue of guards. This procession represents a balance between personal veneration and showcasing the dynasty's reverence for the saints to the public."
+ TCT_saint_days_procession_type_grand: "Grand Procession"
+ TCT_saint_days_procession_type_grand_desc: "$EFFECT_LIST_BULLET$ Gain [piety_i|E] #V 100#!\n$EFFECT_LIST_BULLET$ Gain [prestige_i|E] #V 100#!\n$EFFECT_LIST_BULLET$ Close family members, vassals and holiday guests receive an opinion bonus\n$EFFECT_LIST_BULLET$ [travel|E] Destination gains the [GetModifier('saint_days_procession').GetNameWithTooltip|L] [county_modifier|E] for #V 5 years#!\n#weak A lavish parade attended by family members, most of the court, vassals, a considerable military escort, and even entertainers. This procession is as much about demonstrating the family's power and prestige as it is about venerating the saints. It's bound to leave an impression on the populace and fellow nobility."
+
+ TCT_saint_days_devotion_phase: "Devotion"
+ TCT_saint_days_devotion_phase_desc: "In the shadow of saints, we find guidance."
+
+ TCT_saint_days_reverence_intent_header: "Reverence:"
+ TCT_saint_days_reverence_intent: "Reverence"
+ TCT_saint_days_reverence_intent_desc: "Your presence at the Saint's Day is driven by profound respect and admiration for the Saint. Gain more [prestige_i|E] [prestige|E]. Lose extra [stress_loss_i|E][stress|E] if you are [GetTrait('zealous').GetName( GetNullCharacter )] or [GetTrait('diligent').GetName( GetNullCharacter )]."
+ TCT_saint_days_gratitude_intent_header: "Gratitude:"
+ TCT_saint_days_gratitude_intent: "Gratitude"
+ TCT_saint_days_gratitude_intent_desc: "You attend the Saint's Day to express deep appreciation for the blessings and interventions you've received. Gain more [piety_i|E][piety|E]. Lose extra [stress_loss_i|E][stress|E] if you are [GetTrait('content').GetName( GetNullCharacter )] or [GetTrait('generous').GetName( GetNullCharacter )]."
+ TCT_saint_days_atonement_intent_header: "Atonement:"
+ TCT_saint_days_atonement_intent: "Atonement"
+ TCT_saint_days_atonement_intent_desc: "You seek the Saint's Day to make amends for sins or transgressions and hope for the Saint's spiritual guidance. Gain even more [piety_i|E][piety|E] on top of other gains. Lose extra [stress_loss_i|E][stress|E] if you are [GetTrait('honest').GetName( GetNullCharacter )] or [GetTrait('humble').GetName( GetNullCharacter )]."
+
+ TCT_saint_days_completed_log_title:0 "Completed a Saint's Day Celebration"
+ TCT_saint_days_completed_log:0 "[CHARACTER.GetShortUIName|U] completed [CHARACTER.GetHerHis] Saint's Day Celebration"
+ TCT_saint_days_donation_amount:0 "Donation Size"
 
  # Memories
  TCT_saint_days_host_memory:0 "peformed an [owner.GetHerHis] [GetActivityType('activity_TCT_saint_days').GetName]"
@@ -50,6 +115,6 @@
  TCT_saint_days_guest_memory_second_perspective:0 "you joined [host.GetTitledFirstName] to perform an [GetActivityType('activity_TCT_saint_days').GetName]"
  TCT_saint_days_guest_memory_third_perspective:0 "[owner.GetName] joined [host.GetTitledFirstName] to perform an [GetActivityType('activity_TCT_saint_days').GetName]"
 
- TCT_activity_result_gained_piety: "Gained Piety"
- TCT_activity_result_gained_prestige: "Gained Prestige"
- TCT_activity_result_gained_dynasty_prestige: "Gained Dynasty Prestige"
+ TCT_activity_result_gained_piety: "Gained [piety_i|E][piety|E]"
+ TCT_activity_result_gained_prestige: "Gained [prestige_i|E][prestige|E]"
+ TCT_activity_result_gained_dynasty_prestige: "Gained [dynasty_prestige_i][dynasty_prestige|E]"

@@ -1124,12 +1124,12 @@ window = {
 								margin_left = 2
 								set_parent_size_to_minimum = yes
 
-						fixedgridbox = {
-							name = "modifiers_grid"
-							datamodel = "[CharacterWindow.GetTimedModifiers]"
-							addcolumn = 25
-							addrow = 23
-							datamodel_wrap = 2
+								fixedgridbox = {
+									name = "modifiers_grid"
+									datamodel = "[CharacterWindow.GetTimedModifiers]"
+									addcolumn = 25
+									addrow = 23
+									datamodel_wrap = 2
 									maxhorizontalslots = 4
 									maxverticalslots =2
 
@@ -1137,9 +1137,9 @@ window = {
 
 									using = Animation_Character_Window_Refresh
 
-							item = {
+									item = {
 										modifier_item_icon = {
-									size = { 22 22 }
+											size = { 22 22 }
 
 											blockoverride "input_info_text" {
 												text = "CHARACTER_WINDOW_MODIFIERS"
@@ -3433,6 +3433,45 @@ window = {
 							}
 
 							vbox = {
+								visible = "[ModifierItem.HasTooltipDataByTag('preview_list')]"
+								datacontext = "[ModifierItem.GetPreviewList]"
+								layoutpolicy_horizontal = expanding
+
+								textbox = {
+									layoutpolicy_horizontal = expanding
+									max_width = 500
+									using = DefaultTooltipText
+									multiline = yes
+									text = "[TimedModifierPreviewList.GetScaledDesc]"
+									alwaystransparent = no
+								}
+
+								vbox = {
+									datamodel = "[TimedModifierPreviewList.GetItems]"
+									layoutpolicy_horizontal = expanding
+									max_width = 500
+
+									item = {
+										vbox = {
+											layoutpolicy_horizontal = expanding
+
+											text_single = {
+												layoutpolicy_horizontal = expanding
+												text = "[TimedModifierPreviewItem.GetTitle]"
+											}
+
+											text_single = {
+												layoutpolicy_horizontal = expanding
+												text = "[TimedModifierPreviewItem.GetExpirationDate]"
+											}
+
+											expand = {}
+										}
+									}
+								}
+							}
+
+							vbox = {
 								layoutpolicy_horizontal = expanding
 								visible = "[ModifierItem.HasTooltipDataByTag('scaled_single_modifier')]"
 								datacontext = "[ModifierItem.GetScaledSingleModifierTooltipData]"
@@ -3733,6 +3772,17 @@ types CharacterWindow
 									}
 								}
 							}
+
+							textbox = {
+								name = "input_info"
+								layoutpolicy_horizontal = expanding
+								margin_top = 10
+								margin_bottom = 20
+								using = DefaultTooltipText
+								multiline = yes
+								block "input_info_text" {}
+								fonttintcolor = "[TooltipInfo.GetTintColor]"
+							}
 						}
 					}
 				}
@@ -3741,6 +3791,8 @@ types CharacterWindow
 
 		# Single modifier
 		icon = {
+			# the tag is hard-coded, if you want to change the name or add a new one please contact someone from code team
+			visible = "[ModifierItem.HasTooltipDataByTag('single_modifier')]"
 			size = { 100% 100% }
 			texture = "[ModifierItem.GetIcon]"
 
@@ -4443,7 +4495,7 @@ types CharacterWindow
 					size = { 100% 100% }
 					texture = "gfx/interface/icons/struggle_banners/point_involved_banner_small.dds"
 				}
-			}
+							}
 
 			blockoverride "time_based_widget_content" { 
 				highlight_icon = {
@@ -4476,27 +4528,27 @@ types CharacterWindow
 			size = { 100% 100% }
 			position = { 0 -3 }
 
-							icon = {
-								visible = "[Struggle.IsInvolvedCharacter(Character.Self)]"
-								parentanchor = center
-								size = { 34 34 }
-								texture = "gfx/interface/icons/struggle_banners/icon_background_02.dds"
-							}
+			icon = {
+				visible = "[Struggle.IsInvolvedCharacter(Character.Self)]"
+				parentanchor = center
+				size = { 34 34 }
+				texture = "gfx/interface/icons/struggle_banners/icon_background_02.dds"
+			}
 
-							icon = {
-								visible = "[Struggle.IsInterloperCharacter(Character.Self)]"
-								parentanchor = center
-								size = { 34 34 }
-								texture = "gfx/interface/icons/struggle_banners/icon_background_01.dds"
-							}
+			icon = {
+				visible = "[Struggle.IsInterloperCharacter(Character.Self)]"
+				parentanchor = center
+				size = { 34 34 }
+				texture = "gfx/interface/icons/struggle_banners/icon_background_01.dds"
+			}
 
-							icon = {
-								parentanchor = center
-								size = { 30 30 }
-								texture = "[Struggle.GetCurrentPhase.GetIcon]"
-							}
-						}
-					}
+			icon = {
+				parentanchor = center
+				size = { 30 30 }
+				texture = "[Struggle.GetCurrentPhase.GetIcon]"
+			}
+		}
+	}
 
 	type realm_name_and_type_vbox = vbox {
 		layoutpolicy_horizontal = expanding
