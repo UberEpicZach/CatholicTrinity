@@ -28,11 +28,11 @@ KOH_SIEGE1 = {
 				}
 			}
 			save_scope_as = war_attacker
-			send_interface_toast = {
-				type = event_toast_effect_bad
-				title = debug_crusade_event
-				left_icon = root
-			}
+			# send_interface_toast = {
+			# 	type = event_toast_effect_bad
+			# 	title = debug_crusade_event
+			# 	left_icon = root
+			# }
 			scope:county ?= { 
 				set_variable = { 
 					name = occupant 

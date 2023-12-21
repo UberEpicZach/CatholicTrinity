@@ -1068,7 +1068,7 @@ window = {
 
 									text_single = {
 										text = "MY_REALM_WINDOW_VASSAL_LIMIT"
-										max_width = 120
+										max_width = 130
 									}
 
 									text_single = {
@@ -1933,12 +1933,11 @@ window = {
 								vbox = {
 
 									layoutpolicy_horizontal = expanding
-									margin = { 30 0 }
+									margin = { 12 0 }
 									margin_bottom = 20
 
 									background = {
 										using = Background_Area
-										margin = { -15 0 }
 										margin_bottom = 0
 										margin_top = 3
 									}
@@ -2104,12 +2103,14 @@ window = {
 											visible = "[Character.IsAssignedAsTaxpayer]"
 											layoutpolicy_horizontal = expanding
 											text = "MY_REALM_WINDOW_FROM_TO_LIEGE_CLAN"
+											max_width = 180
 										}
 
 										text_single = {
 											visible = "[Not(Character.IsAssignedAsTaxpayer)]"
 											layoutpolicy_horizontal = expanding
 											text = "MY_REALM_WINDOW_FROM_TO_LIEGE"
+											max_width = 180
 										}
 
 										text_single = {
