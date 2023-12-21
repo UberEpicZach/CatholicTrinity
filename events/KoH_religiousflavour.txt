@@ -5870,14 +5870,14 @@ KoH_religiousflavour.800 = {
 		custom_tooltip = KoH_religiousflavour.800.b.imperial_refusal
 		title:k_papal_state.holder = {
 			add_opinion = {
-				target = title:k_papal_state.holder
+				target = title:e_hre.holder
 				modifier = insulted_opinion
 				value = -60
 			}
 		}
 		title:e_hre.holder = {
 			add_opinion = {
-				target = title:e_hre.holder
+				target = title:k_papal_state.holder
 				modifier = insulted_opinion
 				value = -60
 			}

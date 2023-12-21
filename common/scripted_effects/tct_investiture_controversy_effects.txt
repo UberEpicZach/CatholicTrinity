@@ -376,3 +376,36 @@ autonomony_obligations_faction_contract_decrease_effect = {
 	}
 	#hidden_effect = { set_vassal_contract_modification_blocked = yes }
 }
+
+investiture_hre_papal_opinion_effect = {
+	send_interface_toast = {
+		type = event_toast_effect_bad
+		title = HRE_DEBUG_TEST
+		left_icon = ROOT
+	}
+	if = {
+		limit = {
+			title:e_hre.holder = {
+				any_character_struggle = { phase_has_catalyst = tct_papal_hre_opinions }
+				opinion = {
+					target = title:k_papal_state.holder
+					value <= 0
+				}
+			}
+			title:k_papal_state.holder = {
+				opinion = {
+					target = title:e_hre.holder
+					value <= 0
+				}
+			}
+		}
+		title:e_hre.holder = {
+			every_character_struggle = {
+				activate_struggle_catalyst = {
+					catalyst = tct_papal_hre_opinions
+					character = title:e_hre.holder
+				}
+			}
+		}
+	}
+}

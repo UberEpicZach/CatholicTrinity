@@ -525,3 +525,23 @@ testing_opinions = {
 	}
 }
 
+testing_fellow_vassal_opinion = {
+	exists = liege
+	liege = {
+		any_vassal = {
+			NOT = { this = root }
+			OR = {
+				opinion = { #They simply dislike you
+					target = root
+					value <= -10
+				}
+				#You dislike them
+				reverse_opinion = {
+					target = prev
+					value <= -10
+				}
+			}
+			has_trait = tct_papal_supporter
+		}
+	}
+}

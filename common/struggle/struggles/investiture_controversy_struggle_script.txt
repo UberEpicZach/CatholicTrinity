@@ -27,15 +27,22 @@
 
 	involvement_prerequisite_percentage = 0.5 # Easier to join the struggle due to the nature of the conflict
 
-	on_start = {
-		# Start the over-time catalysts.
-		trigger_event = neutral_struggle.0001
-		trigger_event = tct_neutral_struggle.0001
-		# Tell the AI to change sides every now and then.
-		trigger_event = {
-			id = tct_investiture_struggle.0001
-			years = { 1 5 }
-		}
+	on_start = { #THIS ENTIRE BLOCK IS FAKE NEWS
+ 		# # # Start the over-time catalysts.
+		# trigger_event = neutral_struggle.0001
+		# trigger_event = tct_neutral_struggle.0001
+		# # Tell the AI to change sides every now and then.
+		# trigger_event = {
+		# 	id = tct_investiture_struggle.0001
+		# 	years = { 1 5 }
+		# }
+		# # title:e_hre.holder = {
+		# # 	send_interface_toast = {
+		# # 		type = event_toast_effect_bad
+		# # 		title = HRE_DEBUG_TEST_THREE
+		# # 		left_icon = ROOT
+		# # 	}
+		# # }
 	}
 
 	transition_state_duration = { months = 3 }
@@ -65,11 +72,28 @@
 	
 	# Root = the character which has joined the struggle
  	on_join = {
+		if = {
+			limit = {
+				NOT = {
+					exists = global_var:investiture_struggle_initiation
+				}
+			}
+			set_global_variable = investiture_struggle_initiation
+			struggle:investiture_controversy_struggle = { 
+				trigger_event = neutral_struggle.0001
+				trigger_event = tct_neutral_struggle.0001
+				trigger_event = {
+					id = tct_investiture_struggle.0001
+					years = { 1 5 }
+				}
+			}
+		}
+
 		#Joining the Imperial Supporter side
 		if = {
 			limit = {
 				OR = {
-					liege = title:e_hre.holder
+					top_liege = title:e_hre.holder
 					is_independent_ruler = yes
 					liege = title:k_papal_state.holder
 				}	
@@ -107,6 +131,33 @@
 							piety_level > title:k_papal_state.holder.piety_level
 						}
 					}
+					AND = {
+						highest_held_title_tier >= tier_county
+						exists = liege
+						liege = {
+							any_vassal = {
+								NOT = { this = root }
+								NOT = {
+									OR = {
+										has_relation_friend = root
+										has_relation_lover = root
+									}
+								}
+								OR = {
+									opinion = { #They simply dislike you
+										target = root
+										value <= -30
+									}
+									#You dislike them
+									reverse_opinion = {
+										target = prev
+										value <= -30
+									}
+								}
+								has_trait = tct_papal_supporter
+							}
+						}
+					}
 				}
 			}
 			add_trait = tct_imperial_supporter
@@ -115,7 +166,7 @@
 		else_if = {
 			limit = {
 				OR = {
-					liege = title:e_hre.holder
+					top_liege = title:e_hre.holder
 					is_independent_ruler = yes
 					liege = title:k_papal_state.holder
 				}	
@@ -177,6 +228,33 @@
 							value <= 0
 						}
 					}
+					AND = {
+						highest_held_title_tier >= tier_county
+						exists = liege
+						liege = {
+							any_vassal = {
+								NOT = { this = root }
+								NOT = {
+									OR = {
+										has_relation_friend = root
+										has_relation_lover = root
+									}
+								}
+								OR = {
+									opinion = { #They simply dislike you
+										target = root
+										value <= -30
+									}
+									#You dislike them
+									reverse_opinion = {
+										target = prev
+										value <= -30
+									}
+								}
+								has_trait = tct_imperial_supporter
+							}
+						}
+					}
 				}
 			}
 			add_trait = tct_papal_supporter
@@ -185,7 +263,7 @@
 		else_if = {
 			limit = {
 				OR = {
-					liege = title:e_hre.holder
+					top_liege = title:e_hre.holder
 					is_independent_ruler = yes
 					liege = title:k_papal_state.holder
 				}	
@@ -247,7 +325,7 @@
 				any_character_struggle = { this = struggle:investiture_controversy_struggle }
 
 				AND = {
-					liege = title:e_hre.holder
+					top_liege = title:e_hre.holder
 					opinion = {
 						target = title:e_hre.holder
 						value >= 25

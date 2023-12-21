@@ -5,9 +5,6 @@ tct_catalyst_supporter_win_unfair_war_within_the_region = {}
 tct_catalyst_supporter_win_fair_war_within_the_region = {}
 tct_catalyst_detractor_win_unfair_war_within_the_region = {}
 tct_catalyst_detractor_win_fair_war_within_the_region = {}
-
 tct_catalyst_install_loyalist_cb = {}
-
 tct_papal_hre_opinions = {}
-
 tct_catalyst_unnatural_death_supporter = {}

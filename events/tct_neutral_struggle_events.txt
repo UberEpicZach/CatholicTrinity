@@ -14,32 +14,15 @@ tct_neutral_struggle.0001 = {
 	scope = struggle
 
 	immediate = {
-		## # Yearly drift every year that the Pope and Emperor dislike eachother.
-		if = {
-			limit = {
-				title:e_hre.holder = {
-					any_character_struggle = { phase_has_catalyst = tct_papal_hre_opinions }
-					opinion = {
-						target = title:k_papal_state.holder
-						value <= 0
-					}
-				}
-				title:k_papal_state.holder = {
-					opinion = {
-						target = title:e_hre.holder
-						value <= 0
-					}
-				}
-			}
-			title:e_hre.holder = {
-				every_character_struggle = {
-					activate_struggle_catalyst = {
-						catalyst = tct_papal_hre_opinions
-						character = title:e_hre.holder
-					}
-				}
+		title:e_hre.holder = {
+			send_interface_toast = {
+				type = event_toast_effect_bad
+				title = tct_neutral_struggle.0001
+				left_icon = ROOT
 			}
 		}
+		## # Yearly drift every year that the Pope and Emperor dislike eachother.
+		investiture_hre_papal_opinion_effect = yes
 
 		# Finally, queue the event up again for a year hence.
 		trigger_event = {
@@ -150,53 +133,5 @@ tct_neutral_struggle.0003 = {
 				}
 			}
 		}
-	}
-}
-
-# The Scholarly Vassal requests lesser obligations
-liege_vassal_dynamics.0001 = {
-	type = character_event
-	title = liege_vassal_dynamics.0001.t
-	desc = liege_vassal_dynamics.0001.d
-	theme = intrigue
-	left_portrait = root
-	right_portrait ?= liege
-
-	trigger = {
-		learning = 15
-		NOT = { is_councillor = yes }
-		vassal_contract_obligation_level:feudal_government_taxes = feudal_tax_normal
-	}
-
-	immediate = {
-		save_scope_as = vassal
-	}
-
-	option = {
-		name = liege_vassal_dynamics.0001.a
-
-		liege ?= {
-			trigger_event = liege_vassal_dynamics.0002
-		}
-	}
-}
-
-# Liege's Response
-liege_vassal_dynamics.0002 = {
-	type = character_event
-	title = liege_vassal_dynamics.0002.t
-	desc = liege_vassal_dynamics.0002.d
-	theme = intrigue
-	left_portrait = root
-	right_portrait = vassal
-
-	option = {
-		name = liege_vassal_dynamics.0002.a
-		add_opinion = { target = scope:vassal modifier = honored_opinion value = 40 }
-		vassal_contract_set_obligation_level = { type = feudal_government_taxes level = feudal_tax_low }
-	}
-	option = {
-		name = liege_vassal_dynamics.0002.b
-		add_opinion = { target = scope:vassal modifier = insult_opinion value = -30 }
 	}
 }
