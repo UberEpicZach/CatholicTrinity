@@ -132,7 +132,7 @@
 						}
 					}
 					AND = {
-						highest_held_title_tier >= tier_county
+						highest_held_title_tier = tier_county
 						exists = liege
 						liege = {
 							any_vassal = {
@@ -360,6 +360,7 @@
 						tct_catalyst_supporter_win_fair_war_within_the_region = massive_struggle_catalyst_gain
 						tct_catalyst_detractor_win_unfair_war_within_the_region = major_struggle_catalyst_gain
 						tct_catalyst_detractor_win_fair_war_within_the_region = massive_struggle_catalyst_gain
+						
 						# Successfully use the Install a Supporter Caus Belli
 						tct_catalyst_install_loyalist_cb = major_struggle_catalyst_gain
 
@@ -370,14 +371,20 @@
 						tct_catalyst_unnatural_death_supporter = major_struggle_catalyst_gain
 
 						# Convert a Ruler (Convert to side scheme.)
+						tct_catalyst_turn_imperial_supporter_into_papal_supporter = medium_struggle_catalyst_gain
+						tct_catalyst_turn_papal_supporter_into_imperial_supporter = medium_struggle_catalyst_gain
 
 						# Obtain a Title within the Struggle Region from an Interloper or Uninvolved Ruler
 
 						# Imprison any member of the opposing side.
-
+						tct_catalyst_imprison_important = medium_struggle_catalyst_gain
+						tct_catalyst_imprison_papal_supporter = medium_struggle_catalyst_gain
+						tct_catalyst_imprison_imperial_supporter = medium_struggle_catalyst_gain
+						
 						# Reveal a secret of the opposing side.
 
 						# Break a truce of the opposing side.
+						catalyst_broke_truce_against_important_character = medium_struggle_catalyst_gain
 
 						# A Papal Supporter and Imperial Supporter become Rivals or Nemeses 
 
@@ -390,7 +397,8 @@
 				investiture_controversy_phase_conciliation = {
 					# Catalyst values are low here because we track this stuff across every phase, so they need to take _roughly_ ~100-120 years to build up, all else being equal.
 					catalysts = {
-						
+						# Emperor loses a revolt war
+						tct_catalyst_hre_emperor_loses_revolt_war = major_struggle_catalyst_gain
 					}
 				}
 			}

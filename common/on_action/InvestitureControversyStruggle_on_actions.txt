@@ -65,9 +65,9 @@ tct_on_war_won_attacker = {
 				# Direct scope because this is emperor-specific.
 				struggle:investiture_controversy_struggle = {
 					if = {
-						limit = { phase_has_catalyst = catalyst_hre_emperor_loses_revolt_war }
+						limit = { phase_has_catalyst = tct_catalyst_hre_emperor_loses_revolt_war }
 						activate_struggle_catalyst = {
-							catalyst = catalyst_hre_emperor_loses_revolt_war
+							catalyst = tct_catalyst_hre_emperor_loses_revolt_war
 							character = scope:defender
 						}
 						scope:war = { set_variable = used_for_struggle_catalyst_on_war_ended }
@@ -78,34 +78,34 @@ tct_on_war_won_attacker = {
 		}
 		## (Mostly) general checks.
 		scope:attacker = {
-			# Win any war in the struggle region.
-			if = {
-				limit = {
-					scope:war = {
-						NOT = { has_variable = used_for_struggle_catalyst_on_war_ended }
-					}
-					any_character_struggle = {
-						involvement = involved
-						activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
-							CATALYST = catalyst_win_any_war_within_the_region
-							CHAR = scope:defender
-						}
-					}
-				}
-				every_character_struggle = {
-					limit = {
-						activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
-							CATALYST = catalyst_win_any_war_within_the_region
-							CHAR = scope:defender
-						}
-					}
-					activate_struggle_catalyst = {
-						catalyst = catalyst_win_any_war_within_the_region
-						character = scope:attacker
-					}
-					scope:war = { set_variable = used_for_struggle_catalyst_on_war_ended }
-				}
-			}
+			# # Win any war in the struggle region.
+			# if = {
+			# 	limit = {
+			# 		scope:war = {
+			# 			NOT = { has_variable = used_for_struggle_catalyst_on_war_ended }
+			# 		}
+			# 		any_character_struggle = {
+			# 			involvement = involved
+			# 			activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
+			# 				CATALYST = catalyst_win_any_war_within_the_region
+			# 				CHAR = scope:defender
+			# 			}
+			# 		}
+			# 	}
+			# 	every_character_struggle = {
+			# 		limit = {
+			# 			activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
+			# 				CATALYST = catalyst_win_any_war_within_the_region
+			# 				CHAR = scope:defender
+			# 			}
+			# 		}
+			# 		activate_struggle_catalyst = {
+			# 			catalyst = catalyst_win_any_war_within_the_region
+			# 			character = scope:attacker
+			# 		}
+			# 		scope:war = { set_variable = used_for_struggle_catalyst_on_war_ended }
+			# 	}
+			# }
 			# During the Investiture Controversy Struggle, a supporter wins any war in the region.
 			investiture_controversy_struggle_apply_imperial_supporter_papal_supporter_war_won_catalysts_effect = yes
 		}
@@ -162,6 +162,141 @@ tct_on_death = {
 					}
 					log_debug_variable_for_persian_struggle_effect = { VAR = unrest_catalyst_unnatural_death_supporter }
 				}
+			}
+		}
+	}
+}
+
+on_imprison = {
+	on_actions = {
+		tct_on_imprison
+	}
+}
+
+tct_on_imprison = {
+	effect = {
+		# Struggle Catalysts
+		if = {
+			limit = {
+				is_important_or_vip_struggle_character = yes
+				any_character_struggle = {
+					involvement = involved
+					activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
+						CATALYST = tct_catalyst_imprison_important
+						CHAR = scope:imprisoner
+					}
+				}
+			}
+			every_character_struggle = {
+				involvement = involved
+				limit = {
+					activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
+						CATALYST = tct_catalyst_imprison_important
+						CHAR = scope:imprisoner
+					}
+				}
+				activate_struggle_catalyst = {
+					catalyst = tct_catalyst_imprison_important
+					character = scope:imprisoner
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_trait = tct_papal_supporter
+				any_character_struggle = {
+					involvement = involved
+					activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
+						CATALYST = tct_catalyst_imprison_papal_supporter
+						CHAR = scope:imprisoner
+					}
+				}
+			}
+			every_character_struggle = {
+				involvement = involved
+				limit = {
+					activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
+						CATALYST = tct_catalyst_imprison_papal_supporter
+						CHAR = scope:imprisoner
+					}
+				}
+				activate_struggle_catalyst = {
+					catalyst = tct_catalyst_imprison_papal_supporter
+					character = scope:imprisoner
+				}
+				#log_debug_variable_for_persian_struggle_effect = { VAR = unrest_catalyst_imprison_supporter }
+			}
+		}
+		if = {
+			limit = {
+				has_trait = tct_imperial_supporter
+				any_character_struggle = {
+					involvement = involved
+					activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
+						CATALYST = tct_catalyst_imprison_imperial_supporter
+						CHAR = scope:imprisoner
+					}
+				}
+			}
+			every_character_struggle = {
+				involvement = involved
+				limit = {
+					activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
+						CATALYST = tct_catalyst_imprison_imperial_supporter
+						CHAR = scope:imprisoner
+					}
+				}
+				activate_struggle_catalyst = {
+					catalyst = tct_catalyst_imprison_imperial_supporter
+					character = scope:imprisoner
+				}
+				#log_debug_variable_for_persian_struggle_effect = { VAR = stabil_catalyst_imprison_detractor }
+			}
+		}
+	}
+}
+
+on_set_relation_rival = {
+	on_actions = {
+		tct_on_set_relation_rival
+	}
+}
+#UNDER WORK
+tct_on_set_relation_rival = {
+	effect = {
+		every_character_struggle = {
+			involvement = involved
+			limit = {
+				activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
+					CATALYST = catalyst_becomes_rival_with_involved
+					CHAR = scope:target
+				}
+			}
+			activate_struggle_catalyst = {
+				catalyst = catalyst_becomes_rival_with_involved
+				character = root
+			}
+		}
+		if = {
+			limit = {
+				fp3_struggle_involves_one_supporter_and_one_detractor = {
+					FIRST = root
+					SECOND = scope:target
+				}
+			}
+			every_character_struggle = {
+				involvement = involved
+				limit = {
+					activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
+						CATALYST = catalyst_becomes_rival_supporter_detractor
+						CHAR = scope:target
+					}
+				}
+				activate_struggle_catalyst = {
+					catalyst = catalyst_becomes_rival_supporter_detractor
+					character = root
+				}
+				log_debug_variable_for_persian_struggle_effect = { VAR = unrest_catalyst_becomes_rival_supporter_detractor }
 			}
 		}
 	}

@@ -280,6 +280,7 @@ TCT_make_antipope_interaction = {
 		}
 	}
 }
+
 # COMMUNION TENET #Updated to 1.7
 excommunicate_interaction = {
 	category = interaction_category_hostile
@@ -451,6 +452,7 @@ excommunicate_interaction = {
 		}
 	}
 }
+
 #Updated to 1.7
 request_excommunication_interaction = {
 	category = interaction_category_hostile
@@ -835,6 +837,7 @@ request_excommunication_interaction = {
 		}
 	}
 }
+
 #Updated to 1.7
 hof_ask_for_claim_interaction = {
 	category = interaction_category_diplomacy
@@ -1490,6 +1493,7 @@ hof_ask_for_claim_interaction = {
 		}
 	}
 }
+
 #Updated to 1.7
 hof_ask_for_gold_interaction = {
 	category = interaction_category_religion
@@ -2045,6 +2049,7 @@ hof_ask_for_gold_interaction = {
 		}
 	}
 }
+
 #Updated to 1.7
 seek_indulgences_interaction = {
 	category = interaction_category_religion
@@ -4008,6 +4013,269 @@ take_vows_interaction = {
 	}
 }
 
+# grant_vassal_interaction = {
+# 	category = interaction_category_vassal
+# 	common_interaction = yes
+# 	interface = transfer_vassal
+# 	icon = icon_vassal
+
+# 	special_interaction = grant_vassal_interaction
+
+# 	populate_actor_list = {
+# 		scope:actor = {
+# 			every_vassal = {
+# 				add_to_list = characters
+# 			}
+# 		}
+# 	}
+
+# 	desc = grant_vassal_interaction_desc
+	
+# 	prompt = GRANT_VASSAL_SELECT_VASSAL_TO_TRANSFER
+
+# 	greeting = positive
+# 	notification_text = GRANT_VASSAL_PROPOSAL
+
+# 	pre_answer_yes_key = ACCEPT
+# 	pre_answer_no_key = DECLINE
+
+# 	is_shown = {
+# 		NOT = { scope:recipient = scope:actor }
+# 		OR = {
+# 			AND = {
+# 				exists = scope:recipient.liege
+# 				scope:recipient.liege = scope:actor
+# 			}
+# 			AND = {
+# 				exists = scope:actor.liege
+# 				scope:actor.liege = scope:recipient
+# 			}
+# 			AND = {
+# 				scope:actor.faith.religious_head = scope:recipient
+# 				scope:recipient = {
+# 					is_independent_ruler = yes
+# 				}
+# 			}
+# 		}
+# 		scope:recipient.highest_held_title_tier > tier_barony
+# 	}
+
+# 	is_valid_showing_failures_only = {
+# 		scope:recipient = { is_busy_in_events_localised = yes }
+# 		scope:recipient = { is_landed = yes }
+# 		NOT = { scope:actor = { is_at_war_with = scope:recipient } }
+# 		trigger_if = {
+# 			limit = { exists = scope:secondary_actor }
+# 			NOT = { scope:secondary_actor = { is_at_war_with = scope:recipient } }
+# 			scope:secondary_actor = { is_busy_in_events_localised = yes }
+# 			scope:recipient.primary_title.tier > scope:secondary_actor.primary_title.tier
+# 		}
+# 		trigger_if = {
+# 			limit = {
+# 				scope:actor = { is_ai = yes }
+# 				exists = scope:secondary_actor
+# 			}
+# 			scope:secondary_actor = {
+# 				NOT = { has_character_flag = ai_should_not_transfer }
+# 			}
+# 		}
+
+# 		trigger_if = {
+# 			limit = { scope:recipient.highest_held_title_tier <= tier_county }
+# 			scope:recipient = { highest_held_title_tier > tier_county }
+# 		}
+# 		trigger_else = {
+# 			scope:actor = {
+# 				custom_description = {
+# 					text = "basic_valid_vassal_to_tranfer"
+# 					object = scope:recipient
+# 					any_vassal = {
+# 						NOT = { highest_held_title_tier = tier_barony }
+# 						scope:recipient.highest_held_title_tier > highest_held_title_tier
+# 					}
+# 				}
+# 			}
+# 		}
+# 	}
+	
+# 	can_be_picked = {
+# 		NOT = { scope:recipient = root }
+# 		highest_held_title_tier > tier_barony
+# 		highest_held_title_tier < scope:recipient.highest_held_title_tier
+
+# 		trigger_if = {
+# 			limit = { scope:actor.liege = scope:recipient }
+# 			NOT = {
+# 				primary_title = {
+# 					any_this_title_or_de_jure_above = {
+# 						holder = scope:actor
+# 					}
+# 				}
+# 			}
+# 		}
+
+# 		# You can't give your diarch away as a vassal.
+# 		custom_description = {
+# 			text = cannot_grant_own_diarch_as_vassal
+# 			subject = scope:actor.diarch
+# 			NOT = { root ?= scope:actor.diarch }
+# 		}
+
+# 		# Not at war with the vassal being transferred (blocks explicit transfer of war enemies, which invalidates the war).
+# 		custom_description = {
+# 			text = "basic_is_at_war_with_vassal"
+# 			subject = root
+# 			object = scope:actor
+# 			NOT = {
+# 				root = {
+# 					is_at_war_with = scope:actor
+# 				}
+# 			}
+# 		}
+
+# 		# Not at war with a vassal under the vassal being transferred (blocks implicit transfers of war enemies).
+# 		custom_description = {
+# 			text = "basic_is_at_war_with_sub_vassal"
+# 			subject = root
+# 			object = scope:actor
+# 			NOT = {
+# 				any_vassal_or_below = {
+# 					is_at_war_with = root
+# 				}
+# 			}
+# 		}
+# 	}
+	
+# 	auto_accept = {
+# 		scope:recipient = {
+# 			custom_description = {
+# 				text = wants_more_vassals
+# 				is_ai = yes
+# 			}
+# 		}
+# 	}
+	
+# 	on_accept = {
+# 		scope:actor = {
+# 			send_interface_toast = {
+# 				title = grant_vassal_interaction_notification
+# 				right_icon = scope:recipient
+# 				left_icon = scope:secondary_actor
+
+# 				# If we're granting a vassal to our liege, gain a truce with our former vassal (we can't immediately reconquer them, and they can't attack us either).
+# 				if = {
+# 					limit = {
+# 						scope:actor = {
+# 							is_vassal_of = scope:recipient
+# 						}
+# 					}
+# 					add_truce_both_ways = {
+# 						character = scope:secondary_actor
+# 						days = 3650
+# 						name = TRUCE_GRANT_INDEPENDENCE
+# 					}
+# 				}
+
+# 				# Transfer the vassal over to their new liege.
+# 				create_title_and_vassal_change = {
+# 					type = granted
+# 					save_scope_as = change
+# 					add_claim_on_loss = no
+# 				}
+# 				scope:secondary_actor = {
+# 					change_liege = {
+# 						liege = scope:recipient
+# 						change = scope:change
+# 					}
+# 				}
+# 				resolve_title_and_vassal_change = scope:change
+
+# 				# Gain an opinion bonus with the person we gave a vassal to.
+# 				scope:recipient = {
+# 					add_opinion = {
+# 						target = scope:actor
+# 						modifier = granted_vassal
+# 					}
+# 				}
+
+# 				stress_impact = {
+# 					greedy = medium_stress_impact_gain
+# 				}
+# 			}
+# 		}
+
+# 		# If we're a clan this interaction affects unity
+# 		add_clan_unity_interaction_effect = {
+# 			CHARACTER = scope:actor
+# 			TARGET = scope:recipient
+# 			VALUE = miniscule_unity_gain
+# 			DESC = clan_unity_grant_vassal.desc
+# 			REVERSE_NON_HOUSE_TARGET = yes
+# 		}
+
+# 		hidden_effect = {
+# 			# Struggle catalyst
+# 			if = {
+# 				limit = {
+# 					fp3_struggle_involves_one_supporter_and_one_detractor = {
+# 						FIRST = scope:actor
+# 						SECOND = scope:recipient
+# 					}
+# 					scope:actor = {
+# 						any_character_struggle	 = {
+# 							involvement = involved
+# 							phase_has_catalyst = catalyst_grants_vassal_to_de_jure_liege_supporter_detractor
+# 							is_secondary_character_involvement_involved_trigger = {
+# 								CHAR = scope:recipient
+# 							}
+# 						}
+# 					}
+# 					scope:recipient.primary_title = {
+# 						any_this_title_or_de_jure_above = {
+# 							holder = scope:secondary_actor
+# 						}
+# 					}
+# 				}
+# 				every_character_struggle = {
+# 					involvement = involved
+# 					activate_struggle_catalyst = {
+# 						catalyst = catalyst_grants_vassal_to_de_jure_liege_supporter_detractor
+# 						character = scope:actor
+# 					}
+# 					log_debug_variable_for_persian_struggle_effect = { VAR = concession_catalyst_grants_vassal_to_de_jure_liege_supporter_detractor }
+# 				}
+# 			}
+# 		}
+# 	}
+
+# 	on_decline = {
+# 		scope:actor = {
+# 			trigger_event = char_interaction.0211
+# 		}
+
+# 		# If we're a clan this interaction affects unity
+# 		add_clan_unity_interaction_effect = {
+# 			CHARACTER = scope:recipient
+# 			TARGET = scope:actor
+# 			VALUE = miniscule_unity_loss
+# 			DESC = clan_unity_grant_vassal_decline.desc
+# 			REVERSE_NON_HOUSE_TARGET = no
+# 		}
+# 	}
+	
+# 	ai_will_do = {
+# 		base = 0
+		
+# 		modifier = { # The AI will always use a Hook
+# 			this = title:e_hre.holder
+# 			add = -100000
+# 		}
+# 	}
+
+# 	# AI handled entirely though code
+# }
+
+
 select_cardinal_candidate_interaction = {
 	category = interaction_category_religion
 
@@ -4199,155 +4467,546 @@ select_cardinal_candidate_interaction = {
 	}
 }
 
-# select_investiture_candidate_interaction = {
-# 	category = interaction_category_religion
+###################################
+# Change struggle allegiance
+###################################
+tct_investiture_controversy_change_allegiance = {
+	interface_priority = 30
+	category = interaction_category_diplomacy
+	common_interaction = yes
+	desc = {
+		first_valid = {
+			# Become a supporter.
+			triggered_desc = {
+				trigger = {
+					scope:actor = { has_trait = tct_imperial_supporter }
+				}
+				desc = tct_investiture_controversy_change_allegiance.desc.actor_is_supporter
+			}
+			# Become a detractor.
+			triggered_desc = {
+				trigger = {
+					scope:actor = { has_trait = tct_papal_supporter }
+				}
+				desc = tct_investiture_controversy_change_allegiance.desc.actor_is_detractor
+			}
+			desc = tct_investiture_controversy_change_allegiance.desc.fallback
+		}
+	}
+	icon = change_allegiance
 
-	
-# 	populate_recipient_list = {
-# 		scope:recipient = {
-# 			#Any member of your own house.
-# 			house = {
-# 				every_house_member = {
-# 					limit = {
-# 						# Can not select them self as beneficiary
-# 						NOT = { this = scope:recipient }
-# 						# Capable adults
-# 						is_male = yes
-# 						is_capable_adult = yes
-# 						is_imprisoned = no
-# 						is_married = no
-# 						is_betrothed = no
-# 						is_ruler = no
-# 						# In minimum good standing with faith
-# 						NOT = { has_trait = excommunicated }
-# 					}
-# 					add_to_list = characters
-# 				}
-# 			}
-# 			#Any nearby family member who is of your dynasty, even if they're a separate house.
-# 			every_close_or_extended_family_member = {
-# 				limit = {
-# 					dynasty = scope:recipient.dynasty
-# 					NOT = { house = scope:recipient.house }
-# 					is_male = yes
-# 					is_capable_adult = yes
-# 					is_imprisoned = no
-# 					is_married = no
-# 					is_betrothed = no
-# 					is_ruler = no
-# 					# In minimum good standing with faith
-# 					NOT = { has_trait = excommunicated }
-# 				}
-# 				add_to_list = characters
-# 			}
-# 			#And then any landless heads of minor houses in your dynasty.
-# 			dynasty = {
-# 				every_dynasty_member = {
-# 					limit = {
-# 						is_male = yes
-# 						is_capable_adult = yes
-# 						is_imprisoned = no
-# 						is_married = no
-# 						is_betrothed = no
-# 						# In minimum good standing with faith
-# 						NOT = { has_trait = excommunicated }
-# 						is_ruler = no
-# 					}
-# 					add_to_list = characters
-# 				}
-# 			}
-# 			every_courtier_or_guest = {
-# 				limit = {
-# 					AND = {
-# 						is_male = yes
-# 						#And they have to actually like you enough to want to invest you.
-# 						opinion = {
-# 							target = root
-# 							value >= 0
-# 						}
-# 						learning >= 7
-# 						is_ruler = no
-# 					}
-# 				}
-# 			}
-# 		}
-# 	}
-	
-# 	auto_accept = yes
-	
-# 	is_shown = {
-# 		exists = scope:actor.faith.great_holy_war
-# 		scope:actor = {
-# 			exists = faith.great_holy_war
-# 			this = scope:recipient
-# 			is_pledged_ghw_attacker = yes
-# 		}
-# 		NOT = { scope:actor = scope:recipient.faith.great_holy_war.ghw_war_declarer } #Not for the Caliph himself.
-# 	}
-	
-# 	can_be_picked = {
-# 		is_adult = yes
-# 		is_ruler = no
-# 		faith = scope:actor.faith
-# 		custom_tooltip = {
-# 			text = ghw_heir_to_a_title
-# 			NOT = {
-# 				any_heir_title = {} # Not heir to anything
-# 			}
-# 		}
-# 		custom_tooltip = {
-# 			text = ghw_married_to_a_ruler
-# 			OR = { #Either not married, or not married to a ruler.
-# 				is_married = no
-# 				NOT = {
-# 					any_spouse = {
-# 						is_ruler = yes
-# 					}
-# 				}
-# 			}
-# 		}
-# 	}
+	greeting = positive
 
-# 	has_valid_target_showing_failures_only = {
-# 		scope:secondary_recipient = {
-# 			NOR = {
-# 				has_trait = excommunicated
-# 				has_trait = incapable
-# 				has_trait = devoted
-# 				has_serious_disease_trigger = yes
-# 			}
-# 			faith = scope:actor.faith
-# 			is_adult = yes
-# 			is_ruler = no
-# 			NOT = {
-# 				any_heir_title = {} # Not heir to anything
-# 			}
-# 			OR = { #Either not married, or not married to a ruler.
-# 				is_married = no
-# 				NOT = {
-# 					any_spouse = {
-# 						is_ruler = yes
-# 					}
-# 				}
-# 			}
-# 		}
-# 		scope:recipient = { is_busy_in_events_localised = yes }
-# 	}
-	
-# 	on_accept = {
-# 		scope:actor = {
-# 			send_interface_toast = {
-# 				title = select_ghw_beneficiary_interaction_notification
+	should_use_extra_icon = { scope:actor = { has_usable_hook = scope:recipient } }
+	extra_icon = "gfx/interface/icons/character_interactions/hook_icon.dds"
 
-# 				right_icon = scope:secondary_recipient
+	send_options_exclusive = no
 
-# 				scope:secondary_recipient = {
-# 					investiture_set_up_candidate = yes
-# 				}
-# 			}
-# 		}
-# 	}
-# 	ai_will_do = {
-# 		base = 0 #Assigned directly by event for the AI.
-# 	}
-# }
+	ai_maybe = yes
+
+	is_shown = {
+		has_fp3_dlc_trigger = yes
+		# There has to be a Emperor around to sway on.
+		## Arguably narratively not, but mechanically, everything will break if we don't.
+		exists = title:e_hre.holder
+		exists = title:k_papal_state.holder
+		NOT = { scope:recipient = scope:actor }
+		scope:actor = {
+			any_character_struggle = { is_struggle_type = investiture_controversy_struggle }
+			OR = {
+				# Papal Supporters are made from Imperial supporters.
+				AND = {
+					has_trait = tct_papal_supporter
+					scope:recipient = { has_trait = tct_imperial_supporter }
+				}
+				# Imperial Supporters are made from Papal Supporters.
+				AND = {
+					has_trait = tct_imperial_supporter
+					scope:recipient = { has_trait = tct_papal_supporter }
+				}
+				# Neutrals can be asked either way, should they exist.
+				AND = {
+					OR = {
+						has_trait = tct_papal_supporter
+						has_trait = tct_imperial_supporter
+					}
+					scope:recipient = {
+						NOR = {
+							has_trait = tct_papal_supporter
+							has_trait = tct_imperial_supporter
+						}
+					}
+				}
+			}
+		}
+		scope:recipient = {
+			any_character_struggle = { is_struggle_type = investiture_controversy_struggle }
+			# You cannot ask the Emperor Or Pope!
+			NOT = { 
+				this = title:e_hre.holder 
+				this = title:k_papal_state.holder
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		scope:recipient = {
+			# We want to disable some stuff for supporters who can't be persuaded away from the emperor/pope.
+			trigger_if = {
+				limit = { has_trait = tct_imperial_supporter }
+				# Can't be allied to the emperor.
+				NOT = { is_allied_to = title:e_hre.holder }
+				# Can't be strong hooked _by_ the caliph.
+				NOT = {
+					title:e_hre.holder = { has_strong_hook = prev }
+				}
+				# Can't have only recently changed to become a supporter.
+				custom_tooltip = {
+					text = tct_investiture_controversy_change_allegiance.tt.recently_voluntarily_became_supporter
+					OR = {
+						NOT = { has_variable = switch_sides_decision_emperor }
+						NOT = { var:switch_sides_decision_emperor = title:e_hre.holder }
+					}
+				}
+			}
+			trigger_if = {
+				limit = { has_trait = tct_papal_supporter }
+				# Can't be allied to the Pope.
+				NOT = { is_allied_to = title:k_papal_state.holder }
+				# Can't be strong hooked _by_ the pope.
+				NOT = {
+					title:k_papal_state.holder = { has_strong_hook = prev }
+				}
+				# Can't have only recently changed to become a supporter.
+				custom_tooltip = {
+					text = tct_investiture_controversy_change_allegiance.tt.recently_voluntarily_became_supporter
+					OR = {
+						NOT = { has_variable = switch_sides_decision_emperor }
+						NOT = { var:switch_sides_decision_emperor = title:e_hre.holder }
+					}
+				}
+			}
+			# Plus some general stuff.
+			is_at_war = no
+			# Can't have recently been convinced to change their minds.
+			custom_tooltip = {
+				text = tct_investiture_controversy_change_allegiance.tt.recently_changed_mind
+				NOT = { has_character_flag = tct_investiture_controversy_change_allegiance_recipient_cooldown }
+			}
+			custom_tooltip = {
+				text = tct_investiture_controversy_change_allegiance.tt.recently_refused
+				NOT = { has_character_flag = tct_investiture_controversy_change_allegiance_refused_cooldown }
+			}
+		}
+		scope:actor = { is_available_adult = yes }
+	}
+
+	auto_accept = {
+		custom_description = {
+			text = "spending_hook"
+			subject = scope:actor
+			object = scope:recipient
+			scope:hook = yes
+		}
+	}
+
+	ai_accept = {
+		base = 0
+
+		# Those who already have a stance are more set in their ways.
+		## Detractors
+		modifier = {
+			add = -25
+			scope:actor = { has_trait = tct_imperial_supporter }
+			scope:recipient = { has_trait = tct_papal_supporter }
+			desc = INTERACTION_DETRACTOR
+		}
+		## Supporters
+		modifier = {
+			add = -25
+			scope:actor = { has_trait = tct_papal_supporter }
+			scope:recipient = { has_trait = tct_imperial_supporter }
+			desc = INTERACTION_SUPPORTER
+		}
+
+		# Opinions
+		## Opinion of you
+		opinion_modifier = {
+			who = scope:recipient
+			opinion_target = scope:actor
+			multiplier = {
+				value = 1
+				# Despawn this if you're not the emperor.
+				if = {
+					limit = { scope:actor = title:e_hre.holder }
+					multiply = 0
+				}
+			}
+		}
+		## Opinion of the caliph
+		opinion_modifier = {
+			who = scope:recipient
+			opinion_target = title:e_hre.holder
+			multiplier = {
+				value = 0.5
+				# If you're the caliph, you can take the full amount.
+				if = {
+					limit = { scope:actor = title:e_hre.holder }
+					add = 0.5
+				}
+			}
+		}
+		# Traits.
+		## Become detractor.
+		### -- Cynical.
+		modifier = {
+			add = 25
+			desc = ASK_FOR_CONVERSION_RECIPIENT_IS_ZEALOUS
+			scope:actor = { has_trait = tct_imperial_supporter }
+			scope:recipient = { has_trait = cynical }
+		}
+
+		# Traits.
+		## Become supporter.
+		### ++ Zealous.
+		modifier = {
+			add = 25
+			desc = ASK_FOR_CONVERSION_RECIPIENT_IS_CYNICAL
+			scope:actor = { has_trait = tct_papal_supporter }
+			scope:recipient = { has_trait = zealous }
+		}
+		## Neutral.
+		### ++ Fickle.
+		modifier = {
+			add = 25
+			desc = ASK_FOR_CONVERSION_RECIPIENT_IS_FICKLE
+			scope:recipient = { has_trait = fickle }
+		}
+		### + Disloyal.
+		modifier = {
+			add = 15
+			desc = HAS_DISLOYAL_TRAIT
+			scope:recipient = { has_trait = disloyal }
+		}
+		### - Loyal.
+		modifier = {
+			add = -15
+			desc = HAS_LOYAL_TRAIT
+			scope:recipient = { has_trait = loyal }
+		}
+		### -- Stubborn.
+		modifier = {
+			add = -25
+			desc = ASK_FOR_CONVERSION_RECIPIENT_IS_STUBBORN
+			scope:recipient = { has_trait = stubborn }
+		}
+		# Diplomacy
+		## Scope:actor's for convincing
+		modifier = {
+			add = {
+				value = scope:actor.diplomacy
+				multiply = 5
+			}
+			desc = INTERACTION_DIPLOMACY_ACTOR
+		}
+		## Scope:recipient's for resisting
+		modifier = {
+			add = {
+				value = scope:recipient.diplomacy
+				multiply = -3
+			}
+			desc = INTERACTION_DIPLOMACY_RECIPIENT
+		}
+	}
+
+	cost = {
+		prestige = medium_prestige_value
+	}
+
+	# Use hook
+	send_option = {
+		flag = hook
+		is_valid = {
+			scope:actor = {
+				has_usable_hook = scope:recipient
+			}
+		}
+		localization = GENERIC_SPEND_A_HOOK
+	}
+
+	on_accept = {
+		# Use our hook if we have to.
+		if = {
+			limit = { always = scope:hook }
+			scope:actor = {
+				use_hook = scope:recipient
+			}
+		}
+		# Run the actual effects.
+		scope:actor = {
+			send_interface_toast = {
+				type = event_toast_effect_good
+				title = recipient_joined_your_side_title
+				left_icon = scope:recipient
+
+				scope:recipient = {
+					if = {
+						limit = { scope:actor = { has_trait = tct_papal_supporter } }
+						if = {
+							limit = { has_trait = tct_imperial_supporter }
+							remove_trait = tct_imperial_supporter
+						}
+						add_trait_force_tooltip = tct_papal_supporter
+
+						# Catalyst
+						hidden_effect = {
+							if = {
+								limit = {
+									scope:actor = {
+										any_character_struggle	 = {
+											involvement = involved
+											phase_has_catalyst = tct_catalyst_turn_imperial_supporter_into_papal_supporter
+										}
+									}
+								}
+								every_character_struggle = {
+									involvement = involved
+									activate_struggle_catalyst = {
+										catalyst = tct_catalyst_turn_imperial_supporter_into_papal_supporter
+										character = scope:actor
+									}
+									#log_debug_variable_for_persian_struggle_effect = { VAR = unrest_catalyst_turn_supporter_into_detractor }
+								}
+							}
+						}
+					}
+					else = {
+						if = {
+							limit = { has_trait = tct_papal_supporter }
+							remove_trait = tct_papal_supporter
+						}
+						add_trait_force_tooltip = tct_imperial_supporter
+
+						# Catalyst
+						hidden_effect = {
+							if = {
+								limit = {
+									scope:actor = {
+										any_character_struggle	 = {
+											involvement = involved
+											phase_has_catalyst = tct_catalyst_turn_papal_supporter_into_imperial_supporter
+										}
+									}
+								}
+								every_character_struggle = {
+									involvement = involved
+									activate_struggle_catalyst = {
+										catalyst = tct_catalyst_turn_papal_supporter_into_imperial_supporter
+										character = scope:actor
+									}
+									#log_debug_variable_for_persian_struggle_effect = { VAR = stabil_catalyst_turn_detractor_into_supporter }
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		# Aaaaand flag scope:recipient as on cooldown for a while.
+		scope:recipient = {
+			set_variable = {
+				name = tct_investiture_controversy_change_allegiance_recipient_cooldown
+				years = 20
+			}
+		}
+	}
+
+	on_decline = {
+		scope:actor = {
+			if = {
+				limit = {
+					scope:actor = { has_trait = tct_papal_supporter }
+				}
+				send_interface_toast = {
+					type = event_toast_effect_bad
+					title = recipient_refused_to_join_your_side_title
+					left_icon = scope:recipient
+					progress_towards_rival_effect = {
+						REASON = rival_rejected_switching_to_struggle_detractor
+						CHARACTER = scope:recipient
+						OPINION = default_rival_opinion
+					}
+				}
+			}
+			else = {
+				send_interface_toast = {
+					type = event_toast_effect_bad
+					title = recipient_refused_to_join_your_side_title
+					left_icon = scope:recipient
+					progress_towards_rival_effect = {
+						REASON = rival_rejected_switching_to_struggle_supporter
+						CHARACTER = scope:recipient
+						OPINION = default_rival_opinion
+					}
+				}
+			}
+		}
+		scope:recipient = {
+			set_variable = {
+				name = tct_investiture_controversy_change_allegiance_refused_cooldown
+				years = 20
+			}
+		}
+	}
+	ai_frequency = 120
+
+	ai_potential = {
+		OR = {
+			has_trait = tct_papal_supporter
+			has_trait = tct_imperial_supporter
+		}
+	}
+
+	ai_targets = {
+		ai_recipients = liege
+		ai_recipients = neighboring_rulers
+		ai_recipients = peer_vassals
+		ai_recipients = vassals
+		max = 10
+	}
+
+	ai_will_do = {
+		base = -50 # Let's limit it to specific character to avoid pure chaos
+
+		###############
+		## BASE
+		###############
+
+		# AI Values
+		## Supporters run off of turbo-charged zeal
+		modifier = {
+			add = {
+				value = ai_zeal
+				multiply = 2
+			}
+			has_trait = tct_papal_supporter
+			ai_zeal <= -1
+		}
+		## Detractors run off of lacking zeal
+		modifier = {
+			add = {
+				value = ai_zeal
+				multiply = -2
+			}
+			has_trait = tct_imperial_supporter
+			ai_zeal >= 1
+		}
+
+		# The caliph wants to use this all the time.
+		modifier = {
+			has_title = title:e_hre
+			add = 200
+		}
+		
+		###############
+		## TRAITS
+		###############
+
+		# schemer
+		modifier = {
+			add = 15
+			has_trait = schemer
+		}
+
+		# theologian
+		modifier = {
+			add = 25
+			has_trait = theologian
+		}
+
+		# intrigue education
+		modifier = {
+			add = 15
+			has_trait = education_intrigue
+		}
+
+		# learning education
+		modifier = {
+			add = 25
+			has_trait = education_learning
+		}
+
+		# learning education
+		modifier = {
+			add = 25
+			has_trait = education_diplomacy
+		}
+
+		################
+		## RELATIONSHIP
+		################
+
+		# more likely to do it against friend and lover
+		modifier = {
+			add = 50
+			scope:recipient = {
+				OR = {
+					has_relation_friend = scope:actor
+					has_relation_lover = scope:actor
+					has_relation_soulmate = scope:actor
+					has_relation_best_friend = scope:actor
+				}
+			}
+		}
+
+		# boost against liege for Ambitious
+		modifier = {
+			add = 50
+			scope:actor = {
+				has_trait = ambitious
+				is_vassal_of = scope:recipient
+			}
+		}
+
+		# never target your rivals
+		modifier = {
+			add = -1000
+			scope:recipient = {
+				OR = {
+					has_relation_rival = scope:actor
+					has_relation_nemesis = scope:actor
+				}
+			}
+		}
+
+		################
+		## STRUGGLE
+		################
+
+		modifier = {
+			add = 100
+			OR = {
+				AND = {
+					scope:recipient = { has_trait = tct_imperial_supporter }
+					scope:actor = {
+						has_trait = tct_papal_supporter
+						any_character_struggle = {
+							involvement = involved
+							phase_has_catalyst = tct_catalyst_turn_papal_supporter_into_imperial_supporter
+						}
+					}
+				}
+				AND = {
+					scope:recipient = { has_trait = tct_papal_supporter }
+					scope:actor = {
+						has_trait = tct_imperial_supporter
+						any_character_struggle = {
+							involvement = involved
+							phase_has_catalyst = tct_catalyst_turn_imperial_supporter_into_papal_supporter
+						}
+					}
+				}
+			}
+		}
+	}
+}

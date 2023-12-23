@@ -110,8 +110,8 @@ tct_imperial_supporter = {
 
 	flag = can_use_install_loyalist_cb
 	
-	same_opinion = 10
-	opposite_opinion = -30
+	same_opinion = 40
+	opposite_opinion = -40
 
 	desc = {
 		first_valid = {
@@ -146,8 +146,8 @@ tct_papal_supporter = {
 
     flag = can_foment_revolt_interaction
 	
-	same_opinion = 10
-	opposite_opinion = -30
+	same_opinion = 40
+	opposite_opinion = -40
 
 	desc = {
 		first_valid = {

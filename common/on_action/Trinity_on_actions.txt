@@ -85,6 +85,11 @@ fixing867pope = {
 		title:k_papal_state.holder = { if = { limit = { is_lowborn = yes } title:k_papal_state.holder = { set_house = house:house_SanctiPetriFiliis } } }
 		title:k_papal_state.holder = { if = { limit = { has_trait = cardinal_archbishop } remove_trait = cardinal_archbishop } }
 		title:k_papal_state.holder = { if = { limit = { has_trait = cardinal_bishop } remove_trait = cardinal_bishop } }
+
+
+		title:b_paterno.title_province = { set_holding_type = castle_holding }
+		character:7913 = { get_title = title:b_paterno.title_province } 
+		title:b_paterno = { lease_out_to = character:7913 }
 	}
 }
 
