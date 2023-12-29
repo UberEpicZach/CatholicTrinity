@@ -15,3 +15,6 @@ tct_catalyst_turn_papal_supporter_into_imperial_supporter = {}
 tct_catalyst_imprison_important = {}
 tct_catalyst_imprison_papal_supporter = {}
 tct_catalyst_imprison_imperial_supporter = {}
+
+
+tct_create_antipope = {}

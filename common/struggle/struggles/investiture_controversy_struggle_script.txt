@@ -391,6 +391,9 @@
 						# Use a Hook of the opposing side. 
 
 						# Gain a claim on a member of the opposing side
+
+						# Create an Anti-Pope
+						tct_create_antipope = massive_struggle_catalyst_gain
 					}
 				}
  

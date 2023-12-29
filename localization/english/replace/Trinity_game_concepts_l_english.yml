@@ -126,6 +126,7 @@
   TCT_MAKE_ANTIPOPE_VIRTUES:0 "[actor.GetFaith.GetReligiousHead.GetShortUIName|U] has virtuous [traits|El]: $VALUE|=+0$"
   TCT_MAKE_ANTIPOPE_SINS:0 "[recipient.GetFaith.GetReligiousHead.GetShortUIName|U] has sinful [traits|El]: $VALUE|=+0$"
   TCT_MAKE_ANTIPOPE_IS_AMBITIOUS:0 "[GetTrait('ambitious').GetName(recipient.Self)]: $VALUE|=+0$"
+  TCT_MAKE_ANTIPOPE_IS_SUPPORTER:0 "[GetTrait('tct_imperial_supporter').GetName(recipient.Self)]: $VALUE|=+0$"
   TCT_MAKE_ANTIPOPE_IS_CONTENT:0 "[GetTrait('content').GetName(recipient.Self)]: $VALUE|=+ 0 $""
   TCT_MAKE_ANTIPOPE_IS_CARDINAL:0 "[GetTrait('koh_cardinal').GetName(recipient.Self)]: $VALUE|=+0$"
   TCT_MAKE_ANTIPOPE_IS_HUMBLE:0 "[GetTrait('humble').GetName(recipient.Self)]: $VALUE|=+0$"
