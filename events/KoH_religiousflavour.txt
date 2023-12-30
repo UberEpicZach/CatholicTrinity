@@ -4380,6 +4380,16 @@ KoH_religiousflavour.58 = {#christmas
 # }
 
 
+KoH_religiousflavour.200 = {
+	hidden = yes
+	immediate = {
+		pay_short_term_gold = {
+			target = faith.religious_head
+			gold = 100
+		}
+	}
+}
+
 
 #Ending a Pilgrimage to a Saintly Tomb
 KoH_religiousflavour.250 = { 

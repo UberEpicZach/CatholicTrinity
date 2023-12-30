@@ -1,0 +1,275 @@
+﻿TCT_papacy_story = {
+
+	on_setup = {
+		story_owner = {
+			#To scope to emperor
+			title:c_roma = {
+				set_variable = {
+					name = TCT_papacy
+					value = scope:story.story_owner
+				}
+			}
+			TCT_papacy_story_setup_effect = yes
+		}
+	}
+	
+	on_owner_death = {
+		title:c_roma = {
+			set_variable = {
+				name = TCT_deceasedpope
+				value = scope:story.story_owner
+			}
+		}
+		HRT_close_window = yes
+		end_story = yes
+	}
+
+	on_end = {
+		remove_variable = TCT_papal_authority_years_reigned
+		# remove_variable = TCT_papal_authority_vassals_var
+		# remove_variable = TCT_papal_authority_vassals_bonus_var
+		# remove_variable = TCT_papal_authority_vassals_war_var
+		# remove_variable = TCT_papal_authority_infidels_var
+		# remove_variable = TCT_papal_authority_unheld_heartlands
+	}
+
+	effect_group = {
+		months = 1
+		triggered_effect = {
+			trigger = {
+				always = yes
+			}
+			effect = {
+				story_owner = {
+					#Reset Variables
+					# change_variable = {
+					# 	name = TCT_papal_authority_vassals_var
+					# 	multiply = 0
+					# }
+					# change_variable = {
+					# 	name = TCT_papal_authority_vassals_bonus_var
+					# 	multiply = 0
+					# }
+					# change_variable = {
+					# 	name = TCT_papal_authority_vassals_war_var
+					# 	multiply = 0
+					# }
+					# change_variable = {
+					# 	name = TCT_papal_authority_infidels_var
+					# 	multiply = 0
+					# }
+					# change_variable = {
+					# 	name = TCT_papal_authority_unheld_heartlands
+					# 	multiply = 0
+					# }
+
+					# every_vassal = {
+					# 	#Total Vassal Count
+					# 	prev = {
+					# 		change_variable = {
+					# 			name = TCT_papal_authority_vassals_var
+					# 			add = 1
+					# 		}
+					# 	}
+					# 	#Vassal Bonus per Tier
+					# 	if = {
+					# 		limit = { highest_held_title_tier = tier_kingdom }
+					# 		prev = {
+					# 			change_variable = {
+					# 				name = TCT_papal_authority_vassals_bonus_var
+					# 				add = authority_gain_per_vassal_kingdom_bonus
+					# 			}
+					# 		}
+					# 	}
+					# 	else_if = {
+					# 		limit = { highest_held_title_tier = tier_duchy }
+					# 		prev = {
+					# 			change_variable = {
+					# 				name = TCT_papal_authority_vassals_bonus_var
+					# 				add = authority_gain_per_vassal_duchy_bonus
+					# 			}
+					# 		}
+					# 	}
+					# 	#Vassals Waging War Malus
+					# 	if = {
+					# 		limit = { is_at_war = yes }
+					# 		prev = {
+					# 			change_variable = {
+					# 				name = TCT_papal_authority_vassals_war_var
+					# 				add = authority_loss_per_waged_vassal_war
+					# 			}
+					# 		}
+					# 	}
+					# 	#Infidel Vassal Malus
+					# 	if = {
+					# 		limit = { NOT = { faith = prev.faith } }
+					# 		prev = {
+					# 			change_variable = {
+					# 				name = TCT_papal_authority_vassals_bonus_var
+					# 				add = authority_gain_per_vassal_duchy_bonus
+					# 			}
+					# 		}
+					# 	}
+					#}
+					
+					# #Unheld Heartlands Malus
+					# every_county_in_region = {
+					# 	region = HRT_core_territory
+					# 	limit = {
+					# 		holder.top_liege = {
+					# 			NOT = { this = scope:story.story_owner }
+					# 		}
+					# 	}
+					# 	prev = {
+					# 		change_variable = {
+					# 			name = TCT_papal_authority_unheld_heartlands
+					# 			add = 1
+					# 		}
+					# 	}
+					# }
+
+					#Prevent exceeding authority range (0-100)
+					if = {
+						limit = { TCT_papal_authority_limiter_value <= 0 }
+						set_variable = {
+							name = TCT_papal_authority
+							value = 0
+						}
+					}
+					else_if = {
+						limit = { TCT_papal_authority_limiter_value >= 100 }
+						set_variable = {
+							name = TCT_papal_authority
+							value = 100
+						}
+					}
+					#Apply Monthly Authority Change
+					else = {
+						change_variable = {
+							name = TCT_papal_authority
+							add = TCT_papal_authority_change_value
+						}
+					}
+				}
+			}
+		}
+	}
+
+	#AI enacting edicts (top notch AI decision making)
+	# effect_group = {
+	# 	months = 6
+	# 	triggered_effect = {
+	# 		trigger = {
+	# 			story_owner = {
+	# 				is_ai = yes
+	# 				TCT_papal_authority_progressbar_value >= 100
+	# 				prestige > major_prestige_value
+	# 			}
+	# 		}
+	# 		effect = {
+	# 			story_owner = {
+	# 				if = {
+	# 					limit = {
+	# 						culture = { has_cultural_era_or_later = culture_era_late_medieval }
+	# 					}
+	# 					random_list = {
+	# 						10 = {
+	# 							trigger_event = HRT_edicts.0001 # Edict of Legal Unification
+	# 						}
+	# 						9 = {
+	# 							trigger_event = HRT_edicts.0004 # Consular Taxation Directive
+	# 						}
+	# 						9 = {
+	# 							trigger_event = HRT_edicts.0002 # Imperial Decree of Chivalric Excellence
+	# 						}
+	# 						9 = {
+	# 							trigger_event = HRT_edicts.0009 # Edict of Imperial Works
+	# 						}
+	# 						9 = {
+	# 							trigger_event = HRT_edicts.0008 # Edict of Scholastic Advancement
+	# 						}
+	# 						9 = {
+	# 							trigger_event = HRT_edicts.0010 # Edict of Ecclesiastical Patronage
+	# 						}
+	# 						9 = {
+	# 							trigger_event = HRT_edicts.0003 # Diplomatic Corps Activation Edict
+	# 						}
+	# 						9 = {
+	# 							trigger_event = HRT_edicts.0006 # Edict of Urban Rights and Privileges
+	# 						}
+	# 						9 = {
+	# 							trigger_event = HRT_edicts.0005 # Imperial Levy Conscription Order
+	# 						}
+	# 						9 = {
+	# 							trigger_event = HRT_edicts.0007 # Border Defense Temporary Directive
+	# 						}
+	# 						9 = {
+	# 							trigger_event = HRT_edicts.1001 # Proclamation of Imperial Directive
+	# 						}
+	# 					}
+	# 				}
+	# 				else_if = {
+	# 					limit = {
+	# 						culture = { has_cultural_era_or_later = culture_era_high_medieval }
+	# 					}
+	# 					random_list = {
+	# 						15 = {
+	# 							trigger_event = HRT_edicts.0001 # Edict of Legal Unification
+	# 						}
+	# 						15 = {
+	# 							trigger_event = HRT_edicts.0004 # Consular Taxation Directive
+	# 						}
+	# 						14 = {
+	# 							trigger_event = HRT_edicts.0002 # Imperial Decree of Chivalric Excellence
+	# 						}
+	# 						14 = {
+	# 							trigger_event = HRT_edicts.0009 # Edict of Imperial Works
+	# 						}
+	# 						14 = {
+	# 							trigger_event = HRT_edicts.0008 # Edict of Scholastic Advancement
+	# 						}
+	# 						14 = {
+	# 							trigger_event = HRT_edicts.0010 # Edict of Ecclesiastical Patronage
+	# 						}
+	# 						14 = {
+	# 							trigger_event = HRT_edicts.1001 # Proclamation of Imperial Directive
+	# 						}
+	# 					}
+	# 				}
+	# 				else_if = {
+	# 					limit = {
+	# 						culture = { has_cultural_era_or_later = culture_era_early_medieval }
+	# 					}
+	# 					random_list = {
+	# 						34 = {
+	# 							trigger_event = HRT_edicts.0001 # Edict of Legal Unification
+	# 						}
+	# 						33 = {
+	# 							trigger_event = HRT_edicts.0004 # Consular Taxation Directive
+	# 						}
+	# 						33 = {
+	# 							trigger_event = HRT_edicts.1001 # Proclamation of Imperial Directive
+	# 						}
+	# 					}
+	# 				}
+	# 				else = { trigger_event = HRT_edicts.1001 } # Proclamation of Imperial Directive
+	# 			}
+	# 		}
+	# 	}
+	# }
+
+	effect_group = {
+		years = 1
+		triggered_effect = {
+			trigger = { always = yes }
+			effect = {
+				story_owner = {
+					change_variable = {
+						name = TCT_papal_authority_years_reigned
+						add = 1
+					}
+				}
+			}
+		}
+	}
+}

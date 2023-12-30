@@ -8,6 +8,50 @@
 	}
 }
 
+
+# on_faith_monthly = {
+# 	on_actions = {
+# 		delay = { days = { 5 10 }}
+# 		tct_taxes_to_HOF
+# 	}
+# }
+
+# tct_taxes_to_HOF = { 
+# 	effect = {
+# 		faith:catholic = {
+# 			every_faith_ruler = {
+# 				save_temporary_scope_as = bishop
+# 				limit = {
+# 					has_government = theocracy_government
+# 					highest_held_title_tier <= tier_barony
+# 				}
+				
+# 				trigger_event = {
+# 					id = KoH_religiousflavour.200
+# 					days = 3
+# 				}
+				
+# 				#Debug
+# 				# faith.religious_head = {
+# 				# 	send_interface_toast = {
+# 				# 		type = event_toast_effect_bad
+# 				# 		title = gottaxes
+# 				# 		left_icon = prev
+# 				# 		show_as_tooltip = {
+# 				# 			prev = {
+# 				# 				pay_short_term_gold = {
+# 				# 					target = faith.religious_head
+# 				# 					gold = 1
+# 				# 				}
+# 				# 			}
+# 				# 		}
+# 				# 	}
+# 				# }
+# 			}
+# 		}
+# 	}
+# }
+
 on_army_enter_province = {
 	events = {
 		KoH_religiousflavour.811 #Give Crusaders their trait upon reaching the holy land.
@@ -150,6 +194,40 @@ CatholicsimFix = {
 		}
 		title:k_papal_state.holder = {
 			set_variable = was_once_cardinal
+		}
+		every_province = {
+			limit = {
+				faith = faith:catholic
+				has_holding_type = church_holding
+				barony = {
+					holder = {
+						NOT = { has_government_flag = theocracy_government }
+					}
+				}
+			}
+			add_to_list = every_province_to_make_bishops
+		}
+		every_in_list = {
+			list = every_province_to_make_bishops
+			
+			random_pool_character = {
+				limit = {
+					has_education_learning_trigger = yes
+				}
+				save_scope_as = bishop
+			}
+			create_title_and_vassal_change = {
+				type = granted
+				save_scope_as = title_change
+				add_claim_on_loss = no
+			}
+			prev = {
+				change_title_holder = {
+					holder = scope:bishop
+					change = scope:title_change
+				}
+			}
+			resolve_title_and_vassal_change = scope:title_change
 		}
 	}
 }
@@ -770,7 +848,8 @@ on_pope_death = {
 
 			title:k_papal_state.holder = {	
 				add_gold = scope:deadpope.gold
-
+				create_story = TCT_papacy_story
+				
 				create_character = {
 					location = scope:deadpope.capital_province
 					faith = scope:deadpope.faith
@@ -831,6 +910,7 @@ on_pope_death = {
 				title:k_papal_state.holder = { 
 					trigger_event = KoH_religiousflavour.400
 				}
+				
 			}
 
 			scope:deadpope = {
@@ -945,6 +1025,8 @@ on_pope_death = {
 
 			title:k_papal_state.holder = {	
 				add_gold = scope:deadpope.gold
+
+				create_story = TCT_papacy_story
 
 				create_character = {
 					gender = male

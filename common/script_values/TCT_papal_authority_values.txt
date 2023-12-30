@@ -1,0 +1,472 @@
+﻿### Configuration parameters
+
+authority_gain_per_prestige 							= 0.05
+# authority_gain_per_dread 								= 0.05
+
+# # Vassal parameters
+# authority_gain_per_vassal_multiplier 					= 0.2
+# authority_gain_per_vassal_duchy_bonus   				= 0.5
+# authority_gain_per_vassal_kingdom_bonus 				= 1
+
+# authority_loss_per_waged_vassal_war_multiplier			= -0.2
+# authority_loss_per_waged_vassal_war						= 1
+
+# authority_loss_infidel_multiplier						= 0.5
+# authority_loss_per_infidel								= -0.5
+
+# # Lost territory parameters
+# authority_loss_per_unheld_heartlands_multiplier			= 1
+# authority_loss_per_unheld_heartlands					= -0.1
+
+TCT_papal_authority_limiter_value = {
+	value = var:TCT_papal_authority
+	add = TCT_papal_authority_change_value
+}
+
+TCT_papal_authority_change_value = {
+	value = 0
+
+	#Bonuses
+	add = {
+		add = TCT_papal_authority_prestige_bonus
+		# add = TCT_papal_authority_dread_bonus
+		# add = TCT_papal_authority_gain_years_reigned_bonus
+		# add = TCT_papal_authority_vassal_bonus
+		# add = TCT_papal_authority_held_castle_bonus
+		# add = TCT_papal_authority_ally_bonus
+		# add = TCT_papal_authority_artifact_bonus
+		# add = TCT_papal_authority_grand_tour_bonus
+		# multiply = TCT_papal_authority_constrained_reach
+		# multiply = TCT_papal_authority_uncrowned_malus
+		# multiply = TCT_papal_authority_edict_modifier
+		# #Game Rule
+		# multiply = TCT_papal_authority_game_rule_bonus_one_and_a_half
+		# multiply = TCT_papal_authority_game_rule_bonus_twice
+	}
+
+	#Maluses
+	# add = TCT_papal_authority_loss_waged_vassal_wars_malus
+	# add = TCT_papal_authority_infidel_malus
+	# add = TCT_papal_authority_unheld_heartlands_malus
+	# add = TCT_papal_authority_criminal_malus
+	# add = TCT_papal_authority_serious_disease_malus
+
+	# multiply = TCT_papal_authority_child_malus
+
+	min = TCT_papal_authority_min
+	max = TCT_papal_authority_max
+}
+
+TCT_papal_authority_constrained_reach = {
+	value = 1
+	if = {
+		limit = {
+			NOT = { exists = title:e_hre.holder }
+		}
+		subtract = 0.2
+	}
+}
+
+TCT_papal_authority_prestige_bonus = {
+	value = 0
+	if =		{ limit = { prestige_level >= 5 } add = 2 }
+	else_if =	{ limit = { prestige_level >= 3 } add = 1 }
+}
+TCT_papal_authority_dread_bonus = {
+	value = 0
+	if =		{ limit = { dread >= 70 } add = 2 }
+	else_if =	{ limit = { dread >= 40 } add = 1 }
+}
+TCT_papal_authority_gain_years_reigned_bonus = {
+	value = 0
+	if =		{ limit = { var:TCT_papal_authority_years_reigned >= 40 } add = 2 }
+	else_if =	{ limit = { var:TCT_papal_authority_years_reigned >= 20 } add = 1 }
+}
+
+TCT_papal_authority_vassal_bonus = {
+	value = 0
+	add = var:TCT_papal_authority_vassals_bonus_var
+	multiply = authority_gain_per_vassal_multiplier
+}
+TCT_papal_authority_loss_waged_vassal_wars_malus = {
+	value = var:TCT_papal_authority_vassals_war_var
+	multiply = authority_loss_per_waged_vassal_war_multiplier
+	min = -10
+}
+TCT_papal_authority_infidel_malus = {
+	value = 0
+	if =		{ limit = { TCT_papal_authority_infidels_share >= 80 } add = 10 }
+	else_if =	{ limit = { TCT_papal_authority_infidels_share >= 70 } add = 9 }
+	else_if =	{ limit = { TCT_papal_authority_infidels_share >= 60 } add = 8 }
+	else_if =	{ limit = { TCT_papal_authority_infidels_share >= 50 } add = 7 }
+	else_if =	{ limit = { TCT_papal_authority_infidels_share >= 40 } add = 6 }
+	else_if =	{ limit = { TCT_papal_authority_infidels_share >= 30 } add = 5 }
+	else_if =	{ limit = { TCT_papal_authority_infidels_share >= 20 } add = 4 }
+	else_if =	{ limit = { TCT_papal_authority_infidels_share >= 15 } add = 3 }
+	else_if =	{ limit = { TCT_papal_authority_infidels_share >= 10 } add = 2 }
+	else_if =	{ limit = { TCT_papal_authority_infidels_share >= 5 } add = 1 }
+	multiply = -1
+}
+TCT_papal_authority_infidels_share = {
+	value = var:TCT_papal_authority_infidels_var
+	divide = {
+		value = var:TCT_papal_authority_vassals_var
+		min = 1
+	}
+	multiply = 100
+}
+
+TCT_papal_authority_unheld_heartlands_malus = {
+	value = 0
+	if =		{ limit = { TCT_papal_authority_unheld_heartlands_share >= 80 } add = 5 }
+	else_if =	{ limit = { TCT_papal_authority_unheld_heartlands_share >= 70 } add = 4 }
+	else_if =	{ limit = { TCT_papal_authority_unheld_heartlands_share >= 60 } add = 3 }
+	else_if =	{ limit = { TCT_papal_authority_unheld_heartlands_share >= 50 } add = 2 }
+	else_if =	{ limit = { TCT_papal_authority_unheld_heartlands_share >= 40 } add = 1 }
+	multiply = -1
+	if = {
+		limit = { NOT = { has_title = title:e_hre } }
+		multiply = 0.3
+	}
+}
+TCT_papal_authority_unheld_heartlands_share = {
+	value = var:TCT_papal_authority_unheld_heartlands
+	divide = {
+		value = title:c_roma.var:HRT_core_territory
+		min = 1
+	}
+	multiply = 100
+}
+
+TCT_papal_authority_held_castle_bonus = {
+	value = -2
+	every_directly_owned_province = {
+		limit = { has_holding_type = castle_holding }
+		add = 0.5
+	}
+	max = 2
+}
+
+TCT_papal_authority_ally_bonus = {
+	value = 0
+	every_ally = { add = 0.5 }
+	max = 3
+}
+
+TCT_papal_authority_artifact_bonus = {
+	value = 0
+	every_character_artifact = {
+		limit = { rarity = illustrious }
+		add = 0.25
+	}
+	max = 3
+}
+TCT_papal_authority_missing_reichskrone_malus = {
+	value = 0
+	if = {
+		limit = {
+			AND = {
+				exists = title:e_hre.holder
+				NOT = {
+					any_character_artifact = {
+						artifact_slot_type = helmet
+						rarity = illustrious
+					}
+				}
+			}
+		}
+		add = -3
+	}
+}
+
+TCT_papal_authority_criminal_malus = {
+	value = 0
+	if = {
+		limit = {
+			OR = {
+				has_trait = murderer
+				has_trait = incestuous
+				has_trait = sodomite
+				has_trait = cannibal
+				has_trait = kinslayer
+			}
+		}
+		add = -2
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_trait = deviant
+				has_trait = adulterer
+				has_trait = fornicator
+			}
+		}
+		add = -1
+	}
+}
+
+TCT_papal_authority_serious_disease_malus = {
+	value = 0
+	if = {
+		limit = {
+			OR = {
+				has_serious_disease_trigger = yes
+				has_contagious_deadly_disease_trigger = yes
+				has_epidemic_disease_trigger = yes
+				has_trait = infirm
+				has_trait = incapable
+			}
+		}
+		add = -2
+	}
+}
+
+TCT_papal_authority_grand_tour_bonus = {
+	value = 0
+	if = {
+		limit = {
+			involved_activity ?= {
+				#root = activity_host
+				has_activity_type = activity_tour
+			}
+		}
+		add = 2
+	}
+}
+
+TCT_papal_authority_uncrowned_malus = {
+	value = 1
+	if = {
+		limit = {
+			NOT = { has_trait = TCT_papacy }
+		}
+		subtract = 0.5
+	}
+}
+
+TCT_papal_authority_child_malus = {
+	value = 1
+	if = {
+		limit = {
+			is_adult = no
+		}
+		subtract = 1
+	}
+}
+
+TCT_papal_authority_edict_modifier = {
+	value = 1
+	if = { limit = { title:c_roma = { has_variable = HRT_edict_legal_unification_var } }			multiply = 1.5 }
+	if = { limit = { title:c_roma = { has_variable = HRT_edict_consular_taxation_var } }			multiply = 0.5 }
+	if = { limit = { title:c_roma = { has_variable = HRT_edict_urban_rights_var } } 				multiply = 0.5 }
+	if = { limit = { title:c_roma = { has_variable = HRT_edict_scholastic_advancement_var } }		multiply = 0.5 }
+}
+
+TCT_papal_authority_min = {
+	value = -10
+	if = { limit = { title:c_roma = { has_variable = HRT_edict_consular_taxation_var } }			add = -1 }
+	if = { limit = { title:c_roma = { has_variable = HRT_edict_urban_rights_var } } 				add = -1 }
+	if = { limit = { title:c_roma = { has_variable = HRT_edict_scholastic_advancement_var } }		add = -1 }
+}
+TCT_papal_authority_max = {
+	value = 5
+	if = { limit = { title:c_roma = { has_variable = HRT_edict_legal_unification_var } }			add = 1 }
+	if = { limit = { title:c_roma = { has_variable = HRT_edict_chivalric_excellence_var } }		add = -1 }
+	if = { limit = { title:c_roma = { has_variable = HRT_edict_diplomatic_corps_var } }			add = -1 }
+	if = { limit = { title:c_roma = { has_variable = HRT_edict_consular_taxation_var } }			add = -1 }
+	if = { limit = { title:c_roma = { has_variable = HRT_edict_levy_conscription_var } }			add = -1 }
+	if = { limit = { title:c_roma = { has_variable = HRT_edict_urban_rights_var } }				add = -1 }
+	if = { limit = { title:c_roma = { has_variable = HRT_edict_border_defense_var } }				add = -1 }
+	if = { limit = { title:c_roma = { has_variable = HRT_edict_scholastic_advancement_var } }		add = -1 }
+	if = { limit = { title:c_roma = { has_variable = HRT_edict_imperial_works_var } }				add = -1 }
+	if = { limit = { title:c_roma = { has_variable = HRT_edict_ecclesiastical_patronage_var } }	add = -1 }
+	min = 0
+}
+
+#Game Rules
+TCT_papal_authority_game_rule_bonus_one_and_a_half = {
+	value = 1
+	if = {
+		limit = {
+			is_ai = no
+			has_game_rule = TCT_papal_authority_one_and_a_half
+		}
+		multiply = 1.5
+	}
+}
+TCT_papal_authority_game_rule_bonus_twice = {
+	value = 1
+	if = {
+		limit = {
+			is_ai = no
+			has_game_rule = TCT_papal_authority_twice
+		}
+		multiply = 2
+	}
+}
+
+#GUI jank
+TCT_papal_authority_progressbar_value = {
+	value = title:c_roma.var:TCT_papacy.var:TCT_papal_authority
+}
+# TCT_papal_authority_change_value_gui = {
+# 	value = {
+# 		title:c_roma.var:TCT_papacy = {
+# 			add = TCT_papal_authority_change_value
+# 		}
+# 	}
+# }
+
+# TCT_papal_authority_constrained_reach_gui = {
+# 	value = {
+# 		title:c_roma.var:TCT_papacy = {
+# 			add = TCT_papal_authority_constrained_reach
+# 		}
+# 	}
+# }
+
+# TCT_papal_authority_prestige_bonus_gui = {
+# 	value = {
+# 		title:c_roma.var:TCT_papacy = {
+# 			add = TCT_papal_authority_prestige_bonus
+# 		}
+# 	}
+# }
+# TCT_papal_authority_dread_bonus_gui = {
+# 	value = {
+# 		title:c_roma.var:TCT_papacy = {
+# 			add = TCT_papal_authority_dread_bonus
+# 		}
+# 	}
+# }
+# TCT_papal_authority_gain_years_reigned_bonus_gui = {
+# 	value = {
+# 		title:c_roma.var:TCT_papacy = {
+# 			add = TCT_papal_authority_gain_years_reigned_bonus
+# 		}
+# 	}
+# }
+
+# TCT_papal_authority_vassal_bonus_gui = {
+# 	value = {
+# 		title:c_roma.var:TCT_papacy = {
+# 			add = TCT_papal_authority_vassal_bonus
+# 		}
+# 	}
+# }
+# TCT_papal_authority_loss_waged_vassal_wars_malus_gui = {
+# 	value = {
+# 		title:c_roma.var:TCT_papacy = {
+# 			add = TCT_papal_authority_loss_waged_vassal_wars_malus
+# 		}
+# 	}
+# }
+# TCT_papal_authority_infidel_malus_gui = {
+# 	value = {
+# 		title:c_roma.var:TCT_papacy = {
+# 			add = TCT_papal_authority_infidel_malus
+# 		}
+# 	}
+# }
+# TCT_papal_authority_unheld_heartlands_malus_gui = {
+# 	value = {
+# 		title:c_roma.var:TCT_papacy = {
+# 			add = TCT_papal_authority_unheld_heartlands_malus
+# 		}
+# 	}
+# }
+
+# TCT_papal_authority_held_castle_bonus_gui = {
+# 	value = {
+# 		title:c_roma.var:TCT_papacy = {
+# 			add = TCT_papal_authority_held_castle_bonus
+# 		}
+# 	}
+# }
+
+# TCT_papal_authority_ally_bonus_gui = {
+# 	value = {
+# 		title:c_roma.var:TCT_papacy = {
+# 			add = TCT_papal_authority_ally_bonus
+# 		}
+# 	}
+# }
+
+# TCT_papal_authority_artifact_bonus_gui = {
+# 	value = {
+# 		title:c_roma.var:TCT_papacy = {
+# 			add = TCT_papal_authority_artifact_bonus
+# 		}
+# 	}
+# }
+# TCT_papal_authority_missing_reichskrone_malus_gui = {
+# 	value = {
+# 		title:c_roma.var:TCT_papacy = {
+# 			add = TCT_papal_authority_missing_reichskrone_malus
+# 		}
+# 	}
+# }
+
+# TCT_papal_authority_criminal_malus_gui = {
+# 	value = {
+# 		title:c_roma.var:TCT_papacy = {
+# 			add = TCT_papal_authority_criminal_malus
+# 		}
+# 	}
+# }
+
+# TCT_papal_authority_serious_disease_malus_gui = {
+# 	value = {
+# 		title:c_roma.var:TCT_papacy = {
+# 			add = TCT_papal_authority_serious_disease_malus
+# 		}
+# 	}
+# }
+
+# TCT_papal_authority_grand_tour_bonus_gui = {
+# 	value = {
+# 		title:c_roma.var:TCT_papacy = {
+# 			add = TCT_papal_authority_grand_tour_bonus
+# 		}
+# 	}
+# }
+
+# TCT_papal_authority_uncrowned_malus_gui = {
+# 	value = {
+# 		title:c_roma.var:TCT_papacy = {
+# 			add = TCT_papal_authority_uncrowned_malus
+# 		}
+# 	}
+# }
+
+# TCT_papal_authority_child_malus_gui = {
+# 	value = {
+# 		title:c_roma.var:TCT_papacy = {
+# 			add = TCT_papal_authority_child_malus
+# 		}
+# 	}
+# }
+
+# TCT_papal_authority_edict_modifier_gui = {
+# 	value = {
+# 		title:c_roma.var:TCT_papacy = {
+# 			add = TCT_papal_authority_edict_modifier
+# 		}
+# 	}
+# }
+
+# #Game Rules
+# TCT_papal_authority_game_rule_bonus_one_and_a_half_gui = {
+# 	value = {
+# 		title:c_roma.var:TCT_papacy = {
+# 			add = TCT_papal_authority_game_rule_bonus_one_and_a_half
+# 		}
+# 	}
+# }
+# TCT_papal_authority_game_rule_bonus_twice_gui = {
+# 	value = {
+# 		title:c_roma.var:TCT_papacy = {
+# 			add = TCT_papal_authority_game_rule_bonus_twice
+# 		}
+# 	}
+# }
