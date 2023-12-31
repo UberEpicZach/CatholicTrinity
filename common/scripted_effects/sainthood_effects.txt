@@ -8,7 +8,7 @@
 		}
 	}
 
-	dynasty = {
+	dynasty ?= {
 		add_dynasty_modifier = {
 			modifier = saintly_bloodline
 			# Why even bother at this point?
@@ -21,170 +21,187 @@
 	}
 
 	#Create a blank Saint Day
-	create_character = {
-		location = root.location
-		gender = male
-		age = 0.1
-		trait = education_martial_4
-		#trait = devoted
-		faith = root.faith
-		culture = root.culture
-		learning = { 10 12 }
-		save_scope_as = saint_day_holder
-	}
-
-	faith = {
-		add_to_variable_list = {
-			name = faith_saint_day_dummy_chars
-			target = scope:saint_day_holder
-		}
-	}
-
-	scope:saint_day_holder = {
-		#add_gold = 10
-		#add_prestige = 10
-		add_to_variable_list = {
-			name = saint_day_saint
-			target = scope:new_saint
-		}
-		create_story = story_saint_day
-	}
-}
-
-become_saint_debug = {
-	remove_trait = beatified
-	add_trait = saint	
-	become_saint = yes
 	
-
-	capital_province = {
-		add_province_modifier = saintly_tomb	
-	}
-
-	capital_province.county = {
-		add_to_variable_list = {
-			name = faith_saints_and_capital
-			target = root
-		}
-	}
-
-	faith = {
-		add_to_variable_list = {
-			name = faith_capital
-			target = root.capital_province.county
-		}
-	}
-
-	#Create a blank Saint Day
-	create_character = {
-		location = root.location
-		gender = male
-		age = 0.1
-		trait = education_martial_4
-		#trait = devoted
-		faith = root.faith
-		culture = root.culture
-		learning = { 10 12 }
-		save_scope_as = saint_day_holder
-	}
-
-	faith = {
-		add_to_variable_list = {
-			name = faith_saint_day_dummy_chars
-			target = scope:saint_day_holder
-		}
-	}
-
-	scope:saint_day_holder = {
-		#get_title = title:e_hre
-		add_to_variable_list = {
-			name = saint_day_saint
-			target = scope:new_saint
-		}
-		create_story = story_saint_day
-	}
-}
-
-saint_day_effect = {
 	if = {
 		limit = {
-			faith:catholic = {
-				any_faith_ruler = {
-					any_realm_county = {
-						has_variable_list = faith_saints_and_capital
-						save_temporary_scope_as = saintlocationtemp
-					}
-				}
+			exists = scope:saint_capital_province #safety check
+		}
+		create_character = {
+			location = scope:saint_capital_province
+			gender = male
+			age = { 16 50 }
+			trait = education_learning_2
+			trait = devoted
+			faith = root.faith
+			culture = scope:saint_capital_province.culture
+			learning = { 8 10 }
+			dynasty = none
+			save_scope_as = saint_day_holder
+		}
+
+		#faith = { #DEBUG
+		#	add_to_variable_list = {
+		#		name = faith_saint_day_holders
+		#		target = scope:saint_day_holder
+		#	}
+		#	#set_variable = {
+		#	#	name = recent_denomination
+		#	#	value = yes
+		#	#	years = 20
+		#	#}
+		#} #/DEBUG
+
+		scope:saint_day_holder = {
+			#add_gold = 10
+			#add_prestige = 10
+			set_variable = {
+				name = saint_day_saint
+				value = scope:new_saint
 			}
-		}
-		scope:saintlocationtemp = {
-			save_scope_as = saintlocation
-		}
-	}
-	scope:saintlocation = {
-		holder = {
-			add_gold = 100
-		}
-		random_in_list = {
-			variable = faith_saints_and_capital
-			save_scope_as = localsaint
-		}
-	}
-
-	create_character = {
-		location = root.location
-		gender = male
-		age = 0.0
-		trait = education_martial_4
-		#trait = devoted
-		faith = root.faith
-		culture = root.culture
-		learning = { 10 12 }
-		save_scope_as = saint_day_holder
-	}
-
-	scope:saint_day_holder = {
-		#add_gold = 10
-		faith = {
-			add_to_variable_list = {
-				name = faith_saint_day_dummy_chars
-				target = scope:saint_day_holder
+			set_variable = {
+				name = saint_day_saint_tomb_location
+				value = scope:saint_capital_province
 			}
-		}
-		set_variable = {
-			name = TCT_saint_day_saint
-			value = scope:localsaint
-		}
-	}
-
-	faith = {
-
-	}
-
-	global_var:TCT_saint_day_dummychar = {
-		add_gold = 10
-		add_prestige = 10
-		create_story = story_saint_day
-	}
-}
-
-become_saint_capital = {
-	save_scope_as = new_saint_capital
-}
-
-remove_saint = {
-	save_scope_as = remove_saint # Good work on avoiding ROOT
-	faith = {
-		remove_list_variable = {
-			name = faith_saints
-			target = scope:remove_saint
+			create_story = story_saint_day
+			#trigger notification for liege: A Monk has arrived!
 		}
 	}
 }
 
-add_qa_effect = {
-	set_global_variable = qa_testing
-}
+#become_saint_debug = {
+#	remove_trait = beatified
+#	add_trait = saint	
+#	become_saint = yes
+#	
+#
+#	capital_province = {
+#		add_province_modifier = saintly_tomb	
+#	}
+#
+#	capital_province.county = {
+#		add_to_variable_list = {
+#			name = faith_saints_and_capital
+#			target = root
+#		}
+#	}
+#
+#	faith = {
+#		add_to_variable_list = {
+#			name = faith_capital
+#			target = root.capital_province.county
+#		}
+#	}
+#
+#	#Create a blank Saint Day
+#	create_character = {
+#		location = root.location
+#		gender = male
+#		age = 0.1
+#		trait = education_martial_4
+#		#trait = devoted
+#		faith = root.faith
+#		culture = root.culture
+#		learning = { 10 12 }
+#		save_scope_as = saint_day_holder
+#	}
+#
+#	faith = {
+#		add_to_variable_list = {
+#			name = faith_saint_day_dummy_chars
+#			target = scope:saint_day_holder
+#		}
+#	}
+#
+#	scope:saint_day_holder = {
+#		#get_title = title:e_hre
+#		add_to_variable_list = {
+#			name = saint_day_saint
+#			target = scope:new_saint
+#		}
+#		create_story = story_saint_day
+#	}
+#}
+#
+#saint_day_effect = {
+#	if = {
+#		limit = {
+#			faith:catholic = {
+#				any_faith_ruler = {
+#					any_realm_county = {
+#						has_variable_list = faith_saints_and_capital
+#						save_temporary_scope_as = saintlocationtemp
+#					}
+#				}
+#			}
+#		}
+#		scope:saintlocationtemp = {
+#			save_scope_as = saintlocation
+#		}
+#	}
+#	scope:saintlocation = {
+#		holder = {
+#			add_gold = 100
+#		}
+#		random_in_list = {
+#			variable = faith_saints_and_capital
+#			save_scope_as = localsaint
+#		}
+#	}
+#
+#	create_character = {
+#		location = root.location
+#		gender = male
+#		age = 0.0
+#		trait = education_martial_4
+#		#trait = devoted
+#		faith = root.faith
+#		culture = root.culture
+#		learning = { 10 12 }
+#		save_scope_as = saint_day_holder
+#	}
+#
+#	scope:saint_day_holder = {
+#		#add_gold = 10
+#		faith = {
+#			add_to_variable_list = {
+#				name = faith_saint_day_dummy_chars
+#				target = scope:saint_day_holder
+#			}
+#		}
+#		set_variable = {
+#			name = TCT_saint_day_saint
+#			value = scope:localsaint
+#		}
+#	}
+#
+#	faith = {
+#
+#	}
+#
+#	global_var:TCT_saint_day_dummychar = {
+#		add_gold = 10
+#		add_prestige = 10
+#		create_story = story_saint_day
+#	}
+#}
+#
+#become_saint_capital = {
+#	save_scope_as = new_saint_capital
+#}
+#
+#remove_saint = {
+#	save_scope_as = remove_saint # Good work on avoiding ROOT
+#	faith = {
+#		remove_list_variable = {
+#			name = faith_saints
+#			target = scope:remove_saint
+#		}
+#	}
+#}
+#
+#add_qa_effect = {
+#	set_global_variable = qa_testing
+#}
 
 # #set_up_saint_sites_for_selection_effect = {
 # 	if = {
@@ -277,15 +294,15 @@ add_qa_effect = {
 # 	}
 # #}
 
-set_up_saint_sites_for_selection_effect = {	
-	random_province = {
-		limit = {
-			has_province_modifier = saintly_tomb
-			NOT = { exists = scope:saint_site_1 }
-		}
-		save_scope_as = saint_site_1
-	}
-}
+#set_up_saint_sites_for_selection_effect = {	
+#	random_province = {
+#		limit = {
+#			has_province_modifier = saintly_tomb
+#			NOT = { exists = scope:saint_site_1 }
+#		}
+#		save_scope_as = saint_site_1
+#	}
+#}
 
 # saint_site_selection_event_option_effect = {
 # 	# HOLY_SITE = holy_site
@@ -363,19 +380,19 @@ pledge_ghw_piety_gain_effect = {
 	}
 }
 
-testingtest = {
-	save_scope_as = persontoscope
-    scope:persontoscope.capital_county = {
-        save_scope_as = scoped_capital
-    }
-    scope:scoped_capital.county ={
-        add_to_variable_list = {
-            name = characterscopedandcountyscoped
-            target = scope:persontoscope
-        }
-    }
-}
-
-testinglist = {
-	every_in_list = { variable = characterscopedandcountyscoped add_trait = hashishiyah }
-}
+#testingtest = {
+#	save_scope_as = persontoscope
+#    scope:persontoscope.capital_county = {
+#        save_scope_as = scoped_capital
+#    }
+#    scope:scoped_capital.county ={
+#        add_to_variable_list = {
+#            name = characterscopedandcountyscoped
+#            target = scope:persontoscope
+#        }
+#    }
+#}
+#
+#testinglist = {
+#	every_in_list = { variable = characterscopedandcountyscoped add_trait = hashishiyah }
+#}

@@ -67,11 +67,10 @@ TCT_christmas_real = {
 TCT_saint_day_real = {
 	trigger = {
 		is_adult = yes
-		#exists = var:TCT_saint_day_dummychar
 	}
 	random_events = {
-		1000 = 0
-		1 = KoH_religiousflavour.63 #Saint Day! 
+		1 = 0 #82 = 0
+		1 = TCT_saint_days.0001 #Saint's Day! 
 		#1 = bp1_yearly.3004 #Christmas, but a child!! 
 		#1 = bp1_yearly.3006 # Reflecting on a great Christmas
 		#1 = bp1_yearly.3006 # Last Christmas I gave you my heart
@@ -557,6 +556,12 @@ on_theocrat_investiture_death = {
 }
 
 on_person_death_saint = {
+	trigger = { # simple checks to improve performance
+		has_religion = religion:christianity_religion
+		num_virtuous_traits >= 2
+		piety_level >= 1
+		is_adult = yes
+	}
     events = {
         KoH_sainthood.1
     }

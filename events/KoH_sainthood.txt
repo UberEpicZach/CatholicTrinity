@@ -1,71 +1,92 @@
 ﻿namespace = KoH_sainthood
 
-
-KoH_sainthood.1 = { #sainthood.1
+KoH_sainthood.1 = {
 	hidden = yes
 
-	trigger = {		
+	trigger = {
 		sainthood_event1trigger = yes
 	}
 
 	immediate = {
-		root = {
-			save_scope_as = saint_person
-		}
+		save_scope_as = saint_person
+		
+		# Save the location where the saint person died
 		if = {
-			limit = {
-				scope:saint_person = {
-					exists = capital_county
-				}
-			}
-			scope:saint_person.capital_province = {
-				save_scope_as = saint_capital_province	
-			}
+			limit = { exists = capital_province }
+			capital_province = { save_scope_as = saint_capital_province }
+		}
+		else_if = {
+			limit = { exists = host.capital_province }
+			host.capital_province = { save_scope_as = saint_capital_province }
+		}
+		else_if = {
+			limit = { exists = liege.capital_province }
+			liege.capital_province = { save_scope_as = saint_capital_province }
+		}
+		else_if = {
+			limit = { exists = location.province_owner.capital_province	}
+			location.province_owner.capital_province = { save_scope_as = saint_capital_province }
+		}
+		else = { # Whoever still manages to slip past
+			location = { save_scope_as = saint_capital_province }
 		}
 
+		# Only 1 saint per province
+		# No Local Veneration if county religion is different
 		if = {
 			limit = {
-				has_religion = religion:christianity_religion
-			}
-			random_vassal_or_below = {
-				limit = {
-					is_landed = yes
-					is_clergy = yes
-					has_religion = religion:christianity_religion
+				scope:saint_capital_province ?= {
+					NOR = {
+						has_province_modifier = local_veneration
+						has_province_modifier = saintly_tomb
+					}
+					faith.religion = scope:saint_person.faith.religion
 				}
-				random = {
-                    chance = 100
-					modifier = {
-                        factor = 0.25
-						scope:saint_person = {
-							exists = dynasty
-							dynasty = {
-								has_dynasty_modifier = saintly_bloodline
+			}
+			scope:saint_capital_province = {
+				#faith = { #DEBUG
+				#	add_to_variable_list = {
+				#		name = venerated_person
+				#		target = scope:saint_person
+				#	}
+				#	add_to_variable_list = {
+				#		name = saint_capital_province
+				#		target = scope:saint_capital_province
+				#	}
+				#	add_to_variable_list = {
+				#		name = saint_capital_province_owner
+				#		target = scope:saint_capital_province.province_owner
+				#	}
+				#} #/DEBUG
+
+				# Notification event about local veneration
+				province_owner ?= {
+					trigger_event = {
+						id = KoH_sainthood.2
+						days = 1 #to make dead saint person unprunable
+						#days = 60 #DEBUG
+					}
+					liege ?= {
+						if = {
+							limit = {
+								highest_held_title_tier < tier_kingdom
+							}
+							send_interface_toast = {
+								type = event_toast_effect_good
+								left_icon = scope:saint_person
+								title = KoH_sainthood.1.toast.t
+								custom_tooltip = KoH_sainthood.1.toast
 							}
 						}
 					}
-					modifier = {
-                        factor = 0.8
-						scope:saint_person = {
-							has_trait = cynical
-						}
-					}
-
-					scope:saint_person = {
-                        add_character_flag = beatified
-					}
-
-					trigger_event = {
-						id = KoH_sainthood.2
-						days = 1
-					}
-                }
+				}
 			}
 		}
-		#Potential for sainthood
+
 		random = {
-			chance = 10 #make 1
-	
+			#Potential for canonization
+			chance = 10
+
 			#Cynical people are less likely to be Canonized
 			modifier = {
 				factor = 0.8
@@ -78,23 +99,6 @@ KoH_sainthood.1 = { #sainthood.1
 				OR = {
 					has_title = title:k_papal_state
 					#has_claim_on = title:k_papal_state
-				}
-			}
-	
-			#Have to be a Christian denomination with a potential Religious head, and have been singled out for Beatification
-			modifier = {
-				factor = 0
-				scope:saint_person = {
-					has_character_flag = beatified
-				}
-				NOR = {
-					scope:saint_person.faith = faith:catholic
-					scope:saint_person.faith = faith:orthodox
-					scope:saint_person.faith = faith:iconoclast
-					scope:saint_person.faith = faith:nestorian
-					scope:saint_person.faith = faith:insular_celtic
-					scope:saint_person.faith = faith:paulician
-					scope:saint_person.faith = faith:coptic
 				}
 			}
 	
@@ -122,15 +126,10 @@ KoH_sainthood.1 = { #sainthood.1
 			#Players who don't have a saintly bloodline have a higher chance of becoming a Saint
 			modifier = {
 				factor = 2
-				scope:saint_person = {
-					is_ai = no
-				}
+				is_ai = no
 				NOT = {
-					scope:saint_person = {
-						exists = dynasty
-						dynasty = {
-							has_dynasty_modifier = saintly_bloodline
-						}
+					dynasty ?= {
+						has_dynasty_modifier = saintly_bloodline
 					}
 				}
 			}
@@ -138,68 +137,55 @@ KoH_sainthood.1 = { #sainthood.1
 			#Positive has_has_traits increase your chances of becoming a Saint
 			modifier = {
 				factor = 1.5
-				scope:saint_person = {
-					has_trait = patient
-				}
+				has_trait = patient
 			}
 			modifier = {
 				factor = 1.5
-				scope:saint_person = {
-					has_trait = diligent
-				}
+				has_trait = diligent
 			}
 			modifier = {
 				factor = 1.5
-				scope:saint_person = {
-					has_trait = compassionate
-				}
+				has_trait = compassionate
 			}
 			modifier = {
 				factor = 1.5
-				scope:saint_person = {
-					has_trait = chaste
-				}
+				has_trait = chaste
 			}
 			modifier = {
 				factor = 1.5
-				scope:saint_person = {
-					has_trait = generous
-				}
+				has_trait = generous
 			}
 			modifier = {
 				factor = 1.5
-				scope:saint_person = {
-					has_trait = temperate
-				}
+				has_trait = temperate
 			}
 			modifier = {
 				factor = 1.5
-				scope:saint_person = {
-					has_trait = humble 
-				}
+				has_trait = humble 
 			}
 			modifier = {
 				factor = 1.2
-				scope:saint_person = {
-					has_trait = just
-				}
+				has_trait = just
 			}
 			modifier = {
 				factor = 1.2
-				scope:saint_person = {
-					has_trait = holy_warrior
-				}
+				has_trait = holy_warrior
 			}
+			#modifier = { #TO DO
+			#	factor = 1.2
+			#	scope:saint_person = {
+			#		is_martyr = yes
+			#	}
+			#}
+
 			#Having the bloodline of a Saint severely decrease your chance of becoming a Saint
 			modifier = {
-				factor = 0.2
-				scope:saint_person = {
-					exists = dynasty
-					dynasty = {
-						has_dynasty_modifier = saintly_bloodline
-					}
+				factor = 0.25
+				dynasty ?= {
+					has_dynasty_modifier = saintly_bloodline
 				}
 			}
+
 			#Extra high piety increases your chance of becoming a Saint
 			# It's >= for christs' sake!
 			modifier = {
@@ -307,22 +293,7 @@ KoH_sainthood.1 = { #sainthood.1
 					}
 				}
 			}
-	
-			# What even is this?!
-			#random_realm_province.holder.top_liege = {
-			#	trigger_event = KoH_sainthood.3
-			#}
-			random_vassal = {
-				trigger_event = {
-					id = KoH_sainthood.3
-					days = 1
-				}
-			}
-			# change_variable = { 
-			# 	name = global_saint_number 
-			# 	add = 1 
-			# }
-	
+
 			scope:saint_person = {
 				switch = {
 					trigger = scope:saint_person.faith
@@ -334,166 +305,557 @@ KoH_sainthood.1 = { #sainthood.1
 					faith:catholic = { set_global_variable = catholic_saint }
 					faith:coptic = { set_global_variable = coptic_saint }
 				}
-			}
-		}
-		# scope:saint_person = {
-		# 	# send_interface_toast = {
-		# 	# 	title = "Saintest Event 1"
-	
-		# 	# 	left_icon = root
-		# 	# }
-		# }
-	}
-}
-
-
-KoH_sainthood.2 = { #Decision if to be Beatified
-	hidden = yes
-
-	immediate = {
-		if = {
-           limit = {
-				exists = global_var:qa_testing
-           	}
-            top_liege = { trigger_event = { id = KoH_sainthood.4 days = 3 } }
-		}
-		else = {
-			top_liege = { trigger_event = { id = KoH_sainthood.4 days = { 180 200 } } }
-		}
-	}
-}
-
-KoH_sainthood.3 = { #triggered from the S_effect / Checking time left to Canonization
-	hidden = yes
-
-	immediate = {
-        if = {
-       		limit = {
-				exists = global_var:qa_testing
-			}
-			top_liege = { trigger_event = { id = KoH_sainthood.7 days = 5 } }
-		}
-		else = {
-			top_liege = { trigger_event = { id = KoH_sainthood.7 days = { 1000 1500 } }
-			}
-		}			
-	}
-}
-
-
-KoH_sainthood.4 = { # HF.40002 Decision has been made to be Beatified / 
-	hidden = yes
-
-	immediate = {
-		if = {
-			limit = {
 				faith = {
-					religious_head = {
-						has_religion = religion:christianity_religion
+					trigger_event = {
+						id = KoH_sainthood.8
+						#months = 6 #DEBUG
+						years = { 13 27 }
 					}
-				}
-			}
-			faith = {
-				religious_head = {
-					trigger_event = KoH_sainthood.5
 				}
 			}
 		}
 	}
 }
 
-#beatified
-KoH_sainthood.5 = { 
-	hidden = yes
-
-	immediate = {
-		add_character_flag = popemansainttesting
-
-		scope:saint_person = {
-			add_trait = beatified
-
-			give_nickname = nick_the_blessed
-		}
-		scope:saint_person = {
-			every_vassal = {
-				trigger_event = KoH_sainthood.6
+KoH_sainthood.2 = { # Notification about Local Veneration
+	type = character_event
+	title = KoH_sainthood.2.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { root.faith = scope:saint_person.faith }
+				}
+				desc = KoH_sainthood.2.desc.negative
 			}
-			if = {
-				limit = {
-					exists = dynasty 
-				}
-				dynasty = {
-					every_dynasty_member = {
-						trigger_event = KoH_sainthood.6
-					}
-				}
-			}
-		}
-		scope:saint_person = {
-			if = {
-				limit = {
-					exists = top_liege
-				}
-				top_liege = {
-					trigger_event = KoH_sainthood.6
-				}
+			random_valid = {
+				desc = KoH_sainthood.2.desc.a
+				desc = KoH_sainthood.2.desc.b
+				desc = KoH_sainthood.2.desc.c
+				desc = KoH_sainthood.2.desc.d
+				desc = KoH_sainthood.2.desc.e
+				desc = KoH_sainthood.2.desc.f
+				desc = KoH_sainthood.2.desc.g
+				desc = KoH_sainthood.2.desc.h
+				desc = KoH_sainthood.2.desc.i
+				desc = KoH_sainthood.2.desc.j
 			}
 		}
 	}
-} 
-#Family Responds to beatified
-KoH_sainthood.6 = {
-	title = KoH_sainthood.6.t
-	desc = KoH_sainthood.6.desc
-	theme = family
+	theme = travel_tour
 
 	left_portrait = {
 		character = scope:saint_person
 	}
 
-	option = {
-		name = KoH_sainthood.6.a
-
-		add_piety = 10
+	lower_right_portrait = {
+		character = scope:chaplain
 	}
-}
-
-
-KoH_sainthood.7 = { ##Preparing Canonization
-	hidden = yes
-
-	trigger = {
-        scope:saint_person = {
-			has_trait = beatified
-		}
-	}
-
-	immediate = { 
+	
+	immediate = {
 		if = {
-			limit = {
-				scope:saint_capital.holder = {
-					has_religion = religion:christianity_religion
-				}
-			}
-			scope:saint_capital.holder.faith.religious_head = {
-				trigger_event = KoH_sainthood.8
-			}
+			limit = { exists = cp:councillor_court_chaplain	}
+			cp:councillor_court_chaplain = { save_scope_as = chaplain }
 		}
 		else = {
-			scope:saint_person.faith.religious_head = {
-				trigger_event = KoH_sainthood.8
+			random_courtier = {	save_scope_as = chaplain }
+		}
+		if = {
+			limit = { exists = root.primary_spouse }
+			root.primary_spouse = { save_scope_as = advisor	}
+		}
+		else = {
+			random_courtier = {
+				limit = { NOT = { this = scope:chaplain } }
+				save_scope_as = advisor
+			}
+		}
+
+		hidden_effect = { # Episcopal investigation
+
+			# Find a local bishop to perform investigation
+			scope:saint_capital_province.province_owner = {
+				if = {
+					limit = { exists = liege }
+					liege = {
+						random_held_title = {
+							limit = { 
+								tier = tier_barony
+								title_province = { has_holding_type = church_holding }
+							}
+							title_province = { save_scope_as = local_parish }
+							lessee ?= { save_scope_as = local_priest } # Thanks Uber!
+						}
+					}
+				}
+				else = {
+					random_held_title = {
+						limit = { 
+							tier = tier_barony
+							title_province = { has_holding_type = church_holding }
+						}
+						title_province = { save_scope_as = local_parish }
+						lessee ?= { save_scope_as = local_priest }
+					}
+				}
+			}
+
+			# Do we have a valid bishop to commence investigation?
+			scope:local_priest ?= {
+				if = {
+					limit = {
+						faith = scope:saint_person.faith
+						NOR = {
+							this = scope:saint_person.faith.religious_head
+							this = scope:saint_capital_province.province_owner
+						}
+					}
+
+					random = {
+						#Potential for beatification
+						chance = 20
+
+						#More likely to commence investigation if saint person is of same culture
+						modifier = {
+							factor = 2
+							culture = scope:saint_person.culture
+						}
+
+						#Sinful priests are less likely to promote sainthood
+						modifier = {
+							factor = 0.5
+							sainthood_pious_bishop = no
+						}
+				
+						modifier = {
+							factor = 0.5
+							has_trait = cynical
+						}
+
+						#Players who don't have a saintly bloodline have a higher chance of becoming a Saint
+						modifier = {
+							factor = 2
+							is_ai = no
+							NOT = {
+								dynasty ?= {
+									has_dynasty_modifier = saintly_bloodline
+								}
+							}
+						}
+
+						#faith = { #DEBUG
+						#	add_to_variable_list = {
+						#		name = episcopal_investigator
+						#		target = scope:local_priest
+						#	}
+						#	add_to_variable_list = {
+						#		name = local_parish
+						#		target = scope:local_parish
+						#	}
+						#} #/DEBUG
+
+						scope:saint_person = {
+							make_unprunable = yes
+							faith = {
+								trigger_event = { # Diocesan Phase
+									id = KoH_sainthood.3
+									#months = 1 #DEBUG
+									years = 5
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	option = { # Endorse
+		name = KoH_sainthood.2.a
+		custom_tooltip = KoH_sainthood.2.info # Historical Context about Local Veneration
+		scope:saint_capital_province = {
+			add_province_modifier = {
+				modifier = local_veneration
+				years = 15
+			}
+		}
+		if = {
+			limit = {
+				NOT = { scope:saint_capital_province.county.culture = root.culture }
+			}
+			root.culture = {
+				change_cultural_acceptance = {
+					target = scope:saint_capital_province.county.culture
+					value = miniscule_cultural_acceptance_gain
+					desc = cultural_acceptance_local_saint
+				}
+			}
+		}
+		trigger = {
+			root.faith = scope:saint_person.faith
+		}
+		add_piety = 15
+		remove_short_term_gold = tiny_gold_value
+		trait = zealous
+		stress_impact = {
+			vengeful = medium_stress_impact_gain
+			sadistic = minor_stress_impact_gain
+			callous = minor_stress_impact_gain
+			arbitrary = minor_stress_impact_gain
+			wrathful = minor_stress_impact_gain
+			greedy = minor_stress_impact_gain
+			generous = miniscule_stress_impact_loss
+		}
+
+		ai_chance = {
+			base = 125
+			ai_value_modifier = {
+				ai_zeal = 1
+				ai_greed = -0.5
+				ai_boldness = -0.5
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_trait = vengeful
+					has_trait = sadistic
+					has_trait = callous
+					has_trait = arbitrary
+					has_trait = wrathful
+				}
+			}
+		}
+	}
+
+	option = { # Careful
+		name = KoH_sainthood.2.b
+		scope:saint_capital_province = {
+			add_province_modifier = {
+				modifier = local_veneration
+				years = 10
+			}
+		}
+		add_prestige = 15
+
+		ai_chance = {
+			base = 125
+			ai_value_modifier = {
+				ai_energy = -0.5
+				ai_boldness = -0.5
+			}
+		}
+	}
+
+	option = { # Supress
+		name = KoH_sainthood.2.c
+		add_dread = minor_dread_gain
+		scope:saint_capital_province.county = {
+			add_county_modifier = {
+				modifier = labor_instead_of_masses
+				years = 10
+			}
+		}
+		trigger = {
+			OR = {
+			has_trait = wrathful
+			has_trait = vengeful
+			has_trait = sadistic
+			has_trait = callous
+			has_trait = arbitrary
+			}
+		}
+		if = {
+			limit = {
+				NOT = { scope:saint_capital_province.county.culture = root.culture }
+			}
+			root.culture = {
+				change_cultural_acceptance = {
+					target = scope:saint_capital_province.county.culture
+					value = minor_cultural_acceptance_loss
+					desc = cultural_acceptance_local_saint
+				}
+			}
+		}
+		trait = wrathful
+		stress_impact = {
+			wrathful = minor_stress_impact_loss
+			vengeful = miniscule_stress_impact_loss
+			sadistic = miniscule_stress_impact_loss
+			callous = miniscule_stress_impact_loss
+			arbitrary = miniscule_stress_impact_loss
+			compassionate = major_stress_impact_gain
+			forgiving = major_stress_impact_gain
+		}
+
+		ai_chance = {
+			base = 50
+			ai_value_modifier = {
+				ai_boldness = 0.5
+				ai_sociability = -0.5
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_trait = compassionate
+					has_trait = forgiving
+				}
 			}
 		}
 	}
 }
 
-KoH_sainthood.8 = {
-	title = KoH_sainthood.8.t
-	desc = KoH_sainthood.8.desc
-	theme = family
+KoH_sainthood.3 = { # Diocesan Phase
+	hidden = yes
+	scope = faith
+
+	trigger = {
+		exists = scope:local_parish.barony.lessee
+		exists = scope:saint_capital_province.province_owner
+	}
+	
+	immediate = {
+		scope:saint_capital_province.province_owner = {
+			trigger_event = { # Notification about Diocesan Phase
+				id = KoH_sainthood.4
+			}
+			liege ?= {
+				if = {
+					limit = {
+						highest_held_title_tier < tier_kingdom
+					}
+					trigger_event = {
+						id = KoH_sainthood.4
+					}
+				}
+			}
+		}
+		trigger_event = { # Beatification
+			id = KoH_sainthood.5
+			#days = 20 #DEBUG
+			years = { 1 3 }
+		}
+	}
+}
+
+# Notification about Episcopal Investigation / Diocesan Phase
+KoH_sainthood.4 = {
+	type = character_event
+	title = KoH_sainthood.4.t
+	desc = {
+		first_valid = {
+			random_valid = {
+				triggered_desc = {
+					trigger = {
+						NOT = {	scope:chaplain = scope:local_bishop }
+					}
+					desc = KoH_sainthood.4.desc.a
+				}
+				triggered_desc = {
+					trigger = {
+						NOT = {	scope:chaplain = scope:local_bishop }
+					}
+					desc = KoH_sainthood.4.desc.b
+				}
+				triggered_desc = {
+					trigger = {
+						NOT = {	scope:chaplain = scope:local_bishop }
+					}
+					desc = KoH_sainthood.4.desc.c
+				}
+				triggered_desc = {
+					trigger = {
+						NOT = {	scope:chaplain = scope:local_bishop }
+					}
+					desc = KoH_sainthood.4.desc.d
+				}
+				triggered_desc = {
+					trigger = {
+						NOT = {	scope:chaplain = scope:local_bishop }
+					}
+					desc = KoH_sainthood.4.desc.e
+				}
+			}
+			desc = KoH_sainthood.4.desc
+		}
+	}
+	theme = vassal
+
+	trigger = {
+		exists = scope:local_parish.barony.lessee
+	}
 
 	left_portrait = {
-		character = scope:canonizer_person
+		character = root
+		animation = idle
+	}
+
+	right_portrait = {
+		character = scope:chaplain
+		animation = chaplain
+	}
+
+	lower_right_portrait = {
+		character = scope:local_bishop
+		trigger = {
+			NOT = {	scope:chaplain = scope:local_bishop }
+		}
+	}
+
+	lower_left_portrait = {
+		character = scope:saint_person
+	}
+
+	immediate = {
+		scope:local_parish.barony.lessee = {
+			save_scope_as = local_bishop
+		}
+		if = {
+			limit = { exists = faith.religious_head	}
+			faith.religious_head = { save_scope_as = pope }
+		}
+		else = {
+			random_courtier = {	save_scope_as = pope } # For localization
+		}
+		if = {
+			limit = { exists = cp:councillor_court_chaplain	}
+			cp:councillor_court_chaplain = { save_scope_as = chaplain }
+		}
+		else = {
+			random_courtier = {	save_scope_as = chaplain }
+		}
+	}
+
+	option = { # support
+		name = KoH_sainthood.4.a
+		custom_tooltip = KoH_sainthood.4.info # Historical Context about Diocesan Phase
+		scope:local_bishop ?= {
+			if = {
+				limit = {
+					exists = scope:chaplain
+					NOT = {
+						this = scope:chaplain
+					}
+				}
+				add_opinion = {
+					target = root
+					modifier = TCT_opinion_supported_priest
+				}
+			}
+		}
+		scope:chaplain ?= {
+			add_opinion = {
+				target = root
+				modifier = TCT_opinion_supported_priest
+			}
+		}
+		add_piety = 15
+		remove_short_term_gold = minor_gold_value
+		trait = zealous
+
+		stress_impact = {
+			cynical = minor_stress_impact_gain
+			zealous = miniscule_stress_impact_loss
+		}
+
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_zeal = 1
+				ai_greed = -0.5
+				ai_boldness = -0.5
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_trait = vengeful
+					has_trait = sadistic
+					has_trait = callous
+					has_trait = arbitrary
+					has_trait = wrathful
+					has_trait = cynical
+				}
+			}
+		}
+	}
+
+	option = { # reserved
+		name = KoH_sainthood.4.b
+
+		stress_impact = {
+			zealous = minor_stress_impact_gain
+		}
+
+		ai_chance = {
+			base = 125
+		}
+	}
+
+	option = { # paranoid
+		name = KoH_sainthood.4.c
+		trigger = {
+			has_trait = paranoid
+			NOT = { has_trait = zealous }
+			exists = faith.religious_head
+		}
+		trait = paranoid
+		scope:local_bishop = {
+			add_opinion = {
+				modifier = annoyed_opinion
+				target = root
+				opinion = -20
+			}
+		}
+		add_piety = medium_piety_loss
+
+		stress_impact = {
+			zealous = major_stress_impact_gain
+			paranoid = minor_stress_impact_loss
+		}
+
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				OR = {
+					has_trait = compassionate
+					has_trait = forgiving
+				}
+			}
+		}
+	}
+}
+
+KoH_sainthood.5 = { # Get current HoF
+	hidden = yes
+	scope = faith
+
+	trigger = {
+		exists = scope:saint_person.faith.religious_head
+	}
+
+	immediate = {
+		scope:saint_person.faith.religious_head = {
+			trigger_event = KoH_sainthood.6
+		}
+	}
+}
+
+KoH_sainthood.6 = { # Beatification
+	title = KoH_sainthood.6.t
+	desc = {
+		random_valid = {
+			desc = KoH_sainthood.6.desc.a
+			desc = KoH_sainthood.6.desc.b
+			desc = KoH_sainthood.6.desc.c
+			desc = KoH_sainthood.6.desc.d
+			desc = KoH_sainthood.6.desc.e
+		}
+	}
+	theme = faith
+
+	left_portrait = {
+		character = root
+		animation = thinking
 	}
 
 	right_portrait = {
@@ -501,11 +863,233 @@ KoH_sainthood.8 = {
 	}
 
 	immediate = {
-        save_scope_as = canonizer_person
-    }
+		if = {
+			limit = { exists = scope:local_parish.barony.lessee	}
+			scope:local_parish.barony.lessee = { save_scope_as = local_bishop }
+		}
+		else_if = {
+			limit = { faith = faith:catholic }
+			random_living_cardinal = { save_scope_as = local_bishop }
+		}
+		else_if = {
+			limit = { exists = cp:councillor_court_chaplain	}
+			cp:councillor_court_chaplain = { save_scope_as = local_bishop }
+		}
+		else = { # Fallback
+			random_courtier = {	save_scope_as = local_bishop }
+		}
+	}
+
+	option = { # Let it be known!
+		name = KoH_sainthood.6.a
+		custom_tooltip =  KoH_sainthood.6.a.info
+		scope:saint_person = {
+			add_trait = beatified
+			#faith = { #DEBUG
+			#	add_to_variable_list = { name = beatified target = scope:saint_person }
+			#} #/DEBUG
+		}
+		hidden_effect = {
+			scope:saint_person = {
+				give_nickname = nick_the_blessed
+				scope:saint_capital_province.province_owner = {
+					if = {
+						limit = {
+							NOR = {
+								is_vassal_of = scope:saint_person
+								is_liege_or_above_of = scope:saint_person
+								dynasty ?= scope:saint_person.dynasty
+							}
+						}
+						trigger_event = KoH_sainthood.7
+					}
+					liege ?= {
+						if = {
+							limit = {
+								NOR = {
+									this = scope:saint_capital_province.province_owner
+									is_vassal_of = scope:saint_person
+									is_liege_or_above_of = scope:saint_person
+									dynasty ?= scope:saint_person.dynasty
+								}
+								highest_held_title_tier < tier_empire
+							}
+							trigger_event = KoH_sainthood.7
+						}
+					}
+				}
+				every_vassal = {
+					trigger_event = KoH_sainthood.7
+				}
+				dynasty ?= {
+					every_dynasty_member = {
+						trigger_event = KoH_sainthood.7
+					}
+				}
+			}
+		}
+
+		ai_chance = {
+			base = 80
+		}
+	}
+
+	option = { # no
+		name = KoH_sainthood.6.b
+		custom_tooltip = KoH_sainthood.6.b.info
+		scope:local_parish.province_owner = {
+			add_opinion = {
+				modifier = disappointed_opinion
+				target = root
+				opinion = -10
+			}
+		}
+		ai_chance = {
+			base = 20
+		}
+	}
+}
+
+# Family and acquaintances respond to beatification
+KoH_sainthood.7 = { # A Blessed has Passed
+	title = KoH_sainthood.7.t
+	desc = {
+		random_valid = {
+			desc = KoH_sainthood.7.desc.a
+			desc = KoH_sainthood.7.desc.b
+			desc = KoH_sainthood.7.desc.c
+			desc = KoH_sainthood.7.desc.d
+			desc = KoH_sainthood.7.desc.e
+		}
+	}
+	theme = travel
+	#theme = family
+
+	left_portrait = {
+		character = scope:saint_person
+	}
 
 	option = {
-		name = KoH_sainthood.8.a
+		name = KoH_sainthood.7.a # ok
+		custom_tooltip = KoH_sainthood.7.a.info
+		add_piety = 10
+	}
+}
+
+KoH_sainthood.8 = { # Get current HoF
+	hidden = yes
+	scope = faith
+	
+	immediate = {
+		scope:saint_person ?= {
+			if = {
+				limit = { has_trait = beatified }
+				faith.religious_head ?= {
+					trigger_event = KoH_sainthood.9
+				}
+			}
+		}
+	}
+}
+
+KoH_sainthood.9 = { # A Saint in the Making
+	type = character_event
+	title = KoH_sainthood.9.t
+	desc = {
+		random_valid = {
+			desc = KoH_sainthood.9.desc.a
+			desc = KoH_sainthood.9.desc.b
+			desc = KoH_sainthood.9.desc.c
+			desc = KoH_sainthood.9.desc.d
+		}
+	}
+	theme = family
+	
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+	
+	right_portrait = {
+		character = scope:cardinal # Random courtier for non-catholics
+		animation = chancellor
+	}
+
+	lower_right_portrait = {
+		character = scope:saint_person
+	}
+	
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = { faith = faith:catholic }
+				random_living_cardinal = { save_scope_as = cardinal }
+			}
+			else_if = {
+				limit = { exists = cp:councillor_court_chaplain	}
+				cp:councillor_court_chaplain = { save_scope_as = cardinal }
+			}
+			else = {
+				random_courtier = {	save_scope_as = cardinal }
+			}
+
+			faith = {
+				trigger_event = {
+					id = KoH_sainthood.10
+					#months = 1 #DEBUG
+					years = { 2 5 }
+				}
+			}
+		}
+	}
+
+	option = { # May God guide our discernment
+		name = KoH_sainthood.9.a
+		custom_tooltip = KoH_sainthood.9.info #Historical Context about Roman Phase
+		add_piety = 10
+	}
+}
+
+KoH_sainthood.10 = { # Get current HoF
+	hidden = yes
+	scope = faith
+	
+	immediate = {
+		scope:saint_person.faith.religious_head ?= {
+			trigger_event = KoH_sainthood.11
+		}
+	}
+}
+
+KoH_sainthood.11 = { # Positio is presented to the Pope
+	title = KoH_sainthood.11.t
+	desc = {
+		random_valid = {
+			desc = KoH_sainthood.11.desc.a
+			desc = KoH_sainthood.11.desc.b
+			desc = KoH_sainthood.11.desc.c
+			desc = KoH_sainthood.11.desc.d
+			desc = KoH_sainthood.11.desc.e
+		}
+	}
+	theme = faith
+
+	left_portrait = {
+		character = scope:canonizer_person # HoF
+		animation = thinking
+	}
+
+	right_portrait = {
+		character = scope:saint_person
+	}
+
+	immediate = {
+		save_scope_as = canonizer_person
+	}
+
+	option = {
+		name = KoH_sainthood.11.a #So it shall!
+		custom_tooltip = KoH_sainthood.11.a.info
 
 		scope:saint_person = {
 			random_list = {
@@ -516,24 +1100,18 @@ KoH_sainthood.8 = {
 					give_nickname = nick_the_holy
 				}
 				3 = {
-					trigger = {
-						has_trait = theologian
-					}
+					trigger = { has_trait = theologian }
 					give_nickname = nick_the_theologian
 				}
 				3 = {
-					trigger = {
-						has_trait = scholar
-					}
+					trigger = { has_trait = scholar }
 					give_nickname = nick_the_enlightened
 				}
 				1 = {
 					give_nickname = nick_the_confessor
 				}
 				3 = {
-					trigger = {
-						has_trait = chaste
-					}
+					trigger = {	has_trait = chaste }
 					give_nickname = nick_the_chaste
 				}
 				3 = {
@@ -548,167 +1126,187 @@ KoH_sainthood.8 = {
 					give_nickname = nick_the_wise
 				}
 				3 = {
-					trigger = {
-						has_trait = pilgrim
-					}
+					trigger = {	has_trait = pilgrim	}
 					give_nickname = nick_the_pilgrim
 				}
 				1 = {
 					give_nickname = nick_the_divine
 				}
 				10 = {
-					trigger = {
-						martyrs_death_trigger = yes
-					}
+					trigger = {	martyrs_death_trigger = yes	}
 					give_nickname = nick_the_martyr
 				}
 				15 = {
-					trigger = {
-						has_perk = architect_perk
-					}
+					trigger = {	has_perk = architect_perk }
 					give_nickname = nick_the_architect
 				}
-			}
-		}
-		
-		if = {
-			limit = {
-				scope:saint_person = {
-					has_faith = faith:catholic
+				1 = {
+					trigger = { has_trait = temperate }
+					give_nickname = nick_the_ascetic
+				}
+				3 = {
+					trigger = {	has_trait = compassionate }
+					give_nickname = nick_the_merciful_saint
+				}
+				3 = {
+					trigger = {	has_trait = zealous	}
+					give_nickname = nick_the_zealous
+				}
+				2 = {
+					give_nickname = nick_the_venerable_saint
+				}
+				3 = {
+					trigger = { has_trait = poet }
+					give_nickname = nick_the_bard_saint
+				}
+				2 = {
+					trigger = {	has_trait = just }
+					give_nickname = nick_the_just
+				}
+				2 = {
+					trigger = {	highest_held_title_tier >= tier_kingdom	}
+					give_nickname = nick_the_great
+				}
+				1 = {
+					give_nickname = nick_the_apostle_saint
+				}
+				15 = {
+					trigger = {
+						is_male = no
+						has_trait = chaste
+						is_married = no
+						any_spouse = {
+							count = 0
+						}
+						any_child = {
+							count = 0
+						}
+						any_relation = {
+							type = lover
+							count = 0
+						}
+					}
+					give_nickname = nick_the_virgin
+				}
+				#3 = {
+				#	give_nickname = nick_of_province
+				#}
+				1 = {
+					give_nickname = nick_the_enlightener
+				}
+				5 = {
+					trigger = { has_trait = lifestyle_mystic }
+					give_nickname = nick_the_miracle_worker_saint
+				}
+				10 = {
+					trigger = { has_trait = holy_warrior }
+					give_nickname = nick_hammer_of_heretics
+				}
+				15 = {
+					trigger = {
+						scope:saint_capital_province = {
+							terrain = desert
+						}
+					}
+					give_nickname = nick_of_the_desert
+				}
+				15 = {
+					trigger = {	has_trait = flagellant }
+					give_nickname = nick_the_flagellant
 				}
 			}
-			every_ruler = {
-				limit = {
-					has_faith = faith:catholic
-				}
-				trigger_event = KoH_sainthood.9
-			}
-		}
-		
-		if = {
-			limit = {
-				scope:saint_person = {
-					has_faith = faith:orthodox
-				}
-			}
-			every_ruler = {
-				limit = {
-					has_faith = faith:orthodox
-				}
-				trigger_event = KoH_sainthood.9
-			}
-		}
 
-		if = {
-			limit = {
-				scope:saint_person = {
-					has_faith = faith:iconoclast
-				}
-			}
-			every_ruler = {
+			if = {
 				limit = {
-					has_faith = faith:iconoclast
+					OR = {
+						faith = faith:iconoclast
+						faith = faith:nestorian
+						faith = faith:insular_celtic
+						faith =	faith:paulician
+						faith = faith:orthodox
+						faith =	faith:catholic
+						faith = faith:coptic
+					}
 				}
-				trigger_event = KoH_sainthood.9
+				faith = {
+					every_faith_ruler = {
+						limit = { NOT = { this = scope:canonizer_person } }
+						trigger_event = KoH_sainthood.12
+					}
+				}
 			}
-		}
 
-		if = {
-			limit = {
-				scope:saint_person = {
-					has_faith = faith:nestorian
+			scope:saint_capital_province = {
+				if = {
+					limit = { has_province_modifier = local_veneration }
+					remove_province_modifier = local_veneration
+				}
+				add_province_modifier = saintly_tomb
+				county = {
+					add_to_variable_list = {
+						name = faith_saints_and_capital
+						target = scope:saint_person
+					}
 				}
 			}
-			every_ruler = {
-				limit = {
-					has_faith = faith:nestorian
-				}
-				trigger_event = KoH_sainthood.9
-			}
-		}
 
-		if = {
-			limit = {
-				scope:saint_person = {
-					has_faith = faith:insular_celtic
+			faith = {
+				add_to_variable_list = {
+					name = faith_capital
+					target = scope:saint_capital_province
+				}
+				change_fervor = {
+					value = 1
+					desc = TCT_fervor_gain_canonized
 				}
 			}
-			every_ruler = {
-				limit = {
-					has_faith = faith:insular_celtic
-				}
-				trigger_event = KoH_sainthood.9
-			}
-		}
 
-		if = {
-			limit = {
-				scope:saint_person = {
-					has_faith = faith:paulician
-				}
-			}
-			every_ruler = {
-				limit = {
-					has_faith = faith:paulician
-				}
-				trigger_event = KoH_sainthood.9
-			}
-		}
-
-		if = {
-			limit = {
-				scope:saint_person = {
-					has_faith = faith:coptic
-				}
-			}
-			every_ruler = {
-				limit = {
-					has_faith = faith:coptic
-				}
-				trigger_event = KoH_sainthood.9
-			}
-		}
-
-		scope:saint_person = {
 			remove_trait = beatified
 			add_trait = saint	
 			become_saint = yes
 		}
 
-		scope:saint_capital_province = {
-			add_province_modifier = saintly_tomb	
+		ai_chance = {
+			base = 100
 		}
+	}
 
-		scope:saint_capital_province.county = {
-			add_to_variable_list = {
-				name = faith_saints_and_capital
-				target = scope:saint_person
-			}
-		}
+	option = { # no
+		name = KoH_sainthood.11.b
+		custom_tooltip = KoH_sainthood.11.b.info
 
-		faith = {
-			add_to_variable_list = {
-				name = faith_capital
-				target = scope:saint_person.capital_province
-			}
+		ai_chance = {
+			base = 0
 		}
 	}
 }
 
-KoH_sainthood.9 = {
-	title = KoH_sainthood.9.t
-	desc = KoH_sainthood.9.desc
+KoH_sainthood.12 = {
+	title = KoH_sainthood.12.t
+	desc = {
+		random_valid = {
+			desc = KoH_sainthood.12.desc.a
+			desc = KoH_sainthood.12.desc.b
+			desc = KoH_sainthood.12.desc.c
+			desc = KoH_sainthood.12.desc.d
+			desc = KoH_sainthood.12.desc.e
+			desc = KoH_sainthood.12.desc.f
+			desc = KoH_sainthood.12.desc.g
+			desc = KoH_sainthood.12.desc.h
+		}
+	}
 	theme = faith
 	left_portrait = {
 		character = scope:saint_person
 	}
-
 	immediate = {
+		scope:saint_person.faith.religious_head = {
+			save_scope_as = canonizer_person
+		}
 		play_music_cue = Trinity_2
 	}
 
 	option = {
-		name = KoH_sainthood.9.a
-
+		name = KoH_sainthood.12.a
 	}
 }

@@ -1106,8 +1106,9 @@ window = {
 				texture = "[Illustration.GetTexture( FaithWindow.GetFaith.MakeScope )]"
 
 				modify_texture = {
-					texture = "gfx/interface/component_masks/mask_fade_vertical_up.dds"
+					mirror = vertical
 					blend_mode = alphamultiply
+					texture = "gfx/interface/component_masks/mask_fade_vertical.dds"
 				}
 			}
 

@@ -37,12 +37,6 @@ grantedlandtoclergy = {
 	decaying = yes
 }
 
-KOH_saintdaysaint_opinion = {
-	opinion = 30
-	decaying = yes
-	years = 3
-}
-
 veterancrusadersupported = {
 	monthly_change = 0.5
 	decaying = yes
@@ -61,6 +55,26 @@ KOH_christmas_opinion = {
 
 holidays_bouquet = {
 	opinion = 25
+	decaying = yes
+	years = 5
+}
+
+#Sainthood
+TCT_opinion_supported_priest = {
+	opinion = 5
+	years = 5
+}
+
+TCT_opinion_annoyed_priest = {
+	opinion = -20
+	years = 5
+}
+#Saint's Day
+TCT_saintdaysaint_opinion = {
+	decaying = yes
+	years = 3
+}
+TCT_saint_days_procession_opinion = {
 	decaying = yes
 	years = 5
 }
