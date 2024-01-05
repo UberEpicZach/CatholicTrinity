@@ -296,7 +296,12 @@ types Cardinals {
 				button_tab = {
                     layoutpolicy_horizontal = expanding
                     onclick = "[GetVariableSystem.Set( 'church_view_tabs', 'holychurch' )]"
-                    down = "[GetVariableSystem.HasValue( 'church_view_tabs', 'holychurch' )]"
+                    datacontext = "[GetScriptedGui( 'TCT_update_pentarchy' )]"
+					onclick = "[GetVariableSystem.Toggle( 'pentarchy_open' )]"
+					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'faith', Faith.MakeScope ).End ) ]"
+					onclick = "[GetScriptedGui( 'TCT_pentarchy_map' ).Execute(GuiScope.End)]"
+					onclick = "[SetMapMode( 'TCT_pentarchy' )]"
+					down = "[GetVariableSystem.HasValue( 'church_view_tabs', 'holychurch' )]"
                     text = "HOLY_CHURCH"
                     default_format = "#low"
 
@@ -314,7 +319,7 @@ types Cardinals {
                     using = tooltip_below
 				}
             }
-
+			#COLLEGE OF CARDINALS
 			header_pattern = {
 				visible = "[GetVariableSystem.HasValue( 'church_view_tabs', 'collegeofcardinals' )]"
 				layoutpolicy_horizontal = expanding
@@ -326,27 +331,23 @@ types Cardinals {
 					text = cardinals_college
 				}
 
-				# button = {
-				#     parentanchor = right
-				#     size = { 35 35 }
-				#     position = { -45 5 }
-				#     texture = "gfx/interface/icons/flat_icons/replace.dds"
-				#     tooltip = "HRT_window_refresh_tt"
-				#     using = Master_Button_Modify_Texture
-				#     onclick = "[GetScriptedGui('HRT_abort_sgui').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-				#     onclick = "[GetScriptedGui('HRT_update_candidati_sgui').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-				# }
+				blockoverride "button_close"
+				{
+					onclick = "[GetVariableSystem.Toggle('window_cardinals')]"
+					onclick = "[GetScriptedGui('refresh_cardinal_characters').Execute(GuiScope.SetRoot(Religion.MakeScope).End)]"
+				}
+			}
 
-				# button = {
-				#     visible = "[GetScriptedGui('HRT_formed_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-				#     parentanchor = right
-				#     size = { 35 35 }
-				#     position = { -90 5 }
-				#     texture = "gfx/interface/icons/flat_icons/election_window.dds"
-				#     tooltip = "HRT_window_election_tt"
-				#     using = Master_Button_Modify_Texture
-				#     onclick = "[GetScriptedGui('HRT_open_election_sgui').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-				# }
+			header_pattern = {
+				visible = "[GetVariableSystem.HasValue( 'church_view_tabs', 'holychurch' )]"
+				layoutpolicy_horizontal = expanding
+
+				minimumsize = { 100% 10% }
+
+				blockoverride "header_text"
+				{
+					text = the_holy_church
+				}
 
 				blockoverride "button_close"
 				{
@@ -509,12 +510,291 @@ types Cardinals {
 			}
 		}
 		#expand = {}
+
+		#############################################
+		#############################################
+		################# PENTARCHY #################
+		#############################################
+		#############################################
+		
+		vbox = {
+			name = "tab_pentarchy"
+			visible = "[GetVariableSystem.HasValue( 'church_view_tabs', 'holychurch' )]"
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+			using = Window_Margins
+
+			spacing = 30
+			margin_top = 100
+			
+			state = {
+				name = _show
+				using = Animation_FadeIn_Quick
+			}
+
+			state = {
+				name = _hide
+				alpha = 0
+			}
+			#text_label_center = {
+			#	parentanchor = left
+			#	text = "TCT_pentarchy_title"
+			#	#size = { 150 100 }
+			#}
+			
+			hbox = {				
+				vbox = {
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+					datamodel = "[GetPlayer.MakeScope.GetList('TCT_ecumenical_patriarch_list')]"
+					margin_right = 15
+					item = {
+						flowcontainer = {
+							datacontext = "[Scope.GetCharacter]"
+							vbox = {
+								text_single = {
+									parentanchor = top
+									text = "TCT_ecumenical_patriarch_title"
+									default_format = "#high"
+									#layoutpolicy_horizontal = expanding
+									margin_bottom = 30
+									max_width = 200
+								}
+
+								portrait_shoulders = {
+									background = {
+										using = Background_Area_Dark
+										margin_top = 25
+										margin_bottom = 10
+										margin_left = 20
+										margin_right = 20
+									} 
+									background = {
+										using = Background_Frame
+										margin_top = 20
+										margin_bottom = 5
+										margin_left = 15
+										margin_right = 15
+									}
+									background = {
+										using = Background_Area_Dark
+										margin_top = 19
+										margin_bottom = 4
+										margin_left = 14
+										margin_right = 14
+									} 
+								}
+
+								background = {
+									using = Background_Area
+								}
+								
+								background = {
+									texture = "gfx/interface/component_masks/patterns/mask_pattern_04.dds"
+									spriteType = Corneredtiled
+									margin_top = -20
+									margin_bottom = -10
+									margin_left = -10
+									margin_right = -10
+									using = Color_Red
+									alpha = 0.25
+
+									modify_texture = {
+										texture = "gfx/interface/component_masks/mask_rough_edges.dds"
+										spriteType = Corneredtiled
+										spriteborder = { 20 20 }
+										texture_density = 5
+										blend_mode = alphamultiply
+									}
+								}
+								text_label_center = {
+									text = "TCT_ecumenical_patriarch_name"
+									#layoutpolicy_horizontal = expanding
+									max_width = 200
+								}
+							}
+						}
+					}
+				}
+				spacer = { 
+					size = { 75 75 }
+					margin_top = 2
+				}
+				
+				dynamicgridbox = { # Pentarchs
+					name = "pentarchs"
+					datamodel = "[GetPlayer.MakeScope.GetList('TCT_pentarchs_list')]"
+					#layoutpolicy_horizontal = expanding
+					#layoutpolicy_vertical = expanding
+					datamodel_wrap = 2
+					flipdirection = yes
+					item = {
+						flowcontainer = {
+							margin_top = 2
+							margin_bottom = 2
+							margin_left = 6
+							margin_right = 2
+			
+							vbox = {
+								
+								#layoutpolicy_horizontal = expanding
+								#layoutpolicy_vertical = expanding
+								datacontext = "[Scope.GetCharacter]"
+								spacer = { 
+									size = { 5 50 }
+								}
+								# background = {
+								# 	using = Background_Area
+								# 	spacer = { 
+								# 		size = { 0 50 }
+								# 	}
+								# }
+								text_label_center = {
+									margin_top = 5
+									parentanchor = left
+									text = "[Scope.GetCharacter.Custom('TCT_get_patriarchate_of_pentarch')]"
+									layoutpolicy_horizontal = expanding
+									max_width = 90
+									#size = { 150 100 }
+								}
+								#spacer = { 
+								#	size = { 0 5 }
+								#}
+								portrait_head = {
+									#size = { 150 200 }
+									parentanchor = left
+									#datacontext = "[Character]"
+								
+									#blockoverride "coa_button" {
+									#	datacontext = "[Scope.GetCharacter.GetTopLiege]"
+									#	tooltip = "[Character.GetDefaultRealmFlagTooltipPrimaryTitleClickInfo]"
+									#	onclick = "[DefaultOnCoatOfArmsClick(Character.GetPrimaryTitle.GetID)]"
+									#}
+								}
+								text_single = {
+									parentanchor = left
+									text = "[Scope.GetCharacter.GetFirstNameNoTooltip]" 
+									max_width = 100
+									#size = { 150 100 }
+								}
+							}
+						}
+					}
+				}
+				spacer = { 
+					size = { 20 0 }
+				}
+			}
+			spacer = { 
+				size = { 20 25 }
+			}
+			vbox = {
+				name = "autocephalies"
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+				margin_top = 10
+
+				text_label_center = {
+					layoutpolicy_horizontal = expanding
+					text = "TCT_patriarchs_title"
+					default_format = "#medium"
+				
+				}
+				spacer = { 
+					size = { 0 10 }
+				}
+				scrollbox = {
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+
+					blockoverride "scrollbox_content"
+					{
+						
+						spacing = 10
+						margin_top = 20
+
+						state = {
+							name = "faith_view_refresh"
+							using = Animation_Refresh_FadeOut
+						}
+
+						state = {
+							using = Animation_Refresh_FadeIn
+						}
+						
+						vbox = {
+							layoutpolicy_horizontal = expanding
+							datamodel = "[GetPlayer.MakeScope.GetList('TCT_patriarchs_list')]"
+							item = {
+								hbox = {
+									layoutpolicy_horizontal = expanding
+									layoutpolicy_vertical = expanding
+									datacontext = "[Scope.GetCharacter]"
+									
+									background = {
+										using = Background_Area
+									}
+									portrait_head = {
+										parentanchor = left
+									}
+									flowcontainer = {
+										direction = vertical
+										layoutpolicy_horizontal = expanding
+										layoutpolicy_vertical = expanding
+										margin_top = 10
+										margin_bottom = 10
+										margin_left = 15
+										spacing = 13
+										text_label_center = {
+											text = "[Character.GetPrimaryTitle.GetNameNoTooltip]"
+											using = Font_Size_Medium
+											default_format = "#high"
+											layoutpolicy_horizontal = expanding
+											#align = nobaseline
+											#margin_bottom = 3
+											#margin_left = 10
+										}
+										text_single = {
+											parentanchor = left
+											layoutpolicy_horizontal = expanding
+											text = "TCT_patriarch_name"
+											#size = { 150 100 }
+										}
+										text_single = {
+											parentanchor = left
+											layoutpolicy_horizontal = expanding
+											text = "TCT_patriarchate_territory"
+											#size = { 150 100 }
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 }
 
 types uniuitrinitytypes {
     type UniUI_Trinity_window_faith_widget_doctrine_item = container {
         widget_doctrine_item = {
+            visible = "[Faith.HasDoctrineByKey( 'doctrine_autocephaly_head' )]"
+            blockoverride "background" {}
+
+            blockoverride "doctrine_icon"
+            {
+                texture = "[GetDoctrine( 'doctrine_autocephaly_head' ).GetIcon]"
+            }
+
+            blockoverride "wdi_context"
+            {
+                datacontext = "[GetDoctrine('doctrine_autocephaly_head')]"
+                datacontext = "[Faith]"
+            }
+        }
+		widget_doctrine_item = {
             visible = "[Faith.HasDoctrineByKey( 'doctrine_independent_papacy_head' )]"
             blockoverride "background" {}
 
@@ -530,7 +810,7 @@ types uniuitrinitytypes {
             }
         }
         widget_doctrine_item = {
-            visible = "[And(Faith.HasDoctrineByKey( 'doctrine_spiritual_head' ), Not(Faith.HasDoctrineByKey( 'doctrine_independent_papacy_head' )))]"
+            visible = "[And(And(Faith.HasDoctrineByKey( 'doctrine_spiritual_head' ), Not(Faith.HasDoctrineByKey( 'doctrine_independent_papacy_head' ), Not(Faith.HasDoctrineByKey( 'doctrine_autocephaly_head' )))))"
             blockoverride "background" {}
 
             blockoverride "doctrine_icon"

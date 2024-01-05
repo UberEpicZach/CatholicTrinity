@@ -4380,6 +4380,8 @@ KoH_religiousflavour.58 = {#christmas
 # }
 
 
+
+
 KoH_religiousflavour.200 = {
 	hidden = yes
 	immediate = {
@@ -4390,6 +4392,44 @@ KoH_religiousflavour.200 = {
 	}
 }
 
+
+# Autocephaly created!
+KoH_religiousflavour.210 = {
+	type = character_event
+	title = KoH_religiousflavour.210.t
+	desc = KoH_religiousflavour.210.d
+	theme = faith
+	
+	left_portrait = {
+		character = scope:patriarch
+		animation = happiness
+	}
+	right_portrait = {
+		character = scope:recipient
+		animation = personality_zealous
+	}
+
+	option = {
+		name = KoH_religiousflavour.210.a
+	}
+}
+
+# Interdicted Requester informed the Pope denied their request.
+KoH_religiousflavour.211 = {
+	type = letter_event
+	opening = {
+		desc = KoH_religiousflavour.211.o
+	}
+	desc = KoH_religiousflavour.211
+	sender = {
+		character = scope:recipient
+		animation = dismissal
+	}
+
+	option = {
+		name = religious_interaction.1000.negative
+	}
+}
 
 #Ending a Pilgrimage to a Saintly Tomb
 KoH_religiousflavour.250 = { 

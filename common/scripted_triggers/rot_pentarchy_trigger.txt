@@ -33,7 +33,7 @@
 			$TARGET$.capital_province = { geographical_region = TCT_region_pentarchy_constantinople }
 		}
 		trigger_else_if = {
-			limit = { $PATRIARCH$ = title:d_alexandria_patriarchate.holder }
+			limit = { $PATRIARCH$ = title:d_coptic_papacy.holder }
 			$TARGET$.capital_province = { geographical_region = TCT_region_pentarchy_alexandria }
 		}
 		trigger_else_if = {
@@ -91,7 +91,7 @@
 			$TARGET$.liege.capital_province = { geographical_region = TCT_region_pentarchy_constantinople }
 		}
 		trigger_else_if = {
-			limit = { $PATRIARCH$ = title:d_alexandria_patriarchate.holder }
+			limit = { $PATRIARCH$ = title:d_coptic_papacy.holder }
 			$TARGET$.liege.capital_province = { geographical_region = TCT_region_pentarchy_alexandria }
 		}
 		trigger_else_if = {
@@ -149,7 +149,7 @@
 			$TARGET$.location = { geographical_region = TCT_region_pentarchy_constantinople }
 		}
 		trigger_else_if = {
-			limit = { $PATRIARCH$ = title:d_alexandria_patriarchate.holder }
+			limit = { $PATRIARCH$ = title:d_coptic_papacy.holder }
 			$TARGET$.location = { geographical_region = TCT_region_pentarchy_alexandria }
 		}
 		trigger_else_if = {
@@ -183,7 +183,7 @@ TCT_is_not_patriarch_trigger = {
 		has_title = title:k_papal_state
 		has_title = title:d_rome_patriarchate
 		has_title = title:d_constantinople_patriarchate
-		has_title = title:d_alexandria_patriarchate
+		has_title = title:d_coptic_papacy
 		has_title = title:d_antioch_patriarchate
 		has_title = title:d_jerusalem_patriarchate
 		trigger_if = {

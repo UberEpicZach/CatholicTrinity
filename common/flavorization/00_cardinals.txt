@@ -192,7 +192,6 @@ orthodox_patriarch = {
 	tier = duchy
 	priority = 301
 	titles = { 
-		d_alexandria_patriarchate
 		d_antioch_patriarchate
 		d_jerusalem_patriarchate
 		d_rome_patriarchate

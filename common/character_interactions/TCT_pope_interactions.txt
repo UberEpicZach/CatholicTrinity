@@ -3586,10 +3586,10 @@ take_vows_interaction = {
 			scope:recipient = {
 				OR = {
 					is_married = yes
-					exists = betrothed
+					exists = bettcthed
 				}
 			}
-			desc = TAKE_THE_VOWS_MARRIED_OR_BETROTHED
+			desc = TAKE_THE_VOWS_MARRIED_OR_BETtctHED
 		}
 		
 		modifier = {
@@ -4015,11 +4015,11 @@ take_vows_interaction = {
 			}
 		}
 		
-		modifier = { # The AI doesn't ask married/betrothed people
+		modifier = { # The AI doesn't ask married/bettcthed people
 			factor = 0
 			scope:recipient = {
 				OR = {
-					exists = betrothed
+					exists = bettcthed
 					is_married = yes
 				}
 			}
@@ -4043,269 +4043,6 @@ take_vows_interaction = {
 	}
 }
 
-# grant_vassal_interaction = {
-# 	category = interaction_category_vassal
-# 	common_interaction = yes
-# 	interface = transfer_vassal
-# 	icon = icon_vassal
-
-# 	special_interaction = grant_vassal_interaction
-
-# 	populate_actor_list = {
-# 		scope:actor = {
-# 			every_vassal = {
-# 				add_to_list = characters
-# 			}
-# 		}
-# 	}
-
-# 	desc = grant_vassal_interaction_desc
-	
-# 	prompt = GRANT_VASSAL_SELECT_VASSAL_TO_TRANSFER
-
-# 	greeting = positive
-# 	notification_text = GRANT_VASSAL_PROPOSAL
-
-# 	pre_answer_yes_key = ACCEPT
-# 	pre_answer_no_key = DECLINE
-
-# 	is_shown = {
-# 		NOT = { scope:recipient = scope:actor }
-# 		OR = {
-# 			AND = {
-# 				exists = scope:recipient.liege
-# 				scope:recipient.liege = scope:actor
-# 			}
-# 			AND = {
-# 				exists = scope:actor.liege
-# 				scope:actor.liege = scope:recipient
-# 			}
-# 			AND = {
-# 				scope:actor.faith.religious_head = scope:recipient
-# 				scope:recipient = {
-# 					is_independent_ruler = yes
-# 				}
-# 			}
-# 		}
-# 		scope:recipient.highest_held_title_tier > tier_barony
-# 	}
-
-# 	is_valid_showing_failures_only = {
-# 		scope:recipient = { is_busy_in_events_localised = yes }
-# 		scope:recipient = { is_landed = yes }
-# 		NOT = { scope:actor = { is_at_war_with = scope:recipient } }
-# 		trigger_if = {
-# 			limit = { exists = scope:secondary_actor }
-# 			NOT = { scope:secondary_actor = { is_at_war_with = scope:recipient } }
-# 			scope:secondary_actor = { is_busy_in_events_localised = yes }
-# 			scope:recipient.primary_title.tier > scope:secondary_actor.primary_title.tier
-# 		}
-# 		trigger_if = {
-# 			limit = {
-# 				scope:actor = { is_ai = yes }
-# 				exists = scope:secondary_actor
-# 			}
-# 			scope:secondary_actor = {
-# 				NOT = { has_character_flag = ai_should_not_transfer }
-# 			}
-# 		}
-
-# 		trigger_if = {
-# 			limit = { scope:recipient.highest_held_title_tier <= tier_county }
-# 			scope:recipient = { highest_held_title_tier > tier_county }
-# 		}
-# 		trigger_else = {
-# 			scope:actor = {
-# 				custom_description = {
-# 					text = "basic_valid_vassal_to_tranfer"
-# 					object = scope:recipient
-# 					any_vassal = {
-# 						NOT = { highest_held_title_tier = tier_barony }
-# 						scope:recipient.highest_held_title_tier > highest_held_title_tier
-# 					}
-# 				}
-# 			}
-# 		}
-# 	}
-	
-# 	can_be_picked = {
-# 		NOT = { scope:recipient = root }
-# 		highest_held_title_tier > tier_barony
-# 		highest_held_title_tier < scope:recipient.highest_held_title_tier
-
-# 		trigger_if = {
-# 			limit = { scope:actor.liege = scope:recipient }
-# 			NOT = {
-# 				primary_title = {
-# 					any_this_title_or_de_jure_above = {
-# 						holder = scope:actor
-# 					}
-# 				}
-# 			}
-# 		}
-
-# 		# You can't give your diarch away as a vassal.
-# 		custom_description = {
-# 			text = cannot_grant_own_diarch_as_vassal
-# 			subject = scope:actor.diarch
-# 			NOT = { root ?= scope:actor.diarch }
-# 		}
-
-# 		# Not at war with the vassal being transferred (blocks explicit transfer of war enemies, which invalidates the war).
-# 		custom_description = {
-# 			text = "basic_is_at_war_with_vassal"
-# 			subject = root
-# 			object = scope:actor
-# 			NOT = {
-# 				root = {
-# 					is_at_war_with = scope:actor
-# 				}
-# 			}
-# 		}
-
-# 		# Not at war with a vassal under the vassal being transferred (blocks implicit transfers of war enemies).
-# 		custom_description = {
-# 			text = "basic_is_at_war_with_sub_vassal"
-# 			subject = root
-# 			object = scope:actor
-# 			NOT = {
-# 				any_vassal_or_below = {
-# 					is_at_war_with = root
-# 				}
-# 			}
-# 		}
-# 	}
-	
-# 	auto_accept = {
-# 		scope:recipient = {
-# 			custom_description = {
-# 				text = wants_more_vassals
-# 				is_ai = yes
-# 			}
-# 		}
-# 	}
-	
-# 	on_accept = {
-# 		scope:actor = {
-# 			send_interface_toast = {
-# 				title = grant_vassal_interaction_notification
-# 				right_icon = scope:recipient
-# 				left_icon = scope:secondary_actor
-
-# 				# If we're granting a vassal to our liege, gain a truce with our former vassal (we can't immediately reconquer them, and they can't attack us either).
-# 				if = {
-# 					limit = {
-# 						scope:actor = {
-# 							is_vassal_of = scope:recipient
-# 						}
-# 					}
-# 					add_truce_both_ways = {
-# 						character = scope:secondary_actor
-# 						days = 3650
-# 						name = TRUCE_GRANT_INDEPENDENCE
-# 					}
-# 				}
-
-# 				# Transfer the vassal over to their new liege.
-# 				create_title_and_vassal_change = {
-# 					type = granted
-# 					save_scope_as = change
-# 					add_claim_on_loss = no
-# 				}
-# 				scope:secondary_actor = {
-# 					change_liege = {
-# 						liege = scope:recipient
-# 						change = scope:change
-# 					}
-# 				}
-# 				resolve_title_and_vassal_change = scope:change
-
-# 				# Gain an opinion bonus with the person we gave a vassal to.
-# 				scope:recipient = {
-# 					add_opinion = {
-# 						target = scope:actor
-# 						modifier = granted_vassal
-# 					}
-# 				}
-
-# 				stress_impact = {
-# 					greedy = medium_stress_impact_gain
-# 				}
-# 			}
-# 		}
-
-# 		# If we're a clan this interaction affects unity
-# 		add_clan_unity_interaction_effect = {
-# 			CHARACTER = scope:actor
-# 			TARGET = scope:recipient
-# 			VALUE = miniscule_unity_gain
-# 			DESC = clan_unity_grant_vassal.desc
-# 			REVERSE_NON_HOUSE_TARGET = yes
-# 		}
-
-# 		hidden_effect = {
-# 			# Struggle catalyst
-# 			if = {
-# 				limit = {
-# 					fp3_struggle_involves_one_supporter_and_one_detractor = {
-# 						FIRST = scope:actor
-# 						SECOND = scope:recipient
-# 					}
-# 					scope:actor = {
-# 						any_character_struggle	 = {
-# 							involvement = involved
-# 							phase_has_catalyst = catalyst_grants_vassal_to_de_jure_liege_supporter_detractor
-# 							is_secondary_character_involvement_involved_trigger = {
-# 								CHAR = scope:recipient
-# 							}
-# 						}
-# 					}
-# 					scope:recipient.primary_title = {
-# 						any_this_title_or_de_jure_above = {
-# 							holder = scope:secondary_actor
-# 						}
-# 					}
-# 				}
-# 				every_character_struggle = {
-# 					involvement = involved
-# 					activate_struggle_catalyst = {
-# 						catalyst = catalyst_grants_vassal_to_de_jure_liege_supporter_detractor
-# 						character = scope:actor
-# 					}
-# 					log_debug_variable_for_persian_struggle_effect = { VAR = concession_catalyst_grants_vassal_to_de_jure_liege_supporter_detractor }
-# 				}
-# 			}
-# 		}
-# 	}
-
-# 	on_decline = {
-# 		scope:actor = {
-# 			trigger_event = char_interaction.0211
-# 		}
-
-# 		# If we're a clan this interaction affects unity
-# 		add_clan_unity_interaction_effect = {
-# 			CHARACTER = scope:recipient
-# 			TARGET = scope:actor
-# 			VALUE = miniscule_unity_loss
-# 			DESC = clan_unity_grant_vassal_decline.desc
-# 			REVERSE_NON_HOUSE_TARGET = no
-# 		}
-# 	}
-	
-# 	ai_will_do = {
-# 		base = 0
-		
-# 		modifier = { # The AI will always use a Hook
-# 			this = title:e_hre.holder
-# 			add = -100000
-# 		}
-# 	}
-
-# 	# AI handled entirely though code
-# }
-
-
 select_cardinal_candidate_interaction = {
 	category = interaction_category_religion
 
@@ -4323,7 +4060,7 @@ select_cardinal_candidate_interaction = {
 						is_capable_adult = yes
 						is_imprisoned = no
 						is_married = no
-						is_betrothed = no
+						is_bettcthed = no
 						is_ruler = no
 						is_clergy = yes
 						is_cardinal = no
@@ -4342,7 +4079,7 @@ select_cardinal_candidate_interaction = {
 					is_capable_adult = yes
 					is_imprisoned = no
 					is_married = no
-					is_betrothed = no
+					is_bettcthed = no
 					is_ruler = no
 					is_clergy = yes
 					is_cardinal = no
@@ -4359,7 +4096,7 @@ select_cardinal_candidate_interaction = {
 						is_capable_adult = yes
 						is_imprisoned = no
 						is_married = no
-						is_betrothed = no
+						is_bettcthed = no
 						# In minimum good standing with faith
 						NOT = { has_trait = excommunicated }
 						is_ruler = no
@@ -4408,7 +4145,7 @@ select_cardinal_candidate_interaction = {
 		is_capable_adult = yes
 		is_imprisoned = no
 		is_married = no
-		is_betrothed = no
+		is_bettcthed = no
 		is_ruler = no
 		is_clergy = yes
 		is_cardinal = no
@@ -5038,5 +4775,258 @@ tct_investiture_controversy_change_allegiance = {
 				}
 			}
 		}
+	}
+}
+
+
+#Interactions relating to the head of the dynasty
+
+tct_create_patriarchate_interaction = {
+	category = interaction_category_religion
+
+	common_interaction = yes
+
+	desc = tct_create_patriarchate_interaction_desc
+	
+	is_shown = {
+		scope:actor = {
+			is_independent_ruler = yes
+			NOT = { 
+				has_title = title:e_roman_empire
+				has_title = title:k_egypt
+				has_title = title:k_syria
+				has_title = title:k_judea
+				has_title = title:k_rome
+				has_title = title:k_thrace
+			}
+		}
+		scope:actor.faith = {
+			has_doctrine = doctrine_autocephaly_head
+		}
+		scope:recipient = scope:actor.faith.religious_head
+		
+		scope:actor.capital_province = {
+			NOT = {
+				empire = { has_variable = tct_patriarchate }
+				kingdom = { has_variable = tct_patriarchate }
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		scope:actor = {
+			NOT = {
+				has_trait = excommunicated
+			}
+			highest_held_title_tier >= tier_kingdom
+			piety_level >= 3
+			piety >= 1000
+			gold >= 250
+		}
+		scope:recipient = { is_available = yes }
+	}
+
+	on_accept = {
+		scope:actor = {
+			add_piety = -1000
+			
+			pay_long_term_gold = { 
+				target = scope:recipient
+				gold = 250
+			}
+			
+			custom_tooltip = tct_create_patriarchate_effect
+			
+			hidden_effect = {
+				tct_create_patriarchate = {
+					AUTOCEPHALY = scope:actor.primary_title
+					CREATOR = scope:actor
+				}
+				every_ruler = {
+					limit = { faith.religious_head = scope:recipient }
+					trigger_event = KoH_religiousflavour.210
+				}
+			}
+		}
+	}
+	on_decline = {
+		scope:actor = {
+			hidden_effect = { trigger_event = KoH_religiousflavour.211 }
+		}
+	}
+	
+	send_option = {
+		is_valid = {
+			scope:actor = {
+				has_usable_hook = scope:recipient
+			}
+		}
+		flag = create_autocephaly_hook
+		localization = CREATE_AUTOCEPHALY_HOOK
+	}
+	should_use_extra_icon = {
+		scope:actor = { 
+			has_usable_hook = scope:recipient 
+		}
+	}
+	extra_icon = "gfx/interface/icons/character_interactions/hook_icon.dds"
+
+	send_options_exclusive = no
+	
+	auto_accept = {
+		custom_description = {
+			text = "spending_hook"
+			subject = scope:actor
+			object = scope:recipient
+			scope:create_autocephaly_hook = yes
+			scope:actor = { has_strong_hook = scope:recipient }
+		}
+	}
+	
+	# AI accept
+	
+	ai_accept = {
+		base = -50
+			
+		modifier = {
+			scope:create_autocephaly_hook = yes
+			add = 50
+			desc = SCHEME_WEAK_HOOK_USED
+		}
+		modifier = {
+			add = -100
+			scope:recipient = {
+				opinion = {
+					value < 0
+					target = scope:actor #Excommunication target
+				}
+			}
+			desc = CREATE_AUTOCEPHALY_NEGATIVE_OPINION
+		}
+		opinion_modifier = {
+			who = scope:recipient
+			opinion_target = scope:actor
+			multiplier = 1
+		}
+		opinion_modifier = {
+			trigger = {
+				NOT = { scope:recipient.top_liege = scope:recipient }
+			}
+			who = scope:recipient.top_liege
+			opinion_target = scope:actor
+			multiplier = 1.5
+		}
+		modifier = {
+			add = {
+				add = 10
+				multiply = scope:actor.num_virtuous_traits
+			}
+			scope:actor.num_virtuous_traits > 0
+			desc = CREATE_AUTOCEPHALY_VIRTUES
+		}
+		modifier = {
+			add = {
+				add = -10
+				multiply = scope:actor.num_sinful_traits
+			}
+			scope:actor.num_sinful_traits > 0
+			desc = CREATE_AUTOCEPHALY_SINS
+		}
+		modifier = {
+			desc = CREATE_AUTOCEPHALY_PRESTIGE
+			scope:actor = { prestige_level >= 2 }
+			add = {
+				value = 10
+				if = {
+					limit = {
+						scope:actor = { prestige_level >= 3 }
+					}
+					add = 5
+				}
+				if = {
+					limit = {
+						scope:actor = { prestige_level >= 4 }
+					}
+					add = 5
+				}
+				if = {
+					limit = {
+						scope:actor = { prestige_level >= 5 }
+					}
+					add = 5
+				}
+			}
+		}
+		modifier = {
+			desc = CREATE_AUTOCEPHALY_PIETY
+			scope:actor = { piety_level >= 2 }
+			add = {
+				value = 10
+				if = {
+					limit = {
+						scope:actor = { piety_level >= 3 }
+					}
+					add = 15
+				}
+				if = {
+					limit = {
+						scope:actor = { piety_level >= 4 }
+					}
+					add = 20
+				}
+				if = {
+					limit = {
+						scope:actor = { piety_level >= 5 }
+					}
+					add = 25
+				}
+			}
+		}
+		modifier = {
+			desc = RELIGIOUS_HEAD_INTERACTION_PARAGON
+			add = 15
+			scope:actor = {
+				has_trait = paragon
+			}
+		}
+		modifier = {
+			desc = RELIGIOUS_HEAD_INTERACTION_CONSECRATED_BLOOD
+			add = 5
+			scope:actor = {
+				has_trait = consecrated_blood
+			}
+		}
+		modifier = {
+			desc = CREATE_AUTOCEPHALY_REALM_SIZE
+			scope:actor.realm_size > 25
+			add = {
+				add = 1
+				multiply = scope:actor.realm_size
+				add = -25
+			}
+		}
+	}
+	
+	# AI will do
+	
+	ai_min_reply_days = 1
+	ai_max_reply_days = 5
+	
+	ai_potential = {
+		is_adult = yes
+		piety >= 1500
+	}
+	
+	ai_targets = {
+		ai_recipients = head_of_faith
+	}
+	ai_target_quick_trigger = {
+		adult = yes
+	}
+	
+	ai_frequency = 36
+
+	ai_will_do = {
+		base = 100
 	}
 }

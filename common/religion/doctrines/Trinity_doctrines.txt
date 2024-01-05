@@ -33,7 +33,7 @@ TCT_doctrine_head_of_faith = {
 			# religion_tag = christianity_religion 
 			# custom_description = {
 			# 	text = need_tenet_christian_pentarchy_trigger
-			# 	flag:tenet_christian_pentarchy = { is_in_list = selected_doctrines }
+			# 	doctrine:tenet_christian_pentarchy = { is_in_list = selected_doctrines }
 			# }
 		}
 		piety_cost = {
@@ -113,11 +113,11 @@ TCT_general_doctrines = {
 		can_pick = {
 			custom_description = {
 				text = doctrine_pluralism_pluralistic_trigger
-				NOT = { flag:doctrine_pluralism_pluralistic = { is_in_list = selected_doctrines } }
+				NOT = { doctrine:doctrine_pluralism_pluralistic = { is_in_list = selected_doctrines } }
 			}
 			custom_description = {
 				text = doctrine_not_followers_of_peter_trigger
-				NOT = { flag:tenet_followers_of_peter = { is_in_list = selected_doctrines } }
+				NOT = { doctrine:tenet_followers_of_peter = { is_in_list = selected_doctrines } }
 			}
 		}
 
@@ -193,3 +193,165 @@ TCT_doctrine_clerical_succession = {
 		}
 	}
 }
+
+# TCT_theology = {
+# 	group = "theology_and_rites"
+	
+# 	is_available_on_create = {
+# 		religion_tag = christianity_religion
+# 	}
+	
+# 	TCT_denomination_theology_doctrine_dyophysite = {
+# 		can_pick = {
+# 			AND = {
+# 				NOT = { doctrine:tenet_gnosticism = { is_in_list = selected_doctrines } }
+# 			}
+# 		}
+	
+# 		parameters = {
+# 			theology_doctrine_dyophysite_opinion_active = yes
+# 			opinion_of_theology_doctrine_miaphysite_opinion_active = -10
+# 			opinion_of_theology_doctrine_nestorian_opinion_active = -15
+# 			opinion_of_theology_doctrine_arianism_opinion_active = -20
+# 			opinion_of_theology_doctrine_gnostic_opinion_active = -20
+# 			opinion_of_theology_doctrine_monarchian_opinion_active = -20
+# 		}
+# 	}
+	
+# 	TCT_denomination_theology_doctrine_miaphysite = {
+# 		can_pick = {
+# 			AND = {
+# 				NOT = { doctrine:tenet_gnosticism = { is_in_list = selected_doctrines } }
+# 			}
+# 		}
+	
+# 		parameters = {
+# 			theology_doctrine_miaphysite_opinion_active = yes
+# 			opinion_of_theology_doctrine_dyophysite_opinion_active = -10
+# 			opinion_of_theology_doctrine_nestorian_opinion_active = -15
+# 			opinion_of_theology_doctrine_arianism_opinion_active = -20
+# 			opinion_of_theology_doctrine_gnostic_opinion_active = -20
+# 			opinion_of_theology_doctrine_monarchian_opinion_active = -20
+# 			hostility_override_theology_doctrine_miaphysite = 1
+			
+# 		}
+# 	}
+	
+# 	TCT_denomination_theology_doctrine_nestorian = {
+# 		can_pick = {
+# 			AND = {
+# 				NOT = { doctrine:tenet_gnosticism = { is_in_list = selected_doctrines } }
+# 			}
+# 		}
+	
+# 		parameters = {
+# 			theology_doctrine_nestorian_opinion_active = yes
+# 			opinion_of_theology_doctrine_miaphysite_opinion_active = -15
+# 			opinion_of_theology_doctrine_dyophysite_opinion_active = -15
+# 			opinion_of_theology_doctrine_arianism_opinion_active = -20
+# 			opinion_of_theology_doctrine_gnostic_opinion_active = -20
+# 			opinion_of_theology_doctrine_monarchian_opinion_active = -20
+# 			hostility_override_theology_doctrine_nestorian = 1
+# 		}
+# 	}
+	
+# 	TCT_denomination_theology_doctrine_arianism = {
+# 		can_pick = {
+# 			AND = {
+# 				NOT = { doctrine:tenet_gnosticism = { is_in_list = selected_doctrines } }
+# 			}
+# 		}
+	
+# 		parameters = {
+# 			theology_doctrine_arianism_opinion_active = yes
+# 			opinion_of_theology_doctrine_miaphysite_opinion_active = -20
+# 			opinion_of_theology_doctrine_dyophysite_opinion_active = -20
+# 			opinion_of_theology_doctrine_nestorian_opinion_active = -20
+# 			opinion_of_theology_doctrine_gnostic_opinion_active = -15
+# 			opinion_of_theology_doctrine_monarchian_opinion_active = -5
+# 			hostility_override_theology_doctrine_arianism = 1
+# 		}
+# 	}
+	
+# 	TCT_denomination_theology_doctrine_gnostic = {
+# 		can_pick = {
+# 			AND = {
+# 				doctrine:tenet_gnosticism = { is_in_list = selected_doctrines }
+# 			}
+# 		}
+	
+# 		parameters = {
+# 			theology_doctrine_gnostic_opinion_active = yes
+# 			opinion_of_theology_doctrine_miaphysite_opinion_active = -20
+# 			opinion_of_theology_doctrine_dyophysite_opinion_active = -20
+# 			opinion_of_theology_doctrine_nestorian_opinion_active = -20
+# 			opinion_of_theology_doctrine_arianism_opinion_active = -5
+# 			opinion_of_theology_doctrine_monarchian_opinion_active = -5
+# 		}
+# 	}
+	
+# 	TCT_denomination_theology_doctrine_monarchian = {
+# 		can_pick = {
+# 			AND = {
+# 				NOT = { doctrine:tenet_gnosticism = { is_in_list = selected_doctrines } }
+# 			}
+# 		}
+	
+# 		parameters = {
+# 			theology_doctrine_monarchian_opinion_active = yes
+# 			opinion_of_theology_doctrine_monarchian_recipient_opinion_active = 10
+# 			opinion_of_theology_doctrine_miaphysite_opinion_active = -20
+# 			opinion_of_theology_doctrine_dyophysite_opinion_active = -20
+# 			opinion_of_theology_doctrine_nestorian_opinion_active = -20
+# 			opinion_of_theology_doctrine_arianism_opinion_active = -5
+# 			opinion_of_theology_doctrine_gnostic_opinion_active = -5
+# 			opinion_of_theology_doctrine_monarchian_opinion_active = 0
+# 			hostility_override_theology_doctrine_monarchian = 1
+# 		}
+# 	}
+# }
+
+TCT_rites = {
+	group = "theology_and_rites"
+	
+	is_available_on_create = {
+		religion_tag = christianity_religion
+	}
+	
+	rite_doctrine_roman = {
+		parameters = {
+			christian_rite = yes
+		}
+	}
+
+	rite_doctrine_byzantine = {
+		parameters = {
+			christian_rite = yes
+		}
+	}
+	
+	rite_doctrine_armenian_apostolic = {
+		parameters = {
+			christian_rite = yes
+		}
+	}
+
+	rite_doctrine_alexandrian_coptic = {
+		parameters = {
+			christian_rite = yes
+		}
+	}
+}
+	
+# 	rite_doctrine_antiochean = {
+# 		parameters = {
+# 			antiochene_rite = yes
+# 		}
+# 	}
+	
+# 	rite_doctrine_mozarabic = {
+# 		parameters = {
+# 			christian_rite = yes
+# 		}
+# 	}
+# }

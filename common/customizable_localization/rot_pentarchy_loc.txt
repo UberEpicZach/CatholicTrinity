@@ -4,10 +4,10 @@
 		trigger = {
 			NOT = {
 				county.holder.top_liege.faith = {
-					has_doctrine = doctrine_autocephaly_head
+					has_doctrine = tenet_communion
 				}
 				county.faith = {
-					has_doctrine = doctrine_autocephaly_head
+					has_doctrine = tenet_communion
 				}
 			}
 		}
@@ -67,7 +67,7 @@ TCT_get_patriarchate_of_pentarch = {
 	}
 	text = {
 		trigger = {
-			has_title = title:d_alexandria_patriarchate
+			has_title = title:d_coptic_papacy
 		}
 		localization_key = TCT_ale_title
 	}

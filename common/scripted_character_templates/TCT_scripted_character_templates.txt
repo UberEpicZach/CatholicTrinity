@@ -15,3 +15,195 @@
 		}
 	}
 }
+
+
+TCT_patriarch_template = {
+	age = { 30 50 }
+	#Education
+	random_traits_list = {
+		count = 1
+		education_learning_1 = {
+			weight = { base = 10 }
+		}
+		education_learning_2 = {
+			weight = { base = 20 }
+		}
+		education_learning_3 = {
+			weight = { base = 30 }
+		}
+		education_learning_4 = {
+			weight = { base = 20 }
+		}
+	}
+	#Neutral Personality
+	random_traits_list = {
+		count = 1
+		zealous = {
+			weight = { base = 50 }
+		}
+		diligent = {
+			weight = { base = 30 }
+		}
+		gregarious = {
+			weight = { base = 20 }
+		}
+	}
+	#Virtue Personality
+	##Give them two traits which are considered virtuous in their faith. Traits which would be the opposite of a neutral personality are omitted.
+	random_traits_list = {
+		count = 2
+		lustful = {
+			trigger = {
+				$CREATOR$.faith = { trait_is_virtue = lustful }
+			}
+		}
+		chaste = {
+			trigger = {
+				$CREATOR$.faith = { trait_is_virtue = chaste }
+			}
+		}
+		gluttonous = {
+			trigger = {
+				$CREATOR$.faith = { trait_is_virtue = gluttonous }
+			}
+		}
+		temperate = {
+			trigger = {
+				$CREATOR$.faith = { trait_is_virtue = temperate }
+			}
+		}
+		greedy = {
+			trigger = {
+				$CREATOR$.faith = { trait_is_virtue = greedy }
+			}
+		}
+		generous = {
+			trigger = {
+				$CREATOR$.faith = { trait_is_virtue = generous }
+			}
+		}
+		wrathful = {
+			trigger = {
+				$CREATOR$.faith = { trait_is_virtue = wrathful }
+			}
+		}
+		calm = {
+			trigger = {
+				$CREATOR$.faith = { trait_is_virtue = calm }
+			}
+		}
+		patient = {
+			trigger = {
+				$CREATOR$.faith = { trait_is_virtue = patient }
+			}
+		}
+		impatient = {
+			trigger = {
+				$CREATOR$.faith = { trait_is_virtue = impatient }
+			}
+		}
+		arrogant = {
+			trigger = {
+				$CREATOR$.faith = { trait_is_virtue = arrogant }
+			}
+		}
+		humble = {
+			trigger = {
+				$CREATOR$.faith = { trait_is_virtue = humble }
+			}
+		}
+		deceitful = {
+			trigger = {
+				$CREATOR$.faith = { trait_is_virtue = deceitful }
+			}
+		}
+		honest = {
+			trigger = {
+				$CREATOR$.faith = { trait_is_virtue = honest }
+			}
+		}
+		craven = {
+			trigger = {
+				$CREATOR$.faith = { trait_is_virtue = craven }
+			}
+		}
+		brave = {
+			trigger = {
+				$CREATOR$.faith = { trait_is_virtue = brave }
+			}
+		}
+		ambitious = {
+			trigger = {
+				$CREATOR$.faith = { trait_is_virtue = ambitious }
+			}
+		}
+		content = {
+			trigger = {
+				$CREATOR$.faith = { trait_is_virtue = content }
+			}
+		}
+		arbitrary = {
+			trigger = {
+				$CREATOR$.faith = { trait_is_virtue = arbitrary }
+			}
+		}
+		just = {
+			trigger = {
+				$CREATOR$.faith = { trait_is_virtue = just }
+			}
+		}
+		paranoid = {
+			trigger = {
+				$CREATOR$.faith = { trait_is_virtue = paranoid }
+			}
+		}
+		trusting = {
+			trigger = {
+				$CREATOR$.faith = { trait_is_virtue = trusting }
+			}
+		}
+		compassionate = {
+			trigger = {
+				$CREATOR$.faith = { trait_is_virtue = compassionate }
+			}
+		}
+		callous = {
+			trigger = {
+				$CREATOR$.faith = { trait_is_virtue = callous }
+			}
+		}
+		sadistic = {
+			trigger = {
+				$CREATOR$.faith = { trait_is_virtue = sadistic }
+			}
+		}
+		stubborn = {
+			trigger = {
+				$CREATOR$.faith = { trait_is_virtue = stubborn }
+			}
+		}
+		fickle = {
+			trigger = {
+				$CREATOR$.faith = { trait_is_virtue = fickle }
+			}
+		}
+		vengeful = {
+			trigger = {
+				$CREATOR$.faith = { trait_is_virtue = vengeful }
+			}
+		}
+		forgiving = {
+			trigger = {
+				$CREATOR$.faith = { trait_is_virtue = forgiving }
+			}
+		}
+	}
+	martial = {
+		min_template_high_skill
+		max_template_high_skill
+	}
+	learning = {
+		min_template_high_skill
+		max_template_high_skill
+	}
+} 

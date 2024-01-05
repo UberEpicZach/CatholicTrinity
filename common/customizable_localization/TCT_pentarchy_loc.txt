@@ -67,7 +67,7 @@ TCT_get_patriarchate_of_pentarch = {
 	}
 	text = {
 		trigger = {
-			has_title = title:d_alexandria_patriarchate
+			has_title = title:d_coptic_papacy
 		}
 		localization_key = TCT_ale_title
 	}

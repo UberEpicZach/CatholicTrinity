@@ -564,33 +564,33 @@ window = {
 									}
 								}
 
-									vbox = {
-										dynamicgridbox = {
-											name = "virtues_grid"
-											datamodel = "[FaithWindow.GetSins]"
-											flipdirection = yes
-											datamodel_wrap = 6
+								vbox = {
+									dynamicgridbox = {
+										name = "virtues_grid"
+										datamodel = "[FaithWindow.GetSins]"
+										flipdirection = yes
+										datamodel_wrap = 6
 
-											item = {
-												icon = {
-													datacontext = "[GuiVirtueOrSinItem.GetTrait]"
-													size = { 40 40 }
-													alwaystransparent = yes
-													texture = "[Trait.GetIcon( GetPlayer )]"
+										item = {
+											icon = {
+												datacontext = "[GuiVirtueOrSinItem.GetTrait]"
+												size = { 40 40 }
+												alwaystransparent = yes
+												texture = "[Trait.GetIcon( GetPlayer )]"
 
-													tooltipwidget = {
-														using = faith_window_trait_tooltip
-													}
+												tooltipwidget = {
+													using = faith_window_trait_tooltip
+												}
 
-													block "tooltip_placement"
-													{
-														using = tooltip_ne
-														tooltip_offset = { 0 20 }
-													}
+												block "tooltip_placement"
+												{
+													using = tooltip_ne
+													tooltip_offset = { 0 20 }
 												}
 											}
 										}
 									}
+								}
 
 								expand = {}
 							}
@@ -619,33 +619,33 @@ window = {
 									}
 								}
 
-									vbox = {
-										dynamicgridbox = {
-											name = "virtues_grid"
-											datamodel = "[FaithWindow.GetVirtues]"
-											flipdirection = yes
-											datamodel_wrap = 6
+								vbox = {
+									dynamicgridbox = {
+										name = "virtues_grid"
+										datamodel = "[FaithWindow.GetVirtues]"
+										flipdirection = yes
+										datamodel_wrap = 6
 
-											item = {
-												icon = {
-													datacontext = "[GuiVirtueOrSinItem.GetTrait]"
-													size = { 40 40 }
-													alwaystransparent = yes
-													texture = "[Trait.GetIcon( GetPlayer )]"
+										item = {
+											icon = {
+												datacontext = "[GuiVirtueOrSinItem.GetTrait]"
+												size = { 40 40 }
+												alwaystransparent = yes
+												texture = "[Trait.GetIcon( GetPlayer )]"
 
-													tooltipwidget = {
-														using = faith_window_trait_tooltip
-													}
+												tooltipwidget = {
+													using = faith_window_trait_tooltip
+												}
 
-													block "tooltip_placement"
-													{
-														using = tooltip_ne
-														tooltip_offset = { 0 20 }
-													}
+												block "tooltip_placement"
+												{
+													using = tooltip_ne
+													tooltip_offset = { 0 20 }
 												}
 											}
 										}
 									}
+								}
 
 								expand = {}
 							}
@@ -655,7 +655,7 @@ window = {
 							}
 						}
 
-												vbox = {
+						vbox = {
 							layoutpolicy_horizontal = expanding
 							spacing = 8
 
@@ -706,6 +706,31 @@ window = {
 											expand = {}
 										}
 									}
+								}
+							}
+						}
+						vbox = {
+							layoutpolicy_horizontal = expanding
+							spacing = 10
+							visible = "[Faith.HasDoctrineByKey( 'special_doctrine_is_christian_faith' ) )]"
+							
+							text_label_left = {
+								visible = "[Faith.HasDoctrineByKey( 'special_doctrine_is_christian_faith' ) )]"
+								layoutpolicy_horizontal = expanding
+								text = "FAITH_DOCTRINES_THEOLOGY_AND_RITES"
+								default_format = "#low"
+							}
+	
+							fixedgridbox = {
+								visible = "[Faith.HasDoctrineByKey( 'special_doctrine_is_christian_faith' ) )]"
+								datamodel = "[FaithWindow.GetGroupingHelper( 'theology_and_rites' ).GetGrouping]"
+								flipdirection = yes
+								addcolumn = 230
+								addrow = 65
+								datamodel_wrap = 2
+	
+								item = {
+									widget_doctrine_item = {}
 								}
 							}
 						}

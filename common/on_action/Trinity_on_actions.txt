@@ -5,52 +5,40 @@
 		mapmodes
 		fixing867pope
 		TCTpentarchy
+		christianity_fixes
 	}
 }
 
+christianity_fixes = {
+	effect = {
+		faith:catholic = {
+			add_doctrine = rite_doctrine_roman
+			#add_doctrine = TCT_denomination_theology_doctrine_dyophysite
+			add_doctrine = doctrine_independent_papacy_head
+			add_doctrine = doctrine_clerical_succession_investiture_law_appointment
+			remove_doctrine = doctrine_consanguinity_aunt_nephew_and_uncle_niece
+			add_doctrine = doctrine_consanguinity_restricted
+		}
+		faith:orthodox = {
+			add_doctrine = rite_doctrine_byzantine
+			#add_doctrine = TCT_denomination_theology_doctrine_dyophysite
+			add_doctrine = doctrine_autocephaly_head
+		}
+		faith:coptic = {
+			add_doctrine = rite_doctrine_alexandrian_coptic
+			#add_doctrine = TCT_denomination_theology_doctrine_miaphysite
+		}
+		faith:armenian_apostolic = {
+			add_doctrine = rite_doctrine_armenian_apostolic
+			#add_doctrine = TCT_denomination_theology_doctrine_miaphysite
+		}
+		faith:conversos = {
+			#add_doctrine = rite_doctrine_roman
+			#add_doctrine = TCT_denomination_theology_doctrine_dyophysite
 
-# on_faith_monthly = {
-# 	on_actions = {
-# 		delay = { days = { 5 10 }}
-# 		tct_taxes_to_HOF
-# 	}
-# }
-
-# tct_taxes_to_HOF = { 
-# 	effect = {
-# 		faith:catholic = {
-# 			every_faith_ruler = {
-# 				save_temporary_scope_as = bishop
-# 				limit = {
-# 					has_government = theocracy_government
-# 					highest_held_title_tier <= tier_barony
-# 				}
-				
-# 				trigger_event = {
-# 					id = KoH_religiousflavour.200
-# 					days = 3
-# 				}
-				
-# 				#Debug
-# 				# faith.religious_head = {
-# 				# 	send_interface_toast = {
-# 				# 		type = event_toast_effect_bad
-# 				# 		title = gottaxes
-# 				# 		left_icon = prev
-# 				# 		show_as_tooltip = {
-# 				# 			prev = {
-# 				# 				pay_short_term_gold = {
-# 				# 					target = faith.religious_head
-# 				# 					gold = 1
-# 				# 				}
-# 				# 			}
-# 				# 		}
-# 				# 	}
-# 				# }
-# 			}
-# 		}
-# 	}
-# }
+		}
+	}
+}
 
 on_army_enter_province = {
 	events = {
@@ -67,7 +55,7 @@ TCTpentarchy = {
 					has_title = title:k_papal_state
 					has_title = title:d_rome_patriarchate
 					has_title = title:d_constantinople_patriarchate
-					has_title = title:d_alexandria_patriarchate
+					has_title = title:d_coptic_papacy
 					has_title = title:d_antioch_patriarchate
 					has_title = title:d_jerusalem_patriarchate
 				}
@@ -177,17 +165,6 @@ CatholicsimFix = {
 		}
 
 		every_living_character = { limit = { is_clergy = yes has_faith = faith:catholic NOT = { knows_language = language_latin } } learn_language = language_latin }
-		faith:catholic = {
-			add_doctrine = doctrine_independent_papacy_head
-			add_doctrine = doctrine_clerical_succession_investiture_law_appointment
-			remove_doctrine = doctrine_consanguinity_aunt_nephew_and_uncle_niece
-			add_doctrine = doctrine_consanguinity_restricted
-		}
-		faith:orthodox = {
-			remove_doctrine = tenet_pentarchy
-			add_doctrine = tenet_christian_pentarchy
-			add_doctrine = doctrine_autocephaly_head
-		}
 		set_global_variable = {
 			name = Trinity_is_loaded
 			value = yes
@@ -195,40 +172,40 @@ CatholicsimFix = {
 		title:k_papal_state.holder = {
 			set_variable = was_once_cardinal
 		}
-		every_province = {
-			limit = {
-				faith = faith:catholic
-				has_holding_type = church_holding
-				barony = {
-					holder = {
-						NOT = { has_government_flag = theocracy_government }
-					}
-				}
-			}
-			add_to_list = every_province_to_make_bishops
-		}
-		every_in_list = {
-			list = every_province_to_make_bishops
+		# every_province = {
+		# 	limit = {
+		# 		faith = faith:catholic
+		# 		has_holding_type = church_holding
+		# 		barony = {
+		# 			holder = {
+		# 				NOT = { has_government_flag = theocracy_government }
+		# 			}
+		# 		}
+		# 	}
+		# 	add_to_list = every_province_to_make_bishops
+		# }
+		# every_in_list = {
+		# 	list = every_province_to_make_bishops
 			
-			random_pool_character = {
-				limit = {
-					has_education_learning_trigger = yes
-				}
-				save_scope_as = bishop
-			}
-			create_title_and_vassal_change = {
-				type = granted
-				save_scope_as = title_change
-				add_claim_on_loss = no
-			}
-			prev = {
-				change_title_holder = {
-					holder = scope:bishop
-					change = scope:title_change
-				}
-			}
-			resolve_title_and_vassal_change = scope:title_change
-		}
+		# 	random_pool_character = {
+		# 		limit = {
+		# 			has_education_learning_trigger = yes
+		# 		}
+		# 		save_scope_as = bishop
+		# 	}
+		# 	create_title_and_vassal_change = {
+		# 		type = granted
+		# 		save_scope_as = title_change
+		# 		add_claim_on_loss = no
+		# 	}
+		# 	prev = {
+		# 		change_title_holder = {
+		# 			holder = scope:bishop
+		# 			change = scope:title_change
+		# 		}
+		# 	}
+		# 	resolve_title_and_vassal_change = scope:title_change
+		# }
 	}
 }
 

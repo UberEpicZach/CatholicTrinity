@@ -431,6 +431,14 @@
 
   veterancrusadersupported:0 "Hailed a Hero"
 
+ 
+  KoH_religiousflavour.210.t: "[actor.GetPrimaryTitle.GetAdjectiveNoTooltip] Autocephaly"
+  KoH_religiousflavour.210.d: "A lot of time has passed since the Orthodox faith took root on [actor.GetPrimaryTitle.GetAdjectiveNoTooltip|l]th earth. More and more people are becoming followers of the teachings of Christ, and churches and monasteries are actively growing and being built.\n\nSuch great successes could not not to pass by the gaze of the Ecumenical Patriarch. By a collegial decision of the supreme Orthodox priests, a new [patriarch.GetPrimaryTitle.GetName] was formed, whose canonical territory became the land of the title [actor.GetPrimaryTitle.GetName]. [patriarch.GetFirstName] became one of the equal Orthodox patriarchs"
+  KoH_religiousflavour.210.a: "This is a great day for all [actor.GetPrimaryTitle.GetAdjectiveNoTooltip|l]their Christians!"
+  
+  KoH_religiousflavour.211.o: "[recipient.Custom2('AppropriateGreetingPositive', ROOT.Char)]"
+  KoH_religiousflavour.211: "After consulting with our brothers and other patriarchs, we came to the conclusion that we are forced to refuse the formation of autocephaly in your land. Perhaps someday in the future, when faith in Christ has strengthened on [actor.GetPrimaryTitle.GetAdjectiveNoTooltip|l]th earth and you, as a ruler, yourself become more pious, perhaps then the Orthodox world will see [actor.GetPrimaryTitle.GetAdjectiveNoTooltip]their patriarchy."
+
   KoH_religiousflavour.250.t: "[saintlocation.GetNameNoTier], Resting place of Saint [localsaint.GetFirstNameNicknamedRegnal]."
   KoH_religiousflavour.250.desc: "Begrimed by the mud and dust of the road, we weary travelers walk where myriad pilgrims ages past have trod. At long last, I have reached the place of Saint [localsaint.GetFirstNameNicknamedRegnal]’s everlasting rest, sanctified by hallowed fame. Even poor strangers to the faith have come as if drawn by grace. With measured footsteps and sacred awe, we approach the holy fane. Pilgrims kneel in prayer before their long-sought shrine; the murmurs of the penitent, imploring saintly intercession, rise like incense in the heavenly sanctuary. \n\nYou who shine with excellence and superhuman virtue deliver us from all evil, who turn to you with confidence and enable us by your gracious protection to serve God more and more faithfully every day."
   KoH_religiousflavour.250.a: "The lovely [saintlocation.GetNameNoTier]."

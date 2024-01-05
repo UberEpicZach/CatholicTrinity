@@ -38,7 +38,7 @@ TCT_update_pentarchy = {
 					has_title = title:k_papal_state
 					has_title = title:d_rome_patriarchate
 					has_title = title:d_constantinople_patriarchate
-					has_title = title:d_alexandria_patriarchate
+					has_title = title:d_coptic_papacy
 					has_title = title:d_antioch_patriarchate
 					has_title = title:d_jerusalem_patriarchate
 				}
