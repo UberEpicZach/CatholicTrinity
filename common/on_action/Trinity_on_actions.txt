@@ -11,31 +11,76 @@
 
 christianity_fixes = {
 	effect = {
-		faith:catholic = {
-			add_doctrine = rite_doctrine_roman
-			#add_doctrine = TCT_denomination_theology_doctrine_dyophysite
-			add_doctrine = doctrine_independent_papacy_head
-			add_doctrine = doctrine_clerical_succession_investiture_law_appointment
-			remove_doctrine = doctrine_consanguinity_aunt_nephew_and_uncle_niece
-			add_doctrine = doctrine_consanguinity_restricted
+		if = {
+			limit = {
+				current_date >= 867.1.1
+			}
+			title:k_orthodox.holder = {
+				set_variable = tct_ecumenical_patriarch
+			}
+			faith:catholic = {
+				add_doctrine = doctrine_rite_doctrine_roman
+				#add_doctrine = TCT_denomination_theology_doctrine_dyophysite
+				add_doctrine = doctrine_independent_papacy_head
+				add_doctrine = doctrine_clerical_succession_investiture_law_appointment
+				remove_doctrine = doctrine_consanguinity_aunt_nephew_and_uncle_niece
+				add_doctrine = doctrine_consanguinity_restricted
+			}
+			faith:orthodox = {
+				add_doctrine = doctrine_rite_doctrine_byzantine
+				#add_doctrine = TCT_denomination_theology_doctrine_dyophysite
+				add_doctrine = doctrine_autocephaly_head
+			}
+			faith:coptic = {
+				add_doctrine = doctrine_rite_doctrine_alexandrian_coptic
+				#add_doctrine = TCT_denomination_theology_doctrine_miaphysite
+			}
+			faith:armenian_apostolic = {
+				add_doctrine = doctrine_rite_doctrine_armenian_apostolic
+				#add_doctrine = TCT_denomination_theology_doctrine_miaphysite
+			}
+			faith:conversos = {
+				#add_doctrine = rite_doctrine_roman
+				#add_doctrine = TCT_denomination_theology_doctrine_dyophysite
+	
+			}
 		}
-		faith:orthodox = {
-			add_doctrine = rite_doctrine_byzantine
-			#add_doctrine = TCT_denomination_theology_doctrine_dyophysite
-			add_doctrine = doctrine_autocephaly_head
-		}
-		faith:coptic = {
-			add_doctrine = rite_doctrine_alexandrian_coptic
-			#add_doctrine = TCT_denomination_theology_doctrine_miaphysite
-		}
-		faith:armenian_apostolic = {
-			add_doctrine = rite_doctrine_armenian_apostolic
-			#add_doctrine = TCT_denomination_theology_doctrine_miaphysite
-		}
-		faith:conversos = {
-			#add_doctrine = rite_doctrine_roman
-			#add_doctrine = TCT_denomination_theology_doctrine_dyophysite
-
+		if = {
+			limit = {
+				current_date >= 1066.1.1
+			}
+			title:k_papal_state.holder = {
+				set_variable = tct_ecumenical_patriarch
+			}
+			title:k_orthodox.holder = {
+				set_variable = tct_ecumenical_patriarch
+			}
+			faith:catholic = {
+				add_doctrine = doctrine_rite_doctrine_roman
+				#add_doctrine = TCT_denomination_theology_doctrine_dyophysite
+				add_doctrine = doctrine_independent_papacy_head
+				add_doctrine = doctrine_clerical_succession_investiture_law_appointment
+				remove_doctrine = doctrine_consanguinity_aunt_nephew_and_uncle_niece
+				add_doctrine = doctrine_consanguinity_restricted
+			}
+			faith:orthodox = {
+				add_doctrine = doctrine_rite_doctrine_byzantine
+				#add_doctrine = TCT_denomination_theology_doctrine_dyophysite
+				add_doctrine = doctrine_autocephaly_head
+			}
+			faith:coptic = {
+				add_doctrine = doctrine_rite_doctrine_alexandrian_coptic
+				#add_doctrine = TCT_denomination_theology_doctrine_miaphysite
+			}
+			faith:armenian_apostolic = {
+				add_doctrine = doctrine_rite_doctrine_armenian_apostolic
+				#add_doctrine = TCT_denomination_theology_doctrine_miaphysite
+			}
+			faith:conversos = {
+				#add_doctrine = rite_doctrine_roman
+				#add_doctrine = TCT_denomination_theology_doctrine_dyophysite
+	
+			}
 		}
 	}
 }

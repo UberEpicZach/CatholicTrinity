@@ -35,7 +35,7 @@
  select_cardinal_candidate_interaction_desc:0 "Select an adult member of your court, [dynasty|E] or realm to be your Cardinal Candidate for the [collegeofcardinals|E]."
  select_cardinal_candidate_interaction_notification:0 "Selected Cardinal Candidate"
  TCT_NO_PATRIARCHATE_TITLE:0 "No Patriarchate"
- TCT_PATRIARCHATE_TITLE_NAME:0 "[kingdom.GetAdjectiveNoTooltip]an Pentarchy"
+ TCT_PATRIARCHATE_TITLE_NAME:0 "[kingdom.GetAdjectiveNoTooltip] Pentarchy"
  doctrine_autocephaly_head_name:0 "Autocephaly Head"
  doctrine_autocephaly_head_desc:0 "Autocephaly Head Desc, Fill in Later"
  
@@ -51,7 +51,7 @@
  TCT_patriarchs_title:0 "Autocephalous patriarchs"
  TCT_patriarch_name:0 "Patriarch: [Scope.GetCharacter.GetFirstNameNoTooltip]"
  TCT_patriarchate_territory:0 "Canonical territory: [Scope.GetCharacter.MakeScope.Var('TCT_canonical_territory').GetLandedTitle.GetName]"
- TCT_ecumenical_patriarch_title:0 "Head of the Orthodox Church"
+ TCT_ecumenical_patriarch_title:0 "Head of the Church"
  TCT_ecumenical_patriarch_name:0 "Ecumenical Patriarch\n[Scope.GetCharacter.GetFirstNameNoTooltip]"
  TCT_rom_title:0 "Rome"
  TCT_con_title:0 "Constantinople"

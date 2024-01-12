@@ -10,17 +10,17 @@
 		NOT = { global_var:custom_map_mode = flag:none	}
 	}
 }
-# TCT_pentarchy_map = {
-# 	effect = {
-# 		TCT_pentarchy_map = yes
-# 	}
-# 	is_shown = {
-# 		global_var:custom_map_mode = flag:TCT_pentarchy_map
-# 	}
-# 	is_valid = {
-# 		NOT = { exists = global_var:custom_map_mode_changing }
-# 	}
-# }
+TCT_pentarchy_map = {
+	effect = {
+		TCT_pentarchy_map = yes
+	}
+	is_shown = {
+		global_var:custom_map_mode = flag:TCT_pentarchy_map
+	}
+	is_valid = {
+		NOT = { exists = global_var:custom_map_mode_changing }
+	}
+}
 TCT_update_pentarchy = {
 	scope = character
 
@@ -43,7 +43,7 @@ TCT_update_pentarchy = {
 					has_title = title:d_jerusalem_patriarchate
 				}
 				NOT = {
-					has_title = title:k_orthodox
+					has_variable = tct_ecumenical_patriarch
 				}
 			}
 			# Adds to a pentarchs list
@@ -77,14 +77,16 @@ TCT_update_pentarchy = {
 		}
 		every_living_character = {
 			limit = {
-				has_title = title:k_orthodox
+				#has_title = title:k_orthodox
+				has_variable = tct_ecumenical_patriarch
 			}
 			root = {
 				add_to_variable_list = {
 					name = TCT_ecumenical_patriarch_list
-					target = title:k_orthodox.holder
+					target = prev
 				}
 			}
 		}
+
 	}
 }

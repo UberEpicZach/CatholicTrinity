@@ -4,10 +4,10 @@
 		trigger = {
 			NOT = {
 				county.holder.top_liege.faith = {
-					has_doctrine = doctrine_autocephaly_head
+					has_doctrine = tenet_communion
 				}
 				county.faith = {
-					has_doctrine = doctrine_autocephaly_head
+					has_doctrine = tenet_communion
 				}
 			}
 		}
@@ -19,6 +19,7 @@
 		#fallback = yes
 	}
 }
+
 
 TCT_get_InvestitureLaw_of_barony = {
 	type = province

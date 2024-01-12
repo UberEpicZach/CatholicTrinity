@@ -318,38 +318,38 @@ TCT_rites = {
 		religion_tag = christianity_religion
 	}
 	
-	rite_doctrine_roman = {
+	doctrine_rite_doctrine_roman = {
 		parameters = {
 			christian_rite = yes
 		}
 	}
 
-	rite_doctrine_byzantine = {
+	doctrine_rite_doctrine_byzantine = {
 		parameters = {
 			christian_rite = yes
 		}
 	}
 	
-	rite_doctrine_armenian_apostolic = {
+	doctrine_rite_doctrine_armenian_apostolic = {
 		parameters = {
 			christian_rite = yes
 		}
 	}
 
-	rite_doctrine_alexandrian_coptic = {
+	doctrine_rite_doctrine_alexandrian_coptic = {
 		parameters = {
 			christian_rite = yes
 		}
 	}
 }
 	
-# 	rite_doctrine_antiochean = {
+# 	doctrine_rite_doctrine_antiochean = {
 # 		parameters = {
 # 			antiochene_rite = yes
 # 		}
 # 	}
 	
-# 	rite_doctrine_mozarabic = {
+# 	doctrine_rite_doctrine_mozarabic = {
 # 		parameters = {
 # 			christian_rite = yes
 # 		}

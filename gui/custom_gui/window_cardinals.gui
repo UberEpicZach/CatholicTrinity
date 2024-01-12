@@ -543,13 +543,16 @@ types Cardinals {
 			#}
 			
 			hbox = {				
-				vbox = {
+				hbox = {
 					layoutpolicy_horizontal = expanding
 					layoutpolicy_vertical = expanding
 					datamodel = "[GetPlayer.MakeScope.GetList('TCT_ecumenical_patriarch_list')]"
-					margin_right = 15
+					margin_right = 25
 					item = {
 						flowcontainer = {
+							spacer = { 
+								size = { 80 80 }
+							}
 							datacontext = "[Scope.GetCharacter]"
 							vbox = {
 								text_single = {
@@ -619,6 +622,7 @@ types Cardinals {
 				spacer = { 
 					size = { 75 75 }
 					margin_top = 2
+					margin_top = 2
 				}
 				
 				dynamicgridbox = { # Pentarchs
@@ -665,11 +669,11 @@ types Cardinals {
 									parentanchor = left
 									#datacontext = "[Character]"
 								
-									#blockoverride "coa_button" {
-									#	datacontext = "[Scope.GetCharacter.GetTopLiege]"
-									#	tooltip = "[Character.GetDefaultRealmFlagTooltipPrimaryTitleClickInfo]"
-									#	onclick = "[DefaultOnCoatOfArmsClick(Character.GetPrimaryTitle.GetID)]"
-									#}
+									# blockoverride "coa_button" {
+									# 	datacontext = "[Scope.GetCharacter.GetTopLiege]"
+									# 	tooltip = "[Character.GetDefaultRealmFlagTooltipPrimaryTitleClickInfo]"
+									# 	onclick = "[DefaultOnCoatOfArmsClick(Character.GetPrimaryTitle.GetID)]"
+									# }
 								}
 								text_single = {
 									parentanchor = left
