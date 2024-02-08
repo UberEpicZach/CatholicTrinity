@@ -311,7 +311,7 @@ TCT_make_antipope_interaction = {
 	}
 }
 
-# COMMUNION TENET #Updated to 1.7
+# COMMUNION TENET #Updated to LOTD
 excommunicate_interaction = {
 	category = interaction_category_hostile
 	common_interaction = yes #suppress error
@@ -403,6 +403,10 @@ excommunicate_interaction = {
 			}
 		}
 		scope:recipient = { NOT = { has_strong_hook = scope:actor } }
+		custom_tooltip = {
+			text = cannot_take_overt_hostile_actions_against_diarch.tt
+			NOT = { scope:recipient ?= scope:actor.diarch }
+		}
 	}
 
 	auto_accept = yes
@@ -442,9 +446,18 @@ excommunicate_interaction = {
 				}
 			}
 		}
+
+		# If we're a clan this interaction affects unity
+		add_clan_unity_interaction_effect = {
+			CHARACTER = scope:actor
+			TARGET = scope:recipient
+			VALUE = medium_unity_loss
+			DESC = clan_unity_excommunication.desc
+			REVERSE_NON_HOUSE_TARGET = no
+		}
 	}
 	
-	#AI will do
+	# AI will do
 	
 	ai_potential = {
 		is_adult = yes
@@ -483,7 +496,7 @@ excommunicate_interaction = {
 	}
 }
 
-#Updated to 1.7
+#Updated to LOTD
 request_excommunication_interaction = {
 	category = interaction_category_hostile
 	icon = excommunication
@@ -621,14 +634,6 @@ request_excommunication_interaction = {
 			}
 			has_doctrine = tenet_communion
 		}
-		# NAND = {
-		# 	scope:actor.faith = {
-		# 		has_doctrine = doctrine_temporal_papacy_head
-		# 	}
-		# 	scope:secondary_recipient = {
-		# 		highest_held_title_tier >= tier_kingdom
-		# 	}
-		# }
 
 		trigger_if = {
 			limit = {
@@ -651,10 +656,20 @@ request_excommunication_interaction = {
 		scope:actor = {
 			custom_description = {
 				text = "hof_interaction_unreformed_faith"
+				NOT = {
+					faith = { has_doctrine_parameter = unreformed }
+				}
+			}
+			NOT = {
+				is_at_war_with = scope:recipient
 			}
 		}
 		scope:recipient = { is_busy_in_events_localised = yes }
 		scope:secondary_recipient = { NOT = { has_strong_hook = scope:actor } }
+		custom_tooltip = {
+			text = cannot_take_overt_hostile_actions_against_diarch.tt
+			NOT = { scope:recipient ?= scope:actor.diarch }
+		}
 	}
 
 	send_option = {
@@ -710,7 +725,7 @@ request_excommunication_interaction = {
 					target = scope:secondary_recipient #Excommunication target
 				}
 			}
-			desc = EXCOMMUNICATION_0_OPINION
+			desc = EXCOMMUNICATION_OPINION
 		}
 		modifier = {
 			add = {
@@ -817,6 +832,14 @@ request_excommunication_interaction = {
 					}
 				}
 			}
+			# If we're a clan this interaction affects unity
+			add_clan_unity_interaction_effect = {
+				CHARACTER = scope:actor
+				TARGET = scope:recipient
+				VALUE = medium_unity_loss
+				DESC = clan_unity_request_excommunication.desc
+				REVERSE_NON_HOUSE_TARGET = no
+			}
 		}
 	}
 
@@ -827,9 +850,18 @@ request_excommunication_interaction = {
 				id = religious_interaction.1023
 			}
 		}
+
+		# If we're a clan this interaction affects unity
+		add_clan_unity_interaction_effect = {
+			CHARACTER = scope:actor
+			TARGET = scope:recipient
+			VALUE = miniscule_unity_gain
+			DESC = clan_unity_excommunication_request_denied.desc
+			REVERSE_NON_HOUSE_TARGET = no
+		}
 	}
 	
-	#AI will do
+	# AI will do
 	
 	ai_potential = {
 		is_adult = yes
@@ -868,7 +900,7 @@ request_excommunication_interaction = {
 	}
 }
 
-#Updated to 1.7
+#Updated to LOTD
 hof_ask_for_claim_interaction = {
 	category = interaction_category_diplomacy
 	icon = religious_claim
@@ -970,8 +1002,8 @@ hof_ask_for_claim_interaction = {
 		}
 		scope:secondary_recipient = {
 			is_landed = yes
-			#primary_title = { tier >= tier_county } I think they should? KOH Change
-			NOT = { has_government = holy_order_government }
+			primary_title = { tier >= tier_county }
+			NOT = { government_has_flag = government_is_holy_order }
 		}
 	}
 	
@@ -988,7 +1020,7 @@ hof_ask_for_claim_interaction = {
 				always = no
 			}
 		}
-		trigger_if = { # Cant request claims on baronies
+		trigger_if = { # Can't request claims on baronies
 			limit = {
 				OR = {
 					scope:recipient.highest_held_title_tier = tier_barony
@@ -1008,7 +1040,7 @@ hof_ask_for_claim_interaction = {
 		trigger_if = { # Can't request claims on theocratic lessees or theocracies (= Prince-Bishops)
 			limit = {
 				scope:secondary_recipient = { 
-					has_government = theocracy_government
+					government_has_flag = government_is_theocracy
 				}
 			}
 			custom_description = {
@@ -1042,12 +1074,66 @@ hof_ask_for_claim_interaction = {
 		scope:recipient = { is_busy_in_events_localised = yes }
 		scope:secondary_recipient = { NOT = { has_strong_hook = scope:actor } }
 	}
+
+	ai_targets = {
+		ai_recipients = neighboring_rulers
+		ai_recipients = peer_vassals
+		ai_recipients = liege
+	}
+	ai_frequency = 36
+	
+	ai_potential = {
+		is_landed = yes
+		OR = {
+			ai_greed >= 50
+			ai_has_warlike_personality = yes
+		}
+		piety >= major_piety_value
+		NOT = { has_trait = excommunicated }
+		exists = faith.religious_head
+		highest_held_title_tier > tier_barony
+	}
+
+	ai_will_do = {
+		base = 0
+
+		modifier = {
+			add = scope:actor.ai_greed
+		}
+
+		modifier = {
+			add = scope:target.tier
+		}
+
+		modifier = {
+			add = -100
+			scope:actor = {
+				OR = {
+					has_relation_friend = scope:secondary_recipient
+					has_relation_lover = scope:secondary_recipient
+					opinion = {
+						target = scope:secondary_recipient
+						value >= high_positive_opinion
+					}
+				}
+			}
+		}
+
+		modifier = {
+			factor = 0
+			NOT = {
+				scope:target = {
+					is_neighbor_to_realm = scope:actor
+				}
+			}
+		}
+	}
 	
 	ai_accept = {
 		base = 0 # Should be 0 for all interactions
 
 		modifier = {
-			scope:claim_hook = yes
+			scope:claim_hook ?= yes
 			add = 100
 			desc = SCHEME_WEAK_HOOK_USED
 		}
@@ -1098,12 +1184,15 @@ hof_ask_for_claim_interaction = {
 				}
 			}
 		}
-
-		opinion_modifier = { # Unlikely if Recipient likes Secondary Recipient
-			who = scope:recipient
-			opinion_target = scope:secondary_recipient
-			multiplier = -1
-			desc = AI_OPINION_REASON
+		modifier = { # Unlikely if recipient likes Secondary Recipient
+			add = {
+				if = {
+					limit = {
+						NOT = { scope:recipient = scope:secondary_recipient }
+					}
+					subtract = "scope:recipient.opinion(scope:secondary_recipient)"
+				}
+			}
 		}
 		
 		modifier = { # Less likely the lower their tier is compared to you
@@ -1515,6 +1604,15 @@ hof_ask_for_claim_interaction = {
 		scope:actor = {
 			trigger_event = religious_interaction.4
 		}
+		
+		# If we're a clan this interaction affects unity
+		add_clan_unity_interaction_effect = {
+			CHARACTER = scope:actor
+			TARGET = scope:secondary_recipient
+			VALUE = minor_unity_loss
+			DESC = clan_unity_granted_claim.desc
+			REVERSE_NON_HOUSE_TARGET = no
+		}
 	}
 
 	on_decline = {
@@ -1524,8 +1622,9 @@ hof_ask_for_claim_interaction = {
 	}
 }
 
-#Updated to 1.7
+#Updated to LOTD
 hof_ask_for_gold_interaction = {
+	icon = icon_gold
 	category = interaction_category_religion
 
 	desc = hof_ask_for_gold_interaction_desc
@@ -2077,11 +2176,29 @@ hof_ask_for_gold_interaction = {
 			}
 			scope:recipient.gold >= 3000
 		}
+
+		modifier = {
+			add = 100
+			scope:actor = {
+				ai_has_economical_boom_personality = yes
+			}
+			scope:recipient.gold >= 1000
+		}
+		
+		modifier = {
+			add = 100
+			scope:actor = {
+				ai_has_warlike_personality = yes
+				war_chest_gold < war_chest_gold_maximum
+			}
+			scope:recipient.gold >= 1000
+		}
 	}
 }
 
-#Updated to 1.7
+#Updated to LOTD
 seek_indulgences_interaction = {
+	icon = religious
 	category = interaction_category_religion
 
 	desc = seek_indulgences_interaction_desc
@@ -2202,6 +2319,14 @@ seek_indulgences_interaction = {
 				}
 			}
 		}
+
+		evaluate_action_increasing_house_unity = {
+			VALUE = 50
+		}
+
+		evaluate_action_decreasing_house_unity = {
+			VALUE = -100
+		}
 	}
 	
 	ai_min_reply_days = 1
@@ -2212,11 +2337,29 @@ seek_indulgences_interaction = {
 		scope:actor = {
 			trigger_event = religious_interaction.1010
 		}
+
+		# If we're a clan this interaction affects unity
+		add_clan_unity_interaction_effect = {
+			CHARACTER = scope:actor
+			TARGET = scope:recipient
+			VALUE = medium_unity_gain
+			DESC = clan_unity_indulgences_accepted.desc
+			REVERSE_NON_HOUSE_TARGET = no
+		}
 	}
 
 	on_decline = {
 		scope:actor = {
 			trigger_event = religious_interaction.1011
+		}
+
+		# If we're a clan this interaction affects unity
+		add_clan_unity_interaction_effect = {
+			CHARACTER = scope:actor
+			TARGET = scope:recipient
+			VALUE = minor_unity_loss
+			DESC = clan_unity_indulgences_declined.desc
+			REVERSE_NON_HOUSE_TARGET = no
 		}
 	}
 	
@@ -2288,11 +2431,16 @@ seek_indulgences_interaction = {
 				piety_level > 0
 			}
 		}
+
+		evaluate_action_increasing_house_unity = {
+			VALUE = 50
+		}
 	}
 }
 
-#Updated to 1.7
+#Updated to LOTD
 declaration_of_repentance_interaction = {
+	icon = religious
 	category = interaction_category_religion
 
 	desc = {
@@ -2432,6 +2580,14 @@ declaration_of_repentance_interaction = {
 				}
 			}
 		}
+		
+		evaluate_action_increasing_house_unity = {
+			VALUE = 50
+		}
+
+		evaluate_action_decreasing_house_unity = {
+			VALUE = -100
+		}
 	}
 	
 	ai_min_reply_days = 1
@@ -2446,6 +2602,15 @@ declaration_of_repentance_interaction = {
 				id = religious_interaction.1024
 			}
 		}
+		
+		# If we're a clan this interaction affects unity
+		add_clan_unity_interaction_effect = {
+			CHARACTER = scope:actor
+			TARGET = scope:recipient
+			VALUE = medium_unity_gain
+			DESC = clan_unity_repentance.desc
+			REVERSE_NON_HOUSE_TARGET = no
+		}
 	}
 
 	on_decline = {
@@ -2456,6 +2621,15 @@ declaration_of_repentance_interaction = {
 				id = religious_interaction.1025
 			}
 		}
+		
+		# If we're a clan this interaction affects unity
+		add_clan_unity_interaction_effect = {
+			CHARACTER = scope:actor
+			TARGET = scope:recipient
+			VALUE = minor_unity_loss
+			DESC =  clan_unity_repentance_declined.desc
+			REVERSE_NON_HOUSE_TARGET = no
+		}
 	}
 	
 	# AI will do
@@ -2465,7 +2639,7 @@ declaration_of_repentance_interaction = {
 	}
 
 	ai_targets = {
-		ai_recipients = scripted_relations #KOH CHANGE, Can't be head_of_faith due to Anti-popes
+		ai_recipients = scripted_relations #TCT CHANGE, Can't be head_of_faith due to Anti-popes
 	}
 	
 	ai_frequency = 72
@@ -2475,9 +2649,10 @@ declaration_of_repentance_interaction = {
 	}
 }
 
-#Updated to 1.7
+#Updated to LOTD
 lift_excommunication_interaction = {
 	category = interaction_category_religion
+	icon = excommunication
 
 	common_interaction = yes
 
@@ -2528,6 +2703,15 @@ lift_excommunication_interaction = {
 			TARGET_CHARACTER = scope:recipient
 			REQUESTING_CHARACTER = scope:actor
 		}
+		
+		# If we're a clan this interaction affects unity
+		add_clan_unity_interaction_effect = {
+			CHARACTER = scope:actor
+			TARGET = scope:recipient
+			VALUE = medium_unity_gain
+			DESC = clan_unity_excommunication_lifted
+			REVERSE_NON_HOUSE_TARGET = no
+		}
 	}
 	
 	# AI will do
@@ -2569,16 +2753,14 @@ lift_excommunication_interaction = {
 	}
 }
 
-#Updated to 1.7
+#Updated to LOTD
 divorce_character_interaction = { 
 	category = interaction_category_diplomacy
 	use_diplomatic_range = no
+	icon = icon_marriage
 
 	desc = divorce_character_interaction_desc
-
-	cost = {
-		piety = divorce_cost
-	}
+	cost = { piety = divorce_cost }
 	
 	is_shown = {
 		scope:actor.faith = {
@@ -2659,6 +2841,15 @@ divorce_character_interaction = {
 		scope:recipient = {
 			trigger_event = marriage_interaction.0030
 		}
+		
+		# If we're a clan this interaction affects unity
+		add_clan_unity_interaction_effect = {
+			CHARACTER = scope:actor
+			TARGET = scope:recipient
+			VALUE = major_unity_loss
+			DESC = clan_unity_divorce.desc
+			REVERSE_NON_HOUSE_TARGET = no
+		}
 	}
 	
 	# AI
@@ -2697,13 +2888,19 @@ divorce_character_interaction = {
 				allowed_to_marry_same_sex_trigger = no
 			}
 		}
+		
+		# Unity modifiers
+		evaluate_action_decreasing_house_unity = {
+			VALUE = 100
+		}
 	}
 }
 
-#Updated to 1.7
+#Updated to LOTD
 divorce_character_rel_head_interaction = {
 	category = interaction_category_diplomacy
 	use_diplomatic_range = no
+	icon = icon_marriage
 
 	cost = {
 		piety = divorce_cost
@@ -2791,9 +2988,6 @@ divorce_character_rel_head_interaction = {
 		}
 		NOT = {
 			scope:secondary_recipient = { has_strong_hook = scope:actor }
-		}
-		scope:actor = {
-			piety >= divorce_cost
 		}
 	}
 
@@ -2966,6 +3160,18 @@ divorce_character_rel_head_interaction = {
 				allowed_to_marry_same_sex_trigger = no
 			}
 		}
+		
+		modifier = { # You have denounced them as impotent (ep2_wedding.1061)
+			add = 30
+			desc = THEY_ARE_ACCUSED_IMPOTENCY
+			scope:secondary_recipient = {
+				has_character_modifier = wedding_accused_impotency_modifier
+			}
+		}
+		# Unity modifiers
+		evaluate_action_decreasing_house_unity = {
+			VALUE = 100
+		}
 	}
 	
 	auto_accept = {
@@ -2974,11 +3180,6 @@ divorce_character_rel_head_interaction = {
 			subject = scope:actor
 			object = scope:recipient
 			scope:divorce_hook = yes
-		}
-		custom_description = {
-			text = "spending_hook"
-			subject = scope:actor
-			object = scope:recipient
 		}
 	}
 	
@@ -3024,6 +3225,15 @@ divorce_character_rel_head_interaction = {
 		scope:actor = {
 			trigger_event = religious_interaction.1
 		}
+		
+		# If we're a clan this interaction affects unity
+		add_clan_unity_interaction_effect = {
+			CHARACTER = scope:actor
+			TARGET = scope:recipient
+			VALUE = major_unity_loss
+			DESC = clan_unity_alliance.desc
+			REVERSE_NON_HOUSE_TARGET = no
+		}
 	}
 
 	on_decline = {
@@ -3031,6 +3241,15 @@ divorce_character_rel_head_interaction = {
 			title = divorce_character_rel_head_interaction_decline_notification
 
 			right_icon = scope:actor.faith.religious_head
+		}
+
+		# If we're a clan this interaction affects unity
+		add_clan_unity_interaction_effect = {
+			CHARACTER = scope:actor
+			TARGET = scope:recipient
+			VALUE = minor_unity_loss
+			DESC = clan_unity_alliance.desc
+			REVERSE_NON_HOUSE_TARGET = no
 		}
 	}
 	
@@ -3075,10 +3294,15 @@ divorce_character_rel_head_interaction = {
 				allowed_to_marry_same_sex_trigger = no
 			}
 		}
+		
+		# Unity modifiers
+		evaluate_action_decreasing_house_unity = {
+			VALUE = 100
+		}
 	}	
 }
 
-#Updated to 1.7
+#Updated to LOTD
 take_vows_interaction = {
 	category = interaction_category_friendly
 	icon = religious
@@ -3121,8 +3345,12 @@ take_vows_interaction = {
 	is_valid_showing_failures_only = {
 
 		scope:recipient = {
-			age >= 6
+			age >= 10
 			can_take_religious_vows_trigger = yes #Triggers that applies to both Monastery or Holy Order requirements
+		}
+		custom_tooltip = {
+			text = cannot_take_overt_hostile_actions_against_diarch.tt
+			NOT = { scope:recipient ?= scope:actor.diarch }
 		}
 	}
 	
@@ -3182,7 +3410,7 @@ take_vows_interaction = {
 					limit = {
 						scope:actor.top_liege = {
 							any_vassal_or_below = {
-								has_government = theocracy_government
+								government_has_flag = government_is_theocracy
 								primary_title.tier > tier_barony
 								faith = scope:actor.faith
 							}
@@ -3191,7 +3419,7 @@ take_vows_interaction = {
 					scope:actor.top_liege = {
 						random_vassal_or_below = {
 							limit = {
-								has_government = theocracy_government
+								government_has_flag = government_is_theocracy
 								primary_title.tier > tier_barony
 								faith = scope:actor.faith
 							}
@@ -3246,6 +3474,15 @@ take_vows_interaction = {
 				remove_variable = vows_piety_spent
 			}
 		}
+
+		# If we're a clan this interaction affects unity
+		add_clan_unity_interaction_effect = {
+			CHARACTER = scope:actor
+			TARGET = scope:recipient
+			VALUE = minor_unity_gain
+			DESC = clan_unity_take_vows.desc
+			REVERSE_NON_HOUSE_TARGET = no
+		}
 	}
 
 	on_decline = {
@@ -3289,6 +3526,15 @@ take_vows_interaction = {
  				}
  			}
  		}
+
+ 		# If we're a clan this interaction affects unity
+		add_clan_unity_interaction_effect = {
+			CHARACTER = scope:actor
+			TARGET = scope:recipient
+			VALUE = minor_unity_loss
+			DESC = clan_unity_refused_to_take_vows.desc
+			REVERSE_NON_HOUSE_TARGET = no
+		}
  	}
 
 	#auto_accept = no
@@ -3586,10 +3832,10 @@ take_vows_interaction = {
 			scope:recipient = {
 				OR = {
 					is_married = yes
-					exists = bettcthed
+					exists = betrothed
 				}
 			}
-			desc = TAKE_THE_VOWS_MARRIED_OR_BETtctHED
+			desc = TAKE_THE_VOWS_MARRIED_OR_BETROTHED
 		}
 		
 		modifier = {
@@ -4015,11 +4261,11 @@ take_vows_interaction = {
 			}
 		}
 		
-		modifier = { # The AI doesn't ask married/bettcthed people
+		modifier = { # The AI doesn't ask married/betrothed people
 			factor = 0
 			scope:recipient = {
 				OR = {
-					exists = bettcthed
+					exists = betrothed
 					is_married = yes
 				}
 			}
@@ -4060,7 +4306,7 @@ select_cardinal_candidate_interaction = {
 						is_capable_adult = yes
 						is_imprisoned = no
 						is_married = no
-						is_bettcthed = no
+						is_betrothed = no
 						is_ruler = no
 						is_clergy = yes
 						is_cardinal = no
@@ -4079,7 +4325,7 @@ select_cardinal_candidate_interaction = {
 					is_capable_adult = yes
 					is_imprisoned = no
 					is_married = no
-					is_bettcthed = no
+					is_betrothed = no
 					is_ruler = no
 					is_clergy = yes
 					is_cardinal = no
@@ -4096,7 +4342,7 @@ select_cardinal_candidate_interaction = {
 						is_capable_adult = yes
 						is_imprisoned = no
 						is_married = no
-						is_bettcthed = no
+						is_betrothed = no
 						# In minimum good standing with faith
 						NOT = { has_trait = excommunicated }
 						is_ruler = no
@@ -4145,7 +4391,7 @@ select_cardinal_candidate_interaction = {
 		is_capable_adult = yes
 		is_imprisoned = no
 		is_married = no
-		is_bettcthed = no
+		is_betrothed = no
 		is_ruler = no
 		is_clergy = yes
 		is_cardinal = no
