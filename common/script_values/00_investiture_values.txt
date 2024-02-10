@@ -34,3 +34,8 @@ countydonationclery_cap_value = {
 	# Cap it out at the max for the event.
 	max = 9
 }
+
+super_massive_legitimacy_loss = {
+	value = 0
+	subtract = 1000
+}

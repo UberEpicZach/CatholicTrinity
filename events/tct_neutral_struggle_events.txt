@@ -74,6 +74,7 @@ tct_neutral_struggle.0002 = {
 					opinion = -50
 				}
 			}
+			add_legitimacy = super_massive_legitimacy_loss
 		}
 	}
 
