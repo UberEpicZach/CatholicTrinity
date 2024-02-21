@@ -900,7 +900,7 @@ request_excommunication_interaction = {
 	}
 }
 
-#Updated to LOTD
+#Updated to LOTD + made it harder to request claims on higher tier titles
 hof_ask_for_claim_interaction = {
 	category = interaction_category_diplomacy
 	icon = religious_claim
@@ -1037,6 +1037,23 @@ hof_ask_for_claim_interaction = {
 				always = no
 			}
 		}
+		trigger_if = { # Can't request claims on Empires
+			limit = {
+				OR = {
+					scope:recipient.highest_held_title_tier = tier_empire
+					AND = {
+						exists = scope:target
+						scope:target = {
+							tier = tier_empire
+						}
+					}
+				}
+			}
+			custom_description = {
+				text = "hof_ask_for_claim_no_empires"
+				always = no
+			}
+		}
 		trigger_if = { # Can't request claims on theocratic lessees or theocracies (= Prince-Bishops)
 			limit = {
 				scope:secondary_recipient = { 
@@ -1139,7 +1156,7 @@ hof_ask_for_claim_interaction = {
 		}
 		
 		modifier = {
-			add = -50
+			add = -100
 			desc = BASE_RELUCTANCE
 		}
 		
@@ -1207,7 +1224,7 @@ hof_ask_for_claim_interaction = {
 							}
 						}
 					}
-					add = -10
+					add = -20
 				}
 				if = {
 					limit = {
@@ -1218,7 +1235,7 @@ hof_ask_for_claim_interaction = {
 							}
 						}
 					}
-					add = -10
+					add = -20
 				}
 			}
 			desc = THEY_ARE_LOWER_TIER
@@ -1252,7 +1269,7 @@ hof_ask_for_claim_interaction = {
 		}
 		
 		modifier = { # Penalty for children to ask on adults
-			add = -25
+		add = -50
 			desc = I_AM_A_CHILD
 			scope:secondary_recipient = {
 				is_adult = yes
@@ -1263,7 +1280,7 @@ hof_ask_for_claim_interaction = {
 		}
 		
 		modifier = { # Bonus for men if a woman under male preference
-			add = 15
+			add = 25
 			desc = THEY_ARE_FEMALE_WHEN_MALE_IS_PREFERRED
 			scope:secondary_recipient = {
 				is_adult = yes
@@ -1279,7 +1296,7 @@ hof_ask_for_claim_interaction = {
 		}
 		
 		modifier = { # Bonus for women if a man under female preference
-			add = 15
+			add = 25
 			desc = THEY_ARE_MALE_WHEN_FEMALE_IS_PREFERRED
 			scope:secondary_recipient = {
 				is_adult = yes
@@ -1295,7 +1312,7 @@ hof_ask_for_claim_interaction = {
 		}
 		
 		modifier = { # Penalty for women to ask claims on men under male preference
-			add = -15
+			add = -100
 			desc = I_AM_FEMALE_WHEN_MALE_IS_PREFERRED
 			scope:actor = {
 				is_adult = yes
@@ -1311,7 +1328,7 @@ hof_ask_for_claim_interaction = {
 		}
 		
 		modifier = { # Penalty for men to ask claims on women under female preference
-			add = -15
+			add = -100
 			desc = I_AM_MALE_WHEN_FEMALE_IS_PREFERRED
 			scope:actor = {
 				is_adult = yes
@@ -1327,7 +1344,7 @@ hof_ask_for_claim_interaction = {
 		}
 		
 		modifier = { # They are Excommunicated
-			add = 25
+			add = 50
 			desc = THEY_ARE_EXCOMMUNICATED
 			scope:secondary_recipient = {
 				has_trait = excommunicated
@@ -1335,7 +1352,7 @@ hof_ask_for_claim_interaction = {
 		}
 		
 		modifier = { # I am a Kinslayer
-			add = -15
+			add = -25
 			desc = I_AM_A_KINSLAYER
 			scope:actor = {
 				has_trait_rank = {
@@ -1346,7 +1363,7 @@ hof_ask_for_claim_interaction = {
 		}
 		
 		modifier = { # They are a Kinslayer
-			add = 15
+			add = 25
 			desc = THEY_ARE_A_KINSLAYER
 			scope:secondary_recipient = {
 				has_trait_rank = {
@@ -1357,7 +1374,7 @@ hof_ask_for_claim_interaction = {
 		}
 		
 		modifier = { # They are of the same dynasty as the Head of Faith
-			add = -5
+			add = -15
 			desc = THEY_ARE_MY_DYNASTY_MEMBER
 			scope:recipient = {
 				is_lowborn = no
@@ -1373,7 +1390,7 @@ hof_ask_for_claim_interaction = {
 		}
 		
 		modifier = { # You are of the same dynasty as the Head of Faith
-			add = 5
+			add = 15
 			desc = YOU_ARE_MY_DYNASTY_MEMBER
 			scope:recipient = {
 				is_lowborn = no
@@ -1388,7 +1405,7 @@ hof_ask_for_claim_interaction = {
 		}
 		
 		modifier = { # They are of the same house as the Head of Faith
-			add = -10
+			add = -25
 			desc = THEY_ARE_MY_HOUSE_MEMBER
 			scope:recipient = {
 				is_lowborn = no
@@ -1404,7 +1421,7 @@ hof_ask_for_claim_interaction = {
 		}
 		
 		modifier = { # You are of the same house as the Head of Faith
-			add = 10
+			add = 25
 			desc = YOU_ARE_MY_HOUSE_MEMBER
 			scope:recipient = {
 				is_lowborn = no
@@ -1463,7 +1480,7 @@ hof_ask_for_claim_interaction = {
 		}
 		
 		modifier = { # Rival of the Head of Faith
-			add = -100
+			add = -250
 			desc = WE_ARE_RIVALS
 			scope:recipient = {
 				has_relation_rival = scope:actor
@@ -1544,7 +1561,7 @@ hof_ask_for_claim_interaction = {
 		modifier = {
 			desc = RELIGIOUS_HEAD_INTERACTION_CONCLAVE_INFLUENCE_ACTOR
 			add = {
-				add = 10
+				add = 30
 				multiply = scope:actor.var:TCT_conclave_influence
 			}
 			scope:actor = {
@@ -1554,7 +1571,7 @@ hof_ask_for_claim_interaction = {
 		modifier = {
 			desc = RELIGIOUS_HEAD_INTERACTION_CONCLAVE_INFLUENCE_RECIPIENT
 			add = {
-				add = -10
+				add = -30
 				multiply = scope:secondary_recipient.var:TCT_conclave_influence
 			}
 			scope:secondary_recipient = {
