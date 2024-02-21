@@ -1,6 +1,6 @@
 ﻿l_english: 
-  #Special Traits KoH
-  trait_koh_cardinal:0 "Cardinal"
+  #Special Traits TCT
+  trait_TCT_cardinal:0 "Cardinal"
   cardinal_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] is an appointed member of the College of Cardinals. By virtue of his faith, or perhaps other qualities, [ROOT.GetCharacter.GetFirstNameNoTooltip] has been recognized by the Pope as a vital member of the clergy and has a good chance at becoming Pope of the Roman Catholic Church."
 
   trait_cardinal_priest:0 "Cardinal-Priest"

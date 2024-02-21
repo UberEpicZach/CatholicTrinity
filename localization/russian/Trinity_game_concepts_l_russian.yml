@@ -38,8 +38,8 @@
 
  add_pope_to_name: "Pope [ROOT.GetCharacter.GetFirstNameNoTooltip]"
 
- koh_papal_investiture: "Papal Investiture"
- koh_free_investiture: "Free Investiture"
+ TCT_papal_investiture: "Papal Investiture"
+ TCT_free_investiture: "Free Investiture"
  changed_investiture_law: "Changed Investiture Law"
  refused_changed_investiture_law: "Refused to Change Investiture Law"
  bishop_bribed_by_pope: "Bribed by Pope"
@@ -78,7 +78,7 @@
   TCT_MAKE_ANTIPOPE_SINS:0 "[recipient.GetFaith.GetReligiousHead.GetShortUIName|U] has sinful [traits|El]: $VALUE|=+0$"
   TCT_MAKE_ANTIPOPE_IS_AMBITIOUS:0 "[GetTrait('ambitious').GetName(recipient.Self)]: $VALUE|=+0$"
   TCT_MAKE_ANTIPOPE_IS_CONTENT:0 "[GetTrait('content').GetName(recipient.Self)]: $VALUE|=+ 0 $""
-  TCT_MAKE_ANTIPOPE_IS_CARDINAL:0 "[GetTrait('koh_cardinal').GetName(recipient.Self)]: $VALUE|=+0$"
+  TCT_MAKE_ANTIPOPE_IS_CARDINAL:0 "[GetTrait('TCT_cardinal').GetName(recipient.Self)]: $VALUE|=+0$"
   TCT_MAKE_ANTIPOPE_IS_HUMBLE:0 "[GetTrait('humble').GetName(recipient.Self)]: $VALUE|=+0$"
   TCT_MAKE_ANTIPOPE_IS_ARROGANT:0 "[GetTrait('arrogant').GetName(recipient.Self)]: $VALUE|=+0$"
   TCT_MAKE_ANTIPOPE_IS_BRAVE:0 "[GetTrait('brave').GetName(recipient.Self)]: $VALUE|=+0$"
@@ -123,7 +123,7 @@
   empire_mercenary_mod:0 "Grand Armada"
 
  #Modifiers
- koh_governs_vast_estates:0 "This Character Governs Vast Esates for the pope."
+ TCT_governs_vast_estates:0 "This Character Governs Vast Esates for the pope."
 
  #Invest 
   window_cardinals_divest_tooltip:0 "Withdraw Investment! Returns half initial investment."

@@ -1,4 +1,4 @@
-﻿koh_governs_vast_estates = {
+﻿TCT_governs_vast_estates = {
 	icon = feast_positive
 	monthly_income = 1
 }

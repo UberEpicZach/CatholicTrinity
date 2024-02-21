@@ -168,7 +168,7 @@ TCT_region_pentarchy_antiochia = {
 		#Persia
 		d_isfahan d_kirman d_yazd d_rayy d_hamadan d_fars d_hormuz d_khuzestan  
 		#k_khorasan
-		d_nishapur d_merv d_ghur d_herat d_balkh d_nasa d_kohestan
+		d_nishapur d_merv d_ghur d_herat d_balkh d_nasa d_TCTestan
 		#k_daylam
 		d_daylam d_tabaristan d_gurgan d_azerbaijan
 		#k_transoxiana

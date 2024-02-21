@@ -259,7 +259,7 @@ secret_exposed_owner_effects_effect = {
 			}
 			scope:murderer.faith.religious_head = {
 				trigger_event = {
-					id = KoH_religiousflavour.55
+					id = TCT_religious_events.55
 					days = 3
 				}
 			}

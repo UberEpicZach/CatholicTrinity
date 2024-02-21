@@ -414,7 +414,7 @@ can_be_knight_trigger = {
 	}
 }
 
-triggerforKoH_religiousflavour9 = {
+triggerforTCT_religious_events9 = {
 	is_commanding_army = no
 	is_adult = yes
 	is_imprisoned = no

@@ -576,7 +576,7 @@ dictatuspapae = {
 	}
 	set_global_variable = dictatuspapae
 	trigger_event = {
-		id = KoH_religiousflavour.802
+		id = TCT_religious_events.802
 		days = 6
 	}
 }

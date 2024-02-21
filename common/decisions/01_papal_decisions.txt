@@ -106,7 +106,7 @@
 			}
 			trigger_event = great_holy_war.0001
 			religious_head = {
-				trigger_event = KoH_religiousflavour.803
+				trigger_event = TCT_religious_events.803
 			}
 		}
 	}
@@ -168,7 +168,7 @@ ProclaimDictatusPapae = {
 
 	effect = {
 		trigger_event = {
-			id = KoH_religiousflavour.799
+			id = TCT_religious_events.799
 			days = 1
 		}
 		remove_short_term_gold = 250
@@ -289,7 +289,7 @@ DonationCountyClergy = {
 	effect = {
 		debug_log = "Granted a County to the Clergy"
 		trigger_event = {
-			id = KoH_religiousflavour.499
+			id = TCT_religious_events.499
 			days = 1
 		}
 	}
@@ -536,6 +536,6 @@ Declare_Minor_Crusade = {
 
 	effect = {
 		custom_tooltip = Launch_Minor_Crusade_decision_effect_tooltip
-		trigger_event = KoH_religiousflavour.810
+		trigger_event = TCT_religious_events.810
 	}
 }

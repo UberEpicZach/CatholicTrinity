@@ -1,9 +1,9 @@
-﻿namespace = KoH_religiousflavour
+﻿namespace = TCT_religious_events
 
 
-KoH_religiousflavour.1 = { #A Pope and His Estates
-	title = KoH_religiousflavour.1.t
-	desc = KoH_religiousflavour.1.desc
+TCT_religious_events.1 = { #A Pope and His Estates
+	title = TCT_religious_events.1.t
+	desc = TCT_religious_events.1.desc
 	theme = unfriendly
 	left_portrait = {
 		character = this
@@ -54,7 +54,7 @@ KoH_religiousflavour.1 = { #A Pope and His Estates
 	}
 
 	option = { 
-		name = KoH_religiousflavour.1.a
+		name = TCT_religious_events.1.a
 			scope:player_one = {
 				add_opinion = {
 					target = title:k_papal_state.holder 
@@ -69,7 +69,7 @@ KoH_religiousflavour.1 = { #A Pope and His Estates
 
 				set_employer = title:k_papal_state.holder 
 				add_character_modifier = {
-					modifier = koh_governs_vast_estates
+					modifier = TCT_governs_vast_estates
 					years = 5
 				}
 			}
@@ -88,7 +88,7 @@ KoH_religiousflavour.1 = { #A Pope and His Estates
 				} 
 				set_employer = title:k_papal_state.holder 
 				add_character_modifier = {
-					modifier = koh_governs_vast_estates
+					modifier = TCT_governs_vast_estates
 					years = 5
 				}
 			}
@@ -119,7 +119,7 @@ KoH_religiousflavour.1 = { #A Pope and His Estates
 	}
 
 	# option = {
-	# 	name = KoH_religiousflavour.1.b
+	# 	name = TCT_religious_events.1.b
 
 	# 	add_piety = 50
 
@@ -133,7 +133,7 @@ KoH_religiousflavour.1 = { #A Pope and His Estates
 	# }
 
 	# option = {
-	# 	name = KoH_religiousflavour.1.c
+	# 	name = TCT_religious_events.1.c
 	# 	trigger = {
 	# 		OR = {
 	# 			has_trait = zealous
@@ -155,9 +155,9 @@ KoH_religiousflavour.1 = { #A Pope and His Estates
 	# }
 }
 
-KoH_religiousflavour.2 = { #Monks Make Good Beer
-	title = KoH_religiousflavour.2.t
-	desc = KoH_religiousflavour.2.desc
+TCT_religious_events.2 = { #Monks Make Good Beer
+	title = TCT_religious_events.2.t
+	desc = TCT_religious_events.2.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = this
@@ -196,7 +196,7 @@ KoH_religiousflavour.2 = { #Monks Make Good Beer
 	}
 
 	option = { 
-		name = KoH_religiousflavour.2.a
+		name = TCT_religious_events.2.a
 
 		if = {
 			limit = { NOT = { has_trait = drunkard } }
@@ -205,7 +205,7 @@ KoH_religiousflavour.2 = { #Monks Make Good Beer
 				add_trait = drunkard
 				send_interface_toast = {
 					type = event_toast_effect_bad
-					title =  KoH_religiousflavour.2.a.drunkard # KoH_religiousflavour.2.a.drunkard
+					title =  TCT_religious_events.2.a.drunkard # TCT_religious_events.2.a.drunkard
 					left_icon = root
 				}
 			}
@@ -217,7 +217,7 @@ KoH_religiousflavour.2 = { #Monks Make Good Beer
 	}
 
 	option = { 
-		name = KoH_religiousflavour.2.b
+		name = TCT_religious_events.2.b
 
 		if = {
 			limit = { NOT = { has_trait = temperate } }
@@ -226,7 +226,7 @@ KoH_religiousflavour.2 = { #Monks Make Good Beer
 				add_trait = temperate
 				send_interface_toast = {
 					type = event_toast_effect_good
-					title =  KoH_religiousflavour.2.b.temperate
+					title =  TCT_religious_events.2.b.temperate
 					left_icon = root
 				}
 			}
@@ -247,9 +247,9 @@ KoH_religiousflavour.2 = { #Monks Make Good Beer
 	}
 }
 
-KoH_religiousflavour.3 = { #Monks Make Good Wine
-	title = KoH_religiousflavour.3.t
-	desc = KoH_religiousflavour.3.desc
+TCT_religious_events.3 = { #Monks Make Good Wine
+	title = TCT_religious_events.3.t
+	desc = TCT_religious_events.3.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = this
@@ -289,7 +289,7 @@ KoH_religiousflavour.3 = { #Monks Make Good Wine
 	}
 
 	option = { 
-		name = KoH_religiousflavour.3.a
+		name = TCT_religious_events.3.a
 
 		random = {
 			chance = 50
@@ -302,7 +302,7 @@ KoH_religiousflavour.3 = { #Monks Make Good Wine
 				add_trait = drunkard
 				send_interface_toast = {
 					type = event_toast_effect_bad
-					title = KoH_religiousflavour.2.a.drunkard
+					title = TCT_religious_events.2.a.drunkard
 					left_icon = root
 				}
 			}
@@ -314,7 +314,7 @@ KoH_religiousflavour.3 = { #Monks Make Good Wine
 	}
 
 	option = { 
-		name = KoH_religiousflavour.3.b
+		name = TCT_religious_events.3.b
 
 		if = {
 			limit = { NOT = { has_trait = temperate } }
@@ -323,7 +323,7 @@ KoH_religiousflavour.3 = { #Monks Make Good Wine
 				add_trait = temperate
 				send_interface_toast = {
 					type = event_toast_effect_good
-					title = KoH_religiousflavour.2.b.temperate
+					title = TCT_religious_events.2.b.temperate
 					left_icon = root
 				}
 			}
@@ -344,9 +344,9 @@ KoH_religiousflavour.3 = { #Monks Make Good Wine
 	}
 }
 
-KoH_religiousflavour.4 = { #Monks have healing herbs
-	title = KoH_religiousflavour.4.t
-	desc = KoH_religiousflavour.4.desc
+TCT_religious_events.4 = { #Monks have healing herbs
+	title = TCT_religious_events.4.t
+	desc = TCT_religious_events.4.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = this
@@ -390,7 +390,7 @@ KoH_religiousflavour.4 = { #Monks have healing herbs
 	}
 
 	option = { 
-		name = KoH_religiousflavour.4.a
+		name = TCT_religious_events.4.a
 
 		random = {
 			chance = 30
@@ -403,7 +403,7 @@ KoH_religiousflavour.4 = { #Monks have healing herbs
 	}
 
 	option = { 
-		name = KoH_religiousflavour.4.b
+		name = TCT_religious_events.4.b
 
 		if = {
 			limit = { NOT = { has_trait = paranoid } }
@@ -421,9 +421,9 @@ KoH_religiousflavour.4 = { #Monks have healing herbs
 	}
 }
 
-KoH_religiousflavour.5 = { #Monks is fantastic painter
-	title = KoH_religiousflavour.5.t
-	desc = KoH_religiousflavour.5.desc
+TCT_religious_events.5 = { #Monks is fantastic painter
+	title = TCT_religious_events.5.t
+	desc = TCT_religious_events.5.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = this
@@ -466,14 +466,14 @@ KoH_religiousflavour.5 = { #Monks is fantastic painter
 	}
 
 	option = { 
-		name = KoH_religiousflavour.5.a
+		name = TCT_religious_events.5.a
 
 		remove_short_term_gold = 10
 		add_prestige = 30
 	}
 
 	option = { 
-		name = KoH_religiousflavour.5.b
+		name = TCT_religious_events.5.b
 
 	}
 	after = {
@@ -487,9 +487,9 @@ KoH_religiousflavour.5 = { #Monks is fantastic painter
 	}
 }
 
-KoH_religiousflavour.6 = { #Monks is fantastic painter
-	title = KoH_religiousflavour.6.t
-	desc = KoH_religiousflavour.6.desc
+TCT_religious_events.6 = { #Monks is fantastic painter
+	title = TCT_religious_events.6.t
+	desc = TCT_religious_events.6.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = this
@@ -529,14 +529,14 @@ KoH_religiousflavour.6 = { #Monks is fantastic painter
 	}
 
 	option = { 
-		name = KoH_religiousflavour.6.a
+		name = TCT_religious_events.6.a
 
 		remove_short_term_gold = 10
 		add_prestige = 30
 	}
 
 	option = { 
-		name = KoH_religiousflavour.6.b
+		name = TCT_religious_events.6.b
 
 	}
 	after = {
@@ -550,9 +550,9 @@ KoH_religiousflavour.6 = { #Monks is fantastic painter
 	}
 }
 
-KoH_religiousflavour.7 = { #Monks is fantastic painter
-	title = KoH_religiousflavour.7.t
-	desc = KoH_religiousflavour.7.desc
+TCT_religious_events.7 = { #Monks is fantastic painter
+	title = TCT_religious_events.7.t
+	desc = TCT_religious_events.7.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = this
@@ -591,7 +591,7 @@ KoH_religiousflavour.7 = { #Monks is fantastic painter
 	}
 
 	option = { 
-		name = KoH_religiousflavour.7.a
+		name = TCT_religious_events.7.a
 
 		remove_short_term_gold = 30
 		add_prestige = 30
@@ -601,7 +601,7 @@ KoH_religiousflavour.7 = { #Monks is fantastic painter
 		}
 	}
 	option = { 
-		name = KoH_religiousflavour.7.b
+		name = TCT_religious_events.7.b
 
 	}
 	after = {
@@ -615,9 +615,9 @@ KoH_religiousflavour.7 = { #Monks is fantastic painter
 	}
 }
 
-KoH_religiousflavour.8 = { #Monastery Monks"
-	title = KoH_religiousflavour.8.t
-	desc = KoH_religiousflavour.8.desc
+TCT_religious_events.8 = { #Monastery Monks"
+	title = TCT_religious_events.8.t
+	desc = TCT_religious_events.8.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = this
@@ -656,7 +656,7 @@ KoH_religiousflavour.8 = { #Monastery Monks"
 	}
 
 	option = { 
-		name = KoH_religiousflavour.8.a
+		name = TCT_religious_events.8.a
 
 		add_piety = 20
 
@@ -666,7 +666,7 @@ KoH_religiousflavour.8 = { #Monastery Monks"
 		}
 	}
 	option = { 
-		name = KoH_religiousflavour.8.b
+		name = TCT_religious_events.8.b
 		random_list = {
 			30 = {
 				if = {
@@ -691,9 +691,9 @@ KoH_religiousflavour.8 = { #Monastery Monks"
 	}
 }
 
-KoH_religiousflavour.9 = { #Child wants to be monk/nun - select child
-	title = KoH_religiousflavour.9.t
-	desc = KoH_religiousflavour.9.desc
+TCT_religious_events.9 = { #Child wants to be monk/nun - select child
+	title = TCT_religious_events.9.t
+	desc = TCT_religious_events.9.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = this
@@ -703,7 +703,7 @@ KoH_religiousflavour.9 = { #Child wants to be monk/nun - select child
 	}
 
 	trigger = {		
-		triggerforKoH_religiousflavour9 = yes
+		triggerforTCT_religious_events9 = yes
 	}
 
 	immediate = {
@@ -721,8 +721,8 @@ KoH_religiousflavour.9 = { #Child wants to be monk/nun - select child
 	}
 
 	option = { 
-		name = KoH_religiousflavour.9.a
-		#custom_tooltip = KoH_religiousflavour.9.a.tt 
+		name = TCT_religious_events.9.a
+		#custom_tooltip = TCT_religious_events.9.a.tt 
 	
 		scope:childforthechurch = {
 			send_child_to_clergy_effect_for_events = yes
@@ -766,7 +766,7 @@ KoH_religiousflavour.9 = { #Child wants to be monk/nun - select child
 	}
 
 	option = { 
-		name = KoH_religiousflavour.9.b
+		name = TCT_religious_events.9.b
 		scope:childforthechurch = {
 			add_stress = major_stress_loss
 			add_opinion = {
@@ -779,9 +779,9 @@ KoH_religiousflavour.9 = { #Child wants to be monk/nun - select child
 
 }
 
-KoH_religiousflavour.12 = { #Donate to local monastery
-	title = KoH_religiousflavour.12.t
-	desc = KoH_religiousflavour.12.desc
+TCT_religious_events.12 = { #Donate to local monastery
+	title = TCT_religious_events.12.t
+	desc = TCT_religious_events.12.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = this
@@ -811,13 +811,13 @@ KoH_religiousflavour.12 = { #Donate to local monastery
 	}
 
 	option = { 
-		name = KoH_religiousflavour.12.a
+		name = TCT_religious_events.12.a
 		remove_short_term_gold = 30
 		add_piety = 30
 	}
 	
 	option = { 
-		name = KoH_religiousflavour.12.b
+		name = TCT_religious_events.12.b
 		add_piety = -30
 	}
 	after = {
@@ -831,9 +831,9 @@ KoH_religiousflavour.12 = { #Donate to local monastery
 	}
 }
 
-KoH_religiousflavour.13 = { #Duty-Bound
-	title = KoH_religiousflavour.13.t
-	desc = KoH_religiousflavour.13.desc
+TCT_religious_events.13 = { #Duty-Bound
+	title = TCT_religious_events.13.t
+	desc = TCT_religious_events.13.desc
 	theme = learning_scholarship_focus
 	right_portrait = {
 		character = scope:Priest
@@ -889,7 +889,7 @@ KoH_religiousflavour.13 = { #Duty-Bound
 	}
 
 	option = { 
-		name = KoH_religiousflavour.13.a
+		name = TCT_religious_events.13.a
 		
 		scope:Priest = {
 			give_deviant_secret_or_trait_effect = yes
@@ -906,9 +906,9 @@ KoH_religiousflavour.13 = { #Duty-Bound
 	}
 }
 
-KoH_religiousflavour.14 = { #Duty-Bound - Varaint
-	title = KoH_religiousflavour.14.t
-	desc = KoH_religiousflavour.14.desc
+TCT_religious_events.14 = { #Duty-Bound - Varaint
+	title = TCT_religious_events.14.t
+	desc = TCT_religious_events.14.desc
 	theme = learning_scholarship_focus
 	right_portrait = {
 		character = scope:Priest
@@ -974,7 +974,7 @@ KoH_religiousflavour.14 = { #Duty-Bound - Varaint
 	}
 
 	option = { 
-		name = KoH_religiousflavour.14.a
+		name = TCT_religious_events.14.a
 		
 		scope:Priest = {
 			give_deviant_secret_or_trait_effect = yes
@@ -991,9 +991,9 @@ KoH_religiousflavour.14 = { #Duty-Bound - Varaint
 	}
 }
 #Waldensians in Lyon
-# KoH_religiousflavour.15 = {
-# 	title = KoH_religiousflavour.15.t
-# 	desc = KoH_religiousflavour.15.desc
+# TCT_religious_events.15 = {
+# 	title = TCT_religious_events.15.t
+# 	desc = TCT_religious_events.15.desc
 # 	orphan = yes
 # 	theme = faith 
 # 	override_background = {
@@ -1030,33 +1030,33 @@ KoH_religiousflavour.14 = { #Duty-Bound - Varaint
 # 	}
 
 # 	option = { 
-# 		name = KoH_religiousflavour.15.a
+# 		name = TCT_religious_events.15.a
 # 		title:c_provence.holder = {
 # 			trigger_event = {
-# 				id = KoH_religiousflavour.16
+# 				id = TCT_religious_events.16
 # 				days = { 5 10 }
 # 			}
 # 		}
 
 # 		title:c_savoie.holder = {
 # 			trigger_event = {
-# 				id = KoH_religiousflavour.16
+# 				id = TCT_religious_events.16
 # 				days = { 5 10 }
 # 			}
 # 		}
 # 	}
 # 	option = { 
-# 		name = KoH_religiousflavour.15.b
+# 		name = TCT_religious_events.15.b
 # 		trigger_event = {
-# 			id = KoH_religiousflavour.17
+# 			id = TCT_religious_events.17
 # 			days = { 5 10 }
 # 		}
 # 	}
 # }
 
-# KoH_religiousflavour.16 = {
-# 	title = KoH_religiousflavour.16.t
-# 	desc = KoH_religiousflavour.16.desc
+# TCT_religious_events.16 = {
+# 	title = TCT_religious_events.16.t
+# 	desc = TCT_religious_events.16.desc
 # 	theme = faith 
 # 	override_background = {
 # 		reference = market
@@ -1079,15 +1079,15 @@ KoH_religiousflavour.14 = { #Duty-Bound - Varaint
 # 	}
 
 # 	option = { 
-# 		name = KoH_religiousflavour.16.a
+# 		name = TCT_religious_events.16.a
 
 
 # 	}
 # }
 
-# KoH_religiousflavour.17 = {
-# 	title = KoH_religiousflavour.17.t
-# 	desc = KoH_religiousflavour.17.desc
+# TCT_religious_events.17 = {
+# 	title = TCT_religious_events.17.t
+# 	desc = TCT_religious_events.17.desc
 # 	theme = faith 
 # 	override_background = {
 # 		reference = market
@@ -1107,7 +1107,7 @@ KoH_religiousflavour.14 = { #Duty-Bound - Varaint
 # 	}
 
 # 	option = { 
-# 		name = KoH_religiousflavour.17.a
+# 		name = TCT_religious_events.17.a
 
 # 		scope:archbishop = {
 # 			add_opinion = {
@@ -1120,14 +1120,14 @@ KoH_religiousflavour.14 = { #Duty-Bound - Varaint
 # 		add_piety = 50 
 
 # 		trigger_event = {
-# 			id = KoH_religiousflavour.18
+# 			id = TCT_religious_events.18
 # 			days = 3 
 # 		}
 # 	}
 
 # 	option = { 
-# 		name = KoH_religiousflavour.17.b
-# 		custom_tooltip = KoH_religiousflavour.17.b.tt
+# 		name = TCT_religious_events.17.b
+# 		custom_tooltip = TCT_religious_events.17.b.tt
 
 # 		scope:archbishop = {
 # 			add_opinion = {
@@ -1138,14 +1138,14 @@ KoH_religiousflavour.14 = { #Duty-Bound - Varaint
 # 		}
 
 # 		trigger_event = {
-# 			id = KoH_religiousflavour.19
+# 			id = TCT_religious_events.19
 # 			days = {10 20}
 # 		}
 # 	}
 
 # 	option = { 
-# 		name = KoH_religiousflavour.17.c
-# 		custom_tooltip = KoH_religiousflavour.17.c.tt
+# 		name = TCT_religious_events.17.c
+# 		custom_tooltip = TCT_religious_events.17.c.tt
 
 # 		scope:archbishop = {
 # 			set_relation_rival = root
@@ -1160,7 +1160,7 @@ KoH_religiousflavour.14 = { #Duty-Bound - Varaint
 
 
 # 		trigger_event = {
-# 			id = KoH_religiousflavour.20
+# 			id = TCT_religious_events.20
 # 			days = 3 
 # 		}
 
@@ -1170,9 +1170,9 @@ KoH_religiousflavour.14 = { #Duty-Bound - Varaint
 # 	}
 # }
 
-# KoH_religiousflavour.18 = {
-# 	title = KoH_religiousflavour.18.t
-# 	desc = KoH_religiousflavour.18.desc
+# TCT_religious_events.18 = {
+# 	title = TCT_religious_events.18.t
+# 	desc = TCT_religious_events.18.desc
 # 	theme = faith 
 # 	override_background = {
 # 		reference = market
@@ -1190,13 +1190,13 @@ KoH_religiousflavour.14 = { #Duty-Bound - Varaint
 # 	}
 
 # 	option = { 
-# 		name = KoH_religiousflavour.18.a	
+# 		name = TCT_religious_events.18.a	
 # 	}
 # }
 
-# KoH_religiousflavour.19 = {
-# 	title = KoH_religiousflavour.19.t
-# 	desc = KoH_religiousflavour.19.desc
+# TCT_religious_events.19 = {
+# 	title = TCT_religious_events.19.t
+# 	desc = TCT_religious_events.19.desc
 # 	theme = faith 
 # 	override_background = {
 # 		reference = market
@@ -1207,13 +1207,13 @@ KoH_religiousflavour.14 = { #Duty-Bound - Varaint
 # 	}
 
 # 	option = { 
-# 		name = KoH_religiousflavour.19.a	
+# 		name = TCT_religious_events.19.a	
 
 # 		title:c_forez = {
 # 			set_county_faith = faith:waldensian
 
 # 			add_county_modifier = {
-# 				modifier = KOH_Religious_Tolerance
+# 				modifier = TCT_Religious_Tolerance
 # 				years = 20
 # 			}
 # 		}
@@ -1221,9 +1221,9 @@ KoH_religiousflavour.14 = { #Duty-Bound - Varaint
 # 	}
 # }
 
-# KoH_religiousflavour.20 = {
-# 	title = KoH_religiousflavour.20.t
-# 	desc = KoH_religiousflavour.20.desc
+# TCT_religious_events.20 = {
+# 	title = TCT_religious_events.20.t
+# 	desc = TCT_religious_events.20.desc
 # 	theme = faith 
 # 	override_background = {
 # 		reference = market
@@ -1234,7 +1234,7 @@ KoH_religiousflavour.14 = { #Duty-Bound - Varaint
 # 	}
 
 # 	option = { 
-# 		name = KoH_religiousflavour.20.a	
+# 		name = TCT_religious_events.20.a	
 
 # 		add_trait = heresiarch
 # 		add_trait = paragon
@@ -1285,16 +1285,16 @@ KoH_religiousflavour.14 = { #Duty-Bound - Varaint
 # 				}
 # 			}
 # 			trigger_event = {
-# 				id = KoH_religiousflavour.21
+# 				id = TCT_religious_events.21
 # 				days = 10
 # 			}
 # 		}
 # 	}
 # }
 
-# KoH_religiousflavour.21 = {
-# 	title = KoH_religiousflavour.21.t
-# 	desc = KoH_religiousflavour.21.desc
+# TCT_religious_events.21 = {
+# 	title = TCT_religious_events.21.t
+# 	desc = TCT_religious_events.21.desc
 # 	theme = faith 
 # 	override_background = {
 # 		reference = market
@@ -1315,12 +1315,12 @@ KoH_religiousflavour.14 = { #Duty-Bound - Varaint
 # 	}
 
 # 	option = { 
-# 		name = KoH_religiousflavour.21.a	
+# 		name = TCT_religious_events.21.a	
 # 	}
 # }
 
 #cardinal names
-KoH_religiousflavour.22 = {
+TCT_religious_events.22 = {
 	hidden = yes
 
 	immediate = {
@@ -1352,7 +1352,7 @@ KoH_religiousflavour.22 = {
 }
 
 #cardinal election won
-KoH_religiousflavour.23 = {
+TCT_religious_events.23 = {
 	hidden = yes
 	orphan = yes
 	immediate = {
@@ -1360,7 +1360,7 @@ KoH_religiousflavour.23 = {
 			title = CardinalElectionWon				
 			right_icon = prev
 			
-			custom_tooltip = HookGainedKOH
+			custom_tooltip = HookGainedTCT
 		}
 	}
 }
@@ -1368,9 +1368,9 @@ KoH_religiousflavour.23 = {
 #The Pope and an Investiture Free Realm
 # The Pope singles out a Kingdom with Free Investiture (unless he has already targetted one)
 #Event 1
-KoH_religiousflavour.24 = { 
-	title = KoH_religiousflavour.24.t
-	desc = KoH_religiousflavour.24.desc
+TCT_religious_events.24 = { 
+	title = TCT_religious_events.24.t
+	desc = TCT_religious_events.24.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = this
@@ -1427,7 +1427,7 @@ KoH_religiousflavour.24 = {
 	}
 
 	option = { 
-		name = KoH_religiousflavour.24.a
+		name = TCT_religious_events.24.a
 		add_character_flag = pope_currently_demanding
 
 		if = {
@@ -1451,12 +1451,12 @@ KoH_religiousflavour.24 = {
 				add_character_flag = pope_wants_our_law_changed
 
 				trigger_event = {
-					id = KoH_religiousflavour.25
+					id = TCT_religious_events.25
 					days = 14
 				}
 			}
 		}
-		#custom_tooltip = KoH_religiousflavour.24 #EVTTOOLTIP67001
+		#custom_tooltip = TCT_religious_events.24 #EVTTOOLTIP67001
 
 		ai_chance = {	
 			base = 100
@@ -1465,7 +1465,7 @@ KoH_religiousflavour.24 = {
 	}
 	
 	option = { 
-		name = KoH_religiousflavour.24.b
+		name = TCT_religious_events.24.b
 		
 
 		ai_chance = { 
@@ -1476,9 +1476,9 @@ KoH_religiousflavour.24 = {
 
 #King/Emperor gets the papal emissary asking them to change laws!
 #Event 2
-KoH_religiousflavour.25 = { 
-	title = KoH_religiousflavour.25.t
-	desc = KoH_religiousflavour.25.desc
+TCT_religious_events.25 = { 
+	title = TCT_religious_events.25.t
+	desc = TCT_religious_events.25.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = scope:popewantsit
@@ -1516,7 +1516,7 @@ KoH_religiousflavour.25 = {
 	}
 
 	option = { 
-		name = KoH_religiousflavour.25.a # Fold to demand
+		name = TCT_religious_events.25.a # Fold to demand
 		
 		trigger = {
 			OR = {
@@ -1564,7 +1564,7 @@ KoH_religiousflavour.25 = {
 			}
 			
 			trigger_event = {
-				id = KoH_religiousflavour.26
+				id = TCT_religious_events.26
 				days = 1
 			}
 		}
@@ -1587,7 +1587,7 @@ KoH_religiousflavour.25 = {
 	}
 
 	option = { 
-		name = KoH_religiousflavour.25.b # Refuse
+		name = TCT_religious_events.25.b # Refuse
 		
 		add_piety = -25
 		faith = {
@@ -1606,7 +1606,7 @@ KoH_religiousflavour.25 = {
 				modifier = refused_changed_investiture_law
 			}
 			trigger_event = {
-				id = KoH_religiousflavour.27
+				id = TCT_religious_events.27
 				days = 1
 			}
 		}
@@ -1632,7 +1632,7 @@ KoH_religiousflavour.25 = {
 	}
 
 	option = { 
-		name = KoH_religiousflavour.25.c ## Give gold to Pope / Bribe Pope
+		name = TCT_religious_events.25.c ## Give gold to Pope / Bribe Pope
 		trigger = { 
 			gold >= 200
 
@@ -1653,7 +1653,7 @@ KoH_religiousflavour.25 = {
 			faith.religious_head = {
 				remove_character_flag = pope_currently_demanding
 				trigger_event = {
-					id = KoH_religiousflavour.28
+					id = TCT_religious_events.28
 					days = 1
 				}
 			}
@@ -1675,7 +1675,7 @@ KoH_religiousflavour.25 = {
 	}
 
 	option = { 
-		name = KoH_religiousflavour.25.d ## Impress with Learning
+		name = TCT_religious_events.25.d ## Impress with Learning
 		
 		duel = {
 			skill = learning
@@ -1683,23 +1683,23 @@ KoH_religiousflavour.25 = {
 			# value = medium_skill_rating
 			# desc = outcome_in_a_few_days
 			60 = {		
-				desc = KoH_religiousflavour.29.d.success
+				desc = TCT_religious_events.29.d.success
 				compare_modifier = {
 					value = scope:duel_value
 					multiplier = 5
 				}
-				custom_tooltip = KoH_religiousflavour.29.d.success.tt
-				scope:popeman = { trigger_event = { id = KoH_religiousflavour.29 days = 5 } } #You outwit the pope!
+				custom_tooltip = TCT_religious_events.29.d.success.tt
+				scope:popeman = { trigger_event = { id = TCT_religious_events.29 days = 5 } } #You outwit the pope!
 				
 			}
 			40 = {		
-				desc = KoH_religiousflavour.29.d.failure
+				desc = TCT_religious_events.29.d.failure
 				compare_modifier = {
 					value = scope:duel_value
 					multiplier = -5
 				}
-				custom_tooltip = KoH_religiousflavour.29.d.failure.tt
-				scope:popeman = { trigger_event = { id = KoH_religiousflavour.30 days = 5 } } #You fail to outwit the pope!
+				custom_tooltip = TCT_religious_events.29.d.failure.tt
+				scope:popeman = { trigger_event = { id = TCT_religious_events.30 days = 5 } } #You fail to outwit the pope!
 			}
 		}
 
@@ -1711,9 +1711,9 @@ KoH_religiousflavour.25 = {
 
 ## King accepts
 #Event 3
-KoH_religiousflavour.26 = { 
-	title = KoH_religiousflavour.26.t
-	desc = KoH_religiousflavour.26.desc
+TCT_religious_events.26 = { 
+	title = TCT_religious_events.26.t
+	desc = TCT_religious_events.26.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = scope:popewantsit
@@ -1724,7 +1724,7 @@ KoH_religiousflavour.26 = {
 	}
 
 	option = { 
-		name = KoH_religiousflavour.26.a
+		name = TCT_religious_events.26.a
 		
 		add_prestige = 100
 
@@ -1737,9 +1737,9 @@ KoH_religiousflavour.26 = {
 
 ## King refuses us
 #Event 4
-KoH_religiousflavour.27 = { 
-	title = KoH_religiousflavour.27.t
-	desc = KoH_religiousflavour.27.desc
+TCT_religious_events.27 = { 
+	title = TCT_religious_events.27.t
+	desc = TCT_religious_events.27.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = scope:popewantsit
@@ -1750,7 +1750,7 @@ KoH_religiousflavour.27 = {
 	}
 
 	option = { 
-		name = KoH_religiousflavour.27.a
+		name = TCT_religious_events.27.a
 		
 		add_prestige = 100
 
@@ -1763,9 +1763,9 @@ KoH_religiousflavour.27 = {
 
 ## King bribes us
 #Event 5
-KoH_religiousflavour.28 = { 
-	title = KoH_religiousflavour.28.t
-	desc = KoH_religiousflavour.28.desc
+TCT_religious_events.28 = { 
+	title = TCT_religious_events.28.t
+	desc = TCT_religious_events.28.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = scope:popewantsit
@@ -1776,9 +1776,9 @@ KoH_religiousflavour.28 = {
 	}
 
 	option = { #accept bribe
-		name = KoH_religiousflavour.28.a
+		name = TCT_religious_events.28.a
 		
-		custom_tooltip = KoH_religiousflavour.28.a.tt
+		custom_tooltip = TCT_religious_events.28.a.tt
 
 		scope:popewantsit = {
 			pay_short_term_gold = {
@@ -1793,7 +1793,7 @@ KoH_religiousflavour.28 = {
 		scope:popewantsit = {
 			send_interface_toast = {
 				type = event_toast_effect_good
-				title = KoH_religiousflavour.28.a.toast
+				title = TCT_religious_events.28.a.toast
 				left_icon = faith.religious_head
 				
 			}
@@ -1859,8 +1859,8 @@ KoH_religiousflavour.28 = {
 	}
 
 	option = { #decline bribe
-		name = KoH_religiousflavour.28.b
-		custom_tooltip = KoH_religiousflavour.28.b.tt
+		name = TCT_religious_events.28.b
+		custom_tooltip = TCT_religious_events.28.b.tt
 		add_opinion = {
 			target = scope:popewantsit
 			opinion = -20
@@ -1870,7 +1870,7 @@ KoH_religiousflavour.28 = {
 		scope:popewantsit = {
 			send_interface_toast = {
 				type = event_toast_effect_bad
-				title = KoH_religiousflavour.28.b.toast
+				title = TCT_religious_events.28.b.toast
 				left_icon = faith.religious_head
 			}
 		}
@@ -1936,9 +1936,9 @@ KoH_religiousflavour.28 = {
 
 # King outwits us
 #Event 6
-KoH_religiousflavour.29 = { 
-	title = KoH_religiousflavour.29.t
-	desc = KoH_religiousflavour.29.desc
+TCT_religious_events.29 = { 
+	title = TCT_religious_events.29.t
+	desc = TCT_religious_events.29.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = scope:popewantsit
@@ -1949,7 +1949,7 @@ KoH_religiousflavour.29 = {
 	}
 
 	option = { 
-		name = KoH_religiousflavour.29.a
+		name = TCT_religious_events.29.a
 		
 		add_piety = -5
 
@@ -1970,7 +1970,7 @@ KoH_religiousflavour.29 = {
 		scope:popewantsit = {
 			send_interface_toast = {
 				type = event_toast_effect_good
-				title = KoH_religiousflavour.29.b.toast
+				title = TCT_religious_events.29.b.toast
 				left_icon = faith.religious_head
 			}
 		}
@@ -1984,9 +1984,9 @@ KoH_religiousflavour.29 = {
 
 # King failed to outwit us
 #Event 6
-KoH_religiousflavour.30 = { 
-	title = KoH_religiousflavour.30.t
-	desc = KoH_religiousflavour.30.desc
+TCT_religious_events.30 = { 
+	title = TCT_religious_events.30.t
+	desc = TCT_religious_events.30.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = scope:popewantsit
@@ -1997,8 +1997,8 @@ KoH_religiousflavour.30 = {
 	}
 
 	option = { 
-		name = KoH_religiousflavour.30.a
-		custom_tooltip = KoH_religiousflavour.30.a.tt
+		name = TCT_religious_events.30.a
+		custom_tooltip = TCT_religious_events.30.a.tt
 		add_piety = 100
 
 		add_opinion = {
@@ -2024,7 +2024,7 @@ KoH_religiousflavour.30 = {
 		scope:popewantsit = {
 			send_interface_toast = {
 				type = event_toast_effect_bad
-				title = KoH_religiousflavour.30.a.toast
+				title = TCT_religious_events.30.a.toast
 				left_icon = faith.religious_head
 			}
 		}
@@ -2037,9 +2037,9 @@ KoH_religiousflavour.30 = {
 
 ## The Pope sends a delegate to a Bishop whose top liege has refused to change investiture Law
 #Event 7
-KoH_religiousflavour.31 = { 
-	title = KoH_religiousflavour.31.t
-	desc = KoH_religiousflavour.31.desc
+TCT_religious_events.31 = { 
+	title = TCT_religious_events.31.t
+	desc = TCT_religious_events.31.desc
 	theme = learning_scholarship_focus
 	right_portrait = {
 		character = faith.religious_head
@@ -2126,9 +2126,9 @@ KoH_religiousflavour.31 = {
 		
 
 	option = { 
-		name = KoH_religiousflavour.31.a
-		custom_tooltip = KoH_religiousflavour.31a.tta
-		custom_tooltip = KoH_religiousflavour.31a.ttb
+		name = TCT_religious_events.31.a
+		custom_tooltip = TCT_religious_events.31a.tta
+		custom_tooltip = TCT_religious_events.31a.ttb
 		show_as_tooltip = {
 			pay_short_term_gold = {
 				target = scope:bishop
@@ -2139,7 +2139,7 @@ KoH_religiousflavour.31 = {
 			add_character_flag = pope_bribing
 
 			trigger_event = {
-				id = KoH_religiousflavour.32
+				id = TCT_religious_events.32
 				days = 15
 			}
 		}
@@ -2154,7 +2154,7 @@ KoH_religiousflavour.31 = {
 		}
 	}
 	option = { 
-		name = KoH_religiousflavour.31.b
+		name = TCT_religious_events.31.b
 	
 		remove_character_flag = pope_currently_demanding
 
@@ -2175,9 +2175,9 @@ KoH_religiousflavour.31 = {
 
 ## The Bishop receives the Papal emissary
 #Event 8
-KoH_religiousflavour.32 = { 
-	title = KoH_religiousflavour.32.t
-	desc = KoH_religiousflavour.32.desc
+TCT_religious_events.32 = { 
+	title = TCT_religious_events.32.t
+	desc = TCT_religious_events.32.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = scope:bishop
@@ -2188,7 +2188,7 @@ KoH_religiousflavour.32 = {
 	}
 
 	option = { 
-		name = KoH_religiousflavour.32.a
+		name = TCT_religious_events.32.a
 		
 		faith.religious_head = {
 			pay_short_term_gold = {
@@ -2208,24 +2208,24 @@ KoH_religiousflavour.32 = {
 			66 = { # Suceed
 				send_interface_toast = {
 					type = event_toast_effect_good
-					title = KoH_religiousflavour.32.a.toast # KoH_religiousflavour.2.a.drunkard
+					title = TCT_religious_events.32.a.toast # TCT_religious_events.2.a.drunkard
 					left_icon = root
 				}
 			}
 		
 		
 			33 = { # Emperror finds out
-				custom_tooltip = KoH_religiousflavour.32.a.tt
+				custom_tooltip = TCT_religious_events.32.a.tt
 
 				scope:popewantsit = {
 					trigger_event = {
-						id = KoH_religiousflavour.33
+						id = TCT_religious_events.33
 						days = { 14 16 }
 					}
 				}
 				send_interface_toast = {
 					type = event_toast_effect_bad
-					title = KoH_religiousflavour.32.b.toast # KoH_religiousflavour.2.a.drunkard
+					title = TCT_religious_events.32.b.toast # TCT_religious_events.2.a.drunkard
 					left_icon = root
 				}
 			}
@@ -2237,7 +2237,7 @@ KoH_religiousflavour.32 = {
 		}
 	}
 	option = { 
-		name = KoH_religiousflavour.32.b
+		name = TCT_religious_events.32.b
 
 		add_prestige = 10
 	}
@@ -2245,9 +2245,9 @@ KoH_religiousflavour.32 = {
 
 ## King knows of bishop getting bribed
 #Event 9
-KoH_religiousflavour.33 = { 
-	title = KoH_religiousflavour.33.t
-	desc = KoH_religiousflavour.33.desc
+TCT_religious_events.33 = { 
+	title = TCT_religious_events.33.t
+	desc = TCT_religious_events.33.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = scope:bishop
@@ -2258,7 +2258,7 @@ KoH_religiousflavour.33 = {
 	}
 
 	option = { 
-		name = KoH_religiousflavour.33.a
+		name = TCT_religious_events.33.a
 		
 		random_list = {
 			30 = {
@@ -2290,7 +2290,7 @@ KoH_religiousflavour.33 = {
 		}
 	}
 	option = { 
-		name = KoH_religiousflavour.33.b
+		name = TCT_religious_events.33.b
 
 		trigger = {
 			has_trait = paranoid
@@ -2316,9 +2316,9 @@ KoH_religiousflavour.33 = {
 
 ## The Pope contacts a powerful (preferably rebellious) vassal of a liege who has refused to change investiture Law
 #Event 10
-KoH_religiousflavour.34 = { 
-	title = KoH_religiousflavour.34.t
-	desc = KoH_religiousflavour.34.desc
+TCT_religious_events.34 = { 
+	title = TCT_religious_events.34.t
+	desc = TCT_religious_events.34.desc
 	theme = learning_scholarship_focus
 	right_portrait = {
 		character = faith.religious_head
@@ -2408,9 +2408,9 @@ KoH_religiousflavour.34 = {
 		
 
 	option = { 
-		name = KoH_religiousflavour.34.a
-		custom_tooltip = KoH_religiousflavour.34.a.tt
-		custom_tooltip = KoH_religiousflavour.34a.ttb
+		name = TCT_religious_events.34.a
+		custom_tooltip = TCT_religious_events.34.a.tt
+		custom_tooltip = TCT_religious_events.34a.ttb
 		show_as_tooltip = {
 			pay_short_term_gold = {
 				target = scope:powerful_vassal
@@ -2421,7 +2421,7 @@ KoH_religiousflavour.34 = {
 			add_character_flag = pope_bribing
 
 			trigger_event = {
-				id = KoH_religiousflavour.35
+				id = TCT_religious_events.35
 				days = 15
 			}
 		}
@@ -2436,7 +2436,7 @@ KoH_religiousflavour.34 = {
 		}
 	}
 	option = { 
-		name = KoH_religiousflavour.34.b
+		name = TCT_religious_events.34.b
 	
 		remove_character_flag = pope_currently_demanding
 
@@ -2457,9 +2457,9 @@ KoH_religiousflavour.34 = {
 
 ## The vassal receives the claim
 #Event 11
-KoH_religiousflavour.35 = { 
-	title = KoH_religiousflavour.35.t
-	desc = KoH_religiousflavour.35.desc
+TCT_religious_events.35 = { 
+	title = TCT_religious_events.35.t
+	desc = TCT_religious_events.35.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = scope:powerful_vassal
@@ -2476,8 +2476,8 @@ KoH_religiousflavour.35 = {
 	}
 	
 	option = { 
-		name = KoH_religiousflavour.35.a
-		custom_tooltip = "KoH_religiousflavour.35.a.tt"
+		name = TCT_religious_events.35.a
+		custom_tooltip = "TCT_religious_events.35.a.tt"
 		add_pressed_claim = liege.primary_title
 		scope:powerful_vassal = {
 			add_opinion = {
@@ -2511,7 +2511,7 @@ KoH_religiousflavour.35 = {
 					is_ai = yes
 				}
 				trigger_event = {
-					id = KoH_religiousflavour.37
+					id = TCT_religious_events.37
 					days = { 100 365 }
 				}
 			}
@@ -2519,7 +2519,7 @@ KoH_religiousflavour.35 = {
 
 		every_ruler = {
 			trigger_event = {
-				id = KoH_religiousflavour.36
+				id = TCT_religious_events.36
 				days = 2
 			}
 		}
@@ -2530,16 +2530,16 @@ KoH_religiousflavour.35 = {
 		}
 	}
 	option = { 
-		name = KoH_religiousflavour.35.b
+		name = TCT_religious_events.35.b
 
 		add_prestige = 10
 	}
 }
 
 #Inform everyone!
-KoH_religiousflavour.36 = { 
-	title = KoH_religiousflavour.36.t
-	desc = KoH_religiousflavour.36.desc
+TCT_religious_events.36 = { 
+	title = TCT_religious_events.36.t
+	desc = TCT_religious_events.36.desc
 	theme = faith
 
 	right_portrait = {
@@ -2555,7 +2555,7 @@ KoH_religiousflavour.36 = {
 	}
 
 	option = { 
-		name = KoH_religiousflavour.36.a
+		name = TCT_religious_events.36.a
 
 		if = {
 			limit = {
@@ -2588,13 +2588,13 @@ KoH_religiousflavour.36 = {
 		}
 	}
 	after = {
-		trigger_event = KoH_religiousflavour.367
+		trigger_event = TCT_religious_events.367
 	}
 }
 
-KoH_religiousflavour.367 = { 
-	title = KoH_religiousflavour.367.t
-	desc = KoH_religiousflavour.367.desc
+TCT_religious_events.367 = { 
+	title = TCT_religious_events.367.t
+	desc = TCT_religious_events.367.desc
 	theme = faith
 
 	right_portrait = {
@@ -2606,7 +2606,7 @@ KoH_religiousflavour.367 = {
 	}
 
 	option = { 
-		name = KoH_religiousflavour.367.a
+		name = TCT_religious_events.367.a
 
 
 		ai_chance = {	
@@ -2616,9 +2616,9 @@ KoH_religiousflavour.367 = {
 }
 
 #Start the war
-KoH_religiousflavour.37 = { 
-	title = KoH_religiousflavour.37.t
-	desc = KoH_religiousflavour.37.desc
+TCT_religious_events.37 = { 
+	title = TCT_religious_events.37.t
+	desc = TCT_religious_events.37.desc
 	theme = faith
 	left_portrait = {
 		character = scope:powerful_vassal
@@ -2633,7 +2633,7 @@ KoH_religiousflavour.37 = {
 	}
 
 	option = { 
-		name = KoH_religiousflavour.37.a
+		name = TCT_religious_events.37.a
 
 		start_war = {
 			cb = claim_cb
@@ -2657,7 +2657,7 @@ KoH_religiousflavour.37 = {
 
 ## Pope learns that a catholic ruler has a heretic advisor
 
-scripted_trigger KoH_religiousflavour_41_valid_councillor = {
+scripted_trigger TCT_religious_events_41_valid_councillor = {
 	is_available_ai_adult = yes
 	NOR = {
 		has_trait = chaste
@@ -2668,9 +2668,9 @@ scripted_trigger KoH_religiousflavour_41_valid_councillor = {
 	save_temporary_scope_as = councillor
 }
 
-KoH_religiousflavour.41 = { 
-	title = KoH_religiousflavour.41.t
-	desc = KoH_religiousflavour.41.desc
+TCT_religious_events.41 = { 
+	title = TCT_religious_events.41.t
+	desc = TCT_religious_events.41.desc
 	theme = learning_scholarship_focus
 	right_portrait = {
 		character = faith.religious_head
@@ -2693,7 +2693,7 @@ KoH_religiousflavour.41 = {
 			has_faith = faith:catholic
 			title:k_papal_state.holder = faith.religious_head
 			any_councillor = {
-				NOT = { has_faith = faith:catholic } KoH_religiousflavour_41_valid_councillor = yes
+				NOT = { has_faith = faith:catholic } TCT_religious_events_41_valid_councillor = yes
 			}
 		}
 	}
@@ -2705,7 +2705,7 @@ KoH_religiousflavour.41 = {
 				has_faith = faith:catholic
 				title:k_papal_state.holder = faith.religious_head
 				any_councillor = {
-					NOT = { has_faith = faith:catholic } KoH_religiousflavour_41_valid_councillor = yes
+					NOT = { has_faith = faith:catholic } TCT_religious_events_41_valid_councillor = yes
 				}
 			}
 			save_scope_as = rulerwithheretic
@@ -2714,14 +2714,14 @@ KoH_religiousflavour.41 = {
 			limit = {
 				scope:rulerwithheretic = {
 					any_councillor = {
-						NOT = { has_faith = faith:catholic } KoH_religiousflavour_41_valid_councillor = yes
+						NOT = { has_faith = faith:catholic } TCT_religious_events_41_valid_councillor = yes
 					}
 				}
 			}
 			scope:rulerwithheretic = {
 				random_councillor = {
 					limit = {
-						NOT = { has_faith = faith:catholic } KoH_religiousflavour_41_valid_councillor = yes
+						NOT = { has_faith = faith:catholic } TCT_religious_events_41_valid_councillor = yes
 					}
 					save_scope_as = heretic_councillor
 				}
@@ -2731,10 +2731,10 @@ KoH_religiousflavour.41 = {
 		
 
 	option = { 
-		name = KoH_religiousflavour.41.a
+		name = TCT_religious_events.41.a
 		scope:rulerwithheretic = {
 			trigger_event = {
-				id = KoH_religiousflavour.42
+				id = TCT_religious_events.42
 				days = {15 30}
 			}
 		}
@@ -2749,7 +2749,7 @@ KoH_religiousflavour.41 = {
 		}
 	}
 	option = { 
-		name = KoH_religiousflavour.41.b
+		name = TCT_religious_events.41.b
 
 		ai_chance = {	
 			base = 75
@@ -2762,11 +2762,11 @@ KoH_religiousflavour.41 = {
 	}
 }
 
-KoH_religiousflavour.42 = { 
+TCT_religious_events.42 = { 
 	type = letter_event
-	title = KoH_religiousflavour.42.t
-	opening = KoH_religiousflavour.42.opening
-	desc = KoH_religiousflavour.42.desc
+	title = TCT_religious_events.42.t
+	opening = TCT_religious_events.42.opening
+	desc = TCT_religious_events.42.desc
 	sender = {
 		character = faith.religious_head
 	}
@@ -2775,7 +2775,7 @@ KoH_religiousflavour.42 = {
 	# }
 
 	option = { 
-		name = KoH_religiousflavour.42.a
+		name = TCT_religious_events.42.a
 		if = { #Can I fire them?
 			limit = {
 				scope:heretic_councillor = { can_be_fired_from_council_trigger = { COURT_OWNER = scope:rulerwithheretic } }
@@ -2800,7 +2800,7 @@ KoH_religiousflavour.42 = {
 		}
 	}
 	option = { 
-		name = KoH_religiousflavour.42.b
+		name = TCT_religious_events.42.b
 	
 		faith.religious_head = {
 			add_opinion = {
@@ -2827,9 +2827,9 @@ KoH_religiousflavour.42 = {
 
 ## Vassal disappointed in liege having heretic advisor
 
-KoH_religiousflavour.43 = { 
-	title = KoH_religiousflavour.43.t
-	desc = KoH_religiousflavour.43.desc
+TCT_religious_events.43 = { 
+	title = TCT_religious_events.43.t
+	desc = TCT_religious_events.43.desc
 	theme = learning_scholarship_focus
 	right_portrait = {
 		character = scope:vassal
@@ -2883,11 +2883,11 @@ KoH_religiousflavour.43 = {
 		
 
 	option = { 
-		name = KoH_religiousflavour.43.a
-		custom_tooltip = KoH_religiousflavour.43a.tta
+		name = TCT_religious_events.43.a
+		custom_tooltip = TCT_religious_events.43a.tta
 		scope:hereticadvisorruler = {
 			trigger_event = {
-				id = KoH_religiousflavour.44
+				id = TCT_religious_events.44
 				days = {15 30}
 			}
 		}
@@ -2903,17 +2903,17 @@ KoH_religiousflavour.43 = {
 	}
 }
 
-KoH_religiousflavour.44 = { 
+TCT_religious_events.44 = { 
 	type = letter_event
-	title = KoH_religiousflavour.42.t
-	desc = KoH_religiousflavour.42.desc
-	opening = KoH_religiousflavour.42.opening
+	title = TCT_religious_events.42.t
+	desc = TCT_religious_events.42.desc
+	opening = TCT_religious_events.42.opening
 	sender = {
 		character = scope:vassal
 	}
 
 	option = { 
-		name = KoH_religiousflavour.42.a
+		name = TCT_religious_events.42.a
 		if = { #Can I fire them?
 			limit = {
 				scope:heretic_councillor = { can_be_fired_from_council_trigger = { COURT_OWNER = scope:rulerwithheretic } }
@@ -2938,7 +2938,7 @@ KoH_religiousflavour.44 = {
 		}
 	}
 	option = { 
-		name = KoH_religiousflavour.42.b
+		name = TCT_religious_events.42.b
 		scope:vassal = {
 			add_opinion = {
 				target = scope:hereticadvisorruler
@@ -2964,14 +2964,14 @@ KoH_religiousflavour.44 = {
 
 ## Realm Priest disappointed in liege having heretic advisor
 
-KoH_religiousflavour.45 = { 
+TCT_religious_events.45 = { 
 	type = letter_event
-	title = KoH_religiousflavour.42.t
-	desc = KoH_religiousflavour.42.desc
+	title = TCT_religious_events.42.t
+	desc = TCT_religious_events.42.desc
 	sender = {
 		character = scope:vassal
 	}
-	opening = KoH_religiousflavour.42.opening
+	opening = TCT_religious_events.42.opening
 
 	trigger = {		
 		is_available_adult = yes
@@ -3022,7 +3022,7 @@ KoH_religiousflavour.45 = {
 		
 
 	option = { 
-		name = KoH_religiousflavour.42.a
+		name = TCT_religious_events.42.a
 		if = { #Can I fire them?
 			limit = {
 				scope:heretic_councillor = { can_be_fired_from_council_trigger = { COURT_OWNER = scope:rulerwithheretic } }
@@ -3047,7 +3047,7 @@ KoH_religiousflavour.45 = {
 		}
 	}
 	option = { 
-		name = KoH_religiousflavour.42.b
+		name = TCT_religious_events.42.b
 	
 		scope:vassal = {
 			add_opinion = {
@@ -3074,9 +3074,9 @@ KoH_religiousflavour.45 = {
 
 # # The Pope gives money to someone fighting the Infidel
 
-KoH_religiousflavour.46 = { 
-	title = KoH_religiousflavour.46.t
-	desc = KoH_religiousflavour.46.desc
+TCT_religious_events.46 = { 
+	title = TCT_religious_events.46.t
+	desc = TCT_religious_events.46.desc
 	theme = war
 	lower_center_portrait = {
 		character = scope:holywarleader
@@ -3138,7 +3138,7 @@ KoH_religiousflavour.46 = {
 	}
 
 	option = { 
-		name = KoH_religiousflavour.46.a
+		name = TCT_religious_events.46.a
 		show_as_tooltip = {
 			faith.religious_head = {
 				pay_short_term_gold = {
@@ -3155,7 +3155,7 @@ KoH_religiousflavour.46 = {
 				modifier = bishop_bribed_by_pope
 			}
 			trigger_event = {
-				id = KoH_religiousflavour.467
+				id = TCT_religious_events.467
 				days = 3
 			}
 		}
@@ -3170,7 +3170,7 @@ KoH_religiousflavour.46 = {
 		}
 	}
 	option = { 
-		name = KoH_religiousflavour.46.b
+		name = TCT_religious_events.46.b
 	
 
 	
@@ -3185,18 +3185,18 @@ KoH_religiousflavour.46 = {
 	}
 } 
 
-KoH_religiousflavour.467 = { 
+TCT_religious_events.467 = { 
 	type = letter_event
-	title = KoH_religiousflavour.467.t
-	desc = KoH_religiousflavour.467.desc
+	title = TCT_religious_events.467.t
+	desc = TCT_religious_events.467.desc
 
 	sender = {
 		character = faith.religious_head
 	}
-	opening = KoH_religiousflavour.42.opening
+	opening = TCT_religious_events.42.opening
 
 	option = {
-		name = KoH_religiousflavour.467.a
+		name = TCT_religious_events.467.a
 		faith.religious_head = {
 			pay_short_term_gold = {
 				target = scope:holywarleader
@@ -3208,9 +3208,9 @@ KoH_religiousflavour.467 = {
 
 # # Leprous Courtier Departs to Join Order of Lazarus
 
-KoH_religiousflavour.47 = { 
-	title = KoH_religiousflavour.47.t
-	desc = KoH_religiousflavour.47.desc
+TCT_religious_events.47 = { 
+	title = TCT_religious_events.47.t
+	desc = TCT_religious_events.47.desc
 	theme = faith
 	right_portrait = {
 		character = scope:leper
@@ -3241,7 +3241,7 @@ KoH_religiousflavour.47 = {
 	}
 
 	option = { 
-		name = KoH_religiousflavour.47.a
+		name = TCT_religious_events.47.a
 		
 		scope:leper = {
 			add_opinion = {
@@ -3286,7 +3286,7 @@ KoH_religiousflavour.47 = {
 		}
 	}
 	option = { 
-		name = KoH_religiousflavour.47.b
+		name = TCT_religious_events.47.b
 	
 		ai_chance = {	
 			base = 10
@@ -3299,7 +3299,7 @@ KoH_religiousflavour.47 = {
 	}
 } 
 
-scripted_trigger KoH_religiousflavour_48_province_trigger = {
+scripted_trigger TCT_religious_events_48_province_trigger = {
 	NOT = { religion = root.religion }
 	faith = {
 		faith_hostility_level = {
@@ -3310,9 +3310,9 @@ scripted_trigger KoH_religiousflavour_48_province_trigger = {
 }
 
 #Pope Complains of Heresy Run Rampant in Ruler's Lands #1
-KoH_religiousflavour.48 = { 
-	title = KoH_religiousflavour.48.t
-	desc = KoH_religiousflavour.48.desc
+TCT_religious_events.48 = { 
+	title = TCT_religious_events.48.t
+	desc = TCT_religious_events.48.desc
 	theme = faith
 	lower_center_portrait = {
 		character = scope:targetedruler
@@ -3338,7 +3338,7 @@ KoH_religiousflavour.48 = {
 			has_faith = faith:catholic
 			title:k_papal_state.holder = faith.religious_head
 			any_sub_realm_county = {
-				KoH_religiousflavour_48_province_trigger = yes
+				TCT_religious_events_48_province_trigger = yes
 			}
 			exists = cp:councillor_court_chaplain
 			NOT = {
@@ -3356,7 +3356,7 @@ KoH_religiousflavour.48 = {
 				has_faith = faith:catholic
 				title:k_papal_state.holder = faith.religious_head
 				any_sub_realm_county = {
-					KoH_religiousflavour_48_province_trigger = yes
+					TCT_religious_events_48_province_trigger = yes
 				}
 				exists = cp:councillor_court_chaplain
 				NOT = { 
@@ -3367,7 +3367,7 @@ KoH_religiousflavour.48 = {
 			}
 			random_sub_realm_county = {
 				limit = {
-					KoH_religiousflavour_48_province_trigger = yes
+					TCT_religious_events_48_province_trigger = yes
 				}
 				save_scope_as = county
 			}
@@ -3377,11 +3377,11 @@ KoH_religiousflavour.48 = {
 	}
 
 	option = { 
-		name = KoH_religiousflavour.48.a
+		name = TCT_religious_events.48.a
 		
 		scope:targetedruler = {
 			trigger_event = {
-				id = KoH_religiousflavour.49
+				id = TCT_religious_events.49
 				days = 3
 			}
 		}
@@ -3396,7 +3396,7 @@ KoH_religiousflavour.48 = {
 		}
 	}
 	option = { 
-		name = KoH_religiousflavour.48.b
+		name = TCT_religious_events.48.b
 	
 		ai_chance = {	
 			base = 10
@@ -3410,9 +3410,9 @@ KoH_religiousflavour.48 = {
 } 
 
 #Pope Complains of Heresy Run Rampant in Ruler's Lands  #2
-KoH_religiousflavour.49 = { 
-	title = KoH_religiousflavour.49.t
-	desc = KoH_religiousflavour.49.desc
+TCT_religious_events.49 = { 
+	title = TCT_religious_events.49.t
+	desc = TCT_religious_events.49.desc
 	theme = faith
 	right_portrait = {
 		character = scope:targetedruler
@@ -3422,7 +3422,7 @@ KoH_religiousflavour.49 = {
 	}
 
 	option = { 
-		name = KoH_religiousflavour.49.a
+		name = TCT_religious_events.49.a
 		
 		cp:councillor_court_chaplain = {
 			set_council_task = {
@@ -3441,10 +3441,10 @@ KoH_religiousflavour.49 = {
 		}
 	}
 	option = { 
-		name = KoH_religiousflavour.49.b
+		name = TCT_religious_events.49.b
 	
 		trigger_event = {
-			id = KoH_religiousflavour.50
+			id = TCT_religious_events.50
 			months = 6
 		}
 		
@@ -3465,9 +3465,9 @@ KoH_religiousflavour.49 = {
 } 
 
 #Pope Complains of Heresy Run Rampant in Ruler's Lands  #3
-KoH_religiousflavour.50 = { 
-	title = KoH_religiousflavour.50.t
-	desc = KoH_religiousflavour.50.desc
+TCT_religious_events.50 = { 
+	title = TCT_religious_events.50.t
+	desc = TCT_religious_events.50.desc
 	theme = faith
 	right_portrait = {
 		character = scope:targetedruler
@@ -3496,7 +3496,7 @@ KoH_religiousflavour.50 = {
 	}
 
 	option = { 
-		name = KoH_religiousflavour.50.a
+		name = TCT_religious_events.50.a
 		
 		scope:targetedruler = {
 			add_excommunication_actual_effect = yes
@@ -3514,9 +3514,9 @@ KoH_religiousflavour.50 = {
 }
 
 #Pope Demands Ruler Free Imprisoned Prince-Bishop #1
-KoH_religiousflavour.51 = { 
-	title = KoH_religiousflavour.51.t
-	desc = KoH_religiousflavour.51.desc
+TCT_religious_events.51 = { 
+	title = TCT_religious_events.51.t
+	desc = TCT_religious_events.51.desc
 	theme = faith
 	left_portrait = {
 		character = scope:targetedruler
@@ -3593,11 +3593,11 @@ KoH_religiousflavour.51 = {
 	}
 
 	option = { 
-		name = KoH_religiousflavour.51.a
+		name = TCT_religious_events.51.a
 		
 		scope:targetedruler = {
 			trigger_event = {
-				id = KoH_religiousflavour.52
+				id = TCT_religious_events.52
 				days = 3
 			}
 		}
@@ -3612,7 +3612,7 @@ KoH_religiousflavour.51 = {
 		}
 	}
 	option = { 
-		name = KoH_religiousflavour.51.b
+		name = TCT_religious_events.51.b
 	
 		scope:imprisonedbishop = {
 			add_opinion = {
@@ -3634,9 +3634,9 @@ KoH_religiousflavour.51 = {
 } 
 
 #Pope Demands Ruler Free Imprisoned Prince-Bishop  #2
-KoH_religiousflavour.52 = { 
-	title = KoH_religiousflavour.52.t
-	desc = KoH_religiousflavour.52.desc
+TCT_religious_events.52 = { 
+	title = TCT_religious_events.52.t
+	desc = TCT_religious_events.52.desc
 	theme = faith
 	right_portrait = {
 		character = scope:imprisonedbishop
@@ -3646,7 +3646,7 @@ KoH_religiousflavour.52 = {
 	}
 
 	option = { 
-		name = KoH_religiousflavour.52.a
+		name = TCT_religious_events.52.a
 		
 		scope:imprisonedbishop = {
 			release_from_prison = yes
@@ -3662,12 +3662,12 @@ KoH_religiousflavour.52 = {
 		}
 	}
 	option = { 
-		name = KoH_religiousflavour.52.b
+		name = TCT_religious_events.52.b
 	
 
 		faith.religious_head = {
 			trigger_event = {
-				id = KoH_religiousflavour.53
+				id = TCT_religious_events.53
 				months = 1
 			}
 		}
@@ -3688,7 +3688,7 @@ KoH_religiousflavour.52 = {
 } 
 
 #Pope Demands Ruler Free Imprisoned Prince-Bishop  #3
-KoH_religiousflavour.53 = { 
+TCT_religious_events.53 = { 
 	hidden = yes
 
 	immediate = {
@@ -3700,15 +3700,15 @@ KoH_religiousflavour.53 = {
 				}
 			}
 			faith.religious_head = {
-				trigger_event = KoH_religiousflavour.54
+				trigger_event = TCT_religious_events.54
 			}
 		}
 	}
 }
 
-KoH_religiousflavour.54 = {
-	title = KoH_religiousflavour.54.t
-	desc = KoH_religiousflavour.54.desc
+TCT_religious_events.54 = {
+	title = TCT_religious_events.54.t
+	desc = TCT_religious_events.54.desc
 	theme = faith
 	left_portrait = {
 		character = scope:targetedruler
@@ -3718,14 +3718,14 @@ KoH_religiousflavour.54 = {
 	}
 
 	option = { 
-		name = KoH_religiousflavour.54.a
+		name = TCT_religious_events.54.a
 		
 		scope:targetedruler = {
 			add_excommunication_actual_effect = yes
 			hidden_effect = {
 				send_interface_toast = {
 					type = event_toast_effect_good
-					title =  KoH_religiousflavour.54.a.toast
+					title =  TCT_religious_events.54.a.toast
 					left_icon = faith.religious_head
 					show_as_tooltip = {
 						add_excommunication_actual_effect = yes
@@ -3746,9 +3746,9 @@ KoH_religiousflavour.54 = {
 }
 
 #Murdered a Bishop
-KoH_religiousflavour.55 = {
-	title = KoH_religiousflavour.55.t
-	desc = KoH_religiousflavour.55.desc
+TCT_religious_events.55 = {
+	title = TCT_religious_events.55.t
+	desc = TCT_religious_events.55.desc
 	theme = faith
 	left_portrait = {
 		character = scope:murderer
@@ -3766,14 +3766,14 @@ KoH_religiousflavour.55 = {
 	}
 
 	option = { 
-		name = KoH_religiousflavour.55.a
+		name = TCT_religious_events.55.a
 		
 		scope:murderer = {
 			add_excommunication_actual_effect = yes
 			hidden_effect = {
 				send_interface_toast = {
 					type = event_toast_effect_good
-					title =  KoH_religiousflavour.54.a.toast
+					title =  TCT_religious_events.54.a.toast
 					left_icon = faith.religious_head
 					show_as_tooltip = {
 						add_excommunication_actual_effect = yes
@@ -3794,9 +3794,9 @@ KoH_religiousflavour.55 = {
 }
 
 #Pope Excommunicates Ruler for Declaring War Against Prince-Bishop
-KoH_religiousflavour.56 = {
-	title = KoH_religiousflavour.56.t
-	desc = KoH_religiousflavour.56.desc
+TCT_religious_events.56 = {
+	title = TCT_religious_events.56.t
+	desc = TCT_religious_events.56.desc
 	theme = faith
 	left_portrait = {
 		character = scope:BishopAttacker
@@ -3830,7 +3830,7 @@ KoH_religiousflavour.56 = {
 	}
 
 	option = { 
-		name = KoH_religiousflavour.56.a
+		name = TCT_religious_events.56.a
 		
 		scope:BishopAttacker = {
 			show_as_tooltip = {
@@ -3845,7 +3845,7 @@ KoH_religiousflavour.56 = {
 				}
 			}
 			trigger_event = {
-				id = KoH_religiousflavour.57
+				id = TCT_religious_events.57
 				days = 3
 			}
 			
@@ -3861,7 +3861,7 @@ KoH_religiousflavour.56 = {
 		}
 	}
 	option = { 
-		name = KoH_religiousflavour.56.b
+		name = TCT_religious_events.56.b
 
 		ai_chance = {	
 			base = 10
@@ -3874,9 +3874,9 @@ KoH_religiousflavour.56 = {
 	}
 }
 
-KoH_religiousflavour.57 = {
-	title = KoH_religiousflavour.57.t
-	desc = KoH_religiousflavour.57.desc
+TCT_religious_events.57 = {
+	title = TCT_religious_events.57.t
+	desc = TCT_religious_events.57.desc
 	theme = faith
 	left_portrait = {
 		character = scope:BishopAttacker
@@ -3906,7 +3906,7 @@ KoH_religiousflavour.57 = {
 	}
 
 	option = { 
-		name = KoH_religiousflavour.57.a
+		name = TCT_religious_events.57.a
 		
 		scope:BishopAttacker = {
 			every_character_war = {
@@ -3928,10 +3928,10 @@ KoH_religiousflavour.57 = {
 }
 
 #Christmas! 
-KoH_religiousflavour.58 = {#christmas
+TCT_religious_events.58 = {#christmas
 	type = character_event
-	title = KoH_religiousflavour.58.t
-	desc = KoH_religiousflavour.58.desc
+	title = TCT_religious_events.58.t
+	desc = TCT_religious_events.58.desc
 	theme = family
 	override_background = { reference = TCT_christmas }
 	left_portrait = {
@@ -3973,11 +3973,11 @@ KoH_religiousflavour.58 = {#christmas
 	}
 
 	option = { #wassailing
-		name = KoH_religiousflavour.58.a
+		name = TCT_religious_events.58.a
 		add_stress = medium_stress_loss
 	}
 	option = { #feast
-		name = KoH_religiousflavour.58.b
+		name = TCT_religious_events.58.b
 		open_view_data = {
 			view = activity_list_detail_host_window
 			data = activity_type:activity_feast
@@ -3987,37 +3987,37 @@ KoH_religiousflavour.58 = {#christmas
 			flag = hosting_christmas_or_saint_day
 			days = 10
 		}
-		custom_tooltip = KoH_religiousflavour_58_b_tt
+		custom_tooltip = TCT_religious_events_58_b_tt
 	}	
 
 	option = { #family
-		name = KoH_religiousflavour.58.c
+		name = TCT_religious_events.58.c
 		every_close_or_extended_family_member = {
 			limit = {
 				NOT = { this = root }
 			}
 			add_opinion = {
-				modifier = KOH_christmas_opinion
+				modifier = TCT_christmas_opinion
 				target = root
 			}
 		}
 	}
 }
 
-#KoH_religiousflavour.59 #christmas
+#TCT_religious_events.59 #christmas
 
-#KoH_religiousflavour.60 #christmas
+#TCT_religious_events.60 #christmas
 
-#KoH_religiousflavour.61 #christmas
+#TCT_religious_events.61 #christmas
 
-#KoH_religiousflavour.62 #christmas
+#TCT_religious_events.62 #christmas
 
-#KoH_religiousflavour.63 moved to TCT_saint_days.0001
+#TCT_religious_events.63 moved to TCT_saint_days.0001
 
 # #Event: Baptism of my Heir / Quick and Dirty Baptism's
-# KoH_religiousflavour.70 = {
-# 	title = KoH_religiousflavour.70.t
-# 	desc = KoH_religiousflavour.70.t
+# TCT_religious_events.70 = {
+# 	title = TCT_religious_events.70.t
+# 	desc = TCT_religious_events.70.t
 # 	# Use appropriate localization for the event title and description
 # 	orphan = yes
 # 	# Set the portraits of the characters involved
@@ -4050,7 +4050,7 @@ KoH_religiousflavour.58 = {#christmas
 # 	}
 
 # 	option = {
-# 		name = KoH_religiousflavour.70.a
+# 		name = TCT_religious_events.70.a
 
 # 		trigger = {
 # 			gold = 100 # Adjust the gold cost as desired
@@ -4065,7 +4065,7 @@ KoH_religiousflavour.58 = {#christmas
 # 	}
 
 # 	option = {
-# 		name = KoH_religiousflavour.70.b
+# 		name = TCT_religious_events.70.b
 
 # 		trigger = {
 # 			gold = 50 # Adjust the gold cost as desired
@@ -4079,7 +4079,7 @@ KoH_religiousflavour.58 = {#christmas
 # 	}
 
 # 	option = {
-# 		name = KoH_religiousflavour.70.c
+# 		name = TCT_religious_events.70.c
 
 # 		trigger = {
 # 			gold = 25 # Adjust the gold cost as desired
@@ -4096,9 +4096,9 @@ KoH_religiousflavour.58 = {#christmas
 
 
 # #Event: Baptism of my Heir / Quick and Dirty Baptism's
-# KoH_religiousflavour.70 = {
-# 	title = KoH_religiousflavour.70.t
-# 	desc = KoH_religiousflavour.70.t
+# TCT_religious_events.70 = {
+# 	title = TCT_religious_events.70.t
+# 	desc = TCT_religious_events.70.t
 # 	# Use appropriate localization for the event title and description
 # 	orphan = yes
 # 	# Set the portraits of the characters involved
@@ -4131,7 +4131,7 @@ KoH_religiousflavour.58 = {#christmas
 # 	}
 
 # 	option = {
-# 		name = KoH_religiousflavour.70.a
+# 		name = TCT_religious_events.70.a
 
 # 		trigger = {
 # 			has_gold = 100 # Adjust the gold cost as desired
@@ -4146,7 +4146,7 @@ KoH_religiousflavour.58 = {#christmas
 # 	}
 
 # 	option = {
-# 		name = KoH_religiousflavour.70.b
+# 		name = TCT_religious_events.70.b
 
 # 		trigger = {
 # 			has_gold = 50 # Adjust the gold cost as desired
@@ -4160,7 +4160,7 @@ KoH_religiousflavour.58 = {#christmas
 # 	}
 
 # 	option = {
-# 		name = KoH_religiousflavour.70.c
+# 		name = TCT_religious_events.70.c
 
 # 		trigger = {
 # 			has_gold = 25 # Adjust the gold cost as desired
@@ -4225,9 +4225,9 @@ KoH_religiousflavour.58 = {#christmas
 
 
 # Event: Veteran of the First Crusade
-# KoH_religiousflavour.80 = {
-# 	title = KoH_religiousflavour.80.t
-# 	desc = KoH_religiousflavour.80.desc
+# TCT_religious_events.80 = {
+# 	title = TCT_religious_events.80.t
+# 	desc = TCT_religious_events.80.desc
 # 	# Use appropriate localization for the event title and description
 
 # 	# Set the portraits of the characters involved
@@ -4264,7 +4264,7 @@ KoH_religiousflavour.58 = {#christmas
 # 	}
 
 # 	option = {
-# 		name = KoH_religiousflavour.80.a
+# 		name = TCT_religious_events.80.a
 # 		# Use appropriate localization for the option name
 
 # 		trigger = {
@@ -4286,13 +4286,13 @@ KoH_religiousflavour.58 = {#christmas
 
 
 # 		trigger_event = {
-# 			id = KoH_religiousflavour.81
+# 			id = TCT_religious_events.81
 # 			days = 1
 # 		}
 # 	}
 
 # 	option = {
-# 		name = KoH_religiousflavour.80.b
+# 		name = TCT_religious_events.80.b
 # 		# Use appropriate localization for the option name
 
 # 		trigger = {
@@ -4305,7 +4305,7 @@ KoH_religiousflavour.58 = {#christmas
 # 	}
 
 # 	option = {
-# 		name = KoH_religiousflavour.80.c
+# 		name = TCT_religious_events.80.c
 # 		# Use appropriate localization for the option name
 
 # 		trigger = {
@@ -4328,7 +4328,7 @@ KoH_religiousflavour.58 = {#christmas
 # 	}
 
 # 	option = {
-# 		name = KoH_religiousflavour.80.d
+# 		name = TCT_religious_events.80.d
 # 		# Use appropriate localization for the option name
 
 # 		trigger = {
@@ -4382,7 +4382,7 @@ KoH_religiousflavour.58 = {#christmas
 
 
 
-KoH_religiousflavour.200 = {
+TCT_religious_events.200 = {
 	hidden = yes
 	immediate = {
 		pay_short_term_gold = {
@@ -4394,10 +4394,10 @@ KoH_religiousflavour.200 = {
 
 
 # Autocephaly created!
-KoH_religiousflavour.210 = {
+TCT_religious_events.210 = {
 	type = character_event
-	title = KoH_religiousflavour.210.t
-	desc = KoH_religiousflavour.210.d
+	title = TCT_religious_events.210.t
+	desc = TCT_religious_events.210.d
 	theme = faith
 	
 	left_portrait = {
@@ -4410,17 +4410,17 @@ KoH_religiousflavour.210 = {
 	}
 
 	option = {
-		name = KoH_religiousflavour.210.a
+		name = TCT_religious_events.210.a
 	}
 }
 
 # Interdicted Requester informed the Pope denied their request.
-KoH_religiousflavour.211 = {
+TCT_religious_events.211 = {
 	type = letter_event
 	opening = {
-		desc = KoH_religiousflavour.211.o
+		desc = TCT_religious_events.211.o
 	}
-	desc = KoH_religiousflavour.211
+	desc = TCT_religious_events.211
 	sender = {
 		character = scope:recipient
 		animation = dismissal
@@ -4432,9 +4432,9 @@ KoH_religiousflavour.211 = {
 }
 
 #Ending a Pilgrimage to a Saintly Tomb
-KoH_religiousflavour.250 = { 
-	title = KoH_religiousflavour.250.t
-	desc = KoH_religiousflavour.250.desc
+TCT_religious_events.250 = { 
+	title = TCT_religious_events.250.t
+	desc = TCT_religious_events.250.desc
 	theme = learning_scholarship_focus
 	orphan = yes 
 	left_portrait = {
@@ -4464,15 +4464,15 @@ KoH_religiousflavour.250 = {
 	}
 
 	option = { 
-		name = KoH_religiousflavour.300.a
+		name = TCT_religious_events.300.a
 
 	}
 }
 
 #Saint related - finds nearby saint
-KoH_religiousflavour.300 = { 
-	title = KoH_religiousflavour.300.t
-	desc = KoH_religiousflavour.300.desc
+TCT_religious_events.300 = { 
+	title = TCT_religious_events.300.t
+	desc = TCT_religious_events.300.desc
 	theme = learning_scholarship_focus
 	orphan = yes 
 	left_portrait = {
@@ -4510,14 +4510,14 @@ KoH_religiousflavour.300 = {
 	}
 
 	option = { 
-		name = KoH_religiousflavour.300.a
+		name = TCT_religious_events.300.a
 
 	}
 }
 
-KoH_religiousflavour.400 = {
-	title = KoH_religiousflavour.400.t
-	desc = KoH_religiousflavour.400.desc
+TCT_religious_events.400 = {
+	title = TCT_religious_events.400.t
+	desc = TCT_religious_events.400.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = scope:deadpope
@@ -4587,14 +4587,14 @@ KoH_religiousflavour.400 = {
 	}
 
 	option = { 
-		name = KoH_religiousflavour.400.a
+		name = TCT_religious_events.400.a
 		open_view_data = {
 			view = royal_court
 			player = root
 		}
 		custom_tooltip = court_maintenance.0010.a.tooltip
 		trigger_event = {
-			id = KoH_religiousflavour.4001
+			id = TCT_religious_events.4001
 		}
 
 		ai_chance = {
@@ -4603,10 +4603,10 @@ KoH_religiousflavour.400 = {
 	}
 }
 
-KoH_religiousflavour.4001 = {
+TCT_religious_events.4001 = {
 	type = court_event
-	title = KoH_religiousflavour.4001.t
-	desc = KoH_religiousflavour.4001.desc
+	title = TCT_religious_events.4001.t
+	desc = TCT_religious_events.4001.desc
 	theme = court
 	override_background = { reference = throne_room }
 
@@ -4762,16 +4762,16 @@ KoH_religiousflavour.4001 = {
 	}
 
 	option = { 
-		name = KoH_religiousflavour.4001.a
+		name = TCT_religious_events.4001.a
 		
 		if = {
 			limit = {
 				this = character:2010
 			}
-			trigger_event = KoH_religiousflavour.600
+			trigger_event = TCT_religious_events.600
 		}
 		else = {
-			trigger_event = KoH_religiousflavour.5725
+			trigger_event = TCT_religious_events.5725
 		}	
 
 		ai_chance = {
@@ -4782,9 +4782,9 @@ KoH_religiousflavour.4001 = {
 
 #SELECT A NAME 
 #Papal Naming!
-KoH_religiousflavour.5725 = {
+TCT_religious_events.5725 = {
 	type = character_event
-	title = KoH_religiousflavour.5725.t
+	title = TCT_religious_events.5725.t
 	desc = {
 		first_valid = {
 			#If we're renaming ourself
@@ -4792,7 +4792,7 @@ KoH_religiousflavour.5725 = {
 				trigger = {
 					root = scope:child
 				}
-				desc = KoH_religiousflavour.5725.desc.me
+				desc = TCT_religious_events.5725.desc.me
 			}
 			#If we're renaming someone else
 			triggered_desc = {
@@ -4972,7 +4972,7 @@ KoH_religiousflavour.5725 = {
 	#Go ahead
 	option = {
 		name = birth.9004.a
-		trigger_event = KoH_religiousflavour.401
+		trigger_event = TCT_religious_events.401
 	}
 	after = {
 		if = {
@@ -4985,10 +4985,10 @@ KoH_religiousflavour.5725 = {
 	}
 }
 
-KoH_religiousflavour.401 = {
+TCT_religious_events.401 = {
 	type = court_event
-	title = KoH_religiousflavour.401.t
-	desc = KoH_religiousflavour.401.desc
+	title = TCT_religious_events.401.t
+	desc = TCT_religious_events.401.desc
 	theme = court
 	override_background = { reference = throne_room }
 
@@ -5066,7 +5066,7 @@ KoH_religiousflavour.401 = {
 	}
 
 	option = { 
-		name = KoH_religiousflavour.401.a
+		name = TCT_religious_events.401.a
 
 		ai_chance = {
 			base = 50
@@ -5083,16 +5083,16 @@ KoH_religiousflavour.401 = {
 				}
 			}
 			trigger_event = {
-				id = KoH_religiousflavour.402
+				id = TCT_religious_events.402
 				days = {5 15}
 			}
 		}
 	}
 }
 
-KoH_religiousflavour.402 = {
-	title = KoH_religiousflavour.402.t
-	desc = KoH_religiousflavour.402.desc
+TCT_religious_events.402 = {
+	title = TCT_religious_events.402.t
+	desc = TCT_religious_events.402.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = title:k_papal_state.holder
@@ -5104,7 +5104,7 @@ KoH_religiousflavour.402 = {
 	}
 
 	option = { 
-		name = KoH_religiousflavour.402.a
+		name = TCT_religious_events.402.a
 
 		ai_chance = {
 			base = 50
@@ -5113,7 +5113,7 @@ KoH_religiousflavour.402 = {
 }
     
 #Handing out county to Clergy
-KoH_religiousflavour.499 = {
+TCT_religious_events.499 = {
 	hidden = yes
 
 	immediate = {
@@ -5242,25 +5242,25 @@ KoH_religiousflavour.499 = {
 				save_scope_as = clergycounty_9
 			}
 		}
-		trigger_event = KoH_religiousflavour.500
+		trigger_event = TCT_religious_events.500
 	}
 }
 
-KoH_religiousflavour.500 = { 
-	title = KoH_religiousflavour.500.t
+TCT_religious_events.500 = { 
+	title = TCT_religious_events.500.t
 	desc = {
 		first_valid = {
 			triggered_desc = {
 				trigger = {
 					has_trait = cynical
 				}
-				desc = KoH_religiousflavour.500.desc.cynical
+				desc = TCT_religious_events.500.desc.cynical
 			}
 			triggered_desc = {
 				trigger = {
 					NOT = { has_trait = cynical }
 				}
-				desc = KoH_religiousflavour.500.desc
+				desc = TCT_religious_events.500.desc
 			}
 		}
 	}
@@ -5271,11 +5271,11 @@ KoH_religiousflavour.500 = {
 	}
 
 	option = { 
-		name = KoH_religiousflavour.500.a
+		name = TCT_religious_events.500.a
 		trigger = {
 			exists = scope:clergycounty_1
 		}
-		custom_tooltip = KoH_religiousflavour.500.a.tt
+		custom_tooltip = TCT_religious_events.500.a.tt
 		hidden_effect = {
 			scope:clergycounty_1 = {
 				save_scope_as = countyfortheocracy
@@ -5325,11 +5325,11 @@ KoH_religiousflavour.500 = {
 		}
 	}
 	option = { 
-		name = KoH_religiousflavour.500.b
+		name = TCT_religious_events.500.b
 		trigger = {
 			exists = scope:clergycounty_2
 		}
-		custom_tooltip = KoH_religiousflavour.500.a.tt
+		custom_tooltip = TCT_religious_events.500.a.tt
 		hidden_effect = {
 			scope:clergycounty_2 = {
 				save_scope_as = countyfortheocracy
@@ -5376,11 +5376,11 @@ KoH_religiousflavour.500 = {
 		
 	}
 	option = { 
-		name = KoH_religiousflavour.500.c
+		name = TCT_religious_events.500.c
 		trigger = {
 			exists = scope:clergycounty_3
 		}
-		custom_tooltip = KoH_religiousflavour.500.a.tt
+		custom_tooltip = TCT_religious_events.500.a.tt
 		hidden_effect = {
 			scope:clergycounty_3 = {
 				save_scope_as = countyfortheocracy
@@ -5426,11 +5426,11 @@ KoH_religiousflavour.500 = {
 		}
 	}
 	option = { 
-		name = KoH_religiousflavour.500.d
+		name = TCT_religious_events.500.d
 		trigger = {
 			exists = scope:clergycounty_4
 		}
-		custom_tooltip = KoH_religiousflavour.500.a.tt
+		custom_tooltip = TCT_religious_events.500.a.tt
 		hidden_effect = {
 			scope:clergycounty_4 = {
 				save_scope_as = countyfortheocracy
@@ -5478,11 +5478,11 @@ KoH_religiousflavour.500 = {
 	}
 
 	option = { 
-		name = KoH_religiousflavour.500.dd
+		name = TCT_religious_events.500.dd
 		trigger = {
 			exists = scope:clergycounty_5
 		}
-		custom_tooltip = KoH_religiousflavour.500.a.tt
+		custom_tooltip = TCT_religious_events.500.a.tt
 		hidden_effect = {
 			scope:clergycounty_5 = {
 				save_scope_as = countyfortheocracy
@@ -5529,35 +5529,35 @@ KoH_religiousflavour.500 = {
 	}
 
 	option = { 
-		name = KoH_religiousflavour.500.ee
+		name = TCT_religious_events.500.ee
 		trigger = {
 			exists = scope:clergycounty_6
 		}
 
-		trigger_event = KoH_religiousflavour.501
+		trigger_event = TCT_religious_events.501
 		
 	}
 
 	option = { 
-		name = KoH_religiousflavour.500.e
+		name = TCT_religious_events.500.e
 		
 	}
 }
 
-KoH_religiousflavour.501 = {
-	title = KoH_religiousflavour.500.t
-	desc = KoH_religiousflavour.500.desc
+TCT_religious_events.501 = {
+	title = TCT_religious_events.500.t
+	desc = TCT_religious_events.500.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = root
 	}
 
 	option = { 
-		name = KoH_religiousflavour.500.g
+		name = TCT_religious_events.500.g
 		trigger = {
 			exists = scope:clergycounty_6
 		}
-		custom_tooltip = KoH_religiousflavour.500.a.tt
+		custom_tooltip = TCT_religious_events.500.a.tt
 		hidden_effect = {
 			scope:clergycounty_6 = {
 				save_scope_as = countyfortheocracy
@@ -5604,11 +5604,11 @@ KoH_religiousflavour.501 = {
 		
 	}
 	option = { 
-		name = KoH_religiousflavour.500.h
+		name = TCT_religious_events.500.h
 		trigger = {
 			exists = scope:clergycounty_7
 		} 
-		custom_tooltip = KoH_religiousflavour.500.a.tt
+		custom_tooltip = TCT_religious_events.500.a.tt
 		hidden_effect = {
 			scope:clergycounty_7 = {
 				save_scope_as = countyfortheocracy
@@ -5655,11 +5655,11 @@ KoH_religiousflavour.501 = {
 		
 	}
 	option = { 
-		name = KoH_religiousflavour.500.i
+		name = TCT_religious_events.500.i
 		trigger = {
 			exists = scope:clergycounty_8
 		} 
-		custom_tooltip = KoH_religiousflavour.500.a.tt
+		custom_tooltip = TCT_religious_events.500.a.tt
 		hidden_effect = {
 			scope:clergycounty_8 = {
 				save_scope_as = countyfortheocracy
@@ -5706,11 +5706,11 @@ KoH_religiousflavour.501 = {
 		
 	}
 	option = { 
-		name = KoH_religiousflavour.500.j
+		name = TCT_religious_events.500.j
 		trigger = {
 			exists = scope:clergycounty_9
 		} 
-		custom_tooltip = KoH_religiousflavour.500.a.tt
+		custom_tooltip = TCT_religious_events.500.a.tt
 		hidden_effect = {
 			scope:clergycounty_9 = {
 				save_scope_as = countyfortheocracy
@@ -5756,21 +5756,21 @@ KoH_religiousflavour.501 = {
 		}
 	}
 	option = { 
-		name = KoH_religiousflavour.500.k
-		trigger_event = KoH_religiousflavour.500
+		name = TCT_religious_events.500.k
+		trigger_event = TCT_religious_events.500
 	}
 
 	option = { 
-		name = KoH_religiousflavour.500.m
+		name = TCT_religious_events.500.m
 		
 	}
 }
 
 
 #Election of Pope Gregory VII
-KoH_religiousflavour.600 = {
-	title = KoH_religiousflavour.600.t
-	desc = KoH_religiousflavour.600.desc
+TCT_religious_events.600 = {
+	title = TCT_religious_events.600.t
+	desc = TCT_religious_events.600.desc
 	theme = faith
 	right_portrait = {
 		character = title:k_papal_state.holder
@@ -5817,8 +5817,8 @@ KoH_religiousflavour.600 = {
 	}
 
 	option = {
-		name = KoH_religiousflavour.600.a
-		trigger_event = KoH_religiousflavour.401
+		name = TCT_religious_events.600.a
+		trigger_event = TCT_religious_events.401
 		hidden_effect = {
 			if = {
 				limit = {
@@ -5833,9 +5833,9 @@ KoH_religiousflavour.600 = {
 
 #Non_events
 
-KoH_religiousflavour.799 = { 
-	title = KoH_religiousflavour.799.t
-	desc = KoH_religiousflavour.799.desc
+TCT_religious_events.799 = { 
+	title = TCT_religious_events.799.t
+	desc = TCT_religious_events.799.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = scope:cardinal
@@ -5856,7 +5856,7 @@ KoH_religiousflavour.799 = {
 	}
 
 	option = { 
-		name = KoH_religiousflavour.799.a
+		name = TCT_religious_events.799.a
 		dictatuspapae = yes
 
 		every_ruler = {
@@ -5866,7 +5866,7 @@ KoH_religiousflavour.799 = {
 				NOT = { this = faith.religious_head }
 			}
 			trigger_event = {
-				id = KoH_religiousflavour.800
+				id = TCT_religious_events.800
 				days = {5 15}
 			}
 		}
@@ -5877,9 +5877,9 @@ KoH_religiousflavour.799 = {
 	}
 }
 
-KoH_religiousflavour.800 = { 
-	title = KoH_religiousflavour.800.t
-	desc = KoH_religiousflavour.800.desc
+TCT_religious_events.800 = { 
+	title = TCT_religious_events.800.t
+	desc = TCT_religious_events.800.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = scope:popewantsit
@@ -5898,7 +5898,7 @@ KoH_religiousflavour.800 = {
 	}
 
 	option = { 
-		name = KoH_religiousflavour.800.a
+		name = TCT_religious_events.800.a
 		trigger = {
 			NOT = {
 				this = title:e_hre.holder
@@ -5913,11 +5913,11 @@ KoH_religiousflavour.800 = {
 	#Who does he think he is?
 
 	option = {
-		name = KoH_religiousflavour.800.b
+		name = TCT_religious_events.800.b
 		trigger = {
 			this = title:e_hre.holder
 		}
-		custom_tooltip = KoH_religiousflavour.800.b.imperial_refusal
+		custom_tooltip = TCT_religious_events.800.b.imperial_refusal
 		title:k_papal_state.holder = {
 			add_opinion = {
 				target = title:e_hre.holder
@@ -5940,7 +5940,7 @@ KoH_religiousflavour.800 = {
 
 	# We submit
 	option = {
-		name = KoH_religiousflavour.800.c
+		name = TCT_religious_events.800.c
 		trigger = {
 			this = title:e_hre.holder
 		}
@@ -5949,7 +5949,7 @@ KoH_religiousflavour.800 = {
 	}
 }
 
-KoH_religiousflavour.802 = {
+TCT_religious_events.802 = {
 	hidden = yes
 
 	immediate = {
@@ -5960,7 +5960,7 @@ KoH_religiousflavour.802 = {
 	}
 }
 
-KoH_religiousflavour.801 = {
+TCT_religious_events.801 = {
 	hidden = yes
 
 	immediate = {
@@ -5971,9 +5971,9 @@ KoH_religiousflavour.801 = {
 #
 #Launching a Crusade
 
-KoH_religiousflavour.803 = {
-	title = KoH_religiousflavour.803.t
-	desc = KoH_religiousflavour.803.desc
+TCT_religious_events.803 = {
+	title = TCT_religious_events.803.t
+	desc = TCT_religious_events.803.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = scope:pope
@@ -5994,12 +5994,12 @@ KoH_religiousflavour.803 = {
 	}
 
 	option = {
-		name = KoH_religiousflavour.803.a
+		name = TCT_religious_events.803.a
 		
 	}
 }
 
-KoH_religiousflavour.805 = {
+TCT_religious_events.805 = {
 	hidden = yes
 
 	trigger = {
@@ -6031,12 +6031,12 @@ KoH_religiousflavour.805 = {
 	}
 
 	option = {
-		name = KoH_religiousflavour.803.a
+		name = TCT_religious_events.803.a
 		
 	}
 }
 
-KoH_religiousflavour.806 = {
+TCT_religious_events.806 = {
 	hidden = yes
 
 	trigger = {
@@ -6068,7 +6068,7 @@ KoH_religiousflavour.806 = {
 }
 
 
-KoH_religiousflavour.807 = {
+TCT_religious_events.807 = {
 	hidden = yes
 
 	immediate = {
@@ -6143,9 +6143,9 @@ scripted_effect nearby_crusader_state_targets = {
 }
 
 
-KoH_religiousflavour.810 = {
-	title = KoH_religiousflavour.810.t
-	desc = KoH_religiousflavour.810.desc
+TCT_religious_events.810 = {
+	title = TCT_religious_events.810.t
+	desc = TCT_religious_events.810.desc
 
 	right_portrait = {
 		character = root
@@ -6164,7 +6164,7 @@ KoH_religiousflavour.810 = {
 	}
 
 	option = {
-		name = KoH_religiousflavour.810.a
+		name = TCT_religious_events.810.a
 		if = {
 			limit = { has_variable = selected_title }
 			#create_cultural_specialist_effect = yes
@@ -6210,7 +6210,7 @@ KoH_religiousflavour.810 = {
 			#}
 		}
 		else = {
-			custom_tooltip = KoH_religiousflavour.810.a.cancel
+			custom_tooltip = TCT_religious_events.810.a.cancel
 			remove_decision_cooldown = Declare_Minor_Crusade
 		}
 	}
@@ -6221,7 +6221,7 @@ KoH_religiousflavour.810 = {
 #Hidden first event fires for the owner of the army.
 #root = owner of the army
 #scope:army = the army itself.
-KoH_religiousflavour.811 = {
+TCT_religious_events.811 = {
 	hidden = yes
 	
 	trigger = {
@@ -6300,26 +6300,26 @@ KoH_religiousflavour.811 = {
 		var:selected_title = { save_scope_as = selected_title }
 		var:selected_title_kingdom = { save_scope_as = target_kingdom }
 		scope:army = {
-			army_commander = { trigger_event = KoH_religiousflavour.812 }
+			army_commander = { trigger_event = TCT_religious_events.812 }
 			army_owner = {
 				every_knight = {
 					limit = {
 						location = scope:current_location
 					}
-					trigger_event = KoH_religiousflavour.812
+					trigger_event = TCT_religious_events.812
 				}
 			}
 		}
 	}
 }
 
-KoH_religiousflavour.812 = {
-	title = KoH_religiousflavour.812.title
+TCT_religious_events.812 = {
+	title = TCT_religious_events.812.title
 	desc = {
 		first_valid = {
 			triggered_desc = { #Crusaders
 				trigger = { faith.religion = religion:christianity_religion }
-				desc = KoH_religiousflavour.812.crusader.desc
+				desc = TCT_religious_events.812.crusader.desc
 			}
 			triggered_desc = { #Muslims
 				trigger = { faith.religion = religion:islam_religion }
@@ -6366,11 +6366,11 @@ KoH_religiousflavour.812 = {
 	}
 	
 	option = {
-		name = KoH_religiousflavour.812.a
+		name = TCT_religious_events.812.a
 		add_trait = faith_warrior
 		hidden_effect = { #Punish player sneakery.
 			trigger_event = {
-				id = KoH_religiousflavour.813
+				id = TCT_religious_events.813
 				days = { 15 60 }
 			}
 		}
@@ -6378,9 +6378,9 @@ KoH_religiousflavour.812 = {
 }
 
 #Character is no longer in the Holy Land fighting infidels, not even a few weeks after getting the trait!
-KoH_religiousflavour.813 = {
-	title = KoH_religiousflavour.813.title
-	desc = KoH_religiousflavour.813.base.desc
+TCT_religious_events.813 = {
+	title = TCT_religious_events.813.title
+	desc = TCT_religious_events.813.base.desc
 	theme = faith
 	left_portrait = {
 		character = root

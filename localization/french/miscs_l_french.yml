@@ -65,7 +65,7 @@ take_papal_investiture_late_AI: "take_papal_investiture_late_AI"
 take_papal_investiture_late_AI_confirm: "take_papal_investiture_late_AI"
 
 CardinalElectionWon: "Cardinal Election"
-HookGainedKOH: "You have gained a Hook"
+HookGainedTCT: "You have gained a Hook"
 deinvest_in_cardinal_AI_decision_effect_tooltip: "This decision is for AI to Deinvest in the College of Cardinals, Please report this as a bug if you can see this"
 
 trait_TCT_antipope:0 "Antipope"

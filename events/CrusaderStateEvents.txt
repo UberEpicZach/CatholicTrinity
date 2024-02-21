@@ -1089,7 +1089,7 @@ CrusaderStateEvents.5 = { #In another life....
 # 			set_county_faith = faith:waldensian
 
 # 			add_county_modifier = {
-# 				modifier = KOH_Religious_Tolerance
+# 				modifier = TCT_Religious_Tolerance
 # 				years = 20
 # 			}
 # 		}
@@ -1200,7 +1200,7 @@ CrusaderStateEvents.5 = { #In another life....
 # 	immediate = {
 # 		every_living_cardinal = {
 # 			add_prestige = 1
-# 			add_trait = koh_cardinal
+# 			add_trait = TCT_cardinal
 # 		}
 # 	}
 # }

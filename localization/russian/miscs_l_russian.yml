@@ -65,7 +65,7 @@ take_papal_investiture_late_AI: "take_papal_investiture_late_AI"
 take_papal_investiture_late_AI_confirm: "take_papal_investiture_late_AI"
 
 CardinalElectionWon: "Кардинальные выборы"
-HookGainedKOH: "Вы получили влияние"
+HookGainedTCT: "Вы получили влияние"
 deinvest_in_cardinal_AI_decision_effect_tooltip: "Это решение предназначено для ИИ, чтобы отказаться от инвестиций в коллегию кардиналов, пожалуйста, сообщите об ошибке, если вы видите это"
 
 trait_TCT_antipope:0 "Антипапа"

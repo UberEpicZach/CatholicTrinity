@@ -2076,8 +2076,8 @@ hof_ask_for_gold_interaction = {
 		scope:recipient = {
 			send_interface_message = {
 				type = event_generic_good_text
-				title = KOH_lots_of_gold_pope_paid
-				desc = KOH_lots_of_gold_pope_paid_desc
+				title = TCT_lots_of_gold_pope_paid
+				desc = TCT_lots_of_gold_pope_paid_desc
 
 				left_icon = scope:recipient
 				right_icon = scope:actor
@@ -2386,8 +2386,8 @@ seek_indulgences_interaction = {
 		scope:recipient = {
 			send_interface_message = {
 				type = event_generic_good_text
-				title = KOH_paid_indulgences
-				desc = KOH_paid_indulgences_desc
+				title = TCT_paid_indulgences
+				desc = TCT_paid_indulgences_desc
 
 				left_icon = scope:recipient
 				right_icon = scope:actor
@@ -5107,14 +5107,14 @@ tct_create_patriarchate_interaction = {
 				}
 				every_ruler = {
 					limit = { faith.religious_head = scope:recipient }
-					trigger_event = KoH_religiousflavour.210
+					trigger_event = TCT_religious_events.210
 				}
 			}
 		}
 	}
 	on_decline = {
 		scope:actor = {
-			hidden_effect = { trigger_event = KoH_religiousflavour.211 }
+			hidden_effect = { trigger_event = TCT_religious_events.211 }
 		}
 	}
 	
