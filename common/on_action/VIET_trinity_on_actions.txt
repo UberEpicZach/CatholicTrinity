@@ -32,20 +32,20 @@ VIET_trinity_events_tri_yearly_pulse = {
 		100 = VIETtrinity.0012		# Writing a letter to a legate about difficult spiritual matters
 
 		#religious events
-		100 = KoH_religiousflavour.1
-		100 = KoH_religiousflavour.2
-		100 = KoH_religiousflavour.3
-		100 = KoH_religiousflavour.4
-		100 = KoH_religiousflavour.5
-		100 = KoH_religiousflavour.6
-		100 = KoH_religiousflavour.7
-		100 = KoH_religiousflavour.8
-		100 = KoH_religiousflavour.12
-		100 = KoH_religiousflavour.13 
-		100 = KoH_religiousflavour.14
-		100 = KoH_religiousflavour.46
-		100 = KoH_religiousflavour.47
-		100 = KoH_religiousflavour.51
+		100 = TCT_religious_events.1
+		100 = TCT_religious_events.2
+		100 = TCT_religious_events.3
+		100 = TCT_religious_events.4
+		100 = TCT_religious_events.5
+		100 = TCT_religious_events.6
+		100 = TCT_religious_events.7
+		100 = TCT_religious_events.8
+		100 = TCT_religious_events.12
+		100 = TCT_religious_events.13 
+		100 = TCT_religious_events.14
+		100 = TCT_religious_events.46
+		100 = TCT_religious_events.47
+		100 = TCT_religious_events.51
 	}
 }
 
@@ -67,13 +67,13 @@ VIET_trinity_events_five_yearly_pulse = {
 		100 = VIETtrinity.0014		# Rumors of being an improper head of faith
 		100 = VIETtrinity.0015		# Thinking about interfighting between co-religionists
 
-		100 = KoH_religiousflavour.24
-		100 = KoH_religiousflavour.31
-		100 = KoH_religiousflavour.34
-		100 = KoH_religiousflavour.41
-		100 = KoH_religiousflavour.43
-		100 = KoH_religiousflavour.45
-		100 = KoH_religiousflavour.48
-		500 = KoH_religiousflavour.9
+		100 = TCT_religious_events.24
+		100 = TCT_religious_events.31
+		100 = TCT_religious_events.34
+		100 = TCT_religious_events.41
+		100 = TCT_religious_events.43
+		100 = TCT_religious_events.45
+		100 = TCT_religious_events.48
+		500 = TCT_religious_events.9
 	}
 }

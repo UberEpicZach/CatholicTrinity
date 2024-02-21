@@ -1,9 +1,9 @@
-﻿koh_free_investiture = {
+﻿TCT_free_investiture = {
 	monthly_change = 0.5
 	decaying = yes
 }
 
-koh_papal_investiture = {
+TCT_papal_investiture = {
 	monthly_change = 0.5
 	decaying = yes
 }
@@ -47,7 +47,7 @@ veterancrusaderrefuted = {
 	decaying = yes
 }
 
-KOH_christmas_opinion = {
+TCT_christmas_opinion = {
 	opinion = 30
 	decaying = yes
 	years = 3

@@ -16,7 +16,7 @@
 			OR = {
 				NOT = { has_government = republic_government }
 				AND = {
-					exists = global_var:KOH_is_loaded
+					exists = global_var:TCT_is_loaded
 					has_government = republic_government
 				}
 			}

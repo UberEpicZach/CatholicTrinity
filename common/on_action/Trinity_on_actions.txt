@@ -10,7 +10,7 @@
 
 on_army_enter_province = {
 	events = {
-		KoH_religiousflavour.811 #Give Crusaders their trait upon reaching the holy land.
+		TCT_religious_events.811 #Give Crusaders their trait upon reaching the holy land.
 	}
 }
 
@@ -56,7 +56,7 @@ TCT_christmas_real = {
 	}
 	random_events = {
 		10000 = 0
-		1 = KoH_religiousflavour.58 #Christmas! 
+		1 = TCT_religious_events.58 #Christmas! 
 		#1 = bp1_yearly.3004 #Christmas, but a child!! 
 		#1 = bp1_yearly.3006 # Reflecting on a great Christmas
 		#1 = bp1_yearly.3006 # Last Christmas I gave you my heart
@@ -90,13 +90,13 @@ fixing867pope = {
 
 on_rank_down = {
 	events = {
-		KoH_religiousflavour.805
+		TCT_religious_events.805
 	}
 }
 
 on_rank_up = {
 	events = {
-		KoH_religiousflavour.806
+		TCT_religious_events.806
 	}
 }
 
@@ -438,7 +438,7 @@ captianchurch = {
 CardinalsTraits = {
 	effect = {
 		title:k_papal_state.holder = {
-			trigger_event = KoH_religiousflavour.22
+			trigger_event = TCT_religious_events.22
 			faith = { update_cardinal_window = yes }
 		}
 		if = {
@@ -555,6 +555,32 @@ on_theocrat_investiture_death = {
 	}
 }
 
+on_theocratic_investiture_death_no_successor = {
+	trigger = {
+		exists = primary_title
+		primary_title = {
+			NOT = {
+				has_variable = theocratic_successor
+			}
+		}
+		government_has_flag = government_is_theocracy
+		top_liege = {
+			OR = {
+				has_realm_law = free_investiture_early
+				has_realm_law = free_investiture_late 
+			}
+		}
+	}
+	effect = {
+		liege = {
+			trigger_event = {
+
+			}
+		}
+	}
+
+}
+
 on_person_death_saint = {
 	trigger = { # simple checks to improve performance
 		has_religion = religion:christianity_religion
@@ -563,7 +589,7 @@ on_person_death_saint = {
 		is_adult = yes
 	}
     events = {
-        KoH_sainthood.1
+        TCT_sainthood.1
     }
 }
 
@@ -631,7 +657,7 @@ on_preferatus_death = {
 			faith = { update_cardinal_window = yes }
 		}
 		title:k_papal_state.holder = {
-			trigger_event = KoH_religiousflavour.801
+			trigger_event = TCT_religious_events.801
 		}
 	}
 }
@@ -824,7 +850,7 @@ on_pope_death = {
 					}
 				}
 				title:k_papal_state.holder = { 
-					trigger_event = KoH_religiousflavour.400
+					trigger_event = TCT_religious_events.400
 				}
 			}
 
@@ -999,7 +1025,7 @@ on_pope_death = {
 					}
 				}
 				title:k_papal_state.holder = { 
-					trigger_event = KoH_religiousflavour.400
+					trigger_event = TCT_religious_events.400
 				}
 			} 
 
@@ -1057,7 +1083,7 @@ Trinity_on_war_started = {
 			}
 			title:k_papal_state.holder = {
 				trigger_event = {
-					id = KoH_religiousflavour.56
+					id = TCT_religious_events.56
 					days = 3
 				}
 			}
@@ -1104,7 +1130,7 @@ priests_learn_latin = {
 
 on_faith_created = {
 	events = {
-		KoH_religiousflavour.807
+		TCT_religious_events.807
 	}
 }
 

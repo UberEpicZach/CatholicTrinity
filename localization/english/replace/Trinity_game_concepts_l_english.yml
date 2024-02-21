@@ -1,6 +1,6 @@
 ﻿l_english:
- game_concept_investiture: "Investiture Law"
- game_concept_investiture: "Investiture Law"
+ game_concept_investiture: "Investiture"
+ game_concept_investiture: "Investiture"
  game_concept_investiture_desc: "Investiture, #italic 'in#! #italic Vestire' #! meaning in dress or robe is the formal installation which a person is given the authority and regalia of a high office, in the case of a Bishop's Investiture has brought upon differing views throughout the church and europe, The Pope had declared himself the sole appointer, while the european nobility, many of which who had donated lands and territory to the church themselves, wish to retain the legal authority to pick and choose the successors to these bishoprics.\n\nThere are two levels of Investiture: [papal_investitures|E] and [free_investitures|E].\n\nThese decide among other things, the election of Bishops, the firing and electing of [realm_priest|E], Divorce, Excommunications, and other related powers of the [head_of_faith|E]."
  game_concept_free_investiture: "Free Investiture"
  game_concept_free_investitures: "Free Investiture"
@@ -9,6 +9,14 @@
  game_concept_papal_investitures: "Papal Investiture"
  game_concept_papal_investiture_desc: "$game_concept_papal_investiture$ is the standard for Catholic [investiture|E]. Only the Pope may appoint Bishops within the Realm. This will give the Crown a Piety cost discount when requesting special papal actions, like Divorce and Excommunication."
 
+ TCT_doctrine_head_of_faith_name: "Special Head of Faith Features"
+ TCT_doctrine_head_of_faith_desc: "While the Head of Faith Doctrine Category supports various options, some like Spiritual may allow for some Special Faith Abilities such as the Papal Doctrine."
+ TCT_doctrine_clerical_succession_name: "Clerical Abilities"
+ TCT_doctrine_clerical_succession_desc: "While the Clerical Succession Category supports various options, some may allow for some Special Clerical Abilities such as the Investiture Doctrine."
+ doctrine_TCT_blank_name:0 "No Ability"
+ doctrine_TCT_blank_desc:0 "If the selection of any other option is unavailable, please select this."
+ doctrine_clerical_TCT_blank_name:0 "No Ability"
+ doctrine_clerical_TCT_blank_desc:0 "If the selection of any other option is unavailable, please select this."
  TCT_doctrine_head_of_faith_name: "Special Head of Faith Features"
  TCT_doctrine_head_of_faith_desc: "While the Head of Faith Doctrine Category supports various options, some like Spiritual may allow for some Special Faith Abilities such as the Papal Doctrine."
  TCT_doctrine_clerical_succession_name: "Clerical Abilities"
@@ -27,7 +35,7 @@
  select_cardinal_candidate_interaction_desc:0 "Select an adult member of your court, [dynasty|E] or realm to be your Cardinal Candidate for the [collegeofcardinals|E]."
  select_cardinal_candidate_interaction_notification:0 "Selected Cardinal Candidate"
  TCT_NO_PATRIARCHATE_TITLE:0 "No Patriarchate"
- TCT_PATRIARCHATE_TITLE_NAME:0 "[kingdom.GetAdjectiveNoTooltip]an Pentarchy"
+ TCT_PATRIARCHATE_TITLE_NAME:0 "[kingdom.GetAdjectiveNoTooltip] Pentarchy"
  doctrine_autocephaly_head_name:0 "Autocephaly Head"
  doctrine_autocephaly_head_desc:0 "Autocephaly Head Desc, Fill in Later"
  
@@ -35,7 +43,7 @@
  TCT_Investiture_MapMode:0 "#T Investiture Law#!: [ROOT.Province.Custom('TCT_get_InvestitureLaw_of_barony')]"
  TCT_FreeInvestitureMapMode:0 "Free Investiture"
  TCT_PapalInvestitureMapMode:0 "Papal Investiture"
- #TCT_PENTARCHY_MAP_MODE_TOOLTIP:0 "#T Autocephaly#!: [ROOT.Province.Custom('TCT_get_patriarchate_of_barony')]"
+ TCT_PENTARCHY_MAP_MODE_TOOLTIP:0 "#T Autocephaly#!: [ROOT.Province.Custom('TCT_get_patriarchate_of_barony')]"
  TCT_PATRIARCHATE_TITLE:0 "[Scope.GetProvince.GetCountyCapitalProvince.MakeScope.Var('TCT_patriarchate_of_barony').GetLandedTitle.GetNameNoTooltip]"
  
  TCT_open_pentarchy_window_button:0 "Autocephaly"
@@ -43,7 +51,7 @@
  TCT_patriarchs_title:0 "Autocephalous patriarchs"
  TCT_patriarch_name:0 "Patriarch: [Scope.GetCharacter.GetFirstNameNoTooltip]"
  TCT_patriarchate_territory:0 "Canonical territory: [Scope.GetCharacter.MakeScope.Var('TCT_canonical_territory').GetLandedTitle.GetName]"
- TCT_ecumenical_patriarch_title:0 "Head of the Orthodox Church"
+ TCT_ecumenical_patriarch_title:0 "Head of the Church"
  TCT_ecumenical_patriarch_name:0 "Ecumenical Patriarch\n[Scope.GetCharacter.GetFirstNameNoTooltip]"
  TCT_rom_title:0 "Rome"
  TCT_con_title:0 "Constantinople"
@@ -53,7 +61,7 @@
  
  
  TCT_create_patriarchate_interaction:0 "Ask about Autocephaly"
- TCT_create_patriarchate_interaction_desc:0 "Попросить Вселенского патриарха создать на территории титула [actor.GetPrimaryTitle.GetName] autocephalous church with its own independent patriarch."
+ TCT_create_patriarchate_interaction_desc:0 "Ask the Ecumenical Patriarch to create an autocephalous church with its own independent patriarch on the territory of the title [actor.GetPrimaryTitle.GetName]."
  TCT_create_patriarchate_interaction_extra_icon:0 "$hook_extra_icon$"
  TCT_create_patriarchate_effect:0 "the autocephaly [actor.GetPrimaryTitle.GetAdjectiveNoTooltip] will be formed"
  CREATE_AUTOCEPHALY_HOOK:0 "Use [hooks|El]"
@@ -87,8 +95,8 @@
 
  add_pope_to_name: "Pope [ROOT.GetCharacter.GetFirstNameNoTooltip]"
 
- koh_papal_investiture: "Papal Investiture"
- koh_free_investiture: "Free Investiture"
+ TCT_papal_investiture: "Papal Investiture"
+ TCT_free_investiture: "Free Investiture"
  changed_investiture_law: "Changed Investiture Law"
  refused_changed_investiture_law: "Refused to Change Investiture Law"
  bishop_bribed_by_pope: "Bribed by Pope"
@@ -121,19 +129,22 @@
   TCT_antipopes_title:0 "Antipope:"
   TCT_antipopes_name:0 "[Scope.GetCharacter.GetFirstNameNicknamed] #medium ([Scope.GetCharacter.GetLiege.GetPrimaryTitle.GetName]) #!"
   TCT_no_antipopes:0 "Absent"
+  TCT_antipopes_title:0 "Antipope:"
+  TCT_antipopes_name:0 "[Scope.GetCharacter.GetFirstNameNicknamed] #medium ([Scope.GetCharacter.GetLiege.GetPrimaryTitle.GetName]) #!"
+  TCT_no_antipopes:0 "Absent"
   
-  TCT_MAKE_ANTIPOPE_NEGATIVE_OPINION:0 "[recipient.GetShortUIName|U] has a negative opinion about my character: $VALUE|=+0$"
-  TCT_MAKE_ANTIPOPE_VIRTUES:0 "[actor.GetFaith.GetReligiousHead.GetShortUIName|U] has virtuous [traits|El]: $VALUE|=+0$"
-  TCT_MAKE_ANTIPOPE_SINS:0 "[recipient.GetFaith.GetReligiousHead.GetShortUIName|U] has sinful [traits|El]: $VALUE|=+0$"
-  TCT_MAKE_ANTIPOPE_IS_AMBITIOUS:0 "[GetTrait('ambitious').GetName(recipient.Self)]: $VALUE|=+0$"
-  TCT_MAKE_ANTIPOPE_IS_CONTENT:0 "[GetTrait('content').GetName(recipient.Self)]: $VALUE|=+ 0 $""
-  TCT_MAKE_ANTIPOPE_IS_CARDINAL:0 "[GetTrait('koh_cardinal').GetName(recipient.Self)]: $VALUE|=+0$"
-  TCT_MAKE_ANTIPOPE_IS_HUMBLE:0 "[GetTrait('humble').GetName(recipient.Self)]: $VALUE|=+0$"
-  TCT_MAKE_ANTIPOPE_IS_ARROGANT:0 "[GetTrait('arrogant').GetName(recipient.Self)]: $VALUE|=+0$"
-  TCT_MAKE_ANTIPOPE_IS_BRAVE:0 "[GetTrait('brave').GetName(recipient.Self)]: $VALUE|=+0$"
-  TCT_MAKE_ANTIPOPE_IS_CRAVEN:0 "[GetTrait('craven').GetName(recipient.Self)]: $VALUE|=+0$"
-  TCT_MAKE_ANTIPOPE_IS_DUKE:0 "You are just a duke: $VALUE|=+0$"
-  TCT_MAKE_ANTIPOPE_ANTIPOPE_IS_EXISTS:0 "At least one antipope already exists: $VALUE|=+0$"
+  ROT_MAKE_ANTIPOPE_NEGATIVE_OPINION:0 "[recipient.GetShortUIName|U] has a negative opinion about my character: $VALUE|=+0$"
+  ROT_MAKE_ANTIPOPE_VIRTUES:0 "[actor.GetFaith.GetReligiousHead.GetShortUIName|U] has virtuous [traits|El]: $VALUE|=+0$"
+  ROT_MAKE_ANTIPOPE_SINS:0 "[recipient.GetFaith.GetReligiousHead.GetShortUIName|U] has sinful [traits|El]: $VALUE|=+0$"
+  ROT_MAKE_ANTIPOPE_IS_AMBITIOUS:0 "[GetTrait('ambitious').GetName(recipient.Self)]: $VALUE|=+0$"
+  ROT_MAKE_ANTIPOPE_IS_CONTENT:0 "[GetTrait('content').GetName(recipient.Self)]: $VALUE|=+ 0 $""
+  ROT_MAKE_ANTIPOPE_IS_CARDINAL:0 "[GetTrait('TCT_cardinal').GetName(recipient.Self)]: $VALUE|=+0$"
+  ROT_MAKE_ANTIPOPE_IS_HUMBLE:0 "[GetTrait('humble').GetName(recipient.Self)]: $VALUE|=+0$"
+  ROT_MAKE_ANTIPOPE_IS_ARROGANT:0 "[GetTrait('arrogant').GetName(recipient.Self)]: $VALUE|=+0$"
+  ROT_MAKE_ANTIPOPE_IS_BRAVE:0 "[GetTrait('brave').GetName(recipient.Self)]: $VALUE|=+0$"
+  ROT_MAKE_ANTIPOPE_IS_CRAVEN:0 "[GetTrait('craven').GetName(recipient.Self)]: $VALUE|=+0$"
+  ROT_MAKE_ANTIPOPE_IS_DUKE:0 "You are just a duke: $VALUE|=+0$"
+  ROT_MAKE_ANTIPOPE_ANTIPOPE_IS_EXISTS:0 "At least one antipope already exists: $VALUE|=+0$"
   
   RELIGIOUS_HEAD_INTERACTION_CONCLAVE_INFLUENCE_ACTOR:0 "Your influence on [collegeofcardinals|E]: $VALUE|=+0$"
   RELIGIOUS_HEAD_INTERACTION_CONCLAVE_INFLUENCE_RECIPIENT:0 "Influence of [secondary_recipient.GetShortUIName|U] on [collegeofcardinals|E]: $VALUE|=+0$"
@@ -173,7 +184,7 @@
   empire_mercenary_mod:0 "Grand Armada"
 
  #Modifiers
- koh_governs_vast_estates:0 "This Character Governs Vast Esates for the pope."
+ TCT_governs_vast_estates:0 "This Character Governs Vast Esates for the pope."
 
  #Invest 
   window_cardinals_divest_tooltip:0 "Withdraw Investment! Returns half initial investment."

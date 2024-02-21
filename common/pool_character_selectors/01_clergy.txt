@@ -78,10 +78,10 @@ pool_theocratic_succession = {
 	valid_character = {
 		is_capable_adult = yes
 		scope:base.faith = { has_allowed_gender_for_clergy = root }
-		is_imprisoned = no
-		is_married = no
-		is_betrothed = no
-		NOT = { has_trait = excommunicated }
+		# is_imprisoned = no
+		# is_married = no
+		# is_betrothed = no
+		# NOT = { has_trait = excommunicated }
 		trigger_if = {
 			limit = {
 				OR = {
@@ -94,45 +94,52 @@ pool_theocratic_succession = {
 	}
 	
 	character_score = {
-		base = 1
-		
+		base = 0
+
 		modifier = {
-			add = 100
-			has_same_culture_as = scope:base
-		}
-		modifier = {
-			add = 15
-			culture = { has_same_culture_heritage = scope:base.culture }
-		}
-		modifier = {
-			add = 10
-			culture = { has_same_culture_language = scope:base.culture }
-		}
-		modifier = {
-			add = 5
-			culture = { has_same_culture_ethos = scope:base.culture }
+			add = 100000
+			scope:base.faith = faith:catholic
+			exists = scope:province.county.var:theocratic_successor
+			this = scope:province.county.var:theocratic_successor
 		}
 		
-		modifier = {
-			factor = 1.5
-			age > 40
-		}
-		modifier = {
-			factor = 1.5
-			age > 60
-		}
-		modifier = {
-			add = cardinal_to_pope_score
-			any_owned_story = {story_type = cardinal_story}
-		}
-		modifier = {
-			factor = 3
-			scope:base.faith = { has_preferred_gender_for_clergy = root }
-		}
+		# modifier = {
+		# 	add = 100
+		# 	has_same_culture_as = scope:base
+		# }
+		# modifier = {
+		# 	add = 15
+		# 	culture = { has_same_culture_heritage = scope:base.culture }
+		# }
+		# modifier = {
+		# 	add = 10
+		# 	culture = { has_same_culture_language = scope:base.culture }
+		# }
+		# modifier = {
+		# 	add = 5
+		# 	culture = { has_same_culture_ethos = scope:base.culture }
+		# }
+		
+		# modifier = {
+		# 	factor = 1.5
+		# 	age > 40
+		# }
+		# modifier = {
+		# 	factor = 1.5
+		# 	age > 60
+		# }
+		# modifier = {
+		# 	add = cardinal_to_pope_score
+		# 	any_owned_story = {story_type = cardinal_story}
+		# }
+		# modifier = {
+		# 	factor = 3
+		# 	scope:base.faith = { has_preferred_gender_for_clergy = root }
+		# }
 	}
 	
 	config = {
-		background = clergy
+		#background = clergy
 		age = { 35 85 }
 	}
 	

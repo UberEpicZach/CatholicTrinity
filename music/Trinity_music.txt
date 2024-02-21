@@ -1,4 +1,4 @@
-﻿#KOH
+﻿#TCT
 
 Cardinals = {
 	music = "file:/music/Trinity_Soundtrack/religionview.wav"

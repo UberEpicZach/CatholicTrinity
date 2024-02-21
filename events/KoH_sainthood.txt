@@ -1,6 +1,6 @@
-﻿namespace = KoH_sainthood
+﻿namespace = TCT_sainthood
 
-KoH_sainthood.1 = {
+TCT_sainthood.1 = {
 	hidden = yes
 
 	trigger = {
@@ -62,7 +62,7 @@ KoH_sainthood.1 = {
 				# Notification event about local veneration
 				province_owner ?= {
 					trigger_event = {
-						id = KoH_sainthood.2
+						id = TCT_sainthood.2
 						days = 1 #to make dead saint person unprunable
 						#days = 60 #DEBUG
 					}
@@ -74,8 +74,8 @@ KoH_sainthood.1 = {
 							send_interface_toast = {
 								type = event_toast_effect_good
 								left_icon = scope:saint_person
-								title = KoH_sainthood.1.toast.t
-								custom_tooltip = KoH_sainthood.1.toast
+								title = TCT_sainthood.1.toast.t
+								custom_tooltip = TCT_sainthood.1.toast
 							}
 						}
 					}
@@ -307,7 +307,7 @@ KoH_sainthood.1 = {
 				}
 				faith = {
 					trigger_event = {
-						id = KoH_sainthood.8
+						id = TCT_sainthood.8
 						#months = 6 #DEBUG
 						years = { 13 27 }
 					}
@@ -317,28 +317,28 @@ KoH_sainthood.1 = {
 	}
 }
 
-KoH_sainthood.2 = { # Notification about Local Veneration
+TCT_sainthood.2 = { # Notification about Local Veneration
 	type = character_event
-	title = KoH_sainthood.2.t
+	title = TCT_sainthood.2.t
 	desc = {
 		first_valid = {
 			triggered_desc = {
 				trigger = {
 					NOT = { root.faith = scope:saint_person.faith }
 				}
-				desc = KoH_sainthood.2.desc.negative
+				desc = TCT_sainthood.2.desc.negative
 			}
 			random_valid = {
-				desc = KoH_sainthood.2.desc.a
-				desc = KoH_sainthood.2.desc.b
-				desc = KoH_sainthood.2.desc.c
-				desc = KoH_sainthood.2.desc.d
-				desc = KoH_sainthood.2.desc.e
-				desc = KoH_sainthood.2.desc.f
-				desc = KoH_sainthood.2.desc.g
-				desc = KoH_sainthood.2.desc.h
-				desc = KoH_sainthood.2.desc.i
-				desc = KoH_sainthood.2.desc.j
+				desc = TCT_sainthood.2.desc.a
+				desc = TCT_sainthood.2.desc.b
+				desc = TCT_sainthood.2.desc.c
+				desc = TCT_sainthood.2.desc.d
+				desc = TCT_sainthood.2.desc.e
+				desc = TCT_sainthood.2.desc.f
+				desc = TCT_sainthood.2.desc.g
+				desc = TCT_sainthood.2.desc.h
+				desc = TCT_sainthood.2.desc.i
+				desc = TCT_sainthood.2.desc.j
 			}
 		}
 	}
@@ -458,7 +458,7 @@ KoH_sainthood.2 = { # Notification about Local Veneration
 							make_unprunable = yes
 							faith = {
 								trigger_event = { # Diocesan Phase
-									id = KoH_sainthood.3
+									id = TCT_sainthood.3
 									#months = 1 #DEBUG
 									years = 5
 								}
@@ -471,8 +471,8 @@ KoH_sainthood.2 = { # Notification about Local Veneration
 	}
 
 	option = { # Endorse
-		name = KoH_sainthood.2.a
-		custom_tooltip = KoH_sainthood.2.info # Historical Context about Local Veneration
+		name = TCT_sainthood.2.a
+		custom_tooltip = TCT_sainthood.2.info # Historical Context about Local Veneration
 		scope:saint_capital_province = {
 			add_province_modifier = {
 				modifier = local_veneration
@@ -528,7 +528,7 @@ KoH_sainthood.2 = { # Notification about Local Veneration
 	}
 
 	option = { # Careful
-		name = KoH_sainthood.2.b
+		name = TCT_sainthood.2.b
 		scope:saint_capital_province = {
 			add_province_modifier = {
 				modifier = local_veneration
@@ -547,7 +547,7 @@ KoH_sainthood.2 = { # Notification about Local Veneration
 	}
 
 	option = { # Supress
-		name = KoH_sainthood.2.c
+		name = TCT_sainthood.2.c
 		add_dread = minor_dread_gain
 		scope:saint_capital_province.county = {
 			add_county_modifier = {
@@ -604,7 +604,7 @@ KoH_sainthood.2 = { # Notification about Local Veneration
 	}
 }
 
-KoH_sainthood.3 = { # Diocesan Phase
+TCT_sainthood.3 = { # Diocesan Phase
 	hidden = yes
 	scope = faith
 
@@ -616,7 +616,7 @@ KoH_sainthood.3 = { # Diocesan Phase
 	immediate = {
 		scope:saint_capital_province.province_owner = {
 			trigger_event = { # Notification about Diocesan Phase
-				id = KoH_sainthood.4
+				id = TCT_sainthood.4
 			}
 			liege ?= {
 				if = {
@@ -624,13 +624,13 @@ KoH_sainthood.3 = { # Diocesan Phase
 						highest_held_title_tier < tier_kingdom
 					}
 					trigger_event = {
-						id = KoH_sainthood.4
+						id = TCT_sainthood.4
 					}
 				}
 			}
 		}
 		trigger_event = { # Beatification
-			id = KoH_sainthood.5
+			id = TCT_sainthood.5
 			#days = 20 #DEBUG
 			years = { 1 3 }
 		}
@@ -638,9 +638,9 @@ KoH_sainthood.3 = { # Diocesan Phase
 }
 
 # Notification about Episcopal Investigation / Diocesan Phase
-KoH_sainthood.4 = {
+TCT_sainthood.4 = {
 	type = character_event
-	title = KoH_sainthood.4.t
+	title = TCT_sainthood.4.t
 	desc = {
 		first_valid = {
 			random_valid = {
@@ -648,34 +648,34 @@ KoH_sainthood.4 = {
 					trigger = {
 						NOT = {	scope:chaplain = scope:local_bishop }
 					}
-					desc = KoH_sainthood.4.desc.a
+					desc = TCT_sainthood.4.desc.a
 				}
 				triggered_desc = {
 					trigger = {
 						NOT = {	scope:chaplain = scope:local_bishop }
 					}
-					desc = KoH_sainthood.4.desc.b
+					desc = TCT_sainthood.4.desc.b
 				}
 				triggered_desc = {
 					trigger = {
 						NOT = {	scope:chaplain = scope:local_bishop }
 					}
-					desc = KoH_sainthood.4.desc.c
+					desc = TCT_sainthood.4.desc.c
 				}
 				triggered_desc = {
 					trigger = {
 						NOT = {	scope:chaplain = scope:local_bishop }
 					}
-					desc = KoH_sainthood.4.desc.d
+					desc = TCT_sainthood.4.desc.d
 				}
 				triggered_desc = {
 					trigger = {
 						NOT = {	scope:chaplain = scope:local_bishop }
 					}
-					desc = KoH_sainthood.4.desc.e
+					desc = TCT_sainthood.4.desc.e
 				}
 			}
-			desc = KoH_sainthood.4.desc
+			desc = TCT_sainthood.4.desc
 		}
 	}
 	theme = vassal
@@ -726,8 +726,8 @@ KoH_sainthood.4 = {
 	}
 
 	option = { # support
-		name = KoH_sainthood.4.a
-		custom_tooltip = KoH_sainthood.4.info # Historical Context about Diocesan Phase
+		name = TCT_sainthood.4.a
+		custom_tooltip = TCT_sainthood.4.info # Historical Context about Diocesan Phase
 		scope:local_bishop ?= {
 			if = {
 				limit = {
@@ -779,7 +779,7 @@ KoH_sainthood.4 = {
 	}
 
 	option = { # reserved
-		name = KoH_sainthood.4.b
+		name = TCT_sainthood.4.b
 
 		stress_impact = {
 			zealous = minor_stress_impact_gain
@@ -791,7 +791,7 @@ KoH_sainthood.4 = {
 	}
 
 	option = { # paranoid
-		name = KoH_sainthood.4.c
+		name = TCT_sainthood.4.c
 		trigger = {
 			has_trait = paranoid
 			NOT = { has_trait = zealous }
@@ -825,7 +825,7 @@ KoH_sainthood.4 = {
 	}
 }
 
-KoH_sainthood.5 = { # Get current HoF
+TCT_sainthood.5 = { # Get current HoF
 	hidden = yes
 	scope = faith
 
@@ -835,20 +835,20 @@ KoH_sainthood.5 = { # Get current HoF
 
 	immediate = {
 		scope:saint_person.faith.religious_head = {
-			trigger_event = KoH_sainthood.6
+			trigger_event = TCT_sainthood.6
 		}
 	}
 }
 
-KoH_sainthood.6 = { # Beatification
-	title = KoH_sainthood.6.t
+TCT_sainthood.6 = { # Beatification
+	title = TCT_sainthood.6.t
 	desc = {
 		random_valid = {
-			desc = KoH_sainthood.6.desc.a
-			desc = KoH_sainthood.6.desc.b
-			desc = KoH_sainthood.6.desc.c
-			desc = KoH_sainthood.6.desc.d
-			desc = KoH_sainthood.6.desc.e
+			desc = TCT_sainthood.6.desc.a
+			desc = TCT_sainthood.6.desc.b
+			desc = TCT_sainthood.6.desc.c
+			desc = TCT_sainthood.6.desc.d
+			desc = TCT_sainthood.6.desc.e
 		}
 	}
 	theme = faith
@@ -881,8 +881,8 @@ KoH_sainthood.6 = { # Beatification
 	}
 
 	option = { # Let it be known!
-		name = KoH_sainthood.6.a
-		custom_tooltip =  KoH_sainthood.6.a.info
+		name = TCT_sainthood.6.a
+		custom_tooltip =  TCT_sainthood.6.a.info
 		scope:saint_person = {
 			add_trait = beatified
 			#faith = { #DEBUG
@@ -901,7 +901,7 @@ KoH_sainthood.6 = { # Beatification
 								dynasty ?= scope:saint_person.dynasty
 							}
 						}
-						trigger_event = KoH_sainthood.7
+						trigger_event = TCT_sainthood.7
 					}
 					liege ?= {
 						if = {
@@ -914,16 +914,16 @@ KoH_sainthood.6 = { # Beatification
 								}
 								highest_held_title_tier < tier_empire
 							}
-							trigger_event = KoH_sainthood.7
+							trigger_event = TCT_sainthood.7
 						}
 					}
 				}
 				every_vassal = {
-					trigger_event = KoH_sainthood.7
+					trigger_event = TCT_sainthood.7
 				}
 				dynasty ?= {
 					every_dynasty_member = {
-						trigger_event = KoH_sainthood.7
+						trigger_event = TCT_sainthood.7
 					}
 				}
 			}
@@ -935,8 +935,8 @@ KoH_sainthood.6 = { # Beatification
 	}
 
 	option = { # no
-		name = KoH_sainthood.6.b
-		custom_tooltip = KoH_sainthood.6.b.info
+		name = TCT_sainthood.6.b
+		custom_tooltip = TCT_sainthood.6.b.info
 		scope:local_parish.province_owner = {
 			add_opinion = {
 				modifier = disappointed_opinion
@@ -951,15 +951,15 @@ KoH_sainthood.6 = { # Beatification
 }
 
 # Family and acquaintances respond to beatification
-KoH_sainthood.7 = { # A Blessed has Passed
-	title = KoH_sainthood.7.t
+TCT_sainthood.7 = { # A Blessed has Passed
+	title = TCT_sainthood.7.t
 	desc = {
 		random_valid = {
-			desc = KoH_sainthood.7.desc.a
-			desc = KoH_sainthood.7.desc.b
-			desc = KoH_sainthood.7.desc.c
-			desc = KoH_sainthood.7.desc.d
-			desc = KoH_sainthood.7.desc.e
+			desc = TCT_sainthood.7.desc.a
+			desc = TCT_sainthood.7.desc.b
+			desc = TCT_sainthood.7.desc.c
+			desc = TCT_sainthood.7.desc.d
+			desc = TCT_sainthood.7.desc.e
 		}
 	}
 	theme = travel
@@ -970,13 +970,13 @@ KoH_sainthood.7 = { # A Blessed has Passed
 	}
 
 	option = {
-		name = KoH_sainthood.7.a # ok
-		custom_tooltip = KoH_sainthood.7.a.info
+		name = TCT_sainthood.7.a # ok
+		custom_tooltip = TCT_sainthood.7.a.info
 		add_piety = 10
 	}
 }
 
-KoH_sainthood.8 = { # Get current HoF
+TCT_sainthood.8 = { # Get current HoF
 	hidden = yes
 	scope = faith
 	
@@ -985,22 +985,22 @@ KoH_sainthood.8 = { # Get current HoF
 			if = {
 				limit = { has_trait = beatified }
 				faith.religious_head ?= {
-					trigger_event = KoH_sainthood.9
+					trigger_event = TCT_sainthood.9
 				}
 			}
 		}
 	}
 }
 
-KoH_sainthood.9 = { # A Saint in the Making
+TCT_sainthood.9 = { # A Saint in the Making
 	type = character_event
-	title = KoH_sainthood.9.t
+	title = TCT_sainthood.9.t
 	desc = {
 		random_valid = {
-			desc = KoH_sainthood.9.desc.a
-			desc = KoH_sainthood.9.desc.b
-			desc = KoH_sainthood.9.desc.c
-			desc = KoH_sainthood.9.desc.d
+			desc = TCT_sainthood.9.desc.a
+			desc = TCT_sainthood.9.desc.b
+			desc = TCT_sainthood.9.desc.c
+			desc = TCT_sainthood.9.desc.d
 		}
 	}
 	theme = family
@@ -1035,7 +1035,7 @@ KoH_sainthood.9 = { # A Saint in the Making
 
 			faith = {
 				trigger_event = {
-					id = KoH_sainthood.10
+					id = TCT_sainthood.10
 					#months = 1 #DEBUG
 					years = { 2 5 }
 				}
@@ -1044,32 +1044,32 @@ KoH_sainthood.9 = { # A Saint in the Making
 	}
 
 	option = { # May God guide our discernment
-		name = KoH_sainthood.9.a
-		custom_tooltip = KoH_sainthood.9.info #Historical Context about Roman Phase
+		name = TCT_sainthood.9.a
+		custom_tooltip = TCT_sainthood.9.info #Historical Context about Roman Phase
 		add_piety = 10
 	}
 }
 
-KoH_sainthood.10 = { # Get current HoF
+TCT_sainthood.10 = { # Get current HoF
 	hidden = yes
 	scope = faith
 	
 	immediate = {
 		scope:saint_person.faith.religious_head ?= {
-			trigger_event = KoH_sainthood.11
+			trigger_event = TCT_sainthood.11
 		}
 	}
 }
 
-KoH_sainthood.11 = { # Positio is presented to the Pope
-	title = KoH_sainthood.11.t
+TCT_sainthood.11 = { # Positio is presented to the Pope
+	title = TCT_sainthood.11.t
 	desc = {
 		random_valid = {
-			desc = KoH_sainthood.11.desc.a
-			desc = KoH_sainthood.11.desc.b
-			desc = KoH_sainthood.11.desc.c
-			desc = KoH_sainthood.11.desc.d
-			desc = KoH_sainthood.11.desc.e
+			desc = TCT_sainthood.11.desc.a
+			desc = TCT_sainthood.11.desc.b
+			desc = TCT_sainthood.11.desc.c
+			desc = TCT_sainthood.11.desc.d
+			desc = TCT_sainthood.11.desc.e
 		}
 	}
 	theme = faith
@@ -1088,8 +1088,8 @@ KoH_sainthood.11 = { # Positio is presented to the Pope
 	}
 
 	option = {
-		name = KoH_sainthood.11.a #So it shall!
-		custom_tooltip = KoH_sainthood.11.a.info
+		name = TCT_sainthood.11.a #So it shall!
+		custom_tooltip = TCT_sainthood.11.a.info
 
 		scope:saint_person = {
 			random_list = {
@@ -1231,7 +1231,7 @@ KoH_sainthood.11 = { # Positio is presented to the Pope
 				faith = {
 					every_faith_ruler = {
 						limit = { NOT = { this = scope:canonizer_person } }
-						trigger_event = KoH_sainthood.12
+						trigger_event = TCT_sainthood.12
 					}
 				}
 			}
@@ -1272,8 +1272,8 @@ KoH_sainthood.11 = { # Positio is presented to the Pope
 	}
 
 	option = { # no
-		name = KoH_sainthood.11.b
-		custom_tooltip = KoH_sainthood.11.b.info
+		name = TCT_sainthood.11.b
+		custom_tooltip = TCT_sainthood.11.b.info
 
 		ai_chance = {
 			base = 0
@@ -1281,18 +1281,18 @@ KoH_sainthood.11 = { # Positio is presented to the Pope
 	}
 }
 
-KoH_sainthood.12 = {
-	title = KoH_sainthood.12.t
+TCT_sainthood.12 = {
+	title = TCT_sainthood.12.t
 	desc = {
 		random_valid = {
-			desc = KoH_sainthood.12.desc.a
-			desc = KoH_sainthood.12.desc.b
-			desc = KoH_sainthood.12.desc.c
-			desc = KoH_sainthood.12.desc.d
-			desc = KoH_sainthood.12.desc.e
-			desc = KoH_sainthood.12.desc.f
-			desc = KoH_sainthood.12.desc.g
-			desc = KoH_sainthood.12.desc.h
+			desc = TCT_sainthood.12.desc.a
+			desc = TCT_sainthood.12.desc.b
+			desc = TCT_sainthood.12.desc.c
+			desc = TCT_sainthood.12.desc.d
+			desc = TCT_sainthood.12.desc.e
+			desc = TCT_sainthood.12.desc.f
+			desc = TCT_sainthood.12.desc.g
+			desc = TCT_sainthood.12.desc.h
 		}
 	}
 	theme = faith
@@ -1307,6 +1307,6 @@ KoH_sainthood.12 = {
 	}
 
 	option = {
-		name = KoH_sainthood.12.a
+		name = TCT_sainthood.12.a
 	}
 }
