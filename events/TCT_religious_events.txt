@@ -990,334 +990,218 @@ TCT_religious_events.14 = { #Duty-Bound - Varaint
 		}
 	}
 }
-#Waldensians in Lyon
-# TCT_religious_events.15 = {
-# 	title = TCT_religious_events.15.t
-# 	desc = TCT_religious_events.15.desc
-# 	orphan = yes
-# 	theme = faith 
-# 	override_background = {
-# 		reference = market
-# 	}
-# 	left_portrait = {
-# 		character = title:c_lyon.holder
-# 	}
-# 	right_portrait = {
-# 		character = scope:peter
-# 	}
 
-# 	trigger = {
-# 		this = title:c_forez.holder
-# 	}
+#The Death of A Bishop: Appoint Investiture 
+TCT_religious_events.15 = {
+	title = TCT_religious_events.15.t
+	desc = TCT_religious_events.15.desc
+	theme = faith
 
-# 	immediate = {
-# 		create_character = {
-# 			name = "Pèire de Vaudès"
-# 			gender_female_chance = 0
-# 			dynasty = no
-# 			trait = heresiarch
-# 			location = root
-# 			age = { 40 50 }
-# 			learning = 18
-# 			faith = faith:waldensian
-# 			culture = culture:french
-# 			save_scope_as = peter
-# 		}
+	left_portrait = {
+		character = root
+		animation = thinking
+	}
 
-# 		title:c_lyon.holder = {
-# 			save_scope_as = archbishop
-# 		}
-# 	}
-
-# 	option = { 
-# 		name = TCT_religious_events.15.a
-# 		title:c_provence.holder = {
-# 			trigger_event = {
-# 				id = TCT_religious_events.16
-# 				days = { 5 10 }
-# 			}
-# 		}
-
-# 		title:c_savoie.holder = {
-# 			trigger_event = {
-# 				id = TCT_religious_events.16
-# 				days = { 5 10 }
-# 			}
-# 		}
-# 	}
-# 	option = { 
-# 		name = TCT_religious_events.15.b
-# 		trigger_event = {
-# 			id = TCT_religious_events.17
-# 			days = { 5 10 }
-# 		}
-# 	}
-# }
-
-# TCT_religious_events.16 = {
-# 	title = TCT_religious_events.16.t
-# 	desc = TCT_religious_events.16.desc
-# 	theme = faith 
-# 	override_background = {
-# 		reference = market
-# 	}
-
-# 	immediate = {
-# 		random_held_title = {
-# 			limit = { tier = tier_county }
-# 			save_scope_as = Waldensians_county
-# 		}
-
-# 		scope:Waldensians_county = {
-# 			set_county_faith = faith:waldensian
-
-# 			add_county_modifier = {
-# 				modifier = bastion_of_waldensianism_revolt_risk_modifier
-# 				years = 20
-# 			}
-# 		}
-# 	}
-
-# 	option = { 
-# 		name = TCT_religious_events.16.a
+	lower_right_portrait = {
+		character = faith.religious_head
+	}
 
 
-# 	}
-# }
+	immediate = {
+		#scope:dying_bishop.primary_title = {
+		title:d_salzburg = {
+			save_scope_as = bishop_title
+		}	
+	}
 
-# TCT_religious_events.17 = {
-# 	title = TCT_religious_events.17.t
-# 	desc = TCT_religious_events.17.desc
-# 	theme = faith 
-# 	override_background = {
-# 		reference = market
-# 	}
-# 	left_portrait = {
-# 		character = scope:archbishop
-# 	}
-# 	right_portrait = {
-# 		character = root
-# 	}
+	# I care, let me choose!
+	option = {
+		name = TCT_religious_events.15.a
 
-# 	immediate = {
-# 		title:c_lyon.holder = {
-# 			save_scope_as = archbishop
-# 		}
+		trigger_event = {
+			id = TCT_religious_events.16
+		}
 
-# 	}
+		ai_chance = {
+			base = 100
+		}
+	}
 
-# 	option = { 
-# 		name = TCT_religious_events.17.a
+	# Let the Pope decide
+	option = {
+		name = TCT_religious_events.15.b
 
-# 		scope:archbishop = {
-# 			add_opinion = {
-# 			target = root
-# 			modifier = pious_opinion
-# 			opinion = 10
-# 			}
-# 		}
-
-# 		add_piety = 50 
-
-# 		trigger_event = {
-# 			id = TCT_religious_events.18
-# 			days = 3 
-# 		}
-# 	}
-
-# 	option = { 
-# 		name = TCT_religious_events.17.b
-# 		custom_tooltip = TCT_religious_events.17.b.tt
-
-# 		scope:archbishop = {
-# 			add_opinion = {
-# 			target = root
-# 			modifier = temporal_condemnation_opinion
-# 			opinion = -30
-# 			}
-# 		}
-
-# 		trigger_event = {
-# 			id = TCT_religious_events.19
-# 			days = {10 20}
-# 		}
-# 	}
-
-# 	option = { 
-# 		name = TCT_religious_events.17.c
-# 		custom_tooltip = TCT_religious_events.17.c.tt
-
-# 		scope:archbishop = {
-# 			set_relation_rival = root
-# 		}
-
-# 		set_relation_rival = scope:archbishop
-
-# 		set_character_faith_with_conversion = faith:waldensian
-# 		add_piety = major_piety_loss
-
-# 		add_internal_flag = dangerous
+		ai_chance = {
+			base = 0
+		}
+	}
+}
 
 
-# 		trigger_event = {
-# 			id = TCT_religious_events.20
-# 			days = 3 
-# 		}
+scripted_effect get_investiture_characters = {
+	clear_variable_list = investiture_event_list
 
-# 		ai_chance = {
-# 			base = 80
-# 		}
-# 	}
-# }
+	every_dynasty_member = {
+		limit = {
+			OR = {
+				has_trait = devoted
+				has_education_learning_trigger = yes
+			}
+			is_landed = no
+			is_female = no
+			is_adult = yes
+			NOT = { any_heir_to_title = { exists = this } }
+		}
+		add_to_list = investiture_event_list
+	}
+	every_sibling = {
+		limit = {
+			OR = {
+				has_trait = devoted
+				has_education_learning_trigger = yes
+			}
+			is_landed = no
+			is_female = no
+			is_adult = yes
+			NOT = { any_heir_to_title = { exists = this } }
+		}
+		add_to_list = investiture_event_list
+	}
+	every_child = {
+		limit = {
+			OR = {
+				has_trait = devoted
+				has_education_learning_trigger = yes
+			}
+			is_landed = no
+			is_adult = yes
+			is_female = no
+			NOT = { any_heir_to_title = { exists = this } }
+		}
+		add_to_list = investiture_event_list
+	}
 
-# TCT_religious_events.18 = {
-# 	title = TCT_religious_events.18.t
-# 	desc = TCT_religious_events.18.desc
-# 	theme = faith 
-# 	override_background = {
-# 		reference = market
-# 	}
+	every_courtier_or_guest = {
+		limit = {
+			OR = {
+				AND = {
+					is_councillor_of = root
+					has_council_position = councillor_court_chaplain
+				}
+				AND = {
+					NOT = {
+						AND = {
+							court_owner = { has_realm_law = male_only_law }
+							is_female = yes
+						}
+						AND = {
+							court_owner = { has_realm_law = male_preference_law }
+							is_female = yes
+						}
+						AND = {
+							court_owner = { has_realm_law = female_only_law }
+							is_female = no
+						}
+						AND = {
+							court_owner = { has_realm_law = female_preference_law }
+							is_female = no
+						}
+						has_variable = theocratic_successor
+						father = liege_or_court_owner
+						mother = liege_or_court_owner
+						primary_spouse = liege_or_court_owner
+					}
+				}
+			}
+			AND = {
+				#And they have to actually like you enough to want to invest you.
+				opinion = {
+					target = root
+					value >= 0
+				}
+				learning >= 7
+			}
+			has_faith = root.faith
+		}
+		add_to_list = investiture_event_list
+	}
+	every_in_list = {
+		list = investiture_event_list
+		add_to_prev_list = {NAME = investiture_event_list}
+	}
+}
 
-# 	immediate = {
-# 		title:c_forez = {
-# 			change_development_level = -2
+#The Death of A Bishop: Appoint Investiture
+TCT_religious_events.16 = {
+	title = TCT_religious_events.16.t
+	desc = TCT_religious_events.16.desc
+	theme = faith
 
-# 			add_county_modifier = {
-# 				modifier = Massacre_of_Feurs
-# 				years = 10
-# 			}
-# 		}
-# 	}
+	left_portrait = {
+		character = root
+		animation = thinking
+	}
 
-# 	option = { 
-# 		name = TCT_religious_events.18.a	
-# 	}
-# }
+	lower_right_portrait = {
+		character = faith.religious_head
+	}
 
-# TCT_religious_events.19 = {
-# 	title = TCT_religious_events.19.t
-# 	desc = TCT_religious_events.19.desc
-# 	theme = faith 
-# 	override_background = {
-# 		reference = market
-# 	}
+	# trigger = {
+	# 	scope:bishop_title = {
+	# 		OR = {
+	# 			liege = {
+	# 				OR = {
+	# 					has_realm_law = free_investiture_early
+	# 					has_realm_law = free_investiture_late
+	# 				}
+	# 			}
+	# 		}
+	# 	}
+	# }
 
-# 	immediate = {
-# 		add_excommunication_actual_effect = yes
-# 	}
+	
+	widget = {
+		gui = "investiture_event_selection"
+		container = "custom_widgets_container"
+	}
 
-# 	option = { 
-# 		name = TCT_religious_events.19.a	
+	immediate = {
+		remove_variable = selected_character
+		clear_variable_list = investiture_event_list
+		get_investiture_characters = yes
+	}
 
-# 		title:c_forez = {
-# 			set_county_faith = faith:waldensian
+	# Let the Pope decide
+	option = {
+		name = TCT_religious_events.16.a
 
-# 			add_county_modifier = {
-# 				modifier = TCT_Religious_Tolerance
-# 				years = 20
-# 			}
-# 		}
-# 		set_nickname_effect = { NICKNAME = nick_the_tolerant }
-# 	}
-# }
+		if = {
+			limit = { has_variable = selected_character }
+			var:selected_character = {
+				save_scope_as = selected_character
+			}
+		
+			scope:selected_character = {
+				create_title_and_vassal_change = {
+					type = granted
+					save_scope_as = title_change
+					add_claim_on_loss = no
+				}
+				scope:bishop_title = {
+					change_title_holder = {
+						holder = scope:selected_character
+						change = scope:title_change
+					}
+				}
+				resolve_title_and_vassal_change = scope:title_change
+			}
+		}
 
-# TCT_religious_events.20 = {
-# 	title = TCT_religious_events.20.t
-# 	desc = TCT_religious_events.20.desc
-# 	theme = faith 
-# 	override_background = {
-# 		reference = market
-# 	}
-
-# 	immediate = {
-# 		add_excommunication_actual_effect = yes
-# 	}
-
-# 	option = { 
-# 		name = TCT_religious_events.20.a	
-
-# 		add_trait = heresiarch
-# 		add_trait = paragon
-
-# 		set_nickname_effect = { NICKNAME = nick_the_waldensian }
-
-# 		add_piety = 1000
-
-# 		title:c_forez = {
-# 			set_county_faith = faith:waldensian
-
-# 			add_county_modifier = {
-# 				modifier = Birthplace_of_Waldensianism
-# 				years = 100
-# 			}
-# 		}
-
-# 		title:c_lyon = {
-# 			set_county_faith = faith:waldensian
-
-
-# 			add_county_modifier = {
-# 				modifier = Birthplace_of_Waldensianism
-# 				years = 100
-# 			}
-# 		}
-
-# 		faith:waldensian = {
-# 			change_fervor = {
-# 				value = 28
-# 				desc = Birthplace_of_Waldensianism
-# 			}
-# 		}
-
-# 		title:c_roma.holder = {
-# 			add_opinion = {
-# 				target = root
-# 				modifier = temporal_condemnation_opinion
-# 				opinion = -30
-# 			}
-# 		}
-
-# 		every_ruler = {
-# 			limit = {
-# 				AND = {
-# 					NOT = { this = title:c_forez.holder }
-# 					has_religion = religion:christianity_religion
-# 				}
-# 			}
-# 			trigger_event = {
-# 				id = TCT_religious_events.21
-# 				days = 10
-# 			}
-# 		}
-# 	}
-# }
-
-# TCT_religious_events.21 = {
-# 	title = TCT_religious_events.21.t
-# 	desc = TCT_religious_events.21.desc
-# 	theme = faith 
-# 	override_background = {
-# 		reference = market
-# 	}
-
-# 	right_portrait = {
-# 		character = title:c_forez.holder
-# 	}
-
-# 	immediate = {
-# 		title:c_forez.holder = {
-# 			save_scope_as = forez
-# 		}
-
-# 		title:c_roma.holder = {
-# 			save_scope_as = pope
-# 		}
-# 	}
-
-# 	option = { 
-# 		name = TCT_religious_events.21.a	
-# 	}
-# }
+		ai_chance = {
+			base = 0
+		}
+	}
+}
 
 #cardinal names
 TCT_religious_events.22 = {
@@ -5111,138 +4995,18 @@ TCT_religious_events.402 = {
 		}
 	}
 }
-    
-#Handing out county to Clergy
-TCT_religious_events.499 = {
-	hidden = yes
 
-	immediate = {
-		every_held_title = {
-			limit = { tier = tier_county NOT = { root.capital_county = this } }
-			add_to_list = personally_held_counties_list
-		}
+scripted_effect get_held_title_to_donate = {
+	clear_variable_list = personally_held_counties_list
 
-		ordered_in_list = {
-			list = personally_held_counties_list
-			max = countydonationclery_cap_value
-			order_by = { add = development_level }
-			# Grab three options.
-			if = {
-				limit = {
-					NOT = { exists = scope:clergycounty_1 root.capital_county = this }
-				}
-				save_scope_as = clergycounty_1
-			}
-			else_if = {
-				limit = {
-					NOR = {
-						root.capital_county = this
-						this = scope:clergycounty_1
-						exists = scope:clergycounty_2
-					}
-				}
-				save_scope_as = clergycounty_2
-			}
-			else_if = {
-				limit = {
-					NOR = {
-						root.capital_county = this
-						this = scope:clergycounty_1
-						this = scope:clergycounty_2
-						exists = scope:clergycounty_3
-					}
-				}
-				save_scope_as = clergycounty_3
-			}
-			else_if = {
-				limit = {
-					NOR = {
-						root.capital_county = this
-						this = scope:clergycounty_1
-						this = scope:clergycounty_2
-						this = scope:clergycounty_3
-						exists = scope:clergycounty_4
-					}
-				}
-				save_scope_as = clergycounty_4
-			}
-			else_if = {
-				limit = {
-					NOR = {
-						root.capital_county = this
-						this = scope:clergycounty_1
-						this = scope:clergycounty_2
-						this = scope:clergycounty_3
-						this = scope:clergycounty_4
-						exists = scope:clergycounty_5
-					}
-				}
-				save_scope_as = clergycounty_5
-			}
-			else_if = {
-				limit = {
-					NOR = {
-						this = root.capital_county
-						this = scope:clergycounty_1
-						this = scope:clergycounty_2
-						this = scope:clergycounty_3
-						this = scope:clergycounty_4
-						this = scope:clergycounty_5
-						exists = scope:clergycounty_6
-					}
-				}
-				save_scope_as = clergycounty_6
-			}
-			else_if = {
-				limit = {
-					NOR = {
-						this = root.capital_county
-						this = scope:clergycounty_1
-						this = scope:clergycounty_2
-						this = scope:clergycounty_3
-						this = scope:clergycounty_4
-						this = scope:clergycounty_5
-						this = scope:clergycounty_6
-						exists = scope:clergycounty_7
-					}
-				}
-				save_scope_as = clergycounty_7
-			}
-			else_if = {
-				limit = {
-					NOR = {
-						this = root.capital_county
-						this = scope:clergycounty_1
-						this = scope:clergycounty_2
-						this = scope:clergycounty_3
-						this = scope:clergycounty_4
-						this = scope:clergycounty_5
-						this = scope:clergycounty_6
-						this = scope:clergycounty_7
-						exists = scope:clergycounty_8
-					}
-				}
-				save_scope_as = clergycounty_8
-			}
-			else_if = {
-				limit = {
-					NOR = {
-						this = root.capital_county
-						this = scope:clergycounty_1
-						this = scope:clergycounty_2
-						this = scope:clergycounty_3
-						this = scope:clergycounty_4
-						this = scope:clergycounty_5
-						this = scope:clergycounty_6
-						this = scope:clergycounty_7
-						this = scope:clergycounty_8
-						exists = scope:clergycounty_9
-					}
-				}
-				save_scope_as = clergycounty_9
-			}
-		}
-		trigger_event = TCT_religious_events.500
+	every_held_title = {
+		limit = { tier = tier_county NOT = { root.capital_county = this } }
+		add_to_list = personally_held_counties_list
+	}
+
+	every_in_list = {
+		list = personally_held_counties_list
+		add_to_prev_list = {NAME = personally_held_counties_list}
 	}
 }
 
@@ -5265,507 +5029,86 @@ TCT_religious_events.500 = {
 		}
 	}
 
+	widget = {
+		gui = "donation_to_clergy_title_selection_widget"
+		container = "custom_widgets_container"
+	}
+
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = root
 	}
 
-	option = { 
+	immediate = {
+		remove_variable = selected_title
+		clear_variable_list = personally_held_counties_list
+		get_held_title_to_donate = yes
+	}
+
+	option = {
 		name = TCT_religious_events.500.a
-		trigger = {
-			exists = scope:clergycounty_1
-		}
-		custom_tooltip = TCT_religious_events.500.a.tt
-		hidden_effect = {
-			scope:clergycounty_1 = {
-				save_scope_as = countyfortheocracy
+		if = {
+			limit = { has_variable = selected_title }
+			var:selected_title = {
+				save_scope_as = selected_title
 			}
-
-			create_character = {
-				template = priest_character_template
-				location = root.capital_province
-				save_scope_as = template_priest
-			}
-
-			create_title_and_vassal_change = {
-				type = granted
-				save_scope_as = title_change
-				add_claim_on_loss = no
-			}
-			scope:countyfortheocracy = {
-				change_title_holder = {
-					holder = scope:template_priest
-					change = scope:title_change
+			# set_variable = {
+			# 	name = selected_title_kingdom
+			# 	value = var:selected_title
+			# }
+			custom_tooltip = TCT_religious_events.500.a.tt
+			hidden_effect = {
+				create_character = {
+					template = priest_character_template
+					location = root.capital_province
+					save_scope_as = template_priest
+				}
+				create_title_and_vassal_change = {
+					type = granted
+					save_scope_as = title_change
+					add_claim_on_loss = no
+				}
+				scope:selected_title = {
+					change_title_holder = {
+						holder = scope:template_priest
+						change = scope:title_change
+					}
+				}
+				resolve_title_and_vassal_change = scope:title_change
+				scope:template_priest = {
+					add_realm_law = bishop_theocratic_succession_law
+					change_government = theocracy_government
 				}
 			}
-			resolve_title_and_vassal_change = scope:title_change
-			scope:template_priest = {
-				add_realm_law = bishop_theocratic_succession_law
-				change_government = theocracy_government
+			add_piety = 500
+			TCT_get_pope_of_target = {
+				TARGET = root
 			}
-		}
-		add_piety = 300
-		TCT_get_pope_of_target = {
-			TARGET = root
-		}
-		scope:pope_of_target = {
-			add_opinion = {
-				target = root
-				modifier = grantedlandtoclergy
-				opinion = 10
+			scope:pope_of_target = {
+				add_opinion = {
+					target = root
+					modifier = grantedlandtoclergy
+					opinion = 10
+				}
 			}
-		}
-		add_character_modifier = {
-			modifier = donatedlandtoclergy
-			years = 5
-		}
+			add_character_modifier = {
+				modifier = donatedlandtoclergy
+				years = 5
+			}
 
-		ai_chance = {
-			base = 100
+			ai_chance = {
+				base = 100
+			}
+		}
+		else = {
+			remove_decision_cooldown = DonationCountyClergy
 		}
 	}
-	option = { 
+	option = {
 		name = TCT_religious_events.500.b
-		trigger = {
-			exists = scope:clergycounty_2
-		}
-		custom_tooltip = TCT_religious_events.500.a.tt
-		hidden_effect = {
-			scope:clergycounty_2 = {
-				save_scope_as = countyfortheocracy
-			}
-
-			create_character = {
-				template = priest_character_template
-				location = root.capital_province
-				save_scope_as = template_priest
-			}
-
-			create_title_and_vassal_change = {
-				type = granted
-				save_scope_as = title_change
-				add_claim_on_loss = no
-			}
-			scope:countyfortheocracy = {
-				change_title_holder = {
-					holder = scope:template_priest
-					change = scope:title_change
-				}
-			}
-			resolve_title_and_vassal_change = scope:title_change
-			scope:template_priest = {
-				add_realm_law = bishop_theocratic_succession_law
-				change_government = theocracy_government
-			}
-		}
-		add_piety = 300
-		TCT_get_pope_of_target = {
-			TARGET = root
-		}
-		scope:pope_of_target = {
-			add_opinion = {
-				target = root
-				modifier = grantedlandtoclergy
-				opinion = 10
-			}
-		}
-		add_character_modifier = {
-			modifier = donatedlandtoclergy
-			years = 5
-		}
-		
-	}
-	option = { 
-		name = TCT_religious_events.500.c
-		trigger = {
-			exists = scope:clergycounty_3
-		}
-		custom_tooltip = TCT_religious_events.500.a.tt
-		hidden_effect = {
-			scope:clergycounty_3 = {
-				save_scope_as = countyfortheocracy
-			}
-
-			create_character = {
-				template = priest_character_template
-				location = root.capital_province
-				save_scope_as = template_priest
-			}
-
-			create_title_and_vassal_change = {
-				type = granted
-				save_scope_as = title_change
-				add_claim_on_loss = no
-			}
-			scope:countyfortheocracy = {
-				change_title_holder = {
-					holder = scope:template_priest
-					change = scope:title_change
-				}
-			}
-			resolve_title_and_vassal_change = scope:title_change
-			scope:template_priest = {
-				add_realm_law = bishop_theocratic_succession_law
-				change_government = theocracy_government
-			}
-		}
-		add_piety = 300
-		TCT_get_pope_of_target = {
-			TARGET = root
-		}
-		scope:pope_of_target = {
-			add_opinion = {
-				target = root
-				modifier = grantedlandtoclergy
-				opinion = 10
-			}
-		}
-		add_character_modifier = {
-			modifier = donatedlandtoclergy
-			years = 5
-		}
-	}
-	option = { 
-		name = TCT_religious_events.500.d
-		trigger = {
-			exists = scope:clergycounty_4
-		}
-		custom_tooltip = TCT_religious_events.500.a.tt
-		hidden_effect = {
-			scope:clergycounty_4 = {
-				save_scope_as = countyfortheocracy
-			}
-
-			create_character = {
-				template = priest_character_template
-				location = root.capital_province
-				save_scope_as = template_priest
-			}
-
-			create_title_and_vassal_change = {
-				type = granted
-				save_scope_as = title_change
-				add_claim_on_loss = no
-			}
-			scope:countyfortheocracy = {
-				change_title_holder = {
-					holder = scope:template_priest
-					change = scope:title_change
-				}
-			}
-			resolve_title_and_vassal_change = scope:title_change
-			scope:template_priest = {
-				add_realm_law = bishop_theocratic_succession_law
-				change_government = theocracy_government
-			}
-		}
-		add_piety = 300
-		TCT_get_pope_of_target = {
-			TARGET = root
-		}
-		scope:pope_of_target = {
-			add_opinion = {
-				target = root
-				modifier = grantedlandtoclergy
-				opinion = 10
-			}
-		}
-		add_character_modifier = {
-			modifier = donatedlandtoclergy
-			years = 5
-		}
-		
-	}
-
-	option = { 
-		name = TCT_religious_events.500.dd
-		trigger = {
-			exists = scope:clergycounty_5
-		}
-		custom_tooltip = TCT_religious_events.500.a.tt
-		hidden_effect = {
-			scope:clergycounty_5 = {
-				save_scope_as = countyfortheocracy
-			}
-
-			create_character = {
-				template = priest_character_template
-				location = root.capital_province
-				save_scope_as = template_priest
-			}
-
-			create_title_and_vassal_change = {
-				type = granted
-				save_scope_as = title_change
-				add_claim_on_loss = no
-			}
-			scope:countyfortheocracy = {
-				change_title_holder = {
-					holder = scope:template_priest
-					change = scope:title_change
-				}
-			}
-			resolve_title_and_vassal_change = scope:title_change
-			scope:template_priest = {
-				add_realm_law = bishop_theocratic_succession_law
-				change_government = theocracy_government
-			}
-		}
-		add_piety = 300
-		TCT_get_pope_of_target = {
-			TARGET = root
-		}
-		scope:pope_of_target = {
-			add_opinion = {
-				target = root
-				modifier = grantedlandtoclergy
-				opinion = 10
-			}
-		}
-		add_character_modifier = {
-			modifier = donatedlandtoclergy
-			years = 5
-		}
-	}
-
-	option = { 
-		name = TCT_religious_events.500.ee
-		trigger = {
-			exists = scope:clergycounty_6
-		}
-
-		trigger_event = TCT_religious_events.501
-		
-	}
-
-	option = { 
-		name = TCT_religious_events.500.e
-		
+		remove_decision_cooldown = DonationCountyClergy
 	}
 }
-
-TCT_religious_events.501 = {
-	title = TCT_religious_events.500.t
-	desc = TCT_religious_events.500.desc
-	theme = learning_scholarship_focus
-	left_portrait = {
-		character = root
-	}
-
-	option = { 
-		name = TCT_religious_events.500.g
-		trigger = {
-			exists = scope:clergycounty_6
-		}
-		custom_tooltip = TCT_religious_events.500.a.tt
-		hidden_effect = {
-			scope:clergycounty_6 = {
-				save_scope_as = countyfortheocracy
-			}
-
-			create_character = {
-				template = priest_character_template
-				location = root.capital_province
-				save_scope_as = template_priest
-			}
-
-			create_title_and_vassal_change = {
-				type = granted
-				save_scope_as = title_change
-				add_claim_on_loss = no
-			}
-			scope:countyfortheocracy = {
-				change_title_holder = {
-					holder = scope:template_priest
-					change = scope:title_change
-				}
-			}
-			resolve_title_and_vassal_change = scope:title_change
-			scope:template_priest = {
-				add_realm_law = bishop_theocratic_succession_law
-				change_government = theocracy_government
-			}
-		}
-		add_piety = 300
-		TCT_get_pope_of_target = {
-			TARGET = root
-		}
-		scope:pope_of_target = {
-			add_opinion = {
-				target = root
-				modifier = grantedlandtoclergy
-				opinion = 10
-			}
-		}
-		add_character_modifier = {
-			modifier = donatedlandtoclergy
-			years = 5
-		}
-		
-	}
-	option = { 
-		name = TCT_religious_events.500.h
-		trigger = {
-			exists = scope:clergycounty_7
-		} 
-		custom_tooltip = TCT_religious_events.500.a.tt
-		hidden_effect = {
-			scope:clergycounty_7 = {
-				save_scope_as = countyfortheocracy
-			}
-
-			create_character = {
-				template = priest_character_template
-				location = root.capital_province
-				save_scope_as = template_priest
-			}
-
-			create_title_and_vassal_change = {
-				type = granted
-				save_scope_as = title_change
-				add_claim_on_loss = no
-			}
-			scope:countyfortheocracy = {
-				change_title_holder = {
-					holder = scope:template_priest
-					change = scope:title_change
-				}
-			}
-			resolve_title_and_vassal_change = scope:title_change
-			scope:template_priest = {
-				add_realm_law = bishop_theocratic_succession_law
-				change_government = theocracy_government
-			}
-		}
-		add_piety = 300
-		TCT_get_pope_of_target = {
-			TARGET = root
-		}
-		scope:pope_of_target = {
-			add_opinion = {
-				target = root
-				modifier = grantedlandtoclergy
-				opinion = 10
-			}
-		}
-		add_character_modifier = {
-			modifier = donatedlandtoclergy
-			years = 5
-		}
-		
-	}
-	option = { 
-		name = TCT_religious_events.500.i
-		trigger = {
-			exists = scope:clergycounty_8
-		} 
-		custom_tooltip = TCT_religious_events.500.a.tt
-		hidden_effect = {
-			scope:clergycounty_8 = {
-				save_scope_as = countyfortheocracy
-			}
-
-			create_character = {
-				template = priest_character_template
-				location = root.capital_province
-				save_scope_as = template_priest
-			}
-
-			create_title_and_vassal_change = {
-				type = granted
-				save_scope_as = title_change
-				add_claim_on_loss = no
-			}
-			scope:countyfortheocracy = {
-				change_title_holder = {
-					holder = scope:template_priest
-					change = scope:title_change
-				}
-			}
-			resolve_title_and_vassal_change = scope:title_change
-			scope:template_priest = {
-				add_realm_law = bishop_theocratic_succession_law
-				change_government = theocracy_government
-			}
-		}
-		add_piety = 300
-		TCT_get_pope_of_target = {
-			TARGET = root
-		}
-		scope:pope_of_target = {
-			add_opinion = {
-				target = root
-				modifier = grantedlandtoclergy
-				opinion = 10
-			}
-		}
-		add_character_modifier = {
-			modifier = donatedlandtoclergy
-			years = 5
-		}
-		
-	}
-	option = { 
-		name = TCT_religious_events.500.j
-		trigger = {
-			exists = scope:clergycounty_9
-		} 
-		custom_tooltip = TCT_religious_events.500.a.tt
-		hidden_effect = {
-			scope:clergycounty_9 = {
-				save_scope_as = countyfortheocracy
-			}
-
-			create_character = {
-				template = priest_character_template
-				location = root.capital_province
-				save_scope_as = template_priest
-			}
-
-			create_title_and_vassal_change = {
-				type = granted
-				save_scope_as = title_change
-				add_claim_on_loss = no
-			}
-			scope:countyfortheocracy = {
-				change_title_holder = {
-					holder = scope:template_priest
-					change = scope:title_change
-				}
-			}
-			resolve_title_and_vassal_change = scope:title_change
-			scope:template_priest = {
-				add_realm_law = bishop_theocratic_succession_law
-				change_government = theocracy_government
-			}
-		}
-		add_piety = 300
-		TCT_get_pope_of_target = {
-			TARGET = root
-		}
-		scope:pope_of_target = {
-			add_opinion = {
-				target = root
-				modifier = grantedlandtoclergy
-				opinion = 10
-			}
-		}
-		add_character_modifier = {
-			modifier = donatedlandtoclergy
-			years = 5
-		}
-	}
-	option = { 
-		name = TCT_religious_events.500.k
-		trigger_event = TCT_religious_events.500
-	}
-
-	option = { 
-		name = TCT_religious_events.500.m
-		
-	}
-}
-
 
 #Election of Pope Gregory VII
 TCT_religious_events.600 = {
@@ -6093,6 +5436,7 @@ TCT_religious_events.807 = {
 	}
 }
 
+
 scripted_effect nearby_crusader_state_targets = {
 	clear_variable_list = minor_cruades_possible_titles
 	title:k_jerusalem.holder = {
@@ -6142,7 +5486,6 @@ scripted_effect nearby_crusader_state_targets = {
 	}
 }
 
-
 TCT_religious_events.810 = {
 	title = TCT_religious_events.810.t
 	desc = TCT_religious_events.810.desc
@@ -6152,7 +5495,7 @@ TCT_religious_events.810 = {
 		animation = personality_rational
 	}
 	widget = {
-		gui = "sea_select_culture_widget"
+		gui = "minor_crusade_title_selection"
 		container = "custom_widgets_container"
 	}
 	theme = diplomacy_foreign_affairs_focus
@@ -6196,18 +5539,6 @@ TCT_religious_events.810 = {
 					value = title:k_jerusalem.holder
 				}
 			}
-			#add_gold = {
-			#	value = medium_gold_loss
-			#	if = {
-			#		limit = {
-			#			OR = {
-			#				has_government = anarchist_government
-			#				has_realm_law = cultural_minority_status_1
-			#			}
-			#		}
-			#		multiply = 0.5
-			#	}
-			#}
 		}
 		else = {
 			custom_tooltip = TCT_religious_events.810.a.cancel

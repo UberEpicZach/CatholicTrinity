@@ -365,7 +365,7 @@
 						tct_catalyst_install_loyalist_cb = major_struggle_catalyst_gain
 
 						# Yearly drift every year that the Pope and Emperor dislike eachother.
-						tct_papal_hre_opinions = minor_struggle_catalyst_gain
+						tct_papal_hre_opinions_bad = minor_struggle_catalyst_gain
 
 						# Supporter is Murdered / Killed (by scheme or otherwise)
 						tct_catalyst_unnatural_death_supporter = major_struggle_catalyst_gain
@@ -387,10 +387,12 @@
 						catalyst_broke_truce_against_important_character = medium_struggle_catalyst_gain
 
 						# A Papal Supporter and Imperial Supporter become Rivals or Nemeses 
-
+						tct_catalyst_becomes_rival_supporter_detractor = medium_struggle_catalyst_gain
+						
 						# Use a Hook of the opposing side. 
 
 						# Gain a claim on a member of the opposing side
+						tct_catalyst_gain_claim_on_title = minor_struggle_catalyst_gain
 
 						# Create an Anti-Pope
 						tct_create_antipope = massive_struggle_catalyst_gain
@@ -402,6 +404,12 @@
 					catalysts = {
 						# Emperor loses a revolt war
 						tct_catalyst_hre_emperor_loses_revolt_war = major_struggle_catalyst_gain
+
+						tct_catalyst_became_friend_lover_papal_supporter_imperial_supporter = minor_struggle_catalyst_gain
+
+						# Yearly drift every year that the Pope and Emperor like eachother.
+						tct_papal_hre_opinions_good = massive_struggle_catalyst_gain
+
 					}
 				}
 			}

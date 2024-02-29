@@ -323,11 +323,11 @@ investiture_controversy_struggle_switch_sides_scripted_effect = {
 	#read_name_in_friday_prayer_guts_apply_house_unity_changes_effect = yes
 }
 
-hre_pope_opinion_check_catalyst = {
+hre_pope_opinion_check_catalyst_bad = {
 	if = {
 		limit = {
 			title:e_hre.holder = {
-				any_character_struggle = { phase_has_catalyst = tct_papal_hre_opinions }
+				any_character_struggle = { phase_has_catalyst = tct_papal_hre_opinions_bad }
 				opinion = {
 					target = title:k_papal_state.holder
 					value <= 0
@@ -343,7 +343,7 @@ hre_pope_opinion_check_catalyst = {
 		title:e_hre.holder = {
 			every_character_struggle = {
 				activate_struggle_catalyst = {
-					catalyst = tct_papal_hre_opinions
+					catalyst = tct_papal_hre_opinions_bad
 					character = title:e_hre.holder
 				}
 			}
@@ -386,7 +386,7 @@ investiture_hre_papal_opinion_effect = {
 	if = {
 		limit = {
 			title:e_hre.holder = {
-				any_character_struggle = { phase_has_catalyst = tct_papal_hre_opinions }
+				any_character_struggle = { phase_has_catalyst = tct_papal_hre_opinions_bad }
 				opinion = {
 					target = title:k_papal_state.holder
 					value <= 0
@@ -402,7 +402,32 @@ investiture_hre_papal_opinion_effect = {
 		title:e_hre.holder = {
 			every_character_struggle = {
 				activate_struggle_catalyst = {
-					catalyst = tct_papal_hre_opinions
+					catalyst = tct_papal_hre_opinions_bad
+					character = title:e_hre.holder
+				}
+			}
+		}
+	}
+	if = {
+		limit = {
+			title:e_hre.holder = {
+				any_character_struggle = { phase_has_catalyst = tct_papal_hre_opinions_good }
+				opinion = {
+					target = title:k_papal_state.holder
+					value >= 0
+				}
+			}
+			title:k_papal_state.holder = {
+				opinion = {
+					target = title:e_hre.holder
+					value >= 0
+				}
+			}
+		}
+		title:e_hre.holder = {
+			every_character_struggle = {
+				activate_struggle_catalyst = {
+					catalyst = tct_papal_hre_opinions_good
 					character = title:e_hre.holder
 				}
 			}

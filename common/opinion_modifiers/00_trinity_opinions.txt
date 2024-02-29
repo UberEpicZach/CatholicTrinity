@@ -78,3 +78,8 @@ TCT_saint_days_procession_opinion = {
 	decaying = yes
 	years = 5
 }
+
+TCT_helped_in_religious_war = {
+	decaying = yes
+	years = 15
+}

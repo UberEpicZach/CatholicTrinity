@@ -6,11 +6,18 @@ tct_catalyst_supporter_win_fair_war_within_the_region = {}
 tct_catalyst_detractor_win_unfair_war_within_the_region = {}
 tct_catalyst_detractor_win_fair_war_within_the_region = {}
 tct_catalyst_install_loyalist_cb = {}
-tct_papal_hre_opinions = {}
+tct_papal_hre_opinions_bad = {}
+tct_papal_hre_opinions_good = {}
 tct_catalyst_unnatural_death_supporter = {}
 tct_catalyst_hre_emperor_loses_revolt_war = {}
 tct_catalyst_turn_imperial_supporter_into_papal_supporter = {}
 tct_catalyst_turn_papal_supporter_into_imperial_supporter = {}
+
+tct_catalyst_becomes_rival_supporter_detractor = {}
+
+tct_catalyst_became_friend_lover_papal_supporter_imperial_supporter = {}
+
+tct_catalyst_gain_claim_on_title = {}
 
 tct_catalyst_imprison_important = {}
 tct_catalyst_imprison_papal_supporter = {}

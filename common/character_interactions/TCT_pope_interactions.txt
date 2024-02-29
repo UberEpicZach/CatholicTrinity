@@ -4306,6 +4306,300 @@ take_vows_interaction = {
 	}
 }
 
+#Updated to LOTD: added stuff for the Struggle
+claim_throne_interaction = {
+	icon = icon_scheme_claim_throne
+	category = interaction_category_hostile
+
+	ai_targets = {
+		ai_recipients = liege
+	}
+	
+	auto_accept = yes
+	use_diplomatic_range = no
+	ignores_pending_interaction_block = yes
+
+	scheme = claim_throne
+
+	desc = claim_throne_interaction_desc
+	
+	is_shown = {
+		exists = scope:actor.liege
+		scope:recipient = scope:actor.liege
+		scope:actor = {
+			highest_held_title_tier > tier_barony
+			OR = {
+				has_perk = meritocracy_perk
+				AND = {
+					is_diarch_of_target = scope:recipient
+					scope:recipient = {
+						NOT = { has_diarchy_parameter = can_be_instantly_dismissed }
+					}
+				}
+				AND = {
+					is_powerful_vassal_of = scope:recipient
+					any_character_struggle = {
+						involvement = involved
+						has_struggle_phase_parameter = unlocks_claim_throne_for_powerful_vassals
+						is_secondary_character_involvement_involved_trigger = {
+							CHAR = scope:recipient
+						}
+					}
+				}
+				AND = {
+					any_character_struggle = {
+						involvement = involved
+						has_struggle_phase_parameter = unlocks_claim_throne_for_all
+						is_secondary_character_involvement_involved_trigger = {
+							CHAR = scope:recipient
+						}
+					}
+				}
+				AND = {
+					exists = title:d_sunni.holder
+					is_vassal_of = title:d_sunni.holder
+					any_character_struggle = {
+						involvement = involved
+						has_struggle_phase_parameter = unlocks_claim_throne_for_caliph_vassals
+					}
+				}
+			}
+		}
+		NOT = { scope:recipient = scope:actor }
+		
+	}
+
+	is_valid_showing_failures_only = {
+		scope:actor = {
+			is_physically_able_adult = yes
+			can_start_scheme = {
+				target = scope:recipient
+				type = claim_throne
+			}
+		}
+	}
+
+	on_accept = {
+		scope:actor = {
+			stress_impact = {
+				content = medium_stress_impact_gain
+				just = medium_stress_impact_gain
+			}
+			hidden_effect = {
+				send_interface_toast = {
+					title = claim_throne_interaction_toast
+					left_icon = scope:actor
+					right_icon = scope:recipient
+
+					start_scheme = {
+						target = scope:recipient
+						type = claim_throne
+					}
+					show_as_tooltip = {
+						stress_impact = {
+							content = medium_stress_impact_gain
+							just = medium_stress_impact_gain
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_trait = education_intrigue_5
+					}
+					random_scheme = {
+						limit = {
+							scheme_type = claim_throne
+							scheme_target = scope:recipient
+						}
+						add_scheme_progress = 3
+					}
+				}
+			}
+		}
+
+		# If we're a clan this interaction affects unity
+		add_clan_unity_interaction_effect = {
+			CHARACTER = scope:actor
+			TARGET = scope:recipient
+			VALUE = minor_unity_loss
+			DESC = clan_unity_throne_claim.desc
+			REVERSE_NON_HOUSE_TARGET = no
+		}
+	}
+	
+	ai_potential = {
+		is_adult = yes
+		highest_held_title_tier > tier_barony
+		ai_greed >= medium_positive_ai_value
+		learning >= medium_skill_rating
+		intrigue >= mediocre_skill_rating
+		trigger_if = {
+			limit = {
+				liege = { save_temporary_scope_as = struggle_liege }
+				any_character_struggle = {
+					involvement = involved
+					has_struggle_phase_parameter = unlocks_claim_throne_for_all
+					is_secondary_character_involvement_involved_trigger = {
+						CHAR = scope:struggle_liege
+					}
+				}
+			}
+			is_powerful_vassal = yes
+		}
+		NOR = {
+			has_trait = content
+			opinion = {
+				target = liege
+				value >= high_positive_opinion
+			}
+			any_scheme = {
+				OR = {
+					scheme_type = murder
+					scheme_type = abduct
+					scheme_type = claim_throne
+					scheme_type = fabricate_hook
+					scheme_type = steal_back_artifact
+				}
+			}
+		}
+	}
+
+	ai_frequency = 36
+
+	ai_will_do = {
+		base = 100
+
+		# Agenda impact
+		modifier = {
+			scope:actor = {
+				any_character_struggle = {
+					involvement = involved
+					is_struggle_type = iberian_struggle
+				}
+			}
+			add = {
+				value = 0
+				if = {
+					limit = {
+						scope:actor = {
+							any_character_struggle = {
+								phase_has_catalyst = catalyst_gain_claim_on_title_fp2
+							}
+							has_character_flag = agenda_towards_escalation
+						}
+					}
+					add = 200
+				}
+				else_if = {
+					limit = {
+						scope:actor = {
+							any_character_struggle = {
+								phase_has_catalyst = catalyst_gain_claim_on_title_fp2
+							}
+						}
+					}
+					add = -100
+				}
+			}
+		}
+
+		modifier = {
+			scope:actor = {
+				any_character_struggle = {
+					involvement = involved
+					is_struggle_type = persian_struggle
+				}
+			}
+			add = {
+				value = 0
+				if = {
+					limit = {
+						scope:actor = {
+							any_character_struggle = {
+								phase_has_catalyst = catalyst_gain_claim_on_title_fp3
+							}
+							has_trait = fp3_struggle_detractor
+						}
+					}
+					add = 200
+				}
+				else_if = {
+					limit = {
+						scope:actor = {
+							any_character_struggle = {
+								phase_has_catalyst = catalyst_gain_claim_on_title_fp3
+							}
+							has_trait = fp3_struggle_supporter
+						}
+						scope:recipient = {
+							has_trait = fp3_struggle_detractor
+						}
+					}
+					add = 100
+				}
+				else_if = {
+					limit = {
+						scope:actor = {
+							any_character_struggle = {
+								phase_has_catalyst = catalyst_gain_claim_on_title_fp3
+							}
+						}
+					}
+					add = -100
+				}
+			}
+		}
+
+		modifier = {
+			scope:actor = {
+				any_character_struggle = {
+					involvement = involved
+					is_struggle_type = investiture_controversy_struggle
+				}
+			}
+			add = {
+				value = 0
+				if = {
+					limit = {
+						scope:actor = {
+							any_character_struggle = {
+								phase_has_catalyst = tct_catalyst_gain_claim_on_title
+							}
+							has_trait = tct_papal_supporter
+						}
+						scope:recipient = {
+							has_trait = tct_imperial_supporter
+						}
+					}
+					add = 200
+				}
+				else_if = {
+					limit = {
+						scope:actor = {
+							any_character_struggle = {
+								phase_has_catalyst = tct_catalyst_gain_claim_on_title
+							}
+							has_trait = tct_imperial_supporter
+						}
+						scope:recipient = {
+							has_trait = tct_papal_supporter
+						}
+					}
+					add = 200
+				}
+			}
+		}
+
+		# Unity modifiers
+		evaluate_action_decreasing_house_unity = {
+			VALUE = 100
+		}
+
+		start_hostile_scheme_ai_base_modifiers = yes # At the end so Cowed can block it completely
+	}
+}
+
+
 select_cardinal_candidate_interaction = {
 	category = interaction_category_religion
 

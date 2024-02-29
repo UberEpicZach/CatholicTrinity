@@ -289,8 +289,7 @@ DonationCountyClergy = {
 	effect = {
 		debug_log = "Granted a County to the Clergy"
 		trigger_event = {
-			id = TCT_religious_events.499
-			days = 1
+			id = TCT_religious_events.500
 		}
 	}
 

@@ -55,14 +55,14 @@ get_all_investiture_candidates = {
 		}
 		every_dynasty_member = {
 			limit = {
-				# OR = {
-				# 	has_trait = devoted
-				# 	has_education_learning_trigger = yes
-				# }
+				OR = {
+					has_trait = devoted
+					has_education_learning_trigger = yes
+				}
 				is_landed = no
 				is_female = no
 				is_adult = yes
-				#NOT = { any_heir_to_title = { exists = this } }
+				NOT = { any_heir_to_title = { exists = this } }
 			}
 			save_scope_as = person_thing
 			scope:title_thing = {

@@ -62,39 +62,7 @@
   TCT_religious_events.14.desc: "Word from the countryside tells of the impious practices of a certain clergyman, and a family member at that! [Priest.GetTitledFirstName] has been exposed as a lecher, being caught in the act with his mistress, [lover.GetTitledFirstName]. This surely does not bode well for my dynasty’s good name."
   TCT_religious_events.14.a: "Who made that man a priest, anyway?"
 
-  TCT_religious_events.15.t: "The Poor Men of Lyon"
-  TCT_religious_events.15.desc: "From Haute-Rivoire comes a loose convoy of men, some with their families, others with nothing but robes and sandals. It is the bailiff, tasked with enforcing tolls on the road from the east, who dispatches a watchman to inform me of the oddity. “They come with no taxable wealth, and have all taken up preaching. They claim their origin is Lyon”.\n\nAt the forefront is one [peter.GetTitledFirstName], and unbeknownst to the bailiff, word from Archbishop [archbishop.GetTitledFirstName] had advanced at a faster pace, with the intent to inform myself of an approaching band of so-called ‘heretics’, barred and exiled from Lyon. The Archbishop gives a warning, expressing his disgust of them, and expresses his belief that I shall make the correct decision on the matter.\n\nIt takes less than an afternoon for Pèire to begin preaching in the town square of Feurs. Donning fine robes, you approach the disheveled man of cloth by horseback, and you reciprocate his gaze. An hour passes, as he pays little attention to his senses, speaking plainly in Franco-Provençal, and a small crowd begins to form. It is clearly heresy, as defined by the church, and Vaudès continues to speak of the corruption of the church by worldly goods and temptations. It is then you dismiss yourself, returning to your residence. “Dear the Most Reverend and Holy Archbishop of Lyon, I am corresponding in response to your previous letter to tell you I have made the decision to…"
-  TCT_religious_events.15.a: "Expel the heathens of Vaudès"
-  TCT_religious_events.15.b: "Protect the freedom of Vaudès."
 
-  TCT_religious_events.16.t: "Waldensian Heresy"
-  TCT_religious_events.16.desc: "he teachings of a former merchant from Lyon, so called ‘Waldensianism’, has begun to rapidly spread in Provence and the Western Alps. An ascetic movement decrying the corruption of the church, a papal legatee has warned me of the growth of the heresy in my dominion."
-  TCT_religious_events.16.a: "People will turn to god in different ways."
-  Birthplace_of_Waldensianism: "Rise of Waldensianism"
-
-  TCT_religious_events.17.t: "The Conclave of Savigny"
-  TCT_religious_events.17.desc: "The people of the Forez have found the words of Vaudès especially riling” An eerily casual remark escapes the lips of [archbishop.GetTitledFirstName]. The grandiose Abbey of Saint Martin overlooks the scene of the stern Archbishop’s grievances, likely chosen for the sole purpose of intimidation, as remarked by my chamberlain. \n\n“I need not your confirmation on the matter, however I believe you should be aware that the Bishop of Feurs recently had parts of his own home desecrated by these charlatan-followers you grant asylum. The Bishop has seen attendance of his mass shrink substantially, and tells me that he believes the majority of your domain has begun to protest against the supposed unjust wealth of the church. This is dangerous, Guigues; these men worship a false idol. And what is your response to this? What shall you do? Idle like your so-called martial ancestors did when called to the Holy Lands?” It is quite clear the Archbishop seems satisfied with himself, smirking caddishly. “The Pope could get involved in my request, you are aware?”"
-  TCT_religious_events.17.a: "My apologies; you may intervene"
-  TCT_religious_events.17.b: "You will not threaten me!"
-  TCT_religious_events.17.b.tt: "You may be shunned by the church, however you see fit to hold your position."
-  TCT_religious_events.17.c: "And maybe they have a point."
-  TCT_religious_events.17.c.tt: "Owing to the conduct of the church regarding your position on religious tolerance, it seems justice may only come in solidarity; following the beliefs of Vaudès"
-
-  TCT_religious_events.18.t: "Massacre on the Loire"
-  TCT_religious_events.18.desc: "Do you know what the prophet of the Lord says about this time? He says there will be great agony. You can read his words: it is a day of anger, of struggle, of suffering and countless terrors. On that day the angels will loudly blow their horns, which will resound over the earth to awaken the dead.”\n-Otfrid of Weissenberg\n\n The smoke ceased to be emitted from the square, and Feurs went silent."
-  TCT_religious_events.18.a: "May their souls find rest."
-
-  TCT_religious_events.19.t: "Vaudès and his City"
-  TCT_religious_events.19.desc: "Feurs grows ever larger as news travels across the nearby countryside of the good word of a preacher who speaks for the people; and the local economy has certainly benefited. A more pressing matter, however, comes in the form of Rome’s word. “Guigo Comes Forensis fuerit excommunicatus…” reads the letter, and it is quite clear who requested it’s sending."
-  TCT_religious_events.19.a: "Damned be that scoundrel in Lyon!"
-
-  TCT_religious_events.20.t: "The Waldensian Schism"
-  TCT_religious_events.20.desc: "The central church of Feurs was occupied by unusual tenants, for the usual bishop fled the day beforehand considering the urgent circumstances in his episcopal see;\n\n[peter.GetTitledFirstName], a layman, set about baptizing [root.GetTitledFirstName] in holy water. It was at this moment that Guigues considered his position converting to a heretical interpretation of the word of god, and knew the journey ahead would be difficult. \n\nIt was one thing for a group of citizens to interpret the scripture in a non-conforming manner, but this moment would certainly mean the beginning of a new schism in the church, albeit minor. \n\nFor a nobleman carries a certain power the peasantry could not sustain, Vaudès had hope his ideals would be treated with a degree of newfound merit; whether that be through subtle acknowledgment… or warfare."
-  TCT_religious_events.20.a: "And the cool water touched his skin"
-
-  TCT_religious_events.21.t: "The Waldensian Schism"
-  TCT_religious_events.21.desc: "The nobleman [forez.GetFullNameNicknamedRegnal] has publicly placed his support behind a preacher named [peter.GetTitledFirstName], deemed heretical by the Catholic Church. ‘Waldensians’, followers of Vaudès, have largely remained a minor force in Provence and Lyon, however this has changed as Guigues has set about being baptized fully into the faith. Protesting the wealth of the church among other things, [pope.GetTitledFirstName] has called for action against Forez."
-  TCT_religious_events.21.a: "Another heresy arises."
 
  #SAINTHOOD
   
@@ -467,23 +435,12 @@
   TCT_religious_events.402.a: "Sic transit gloria mundi."
 
   TCT_religious_events.500.t: "Donation to the Clergy: County Selection"
-  TCT_religious_events.500.desc: "Many would argue that there is no grander purpose in life than serving God directly. And many join the ranks of the Church for precisely that reason. However, for those unable to do that, serving God must be done in different ways. \n\nPerhaps the most pious way that is available to a person such as I, is donating land to the Clergy, so that may do their duty all the better. \n\nThere is more to it than just sheer generosity, of course, for I shall be known by many as a good and pious Christian for helping the Clergy. All good deeds shall be rewarded, indeed. \nRegardless, now I must decide what land I should give away to the Clergy:"
+  TCT_religious_events.500.desc: "Many would argue that there is no grander purpose in life than serving God directly. And many join the ranks of the Church for precisely that reason. However, for those unable to do that, serving God must be done in different ways. Perhaps the most pious way that is available to a person such as I, is donating land to the Clergy, so that may do their duty all the better. I should give away to the Clergy:"
 
-  TCT_religious_events.500.desc.cynical: "Though some would argue that the Clergy, be they bishops, priests or deacons, can be a most capricious sort. At times they can be greedy, and sometimes very generous. \n\nAs such, it is in my best interest to keep them happy, docile even. Just as a petty Lord can be given a pittance of gold, to keep them in line, so can the Clergy- but more often than not, they are not so easily bribed. \n\nSome land given freely to them should be enough. Especially if it shall remain theirs to administer in perpetuity.\n\nThus, I should give away the county of:"
+  TCT_religious_events.500.desc.cynical: "Though some would argue that the Clergy, be they bishops, priests or deacons, can be a most capricious sort. At times they can be greedy, and sometimes very generous. As such, it is in my best interest to keep them happy, docile even. Some land given freely to them should be enough. Especially if it shall remain theirs to administer in perpetuity."
 
-  TCT_religious_events.500.a: "The lovely [clergycounty_1.GetName]."
-  TCT_religious_events.500.b: "I heard [clergycounty_2.GetName] is a pious place."
-  TCT_religious_events.500.c: "Maybe the [clergycounty_3.GetName]?"
-  TCT_religious_events.500.d: "I do hold [clergycounty_4.GetName], perhaps there?"
-  TCT_religious_events.500.dd: "How about [clergycounty_5.GetName]?" 
-  TCT_religious_events.500.ee: "Perhaps some of my other counties?"    
-  TCT_religious_events.500.e: "I should reconsider this.."
-  TCT_religious_events.500.g: "[clergycounty_6.GetName], the place of priests to be!"
-  TCT_religious_events.500.h: "Wonderful [clergycounty_7.GetName], a great place for the clergy?"
-  TCT_religious_events.500.i: "[clergycounty_8.GetName]! Nothings ever gone wrong there!"
-  TCT_religious_events.500.j: "I should locate the clergy in [clergycounty_9.GetName]."
-  TCT_religious_events.500.k: "Hm, Perhaps some from the first list instead?"
-  TCT_religious_events.500.m: "I should reconsider this.."
+  TCT_religious_events.500.a: "This donation should help them wonderfully."
+  TCT_religious_events.500.b: "Perhaps I should reconsider this..."
   TCT_religious_events.500.a.tt: "You grant land to the clergy."
   donatedlandtoclergy: "Donated land to the Clergy" 
   grantedlandtoclergy: "Donated land to the Clergy"

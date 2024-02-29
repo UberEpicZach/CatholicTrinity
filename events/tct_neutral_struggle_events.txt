@@ -21,7 +21,7 @@ tct_neutral_struggle.0001 = {
 				left_icon = ROOT
 			}
 		}
-		## # Yearly drift every year that the Pope and Emperor dislike eachother.
+		## # Yearly drift every year that the Pope and Emperor dislike or like eachother
 		investiture_hre_papal_opinion_effect = yes
 
 		# Finally, queue the event up again for a year hence.

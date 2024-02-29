@@ -88,6 +88,30 @@ select_title = {
 	}
 }
 
+select_character = {
+	scope = character
+	saved_scopes = {
+		character
+	}
+	effect = {
+		remove_variable = selected_character
+		set_variable = {
+			name = selected_character
+			value = scope:character
+		}
+	}
+}
+
+clear_selected_character = {
+	scope = character
+	is_valid = {
+		exists = var:selected_character
+	}
+	effect = {
+		remove_variable = selected_character
+	}
+}
+
 clear_selected_title = {
 	scope = character
 	is_valid = {

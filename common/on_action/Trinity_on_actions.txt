@@ -677,13 +677,13 @@ on_theocratic_investiture_death_no_successor = {
 		}
 	}
 	effect = {
+		save_scope_as = dying_bishop
 		liege = {
 			trigger_event = {
-
+				id = TCT_religous_events.15
 			}
 		}
 	}
-
 }
 
 on_person_death_saint = {

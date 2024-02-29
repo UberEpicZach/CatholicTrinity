@@ -1,0 +1,75 @@
+﻿vbox = {
+    name = "investiture_event_selection"
+
+    button_standard = {
+        size = { 450 40 }
+        datacontext = "[GetScriptedGui( 'clear_selected_character' )]"
+        enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) ]"
+        onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+        hbox = {
+            expand = {}
+            text_single = {
+                raw_text = "Clear Selection:"
+            }
+            text_single = {
+                raw_text = " [GetPlayer.MakeScope.Var('selected_character').Character.GetName]"
+                visible = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) ]"
+            }
+            text_single = {
+                raw_text = " @warning_icon!None"
+                visible = "[Not(ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )) ]"
+            }
+            expand = {}
+        }
+    }
+	scrollbox = {
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+		minimumsize = { 240 180 }
+
+		background = {
+			using = Background_Bottom_Fade
+		}
+		
+		blockoverride "scrollbox_content" {
+			vbox = {
+				layoutpolicy_vertical = expanding
+
+				margin_top = 2
+				spacing = 2
+				
+				datamodel = "[GetPlayer.MakeScope.GetList('investiture_event_list')]"
+
+				item = {
+					button_standard = {
+						size = { 400 40 }
+						datacontext = "[Character.MakeScope]"
+						datacontext = "[GetScriptedGui( 'select_character' )]"
+						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'Character', Character.MakeScope ).End ) ]"
+						hbox = {
+							layoutpolicy_horizontal = expanding
+
+							portrait_head_small = {
+								datacontext = "[Scope.Character]"
+							}
+
+							hbox = {
+								layoutpolicy_horizontal = expanding
+								layoutpolicy_vertical = expanding
+
+								text_single = {
+									name = "title_name"
+									align = right|nobaseline
+									raw_text = "[Character.GetNameNoTooltip]"
+									using = Font_Size_Medium
+									default_format = "#high"
+									max_width = 240
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

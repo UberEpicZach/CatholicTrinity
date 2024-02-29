@@ -86,12 +86,14 @@
  
  investiture_early_singular: "[investiture|E]"
  investiture_late_singular: "[investiture|E]"
-
-environment_standard: "You shouldn't see this"
-environment_saint: "You shouldn't see this, but for saints!"
  
-close_tooltip: "Close"
-increased_fervor: "Fervor Change"
+ environment_standard: "You shouldn't see this"
+ environment_saint: "You shouldn't see this, but for saints!"
+  
+ close_tooltip: "Close"
+ increased_fervor: "Fervor Change"
+
+ TCT_helped_in_religious_war: "Helped in Religious War"
 
  d_rome_patriarchate:0 "Roman Patriarchy"
  d_rome_patriarchate_adj:0 "Roman"

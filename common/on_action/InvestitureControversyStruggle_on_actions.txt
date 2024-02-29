@@ -32,10 +32,81 @@ Investiture_Controversy_Game_Start = {
 }
 
 
+on_set_relation_rival = {
+	on_actions = {
+		tct_on_set_relation_rival
+	}
+}
+
+on_set_relation_nemesis = {
+	on_actions = {
+		tct_on_set_relation_rival
+	}
+}
 
 
+tct_on_set_relation_rival = {
+	effect = {
+		if = {
+			limit = {
+				fp3_struggle_involves_one_supporter_and_one_detractor = {
+					FIRST = root
+					SECOND = scope:target
+				}
+			}
+			every_character_struggle = {
+				involvement = involved
+				limit = {
+					activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
+						CATALYST = tct_catalyst_becomes_rival_supporter_detractor
+						CHAR = scope:target
+					}
+				}
+				activate_struggle_catalyst = {
+					catalyst = tct_catalyst_becomes_rival_supporter_detractor
+					character = root
+				}
+			}
+		}
+	}
+}
 
+on_set_relation_lover = {
+	on_actions = {
+		tct_on_set_relation_friend
+	}
+}
 
+on_set_relation_friend = {
+	on_actions = {
+		tct_on_set_relation_friend
+	}
+}
+
+tct_on_set_relation_friend = {
+	effect = {
+		limit = {
+			any_character_struggle = {
+				involvement = involved
+				activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
+					CATALYST = tct_catalyst_became_friend_lover_papal_supporter_imperial_supporter
+					CHAR = scope:target
+				}
+			}
+			fp3_struggle_involves_one_supporter_and_one_detractor = {
+				FIRST = root
+				SECOND = scope:target
+			}
+		}
+		every_character_struggle = {
+			involvement = involved
+			activate_struggle_catalyst = {
+				catalyst = tct_catalyst_became_friend_lover_papal_supporter_imperial_supporter
+				character = root
+			}
+		}
+	}
+}
 
 # called for when a casus belli resolves in one of the following ways.
 # same scopes are available in these events as in the CBs themselves, this just fires for all CBs instead of a specific CB.
