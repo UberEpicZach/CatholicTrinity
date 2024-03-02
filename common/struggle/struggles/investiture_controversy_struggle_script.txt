@@ -124,7 +124,10 @@
 					}
 					AND = {
 						OR = {
-							has_vassal_stance = zealot
+							AND = {
+								is_vassal_of = title:e_hre.holder
+								has_vassal_stance = zealot
+							}
 							ai_zeal >= 75
 						}
 						title:e_hre.holder = {
@@ -197,7 +200,10 @@
 					}
 					AND = {
 						OR = {
-							has_vassal_stance = zealot
+							AND = {
+								is_vassal_of = title:e_hre.holder
+								has_vassal_stance = zealot
+							}
 							ai_zeal >= 75
 						}
 						title:k_papal_state.holder = {
@@ -410,6 +416,8 @@
 						# Yearly drift every year that the Pope and Emperor like eachother.
 						tct_papal_hre_opinions_good = massive_struggle_catalyst_gain
 
+						# Release a prisoner of the opposing side without demands
+						catalyst_release_supporter_detractor = minor_struggle_catalyst_gain
 					}
 				}
 			}

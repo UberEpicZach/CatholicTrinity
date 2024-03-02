@@ -45,6 +45,57 @@ on_set_relation_nemesis = {
 }
 
 
+on_release_from_prison = {
+	on_actions = {
+		tct_on_release_from_prison
+	}
+}
+
+# tct_on_release_from_prison = {
+# 	effect = {
+# 		# Struggle Catalysts
+# 		if = {
+# 			limit = {
+# 				scope:demand_conversion = no
+# 				scope:renounce_claims = no
+# 				scope:banish = no
+# 				scope:gain_hook = no
+# 				scope:take_vows = no
+# 				scope:become_executioner = no
+# 				scope:recruit = no
+# 			}
+# 			if = {
+# 				limit = {
+# 					fp3_struggle_involves_one_supporter_and_one_detractor = {
+# 						FIRST = scope:actor
+# 						SECOND = scope:recipient
+# 					}
+# 					any_character_struggle = {
+# 						involvement = involved
+# 						activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
+# 							CATALYST = tct_catalyst_release_papal_supporter_imperial_supporter
+# 							CHAR = scope:recipient
+# 						}
+# 					}
+# 				}
+# 				every_character_struggle = {
+# 					involvement = involved
+# 					limit = {
+# 						activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
+# 							CATALYST = tct_catalyst_release_papal_supporter_imperial_supporter
+# 							CHAR = scope:recipient
+# 						}
+# 					}
+# 					activate_struggle_catalyst = {
+# 						catalyst = tct_catalyst_release_papal_supporter_imperial_supporter
+# 						character = scope:actor
+# 					}
+# 				}
+# 			}
+# 		}
+# 	}
+# }
+
 tct_on_set_relation_rival = {
 	effect = {
 		if = {
@@ -72,6 +123,18 @@ tct_on_set_relation_rival = {
 }
 
 on_set_relation_lover = {
+	on_actions = {
+		tct_on_set_relation_friend
+	}
+}
+
+on_set_relation_best_friend = {
+	on_actions = {
+		tct_on_set_relation_friend
+	}
+}
+
+on_set_relation_soulmate = {
 	on_actions = {
 		tct_on_set_relation_friend
 	}
@@ -107,6 +170,8 @@ tct_on_set_relation_friend = {
 		}
 	}
 }
+
+
 
 # called for when a casus belli resolves in one of the following ways.
 # same scopes are available in these events as in the CBs themselves, this just fires for all CBs instead of a specific CB.

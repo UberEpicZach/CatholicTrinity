@@ -13,8 +13,11 @@ tct_catalyst_hre_emperor_loses_revolt_war = {}
 tct_catalyst_turn_imperial_supporter_into_papal_supporter = {}
 tct_catalyst_turn_papal_supporter_into_imperial_supporter = {}
 
+#tct_catalyst_release_papal_supporter_imperial_supporter = {}
+
 tct_catalyst_becomes_rival_supporter_detractor = {}
 
+#Covers Best Friend, Friend, Soulmate and Lover
 tct_catalyst_became_friend_lover_papal_supporter_imperial_supporter = {}
 
 tct_catalyst_gain_claim_on_title = {}

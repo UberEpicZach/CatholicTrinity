@@ -132,10 +132,10 @@
  catalyst_usurp_title_fp3: "$catalyst_usurp_title_fp2$"
  catalyst_usurp_title_fp3_desc: "Usurp a [title|E] which is part of the [de_jure|E] of $e_persia$"
 
- catalyst_became_supporter_fp3: "An important [character|E] took the [decision|E] to become a [GetTrait('tct_imperial_supporter').GetName( GetNullCharacter )]"
- catalyst_became_supporter_fp3_desc: "Important [character|E] takes the [decision|E] to become a [GetTrait('tct_imperial_supporter').GetName( GetNullCharacter )]"
- catalyst_became_detractor_fp3: "An important [character|E] took the [decision|E] to become a [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )]"
- catalyst_became_detractor_fp3_desc: "Important [character|E] takes the [decision|E] to become a [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )]"
+ catalyst_became_supporter_fp3: "An important [character|E] took the [decision|E] to become a [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )]"
+ catalyst_became_supporter_fp3_desc: "Important [character|E] takes the [decision|E] to become a [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )]"
+ catalyst_became_detractor_fp3: "An important [character|E] took the [decision|E] to become a [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )]"
+ catalyst_became_detractor_fp3_desc: "Important [character|E] takes the [decision|E] to become a [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )]"
 
  catalyst_ruler_chooses_persian_faith: "An important [character|E] took the [GetDecisionWithKey('adopt_a_new_faith_for_persia_decision').GetName] [decision|E]"
  catalyst_ruler_chooses_persian_faith_desc: "Important [character|E] takes the [GetDecisionWithKey('adopt_a_new_faith_for_persia_decision').GetName] [decision|E]"
@@ -162,29 +162,29 @@
 
  catalyst_declare_any_war_within_the_region: "Started a [war|E] [struggle_catalyst_catalyst|E]"
 
- tct_catalyst_supporter_win_unfair_war_within_the_region: "$catalyst_win_any_war_within_the_region$"
- tct_catalyst_supporter_win_unfair_war_within_the_region_desc: "Win a [war|E] started against a [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )] (of lower [title_tier|E]) as a [GetTrait('tct_imperial_supporter').GetName( GetNullCharacter )]"
+ catalyst_supporter_win_unfair_war_within_the_region: "$catalyst_win_any_war_within_the_region$"
+ catalyst_supporter_win_unfair_war_within_the_region_desc: "Win a [war|E] started against another [struggle_involved|E] [ruler|E] (of lower [title_tier|E]) as a [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )]"
 
- tct_catalyst_supporter_win_fair_war_within_the_region: "$catalyst_win_any_war_within_the_region$"
- tct_catalyst_supporter_win_fair_war_within_the_region_desc: "Win a [war|E] started against a [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )] (of same [title_tier|E] or higher) as a [GetTrait('tct_imperial_supporter').GetName( GetNullCharacter )]"
+ catalyst_supporter_win_fair_war_within_the_region: "$catalyst_win_any_war_within_the_region$"
+ catalyst_supporter_win_fair_war_within_the_region_desc: "Win a [war|E] started against another [struggle_involved|E] [ruler|E] (of same [title_tier|E] or higher) as a [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )]"
 
- tct_catalyst_supporter_declare_unfair_war_within_the_region: "$catalyst_declare_any_war_within_the_region$"
- tct_catalyst_supporter_declare_unfair_war_within_the_region_desc: "Start a [war|E] against another [struggle_involved|E] [ruler|E] (of lower [title_tier|E]) as a [GetTrait('tct_imperial_supporter').GetName( GetNullCharacter )]"
+ catalyst_supporter_declare_unfair_war_within_the_region: "$catalyst_declare_any_war_within_the_region$"
+ catalyst_supporter_declare_unfair_war_within_the_region_desc: "Start a [war|E] against another [struggle_involved|E] [ruler|E] (of lower [title_tier|E]) as a [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )]"
 
- tct_catalyst_supporter_declare_fair_war_within_the_region: "$catalyst_declare_any_war_within_the_region$"
- tct_catalyst_supporter_declare_fair_war_within_the_region_desc: "Start a [war|E] against another [struggle_involved|E] [ruler|E] (of same [title_tier|E] or higher) as a [GetTrait('tct_imperial_supporter').GetName( GetNullCharacter )]"
+ catalyst_supporter_declare_fair_war_within_the_region: "$catalyst_declare_any_war_within_the_region$"
+ catalyst_supporter_declare_fair_war_within_the_region_desc: "Start a [war|E] against another [struggle_involved|E] [ruler|E] (of same [title_tier|E] or higher) as a [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )]"
 
- tct_catalyst_detractor_win_unfair_war_within_the_region: "$catalyst_win_any_war_within_the_region$"
- tct_catalyst_detractor_win_unfair_war_within_the_region_desc: "Win a [war|E] started against a [GetTrait('tct_imperial_supporter').GetName( GetNullCharacter )] (of lower [title_tier|E]) as a [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )]"
+ catalyst_detractor_win_unfair_war_within_the_region: "$catalyst_win_any_war_within_the_region$"
+ catalyst_detractor_win_unfair_war_within_the_region_desc: "Win a [war|E] started against another [struggle_involved|E] [ruler|E] (of lower [title_tier|E]) as a [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )]"
 
- tct_catalyst_detractor_win_fair_war_within_the_region: "$catalyst_win_any_war_within_the_region$"
- tct_catalyst_detractor_win_fair_war_within_the_region_desc: "Win a [war|E] started against a [GetTrait('tct_imperial_supporter').GetName( GetNullCharacter )] (of same [title_tier|E] or higher) as a [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )]"
+ catalyst_detractor_win_fair_war_within_the_region: "$catalyst_win_any_war_within_the_region$"
+ catalyst_detractor_win_fair_war_within_the_region_desc: "Win a [war|E] started against another [struggle_involved|E] [ruler|E] (of same [title_tier|E] or higher) as a [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )]"
 
  catalyst_detractor_declare_unfair_war_within_the_region: "$catalyst_declare_any_war_within_the_region$"
- catalyst_detractor_declare_unfair_war_within_the_region_desc: "Start a [war|E] against another [struggle_involved|E] [ruler|E] (of lower [title_tier|E]) as a [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )]"
+ catalyst_detractor_declare_unfair_war_within_the_region_desc: "Start a [war|E] against another [struggle_involved|E] [ruler|E] (of lower [title_tier|E]) as a [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )]"
 
  catalyst_detractor_declare_fair_war_within_the_region: "$catalyst_declare_any_war_within_the_region$"
- catalyst_detractor_declare_fair_war_within_the_region_desc: "Start a [war|E] against another [struggle_involved|E] [ruler|E] (of same [title_tier|E] or higher) as a [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )]"
+ catalyst_detractor_declare_fair_war_within_the_region_desc: "Start a [war|E] against another [struggle_involved|E] [ruler|E] (of same [title_tier|E] or higher) as a [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )]"
 
  catalyst_war_ends_in_white_peace_between_supporter_detractor: "Had a [war|E] end in [white_peace|E]"
  catalyst_war_ends_in_white_peace_between_supporter_detractor_desc: "A [war|E] between $supporter_and_detractor$ ends with [white_peace|E]"
@@ -193,16 +193,16 @@
  catalyst_forming_alliance_between_supporter_detractor_rulers_desc: "An [alliance|E] is formed between $supporter_and_detractor$"
 
  catalyst_forming_alliance_between_detractor_uninvolved_rulers: "[allied|E] with foreign power [struggle_catalyst_catalyst|E]"
- catalyst_forming_alliance_between_detractor_uninvolved_rulers_desc: "Form an [alliance|E] with an [struggle_uninvolved|E] [realm|E] as a [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )]"
+ catalyst_forming_alliance_between_detractor_uninvolved_rulers_desc: "Form an [alliance|E] with an [struggle_uninvolved|E] [realm|E] as a [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )]"
 
  catalyst_gift_supporter_detractor_ruler: "$catalyst_gift_independent_ruler$"
  catalyst_gift_supporter_detractor_ruler_desc: "A [gift|E] or [artifact|E] is sent between $supporter_and_detractor$"
 
  catalyst_supporter_forced_conversion: "$catalyst_forced_conversion$"
- catalyst_supporter_forced_conversion_desc: "Convert a [GetTrait('tct_imperial_supporter').GetName( GetNullCharacter )] [ruler|E]"
+ catalyst_supporter_forced_conversion_desc: "Convert a [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )] [ruler|E]"
 
  catalyst_detractor_forced_conversion: "$catalyst_forced_conversion$"
- catalyst_detractor_forced_conversion_desc: "Convert a [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )] [ruler|E]"
+ catalyst_detractor_forced_conversion_desc: "Convert a [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )] [ruler|E]"
 
  catalyst_release_supporter_detractor: "$catalyst_release_important$"
  catalyst_release_supporter_detractor_desc: "Someone is released from [prison|E] without any demands made between $supporter_and_detractor$"
@@ -210,11 +210,11 @@
  catalyst_ransom_supporter_detractor: "$catalyst_ransom_important$"
  catalyst_ransom_supporter_detractor_desc: "Ransom an [struggle_involved|E] [ruler|E] between $supporter_and_detractor$"
 
- catalyst_imprison_detractor: "Imprisoned [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )] [struggle_catalyst_catalyst|E]"
- catalyst_imprison_detractor_desc: "Imprison a [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )]"
+ catalyst_imprison_detractor: "Imprisoned [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )] [struggle_catalyst_catalyst|E]"
+ catalyst_imprison_detractor_desc: "Imprison a [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )]"
 
- catalyst_imprison_supporter: "Imprisoned [GetTrait('tct_imperial_supporter').GetName( GetNullCharacter )] [struggle_catalyst_catalyst|E]"
- catalyst_imprison_supporter_desc: "Imprison a [GetTrait('tct_imperial_supporter').GetName( GetNullCharacter )]"
+ catalyst_imprison_supporter: "Imprisoned [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )] [struggle_catalyst_catalyst|E]"
+ catalyst_imprison_supporter_desc: "Imprison a [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )]"
 
  catalyst_becomes_rival_supporter_detractor: "$catalyst_becomes_rival_with_involved$"
  catalyst_becomes_rival_supporter_detractor_desc: "$supporter_and_detractor_caps$ become [rival|E] or [nemesis|E]"
@@ -226,16 +226,16 @@
  catalyst_became_friend_lover_supporter_detractor_desc: "$supporter_and_detractor_caps$ become [friends|E] or [lovers|E]"
 
  catalyst_unnatural_death_supporter: "$catalyst_unnatural_death_important_character$"
- catalyst_unnatural_death_supporter_desc: "A [GetTrait('tct_imperial_supporter').GetName( GetNullCharacter )] is killed"
+ catalyst_unnatural_death_supporter_desc: "A [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )] [ruler|E] is killed"
 
  catalyst_unnatural_death_detractor: "$catalyst_unnatural_death_important_character$"
- catalyst_unnatural_death_detractor_desc: "A [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )] is killed"
+ catalyst_unnatural_death_detractor_desc: "A [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )] [ruler|E] is killed"
 
  catalyst_reveal_secret_supporter: "$catalyst_reveal_secret_important$"
- catalyst_reveal_secret_supporter_desc: "Reveal the [secret|E] of a [GetTrait('tct_imperial_supporter').GetName( GetNullCharacter )] [ruler|E]"
+ catalyst_reveal_secret_supporter_desc: "Reveal the [secret|E] of a [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )] [ruler|E]"
 
  catalyst_reveal_secret_detractor: "$catalyst_reveal_secret_important$"
- catalyst_reveal_secret_detractor_desc: "Reveal the [secret|E] of a [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )] [ruler|E]"
+ catalyst_reveal_secret_detractor_desc: "Reveal the [secret|E] of a [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )] [ruler|E]"
 
  catalyst_yearly_influential_house_is_harmonious: "$harmonious$ [house|E] [struggle_catalyst_catalyst|E]"
  catalyst_yearly_influential_house_is_harmonious_desc: "or more [struggle_involved|E] [house_heads|E] with $harmonious$ [house_unity|E]"
@@ -272,19 +272,19 @@
  catalyst_grants_vassal_to_de_jure_liege_supporter_detractor_desc: "A [vassal|E] is transferred to their [de_jure|E] liege between $supporter_and_detractor$"
 
  catalyst_turn_supporter_into_detractor: "Changed side [struggle_catalyst_catalyst|E]"
- catalyst_turn_supporter_into_detractor_desc: "A [GetTrait('tct_imperial_supporter').GetName( GetNullCharacter )] becomes a [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )]"
+ catalyst_turn_supporter_into_detractor_desc: "A [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )] becomes a [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )]"
 
  catalyst_turn_detractor_into_supporter: "Changed side [struggle_catalyst_catalyst|E]"
- catalyst_turn_detractor_into_supporter_desc: "A [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )] becomes a [GetTrait('tct_imperial_supporter').GetName( GetNullCharacter )]"
+ catalyst_turn_detractor_into_supporter_desc: "A [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )] becomes a [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )]"
 
  catalyst_new_building_in_holdings: "built in a [holding|E] [struggle_catalyst_catalyst|E]"
  catalyst_new_building_in_holdings_desc: "Construct a [building|E] in any [holding|E]"
 
- catalyst_execute_supporter: "Executed a [GetTrait('tct_imperial_supporter').GetName( GetNullCharacter )] [struggle_catalyst_catalyst|E]"
- catalyst_execute_supporter_desc: "Execute a [GetTrait('tct_imperial_supporter').GetName( GetNullCharacter )]"
+ catalyst_execute_supporter: "Executed a [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )] [struggle_catalyst_catalyst|E]"
+ catalyst_execute_supporter_desc: "Execute a [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )]"
 
- catalyst_execute_detractor: "Executed a [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )] [struggle_catalyst_catalyst|E]"
- catalyst_execute_detractor_desc: "Execute a [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )]"
+ catalyst_execute_detractor: "Executed a [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )] [struggle_catalyst_catalyst|E]"
+ catalyst_execute_detractor_desc: "Execute a [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )]"
 
  catalyst_missing_caliphate_or_arabian_empire: "Yearly Drift: either the [GetTitleByKey('d_sunni').GetBaseName] or the [GetTitleByKey('e_arabia').GetBaseName] were destroyed"
  catalyst_missing_caliphate_or_arabian_empire_desc: "Yearly Drift: either the [GetTitleByKey('d_sunni').GetBaseName] or the [GetTitleByKey('e_arabia').GetBaseName] are destroyed"
@@ -301,3 +301,11 @@
  catalyst_caliph_died_naturally: "The Sunni [GetFaithByKey('ashari').ReligiousHeadName|U] died naturally"
  catalyst_caliph_died_naturally_desc: "The Sunni [GetFaithByKey('ashari').ReligiousHeadName|U] dies naturally\n#WEAK ([EmptyScope.ScriptValue('catalyst_cooldown_between_significant_character_deaths_years_value')] year cooldown)#!"
 
+ vanilla_supporter_and_detractor: "a [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )] and [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )]"
+ tct_supporter_and_detractor: "a [GetTrait('tct_imperial_supporter').GetName( GetNullCharacter )] and [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )]"
+ supporter_and_detractor: "[Character.Custom('InvestitureStruggle_supporter_and_detractor_replacer')]"
+
+ catalyst_revealed_secret_faith_non_islam: "Revealed non-[GetReligionByKey('islam_religion').GetAdjective] Secret [faith|E] [struggle_catalyst_catalyst|E]"
+ catalyst_revealed_secret_faith_non_islam_desc: "Reveal non-[GetReligionByKey('islam_religion').GetAdjective] Secret [faith|E]"
+ catalyst_revealed_secret_faith_islam: "Revealed [GetReligionByKey('islam_religion').GetAdjective] Secret [faith|E] [struggle_catalyst_catalyst|E]"
+ catalyst_revealed_secret_faith_islam_desc: "Reveal [GetReligionByKey('islam_religion').GetAdjective] Secret [faith|E]"

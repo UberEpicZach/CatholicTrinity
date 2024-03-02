@@ -378,11 +378,11 @@ autonomony_obligations_faction_contract_decrease_effect = {
 }
 
 investiture_hre_papal_opinion_effect = {
-	send_interface_toast = {
-		type = event_toast_effect_bad
-		title = HRE_DEBUG_TEST
-		left_icon = ROOT
-	}
+	# send_interface_toast = {
+	# 	type = event_toast_effect_bad
+	# 	title = HRE_DEBUG_TEST
+	# 	left_icon = ROOT
+	# }
 	if = {
 		limit = {
 			title:e_hre.holder = {
