@@ -139,13 +139,10 @@ TCT_make_antipope_interaction = {
 		}
 		modifier = {
 			desc = TCT_MAKE_ANTIPOPE_IS_SUPPORTER
-			add = 100
+			add = 190
 			scope:recipient = {
 				has_trait = tct_imperial_supporter
 			}
-			# scope:actor = {
-			# 	has_trait = tct_imperial_supporter
-			# }
 		}
 		modifier = {
 			desc = TCT_MAKE_ANTIPOPE_IS_CONTENT

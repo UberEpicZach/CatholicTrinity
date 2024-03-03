@@ -401,7 +401,7 @@
 						tct_catalyst_gain_claim_on_title = minor_struggle_catalyst_gain
 
 						# Create an Anti-Pope
-						tct_create_antipope = massive_struggle_catalyst_gain
+						tct_create_antipope = 150
 					}
 				}
  

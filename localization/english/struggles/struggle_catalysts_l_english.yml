@@ -303,7 +303,7 @@
 
  vanilla_supporter_and_detractor: "a [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )] and [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )]"
  tct_supporter_and_detractor: "a [GetTrait('tct_imperial_supporter').GetName( GetNullCharacter )] and [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )]"
- supporter_and_detractor: "[Character.Custom('InvestitureStruggle_supporter_and_detractor_replacer')]"
+ #supporter_and_detractor: "[Character.Custom('InvestitureStruggle_supporter_and_detractor_replacer')]"
 
  catalyst_revealed_secret_faith_non_islam: "Revealed non-[GetReligionByKey('islam_religion').GetAdjective] Secret [faith|E] [struggle_catalyst_catalyst|E]"
  catalyst_revealed_secret_faith_non_islam_desc: "Reveal non-[GetReligionByKey('islam_religion').GetAdjective] Secret [faith|E]"
