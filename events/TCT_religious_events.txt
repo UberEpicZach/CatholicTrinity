@@ -1161,21 +1161,23 @@ TCT_religious_events.16 = {
 	}
 
 	immediate = {
-		every_dynasty_member = {
-			limit = {
-				OR = {
-					has_trait = devoted
-					has_education_learning_trigger = yes
+		dynasty = {
+			every_dynasty_member = {
+				limit = {
+					OR = {
+						has_trait = devoted
+						has_education_learning_trigger = yes
+					}
+					is_landed = no
+					is_female = no
+					is_adult = yes
+					NOT = { any_heir_to_title = { exists = this } }
 				}
-				is_landed = no
-				is_female = no
-				is_adult = yes
-				NOT = { any_heir_to_title = { exists = this } }
-			}
-			root = {
-				add_to_variable_list = {
-					name = possible_characters
-					target = prev
+				root = {
+					add_to_variable_list = {
+						name = possible_characters
+						target = prev
+					}
 				}
 			}
 		}
@@ -1265,6 +1267,15 @@ TCT_religious_events.16 = {
 				}
 			}
 		}
+
+		# every_living_character = {
+		# 	root = {
+		# 		add_to_variable_list = {
+		# 			name = possible_characters
+		# 			target = prev
+		# 		}
+		# 	}
+		# }
 	}
 	
 	# Let Me Decide!
