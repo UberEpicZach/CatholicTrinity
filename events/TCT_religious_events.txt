@@ -1002,12 +1002,21 @@ TCT_religious_events.15 = {
 		animation = thinking
 	}
 
+	right_portrait = {
+		character = scope:dying_bishop
+		animation = dead
+		outfit_tags = { bishop_outfit }
+	}
+
 	lower_right_portrait = {
 		character = faith.religious_head
 	}
 
 
 	immediate = {
+		cp:councillor_court_chaplain = {
+			save_scope_as = council_bishop
+		}
 		scope:dying_bishop.primary_title = {
 			save_scope_as = bishop_title
 		}	
@@ -1135,6 +1144,12 @@ TCT_religious_events.16 = {
 	left_portrait = {
 		character = root
 		animation = thinking
+	}
+
+	right_portrait = {
+		character = scope:dying_bishop
+		animation = dead
+		outfit_tags = { bishop_outfit }
 	}
 
 	lower_right_portrait = {

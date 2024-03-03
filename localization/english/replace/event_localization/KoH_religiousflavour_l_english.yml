@@ -63,6 +63,12 @@
   TCT_religious_events.14.a: "Who made that man a priest, anyway?"
 
 
+  TCT_religious_events.15.t: "Investiture: A New Bishop"
+  TCT_religious_events.15.desc: ""In the solemn stillness of the night, the venerable [dying_bishop.GetFullName], has been called to the heavenly court, leaving behind his earthly flock" Your Bishop [council_bishop.GetFirstName] says to you. \n\nAs the secular ruler of this land, in with this rite of [investiture|E], It is my responsibility to appoint a successor to this churchly seat, a decision which remains a simple affirmation of our customs, now ventures towards further conflicts, facing the growing assertiveness of Papal power. This act is not just about filling a position; it's a subtle statement of our autonomy, a routine yet significant gesture of balancing our legacy with the broader currents of our era."
+  TCT_religious_events.15.a: "I believe he will make a fine bishop."
+
+
+
 
  #SAINTHOOD
   
