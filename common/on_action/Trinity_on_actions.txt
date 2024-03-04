@@ -555,32 +555,6 @@ on_theocrat_investiture_death = {
 	}
 }
 
-on_theocratic_investiture_death_no_successor = {
-	trigger = {
-		exists = primary_title
-		primary_title = {
-			NOT = {
-				has_variable = theocratic_successor
-			}
-		}
-		government_has_flag = government_is_theocracy
-		top_liege = {
-			OR = {
-				has_realm_law = free_investiture_early
-				has_realm_law = free_investiture_late 
-			}
-		}
-	}
-	effect = {
-		liege = {
-			trigger_event = {
-
-			}
-		}
-	}
-
-}
-
 on_person_death_saint = {
 	trigger = { # simple checks to improve performance
 		has_religion = religion:christianity_religion
@@ -592,25 +566,6 @@ on_person_death_saint = {
         TCT_sainthood.1
     }
 }
-
-# pilgrimage_destination_events = {
-# 	first_valid_on_action = {
-# 		hajj_destination_events
-# 		christian_destination_events
-# 		jewish_destination_events
-# 		muslim_destination_events
-# 		hindu_destination_events
-# 		buddhist_destination_events
-# 		jain_destination_events
-# 		zoroastrian_destination_events
-# 		norse_destination_events
-# 		tengri_destination_events
-# 		pagan_destination_events
-# 		#saintly_tomb_destination_events
-# 		pilgrimage_generic_destination_events
-
-# 	}
-# }
 
 on_cardinal_death = {
 	trigger = {
