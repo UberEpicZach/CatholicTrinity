@@ -9,6 +9,8 @@
  public_opinion_positive: "High Public Opinion!"
  refusedpope: "Refused the Pope."
 
+ hof_ask_for_claim_no_empires: "A [head_of_faith|E] will not grant any claims on Empire Tier Titles."
+
  TCT_lots_of_gold_pope_paid:0 "[actor.GetName] Asked for Gold"
  TCT_lots_of_gold_pope_paid_desc:0 "Because of the ample gold in your Papal Treasury, [actor.GetName] asked for and received funds from the Papacy."
 

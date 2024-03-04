@@ -5922,20 +5922,20 @@ TCT_religious_events.800 = {
 			add_opinion = {
 				target = title:e_hre.holder
 				modifier = insulted_opinion
-				value = -60
+				opinion = -60
 			}
 		}
 		title:e_hre.holder = {
 			add_opinion = {
 				target = title:k_papal_state.holder
 				modifier = insulted_opinion
-				value = -60
+				opinion = -60
 			}
 		}
-		start_struggle = {
-			struggle_type = investiture_controversy_struggle
-			start_phase = investiture_controversy_phase_unrest
-		}
+		# start_struggle = {
+		# 	struggle_type = investiture_controversy_struggle
+		# 	start_phase = investiture_controversy_phase_unrest
+		# }
 	}
 
 	# We submit
@@ -6430,89 +6430,89 @@ TCT_religious_events.813 = {
 	}
 }
 
-#Crusader gets an event to decide to try to carve out a Crusader State during a GHW.
-#Fired on_army_enter_province
-#Hidden first event fires for the owner of the army.
-#root = owner of the army
-#scope:army = the army itself.
-great_holy_war.0060 = {
-	hidden = yes
+# #Crusader gets an event to decide to try to carve out a Crusader State during a GHW.
+# #Fired on_army_enter_province
+# #Hidden first event fires for the owner of the army.
+# #root = owner of the army
+# #scope:army = the army itself.
+# great_holy_war.0060 = {
+# 	hidden = yes
 	
-	trigger = {
-		exists = root.faith.great_holy_war
-		OR = { #Either army owner or one of his lieges is involved in a GHW.
-			any_character_war = {
-				OR = {
-					using_cb = undirected_great_holy_war
-					using_cb = directed_great_holy_war
-				}
-				is_attacker = root
-			}
-			any_liege_or_above = {
-				faith = root.faith
-				any_character_war = {
-					OR = {
-						using_cb = undirected_great_holy_war
-						using_cb = directed_great_holy_war
-					}
-					is_attacker = root
-				}
-			}
-		}
-		scope:army = {
-			exists = army_commander
-			location = { save_temporary_scope_as = current_location }
-			army_commander = {
-				NOR = {
-					has_trait = crusader_king
-					has_trait = faith_warrior
-				}
-			}
-		}
-		root.faith.great_holy_war.ghw_target_title = { #The dejure Kingdom targeted by the GHW
-			any_in_de_jure_hierarchy = {
-				tier = tier_barony
-				title_province = { this = scope:current_location } #Any province within it.
-				exists = holder
-				holder = { #The province's owner must also be part of the GHW on the opposite side.
-					OR = {
-						any_character_war = {
-							OR = {
-								using_cb = undirected_great_holy_war
-								using_cb = directed_great_holy_war
-							}
-							is_defender = prev
-						}
-						any_liege_or_above = {
-							any_character_war = {
-								OR = {
-									using_cb = undirected_great_holy_war
-									using_cb = directed_great_holy_war
-								}
-								is_defender = prev
-							}
-						}
-					}
-				}
-			}
-		}
-	}
+# 	trigger = {
+# 		exists = root.faith.great_holy_war
+# 		OR = { #Either army owner or one of his lieges is involved in a GHW.
+# 			any_character_war = {
+# 				OR = {
+# 					using_cb = undirected_great_holy_war
+# 					using_cb = directed_great_holy_war
+# 				}
+# 				is_attacker = root
+# 			}
+# 			any_liege_or_above = {
+# 				faith = root.faith
+# 				any_character_war = {
+# 					OR = {
+# 						using_cb = undirected_great_holy_war
+# 						using_cb = directed_great_holy_war
+# 					}
+# 					is_attacker = root
+# 				}
+# 			}
+# 		}
+# 		scope:army = {
+# 			exists = army_commander
+# 			location = { save_temporary_scope_as = current_location }
+# 			army_commander = {
+# 				NOR = {
+# 					has_trait = crusader_king
+# 					has_trait = faith_warrior
+# 				}
+# 			}
+# 		}
+# 		root.faith.great_holy_war.ghw_target_title = { #The dejure Kingdom targeted by the GHW
+# 			any_in_de_jure_hierarchy = {
+# 				tier = tier_barony
+# 				title_province = { this = scope:current_location } #Any province within it.
+# 				exists = holder
+# 				holder = { #The province's owner must also be part of the GHW on the opposite side.
+# 					OR = {
+# 						any_character_war = {
+# 							OR = {
+# 								using_cb = undirected_great_holy_war
+# 								using_cb = directed_great_holy_war
+# 							}
+# 							is_defender = prev
+# 						}
+# 						any_liege_or_above = {
+# 							any_character_war = {
+# 								OR = {
+# 									using_cb = undirected_great_holy_war
+# 									using_cb = directed_great_holy_war
+# 								}
+# 								is_defender = prev
+# 							}
+# 						}
+# 					}
+# 				}
+# 			}
+# 		}
+# 	}
 
-	immediate = {
-		scope:army.location = { save_scope_as = current_location }
-		faith = { save_scope_as = the_faith }
-		faith.great_holy_war = { save_scope_as = scoped_ghw }
-		faith.great_holy_war.ghw_target_title = { save_scope_as = target_kingdom }
-		scope:army = {
-			army_commander = { trigger_event = great_holy_war.0057 }
-			army_owner = {
-				every_knight = {
-					limit = {
-						location = scope:current_location
-					}
-					trigger_event = great_holy_war.0057
-				}
-			}
-		}
-	}
-}
+# 	immediate = {
+# 		scope:army.location = { save_scope_as = current_location }
+# 		faith = { save_scope_as = the_faith }
+# 		faith.great_holy_war = { save_scope_as = scoped_ghw }
+# 		faith.great_holy_war.ghw_target_title = { save_scope_as = target_kingdom }
+# 		scope:army = {
+# 			army_commander = { trigger_event = great_holy_war.0057 }
+# 			army_owner = {
+# 				every_knight = {
+# 					limit = {
+# 						location = scope:current_location
+# 					}
+# 					trigger_event = great_holy_war.0057
+# 				}
+# 			}
+# 		}
+# 	}
+# }

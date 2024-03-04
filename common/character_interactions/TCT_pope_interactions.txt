@@ -137,16 +137,16 @@ TCT_make_antipope_interaction = {
 				has_trait = ambitious
 			}
 		}
-		modifier = {
-			desc = TCT_MAKE_ANTIPOPE_IS_SUPPORTER
-			add = 100
-			scope:recipient = {
-				has_trait = tct_imperial_supporter
-			}
-			# scope:actor = {
-			# 	has_trait = tct_imperial_supporter
-			# }
-		}
+		# modifier = {
+		# 	desc = TCT_MAKE_ANTIPOPE_IS_SUPPORTER
+		# 	add = 100
+		# 	scope:recipient = {
+		# 		has_trait = tct_imperial_supporter
+		# 	}
+		# 	# scope:actor = {
+		# 	# 	has_trait = tct_imperial_supporter
+		# 	# }
+		# }
 		modifier = {
 			desc = TCT_MAKE_ANTIPOPE_IS_CONTENT
 			add = -50
@@ -243,25 +243,25 @@ TCT_make_antipope_interaction = {
 			CREATOR = scope:actor
 		}
 
-		scope:actor = {
-			if = {
-				limit = {
-					scope:actor = {
-						any_character_struggle	 = {
-							involvement = involved
-							phase_has_catalyst = tct_create_antipope
-						}
-					}
-				}
-				every_character_struggle = {
-					involvement = involved
-					activate_struggle_catalyst = {
-						catalyst = tct_create_antipope
-						character = scope:actor
-					}
-				}
-			}
-		}
+		# scope:actor = {
+		# 	if = {
+		# 		limit = {
+		# 			scope:actor = {
+		# 				any_character_struggle	 = {
+		# 					involvement = involved
+		# 					phase_has_catalyst = tct_create_antipope
+		# 				}
+		# 			}
+		# 		}
+		# 		every_character_struggle = {
+		# 			involvement = involved
+		# 			activate_struggle_catalyst = {
+		# 				catalyst = tct_create_antipope
+		# 				character = scope:actor
+		# 			}
+		# 		}
+		# 	}
+		# }
 	}
 
 	on_decline = {
