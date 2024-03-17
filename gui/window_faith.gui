@@ -9,6 +9,7 @@ window = {
 	window_sainthood = {}
 	window_appoint_successor_theocracy = {}
 	name = "faith_window"
+	widgetid = "faith_window"
 	datacontext = "[FaithWindow.GetFaith]"
 	datacontext = "[GetVariableSystem]"
 	movable = no
@@ -582,15 +583,15 @@ window = {
 													using = faith_window_trait_tooltip
 												}
 
-												block "tooltip_placement"
-												{
-													using = tooltip_ne
-													tooltip_offset = { 0 20 }
+													block "tooltip_placement"
+													{
+														using = tooltip_ne
+														tooltip_offset = { 0 20 }
+													}
 												}
 											}
 										}
 									}
-								}
 
 								expand = {}
 							}
@@ -702,9 +703,8 @@ window = {
 												multiline = yes
 												max_width = 101   ##### minimum in order to look good in german
 											}
-
-											expand = {}
 										}
+										expand = {}
 									}
 								}
 							}
@@ -735,43 +735,60 @@ window = {
 							}
 						}
 
-						text_label_left = {
+						vbox = {
 							layoutpolicy_horizontal = expanding
-							text = "FAITH_DOCTRINES_MARRIAGE"
-							default_format = "#low"
+							spacing = 12
+							margin_bottom = -10
+
+							text_label_center = {
+								layoutpolicy_horizontal = expanding
+								text = "FAITH_DOCTRINES_MARRIAGE"
+								default_format = "#low"
+							}
+
+							fixedgridbox = {
+								datamodel = "[FaithWindow.GetGroupingHelper( 'marriage' ).GetGrouping]"
+								flipdirection = yes
+								addcolumn = 225
+								addrow = 67
+								datamodel_wrap = 2
+
+								item = {
+									widget_doctrine_item = {}
+								}
+							}
 						}
+						
+						vbox = {
+							layoutpolicy_horizontal = expanding
+							spacing = 12
+							margin_bottom = -10
 
-						fixedgridbox = {
-							datamodel = "[FaithWindow.GetGroupingHelper( 'marriage' ).GetGrouping]"
-							flipdirection = yes
-							addcolumn = 230
-							addrow = 65
-							datamodel_wrap = 2
+							text_label_center = {
+								layoutpolicy_horizontal = expanding
+								text = "FAITH_DOCTRINES_CRIMES"
+								default_format = "#low"
+							}
 
-							item = {
-								widget_doctrine_item = {}
+							fixedgridbox = {
+								datamodel = "[FaithWindow.GetGroupingHelper( 'crimes' ).GetGrouping]"
+								flipdirection = yes
+								addcolumn = 225
+								addrow = 67
+								datamodel_wrap = 2
+
+								item = {
+									widget_doctrine_item = {}
+								}
 							}
 						}
 
-						text_label_left = {
+						vbox = {
 							layoutpolicy_horizontal = expanding
-							text = "FAITH_DOCTRINES_CRIMES"
-							default_format = "#low"
-						}
+							spacing = 12
+							margin_bottom = -10
 
-						fixedgridbox = {
-							datamodel = "[FaithWindow.GetGroupingHelper( 'crimes' ).GetGrouping]"
-							flipdirection = yes
-							addcolumn = 230
-							addrow = 65
-							datamodel_wrap = 2
-
-							item = {
-								widget_doctrine_item = {}
-							}
-						}
-
-						text_label_left = {
+							text_label_center = {
 							layoutpolicy_horizontal = expanding
 							text = "FAITH_DOCTRINES_CLERGY"
 							default_format = "#low"
@@ -780,56 +797,77 @@ window = {
 						fixedgridbox = {
 							datamodel = "[FaithWindow.GetGroupingHelper( 'clergy' ).GetGrouping]"
 							flipdirection = yes
-							addcolumn = 230
-							addrow = 65
+								addcolumn = 225
+								addrow = 67
 							datamodel_wrap = 2
 
 							item = {
 								widget_doctrine_item = {}
 							}
 						}
+						}
 
 						vbox = {
 							visible = "[DataModelHasItems(FaithWindow.GetGroupingHelper( 'special' ).GetGrouping)]"
 							layoutpolicy_horizontal = expanding
-							spacing = 10
+							spacing = 7
 
-							text_label_left = {
+							text_label_center = {
 								layoutpolicy_horizontal = expanding
 								text = "FAITH_DOCTRINES_SPECIAL"
 								default_format = "#low"
 							}
 
-							fixedgridbox = {
+							vbox = {
 								datamodel = "[FaithWindow.GetGroupingHelper( 'special' ).GetGrouping]"
-								flipdirection = yes
-								addcolumn = 230
-								addrow = 65
-								datamodel_wrap = 2
+								layoutpolicy_horizontal = expanding
+								margin_left = 50
+								margin_right = 66
+
+								spacing = 8
 
 								item = {
+									text_single = {
+										layoutpolicy_horizontal = expanding
 
-									widget_doctrine_item = {
-										blockoverride "doctrine_icon" {}
-										blockoverride "text_title" {
+
+										margin = { 17 0 }
+										margin_top = 12
+										margin_bottom = 13
+
+										datacontext = "[GuiFaithDoctrineItem.GetDoctrine]"
+										datacontext = "[GuiFaithDoctrineItem.GetFaith]"
+
 											text = "[FaithDoctrine.GetNameNoTooltip( GuiFaithDoctrineItem.GetFaith )]"
-											align = center
+										tooltip = "FAITH_WINDOW_DOCTRINE_TOOLTIP_WITH_FAITH"
+
+										align = nobaseline
+
+										using = tooltip_es
+
+										background = {
+											using = Background_Area
 										}
 
-										blockoverride "text_desc" {}
+
+										}
+
 									}
 								}
 							}
 						}
 					}
 				}
+
+			widget = {
+				size = { 0 8 }
 			}
 
 			### Religious Head // Footer
 			vbox = {
 				name = "religious_head"
 				layoutpolicy_horizontal = expanding
-				margin = { 0 10 }
+				#margin_top = { 0 10 }
 
 				state = {
 					name = "faith_view_refresh"
@@ -889,8 +927,7 @@ window = {
 									text = "RELIGIOUS_HEAD_WITH_NAME"
 									default_format = "#high"
 									layoutpolicy_horizontal = expanding
-									fontsize_min = 14
-									max_width = 245
+									fontsize_min = 10
 								}
 
 								text_multi = {
@@ -1029,8 +1066,8 @@ window = {
 
 			hbox = {
 				spacing = 10
-				margin_bottom = 20
-				margin_top = 5
+				margin_bottom = 8
+				margin_top = 8
 				layoutpolicy_horizontal = expanding
 
 				expand = {}
