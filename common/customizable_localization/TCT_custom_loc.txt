@@ -128,23 +128,38 @@ sainthood_enviroment_check = {
 }
 
 InvestitureStruggle_supporter_and_detractor_replacer = {
-	type = character
+	type = any
+
 	text = {
-		trigger = {
-			any_character_struggle = {
-				is_struggle_type = investiture_controversy_struggle
+		setup_scope = {
+			if = {
+				limit = {
+					exists = struggle:investiture_controversy_struggle
+				}
+				struggle:investiture_controversy_struggle = {
+					save_scope_as = struggle
+				}
 			}
-			#this = struggle:investiture_controversy_struggle
+		}
+		trigger = {
+			exists = scope:struggle
 		}
 		localization_key = tct_supporter_and_detractor
 	}
 	text = {
-		trigger = {
-			any_character_struggle = {
-				is_struggle_type = persian_struggle
+		setup_scope = {
+			if = {
+				limit = {
+					exists = struggle:persian_struggle
+				}
+				struggle:persian_struggle = {
+					save_scope_as = struggle
+				}
 			}
-			always = yes
 		}
-		localization_key = vanilla_supporter_and_detractor
+		trigger = {
+			exists = scope:struggle
+		}
+		localization_key = tct_supporter_and_detractor
 	}
 }
