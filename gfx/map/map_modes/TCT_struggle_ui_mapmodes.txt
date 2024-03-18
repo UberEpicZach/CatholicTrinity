@@ -1,0 +1,36 @@
+
+tct_struggle_supporter = {
+	color_mode = baronies
+	small_map_names = realms
+	large_map_names = selected_character_realms
+	selection = selected_character_realms_or_holdings
+	fill_in_impassable = no
+
+	barony_description = { # Optional
+		desc = {
+			triggered_desc = {
+				trigger = {
+					county.holder = {
+						has_trait = tct_papal_supporter
+					}
+				}
+				desc = name_trait_tct_papal_supporter
+			}
+			triggered_desc = {
+				trigger = {
+					county.holder = {
+						has_trait = tct_imperial_supporter
+					}
+				}
+				desc = name_trait_tct_imperial_supporter
+			}
+		}
+	}
+
+	gradient_parameters = {
+		gradient_alpha_inside =	1
+		gradient_alpha_outside = 1
+		edge_width = 0
+		after_lighting_blend =	0.5
+	}
+}

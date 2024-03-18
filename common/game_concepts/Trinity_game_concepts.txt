@@ -78,6 +78,15 @@ investiture_controversy_struggle = {
 	parent = struggle
 }
 
+opposing_struggle_factions = {
+	alias = { opposing_factions }
+	parent = struggle
+}
+
+tct_install_loyalist_cb = {
+	parent = casus_belli
+}
+
 # struggle_persia_phase_stabilisation = {
 # 	parent = persian_struggle
 # }

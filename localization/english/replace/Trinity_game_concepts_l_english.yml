@@ -190,3 +190,9 @@
  #Invest 
   window_cardinals_divest_tooltip:0 "Withdraw Investment! Returns half initial investment."
   window_cardinals_invest_tooltip:0 "Invest in Candidate! Costs 50 Gold, Removing Investment later returns only Half initial investment!"
+
+ game_concept_opposing_struggle_factions: "Opposing Struggle Faction"
+ game_concept_opposing_struggle_factions_desc: "Opposing Struggle Factions are the usually the two sides of a [struggle|E], currently in the [investiture_controversy_struggle|E] the two sides are the [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )] and the [GetTrait('tct_imperial_supporter').GetName( GetNullCharacter )].\n\nIn the [persian_struggle|E] the two sides are the [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )] and the [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )]."
+
+ game_concept_tct_install_loyalist_cb: "Install a Supporter"
+ game_concept_tct_install_loyalist_cb_desc: "As either an [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )], or a [GetTrait('tct_imperial_supporter').GetName( GetNullCharacter )], allows you to wage a [war|E] in order to install a friendly factional leader at the head of the targeted [realm|E]"

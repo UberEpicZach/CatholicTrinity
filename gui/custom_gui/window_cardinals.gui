@@ -829,4 +829,71 @@ types uniuitrinitytypes {
             }
         }
     }
+	
+	type struggle_mini_map_mode = flowcontainer {
+		position = { -200 -25 }
+		parentanchor = bottom|left
+		widgetanchor = bottom|right
+		spacing = 20
+
+		mini_map_mode = {}
+
+		flowcontainer = {
+			minimumsize = { 0 60 }
+
+			background = {
+				using = Background_Area_Dark
+				margin = { 10 0 }
+				color = { 0.15 0.15 0.15 0.75 }
+			}
+			spacing = 5
+
+			flowcontainer = {
+				ignoreinvisible = yes
+				parentanchor = vcenter
+				visible = "[EqualTo_uint32(Struggle.GetID, '(uint32)1')]"
+
+				icon_button_mapmode = {
+					blockoverride "mm_button" {
+						onclick = "[GetScriptedGui('struggle_supporter_mapmode').Execute( GuiScope.End )]"
+					}
+					blockoverride "mm_icon" {
+						texture = "gfx/ashari.png"
+					}
+					blockoverride 'mm_datacontext'
+					{
+						datacontext = "[GetMapMode( 'struggle_supporter' )]"
+					}
+				}
+
+				icon_button_mapmode = {
+					blockoverride "mm_button" {
+						onclick = "[GetScriptedGui('struggle_detractor_dukes').Execute( GuiScope.End )]"
+					}
+					blockoverride "mm_icon" {
+						texture = "gfx/no_ashari.png"
+						# size = { 25 25 }
+						# position = { -1 0 }
+						# parentanchor = center
+					}
+					blockoverride 'mm_datacontext'
+					{
+						datacontext = "[GetMapMode( 'struggle_detractor_dukes' )]"
+					}
+				}
+
+				# button_round = {
+				# 	enabled = "[GetScriptedGui('reset_barony_colors').IsValid( GuiScope.End )]"
+				# 	onclick = "[GetScriptedGui('reset_barony_colors').Execute( GuiScope.End )]"
+				# 	size = { 40 40 }
+				#
+				# 	button_clear = {
+				# 		alwaystransparent = yes
+				# 		parentanchor = center
+				# 		size = { 70% 70% }
+				# 	}
+				# }
+			}
+		}
+	}
 }
