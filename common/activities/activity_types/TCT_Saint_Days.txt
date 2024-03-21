@@ -1,12 +1,49 @@
 ﻿activity_TCT_saint_days = {
 	is_shown = {
-		has_character_flag = hosting_saint_day
+		NOT = { has_character_flag = hosted_saint_day }
+		OR = {
+			AND = {
+				is_ai = yes
+				exists = capital_county
+				OR = {
+					faith = faith:catholic
+					faith = faith:iconoclast
+					faith = faith:nestorian
+					faith = faith:insular_celtic
+					#faith = faith:paulician # No not you
+					faith = faith:orthodox
+					faith = faith:coptic
+				}
+				any_held_title = {
+					tier = tier_county
+					any_county_province = {
+						has_holding_type = church_holding
+					}
+					any_county_province = {
+						has_province_modifier = saintly_tomb
+						has_variable = saint_day_saint
+						has_variable = saint_person_death_date
+						#NOT = { has_variable = saint_day_cooldown }
+						squared_distance = {
+							target = root.capital_county
+							value <= squared_distance_small #150 map-pixels. Roughly one Wales away (top to bottom).
+						}
+						save_temporary_scope_as = saint_day_province
+					}
+				}
+				current_month = saint_day_script_value
+			}
+			AND = {
+				is_ai = no
+				has_character_flag = hosting_saint_day
+			}
+		}
 		trigger_if = {
 			limit = {
 				is_ai = yes
 			}
 			is_at_war = no
-			short_term_gold >= pilgrimage_base_cost
+			gold > minor_gold_value
 		}
 	}
 
@@ -70,9 +107,9 @@
 		}
 	}
 
-	province_filter = realm
-	ai_province_filter = realm
-	wait_time_before_start = {days = 14 }
+	province_filter = domain
+
+	wait_time_before_start = { days = 12 }
 
 	province_description = {
 		#Does this have a temple holding?
@@ -350,7 +387,7 @@
 		}
 	}
 
-	max_guest_arrival_delay_time = { days = 14 }
+	max_guest_arrival_delay_time = { days = 12 }
 
 	# desc is only shown in debug AI watch window
 	ai_will_do = {
@@ -403,7 +440,7 @@
 		}
 	}
 
-	ai_check_interval = 48
+	ai_check_interval = 24
 
 	ai_will_select_province = {
 		value = 10
@@ -562,7 +599,7 @@
 	}
 
 	## Graphics
-	# Travel # Do we need these??
+	# Travel
 	background = { # Bridge
 		trigger = {
 			NOT = { scope:host.location = scope:activity.activity_location }

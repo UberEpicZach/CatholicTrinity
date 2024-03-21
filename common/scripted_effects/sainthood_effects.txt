@@ -19,53 +19,6 @@
 		}
 		add_dynasty_prestige_level = 1 # Why was this placed outside the dynasty scope??
 	}
-
-	#Create a blank Saint Day
-	
-	if = {
-		limit = {
-			exists = scope:saint_capital_province #safety check
-		}
-		create_character = {
-			location = scope:saint_capital_province
-			gender = male
-			age = { 16 50 }
-			trait = education_learning_2
-			trait = devoted
-			faith = root.faith
-			culture = scope:saint_capital_province.culture
-			learning = { 8 10 }
-			dynasty = none
-			save_scope_as = saint_day_holder
-		}
-
-		#faith = { #DEBUG
-		#	add_to_variable_list = {
-		#		name = faith_saint_day_holders
-		#		target = scope:saint_day_holder
-		#	}
-		#	#set_variable = {
-		#	#	name = recent_denomination
-		#	#	value = yes
-		#	#	years = 20
-		#	#}
-		#} #/DEBUG
-
-		scope:saint_day_holder = {
-			#add_gold = 10
-			#add_prestige = 10
-			set_variable = {
-				name = saint_day_saint
-				value = scope:new_saint
-			}
-			set_variable = {
-				name = saint_day_saint_tomb_location
-				value = scope:saint_capital_province
-			}
-			create_story = story_saint_day
-			#trigger notification for liege: A Monk has arrived!
-		}
-	}
 }
 
 #become_saint_debug = {

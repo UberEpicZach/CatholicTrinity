@@ -114,6 +114,7 @@ yearly_global_pulse = {
 	on_actions = {
 		delay = { days = 357 }
 		TCT_christmas_set
+		TCT_saint_day
 	}
 }
 
@@ -140,19 +141,28 @@ TCT_christmas_real = {
 	}
 }
 
-
-TCT_saint_day_real = {
-	trigger = {
-		is_adult = yes
-	}
-	random_events = {
-		1 = 0 #82 = 0
-		1 = TCT_saint_days.0001 #Saint's Day! 
-		#1 = bp1_yearly.3004 #Christmas, but a child!! 
-		#1 = bp1_yearly.3006 # Reflecting on a great Christmas
-		#1 = bp1_yearly.3006 # Last Christmas I gave you my heart
+TCT_saint_day = {
+	effect = {
+		every_player = {
+			limit = { saintdays_event1trigger = yes }
+			trigger_event = TCT_saint_days.0001
+		}
 	}
 }
+
+
+#TCT_saint_day_real = {
+#	trigger = {
+#		is_adult = yes
+#	}
+#	random_events = { #What? But I'm afraid to touch
+#		1 = 0 #82 = 0
+#		1 = TCT_saint_days.0001 #Saint's Day! 
+#		#1 = bp1_yearly.3004 #Christmas, but a child!! 
+#		#1 = bp1_yearly.3006 # Reflecting on a great Christmas
+#		#1 = bp1_yearly.3006 # Last Christmas I gave you my heart
+#	}
+#}
 
 fixing867pope = {
 	trigger = {
@@ -688,12 +698,19 @@ on_theocratic_investiture_death_no_successor = {
 on_person_death_saint = {
 	trigger = { # simple checks to improve performance
 		has_religion = religion:christianity_religion
-		num_virtuous_traits >= 2
-		piety_level >= 1
-		is_adult = yes
+		OR = {
+			AND = {
+				num_virtuous_traits >= 2
+				piety_level >= 2
+				piety >= massive_piety_value
+				is_adult = yes
+			}
+			has_trait = saint #LotD
+		}
 	}
     events = {
         TCT_sainthood.1
+		TCT_sainthood.101 #LotD
     }
 }
 

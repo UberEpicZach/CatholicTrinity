@@ -123,7 +123,7 @@
 
                                         hbox = {
                                             text_single = {
-                                                raw_text = "Age at death, [Character.GetAge],"
+                                                raw_text = "Age at death: [Character.GetAge]"
                                                 fontsize = 16
                                                 default_format = "#italic"
                                             }
@@ -143,11 +143,14 @@
                                                 default_format = "#italic"
                                             }
                                             spacer = { size = { 5 0 } }
-                                            text_single = {
-                                                text = GET_SAINT_DESC
-                                                fontsize = 16
+											text_multi = {
+												text = GET_SAINT_DESC
+												fontsize = 16
                                                 default_format = "#italic"
-                                            }
+												autoresize = yes
+												max_width = 300
+												margin_top = 4
+											}
                                             expand = {}
                                         }
                                     }

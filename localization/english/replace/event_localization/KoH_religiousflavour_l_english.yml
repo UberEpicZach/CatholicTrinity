@@ -157,58 +157,60 @@
   TCT_sainthood.12.desc.g: "In [saint_person.GetFirstNameNicknamed], the essence of Christian dedication found its true embodiment. As a testament to this unwavering faith, [canonizer_person.GetTitledFirstName] proclaims [saint_person.GetFirstNameNicknamed]'s ascension among the cherished saints of history.\n\nNarratives of [saint_person.GetFirstName]'s wondrous deeds have become foundational tales of faith, setting [saint_person.GetHerHis] as a timeless exemplar.\n\nFor [saint_person.GetFirstName]'s descendants, this honor is a glowing tribute, while for the rest, it's an eternal reminder of the path [saint_person.GetHerHis] paved."
   TCT_sainthood.12.desc.h: "Echoing the spirit of true Christian faith, [saint_person.GetFirstNameNicknamed]’s life was a testament to divine love and service. In recognition of such dedication, [canonizer_person.GetTitledFirstName] reverently includes [saint_person.GetFirstNameNicknamed] among the esteemed sages of the past.\n\nThe chronicles of [saint_person.GetFirstName]'s miraculous endeavors inspire renewed devotion, setting [saint_person.GetHerHim] as a perennial symbol of hope and virtue.\n\nWhile this divine accolade uplifts [saint_person.GetFirstName]'s lineage, it also beckons all to embody the virtues [saint_person.GetHerHis] showcased."
   TCT_sainthood.12.a: "A true saint, bless [saint_person.GetFirstName]'s name."
+  TCT_sainthood.12.b: "We've got more pressing matters on earth."
+  TCT_sainthood.12.b.tooltip: "You will not receive further notifications about canonized saints"
   TCT_fervor_gain_canonized: "Canonization"
 
 #Bio
-  saint_desc_nick_the_theologian:0 "Saint [Character.GetFirstNameNoTooltip] was a beacon\nof divine knowledge, shedding light on the mysteries\nof the faith. [Character.GetSheHe|U] delved deep into theology,\nenlightening many with [Character.GetHerHis] insights."
+  saint_desc_nick_the_theologian:0 "Saint [Character.GetFirstNameNoTooltip] was a beacon of divine knowledge, shedding light on the mysteries of the faith. [Character.GetSheHe|U] delved deep into theology, enlightening many with [Character.GetHerHis] insights."
   
-  saint_desc_nick_the_enlightened:0 "Saint [Character.GetFirstNameNoTooltip], known for [Character.GetHerHis]\nunparalleled wisdom, illuminated the path for many.\nThrough clarity, [Character.GetFirstNameNoTooltip] became\na beacon for believers."
+  saint_desc_nick_the_enlightened:0 "Saint [Character.GetFirstNameNoTooltip], known for [Character.GetHerHis] unparalleled wisdom, illuminated the path for many. Through clarity, [Character.GetFirstNameNoTooltip] became a beacon for believers."
   
-  saint_desc_nick_the_confessor:0 "Saint [Character.GetFirstNameNoTooltip]'s sincere contrition\nand openness about [Character.GetHerHis] sins were a testament\nto [Character.GetHerHis] humility. Many find solace in\n[Character.GetHerHis] confessions."
+  saint_desc_nick_the_confessor:0 "Saint [Character.GetFirstNameNoTooltip]'s sincere contrition and openness about [Character.GetHerHis] sins were a testament to [Character.GetHerHis] humility. Many find solace in [Character.GetHerHis] confessions."
   
-  saint_desc_nick_the_chaste:0 "Saint [Character.GetFirstNameNoTooltip]'s commitment to chastity\nwas unwavering. Through purity, [Character.GetFirstNameNoTooltip]\nexemplified virtues many strive for."
+  saint_desc_nick_the_chaste:0 "Saint [Character.GetFirstNameNoTooltip]'s commitment to chastity was unwavering. Through purity, [Character.GetFirstNameNoTooltip] exemplified virtues many strive for."
   
-  saint_desc_nick_the_wise:0 "Through unparalleled intellect and discernment,\nSaint [Character.GetFirstNameNoTooltip] provided guidance to many.\n[Character.GetSheHe|U] remains a symbol of wisdom."
+  saint_desc_nick_the_wise:0 "Through unparalleled intellect and discernment, Saint [Character.GetFirstNameNoTooltip] provided guidance to many. [Character.GetSheHe|U] remains a symbol of wisdom."
   
-  saint_desc_nick_the_pilgrim:0 "Saint [Character.GetFirstNameNoTooltip]'s journey was of faith\nand discovery. Venturing to holy sites, [Character.GetFirstNameNoTooltip]\nbecame a testament to pilgrimage."
+  saint_desc_nick_the_pilgrim:0 "Saint [Character.GetFirstNameNoTooltip]'s journey was of faith and discovery. Venturing to holy sites, [Character.GetFirstNameNoTooltip] became a testament to pilgrimage."
   
-  saint_desc_nick_the_divine:0 "The divine light seemed to radiate from\nSaint [Character.GetFirstNameNoTooltip], making [Character.GetHerHim]\na paragon of sacredness and virtue."
+  saint_desc_nick_the_divine:0 "The divine light seemed to radiate from Saint [Character.GetFirstNameNoTooltip], making [Character.GetHerHim] a paragon of sacredness and virtue."
 
-  saint_desc_nick_the_pious:0 "Saint [Character.GetFirstNameNoTooltip]'s unwavering devotion to the faith was\na testament to true piety.\nLiving a life centered around divine\nworship and prayer, [Character.GetSheHe] remains a shining example\nof godly virtue and commitment to the divine will."
+  saint_desc_nick_the_pious:0 "Saint [Character.GetFirstNameNoTooltip]'s unwavering devotion to the faith was a testament to true piety. Living a life centered around divine worship and prayer, [Character.GetSheHe] remains a shining example of godly virtue and commitment to the divine will."
 
-  saint_desc_nick_the_holy:0 "The purity and sanctity of Saint [Character.GetFirstNameNoTooltip]'s life\nset [Character.GetHerHim] apart as a true embodiment of holiness.\nFree from vice and sin, [Character.GetSheHe] exemplifies the virtues\nthat all believers aspire to achieve in their own lives."
+  saint_desc_nick_the_holy:0 "The purity and sanctity of Saint [Character.GetFirstNameNoTooltip]'s life set [Character.GetHerHim] apart as a true embodiment of holiness. Free from vice and sin, [Character.GetSheHe] exemplifies the virtues that all believers aspire to achieve in their own lives."
   
-  saint_desc_nick_the_martyr:0 "Saint [Character.GetFirstNameNoTooltip] sacrificed [Character.GetHerHimself]\nfor the faith, becoming an inspiration. Through martyrdom,\n[Character.GetFirstNameNoTooltip] showed devotion."
+  saint_desc_nick_the_martyr:0 "Saint [Character.GetFirstNameNoTooltip] sacrificed [Character.GetHerHimself] for the faith, becoming an inspiration. Through martyrdom, [Character.GetFirstNameNoTooltip] showed devotion."
   
-  saint_desc_nick_the_architect:0 "With masterful designs and sacred constructions,\nSaint [Character.GetFirstNameNoTooltip] bridged the gap between earth\nand the divine, leaving a lasting mark."
+  saint_desc_nick_the_architect:0 "With masterful designs and sacred constructions, Saint [Character.GetFirstNameNoTooltip] bridged the gap between earth and the divine, leaving a lasting mark."
   
-  saint_desc_nick_the_ascetic:0 "Saint [Character.GetFirstNameNoTooltip]'s life was one of\nself-denial. Through ascetic practices, [Character.GetFirstNameNoTooltip]\nsought divine closeness."
+  saint_desc_nick_the_ascetic:0 "Saint [Character.GetFirstNameNoTooltip]'s life was one of self-denial. Through ascetic practices, [Character.GetFirstNameNoTooltip] sought divine closeness."
   
-  saint_desc_nick_the_merciful_saint:0 "Known for compassion, Saint [Character.GetFirstNameNoTooltip]\nbrought solace to many. [Character.GetHerHis|U] mercy became\na guiding light for believers."
+  saint_desc_nick_the_merciful_saint:0 "Known for compassion, Saint [Character.GetFirstNameNoTooltip] brought solace to many. [Character.GetHerHis|U] mercy became a guiding light for believers."
   
-  saint_desc_nick_the_zealous:0 "With passion for the faith, Saint [Character.GetFirstNameNoTooltip]\ninspired many. [Character.GetFirstNameNoTooltip]'s zeal\nremains legendary."
+  saint_desc_nick_the_zealous:0 "With passion for the faith, Saint [Character.GetFirstNameNoTooltip] inspired many. [Character.GetFirstNameNoTooltip]'s zeal remains legendary."
   
-  saint_desc_nick_the_venerable_saint:0 "With deep respect from all, Saint [Character.GetFirstNameNoTooltip]'s\nvenerable nature made [Character.GetHerHim] enduring\nin the annals of faith."
+  saint_desc_nick_the_venerable_saint:0 "With deep respect from all, Saint [Character.GetFirstNameNoTooltip]'s venerable nature made [Character.GetHerHim] enduring in the annals of faith."
   
-  saint_desc_nick_the_bard_saint:0 "With melodies, Saint [Character.GetFirstNameNoTooltip] sang\npraises to the divine. [Character.GetFirstNameNoTooltip]'s musical\ndevotion touched many souls."
+  saint_desc_nick_the_bard_saint:0 "With melodies, Saint [Character.GetFirstNameNoTooltip] sang praises to the divine. [Character.GetFirstNameNoTooltip]'s musical devotion touched many souls."
   
-  saint_desc_nick_the_just:0 "Fairness marked Saint [Character.GetFirstNameNoTooltip]'s\ndecisions. [Character.GetFirstNameNoTooltip] stands as an\nembodiment of justice in faith."
+  saint_desc_nick_the_just:0 "Fairness marked Saint [Character.GetFirstNameNoTooltip]'s decisions. [Character.GetFirstNameNoTooltip] stands as an embodiment of justice in faith."
   
-  saint_desc_nick_the_great:0 "With achievements and leadership, Saint [Character.GetFirstNameNoTooltip]\nearned 'the Great', inspiring countless through\n[Character.GetHerHis] deeds."
+  saint_desc_nick_the_great:0 "With achievements and leadership, Saint [Character.GetFirstNameNoTooltip] earned 'the Great', inspiring countless through [Character.GetHerHis] deeds."
   
-  saint_desc_nick_the_apostle_saint:0 "Spreading the faith, Saint [Character.GetFirstNameNoTooltip]'s\napostolic endeavors left a mark, guiding souls."
+  saint_desc_nick_the_apostle_saint:0 "Spreading the faith, Saint [Character.GetFirstNameNoTooltip]'s apostolic endeavors left a mark, guiding souls."
   
-  saint_desc_nick_the_virgin:0 "Pure in spirit, Saint [Character.GetFirstNameNoTooltip] remains\nan epitome of innocence and unwavering virtue."
+  saint_desc_nick_the_virgin:0 "Pure in spirit, Saint [Character.GetFirstNameNoTooltip] remains an epitome of innocence and unwavering virtue."
   
-  saint_desc_nick_the_enlightener:0 "Through teachings, Saint [Character.GetFirstNameNoTooltip]\nilluminated the path of faith, earning his epithet."
+  saint_desc_nick_the_enlightener:0 "Through teachings, Saint [Character.GetFirstNameNoTooltip] illuminated the path of faith, earning his epithet."
   
-  saint_desc_nick_the_miracle_worker_saint:0 "Performing wonders, Saint [Character.GetFirstNameNoTooltip]'s\nmiracles cemented [Character.GetHerHis] status as a divine intercessor."
+  saint_desc_nick_the_miracle_worker_saint:0 "Performing wonders, Saint [Character.GetFirstNameNoTooltip]'s miracles cemented [Character.GetHerHis] status as a divine intercessor."
   
-  saint_desc_nick_hammer_of_heretics:0 "Saint [Character.GetFirstNameNoTooltip] defended the faith,\nchallenging heresies with fervor. [Character.GetFirstNameNoTooltip]\nstands against falsehoods."
+  saint_desc_nick_hammer_of_heretics:0 "Saint [Character.GetFirstNameNoTooltip] defended the faith, challenging heresies with fervor. [Character.GetFirstNameNoTooltip] stands against falsehoods."
   
-  saint_desc_nick_of_the_desert:0 "Seeking solitude, Saint [Character.GetFirstNameNoTooltip]\nfound communion in the desert's stillness, inspiring hermits."
+  saint_desc_nick_of_the_desert:0 "Seeking solitude, Saint [Character.GetFirstNameNoTooltip] found communion in the desert's stillness, inspiring hermits."
 
-  saint_desc_nick_the_flagellant:0 "In pursuit of spiritual purity, Saint [Character.GetFirstNameNoTooltip]\nembraced self-mortification, finding sanctity in pain and atonement.\nThis austere devotion has inspired many to seek\npenance and humility."
+  saint_desc_nick_the_flagellant:0 "In pursuit of spiritual purity, Saint [Character.GetFirstNameNoTooltip] embraced self-mortification, finding sanctity in pain and atonement. This austere devotion has inspired many to seek penance and humility."
 
  #Pilgrimages 
   pilgrimage.0001.f: "The Saintly Tomb at [saint_site_1.GetNameNoTooltip]."

@@ -1,4 +1,7 @@
-﻿
+﻿saint_day_script_value = {
+	value = scope:saint_day_province.var:saint_person_death_date
+}
+
 RICE_ancestor_max_bonus_value = {
 	value = 80
 

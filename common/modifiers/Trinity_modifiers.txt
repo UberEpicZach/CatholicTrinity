@@ -63,15 +63,16 @@ labor_instead_of_masses = {
 }
 
 saintly_tomb = {
-	icon = county_modifier_opinion_positive
-	monthly_income = 1.5
-	development_growth_factor = medium_development_growth_gain
-	development_growth = 0.15
+	icon = piety_positive
+	monthly_income = 0.2
+	#dev gain does not work on provinces
+	#development_growth_factor = small_development_growth_gain
+	#development_growth = 0.2
 }
 
 #Saint Days
 saint_days_procession = {
 	icon = piety_positive
 	county_opinion_add = 5
-	monthly_county_control_change_add = 0.1
+	monthly_county_control_growth_add = 0.1
 }

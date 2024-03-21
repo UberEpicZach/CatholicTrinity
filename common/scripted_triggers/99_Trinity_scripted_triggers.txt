@@ -93,42 +93,76 @@ sainthood_event1trigger = {
 		#controls_religion = yes
 		has_faith = faith:waldensian
 		has_trait = kinslayer
+		has_trait = murderer
+		has_trait = TCT_antipope
 		has_impious_trait_trigger = yes
 		has_criminal_trait_trigger = yes
 	}
 
-	NOT =  { has_trait = TCT_antipope } # Antipopes
-
 	OR = {
 		AND = {
 			highest_held_title_tier = tier_empire
-			piety >= 3500
+			#piety >= 2000
+			piety_level >= 4
 		}
 		AND = {
 			highest_held_title_tier = tier_kingdom
-			piety >= 3000
+			#piety >= 1500
+			piety_level >= 3
 		}
 		AND = {
-			highest_held_title_tier = tier_duchy
-			piety >= 2500
+			highest_held_title_tier <= tier_duchy
+			#piety >= 1250
+			piety_level >= 2
 		}
 		AND = {
-			highest_held_title_tier = tier_county
-			piety >= 2000
-		}
-		AND = {
-			highest_held_title_tier = tier_barony
-			piety >= 1500
+			highest_held_title_tier <= tier_county
+			#piety >= 1000
+			piety_level >= 2
 		}
 		AND = {
 			is_landed = no
-			piety >= 1000
+			#piety >= 750
+			piety_level >= 2
 		}
 	}
 
 	has_vice_trigger = no
 	has_benevolent_trait_trigger = yes
 	has_virtue_trigger = yes
+}
+
+saintdays_event1trigger = {
+	NOT = { has_character_flag = TCT_humbug }
+	is_available_adult = yes
+	exists = capital_county
+	OR = {
+		faith = faith:catholic
+		faith = faith:iconoclast
+		faith = faith:nestorian
+		faith = faith:insular_celtic
+		#faith = faith:paulician # No not you
+		faith = faith:orthodox
+		faith = faith:coptic
+	}
+	any_sub_realm_county = {
+		any_county_province = {
+			has_province_modifier = saintly_tomb
+			has_variable = saint_day_saint
+			has_variable = saint_person_death_date
+			NOT = { has_variable = saint_day_cooldown }
+			squared_distance = {
+				target = root.capital_county
+				value <= squared_distance_small #150 map-pixels. Roughly one Wales away (top to bottom).
+			}
+		}
+	}
+	any_held_title = {
+		tier = tier_county
+		any_county_province = {
+			has_holding_type = church_holding
+		}
+	}
 }
 
 
