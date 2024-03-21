@@ -267,3 +267,145 @@ secret_exposed_owner_effects_effect = {
 		murder_consequences_known_or_exposed_effect = { MURDERER = scope:murderer VICTIM = scope:victim POV = $POV$ } #Traits, (crime) opinions, dread
 	}
 }
+
+###
+create_the_papal_states_effect = {
+	character:167891 = {
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = change
+		}
+		title:c_parma = {
+			change_title_holder = {
+				holder = character:167891
+				change = scope:change
+			}
+		}
+		change_liege = {
+			liege = title:k_italy.holder
+			change = scope:change
+		}
+		resolve_title_and_vassal_change = scope:change
+	}
+	character:167884 = {
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = change
+		}
+		title:c_urbino = {
+			change_title_holder = {
+				holder = character:167884
+				change = scope:change
+			}
+		}
+		change_liege = {
+			liege = title:k_papal_state.holder
+			change = scope:change
+		}
+		resolve_title_and_vassal_change = scope:change
+
+		change_government = theocracy_government
+	}
+	character:71911 = {
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = change
+		}
+		title:c_ancona = {
+			change_title_holder = {
+				holder = character:71911
+				change = scope:change
+			}
+		}
+		change_liege = {
+			liege = title:k_papal_state.holder
+			change = scope:change
+		}
+		resolve_title_and_vassal_change = scope:change
+	}
+	character:259023 = {
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = change
+		}
+		title:c_arezzo = {
+			change_title_holder = {
+				holder = character:259023
+				change = scope:change
+			}
+		}
+		change_liege = {
+			liege = title:k_papal_state.holder
+			change = scope:change
+		}
+		resolve_title_and_vassal_change = scope:change
+
+		change_government = theocracy_government
+	}
+	title:c_orvieto.holder = {
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = change
+		}
+		change_liege = {
+			liege = title:k_papal_state.holder
+			change = scope:change
+		}
+		resolve_title_and_vassal_change = scope:change
+	}
+	title:c_orbetello.holder = {
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = change
+		}
+		change_liege = {
+			liege = title:k_papal_state.holder
+			change = scope:change
+		}
+		resolve_title_and_vassal_change = scope:change
+	}
+	title:c_ferrara.holder = {
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = change
+		}
+		change_liege = {
+			liege = title:k_papal_state.holder
+			change = scope:change
+		}
+		resolve_title_and_vassal_change = scope:change
+	}
+	title:c_bologna.holder = {
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = change
+		}
+		change_liege = {
+			liege = title:k_papal_state.holder
+			change = scope:change
+		}
+		resolve_title_and_vassal_change = scope:change
+	}
+	title:c_ravenna.holder = {
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = change
+		}
+		change_liege = {
+			liege = title:k_papal_state.holder
+			change = scope:change
+		}
+		resolve_title_and_vassal_change = scope:change
+	}
+	title:k_papal_state.holder = {
+		designate_diarch = title:c_orvieto.holder
+		start_diarchy = regency
+	}
+}
+
+create_papal_state_regency_effect = {
+	title:k_papal_state.holder = {
+		designate_diarch = title:c_orvieto.holder
+		start_diarchy = regency
+	}
+}
