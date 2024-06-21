@@ -1,8 +1,8 @@
 ﻿l_english:
 
-  I_INVESTITURE: "#l [investiture|E]"
-  I_PAPAL: "[papal_investiture|E]"
-  I_FREE: "[free_investiture|E]"
+ I_INVESTITURE: "#l [investiture|E]"
+ I_PAPAL: "[papal_investiture|E]"
+ I_FREE: "[free_investiture|E]"
 
  appoint_governor:0 "Appoint Bishopric Successor"
 

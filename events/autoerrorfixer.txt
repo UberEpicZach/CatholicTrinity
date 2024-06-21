@@ -34,6 +34,18 @@ autoerrorfixer.1 = {
 		fix_variable_error = {ERROR = TCT_commissioned_sisitine_chapel}
 		fix_variable_error = {ERROR = pilgrimage_cooldown_timer}
 		fix_variable_error = {ERROR = hosting_saint_day}
+		fix_variable_error = {ERROR = selected_culture}
+		fix_variable_error = {ERROR = TCT_is_loaded}
+		fix_variable_error = {ERROR = TCT_autocephaly}
+		fix_variable_error = {ERROR = TCT_canonical_territory}
+		fix_variable_error = {ERROR = TCT_ecumenical_patriarch_list}
+		fix_variable_error = {ERROR = culture_options}
+		fix_variable_error = {ERROR = sp_unrest_catalyst_reveal_secret_supporter}
+		fix_variable_error = {ERROR = sp_stabil_catalyst_reveal_secret_detractor}
+		fix_variable_error = {ERROR = selected_province}
+		fix_variable_error = {ERROR = selected_char}
+		
+
 	}
 }
 autoerrorfixer.2 = {

@@ -218,6 +218,7 @@
   GET_SAINT_DESC: "[Character.Custom('saint_desc')]"
 
   saintlypilgrimagetooltip: "Visit the Tomb of Saint [localsaint.GetFirstNameNicknamedRegnal]!"
+  activity_pilgrimage.is_location_valid.faith_saints_and_capital: "Pilgrimage can be to Holy Sites or Saintly Tombs."
   saintly_bloodline: "Blood of a Saint"
   saintly_tomb: "A Tomb of a Saint"
 

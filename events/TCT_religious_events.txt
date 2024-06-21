@@ -4397,54 +4397,54 @@ TCT_religious_events.58 = {#christmas
 
 
 
-TCT_religious_events.200 = {
-	hidden = yes
-	immediate = {
-		pay_short_term_gold = {
-			target = faith.religious_head
-			gold = 100
-		}
-	}
-}
+# TCT_religious_events.200 = {
+# 	hidden = yes
+# 	immediate = {
+# 		pay_short_term_gold = {
+# 			target = faith.religious_head
+# 			gold = 100
+# 		}
+# 	}
+#}
 
 
-# Autocephaly created!
-TCT_religious_events.210 = {
-	type = character_event
-	title = TCT_religious_events.210.t
-	desc = TCT_religious_events.210.d
-	theme = faith
+# # Autocephaly created!
+# TCT_religious_events.210 = {
+# 	type = character_event
+# 	title = TCT_religious_events.210.t
+# 	desc = TCT_religious_events.210.d
+# 	theme = faith
 	
-	left_portrait = {
-		character = scope:patriarch
-		animation = happiness
-	}
-	right_portrait = {
-		character = scope:recipient
-		animation = personality_zealous
-	}
+# 	left_portrait = {
+# 		character = scope:patriarch
+# 		animation = happiness
+# 	}
+# 	right_portrait = {
+# 		character = scope:recipient
+# 		animation = personality_zealous
+# 	}
 
-	option = {
-		name = TCT_religious_events.210.a
-	}
-}
+# 	option = {
+# 		name = TCT_religious_events.210.a
+# 	}
+# }
 
-# Interdicted Requester informed the Pope denied their request.
-TCT_religious_events.211 = {
-	type = letter_event
-	opening = {
-		desc = TCT_religious_events.211.o
-	}
-	desc = TCT_religious_events.211
-	sender = {
-		character = scope:recipient
-		animation = dismissal
-	}
+# # Interdicted Requester informed the Pope denied their request.
+# TCT_religious_events.211 = {
+# 	type = letter_event
+# 	opening = {
+# 		desc = TCT_religious_events.211.o
+# 	}
+# 	desc = TCT_religious_events.211
+# 	sender = {
+# 		character = scope:recipient
+# 		animation = dismissal
+# 	}
 
-	option = {
-		name = religious_interaction.1000.negative
-	}
-}
+# 	option = {
+# 		name = religious_interaction.1000.negative
+# 	}
+# }
 
 #Ending a Pilgrimage to a Saintly Tomb
 TCT_religious_events.250 = { 
