@@ -83,3 +83,13 @@ TCT_helped_in_religious_war = {
 	decaying = yes
 	years = 15
 }
+
+TCT_appointed_bishop_investiture_bad = {
+	decaying = yes
+	years = 10
+}
+
+TCT_appointed_bishop_investiture_good = {
+	decaying = yes
+	years = 10
+}

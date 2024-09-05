@@ -74,8 +74,9 @@
 #  catalyst_execute_detractor: "Executed a [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )] [struggle_catalyst_catalyst|E]"
 #  catalyst_execute_detractor_desc: "Execute a [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )]"
 
-
-
+ tct_appointed_bishop_investiture: "Enacted Investiture Rights"
+ tct_appointed_bishop_investiture_desc: "Appointed a bishop using free [investiture|E] rights."
+ 
  tct_create_antipope_desc: "A [GetTrait('tct_imperial_supporter').GetName( GetNullCharacter )] creates an Antipope"
  
  tct_catalyst_unnatural_death_supporter: "$catalyst_unnatural_death_important_character$"

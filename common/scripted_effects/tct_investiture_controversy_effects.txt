@@ -305,7 +305,7 @@ investiture_controversy_struggle_switch_sides_scripted_effect = {
 				}
 			}
 			every_interloper_ruler = {
-				custom = custom.every_opposed_interloper_struggle_ruler.detractor
+				custom = custom.every_opposed_interloper_struggle_ruler.papal_supporter
 				limit = {
 					NOT = { this = root }
 					has_trait = tct_papal_supporter

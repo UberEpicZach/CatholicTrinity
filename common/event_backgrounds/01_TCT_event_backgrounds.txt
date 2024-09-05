@@ -8,3 +8,10 @@ TCT_christmas = {
 	}
 }
 
+tct_investiture_struggle = {
+	background = {	# Intro
+		reference = "gfx/interface/illustrations/event_screens/TCT_investiture_controversy.dds"
+		environment = "environment_event_steppe"
+		ambience = "event:/DLC/FP2/SFX/UI/fp2_struggle_start_loop"
+	}
+}

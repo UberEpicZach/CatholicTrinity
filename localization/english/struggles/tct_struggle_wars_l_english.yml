@@ -1,0 +1,24 @@
+﻿l_english:
+
+
+ tct_investiture_struggle_install_loyalist_cb
+ tct_install_imperial_loyalist_cb: "Install Imperial Loyalist"
+ tct_install_imperial_loyalist_cb_cooldown_trigger: "You may only use this [casus_belli|E] once a year!"
+ tct_install_imperial_loyalist_cb_victory_desc: "The [ruler|E] of [defender.GetPrimaryTitle.GetBaseName|U] is deposed and replaced with a [GetTrait('tct_imperial_supporter').GetName( GetNullCharacter )] of the Emperor."
+ tct_install_imperial_loyalist_cb_defeat_desc: "[defender.GetPrimaryTitle.GetName|U] remains under the impartial rule of [defender.GetShortUIName|U]."
+
+ cb_rejected_emperor_discount: "Rejected the Emperor's authority"
+ INSTALL_IMPERIAL_LOYALIST_PUPPET_WAR_NAME: "$tct_install_loyalist_cb$ in [DEFENDER.GetPrimaryTitle.GetBaseNameNoTier]"
+ INSTALL_IMPERIAL_LOYALIST_PUPPET_CB_NAME: "$tct_install_loyalist_cb$"
+ tct_install_imperial_loyalist_cb.tt.loyalist_stooge: "[defender.GetTitledFirstName] must have at least one [vassal|E] [GetTrait('tct_imperial_supporter').GetName( GetNullCharacter )] who they are neither [friends|E] with nor have a [hook|E] on"
+
+ #tct_investiture_struggle_install_papal_loyalist_cb
+ tct_install_papal_loyalist_cb: "Install Papal Loyalist"
+ tct_install_papal_loyalist_cb_cooldown_trigger: "You may only use this [casus_belli|E] once a year!"
+ tct_install_papal_loyalist_cb_victory_desc: "The [ruler|E] of [defender.GetPrimaryTitle.GetBaseName|U] is deposed and replaced with a [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )] of the Pope."
+ tct_install_papal_loyalist_cb_defeat_desc: "[defender.GetPrimaryTitle.GetName|U] remains under the impartial rule of [defender.GetShortUIName|U]."
+
+ cb_rejected_pope_discount: "Rejected the Papal's authority"
+ INSTALL_PAPAL_LOYALIST_PUPPET_WAR_NAME: "$tct_install_loyalist_cb$ in [DEFENDER.GetPrimaryTitle.GetBaseNameNoTier]"
+ INSTALL_PAPAL_LOYALIST_PUPPET_CB_NAME: "$tct_install_loyalist_cb$"
+ tct_install_papal_loyalist_cb.tt.loyalist_stooge: "[defender.GetTitledFirstName] must have at least one [vassal|E] [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )] who they are neither [friends|E] with nor have a [hook|E] on"

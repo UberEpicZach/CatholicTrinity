@@ -927,7 +927,7 @@ tct_investiture_struggle_install_loyalist_cb = {
 			any_character_struggle = { is_struggle_type = investiture_controversy_struggle }
 		}
 		custom_tooltip = {
-			text = fp3_install_loyalist_cb.tt.loyalist_stooge
+			text = tct_install_imperial_loyalist_cb.tt.loyalist_stooge
 			any_vassal = {
 				tct_investiture_struggle_is_valid_loyal_puppet_of_emperor = yes
 			}
@@ -1098,7 +1098,7 @@ tct_investiture_struggle_install_loyalist_cb = {
 						}
 						scope:attacker = {
 							can_add_hook = {
-								type = caliphal_submission_hook
+								type = indebted_hook
 								target = scope:loyalist_puppet
 							}
 						}
@@ -1106,7 +1106,7 @@ tct_investiture_struggle_install_loyalist_cb = {
 					scope:attacker = {
 						add_hook = {
 							target = scope:loyalist_puppet
-							type = caliphal_submission_hook
+							type = indebted_hook
 						}
 					}
 				}
@@ -1167,9 +1167,6 @@ tct_investiture_struggle_install_loyalist_cb = {
 			}
 		}
 		else = {
-			show_as_tooltip = {
-				custom_tooltip = fp3_install_loyalist_cb_no_valid_puppet # todo_cd_hci_polish split this off into multiple tooltips. Add some red text.
-			}
 			scope:attacker = {
 				create_alliance = {
 					target = scope:defender
@@ -1204,9 +1201,9 @@ tct_investiture_struggle_install_loyalist_cb = {
 		scope:defender = { add_prestige = major_prestige_gain }
 	}
 
-	on_victory_desc = { desc = fp3_install_loyalist_cb_victory_desc }
-	on_defeat_desc = { desc = fp3_install_loyalist_cb_defeat_desc }
-	on_white_peace_desc = { desc = fp3_install_loyalist_cb_defeat_desc }
+	on_victory_desc = { desc = tct_install_imperial_loyalist_cb_victory_desc }
+	on_defeat_desc = { desc = tct_install_imperial_loyalist_cb_defeat_desc }
+	on_white_peace_desc = { desc = tct_install_imperial_loyalist_cb_defeat_desc }
 	on_invalidated_desc = msg_invalidate_war_title
 
 	war_name = "INSTALL_LOYALIST_PUPPET_WAR_NAME"
@@ -1303,7 +1300,7 @@ tct_investiture_struggle_install_papal_loyalist_cb = {
 			any_character_struggle = { is_struggle_type = investiture_controversy_struggle }
 		}
 		custom_tooltip = {
-			text = fp3_install_loyalist_cb.tt.loyalist_stooge
+			text = tct_install_papal_loyalist_cb.tt.loyalist_stooge
 			any_vassal = {
 				tct_investiture_struggle_is_valid_loyal_puppet_of_papal = yes
 			}
@@ -1474,7 +1471,7 @@ tct_investiture_struggle_install_papal_loyalist_cb = {
 						}
 						scope:attacker = {
 							can_add_hook = {
-								type = caliphal_submission_hook
+								type = indebted_hook
 								target = scope:loyalist_puppet
 							}
 						}
@@ -1482,7 +1479,7 @@ tct_investiture_struggle_install_papal_loyalist_cb = {
 					scope:attacker = {
 						add_hook = {
 							target = scope:loyalist_puppet
-							type = caliphal_submission_hook
+							type = indebted_hook
 						}
 					}
 				}
@@ -1580,9 +1577,9 @@ tct_investiture_struggle_install_papal_loyalist_cb = {
 		scope:defender = { add_prestige = major_prestige_gain }
 	}
 
-	on_victory_desc = { desc = fp3_install_loyalist_cb_victory_desc }
-	on_defeat_desc = { desc = fp3_install_loyalist_cb_defeat_desc }
-	on_white_peace_desc = { desc = fp3_install_loyalist_cb_defeat_desc }
+	on_victory_desc = { desc = tct_install_papal_loyalist_cb_victory_desc }
+	on_defeat_desc = { desc = tct_install_papal_loyalist_cb_defeat_desc }
+	on_white_peace_desc = { desc = tct_install_papal_loyalist_cb_defeat_desc }
 	on_invalidated_desc = msg_invalidate_war_title
 
 	war_name = "INSTALL_LOYALIST_PUPPET_WAR_NAME"

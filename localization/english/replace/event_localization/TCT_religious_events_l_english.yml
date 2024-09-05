@@ -65,9 +65,13 @@
 
   TCT_religious_events.15.t: "Investiture: A New Bishop"
   TCT_religious_events.15.desc: ""In the solemn stillness of the night, the venerable [dying_bishop.GetFullName], has been called to the heavenly court, leaving behind his earthly flock" Your Bishop [council_bishop.GetFirstName] says to you. \n\nAs the secular ruler of this land, in with this rite of [investiture|E], It is my responsibility to appoint a successor to this churchly seat, a decision which remains a simple affirmation of our customs, now ventures towards further conflicts, facing the growing assertiveness of Papal power. This act is not just about filling a position; it's a subtle statement of our autonomy, a routine yet significant gesture of balancing our legacy with the broader currents of our era."
-  TCT_religious_events.15.a: "I believe he will make a fine bishop."
+  TCT_religious_events.15.a: "It is my right to choose a new bishop."
+  TCT_religious_events.15.b: "..Let the clergy decide..."
 
-
+  TCT_religious_events.16.t: "Investiture: A New Bishop"
+  TCT_religious_events.16.desc: "I deliberate over the candidates for the vacant bishopric—family, distant kin, loyal servants, and devout clergy. Each has their own strengths, yet more is at stake than their merits.\n\nA courtier brings word that Rome favors [papal_appointed_bishop.GetFirstName], and if I delay, the Pope may appoint him himself. The choice before me is not merely about filling a seat, but about ensuring the power of that choice remains within my grasp."
+  TCT_religious_events.16.a: "My choice shall make a fine bishop."
+  TCT_religious_events.16.b: "Let the Pope have his way."
 
 
  #SAINTHOOD

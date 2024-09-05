@@ -1,7 +1,9 @@
 ﻿#An AI Decision to make it invest in Elections in the College of Cardinals
 
 invest_in_cardinal_Ai = {
-	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
 
 	desc = invest_in_cardinal_AI_decision_desc
 	selection_tooltip = invest_in_cardinal_AI_decision_tooltip
@@ -202,7 +204,9 @@ invest_in_cardinal_Ai = {
 }
 
 deinvest_in_cardinal_AI = {
-	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
 
 	desc = deinvest_in_cardinal_AI_decision_desc
 	selection_tooltip = deinvest_in_cardinal_AI_decision_tooltip
@@ -286,7 +290,9 @@ deinvest_in_cardinal_AI = {
 }
 
 deinvest_in_cardinal_AI = {
-	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
 
 	desc = deinvest_in_cardinal_AI_decision_desc
 	selection_tooltip = deinvest_in_cardinal_AI_decision_tooltip
@@ -369,7 +375,9 @@ deinvest_in_cardinal_AI = {
 }
 
 take_free_investiture_early_AI = {
-	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
 
 	desc = take_free_investiture_AI_decision_desc
 	selection_tooltip = take_free_investiture_AI_decision_tooltip
@@ -550,7 +558,9 @@ take_free_investiture_early_AI = {
 }
 
 take_free_investiture_late_AI = {
-	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
 
 	desc = take_free_investiture_AI_decision_desc
 	selection_tooltip = take_free_investiture_AI_decision_tooltip
@@ -731,7 +741,9 @@ take_free_investiture_late_AI = {
 }
 
 take_papal_investiture_early_AI = {
-	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
 
 	desc = take_free_investiture_AI_decision_desc
 	selection_tooltip = take_free_investiture_AI_decision_tooltip
@@ -913,7 +925,9 @@ take_papal_investiture_early_AI = {
 }
 
 take_papal_investiture_late_AI = {
-	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
 
 	desc = take_free_investiture_AI_decision_desc
 	selection_tooltip = take_free_investiture_AI_decision_tooltip

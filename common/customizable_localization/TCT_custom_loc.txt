@@ -115,7 +115,7 @@ sainthood_enviroment_check = {
 		trigger = {
 			has_trait = saint
 		}
-		localization_key = environment_saint
+		localization_key = environment_standard
 	}
 	text = {
 		trigger = {

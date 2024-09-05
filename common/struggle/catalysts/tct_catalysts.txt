@@ -26,5 +26,6 @@ tct_catalyst_imprison_important = {}
 tct_catalyst_imprison_papal_supporter = {}
 tct_catalyst_imprison_imperial_supporter = {}
 
+tct_appointed_bishop_investiture = {}
 
 tct_create_antipope = {}

@@ -1,6 +1,8 @@
 ﻿#Create's a Crusader State from a held duchy'
 create_crusader_state_decision = {
-	picture = "gfx/interface/illustrations/decisions/decision_destiny_goal.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
 
 	confirm_text = {
 		desc = {

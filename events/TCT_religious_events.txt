@@ -1048,19 +1048,27 @@ TCT_religious_events.15 = {
 
 scripted_effect get_investiture_characters = {
 	clear_variable_list = possible_characters
+	remove_variable = si_selected_character
 
-	every_dynasty_member = {
-		limit = {
-			OR = {
-				has_trait = devoted
-				has_education_learning_trigger = yes
+	dynasty = {
+		every_dynasty_member = {
+			limit = {
+				OR = {
+					has_trait = devoted
+					has_education_learning_trigger = yes
+				}
+				is_landed = no
+				is_female = no
+				is_adult = yes
+				NOT = { any_heir_to_title = { exists = this } }
 			}
-			is_landed = no
-			is_female = no
-			is_adult = yes
-			NOT = { any_heir_to_title = { exists = this } }
+			root = {
+				add_to_variable_list = {
+					name = possible_characters
+					target = prev
+				}
+			}
 		}
-		add_to_list = possible_characters
 	}
 	every_sibling = {
 		limit = {
@@ -1073,7 +1081,12 @@ scripted_effect get_investiture_characters = {
 			is_adult = yes
 			NOT = { any_heir_to_title = { exists = this } }
 		}
-		add_to_list = possible_characters
+		root = {
+			add_to_variable_list = {
+				name = possible_characters
+				target = prev
+			}
+		}
 	}
 	every_child = {
 		limit = {
@@ -1086,7 +1099,12 @@ scripted_effect get_investiture_characters = {
 			is_female = no
 			NOT = { any_heir_to_title = { exists = this } }
 		}
-		add_to_list = possible_characters
+		root = {
+			add_to_variable_list = {
+				name = possible_characters
+				target = prev
+			}
+		}
 	}
 
 	every_courtier_or_guest = {
@@ -1131,7 +1149,12 @@ scripted_effect get_investiture_characters = {
 			}
 			has_faith = root.faith
 		}
-		add_to_list = possible_characters
+		root = {
+			add_to_variable_list = {
+				name = possible_characters
+				target = prev
+			}
+		}
 	}
 }
 
@@ -1156,141 +1179,16 @@ TCT_religious_events.16 = {
 		character = faith.religious_head
 	}
 
-	# trigger = {
-	# 	scope:bishop_title = {
-	# 		OR = {
-	# 			liege = {
-	# 				OR = {
-	# 					has_realm_law = free_investiture_early
-	# 					has_realm_law = free_investiture_late
-	# 				}
-	# 			}
-	# 		}
-	# 	}
-	# }
-
-	
 	widget = {
 		gui = "event_window_character_selection"
 		container = "custom_widgets_container"
 	}
 
 	immediate = {
-		dynasty = {
-			every_dynasty_member = {
-				limit = {
-					OR = {
-						has_trait = devoted
-						has_education_learning_trigger = yes
-					}
-					is_landed = no
-					is_female = no
-					is_adult = yes
-					NOT = { any_heir_to_title = { exists = this } }
-				}
-				root = {
-					add_to_variable_list = {
-						name = possible_characters
-						target = prev
-					}
-				}
-			}
+		get_investiture_characters = yes
+		scope:bishop_title.holder = {
+			save_scope_as = papal_appointed_bishop
 		}
-		every_sibling = {
-			limit = {
-				OR = {
-					has_trait = devoted
-					has_education_learning_trigger = yes
-				}
-				is_landed = no
-				is_female = no
-				is_adult = yes
-				NOT = { any_heir_to_title = { exists = this } }
-			}
-			root = {
-				add_to_variable_list = {
-					name = possible_characters
-					target = prev
-				}
-			}
-		}
-		every_child = {
-			limit = {
-				OR = {
-					has_trait = devoted
-					has_education_learning_trigger = yes
-				}
-				is_landed = no
-				is_adult = yes
-				is_female = no
-				NOT = { any_heir_to_title = { exists = this } }
-			}
-			root = {
-				add_to_variable_list = {
-					name = possible_characters
-					target = prev
-				}
-			}
-		}
-	
-		every_courtier_or_guest = {
-			limit = {
-				OR = {
-					AND = {
-						is_councillor_of = root
-						has_council_position = councillor_court_chaplain
-					}
-					AND = {
-						NOT = {
-							AND = {
-								court_owner = { has_realm_law = male_only_law }
-								is_female = yes
-							}
-							AND = {
-								court_owner = { has_realm_law = male_preference_law }
-								is_female = yes
-							}
-							AND = {
-								court_owner = { has_realm_law = female_only_law }
-								is_female = no
-							}
-							AND = {
-								court_owner = { has_realm_law = female_preference_law }
-								is_female = no
-							}
-							has_variable = theocratic_successor
-							father = liege_or_court_owner
-							mother = liege_or_court_owner
-							primary_spouse = liege_or_court_owner
-						}
-					}
-				}
-				AND = {
-					#And they have to actually like you enough to want to invest you.
-					opinion = {
-						target = root
-						value >= 0
-					}
-					learning >= 7
-				}
-				has_faith = root.faith
-			}
-			root = {
-				add_to_variable_list = {
-					name = possible_characters
-					target = prev
-				}
-			}
-		}
-
-		# every_living_character = {
-		# 	root = {
-		# 		add_to_variable_list = {
-		# 			name = possible_characters
-		# 			target = prev
-		# 		}
-		# 	}
-		# }
 	}
 	
 	# Let Me Decide!
@@ -1303,6 +1201,8 @@ TCT_religious_events.16 = {
 			var:si_selected_character = {
 				save_scope_as = new_bishop
 			}
+
+			remove_variable = si_selected_character
 			
 			scope:bishop_title.holder = {
 				save_scope_as = papal_appointed_bishop
@@ -1326,10 +1226,66 @@ TCT_religious_events.16 = {
 
 
 		#ADD CATALYST, SEND EVENT TO POPE SAYING YOU APPOINTED A NEW BISHOP, OVERRIDING HIS DECISION
+		hidden_effect = {
+			if = {
+				limit = {
+					any_character_struggle	 = {
+						involvement = involved
+						phase_has_catalyst = tct_appointed_bishop_investiture
+					}
+				}
+				every_character_struggle = {
+					involvement = involved
+					activate_struggle_catalyst = {
+						catalyst = tct_appointed_bishop_investiture
+						character = root
+					}
+				}
+			}
+		}
 
+		faith.religious_head = {
+			add_opinion = {
+				target = ROOT
+				opinion = -20
+				modifier = TCT_appointed_bishop_investiture_bad
+			}
+		}
+
+		scope:papal_appointed_bishop = {
+			add_opinion = {
+				target = ROOT
+				opinion = -20
+				modifier = TCT_appointed_bishop_investiture_bad
+			}
+		}
+
+		scope:new_bishop ?= {
+			add_opinion = {
+				target = ROOT
+				opinion = 40
+				modifier = TCT_appointed_bishop_investiture_good
+			}
+		}
 
 		ai_chance = {
-			base = 0
+			base = 100
+		}
+	}
+
+	# Let the Pope decide
+	option = {
+		name = TCT_religious_events.16.b
+
+		random = {
+			chance = 60
+			scope:papal_appointed_bishop = {
+				add_trait = tct_papal_supporter
+			}
+		}
+
+		ai_chance = {
+			base = 50
 		}
 	}
 }

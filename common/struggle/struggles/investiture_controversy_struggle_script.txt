@@ -27,47 +27,20 @@
 
 	involvement_prerequisite_percentage = 0.5 # Easier to join the struggle due to the nature of the conflict
 
-	on_start = { #THIS ENTIRE BLOCK IS FAKE NEWS
+	on_start = {
  		# # # Start the over-time catalysts.
-		# trigger_event = neutral_struggle.0001
-		# trigger_event = tct_neutral_struggle.0001
+		trigger_event = tct_neutral_struggle.0001
 		# # Tell the AI to change sides every now and then.
-		# trigger_event = {
-		# 	id = tct_investiture_struggle.0001
-		# 	years = { 1 5 }
-		# }
-		# # title:e_hre.holder = {
-		# # 	send_interface_toast = {
-		# # 		type = event_toast_effect_bad
-		# # 		title = HRE_DEBUG_TEST_THREE
-		# # 		left_icon = ROOT
-		# # 	}
-		# # }
+		trigger_event = {
+			id = tct_investiture_struggle.0001
+			years = { 1 5 }
+		}
 	}
 
 	transition_state_duration = { months = 3 }
 
 	on_change_phase = {
-		# If relevant, gather data on when we changed phase.
-		# if = {
-		# 	limit = { gather_debug_variables_for_persian_struggle_trigger = yes }
-		# 	# Are we switching out of the Concession phase?
-		# 	if = {
-		# 		limit = { is_struggle_phase = investiture_controversy_phase_stabilisation }
-		# 		increment_global_variable_effect = {
-		# 			VAL = 1
-		# 			VAR = sp_phase_stabil
-		# 		}
-		# 	}
-		# 	# Are we switching out of the Unrest phase?
-		# 	else_if = {
-		# 		limit = { is_struggle_phase = investiture_controversy_phase_unrest }
-		# 		increment_global_variable_effect = {
-		# 			VAL = 1
-		# 			VAR = sp_phase_unrest
-		# 		}
-		# 	}
-		# }
+	
 	}
 	
 	# Root = the character which has joined the struggle
@@ -342,10 +315,10 @@
 		}
 
 
-		# if = {
-		# 	limit = { is_ai = no }
-		# 	trigger_event = fp3_struggle.0051
-		# }
+		if = {
+			limit = { is_ai = no }
+			trigger_event = tct_investiture_struggle.0051
+		}
  	}
 
 	##################################################
@@ -356,7 +329,6 @@
 	phase_list = {
 
 		investiture_controversy_phase_unrest = { # Unrest Phase
-			duration = { points = 500 }
 
 			future_phases = {
 				investiture_controversy_phase_hostility = {
@@ -402,6 +374,9 @@
 
 						# Create an Anti-Pope
 						tct_create_antipope = 150
+
+						# Use Free Investiture Rights to Appoint a Bishop
+						tct_appointed_bishop_investiture = minor_struggle_catalyst_gain
 					}
 				}
  

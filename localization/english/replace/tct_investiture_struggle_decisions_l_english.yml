@@ -4,8 +4,6 @@
  tct_imperial_supporter:0 "Imperial Supporter"
  trait_tct_papal_supporter:0 "Papal Supporter"
  trait_tct_imperial_supporter:0 "Imperial Supporter"
- bookmark_hre: "Heinrich IV"
- bookmark_pope: "Pope Alexander II"
  d_saxony:0 "Saxony"
  building_type_tct_leisure_palace_01:0 "Leisure Palaces"
  building_type_tct_leisure_palace_01_desc:0 "While staying in one lavishly luxuriant castle is fine, having a few more to choose between never hurts."
@@ -88,3 +86,38 @@
  tct_neutral_struggle.0003.t: "Goslar, Silver Mines and the Salians"
  tct_neutral_struggle.0003.desc: "Dark are the days since Henry IV ascended the throne, casting his shadow over Saxon lands like a hawk circling its prey. My heart beats with indignation as I hear of the Emperor's deeds, his Rhenish Franconian heritage betraying no love for us. Goslar, that accursed palace, has not only consumed our wealth but has become a symbol of subjugation. I can feel the resentment simmering among my countrymen, a cauldron set to boil over. \n\nIn the heart of the Harz mountains, he plunders our silver and erects fortresses as if adorning his realm with trophies of conquest. The Harzburg castle and its ilk serve as reminders of his authority. But the true insult lies in the Swabian ministeriales he has unleashed upon us, men who raid our villages and tarnish our honor. Henry might see this as an assertion of royal power, but we see it for what it is—an invasion, a threat to our existence. This unrest finds echoes even among the Empire's great princes. If Henry believes that castles and ministeriales can quash the Saxon spirit, he is gravely mistaken. The time for passive support is dwindling; the moment for action draws near."
  tct_neutral_struggle.0003.a: "All in good time.."
+
+
+
+ tct_investiture_struggle.0051.t: "The Investiture Controversy"
+ tct_investiture_struggle.0051.desc: "A new power struggle arrises, that threatens to rend Christendom asunder. The Holy Roman Emperor and the Pope stand opposed as the rights of [investiture|E] become the battleground for supremacy while Noble houses see both peril and promise...\n"
+
+ tct_investiture_struggle.0051.desc.emperor: "\nI will not be undone by the ambitions of a church that seeks to claim what is rightfully mine. The princes grumble and the bishops conspire, hoping to see me falter, but I am no mere custodian of titles — I am the chosen of God, ordained to rule by divine right. The power to shape the fate of Christendom is not theirs to take. It is mine to wield!"
+
+ tct_investiture_struggle.0051.desc.pope: "\nThe lords whisper of rebellion, the emperor seeks to wrest power from the very seat of Saint Peter, hoping to reduce the Church to a mere arm of the state. But I am not merely a bishop in a palace — I am the Vicar of Christ, charged with shepherding His flock. The power to guide Christendom rests in my hands, and I shall not yield it."
+
+ tct_investiture_struggle.0051.desc.involved: "\nWith the Emperor’s authority challenged by the Pope’s spiritual claims, the world stands divided. Those who can master both realms will emerge as the true power brokers in this conflict."
+
+ tct_investiture_struggle.0051.desc.interloper: "\nThis struggle between Emperor and Pope leaves no room for complacency. Those who act with resolve will find opportunities where others see only chaos."
+
+ tct_investiture_struggle.0051.desc.papal_supporter: "\nThe Pope’s voice is the voice of God on Earth, and it is our sacred duty to defend it against those who would diminish its authority. In this struggle, we do not merely support a man; we uphold the divine will. The Emperor seeks to usurp what is holy, but we shall ensure that the spiritual guide the temporal."
+
+ tct_investiture_struggle.0051.desc.imperial_supporter: "\nThe Empire teeters on the brink, and now more than ever, the Emperor needs steadfast allies. We are called to stand firm, to be the bulwark against chaos, and to ensure that the throne remains the ultimate seat of power. The Church may wield influence, but it is the Emperor who must lead."
+
+ tct_investiture_struggle.0051.desc.unrest: "$tct_investiture_struggle.0051.desc$"
+
+ tct_investiture_struggle.0051.desc.stabilization: "After a period of crisis, the Empire is recovering, the blood-soaked struggle slowly abating in Europe."
+
+ tct_investiture_struggle.0051.desc.stabilization_actor: "Tensions ripple through the land, and the air is thick with uncertainty. Stability seems a distant memory, yet in the midst of this turmoil, opportunities are quietly emerging, shaping towards a new reality."
+
+ tct_investiture_struggle.0051.a: "May [ROOT.Char.GetFaith.HighGodName] be with me!"
+ tct_investiture_struggle.0051.b: "These foolish ambitions must be put to rest!"
+
+
+
+
+
+
+ # 
+ tct_struggle_supporter: "Conflict Sides"
+ tct_struggle_supporter_desc: "View Sides"

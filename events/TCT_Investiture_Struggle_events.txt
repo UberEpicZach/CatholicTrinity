@@ -125,6 +125,134 @@ scripted_effect tct_investiture_struggle_apply_seditious_intent_effect = {
 	}
 }
 
+tct_investiture_struggle.0051 = { # BOOKMARK EVENT
+	type = character_event
+	window = fullscreen_event
+	title = tct_investiture_struggle.0051.t
+	#fp3_struggle.0051.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					any_character_struggle = {
+						is_struggle_type = investiture_controversy_struggle
+						is_struggle_phase = investiture_controversy_phase_unrest
+					}
+				}
+				desc = tct_investiture_struggle.0051.desc.unrest
+			}
+			desc = tct_investiture_struggle.0051.desc.stabilization
+		}
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					any_character_struggle = {
+						is_struggle_type = investiture_controversy_struggle
+						is_struggle_phase = investiture_controversy_phase_conciliation
+					}
+				}
+
+				desc = tct_investiture_struggle.0051.desc.stabilization_actor
+			}
+			triggered_desc = {
+				trigger = {
+					tct_investiture_struggle_is_the_emperor = yes
+				}
+				desc = tct_investiture_struggle.0051.desc.emperor
+			}
+			triggered_desc = {
+				trigger = {
+					is_pope = yes
+				}
+				desc = tct_investiture_struggle.0051.desc.pope
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait = tct_papal_supporter
+				}
+				desc = tct_investiture_struggle.0051.desc.papal_supporter
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait = tct_imperial_supporter
+				}
+				desc = tct_investiture_struggle.0051.desc.imperial_supporter
+			}
+			triggered_desc = {
+				trigger = {
+					any_character_struggle = {
+						involvement = involved
+						is_struggle_type = investiture_controversy_struggle
+					}
+				}
+				desc = tct_investiture_struggle.0051.desc.involved
+			}
+			triggered_desc = {
+				trigger = {
+					any_character_struggle = {
+						involvement = interloper
+						is_struggle_type = investiture_controversy_struggle
+					}
+				}
+				desc =  tct_investiture_struggle.0051.desc.interloper
+			}
+		}
+	}
+	theme = realm
+	trigger = { # we need to prevent this from firing for all players when a new player joins in MP
+		is_ai = no
+		NOT = { has_character_flag = tct_investiture_struggle_intro_event_flag }
+		any_character_struggle = { is_struggle_type = investiture_controversy_struggle }
+ 	}
+	override_background = { reference = tct_investiture_struggle }
+	override_sound = { reference = "event:/DLC/FP2/SFX/UI/fp2_struggle_ui_intro_animate" }
+
+	cooldown = { years = 100 }
+
+	widgets = {
+		widget = {
+ 			gui = "event_window_widget_struggle_info"
+ 			container = "dynamic_content_widget"
+ 			controller = struggle_info
+ 			setup_scope = { struggle:investiture_controversy_struggle = { save_scope_as = struggle } }
+		}
+	}
+	immediate = {
+		play_music_cue = CK2JerusalemRemaster
+		add_character_flag = tct_investiture_struggle_intro_event_flag
+		add_to_global_variable_list = { # List is only checked for removal, comparing it in the trigger would be needlessly expensive
+			name = tct_investiture_struggle_intro_flag_character_list
+			target = root
+		}
+		save_scope_value_as = {
+			name = start
+			value = yes
+		}
+	}
+	option = {
+		name = {
+			text = {
+				first_valid = {
+					triggered_desc = {
+						trigger = {
+							any_character_struggle = { is_struggle_type = investiture_controversy_struggle }
+							OR = {
+								tct_investiture_struggle_is_the_emperor = yes
+								is_pope = yes
+								has_trait = tct_papal_supporter
+								has_trait = tct_imperial_supporter
+							}
+						}
+						desc = tct_investiture_struggle.0051.b
+					}
+					desc = tct_investiture_struggle.0051.a
+				}
+			}
+		}
+		clicksound = "event:/DLC/FP2/SFX/UI/fp2_struggle_start_select"
+	}
+}
+
 # Your name is read in the Friday Prayer
 tct_investiture_struggle.0015 = {
 	type = character_event
@@ -522,7 +650,7 @@ tct_investiture_struggle.0015 = {
 							catalyst = catalyst_became_imperial_supporter_tct
 							character = root
 						}
-						log_debug_variable_for_persian_struggle_effect = { VAR = stabil_catalyst_became_imperial_supporter_tct }
+						log_debug_variable_for_investiture_controversy_struggle_effect = { VAR = stabil_catalyst_became_imperial_supporter_tct }
 					}
 				}
 				## Is the character now a detractor? Move towards unrest.
@@ -533,10 +661,12 @@ tct_investiture_struggle.0015 = {
 							catalyst = catalyst_became_imperial_supporter_tct
 							character = root
 						}
-						log_debug_variable_for_persian_struggle_effect = { VAR = unrest_catalyst_became_imperial_supporter_tct }
+						log_debug_variable_for_investiture_controversy_struggle_effect = { VAR = unrest_catalyst_became_imperial_supporter_tct }
 					}
 				}
 			}
 		}
 	}
 }
+
+

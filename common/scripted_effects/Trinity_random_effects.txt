@@ -269,7 +269,7 @@ secret_exposed_owner_effects_effect = {
 }
 
 ###
-create_the_papal_states_effect = {
+create_the_papal_states_effect_867 = {
 	character:167891 = {
 		create_title_and_vassal_change = {
 			type = granted

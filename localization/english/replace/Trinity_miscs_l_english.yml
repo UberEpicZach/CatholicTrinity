@@ -94,6 +94,11 @@
  increased_fervor: "Fervor Change"
 
  TCT_helped_in_religious_war: "Helped in Religious War"
+ TCT_appointed_bishop_investiture_bad: "Illegally Appointed Bishop"
+ TCT_appointed_bishop_investiture_bad_desc: "Appointed Bishop Using 'Illegal' Investiture Rights"
+
+ TCT_appointed_bishop_investiture_good: "Appointed Bishop"
+ TCT_appointed_bishop_investiture_good_desc: "Appointed Bishop Using Investiture Rights"
 
  d_rome_patriarchate:0 "Roman Patriarchy"
  d_rome_patriarchate_adj:0 "Roman"

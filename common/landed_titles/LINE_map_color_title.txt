@@ -1,29 +1,30 @@
-﻿d_line_map_base = {
+﻿d_line_map_free_investiture = {
+	#color = hsv { 0.047 0.9 0.9 }
+	color = rgb { 224 157 14 } 
+	capital = c_roma
+	can_create = { always = no }
+}
+
+d_line_map_base = {
 	color = { 84 78 60 }
 	capital = c_roma
 	can_create = { always = no }
 }
 
-d_line_map_free_investiture = {
-	color = { 255 48 0 }
-	capital = c_roma
-	can_create = { always = no }
-}
-
 d_line_map_papal_investiture = {
-	color = { 255 255 255 }
+	color = white
 	capital = c_roma
 	can_create = { always = no }
 }
 
 d_line_map_cardinal = {
-	color = { 156 20 28 }
+	color = white
 	capital = c_roma
 	can_create = { always = no }
 }
 
 d_line_map_theocracys = {
-	color = { 30 40 220 }
+	color = white
 	capital = c_roma
 	can_create = { always = no }
 }

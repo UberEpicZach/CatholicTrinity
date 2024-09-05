@@ -1,5 +1,7 @@
 ﻿Launch_Crusade = {
-	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
 
 	desc = Launch_Crusade_decision_desc
 	selection_tooltip = Launch_Crusade_decision_tooltip
@@ -113,7 +115,9 @@
 }
 
 ProclaimDictatusPapae = {
-	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
 
 	desc = ProclaimDictatusPapae_decision_desc
 	selection_tooltip = ProclaimDictatusPapae_decision_tooltip
@@ -185,7 +189,9 @@ ProclaimDictatusPapae = {
 }
 
 InstallAntipope = {
-	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
  
 	desc = InstallAntipope_decision_desc
 	selection_tooltip = InstallAntipope_decision_tooltip
@@ -257,7 +263,9 @@ InstallAntipope = {
 }
 
 DonationCountyClergy = {
-	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
 
 	desc = DonationCountyClergy_decision_desc
 	selection_tooltip = DonationCountyClergy_decision_tooltip
@@ -451,7 +459,9 @@ DonationCountyClergy = {
 }
 
 Declare_Minor_Crusade = {
-	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
 
 	desc = Declare_Minor_Crusade_decision_desc
 	selection_tooltip = Declare_Minor_Crusade_decision_tooltip
