@@ -29,3 +29,634 @@ d_jerusalem_patriarchate = {
 	}
 }
 
+# ARCHBISHOPS TIME
+
+d_archbishop_auch = {
+	867.1.1 = {
+		holder = auch_archbishop_1
+		government = theocracy_government
+		liege = k_france
+	}
+
+	889.6.8 = {
+		holder = auch_archbishop_2
+		government = theocracy_government
+		liege = k_france
+	}
+
+	920.6.8 = {
+		holder = auch_archbishop_3
+		government = theocracy_government
+		liege = k_france
+	}
+
+	930.6.8 = {
+		holder = auch_archbishop_4
+		government = theocracy_government
+		liege = k_france
+	}
+
+	950.6.8 = {
+		holder = auch_archbishop_5
+		government = theocracy_government
+		liege = k_france
+	}
+
+	970.6.8 = {
+		holder = auch_archbishop_6
+		government = theocracy_government
+		liege = k_france
+	}
+
+	973.6.8 = {
+		holder = auch_archbishop_7
+		government = theocracy_government
+		liege = k_france
+	}
+
+	1000.6.8 = {
+		holder = auch_archbishop_8
+		government = theocracy_government
+		liege = k_france
+	}
+
+	1020.6.8 = {
+		holder = auch_archbishop_9
+		government = theocracy_government
+		liege = k_france
+	}
+
+	1040.6.8 = {
+		holder = auch_archbishop_10
+		government = theocracy_government
+		liege = k_france
+	}
+
+	1055.6.8 = {
+		holder = auch_archbishop_11
+		government = theocracy_government
+		liege = k_france
+	}
+
+	1068.2.1 = {
+		holder = auch_archbishop_12
+		government = theocracy_government
+		liege = k_france
+	}
+
+	1096.3.8 = {
+		holder = auch_archbishop_13
+		government = theocracy_government
+		liege = k_france
+	}
+
+	1118.6.8 = {
+		holder = auch_archbishop_14
+		government = theocracy_government
+		liege = k_france
+	}
+
+	1130.6.8 = {
+		holder = auch_archbishop_15
+		government = theocracy_government
+		liege = k_france
+	}
+
+	1160.6.8 = {
+		holder = auch_archbishop_16
+		government = theocracy_government
+		liege = k_france
+	}
+}
+
+d_archbishop_narbonne = {
+	827.1.1 = {
+		holder = narbonne_archbishop_1
+		government = theocracy_government
+		liege = k_france
+	}
+	840.2.8 = {
+		holder = narbonne_archbishop_2
+		government = theocracy_government
+		liege = k_france
+	}
+	850.8.8 = {
+		holder = narbonne_archbishop_3
+		government = theocracy_government
+		liege = k_france
+	}
+	872.6.8 = {
+		holder = narbonne_archbishop_4
+		government = theocracy_government
+		liege = k_france
+	}
+	885.6.2 = {
+		holder = narbonne_archbishop_5
+		government = theocracy_government
+		liege = k_france	
+	}
+	893.1.8 = {
+		holder = narbonne_archbishop_6
+		government = theocracy_government
+		liege = k_france
+	}
+	912.2.8 = {
+		holder = narbonne_archbishop_7
+		government = theocracy_government
+		liege = k_france
+	}
+	912.6.5 = {
+		holder = narbonne_archbishop_8
+		government = theocracy_government
+		liege = k_france
+	}
+	924.6.8 = {
+		holder = narbonne_archbishop_9
+		government = theocracy_government
+		liege = k_france
+	}
+	977.6.8 = {
+		holder = narbonne_archbishop_10
+		government = theocracy_government
+		liege = k_france
+	}
+	1017.6.8 = {
+		holder = narbonne_archbishop_11
+		government = theocracy_government
+		liege = k_france
+	}
+	1079.6.8 = {
+		holder = narbonne_archbishop_12
+		government = theocracy_government
+		liege = k_france
+	}
+	1090.3.13 = {	
+		holder = narbonne_archbishop_13
+		government = theocracy_government
+		liege = k_france
+	}
+	1097.1.8 = {
+		holder = narbonne_archbishop_14
+		government = theocracy_government
+		liege = k_france
+	}
+	1106.6.8 = {
+		holder = narbonne_archbishop_15
+		government = theocracy_government
+		liege = k_france
+	}
+	1121.1.1 = {
+		holder = narbonne_archbishop_16
+		government = theocracy_government
+		liege = k_france
+	}
+	1149.2.3 = {
+		holder = narbonne_archbishop_17
+		government = theocracy_government
+		liege = k_france
+	}
+	1156.6.8 = {
+		holder = narbonne_archbishop_18
+		government = theocracy_government
+		liege = k_france
+	}
+	1162.7.17 = {
+		holder = narbonne_archbishop_19
+		government = theocracy_government
+		liege = k_france
+	}
+	1181.2.1 = {
+		holder = narbonne_archbishop_20
+		government = theocracy_government
+		liege = k_france
+	}
+	1191.6.8 = {
+		holder = 71643 # Bérenger de Barcelone
+		government = theocracy_government
+		liege = k_france
+	}
+}
+
+d_archbishop_bordeaux = {
+	865.1.1 = {
+		holder = bordeaux_archbishop_1
+		government = theocracy_government
+		liege = k_france		
+	}
+	893.1.1 = {
+		holder = bordeaux_archbishop_2
+		government = theocracy_government
+		liege = k_france		
+	}
+	
+	980.1.1 = {
+		holder = bordeaux_archbishop_3
+		government = theocracy_government
+		liege = k_france		
+	}
+	
+	982.1.1 = {
+		holder = occitan0007
+		government = theocracy_government
+		liege = k_france		
+	}
+	
+	998.1.1 = {
+		holder = bordeaux_archbishop_5
+		government = theocracy_government
+		liege = k_france		
+	}
+	
+	1000.1.1 = {
+		holder = bordeaux_archbishop_6
+		government = theocracy_government
+		liege = k_france		
+	}
+	
+	1022.1.1 = {
+		holder = bordeaux_archbishop_7
+		government = theocracy_government
+		liege = k_france		
+	}
+	
+	1026.1.1 = {
+		holder = bordeaux_archbishop_8
+		government = theocracy_government
+		liege = k_france		
+	}
+	
+	1043.1.1 = {
+		holder = bordeaux_archbishop_9
+		government = theocracy_government
+		liege = k_france		
+	}
+	
+	1059.1.1 = {
+		holder = bordeaux_archbishop_10
+		government = theocracy_government
+		liege = k_france		
+	}
+	
+	1059.10.12 = {
+		holder = bordeaux_archbishop_11
+		government = theocracy_government
+		liege = k_france		
+	}
+	
+	1086.6.19 = {
+		holder = bordeaux_archbishop_12
+		government = theocracy_government
+		liege = k_france		
+	}
+	
+	1101.5.22 = {
+		holder = bordeaux_archbishop_13
+		government = theocracy_government
+		liege = k_france		
+	}
+	
+	1131.4.29 = {
+		holder = bordeaux_archbishop_14
+		government = theocracy_government
+		liege = k_france		
+	}
+	
+	1135.1.1 = {
+		holder = bordeaux_archbishop_15
+		government = theocracy_government
+		liege = k_france		
+	}
+	
+	1158.7.18 = {
+		holder = bordeaux_archbishop_16
+		government = theocracy_government
+		liege = k_france		
+	}
+	
+	1159.12.23 = {
+		holder = bordeaux_archbishop_17
+		government = theocracy_government
+		liege = k_france		
+	}
+	
+	1162.7.4 = {
+		holder = bordeaux_archbishop_18
+		government = theocracy_government
+		liege = k_france		
+	}
+	
+	1173.12.18 = {
+		holder = bordeaux_archbishop_19
+		government = theocracy_government
+		liege = k_france		
+	}
+}
+
+d_archbishop_marseille = {
+	800.1.1 = {
+		holder = marseille_archbishop_1
+		government = theocracy_government
+		liege = k_lotharingia
+	}
+	843.1.1 = {
+		holder = marseille_archbishop_2
+		government = theocracy_government
+		liege = k_italy
+	}
+	
+	879.1.1 = {
+		holder = marseille_archbishop_3
+		government = theocracy_government
+		liege = k_burgundy
+	}
+	
+	884.1.1 = {
+		holder = marseille_archbishop_4
+		government = theocracy_government
+	}
+	
+	910.1.1 = {
+		holder = marseille_archbishop_5
+		government = theocracy_government
+	}
+	
+	922.1.1 = {
+		holder = marseille_archbishop_6
+		government = theocracy_government
+	}
+	
+	924.1.1 = {
+		holder = marseille_archbishop_7
+		government = theocracy_government
+	}
+	
+	1008.1.1 = {
+		holder = marseille_archbishop_8
+		government = theocracy_government
+	}
+	
+	1032.9.5 = {
+		liege = e_hre
+	}
+
+	1073.1.1 = {
+		holder = marseille_archbishop_9
+		government = theocracy_government
+	}
+	
+	1122.11.7 = {
+		holder = marseille_archbishop_10
+		government = theocracy_government
+	}
+	
+	1151.4.26 = {
+		holder = marseille_archbishop_11
+		government = theocracy_government
+	}
+	
+	1170.4.2 = {
+		holder = marseille_archbishop_12
+		government = theocracy_government
+	}
+
+	1173.1.1 = {
+		liege = k_aragon
+	}
+	
+	1188.3.31 = {
+		holder = marseille_archbishop_13
+		government = theocracy_government
+	}
+}
+
+d_archbishop_lyon = {
+	840.1.1 = {
+		holder = lyon_archbishop_1
+		government = theocracy_government
+		liege = k_lotharingia
+	}
+
+	852.1.1 = {
+		holder = lyon_archbishop_2
+		government = theocracy_government
+		liege = k_burgundy
+	}
+	
+	855.1.1 = {
+		liege = k_lotharingia
+	}
+
+	875.1.1 = {
+		holder = lyon_archbishop_3
+		government = theocracy_government
+	}
+	
+	895.1.1 = {
+		holder = lyon_archbishop_4
+		government = theocracy_government
+	}
+	
+	905.1.1 = {
+		holder = lyon_archbishop_5
+		government = theocracy_government
+	}
+	
+	907.1.1 = {
+		holder = lyon_archbishop_6
+		government = theocracy_government
+	}
+	
+	919.1.1 = {
+		holder = lyon_archbishop_7
+		government = theocracy_government
+	}
+	
+	922.1.1 = {
+		holder = lyon_archbishop_8
+		government = theocracy_government
+	}
+	
+	927.1.1 = {
+		holder = lyon_archbishop_9
+		government = theocracy_government
+	}
+	933.1.1 = {
+		liege = k_burgundy
+	}
+	949.1.1 = {
+		holder = lyon_archbishop_10
+		government = theocracy_government
+	}
+	
+	957.1.1 = {
+		holder = lyon_archbishop_11
+		government = theocracy_government
+	}
+	
+	978.1.1 = {
+		holder = lyon_archbishop_12
+		government = theocracy_government
+	}
+	
+	1032.1.1 = {
+		holder = lyon_archbishop_13
+		government = theocracy_government
+		liege = e_hre
+	}
+	
+	1046.1.1 = {
+		holder = lyon_archbishop_14
+		government = theocracy_government
+	}
+	
+	1052.1.1 = {
+		holder = lyon_archbishop_15
+		government = theocracy_government
+	}
+	
+	1064.1.1 = {
+		holder = lyon_archbishop_16
+		government = theocracy_government
+	}
+	
+	1076.1.1 = {
+		holder = lyon_archbishop_17
+		government = theocracy_government
+	}
+	
+	1082.1.1 = {
+		holder = 138409
+		government = theocracy_government
+	}
+	
+	1106.1.1 = {
+		holder = lyon_archbishop_19
+		government = theocracy_government
+	}
+	
+	1118.1.1 = {
+		holder = lyon_archbishop_20
+		government = theocracy_government
+	}
+	
+	1128.1.1 = {
+		holder = 138419
+		government = theocracy_government
+	}
+	
+	1129.1.1 = {
+		holder = 138420
+		government = theocracy_government
+	}
+	
+	1139.1.1 = {
+		holder = 138421
+		government = theocracy_government
+	}
+	
+	1142.1.1 = {
+		holder = 138422
+		government = theocracy_government
+	}
+	
+	1148.1.1 = {
+		holder = 138423
+		government = theocracy_government
+	}
+	
+	1153.1.1 = {
+		holder = 138424
+		government = theocracy_government
+	}
+	
+	1163.1.1 = {
+		holder = 138435
+		government = theocracy_government
+		liege = k_france
+	}
+	
+	1164.1.1 = {
+		holder = 138436
+		government = theocracy_government
+	}
+	
+	1181.9.27 = {
+		holder = 138439
+		government = theocracy_government
+	}
+}
+d_archbishop_tours = {
+	867.1.1 = {
+
+	}
+}
+d_archbishop_bourges = {
+	867.1.1 = {
+
+	}
+}
+d_archbishop_sens = {
+	867.1.1 = {
+
+	}
+}
+d_archbishop_reims = {
+	867.1.1 = {
+
+	}
+}
+d_archbishop_rouen = {
+	867.1.1 = {
+
+	}
+}
+d_archbishop_canterbury = {
+	867.1.1 = {
+
+	}
+}
+d_archbishop_york = {
+	867.1.1 = {
+
+	}
+}
+d_archbishop_milano = {
+	867.1.1 = {
+
+	}
+}
+d_archbishop_aquileia = {
+	867.1.1 = {
+
+	}
+}
+d_archbishop_ravenna = {
+	867.1.1 = {
+
+	}
+}
+d_archbishop_bari = {
+	867.1.1 = {
+
+	}
+}
+d_archbishop_salzburg = {
+	867.1.1 = {
+
+	}
+}
+d_archbishop_trier = {
+	867.1.1 = {
+
+	}
+}
+d_archbishop_colonge = {
+	867.1.1 = {
+
+	}
+}
+d_archbishop_mainz = {
+	867.1.1 = {
+
+	}
+} 

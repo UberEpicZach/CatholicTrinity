@@ -99,14 +99,3 @@
 
  TCT_appointed_bishop_investiture_good: "Appointed Bishop"
  TCT_appointed_bishop_investiture_good_desc: "Appointed Bishop Using Investiture Rights"
-
- d_rome_patriarchate:0 "Roman Patriarchy"
- d_rome_patriarchate_adj:0 "Roman"
- d_constantinople_patriarchate:0 "Constantinopolitan Patriarchy"
- d_constantinople_patriarchate_adj:0 "Patriarchal"
- d_alexandria_patriarchate:0 "Alexandrian Patriarchy"
- d_alexandria_patriarchate_adj:0 "Patriarchal"
- d_antioch_patriarchate:0 "Antiochian Patriarchy"
- d_antioch_patriarchate_adj:0 "Patriarchal"
- d_jerusalem_patriarchate:0 "Jerusalemite Patriarchy"
- d_jerusalem_patriarchate_adj:0 "Patriarchal"

@@ -5333,254 +5333,254 @@ tct_investiture_controversy_change_allegiance = {
 }
 
 
-#Interactions relating to the head of the dynasty
+# #Interactions relating to the head of the dynasty
 
-tct_create_patriarchate_interaction = {
-	category = interaction_category_religion
+# tct_create_patriarchate_interaction = {
+# 	category = interaction_category_religion
 
-	common_interaction = yes
+# 	common_interaction = yes
 
-	desc = tct_create_patriarchate_interaction_desc
+# 	desc = tct_create_patriarchate_interaction_desc
 	
-	is_shown = {
-		scope:actor = {
-			is_independent_ruler = yes
-			NOT = { 
-				has_title = title:e_roman_empire
-				has_title = title:k_egypt
-				has_title = title:k_syria
-				has_title = title:k_judea
-				has_title = title:k_rome
-				has_title = title:k_thrace
-			}
-		}
-		scope:actor.faith = {
-			has_doctrine = doctrine_autocephaly_head
-		}
-		scope:recipient = scope:actor.faith.religious_head
+# 	is_shown = {
+# 		scope:actor = {
+# 			is_independent_ruler = yes
+# 			NOT = { 
+# 				has_title = title:e_roman_empire
+# 				has_title = title:k_egypt
+# 				has_title = title:k_syria
+# 				has_title = title:k_judea
+# 				has_title = title:k_rome
+# 				has_title = title:k_thrace
+# 			}
+# 		}
+# 		scope:actor.faith = {
+# 			has_doctrine = doctrine_autocephaly_head
+# 		}
+# 		scope:recipient = scope:actor.faith.religious_head
 		
-		scope:actor.capital_province = {
-			NOT = {
-				empire = { has_variable = tct_patriarchate }
-				kingdom = { has_variable = tct_patriarchate }
-			}
-		}
-	}
+# 		scope:actor.capital_province = {
+# 			NOT = {
+# 				empire = { has_variable = tct_patriarchate }
+# 				kingdom = { has_variable = tct_patriarchate }
+# 			}
+# 		}
+# 	}
 
-	is_valid_showing_failures_only = {
-		scope:actor = {
-			NOT = {
-				has_trait = excommunicated
-			}
-			highest_held_title_tier >= tier_kingdom
-			piety_level >= 3
-			piety >= 1000
-			gold >= 250
-		}
-		scope:recipient = { is_available = yes }
-	}
+# 	is_valid_showing_failures_only = {
+# 		scope:actor = {
+# 			NOT = {
+# 				has_trait = excommunicated
+# 			}
+# 			highest_held_title_tier >= tier_kingdom
+# 			piety_level >= 3
+# 			piety >= 1000
+# 			gold >= 250
+# 		}
+# 		scope:recipient = { is_available = yes }
+# 	}
 
-	on_accept = {
-		scope:actor = {
-			add_piety = -1000
+# 	on_accept = {
+# 		scope:actor = {
+# 			add_piety = -1000
 			
-			pay_long_term_gold = { 
-				target = scope:recipient
-				gold = 250
-			}
+# 			pay_long_term_gold = { 
+# 				target = scope:recipient
+# 				gold = 250
+# 			}
 			
-			custom_tooltip = tct_create_patriarchate_effect
+# 			custom_tooltip = tct_create_patriarchate_effect
 			
-			hidden_effect = {
-				tct_create_patriarchate = {
-					AUTOCEPHALY = scope:actor.primary_title
-					CREATOR = scope:actor
-				}
-				every_ruler = {
-					limit = { faith.religious_head = scope:recipient }
-					trigger_event = TCT_religious_events.210
-				}
-			}
-		}
-	}
-	on_decline = {
-		scope:actor = {
-			hidden_effect = { trigger_event = TCT_religious_events.211 }
-		}
-	}
+# 			hidden_effect = {
+# 				tct_create_patriarchate = {
+# 					AUTOCEPHALY = scope:actor.primary_title
+# 					CREATOR = scope:actor
+# 				}
+# 				every_ruler = {
+# 					limit = { faith.religious_head = scope:recipient }
+# 					trigger_event = TCT_religious_events.210
+# 				}
+# 			}
+# 		}
+# 	}
+# 	on_decline = {
+# 		scope:actor = {
+# 			hidden_effect = { trigger_event = TCT_religious_events.211 }
+# 		}
+# 	}
 	
-	send_option = {
-		is_valid = {
-			scope:actor = {
-				has_usable_hook = scope:recipient
-			}
-		}
-		flag = create_autocephaly_hook
-		localization = CREATE_AUTOCEPHALY_HOOK
-	}
-	should_use_extra_icon = {
-		scope:actor = { 
-			has_usable_hook = scope:recipient 
-		}
-	}
-	extra_icon = "gfx/interface/icons/character_interactions/hook_icon.dds"
+# 	send_option = {
+# 		is_valid = {
+# 			scope:actor = {
+# 				has_usable_hook = scope:recipient
+# 			}
+# 		}
+# 		flag = create_autocephaly_hook
+# 		localization = CREATE_AUTOCEPHALY_HOOK
+# 	}
+# 	should_use_extra_icon = {
+# 		scope:actor = { 
+# 			has_usable_hook = scope:recipient 
+# 		}
+# 	}
+# 	extra_icon = "gfx/interface/icons/character_interactions/hook_icon.dds"
 
-	send_options_exclusive = no
+# 	send_options_exclusive = no
 	
-	auto_accept = {
-		custom_description = {
-			text = "spending_hook"
-			subject = scope:actor
-			object = scope:recipient
-			scope:create_autocephaly_hook = yes
-			scope:actor = { has_strong_hook = scope:recipient }
-		}
-	}
+# 	auto_accept = {
+# 		custom_description = {
+# 			text = "spending_hook"
+# 			subject = scope:actor
+# 			object = scope:recipient
+# 			scope:create_autocephaly_hook = yes
+# 			scope:actor = { has_strong_hook = scope:recipient }
+# 		}
+# 	}
 	
-	# AI accept
+# 	# AI accept
 	
-	ai_accept = {
-		base = -50
+# 	ai_accept = {
+# 		base = -50
 			
-		modifier = {
-			scope:create_autocephaly_hook = yes
-			add = 50
-			desc = SCHEME_WEAK_HOOK_USED
-		}
-		modifier = {
-			add = -100
-			scope:recipient = {
-				opinion = {
-					value < 0
-					target = scope:actor #Excommunication target
-				}
-			}
-			desc = CREATE_AUTOCEPHALY_NEGATIVE_OPINION
-		}
-		opinion_modifier = {
-			who = scope:recipient
-			opinion_target = scope:actor
-			multiplier = 1
-		}
-		opinion_modifier = {
-			trigger = {
-				NOT = { scope:recipient.top_liege = scope:recipient }
-			}
-			who = scope:recipient.top_liege
-			opinion_target = scope:actor
-			multiplier = 1.5
-		}
-		modifier = {
-			add = {
-				add = 10
-				multiply = scope:actor.num_virtuous_traits
-			}
-			scope:actor.num_virtuous_traits > 0
-			desc = CREATE_AUTOCEPHALY_VIRTUES
-		}
-		modifier = {
-			add = {
-				add = -10
-				multiply = scope:actor.num_sinful_traits
-			}
-			scope:actor.num_sinful_traits > 0
-			desc = CREATE_AUTOCEPHALY_SINS
-		}
-		modifier = {
-			desc = CREATE_AUTOCEPHALY_PRESTIGE
-			scope:actor = { prestige_level >= 2 }
-			add = {
-				value = 10
-				if = {
-					limit = {
-						scope:actor = { prestige_level >= 3 }
-					}
-					add = 5
-				}
-				if = {
-					limit = {
-						scope:actor = { prestige_level >= 4 }
-					}
-					add = 5
-				}
-				if = {
-					limit = {
-						scope:actor = { prestige_level >= 5 }
-					}
-					add = 5
-				}
-			}
-		}
-		modifier = {
-			desc = CREATE_AUTOCEPHALY_PIETY
-			scope:actor = { piety_level >= 2 }
-			add = {
-				value = 10
-				if = {
-					limit = {
-						scope:actor = { piety_level >= 3 }
-					}
-					add = 15
-				}
-				if = {
-					limit = {
-						scope:actor = { piety_level >= 4 }
-					}
-					add = 20
-				}
-				if = {
-					limit = {
-						scope:actor = { piety_level >= 5 }
-					}
-					add = 25
-				}
-			}
-		}
-		modifier = {
-			desc = RELIGIOUS_HEAD_INTERACTION_PARAGON
-			add = 15
-			scope:actor = {
-				has_trait = paragon
-			}
-		}
-		modifier = {
-			desc = RELIGIOUS_HEAD_INTERACTION_CONSECRATED_BLOOD
-			add = 5
-			scope:actor = {
-				has_trait = consecrated_blood
-			}
-		}
-		modifier = {
-			desc = CREATE_AUTOCEPHALY_REALM_SIZE
-			scope:actor.realm_size > 25
-			add = {
-				add = 1
-				multiply = scope:actor.realm_size
-				add = -25
-			}
-		}
-	}
+# 		modifier = {
+# 			scope:create_autocephaly_hook = yes
+# 			add = 50
+# 			desc = SCHEME_WEAK_HOOK_USED
+# 		}
+# 		modifier = {
+# 			add = -100
+# 			scope:recipient = {
+# 				opinion = {
+# 					value < 0
+# 					target = scope:actor #Excommunication target
+# 				}
+# 			}
+# 			desc = CREATE_AUTOCEPHALY_NEGATIVE_OPINION
+# 		}
+# 		opinion_modifier = {
+# 			who = scope:recipient
+# 			opinion_target = scope:actor
+# 			multiplier = 1
+# 		}
+# 		opinion_modifier = {
+# 			trigger = {
+# 				NOT = { scope:recipient.top_liege = scope:recipient }
+# 			}
+# 			who = scope:recipient.top_liege
+# 			opinion_target = scope:actor
+# 			multiplier = 1.5
+# 		}
+# 		modifier = {
+# 			add = {
+# 				add = 10
+# 				multiply = scope:actor.num_virtuous_traits
+# 			}
+# 			scope:actor.num_virtuous_traits > 0
+# 			desc = CREATE_AUTOCEPHALY_VIRTUES
+# 		}
+# 		modifier = {
+# 			add = {
+# 				add = -10
+# 				multiply = scope:actor.num_sinful_traits
+# 			}
+# 			scope:actor.num_sinful_traits > 0
+# 			desc = CREATE_AUTOCEPHALY_SINS
+# 		}
+# 		modifier = {
+# 			desc = CREATE_AUTOCEPHALY_PRESTIGE
+# 			scope:actor = { prestige_level >= 2 }
+# 			add = {
+# 				value = 10
+# 				if = {
+# 					limit = {
+# 						scope:actor = { prestige_level >= 3 }
+# 					}
+# 					add = 5
+# 				}
+# 				if = {
+# 					limit = {
+# 						scope:actor = { prestige_level >= 4 }
+# 					}
+# 					add = 5
+# 				}
+# 				if = {
+# 					limit = {
+# 						scope:actor = { prestige_level >= 5 }
+# 					}
+# 					add = 5
+# 				}
+# 			}
+# 		}
+# 		modifier = {
+# 			desc = CREATE_AUTOCEPHALY_PIETY
+# 			scope:actor = { piety_level >= 2 }
+# 			add = {
+# 				value = 10
+# 				if = {
+# 					limit = {
+# 						scope:actor = { piety_level >= 3 }
+# 					}
+# 					add = 15
+# 				}
+# 				if = {
+# 					limit = {
+# 						scope:actor = { piety_level >= 4 }
+# 					}
+# 					add = 20
+# 				}
+# 				if = {
+# 					limit = {
+# 						scope:actor = { piety_level >= 5 }
+# 					}
+# 					add = 25
+# 				}
+# 			}
+# 		}
+# 		modifier = {
+# 			desc = RELIGIOUS_HEAD_INTERACTION_PARAGON
+# 			add = 15
+# 			scope:actor = {
+# 				has_trait = paragon
+# 			}
+# 		}
+# 		modifier = {
+# 			desc = RELIGIOUS_HEAD_INTERACTION_CONSECRATED_BLOOD
+# 			add = 5
+# 			scope:actor = {
+# 				has_trait = consecrated_blood
+# 			}
+# 		}
+# 		modifier = {
+# 			desc = CREATE_AUTOCEPHALY_REALM_SIZE
+# 			scope:actor.realm_size > 25
+# 			add = {
+# 				add = 1
+# 				multiply = scope:actor.realm_size
+# 				add = -25
+# 			}
+# 		}
+# 	}
 	
-	# AI will do
+# 	# AI will do
 	
-	ai_min_reply_days = 1
-	ai_max_reply_days = 5
+# 	ai_min_reply_days = 1
+# 	ai_max_reply_days = 5
 	
-	ai_potential = {
-		is_adult = yes
-		piety >= 1500
-	}
+# 	ai_potential = {
+# 		is_adult = yes
+# 		piety >= 1500
+# 	}
 	
-	ai_targets = {
-		ai_recipients = head_of_faith
-	}
-	ai_target_quick_trigger = {
-		adult = yes
-	}
+# 	ai_targets = {
+# 		ai_recipients = head_of_faith
+# 	}
+# 	ai_target_quick_trigger = {
+# 		adult = yes
+# 	}
 	
-	ai_frequency = 36
+# 	ai_frequency = 36
 
-	ai_will_do = {
-		base = 100
-	}
-}
+# 	ai_will_do = {
+# 		base = 100
+# 	}
+# }

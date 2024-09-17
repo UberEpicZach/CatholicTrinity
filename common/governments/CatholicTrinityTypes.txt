@@ -1,15 +1,18 @@
 ﻿# Mercenary will always get this
 mercenary_government_mod = {
-	court_generate_spouses = no
-	court_generate_commanders = 30
-	council = yes
+	government_rules = {
+		court_generate_spouses = no
+		court_generate_commanders = 30
+		council = yes
+	}
+
 	primary_holding = castle_holding
 	required_county_holdings = { castle_holding city_holding church_holding }
-	#royal_court = yes
+
 	can_get_government = {
 		religion = religion:christianity_religion
 	}
-
+ 
 	ai = {
 		arrange_marriage = no
 		use_goals = no
@@ -21,13 +24,30 @@ mercenary_government_mod = {
 	color = hsv{ 0.00 0.00 0.66 }
 }
 
-# Head of faith will always get this if possible
 theocracy_government = {
+	government_rules = {
+		create_cadet_branches = yes
+		rulers_should_have_dynasty = yes
+		dynasty_named_realms = no
+		royal_court = yes
+		#administrative = yes
+		landless_playable = yes
+		legitimacy = yes
+		state_faith = yes
+		# use_as_base_on_landed = yes
+		# use_as_base_on_rank_up = yes
+		inherit_from_dynastic_government = no
+	}
+
 	primary_holding = church_holding
 	valid_holdings = { castle_holding }
-	religious = yes
-	royal_court = yes
 	required_county_holdings = { church_holding castle_holding city_holding }
+
+	ai = {
+		use_legends = no
+	}
+
+	domicile_type = estate
 
 	can_get_government = {
 		NOT = {

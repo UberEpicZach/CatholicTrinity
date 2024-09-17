@@ -225,7 +225,6 @@ InstallAntipope = {
 			has_realm_law = free_investiture_early
 			has_realm_law = free_investiture_late 
 		}
-		learning >= 11
 		prestige_level >= high_prestige_level
 		piety_level >= high_piety_level
 		is_independent_ruler = yes

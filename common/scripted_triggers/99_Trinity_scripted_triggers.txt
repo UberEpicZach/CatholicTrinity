@@ -543,6 +543,35 @@ tct_investiture_struggle_is_valid_loyal_puppet_of_papal = {
 	#primary_title.tier >= tier_county # We don't want to promote baron to avoid having Republic or Theocracies realms
 }
 
+
+tct_archbishop_trigger = {
+	primary_title = {
+		has_variable = TCT_archbishop
+	}
+	government_has_flag = government_is_theocracy
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+################################# IDK
 testing_opinions = {
 	title:e_hre.holder = {
 		any_character_struggle = { phase_has_catalyst = tct_papal_hre_opinions }

@@ -1,0 +1,194 @@
+﻿create_antiking_faction_against_interaction = {
+	icon = vassal_claim_liege_title_interaction
+	category = interaction_category_vassal
+	use_diplomatic_range = no
+
+	desc = create_antiking_faction_against_interaction_desc
+
+	special_interaction = create_claimant_faction_against_interaction
+	interface = create_claimant_faction_against
+
+	is_shown = {
+		scope:secondary_actor = {
+			has_title = title:e_hre
+			#has_variable = TCT_antipope_of_ruler
+			OR = {
+				has_realm_law = free_investiture_early
+				has_realm_law = free_investiture_late 
+			}
+			has_faith = faith:catholic
+		}
+
+		NOT = { exists = global_var:existing_antiking_faction }
+		#scope:recipient ?= { has_claim_on = title:e_hre }
+	}
+
+	is_valid_showing_failures_only = {
+		scope:actor = { NOT = { has_truce = scope:secondary_actor } }
+		scope:secondary_actor = {
+			trigger_if = {
+				limit = {
+					NOT = {
+						any_held_title = {
+							any_claimant = {}
+						}
+					}
+				}
+				custom_description = {
+					text = "basic_claimant_found"
+					always = no
+				}
+			}
+			trigger_else = {
+				custom_description = {
+					text = "basic_capable_claimant_found"
+					any_held_title = {
+						any_claimant = {
+							NOT = { has_trait = incapable }
+						}
+					}
+				}
+			}
+
+			trigger_if = {
+				limit = {
+					exists = scope:landed_title
+				}
+				custom_description = {
+					text = "claimant_faction_already_exists"
+					subject = scope:landed_title
+					object = scope:recipient
+					NOT = {
+						any_targeting_faction = {
+							faction_is_type = TCT_antiking_faction
+							special_character = scope:recipient
+							special_title = scope:landed_title
+						}
+					}
+				}
+			}
+
+			trigger_if = {
+				limit = {
+					exists = scope:landed_title
+				}
+				scope:landed_title = title:e_hre
+			}
+		}
+		scope:actor = {
+			can_join_or_create_faction_against = {
+				who = scope:secondary_actor
+				faction = TCT_antiking_faction
+				check_in_a_faction = no # already checked in is_shown. Via the faction interface we'd see this twice if it fails (TIT-11380)
+			}
+		}
+
+		trigger_if = {
+			limit = {
+				exists = scope:recipient
+			}
+			scope:recipient = {
+				NOT = { is_at_war_with = scope:actor }
+				NOT = { has_trait = incapable }
+			}
+		}
+		scope:secondary_actor = { NOT = { has_strong_hook = scope:actor } }
+		
+		# Admin vassals can only start and join a claimant faction if the target is independent
+		trigger_if = {
+			limit = {
+				scope:actor = { government_allows = administrative }
+			}
+			scope:secondary_actor = { is_independent_ruler = yes }
+		}
+
+		# Byzantium does not brook
+		trigger_if = {
+			limit = {
+				scope:landed_title ?= {
+					OR = {
+						has_title_law = acclamation_succession_law
+						holder ?= { has_realm_law = acclamation_succession_law }
+					}
+				}
+			}
+			scope:recipient = {
+				is_eunuch_trigger = no
+				NOT = { has_trait = blind }
+			}
+		}
+	}
+
+	can_be_picked_title = {
+		scope:target = {
+			custom_description = {
+				text = "has_claim_on_hre"
+				this = title:e_hre
+			}
+		}
+	}
+
+	can_send = {
+		hidden_trigger = {
+			scope:target = {
+				this = title:e_hre
+			}
+			scope:landed_title = {
+				this = title:e_hre
+			}
+			scope:recipient = {
+				NOT = {
+					is_female = yes
+				}
+			}
+		}
+	}
+
+	on_send = {
+		save_scope_as = claimant
+		scope:actor = {
+			set_variable = {
+				name = claiming_title
+				value = scope:landed_title
+			}
+
+			if = {
+				limit = {
+					can_create_faction = {
+						type = TCT_antiking_faction
+						target = scope:secondary_actor
+					}
+				}
+
+				create_faction = {
+					type = TCT_antiking_faction
+					target = scope:secondary_actor
+				}
+				joined_faction = {
+					set_special_character = scope:recipient
+					set_special_title = scope:landed_title
+				}
+				scope:recipient = {
+					add_to_variable_list = {
+						name = TCT_antiking_faction
+						target = scope:actor.joined_faction
+					}
+				}
+
+				if = {
+					limit = { NOT = { this = scope:recipient } }
+					save_scope_as = faction_invite_from
+					joined_faction = { save_scope_as = faction }
+					scope:secondary_actor = { save_scope_as = faction_target }
+					scope:recipient = {
+						trigger_event = faction_invitation.0001
+					}
+				}
+			}
+
+			remove_variable = claiming_title
+		}
+	}
+
+	auto_accept = yes
+}

@@ -26,3 +26,7 @@ lots_of_money = {
 	first = lots_of_money
 	first_not = lots_of_money
 }
+
+has_claim_on_hre = {
+	first_not = has_claim_on_hre
+}

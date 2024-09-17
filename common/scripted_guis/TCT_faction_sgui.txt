@@ -1,0 +1,27 @@
+﻿TCT_antiking_faction_setup = {
+	scope = character
+	effect = {
+		save_scope_as = actor
+		if = { 
+			limit = {
+				exists = title:e_hre
+
+				title:e_hre.holder = { 
+					OR = {
+						has_realm_law = free_investiture_early
+						has_realm_law = free_investiture_late 
+					}
+					has_faith = faith:catholic
+				}
+			
+				top_liege = title:e_hre.holder
+			}
+			title:e_hre = { save_scope_as = landed_title }
+			open_interaction_window = {
+				interaction = create_antiking_faction_against_interaction
+				actor = root
+				recipient = title:e_hre.holder
+			}
+		}
+	}
+}

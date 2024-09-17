@@ -1,0 +1,35 @@
+﻿l_english:
+
+ TCT_antiking_ui_trigger:0 "Create Anti-King Faction"
+
+ has_claim_on_hre:0 "Is not a claim on the Holy Roman Empire"
+
+ FACTION_REASON_HRE_VASSAL: "Same [heritage|E] as Holy Roman [liege|E]: $VALUE|0+=$"
+
+ #Anti-king Faction
+ TCT_antiking_faction: "Anti-King Faction"
+
+ create_antiking_faction_against_interaction:0 "Start Anti-King Faction"
+ create_antiking_faction_against_interaction_desc:0 "Found a Anti-King Faction against [secondary_actor.GetShortUINameNoTooltip], seeking to restore Papal authority in their [lieges|E] realm by uplifting one of their own as an Anti-King and install them as Emperor - along with deposing any possible Anti-Popes and ensuring the law of [papal_investiture|E] is upheld."
+
+
+ TCT_antiking_faction_desc: "Members of the Anti-King faction seek to restore Papal authority in their [lieges|E] realm by uplifting one of their own as an Anti-King and install them as Emperor - along with deposing any possible Anti-Popes and ensuring the law of [papal_investiture|E] is upheld."
+
+ antiking_faction_short_effect_desc: "Wants to restore Papal authority in [ROOT.Faction.GetSpecialTitle.GetName]."
+#  by installing [faction_leader.GetFirstName] on the throne, deposing any possbile antipope and passing the [papal_investiture|E] law."
+ 
+ TCT_FACTION_DEMAND_ANTIKING: "Anti-King Demand"
+ TCT_FACTION_DEMAND_ANTIKING_DESC: "[faction_leader.Custom2('AppropriateGreetingNegative', ROOT.Char)]\n\nThe time has come to restore Papal authority to [faction_targeted_title.GetNameNoTier]. The throne belongs to [faction_claimant.GetName], divinely chosen to uphold the true faith, depose any Papal Pretenders, and enforce [papal_investiture|E]. Accept this, or we will see it done by force!"
+
+ TCT_FACTION_DEMAND_ANTIKING_DESC_ME: "The authority to rule [faction_targeted_title.GetNameNoTier] rightfully belongs to me, chosen to restore the true faith. I will restore [papal_investiture|E] and depose any papal pretenders who oppose the will of the Church. Stand aside or face righteous force!"
+
+ TCT_FACTION_DEMAND_ANTIKING_ACCEPTED: "Anti-King Demands Accepted"
+ TCT_FACTION_DEMAND_ANTIKING_ACCEPTED_DESC: "It is clear to me that you would rather see the realm torn asunder than yield to my rightful rule. For the sake of the realm, I will accept your demands and submit to [faction_claimant.GetName], but know that a grave injustice has been committed here today. This will not be forgotten."
+ 
+ TCT_FACTION_DEMAND_ANTIKING_REFUSED: "Anti-King Demands Refused"
+ TCT_FACTION_DEMAND_ANTIKING_REFUSED_DESC: "[faction_claimant.GetShortUINamePossessive|U] claim to rule in the name of Papal authority is nothing but a facade, propped up by scheming priests and misguided fools. I will never yield to such a mockery of rightful kingship!"
+
+ TCT_FACTION_DEMAND_ANTIKING_SEND_DEMAND_NOTIFICATION: "A Rightful Claim!"
+ TCT_FACTION_DEMAND_ANTIKING_SEND_DEMAND_NOTIFICATION_DESC: "The moment has come! All who support [faction_claimant.GetName] as the rightful ruler of [faction_targeted_title.GetNameNoTier] will rise as one to restore Papal authority, depose Papal Pretenders and see the [papal_investiture|E] enforced. If bloodshed is required, so be it!"
+
+ FACTION_ANTIKING_DYNAMIC_NAME: "Install [ROOT.Faction.GetSpecialCharacter.GetTitledFirstName] on the [ROOT.Faction.GetSpecialTitle.GetAdjective] Throne"

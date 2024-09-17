@@ -77,3 +77,1146 @@ TrinityChurch4 = {
 	}
 }
 
+############################ ARCHBISHOPS 
+
+### TEMPLATE
+# york_archbishop_1 = {
+#	name = "William"
+#	religion = "catholic"
+#	culture = "norman"
+#	1089.1.1 = {
+#		birth = yes
+#	}
+#	1154.1.5 = {
+#		death = yes
+#	}
+#}
+
+
+auch_archbishop_1 = {
+	name = "Airardus"
+	religion = "catholic"
+	culture = "french"
+	820.1.1 = {
+		birth = yes
+	}
+	889.6.8 = {
+		death = yes
+	}
+}
+
+auch_archbishop_2 = {
+	name = "Odilus"
+	religion = "catholic"
+	culture = "french"
+	840.1.1 = {
+		birth = yes
+	}
+	920.6.8 = {
+		death = yes
+	}
+}
+
+auch_archbishop_3 = {
+	name = "Bernardus"
+	religion = "catholic"
+	culture = "french"
+	860.1.1 = {
+		birth = yes
+	}
+	930.6.8 = {
+		death = yes
+	}
+}
+
+auch_archbishop_4 = {
+	name = "Hidulfus"
+	religion = "catholic"
+	culture = "french"
+	880.1.1 = {
+		birth = yes
+	}
+	950.6.8 = {
+		death = yes
+	}
+}
+
+auch_archbishop_5 = {
+	name = "Seguinus"
+	religion = "catholic"
+	culture = "french"
+	900.1.1 = {
+		birth = yes
+	}
+	970.6.8 = {
+		death = yes
+	}
+}
+
+auch_archbishop_6 = {
+	name = "Adulfus"
+	religion = "catholic"
+	culture = "french"
+	920.1.1 = {
+		birth = yes
+	}
+	973.6.8 = {
+		death = yes
+	}
+}
+
+auch_archbishop_7 = {
+	name = "Garsias"
+	religion = "catholic"
+	culture = "french"
+	945.1.1 = {
+		birth = yes
+	}
+	1000.6.8 = {
+		death = yes
+	}
+}
+
+auch_archbishop_8 = {
+	name = "Odo"
+	religion = "catholic"
+	culture = "french"
+	940.1.1 = {
+		birth = yes
+	}
+	1020.6.8 = {
+		death = yes
+	}
+}
+
+auch_archbishop_9 = {
+	name = "Garsias de la Barthe"
+	religion = "catholic"
+	culture = "french"
+	970.1.1 = {
+		birth = yes
+	}
+	1040.6.8 = {
+		death = yes
+	}
+}
+
+auch_archbishop_10 = {
+	name = "Raimundus de Copa"
+	religion = "catholic"
+	culture = "french"
+	1000.1.1 = {
+		birth = yes
+	}
+	1055.6.8 = {
+		death = yes
+	}
+}
+
+auch_archbishop_11 = {
+	name = "Austendus"
+	religion = "catholic"
+	culture = "french"
+	1020.1.1 = {
+		birth = yes
+	}
+	1068.2.1 = {
+		death = yes
+	}
+}
+
+auch_archbishop_12 = {
+	name = "Guillaume de Montaut"
+	religion = "catholic"
+	culture = "french"
+	1040.1.1 = {
+		birth = yes
+	}
+	1096.3.8 = {
+		death = yes
+	}
+}
+
+auch_archbishop_13 = {
+	name = "Raimundus de Pardiac"
+	religion = "catholic"
+	culture = "french"
+	1060.1.1 = {
+		birth = yes
+	}
+	1118.6.8 = {
+		death = yes
+	}
+}
+
+auch_archbishop_14 = {
+	name = "Bernard de Sainte-Christine"
+	religion = "catholic"
+	culture = "french"
+	1080.1.1 = {
+		birth = yes
+	}
+	1130.6.8 = {
+		death = yes
+	}
+}
+
+auch_archbishop_15 = {
+	name = "Guillaume Dandozile"
+	religion = "catholic"
+	culture = "french"
+	1100.1.1 = {
+		birth = yes
+	}
+	1160.6.8 = {
+		death = yes
+	}
+}
+
+auch_archbishop_16 = {
+	name = "Gerard de la Bothe"
+	religion = "catholic"
+	culture = "french"
+	1130.1.1 = {
+		birth = yes
+	}
+	1192.6.8 = {
+		death = yes
+	}
+}
+
+# d_archbishop_narbonne
+
+narbonne_archbishop_1 = {
+	name = "Bartholomeus"
+	religion = "catholic"
+	culture = "french"
+	790.1.1 = {
+		birth = yes
+	}
+	840.2.8 = {
+		death = yes
+	}
+}
+
+narbonne_archbishop_2 = {
+	name = "Berarius"
+	religion = "catholic"
+	culture = "french"
+	810.1.1 = {
+		birth = yes
+	}
+	850.8.8 = {
+		death = yes
+	}
+}
+
+narbonne_archbishop_3 = {
+	name = "Fredoldus"
+	religion = "catholic"
+	culture = "french"
+	810.1.1 = {
+		birth = yes
+	}
+	872.6.8 = {
+		death = yes
+	}
+}
+
+narbonne_archbishop_4 = {
+	name = "Sigebaud"
+	religion = "catholic"
+	culture = "french"
+	840.1.1 = {
+		birth = yes
+	}
+	885.6.2 = {
+		death = yes
+	}
+}
+
+narbonne_archbishop_5 = {
+	name = "Theodard"
+	religion = "catholic"
+	culture = "french"
+	850.1.1 = {
+		birth = yes
+	}
+	893.1.8 = {
+		death = yes
+	}
+}
+
+narbonne_archbishop_6 = {
+	name = "Arnustus"
+	religion = "catholic"
+	culture = "french"
+	870.1.1 = {
+		birth = yes
+	}
+	912.2.8 = {
+		death = yes
+	}
+}
+
+narbonne_archbishop_7 = {
+	name = "Gerard"
+	religion = "catholic"
+	culture = "french"
+	890.1.1 = {
+		birth = yes
+	}
+	912.6.5 = {
+		death = yes
+	}
+}
+
+narbonne_archbishop_8 = {
+	name = "Agio"
+	religion = "catholic"
+	culture = "french"
+	900.1.1 = {
+		birth = yes
+	}
+	924.6.8 = {
+		death = yes
+	}
+}
+
+narbonne_archbishop_9 = {
+	name = "Aimery"
+	religion = "catholic"
+	culture = "french"
+	920.1.1 = {
+		birth = yes
+	}
+	977.6.8 = {
+		death = yes
+	}
+}
+
+narbonne_archbishop_10 = {
+	name = "Ermengaud"
+	religion = "catholic"
+	culture = "french"
+	950.1.1 = {
+		birth = yes
+	}
+	1017.6.8 = {
+		death = yes
+	}
+}
+
+narbonne_archbishop_11 = {
+	name = "Guifred de Cerdagne"
+	religion = "catholic"
+	culture = "french"
+	980.1.1 = {
+		birth = yes
+	}
+	1079.6.8 = {
+		death = yes
+	}
+}
+
+narbonne_archbishop_12 = {	
+	name = "PEEire-Berenger" #Peter Berenger of Narbonne
+	dynasty = 280		
+	religion = "catholic"	
+	culture = "occitan"
+	father = 40212 #Bérenguié I de Narbonne
+	1030.1.1 = {	
+		birth = yes
+	}	
+	1090.3.13 = {	
+		death = yes
+	}	
+}
+
+narbonne_archbishop_13 = {
+	name = "Dalmatius"
+	religion = "catholic"
+	culture = "french"
+	1050.1.1 = {
+		birth = yes
+	}
+	1097.1.8 = {
+		death = yes
+	}
+}
+
+narbonne_archbishop_14 = {
+	name = "Bertrand"
+	religion = "catholic"
+	culture = "french"
+	1070.1.1 = {
+		birth = yes
+	}
+	1106.6.8 = {
+		death = yes
+	}
+}
+
+narbonne_archbishop_15 = {
+	name = "Ricard" #Brother of Bérenger II de Millau
+	dynasty = 22005
+	religion = "catholic"
+	culture = "occitan"
+	father = 10032 #Richard II de Millau
+	mother = 10033 #Rixinde de Narbonne
+	1040.1.1 = {
+		birth = yes
+	}
+	1121.1.1 = {
+		death = yes
+	}
+}
+
+narbonne_archbishop_16 = {
+	name = "Arnaud"
+	religion = "catholic"
+	culture = "french"
+	1070.1.1 = {
+		birth = yes
+	}
+	1149.2.3 = {
+		death = yes
+	}
+}
+
+narbonne_archbishop_17 = {
+	name = "Pierre"
+	religion = "catholic"
+	culture = "french"
+	1100.1.1 = {
+		birth = yes
+	}
+	1156.6.8 = {
+		death = yes
+	}
+}
+
+narbonne_archbishop_18 = {
+	name = "PEEire-Berenger" #Peter Berenger of Narbonne
+	dynasty = 280		
+	religion = "catholic"	
+	culture = "occitan"
+	father = 40218 #Aymeri I de Narbonne
+	1089.1.1 = {	
+		birth = yes
+	}	
+	1162.7.17 = {	
+		death = yes
+	}
+}
+
+narbonne_archbishop_19 = {
+	name = "Pons D'Arce"
+	religion = "catholic"
+	culture = "french"
+	1130.1.1 = {
+		birth = yes
+	}
+	1181.2.1 = {
+		death = yes
+	}
+}
+
+narbonne_archbishop_20 = {
+	name = "Bernard"
+	religion = "catholic"
+	culture = "french"
+	1140.1.1 = {
+		birth = yes
+	}
+	1191.6.8 = {
+		death = yes
+	}
+}
+
+# d_archbishop_bordeaux
+
+bordeaux_archbishop_1 = { # Bordeuax Archbishop until 876 then Archbishop of Bourges
+	name = "Frothar"
+	religion = "catholic"
+	culture = "french"
+	830.1.1 = {
+		birth = yes
+	}
+	893.1.1 = {
+		death = yes
+	}
+}
+
+bordeaux_archbishop_2 = {
+	name = "Adelbert"
+	religion = "catholic"
+	culture = "french"
+	880.1.1 = {
+		birth = yes
+	}
+	980.1.1 = {
+		death = yes
+	}
+}
+
+bordeaux_archbishop_3 = {
+	name = "Geoffrey"
+	religion = "catholic"
+	culture = "french"
+	910.1.1 = {
+		birth = yes
+	}
+	982.1.1 = {
+		death = yes
+	}
+}
+
+# occitan0007 # # Gombaud Sanche de Gascogne, Archbishop
+
+bordeaux_archbishop_5 = {
+	name = "Seguin"
+	religion = "catholic"
+	culture = "french"
+	970.1.1 = {
+		birth = yes
+	}
+	1000.1.1 = {
+		death = yes
+	}
+}
+
+bordeaux_archbishop_6 = {
+	name = "Arnold"
+	religion = "catholic"
+	culture = "french"
+	950.1.1 = {
+		birth = yes
+	}
+	1022.1.1 = {
+		death = yes
+	}
+}
+
+bordeaux_archbishop_7 = {
+	name = "Islo"
+	religion = "catholic"
+	culture = "french"
+	970.1.1 = {
+		birth = yes
+	}
+	1026.1.1 = {
+		death = yes
+	}
+}
+
+bordeaux_archbishop_8 = {
+	name = "Geoffrey"
+	religion = "catholic"
+	culture = "french"
+	980.1.1 = {
+		birth = yes
+	}
+	1043.1.1 = {
+		death = yes
+	}
+}
+
+bordeaux_archbishop_9 = {
+	name = "Archambaud"
+	religion = "catholic"
+	culture = "french"
+	father = bordeaux_archbishop_9_father
+	dynasty = 40010
+	1000.1.1 = {
+		birth = yes
+	}
+	1059.1.1 = {
+		death = yes
+	}
+}
+
+bordeaux_archbishop_9_father = {
+	name = "Guillaume" # 1er de Parthenay
+	religion = "catholic"
+	culture = "french"
+	dynasty = 40010
+	987.1.1 = { 
+		birth = yes
+	}
+	1058.1.1 = {
+		death = yes
+	}
+}
+
+bordeaux_archbishop_10 = {
+	name = "Andron"
+	religion = "catholic"
+	culture = "french"
+	1030.1.1 = {
+		birth = yes
+	}
+	1059.10.12 = {
+		death = yes
+	}
+}
+
+bordeaux_archbishop_11 = {
+	name = "Joscelin"
+	religion = "catholic"
+	culture = "french"
+	dynasty = 40010
+	father = bordeaux_archbishop_9_father
+	1030.1.1 = {
+		birth = yes
+	}
+	1086.6.19 = {
+		death = yes
+	}
+}
+
+bordeaux_archbishop_12 = {
+	name = "Amatus"
+	religion = "catholic"
+	culture = "french"
+	1050.1.1 = {
+		birth = yes
+	}
+	1101.5.22 = {
+		death = yes
+	}
+}
+
+bordeaux_archbishop_13 = {
+	name = "Arnaud Géraud de Cabanac"
+	religion = "catholic"
+	culture = "french"
+	1070.1.1 = {
+		birth = yes
+	}
+	1131.4.29 = {
+		death = yes
+	}
+}
+
+bordeaux_archbishop_14 = {
+	name = "Gérard d'Angoulême"
+	religion = "catholic"
+	culture = "french"
+	1050.1.1 = {
+		birth = yes
+	}
+	1135.1.1 = {
+		death = yes
+	}
+}
+
+bordeaux_archbishop_15 = {
+	name = "Geoffrey"
+	religion = "catholic"
+	culture = "french"
+	1090.1.1 = {
+		birth = yes
+	}
+	1158.7.18 = {
+		death = yes
+	}
+}
+
+bordeaux_archbishop_16 = {
+	name = "Raimond de Mareuil"
+	religion = "catholic"
+	culture = "french"
+	1100.1.1 = {
+		birth = yes
+	}
+	1159.12.23 = {
+		death = yes
+	}
+}
+
+bordeaux_archbishop_17 = {
+	name = "Hardouin"
+	religion = "catholic"
+	culture = "french"
+	1100.1.1 = {
+		birth = yes
+	}
+	1162.7.4 = {
+		death = yes
+	}
+}
+
+bordeaux_archbishop_18 = {
+	name = "Bertrand de Montault"
+	religion = "catholic"
+	culture = "french"
+	1100.1.1 = {
+		birth = yes
+	}
+	1173.12.18 = {
+		death = yes
+	}
+}
+
+bordeaux_archbishop_19 = {
+	name = "Guillaume"
+	religion = "catholic"
+	culture = "french"
+	1130.1.1 = {
+		birth = yes
+	}
+	1187.1.1 = {
+		death = yes
+	}
+}
+
+# d_archbishop_marseille
+
+marseille_archbishop_1 = {
+	name = "Alboin"
+	religion = "catholic"
+	culture = "french"
+	780.1.1 = {
+		birth = yes
+	}
+	843.1.1 = {
+		death = yes
+	}
+}
+
+marseille_archbishop_2 = {
+	name = "Litiduinus"
+	religion = "catholic"
+	culture = "french"
+	810.1.1 = {
+		birth = yes
+	}
+	879.1.1 = {
+		death = yes
+	}
+}
+
+marseille_archbishop_3 = {
+	name = "Berengarius"
+	religion = "catholic"
+	culture = "french"
+	840.1.1 = {
+		birth = yes
+	}
+	884.1.1 = {
+		death = yes
+	}
+}
+
+marseille_archbishop_4 = {
+	name = "Gulfaric"
+	religion = "catholic"
+	culture = "french"
+	850.1.1 = {
+		birth = yes
+	}
+	910.1.1 = {
+		death = yes
+	}
+}
+
+marseille_archbishop_5 = {
+	name = "Venator"
+	religion = "catholic"
+	culture = "french"
+	850.1.1 = {
+		birth = yes
+	}
+	922.1.1 = {
+		death = yes
+	}
+}
+
+marseille_archbishop_6 = {
+	name = "Drogon"
+	religion = "catholic"
+	culture = "french"
+	880.1.1 = {
+		birth = yes
+	}
+	924.1.1 = {
+		death = yes
+	}
+}
+
+marseille_archbishop_7 = {
+	name = "Pons"
+	religion = "catholic"
+	culture = "french"
+	930.1.1 = {
+		birth = yes
+	}
+	1008.1.1 = {
+		death = yes
+	}
+}
+
+marseille_archbishop_8 = {
+	name = "Pons"
+	religion = "catholic"
+	culture = "french"
+	970.1.1 = {
+		birth = yes
+	}
+	1073.1.1 = {
+		death = yes
+	}
+}
+
+marseille_archbishop_9 = {
+	name = "Raymond"
+	religion = "catholic"
+	culture = "french"
+	1000.1.1 = {
+		birth = yes
+	}
+	1122.11.7 = {
+		death = yes
+	}
+}
+
+marseille_archbishop_10 = {
+	name = "Raymond de Soliers"
+	religion = "catholic"
+	culture = "french"
+	1050.1.1 = {
+		birth = yes
+	}
+	1151.4.26 = {
+		death = yes
+	}
+}
+
+marseille_archbishop_11 = {
+	name = "Pierre"
+	religion = "catholic"
+	culture = "french"
+	1100.1.1 = {
+		birth = yes
+	}
+	1170.4.2 = {
+		death = yes
+	}
+}
+
+marseille_archbishop_12 = {
+	name = "Fulco de Thorame"
+	religion = "catholic"
+	culture = "french"
+	1130.1.1 = {
+		birth = yes
+	}
+	1188.3.31 = {
+		death = yes
+	}
+}
+
+marseille_archbishop_13 = {
+	name = "Rainier"
+	religion = "catholic"
+	culture = "french"
+	1140.1.1 = {
+		birth = yes
+	}
+	1214.1.1 = {
+		death = yes
+	}
+}
+
+# d_archbishop_lyon
+# bishops and years ruled, we need to invent years of birth.
+# Amulo, (840-852)
+# Remigius (852–875)
+# Aurelianus (875–895)
+# Alwala of Montdor (895–905)
+# Bernardus (906–907)
+# Austerius (906–c. 919)
+# Remi (c. 916–922)[86]
+# Anscheric (before 926–927)[87]
+# Guy (928–949)[88]
+# Burchard II of Lyon (?–?)[89]
+# Amblard (c. 957–978)[90]
+# Burchard III of Lyon (978–1032)[91]
+# Odolric (1041-1046)[92]
+# Halinard (1046–1052)[93]
+# Geoffroy de Vergy (1054–1064)[94]
+# Humbert (1064–1076)[95]
+# 1077–1082 Gebuin[96][8]
+# 1081–1106 Hugh of Die[97]
+# 1107–1118 Jauceran (Gaucheran)[98]
+# 1118–1128 Humbaud[99]
+# 1128–1129 Renaud of Semur[100]
+# 1131–1139 Peter[101]
+# 1139–1142 Faucon de Bothéon[102]
+# 1142–1148 Amadeus (Amé)[103]
+# 1148–1153 Humbertus de Bagé[104]
+# 1153–1163 Hercules de Montboissier[105]
+# 1163–1164 Dreux (Drogon)[106]
+# 1164–1180 Guichard of Pontigny[107]
+# 1182–1193 Jean de Belles-mains (Bellème, Belmeis)[108]
+
+lyon_archbishop_1 = {
+	name = "Amulo"
+	religion = "catholic"
+	culture = "french"
+	790.1.1 = {
+		birth = yes
+	}
+	852.1.1 = {
+		death = yes
+	}
+}
+
+lyon_archbishop_2 = {
+	name = "Remigius"
+	religion = "catholic"
+	culture = "french"
+	810.1.1 = {
+		birth = yes
+	}
+	875.1.1 = {
+		death = yes
+	}
+}
+
+lyon_archbishop_3 = {
+	name = "Aurelianus"
+	religion = "catholic"
+	culture = "french"
+	840.1.1 = {
+		birth = yes
+	}
+	895.1.1 = {
+		death = yes
+	}
+}
+
+lyon_archbishop_4 = {
+	name = "Alwala of Montdor"
+	religion = "catholic"
+	culture = "french"
+	870.1.1 = {
+		birth = yes
+	}
+	905.1.1 = {
+		death = yes
+	}
+}
+
+lyon_archbishop_5 = {
+	name = "Bernardus"
+	religion = "catholic"
+	culture = "french"
+	860.1.1 = {
+		birth = yes
+	}
+	907.1.1 = {
+		death = yes
+	}
+}
+
+lyon_archbishop_6 = {
+	name = "Austerius"
+	religion = "catholic"
+	culture = "french"
+	846.1.1 = {
+		birth = yes
+	}
+	919.1.1 = {
+		death = yes
+	}
+}
+
+lyon_archbishop_7 = {
+	name = "Remi"
+	religion = "catholic"
+	culture = "french"
+	840.1.1 = {
+		birth = yes
+	}
+	922.1.1 = {
+		death = yes
+	}
+}
+
+lyon_archbishop_8 = {
+	name = "Anscheric"
+	religion = "catholic"
+	culture = "french"
+	850.1.1 = {
+		birth = yes
+	}
+	927.1.1 = {
+		death = yes
+	}
+}
+
+lyon_archbishop_9 = {
+	name = "Guy"
+	religion = "catholic"
+	culture = "french"
+	870.1.1 = {
+		birth = yes
+	}
+	949.1.1 = {
+		death = yes
+	}
+}
+
+lyon_archbishop_10 = {
+	name = "Burchard"
+	religion = "catholic"
+	culture = "french"
+	900.1.1 = {
+		birth = yes
+	}
+	957.1.1 = {
+		death = yes
+	}
+}
+
+lyon_archbishop_11 = {
+	name = "Amblard"
+	religion = "catholic"
+	culture = "french"
+	910.1.1 = {
+		birth = yes
+	}
+	978.1.1 = {
+		death = yes
+	}
+}
+
+lyon_archbishop_12 = {
+	name = "Burchard"
+	religion = "catholic"
+	culture = "french"
+	958.1.1 = {
+		birth = yes
+	}
+	1032.1.1 = {
+		death = yes
+	}
+}
+
+lyon_archbishop_13 = {
+	name = "Odolric"
+	religion = "catholic"
+	culture = "french"
+	1000.1.1 = {
+		birth = yes
+	}
+	1046.1.1 = {
+		death = yes
+	}
+}
+
+lyon_archbishop_14 = {
+	name = "Halinard"
+	religion = "catholic"
+	culture = "french"
+	1000.1.1 = {
+		birth = yes
+	}
+	1052.1.1 = {
+		death = yes
+	}
+}
+
+lyon_archbishop_15 = {
+	name = "Geoffroy"
+	religion = "catholic"
+	culture = "french"
+	1015.1.1 = {
+		birth = yes
+	}
+	1064.1.1 = {
+		death = yes
+	}
+}
+
+lyon_archbishop_16 = {
+	name = "Humbert"
+	religion = "catholic"
+	culture = "french"
+	1020.1.1 = {
+		birth = yes
+	}
+	1076.1.1 = {
+		death = yes
+	}
+}
+
+lyon_archbishop_17 = {
+	name = "Gebuin"
+	religion = "catholic"
+	culture = "french"
+	1030.1.1 = {
+		birth = yes
+	}
+	1082.1.1 = {
+		death = yes
+	}
+}
+
+# lyon_archbishop_18 / replace with 138409
+# 	name = "Hugh" #Bishop Hugues de Die/de Bourgogne of Lyon/StJeanBaptiste
+# 	religion = "catholic"
+# 	culture = "french"
+# 	1050.1.1 = {
+# 		birth = yes
+# 	}
+# 	1106.1.1 = {
+# 		death = yes
+# 	}
+# }
+
+lyon_archbishop_19 = {
+	name = "Jauceran"
+	religion = "catholic"
+	culture = "french"
+	1060.1.1 = {
+		birth = yes
+	}
+	1118.1.1 = {
+		death = yes
+	}
+}
+
+lyon_archbishop_20 = {
+	name = "Humbaud"
+	religion = "catholic"
+	culture = "french"
+	1050.1.1 = {
+		birth = yes
+	}
+	1128.1.1 = {
+		death = yes
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

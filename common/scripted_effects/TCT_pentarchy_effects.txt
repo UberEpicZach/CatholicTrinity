@@ -16,25 +16,25 @@ TCT_pentarchy_map = {
 		if = {
 			limit = {
 				OR = {
-					county.holder.top_liege.faith = {
+					county.holder.top_liege.faith ?= {
 						has_doctrine = tenet_communion
 					}
-					county.faith = {
+					county.faith ?= {
 						has_doctrine = tenet_communion
 					}
 				}
 			}
 			if = {
 				limit = {
-					county.holder.top_liege.primary_title = {
+					county.holder.top_liege.primary_title ?= {
 						tier < tier_kingdom
-						empire = {
+						empire ?= {
 							has_variable = TCT_patriarchate
 						}
 					}
 				}
 				set_color_from_title = county.holder.top_liege.primary_title.empire.var:TCT_patriarchate
-				county.title_province =  {
+				county.title_province ?= {
 					set_variable = {
 						name = TCT_patriarchate_of_barony
 						value = county.holder.top_liege.primary_title.empire.var:TCT_patriarchate
@@ -43,15 +43,15 @@ TCT_pentarchy_map = {
 			}
 			else_if = {
 				limit = {
-					county.holder.top_liege.primary_title = {
+					county.holder.top_liege.primary_title ?= {
 						tier < tier_kingdom
-						kingdom = {
+						kingdom ?= {
 							has_variable = TCT_patriarchate
 						}
 					}
 				}
 				set_color_from_title = county.holder.top_liege.primary_title.kingdom.var:TCT_patriarchate
-				county.title_province =  {
+				county.title_province ?= {
 					set_variable = {
 						name = TCT_patriarchate_of_barony
 						value = county.holder.top_liege.primary_title.kingdom.var:TCT_patriarchate
@@ -60,7 +60,7 @@ TCT_pentarchy_map = {
 			}
 			else_if = {
 				limit = {
-					county.holder.top_liege.primary_title = {
+					county.holder.top_liege.primary_title ?= {
 						has_variable = TCT_patriarchate
 					}
 				}
@@ -74,12 +74,12 @@ TCT_pentarchy_map = {
 			}
 			else_if = {
 				limit = {
-					empire = {
+					empire ?= {
 						has_variable = TCT_patriarchate
 					}
 				}
 				set_color_from_title = empire.var:TCT_patriarchate
-				county.title_province =  {
+				county.title_province ?= {
 					set_variable = {
 						name = TCT_patriarchate_of_barony
 						value = empire.var:TCT_patriarchate
@@ -88,12 +88,12 @@ TCT_pentarchy_map = {
 			}
 			else_if = {
 				limit = {
-					kingdom = {
+					kingdom ?= {
 						has_variable = TCT_patriarchate
 					}
 				}
 				set_color_from_title = kingdom.var:TCT_patriarchate
-				county.title_province =  {
+				county.title_province ?= {
 					set_variable = {
 						name = TCT_patriarchate_of_barony
 						value = kingdom.var:TCT_patriarchate
@@ -102,8 +102,8 @@ TCT_pentarchy_map = {
 			}
 			else_if = {
 				limit = { title_province = { geographical_region = TCT_region_pentarchy_rome } }
-				set_color_from_title = title:k_papal_state
-				county.title_province =  {
+				set_color_from_title = title:d_line_map_papal_investiture
+				county.title_province ?= {
 					set_variable = {
 						name = TCT_patriarchate_of_barony
 						value = title:d_rome_patriarchate
@@ -113,7 +113,7 @@ TCT_pentarchy_map = {
 			else_if = {
 				limit = { title_province = { geographical_region = TCT_region_pentarchy_constantinople } }
 				set_color_from_title = title:e_byzantium
-				county.title_province =  {
+				county.title_province ?= {
 					set_variable = {
 						name = TCT_patriarchate_of_barony
 						value = title:d_constantinople_patriarchate
@@ -123,7 +123,7 @@ TCT_pentarchy_map = {
 			else_if = {
 				limit = { title_province = { geographical_region = TCT_region_pentarchy_alexandria } }
 				set_color_from_title = title:d_alexandria
-				county.title_province =  {
+				county.title_province ?= {
 					set_variable = {
 						name = TCT_patriarchate_of_barony
 						value = title:d_coptic_papacy
@@ -144,7 +144,7 @@ TCT_pentarchy_map = {
 					}
 				}
 				set_color_from_title = title:d_edessa
-				county.title_province =  {
+				county.title_province ?= {
 					set_variable = {
 						name = TCT_patriarchate_of_barony
 						value = title:d_antioch_patriarchate
@@ -153,8 +153,8 @@ TCT_pentarchy_map = {
 			}
 			else_if = {
 				limit = { title_province = { geographical_region = TCT_region_pentarchy_jerusalem } }
-				set_color_from_title = title:k_judea
-				county.title_province =  {
+				set_color_from_title = title:k_jerusalem
+				county.title_province ?= {
 					set_variable = {
 						name = TCT_patriarchate_of_barony
 						value = title:d_jerusalem_patriarchate
@@ -520,3 +520,10 @@ TCT_coa_test = {
 		set_coa = title:d_viennois
 	}
 } 
+
+# TCT_archbishops_867 = {
+# 	effect = {
+
+# 	}
+# }
+

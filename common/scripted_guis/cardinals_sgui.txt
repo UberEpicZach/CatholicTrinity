@@ -103,30 +103,30 @@ invest_in_cardinal = {
 	saved_scopes = {
 		player
 	}
-	effect = {
-		if = {
-			limit = {
-				NOT = {
-					exists = var:cardinal_campaign_contribution
-				}
-			}
-			set_variable = {name = cardinal_campaign_contribution value = 0}
-		}
-		change_variable = {name = cardinal_campaign_contribution add = cardinal_campaign_contribution_invest_cost}
-		scope:player = {remove_short_term_gold = cardinal_campaign_contribution_invest_cost}
+	# effect = {
+	# 	if = {
+	# 		limit = {
+	# 			NOT = {
+	# 				exists = var:cardinal_campaign_contribution
+	# 			}
+	# 		}
+	# 		set_variable = {name = cardinal_campaign_contribution value = 0}
+	# 	}
+	# 	change_variable = {name = cardinal_campaign_contribution add = cardinal_campaign_contribution_invest_cost}
+	# 	scope:player = {remove_short_term_gold = cardinal_campaign_contribution_invest_cost}
 
-		update_preferatus = yes
-		predict_new_cardinal = yes
-		set_variable = {
-			name = beneficiary
-			value = scope:player
-		}
-	}
-	is_valid = {
-		exists = this
-		scope:player.gold > cardinal_campaign_contribution_invest_cost
-		is_cardinal = no
-	}
+	# 	update_preferatus = yes
+	# 	predict_new_cardinal = yes
+	# 	set_variable = {
+	# 		name = beneficiary
+	# 		value = scope:player
+	# 	}
+	# }
+	# is_valid = {
+	# 	exists = this
+	# 	scope:player.gold > cardinal_campaign_contribution_invest_cost
+	# 	is_cardinal = no
+	# }
 }
 # Player divests from candidate election campaign.
 divest_from_cardinal = {

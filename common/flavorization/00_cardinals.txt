@@ -199,3 +199,42 @@ orthodox_patriarch = {
 	}
 	top_liege = no
 }
+
+swiss_confederation = {
+	type = title
+	titles = { k_switzerland }
+	priority = 60
+	flavourization_rules = { 
+		top_liege = no
+	}
+}
+
+tct_duchy_theocracy_christianity_religion = {
+	type = title
+	titles = {
+		d_archbishop_auch
+		d_archbishop_narbonne
+		d_archbishop_bordeaux
+		d_archbishop_marseille
+		d_archbishop_lyon
+		d_archbishop_tours
+		d_archbishop_bourges
+		d_archbishop_sens
+		d_archbishop_reims
+		d_archbishop_rouen
+		d_archbishop_canterbury
+		d_archbishop_york
+		d_archbishop_milano
+		d_archbishop_aquileia
+		d_archbishop_ravenna
+		d_archbishop_bari
+		d_archbishop_salzburg
+		d_archbishop_trier
+		d_archbishop_cologne
+		d_archbishop_mainz
+	}
+	priority = 77
+	flavourization_rules = { 
+		top_liege = no
+	}
+}

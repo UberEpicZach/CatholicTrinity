@@ -5,7 +5,7 @@
 d_captain_general_church = {
 	color = { 255 249 198 }
 	landless = yes
-	definite_form = yes
+	
 	capital = c_roma
 	
 	ai_primary_priority = {
@@ -18,10 +18,9 @@ d_captain_general_church = {
 	de_jure_drift_disabled = yes
 }
 
-
 d_rome_patriarchate = {
 	color = { 140 20 20 }
-	definite_form = yes
+	
 	ruler_uses_title_name = no
 	landless = yes
 
@@ -37,7 +36,7 @@ d_rome_patriarchate = {
 }
 d_constantinople_patriarchate = {
 	color = hsv{ 0.9 1 0.3 }
-	definite_form = yes
+	
 	ruler_uses_title_name = no
 	landless = yes
 
@@ -53,7 +52,7 @@ d_constantinople_patriarchate = {
 }
 d_alexandria_patriarchate = {
 	color = { 100 220 135 }
-	definite_form = yes
+	
 	ruler_uses_title_name = no
 	landless = yes
 
@@ -69,7 +68,7 @@ d_alexandria_patriarchate = {
 }
 d_antioch_patriarchate = {
 	color = { 180 110 45 }
-	definite_form = yes
+	
 	ruler_uses_title_name = no
 	landless = yes
 
@@ -85,7 +84,7 @@ d_antioch_patriarchate = {
 }
 d_jerusalem_patriarchate = {
 	color = { 180 180 180 }
-	definite_form = yes
+	
 	ruler_uses_title_name = yes
 	landless = yes
 
@@ -100,13 +99,16 @@ d_jerusalem_patriarchate = {
 	destroy_if_invalid_heir = yes
 }
 
-d_blank_title_fuck_you_game_eat_shit = {
-	color = { 180 180 180 }
-	definite_form = yes
+# ARCHBISHOPS TIME
+
+# 867
+d_archbishop_auch = {
+	color = { 255 249 198 }
+	
 	ruler_uses_title_name = no
 	landless = yes
 
-	capital = c_jerusalem	#Etchmiadzin
+	capital = c_armagnac
 
 	ai_primary_priority = {
 		add = @always_primary_score
@@ -116,3 +118,314 @@ d_blank_title_fuck_you_game_eat_shit = {
 	always_follows_primary_heir = yes
 	destroy_if_invalid_heir = yes
 }
+
+d_archbishop_narbonne = {
+	color = { 255 249 198 }
+	ruler_uses_title_name = no
+	landless = yes
+
+	capital = c_carcassonne
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+}
+
+d_archbishop_bordeaux = {
+	color = { 255 249 198 }
+	
+	ruler_uses_title_name = no
+	landless = yes
+
+	capital = c_bordeaux
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+}
+
+d_archbishop_marseille = {
+	color = { 255 249 198 }
+	
+	ruler_uses_title_name = no
+	landless = yes
+
+	capital = c_provence
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+}
+
+d_archbishop_lyon = {
+	color = { 255 249 198 }
+	
+	ruler_uses_title_name = no
+	landless = yes
+
+	capital = c_lyon
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+}
+
+d_archbishop_tours = {
+	color = { 255 249 198 }
+	
+	ruler_uses_title_name = no
+	landless = yes
+
+	capital = c_tourraine
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+}
+
+d_archbishop_bourges = {
+	color = { 255 249 198 }
+	
+	ruler_uses_title_name = no
+	landless = yes
+
+	capital = c_issoudun
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+}
+
+d_archbishop_sens = {
+	color = { 255 249 198 }
+	
+	ruler_uses_title_name = no
+	landless = yes
+
+	capital = c_sens
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+}
+
+d_archbishop_reims = { # | ALREADY LANDED IN GAME
+	color = { 255 249 198 }
+	
+	ruler_uses_title_name = no
+	landless = yes
+
+	capital = c_reims
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+}
+
+d_archbishop_rouen = {
+	color = { 255 249 198 }
+	
+	ruler_uses_title_name = no
+	landless = yes
+
+	capital = c_rouen
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+}
+
+d_archbishop_canterbury = {
+	color = { 255 249 198 }
+	
+	ruler_uses_title_name = no
+	landless = yes
+
+	capital = c_kent
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+}
+
+d_archbishop_york = {# | ALREADY LANDED IN GAME
+	color = { 255 249 198 }
+	
+	ruler_uses_title_name = no
+	landless = yes
+
+	capital = c_north_riding
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+}
+
+d_archbishop_milano = {
+	color = { 255 249 198 }
+	
+	ruler_uses_title_name = no
+	landless = yes
+
+	capital = c_lombardia
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+}
+
+d_archbishop_aquileia = { # ALREADY LANDED IN GAME
+	color = { 255 249 198 }
+	
+	ruler_uses_title_name = no
+	landless = yes
+
+	capital = c_aquileia
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+}
+
+d_archbishop_ravenna = {# ALREADY LANDED IN GAME
+	color = { 255 249 198 }
+	
+	ruler_uses_title_name = no
+	landless = yes
+
+	capital = c_ravenna
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+
+}
+d_archbishop_bari = { # Not in 867
+	color = { 255 249 198 }
+	
+	ruler_uses_title_name = no
+	landless = yes
+
+	capital = c_bari
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+}
+
+# d_archbishop_salzburg - Just give them Salzburg
+
+d_archbishop_trier = { # Already Landed, 
+	color = { 255 249 198 }
+	
+	ruler_uses_title_name = no
+	landless = yes
+
+	capital = c_trier
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+}
+
+d_archbishop_cologne = { # Already Landed
+	color = { 255 249 198 }
+	
+	ruler_uses_title_name = no
+	landless = yes
+
+	capital = c_cologne
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+}
+
+d_archbishop_mainz = { # Already Landed
+	color = { 255 249 198 }
+	
+	ruler_uses_title_name = no
+	landless = yes
+
+	capital = c_mainz
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+}
+# 1066 - 1100s additions
+
+
+

@@ -329,7 +329,7 @@
 	phase_list = {
 
 		investiture_controversy_phase_unrest = { # Unrest Phase
-
+			duration = { points = 250 }
 			future_phases = {
 				investiture_controversy_phase_hostility = {
 					catalysts = {
@@ -557,7 +557,7 @@
 		}
 
 		investiture_controversy_phase_hostility = { # Hostility Phase
-			duration = { points = 500 }
+			duration = { points = 750 }
 
 			future_phases = {
 				investiture_controversy_phase_unrest = {

@@ -1,0 +1,251 @@
+﻿independence_faction_modifiers = {
+	modifier = { # Electors are less likely to join independence factions, if their faith is astray or below
+		desc = "FACTION_REASON_ELECTOR"
+
+		add = {
+			value = -150
+			if = {
+				limit = {
+					exists = title:e_hre
+					$FACTION_TARGET$ = {
+						has_primary_title = title:e_hre
+					}
+				}
+				add = -150
+			}
+		}
+		$FACTION_TARGET$.primary_title = {
+			has_order_of_succession = election
+			any_elector = {
+				this = root
+			}
+		}
+		faith = {
+			faith_hostility_level = {
+				target = $FACTION_TARGET$.faith
+				value <= faith_astray_level
+			}
+		}
+	}
+
+	# Liege is not my Rightful Liege or a consequent par of my Realm is outside of their De Jure
+	modifier = {
+		desc = "FACTION_REASON_RIGHTFUL"
+		add = {
+			value = 125
+			# Larger realms are inherently more rebellious.
+			add = {
+				value = sub_realm_size
+				multiply = 2
+			}
+		}
+		OR = {
+	 		NOT = {
+	 			$FACTION_TARGET$ = { is_rightful_liege_of = root }
+			}
+			any_sub_realm_county = {
+				percent <= 0.5
+				save_temporary_scope_as = current_county
+				$FACTION_TARGET$.primary_title = {
+					any_in_de_jure_hierarchy = {
+						this = scope:current_county
+					}
+				}
+			}
+		}
+	}
+
+	# Kingdoms gain an additional boost to independence, as they don't like being under the thumb of others.
+	modifier = {
+		desc = "FACTION_REASON_KING"
+		add = { # High-grandeur Kings will want independence even more
+			value =	50
+			if = {
+				limit = {
+					has_royal_court = yes
+					has_dlc_feature = royal_court
+					$FACTION_TARGET$ = {
+						has_royal_court = yes
+					}
+					court_grandeur_current_level > $FACTION_TARGET$.court_grandeur_current_level
+				}
+				add = {
+					add = court_grandeur_current_level
+					subtract = $FACTION_TARGET$.court_grandeur_current_level
+					multiply = 15
+				}
+			}
+		}
+		highest_held_title_tier = tier_kingdom
+	}
+
+	# Lowers independence wishes from Counts.
+	modifier = {
+		desc = "FACTION_REASON_COUNT"
+		add = -25
+		highest_held_title_tier = tier_county
+	}
+
+	# Toe the Line Perk
+	modifier = {
+		desc = "FACTION_REASON_PERK_TOE_THE_LINE"
+		add = -50
+		$FACTION_TARGET$ = {
+			has_perk = toe_the_line_perk
+		}
+	}
+
+	# Stem Duchies innovation
+	modifier = {
+		desc = "FACTION_REASON_INNOVATION_STEM_DUCHIES"
+		add = -25
+		$FACTION_TARGET$ = { culture = { has_innovation = innovation_stem_duchies }	}
+		culture = { has_same_culture_heritage = $FACTION_TARGET$.culture }
+	}
+
+	# Characters are less likely to join if cultural acceptance is high
+	modifier = {
+		desc = "FACTION_REASON_CULTURE_ACCEPTANCE"
+		culture = {
+			NOR = {
+				this = $FACTION_TARGET$.culture
+				cultural_acceptance = { target = $FACTION_TARGET$.culture value >= 90 } # Essentially the same culture
+				has_cultural_parameter = doesnt_care_about_culture_faith_in_factions
+			}
+		}
+		add = {
+			value = 20
+			if = {
+				limit = {
+					culture = {
+						cultural_acceptance = { target = $FACTION_TARGET$.culture value <= 20 }
+					}
+				}
+				add = 20
+			}
+			if = {
+				limit = {
+					culture = {
+						cultural_acceptance = { target = $FACTION_TARGET$.culture value <= 35 }
+					}
+				}
+				add = 15
+			}
+			if = {
+				limit = {
+					culture = {
+						cultural_acceptance = { target = $FACTION_TARGET$.culture value <= 50 }
+					}
+				}
+				add = 10
+			}
+			if = {
+				limit = {
+					culture = {
+						cultural_acceptance = { target = $FACTION_TARGET$.culture value <= 70 }
+					}
+				}
+				add = 5
+			}
+			if = {
+				limit = {
+					culture = {
+						cultural_acceptance = { target = $FACTION_TARGET$.culture value <= 80 }
+					}
+				}
+				add = 5
+			}
+			if = { # The liege knowing your language cuts this penalty in half
+				limit = {
+					$FACTION_TARGET$ = {
+						knows_language_of_culture = prev.culture
+					}
+				}
+				multiply = 0.5
+			}
+		}
+	}
+
+	# If in struggle, rather go for Dissolution faction
+	modifier = {
+		desc = "FACTION_REASON_PREFER_DISSOLUTION_FACTION"
+		add = {
+			value = 0
+			# Some phases give a low chance...
+			if = {
+				limit = {
+					$FACTION_TARGET$ = {
+						any_character_struggle = {
+							is_struggle_type = iberian_struggle
+							involvement = involved
+							OR = {
+								is_struggle_phase = struggle_iberia_phase_hostility
+								is_struggle_phase = struggle_iberia_phase_opportunity
+							}
+						}
+					}
+				}
+				add = -100
+			}
+		}
+		$FACTION_TARGET$ = {
+			any_character_struggle = {
+				is_struggle_type = iberian_struggle
+				involvement = involved
+			}
+		}
+		OR = {
+			is_powerful_vassal_of = $FACTION_TARGET$
+			$FACTION_TARGET$ = {
+				any_targeting_faction = {
+					faction_is_type = nation_fracturing_faction
+				}
+			}
+		}
+	}
+
+	# Less likely for Anglosaxons to want to destroy England
+	modifier = {
+		desc = "FACTION_REASON_ANGLOSAXON"
+		add = -200
+		culture = {
+			has_cultural_pillar = heritage_west_germanic
+		}
+	 	$FACTION_TARGET$.primary_title = title:k_england
+	}
+
+	# Less likely for French vassals
+	modifier = {
+		desc = "FACTION_REASON_FRENCH_VASSAL"
+		add = -200
+		culture = {
+			has_cultural_pillar = heritage_frankish
+		}
+	 	$FACTION_TARGET$.primary_title = title:k_france
+	}
+
+	# Less likely for HRE vassals, except Saxons and Italians
+	modifier = {
+		desc = "FACTION_REASON_HRE_VASSAL"
+		add = -750
+		culture = {
+			AND = {
+				has_cultural_pillar = heritage_central_germanic
+				NOT = { 
+					culture = culture:saxon 
+					has_cultural_pillar = heritage_latin
+				}
+			}
+		}
+	 	$FACTION_TARGET$.primary_title = title:e_hre
+	}
+
+	modifier = { # New vassals do not want to join independence factions
+		desc = "FACTION_REASON_NEW_VASSAL"
+		add = -1000
+		has_opinion_modifier = {
+			modifier = became_vassal
+			target = $FACTION_TARGET$
+		}
+	}
+}
