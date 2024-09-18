@@ -97,6 +97,7 @@ auch_archbishop_1 = {
 	name = "Airardus"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_3
 	820.1.1 = {
 		birth = yes
 	}
@@ -109,6 +110,7 @@ auch_archbishop_2 = {
 	name = "Odilus"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_1
 	840.1.1 = {
 		birth = yes
 	}
@@ -121,6 +123,7 @@ auch_archbishop_3 = {
 	name = "Bernardus"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_4
 	860.1.1 = {
 		birth = yes
 	}
@@ -133,6 +136,7 @@ auch_archbishop_4 = {
 	name = "Hidulfus"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_2
 	880.1.1 = {
 		birth = yes
 	}
@@ -145,6 +149,7 @@ auch_archbishop_5 = {
 	name = "Seguinus"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_4
 	900.1.1 = {
 		birth = yes
 	}
@@ -157,6 +162,7 @@ auch_archbishop_6 = {
 	name = "Adulfus"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_2
 	920.1.1 = {
 		birth = yes
 	}
@@ -169,6 +175,7 @@ auch_archbishop_7 = {
 	name = "Garsias"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_1
 	945.1.1 = {
 		birth = yes
 	}
@@ -181,6 +188,7 @@ auch_archbishop_8 = {
 	name = "Odo"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_4
 	940.1.1 = {
 		birth = yes
 	}
@@ -193,6 +201,7 @@ auch_archbishop_9 = {
 	name = "Garsias de la Barthe"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_3
 	970.1.1 = {
 		birth = yes
 	}
@@ -205,6 +214,7 @@ auch_archbishop_10 = {
 	name = "Raimundus de Copa"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_2
 	1000.1.1 = {
 		birth = yes
 	}
@@ -217,6 +227,7 @@ auch_archbishop_11 = {
 	name = "Austendus"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_3
 	1020.1.1 = {
 		birth = yes
 	}
@@ -229,6 +240,7 @@ auch_archbishop_12 = {
 	name = "Guillaume de Montaut"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_1
 	1040.1.1 = {
 		birth = yes
 	}
@@ -241,6 +253,7 @@ auch_archbishop_13 = {
 	name = "Raimundus de Pardiac"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_4
 	1060.1.1 = {
 		birth = yes
 	}
@@ -253,6 +266,7 @@ auch_archbishop_14 = {
 	name = "Bernard de Sainte-Christine"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_2
 	1080.1.1 = {
 		birth = yes
 	}
@@ -265,6 +279,7 @@ auch_archbishop_15 = {
 	name = "Guillaume Dandozile"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_3
 	1100.1.1 = {
 		birth = yes
 	}
@@ -277,6 +292,7 @@ auch_archbishop_16 = {
 	name = "Gerard de la Bothe"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_1
 	1130.1.1 = {
 		birth = yes
 	}
@@ -291,6 +307,7 @@ narbonne_archbishop_1 = {
 	name = "Bartholomeus"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_3
 	790.1.1 = {
 		birth = yes
 	}
@@ -303,6 +320,7 @@ narbonne_archbishop_2 = {
 	name = "Berarius"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_2
 	810.1.1 = {
 		birth = yes
 	}
@@ -315,6 +333,7 @@ narbonne_archbishop_3 = {
 	name = "Fredoldus"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_4
 	810.1.1 = {
 		birth = yes
 	}
@@ -327,6 +346,7 @@ narbonne_archbishop_4 = {
 	name = "Sigebaud"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_1
 	840.1.1 = {
 		birth = yes
 	}
@@ -339,6 +359,7 @@ narbonne_archbishop_5 = {
 	name = "Theodard"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_3
 	850.1.1 = {
 		birth = yes
 	}
@@ -351,6 +372,7 @@ narbonne_archbishop_6 = {
 	name = "Arnustus"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_2
 	870.1.1 = {
 		birth = yes
 	}
@@ -363,6 +385,7 @@ narbonne_archbishop_7 = {
 	name = "Gerard"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_4
 	890.1.1 = {
 		birth = yes
 	}
@@ -375,6 +398,7 @@ narbonne_archbishop_8 = {
 	name = "Agio"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_1
 	900.1.1 = {
 		birth = yes
 	}
@@ -387,6 +411,7 @@ narbonne_archbishop_9 = {
 	name = "Aimery"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_3
 	920.1.1 = {
 		birth = yes
 	}
@@ -399,6 +424,7 @@ narbonne_archbishop_10 = {
 	name = "Ermengaud"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_2
 	950.1.1 = {
 		birth = yes
 	}
@@ -411,6 +437,7 @@ narbonne_archbishop_11 = {
 	name = "Guifred de Cerdagne"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_4
 	980.1.1 = {
 		birth = yes
 	}
@@ -419,24 +446,25 @@ narbonne_archbishop_11 = {
 	}
 }
 
-narbonne_archbishop_12 = {	
-	name = "PEEire-Berenger" #Peter Berenger of Narbonne
-	dynasty = 280		
-	religion = "catholic"	
+narbonne_archbishop_12 = {
+	name = "PEEire-Berenger"
+	religion = "catholic"
 	culture = "occitan"
+	trait = education_learning_1
 	father = 40212 #Bérenguié I de Narbonne
-	1030.1.1 = {	
+	1030.1.1 = {
 		birth = yes
-	}	
-	1090.3.13 = {	
+	}
+	1090.3.13 = {
 		death = yes
-	}	
+	}
 }
 
 narbonne_archbishop_13 = {
 	name = "Dalmatius"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_3
 	1050.1.1 = {
 		birth = yes
 	}
@@ -449,6 +477,7 @@ narbonne_archbishop_14 = {
 	name = "Bertrand"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_2
 	1070.1.1 = {
 		birth = yes
 	}
@@ -458,12 +487,10 @@ narbonne_archbishop_14 = {
 }
 
 narbonne_archbishop_15 = {
-	name = "Ricard" #Brother of Bérenger II de Millau
-	dynasty = 22005
+	name = "Ricard"
 	religion = "catholic"
 	culture = "occitan"
-	father = 10032 #Richard II de Millau
-	mother = 10033 #Rixinde de Narbonne
+	trait = education_learning_4
 	1040.1.1 = {
 		birth = yes
 	}
@@ -476,6 +503,7 @@ narbonne_archbishop_16 = {
 	name = "Arnaud"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_1
 	1070.1.1 = {
 		birth = yes
 	}
@@ -488,6 +516,7 @@ narbonne_archbishop_17 = {
 	name = "Pierre"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_3
 	1100.1.1 = {
 		birth = yes
 	}
@@ -497,15 +526,14 @@ narbonne_archbishop_17 = {
 }
 
 narbonne_archbishop_18 = {
-	name = "PEEire-Berenger" #Peter Berenger of Narbonne
-	dynasty = 280		
-	religion = "catholic"	
+	name = "PEEire-Berenger"
+	religion = "catholic"
 	culture = "occitan"
-	father = 40218 #Aymeri I de Narbonne
-	1089.1.1 = {	
+	trait = education_learning_2
+	1089.1.1 = {
 		birth = yes
-	}	
-	1162.7.17 = {	
+	}
+	1162.7.17 = {
 		death = yes
 	}
 }
@@ -514,6 +542,7 @@ narbonne_archbishop_19 = {
 	name = "Pons D'Arce"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_4
 	1130.1.1 = {
 		birth = yes
 	}
@@ -526,6 +555,7 @@ narbonne_archbishop_20 = {
 	name = "Bernard"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_3
 	1140.1.1 = {
 		birth = yes
 	}
@@ -536,10 +566,11 @@ narbonne_archbishop_20 = {
 
 # d_archbishop_bordeaux
 
-bordeaux_archbishop_1 = { # Bordeuax Archbishop until 876 then Archbishop of Bourges
+bordeaux_archbishop_1 = {  # Bordeuax Archbishop until 876 then Archbishop of Bourges
 	name = "Frothar"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_4
 	830.1.1 = {
 		birth = yes
 	}
@@ -552,6 +583,7 @@ bordeaux_archbishop_2 = {
 	name = "Adelbert"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_2
 	880.1.1 = {
 		birth = yes
 	}
@@ -564,6 +596,7 @@ bordeaux_archbishop_3 = {
 	name = "Geoffrey"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_3
 	910.1.1 = {
 		birth = yes
 	}
@@ -572,12 +605,11 @@ bordeaux_archbishop_3 = {
 	}
 }
 
-# occitan0007 # # Gombaud Sanche de Gascogne, Archbishop
-
 bordeaux_archbishop_5 = {
 	name = "Seguin"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_1
 	970.1.1 = {
 		birth = yes
 	}
@@ -590,6 +622,7 @@ bordeaux_archbishop_6 = {
 	name = "Arnold"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_4
 	950.1.1 = {
 		birth = yes
 	}
@@ -602,6 +635,7 @@ bordeaux_archbishop_7 = {
 	name = "Islo"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_2
 	970.1.1 = {
 		birth = yes
 	}
@@ -614,6 +648,7 @@ bordeaux_archbishop_8 = {
 	name = "Geoffrey"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_1
 	980.1.1 = {
 		birth = yes
 	}
@@ -626,6 +661,7 @@ bordeaux_archbishop_9 = {
 	name = "Archambaud"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_3
 	father = bordeaux_archbishop_9_father
 	dynasty = 40010
 	1000.1.1 = {
@@ -637,11 +673,12 @@ bordeaux_archbishop_9 = {
 }
 
 bordeaux_archbishop_9_father = {
-	name = "Guillaume" # 1er de Parthenay
+	name = "Guillaume" 
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_2
 	dynasty = 40010
-	987.1.1 = { 
+	987.1.1 = {
 		birth = yes
 	}
 	1058.1.1 = {
@@ -653,6 +690,7 @@ bordeaux_archbishop_10 = {
 	name = "Andron"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_4
 	1030.1.1 = {
 		birth = yes
 	}
@@ -665,6 +703,7 @@ bordeaux_archbishop_11 = {
 	name = "Joscelin"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_1
 	dynasty = 40010
 	father = bordeaux_archbishop_9_father
 	1030.1.1 = {
@@ -679,6 +718,7 @@ bordeaux_archbishop_12 = {
 	name = "Amatus"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_3
 	1050.1.1 = {
 		birth = yes
 	}
@@ -691,6 +731,7 @@ bordeaux_archbishop_13 = {
 	name = "Arnaud Géraud de Cabanac"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_2
 	1070.1.1 = {
 		birth = yes
 	}
@@ -703,6 +744,7 @@ bordeaux_archbishop_14 = {
 	name = "Gérard d'Angoulême"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_4
 	1050.1.1 = {
 		birth = yes
 	}
@@ -715,6 +757,7 @@ bordeaux_archbishop_15 = {
 	name = "Geoffrey"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_2
 	1090.1.1 = {
 		birth = yes
 	}
@@ -727,6 +770,7 @@ bordeaux_archbishop_16 = {
 	name = "Raimond de Mareuil"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_1
 	1100.1.1 = {
 		birth = yes
 	}
@@ -739,6 +783,7 @@ bordeaux_archbishop_17 = {
 	name = "Hardouin"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_4
 	1100.1.1 = {
 		birth = yes
 	}
@@ -751,6 +796,7 @@ bordeaux_archbishop_18 = {
 	name = "Bertrand de Montault"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_3
 	1100.1.1 = {
 		birth = yes
 	}
@@ -763,6 +809,7 @@ bordeaux_archbishop_19 = {
 	name = "Guillaume"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_2
 	1130.1.1 = {
 		birth = yes
 	}
@@ -777,6 +824,7 @@ marseille_archbishop_1 = {
 	name = "Alboin"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_2
 	780.1.1 = {
 		birth = yes
 	}
@@ -789,6 +837,7 @@ marseille_archbishop_2 = {
 	name = "Litiduinus"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_4
 	810.1.1 = {
 		birth = yes
 	}
@@ -801,6 +850,7 @@ marseille_archbishop_3 = {
 	name = "Berengarius"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_1
 	840.1.1 = {
 		birth = yes
 	}
@@ -813,6 +863,7 @@ marseille_archbishop_4 = {
 	name = "Gulfaric"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_3
 	850.1.1 = {
 		birth = yes
 	}
@@ -825,6 +876,7 @@ marseille_archbishop_5 = {
 	name = "Venator"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_2
 	850.1.1 = {
 		birth = yes
 	}
@@ -837,6 +889,7 @@ marseille_archbishop_6 = {
 	name = "Drogon"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_4
 	880.1.1 = {
 		birth = yes
 	}
@@ -849,6 +902,7 @@ marseille_archbishop_7 = {
 	name = "Pons"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_1
 	930.1.1 = {
 		birth = yes
 	}
@@ -861,6 +915,7 @@ marseille_archbishop_8 = {
 	name = "Pons"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_3
 	970.1.1 = {
 		birth = yes
 	}
@@ -873,6 +928,7 @@ marseille_archbishop_9 = {
 	name = "Raymond"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_2
 	1000.1.1 = {
 		birth = yes
 	}
@@ -885,6 +941,7 @@ marseille_archbishop_10 = {
 	name = "Raymond de Soliers"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_4
 	1050.1.1 = {
 		birth = yes
 	}
@@ -897,6 +954,7 @@ marseille_archbishop_11 = {
 	name = "Pierre"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_3
 	1100.1.1 = {
 		birth = yes
 	}
@@ -909,6 +967,7 @@ marseille_archbishop_12 = {
 	name = "Fulco de Thorame"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_1
 	1130.1.1 = {
 		birth = yes
 	}
@@ -921,6 +980,7 @@ marseille_archbishop_13 = {
 	name = "Rainier"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_2
 	1140.1.1 = {
 		birth = yes
 	}
@@ -965,6 +1025,7 @@ lyon_archbishop_1 = {
 	name = "Amulo"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_3
 	790.1.1 = {
 		birth = yes
 	}
@@ -977,6 +1038,7 @@ lyon_archbishop_2 = {
 	name = "Remigius"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_1
 	810.1.1 = {
 		birth = yes
 	}
@@ -989,6 +1051,7 @@ lyon_archbishop_3 = {
 	name = "Aurelianus"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_4
 	840.1.1 = {
 		birth = yes
 	}
@@ -1001,6 +1064,7 @@ lyon_archbishop_4 = {
 	name = "Alwala of Montdor"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_2
 	870.1.1 = {
 		birth = yes
 	}
@@ -1013,6 +1077,7 @@ lyon_archbishop_5 = {
 	name = "Bernardus"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_3
 	860.1.1 = {
 		birth = yes
 	}
@@ -1025,6 +1090,7 @@ lyon_archbishop_6 = {
 	name = "Austerius"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_4
 	846.1.1 = {
 		birth = yes
 	}
@@ -1037,6 +1103,7 @@ lyon_archbishop_7 = {
 	name = "Remi"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_2
 	840.1.1 = {
 		birth = yes
 	}
@@ -1049,6 +1116,7 @@ lyon_archbishop_8 = {
 	name = "Anscheric"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_1
 	850.1.1 = {
 		birth = yes
 	}
@@ -1061,6 +1129,7 @@ lyon_archbishop_9 = {
 	name = "Guy"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_4
 	870.1.1 = {
 		birth = yes
 	}
@@ -1073,6 +1142,7 @@ lyon_archbishop_10 = {
 	name = "Burchard"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_3
 	900.1.1 = {
 		birth = yes
 	}
@@ -1085,6 +1155,7 @@ lyon_archbishop_11 = {
 	name = "Amblard"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_2
 	910.1.1 = {
 		birth = yes
 	}
@@ -1097,6 +1168,7 @@ lyon_archbishop_12 = {
 	name = "Burchard"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_1
 	958.1.1 = {
 		birth = yes
 	}
@@ -1109,6 +1181,7 @@ lyon_archbishop_13 = {
 	name = "Odolric"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_4
 	1000.1.1 = {
 		birth = yes
 	}
@@ -1121,6 +1194,7 @@ lyon_archbishop_14 = {
 	name = "Halinard"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_3
 	1000.1.1 = {
 		birth = yes
 	}
@@ -1133,6 +1207,7 @@ lyon_archbishop_15 = {
 	name = "Geoffroy"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_2
 	1015.1.1 = {
 		birth = yes
 	}
@@ -1145,6 +1220,7 @@ lyon_archbishop_16 = {
 	name = "Humbert"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_4
 	1020.1.1 = {
 		birth = yes
 	}
@@ -1157,6 +1233,7 @@ lyon_archbishop_17 = {
 	name = "Gebuin"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_1
 	1030.1.1 = {
 		birth = yes
 	}
@@ -1165,22 +1242,11 @@ lyon_archbishop_17 = {
 	}
 }
 
-# lyon_archbishop_18 / replace with 138409
-# 	name = "Hugh" #Bishop Hugues de Die/de Bourgogne of Lyon/StJeanBaptiste
-# 	religion = "catholic"
-# 	culture = "french"
-# 	1050.1.1 = {
-# 		birth = yes
-# 	}
-# 	1106.1.1 = {
-# 		death = yes
-# 	}
-# }
-
 lyon_archbishop_19 = {
 	name = "Jauceran"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_2
 	1060.1.1 = {
 		birth = yes
 	}
@@ -1193,6 +1259,7 @@ lyon_archbishop_20 = {
 	name = "Humbaud"
 	religion = "catholic"
 	culture = "french"
+	trait = education_learning_3
 	1050.1.1 = {
 		birth = yes
 	}
