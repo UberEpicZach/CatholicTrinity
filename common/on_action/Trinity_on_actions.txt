@@ -1,78 +1,21 @@
 ﻿on_game_start = {
 	on_actions = {
 		on_cardinal_preinitialize
-		CatholicsimFix
-		mapmodes
-		fixing867pope
-		TCTpentarchy
-		christianity_fixes
-		history_fixes
+		tct_on_start
+		tct_on_start_867
+		tct_on_start_1066
 	}
 }
 
-history_fixes = {
+# On Game Start On Actions
+tct_on_start = {
 	effect = {
-		if = {
-			limit = {
-				game_start_date = 1066.9.15
-			}
-			character:40060 = {
-				set_father = character:bordeaux_archbishop_9_father
-			}
+		# Map Mode Setup
+		set_global_variable = {
+			name = custom_map_mode
+			value = flag:none
 		}
-	}
-}
 
-christianity_fixes = {
-	effect = {
-		if = {
-			limit = {
-				current_date >= 867.1.1
-			}
-			title:k_orthodox.holder = {
-				set_variable = tct_ecumenical_patriarch
-			}
-			faith:catholic = {
-				add_doctrine = doctrine_independent_papacy_head
-				add_doctrine = doctrine_clerical_succession_investiture_law_appointment
-				remove_doctrine = doctrine_consanguinity_aunt_nephew_and_uncle_niece
-				add_doctrine = doctrine_consanguinity_restricted
-			}
-			faith:orthodox = {
-				add_doctrine = doctrine_autocephaly_head
-			}
-		}
-		if = {
-			limit = {
-				current_date >= 1066.1.1
-			}
-			title:k_papal_state.holder = {
-				set_variable = tct_ecumenical_patriarch
-			}
-			title:k_orthodox.holder = {
-				set_variable = tct_ecumenical_patriarch
-			}
-			faith:catholic = {
-				add_doctrine = doctrine_independent_papacy_head
-				add_doctrine = doctrine_clerical_succession_investiture_law_appointment
-				remove_doctrine = doctrine_consanguinity_aunt_nephew_and_uncle_niece
-				add_doctrine = doctrine_consanguinity_restricted
-			}
-			faith:orthodox = {
-				add_doctrine = doctrine_autocephaly_head
-			}
-		}
-	}
-}
-
-on_army_enter_province = {
-	events = {
-		TCT_religious_events.811 #Give Crusaders their trait upon reaching the holy land.
-	}
-}
-
-TCTpentarchy = {
-	effect = {
 		### Pentarchy setups
 		every_living_character = {
 			limit = {
@@ -87,6 +30,137 @@ TCTpentarchy = {
 			}
 			change_government = theocracy_government
 		}
+
+		# Catholicism Setup
+		title:k_papal_state = {
+			if = {
+				limit = {
+					exists = holder
+					has_dlc_feature = royal_court
+				}
+				holder = {
+					set_court_language = language_latin
+					if = {
+						limit = { NOT = { knows_court_language_of = this } }
+						learn_court_language_of = this
+					}
+				}
+			}
+		}
+
+		faith:catholic = { 
+			every_faith_character = { 
+				limit = { 
+					is_clergy = yes 
+					NOT = { 
+						knows_language = language_latin 
+					} 
+				} 
+				learn_language = language_latin 
+			}
+		}
+		set_global_variable = {
+			name = Trinity_is_loaded
+			value = yes
+		}
+		title:k_papal_state.holder = {
+			set_variable = was_once_cardinal
+		}
+
+		# Title Setup
+		if = {
+			limit = {
+				exists = title:d_captain_general_church.holder
+			}
+			title:d_captain_general_church.holder = {
+				get_title = title:c_tivoli
+
+				create_title_and_vassal_change = {
+					type = granted #or whatever
+					save_scope_as = change
+				}
+				
+				change_liege = {
+					liege = title:k_papal_state.holder
+					change = scope:change
+				}
+				resolve_title_and_vassal_change = scope:change
+				add_realm_law = mercenary_company_mod_succession_law
+			}
+		}
+	}
+}
+
+tct_on_start_867 = {
+	trigger = {
+		game_start_date = 867.1.1
+	}
+	effect = {
+		# Religion Setup
+		title:k_orthodox.holder = {
+			set_variable = tct_ecumenical_patriarch
+		}
+		faith:catholic = {
+			add_doctrine = doctrine_independent_papacy_head
+			add_doctrine = doctrine_clerical_succession_investiture_law_appointment
+			remove_doctrine = doctrine_consanguinity_aunt_nephew_and_uncle_niece
+			add_doctrine = doctrine_consanguinity_restricted
+		}
+		faith:orthodox = {
+			add_doctrine = doctrine_autocephaly_head
+		}
+
+		# Title Setup
+		title:k_papal_state.holder = { if = { limit = { is_lowborn = yes } title:k_papal_state.holder = { set_house = house:house_SanctiPetriFiliis } } }
+		title:k_papal_state.holder = { if = { limit = { has_trait = cardinal_archbishop } remove_trait = cardinal_archbishop } }
+		title:k_papal_state.holder = { if = { limit = { has_trait = cardinal_bishop } remove_trait = cardinal_bishop } }
+
+
+		title:b_paterno.title_province = { set_holding_type = castle_holding }
+		character:7913 = { get_title = title:b_paterno.title_province } 
+		title:b_paterno = { lease_out_to = character:7913 }
+
+		create_the_papal_states_effect_867 = yes
+	}
+}
+
+tct_on_start_1066 = {
+	trigger = {
+		game_start_date = 1066.9.15
+	}
+	effect = {
+		# Religion Setup
+		title:k_papal_state.holder = {
+			set_variable = tct_ecumenical_patriarch
+		}
+		title:k_orthodox.holder = {
+			set_variable = tct_ecumenical_patriarch
+		}
+		faith:catholic = {
+			add_doctrine = doctrine_independent_papacy_head
+			add_doctrine = doctrine_clerical_succession_investiture_law_appointment
+			remove_doctrine = doctrine_consanguinity_aunt_nephew_and_uncle_niece
+			add_doctrine = doctrine_consanguinity_restricted
+		}
+		faith:orthodox = {
+			add_doctrine = doctrine_autocephaly_head
+		}
+
+		# History Fixes
+		character:40060 = {
+			set_father = character:bordeaux_archbishop_9_father
+		}
+
+		# Title Setup
+		title:e_hre.holder = {
+			add_realm_law_skip_effects = free_investiture_early
+		}
+	}
+}
+
+on_army_enter_province = {
+	events = {
+		TCT_religious_events.811 #Give Crusaders their trait upon reaching the holy land.
 	}
 }
 
@@ -130,36 +204,6 @@ TCT_saint_day = {
 	}
 }
 
-
-#TCT_saint_day_real = {
-#	trigger = {
-#		is_adult = yes
-#	}
-#	random_events = { #What? But I'm afraid to touch
-#		1 = 0 #82 = 0
-#		1 = TCT_saint_days.0001 #Saint's Day! 
-#		#1 = bp1_yearly.3004 #Christmas, but a child!! 
-#		#1 = bp1_yearly.3006 # Reflecting on a great Christmas
-#		#1 = bp1_yearly.3006 # Last Christmas I gave you my heart
-#	}
-#}
-
-fixing867pope = {
-	trigger = {
-		game_start_date = 867.1.1
-	}
-	effect = {
-		title:k_papal_state.holder = { if = { limit = { is_lowborn = yes } title:k_papal_state.holder = { set_house = house:house_SanctiPetriFiliis } } }
-		title:k_papal_state.holder = { if = { limit = { has_trait = cardinal_archbishop } remove_trait = cardinal_archbishop } }
-		title:k_papal_state.holder = { if = { limit = { has_trait = cardinal_bishop } remove_trait = cardinal_bishop } }
-
-
-		title:b_paterno.title_province = { set_holding_type = castle_holding }
-		character:7913 = { get_title = title:b_paterno.title_province } 
-		title:b_paterno = { lease_out_to = character:7913 }
-	}
-}
-
 on_rank_down = {
 	events = {
 		TCT_religious_events.805
@@ -172,126 +216,19 @@ on_rank_up = {
 	}
 }
 
-mapmodes = {
-	effect = {
-		set_global_variable = {
-			name = custom_map_mode
-			value = flag:none
-		}
-	}
-}
-
-CatholicsimFix = {
-	effect = {
-		title:k_papal_state = {
-			if = {
-				limit = {
-					exists = holder
-					has_dlc_feature = royal_court
-				}
-				holder = {
-					set_court_language = language_latin
-					if = {
-						limit = { NOT = { knows_court_language_of = this } }
-						learn_court_language_of = this
-					}
-				}
-			}
-		}
-
-		every_living_character = { limit = { is_clergy = yes has_faith = faith:catholic NOT = { knows_language = language_latin } } learn_language = language_latin }
-		set_global_variable = {
-			name = Trinity_is_loaded
-			value = yes
-		}
-		title:k_papal_state.holder = {
-			set_variable = was_once_cardinal
-		}
-		# every_province = {
-		# 	limit = {
-		# 		faith = faith:catholic
-		# 		has_holding_type = church_holding
-		# 		barony = {
-		# 			holder = {
-		# 				NOT = { has_government_flag = theocracy_government }
-		# 			}
-		# 		}
-		# 	}
-		# 	add_to_list = every_province_to_make_bishops
-		# }
-		# every_in_list = {
-		# 	list = every_province_to_make_bishops
-			
-		# 	random_pool_character = {
-		# 		limit = {
-		# 			has_education_learning_trigger = yes
-		# 		}
-		# 		save_scope_as = bishop
-		# 	}
-		# 	create_title_and_vassal_change = {
-		# 		type = granted
-		# 		save_scope_as = title_change
-		# 		add_claim_on_loss = no
-		# 	}
-		# 	prev = {
-		# 		change_title_holder = {
-		# 			holder = scope:bishop
-		# 			change = scope:title_change
-		# 		}
-		# 	}
-		# 	resolve_title_and_vassal_change = scope:title_change
-		# }
-	}
-}
-
 on_character_faith_change = {
 	on_actions = {
-		characterfaithchangeTCT
+		TCT_on_faith_conversion
 	}
 }
 
 on_faith_conversion = {
 	on_actions = {
-		faithconversionTCT
+		TCT_on_faith_conversion
 	}
 }
 
-characterfaithchangeTCT = {
-	effect = {
-		if = {
-			limit = {
-				has_trait = TCT_antipope
-			}
-			TCT_remove_antipope = yes
-		}
-		if = {
-			limit = {
-				has_trait = cardinal_archbishop
-			}
-			remove_trait = cardinal_archbishop
-			remove_cardinal = yes
-			promote_new_cardinal = yes
-		}
-		if = {
-			limit = {
-				has_trait = cardinal_bishop
-			}
-			remove_trait = cardinal_bishop
-			remove_cardinal = yes
-			promote_new_cardinal = yes
-		}
-		if = {
-			limit = {
-				has_trait = cardinal_priest
-			}
-			remove_trait = cardinal_priest
-			remove_cardinal = yes
-			promote_new_cardinal = yes
-		}
-	}
-}
-
-faithconversionTCT = {
+TCT_on_faith_conversion = {
 	effect = {
 		if = {
 			limit = {
@@ -329,14 +266,13 @@ faithconversionTCT = {
 on_cardinal_preinitialize = {
 	# Set back-end configuration data 
 	effect = {
-		if = { # Vanilla parameters (For testing, since I don't have AGOT)
+		if = { # Vanilla parameters
 			limit = {
 				exists = faith:catholic
 			}
 			set_global_variable = {
 				name = gui_storage
 				value = religion:christianity_religion
-				#value = dummy_male
 			}
 			set_global_variable = {
 				name = the_catholic
@@ -386,11 +322,11 @@ on_cardinal_preinitialize = {
 on_faith_monthly = {
 	on_actions = {
 		delay = { months = 5 }
-		NewCrusadeLeader
+		TCT_set_new_crusade_leader
 	}
 }
 
-NewCrusadeLeader = {
+TCT_set_new_crusade_leader = {
 	trigger = {
 		exists = religious_head
 		exists = great_holy_war
@@ -459,23 +395,9 @@ on_game_start_after_lobby = {
 	on_actions = {
 		on_cardinal_initialize
 		CardinalsTraits
-		captianchurch
-		HREInvestiture
 	}
 }
 
-HREInvestiture = {
-	trigger = {
-		current_date >= 1059.1.1
-		exists = title:k_papal_state.holder
-		exists = title:e_hre.holder
-	}
-	effect = {
-		title:e_hre.holder = {
-			add_realm_law_skip_effects = free_investiture_early
-		}
-	}
-}
 
 on_great_holy_war_countdown_end = {
 	effect = {
@@ -505,53 +427,28 @@ on_great_holy_war_countdown_end = {
 	}
 }
 
-captianchurch = {
-	effect = {
-		if = {
-			limit = {
-				exists = title:d_captain_general_church.holder
-			}
-			title:d_captain_general_church.holder = {
-				get_title = title:c_tivoli
-
-				create_title_and_vassal_change = {
-					type = granted #or whatever
-					save_scope_as = change
-				}
-				
-				change_liege = {
-					liege = title:k_papal_state.holder
-					change = scope:change
-				}
-				resolve_title_and_vassal_change = scope:change
-				add_realm_law = mercenary_company_mod_succession_law
-			}
-		}
-	}
-}
-
 CardinalsTraits = {
 	effect = {
 		title:k_papal_state.holder = {
 			trigger_event = TCT_religious_events.22
 			faith = { update_cardinal_window = yes }
 		}
-		if = {
-			limit = {
-				title:k_papal_state.holder = {
-					faith = {
-						NOT = {
-							has_doctrine = doctrine_spiritual_head
-						}
-					}
-				}	
-			}
-			title:k_papal_state.holder = {
-				faith = {
-					add_doctrine = doctrine_spiritual_head
-				}
-			}
-		}
+		# if = {
+		# 	limit = {
+		# 		title:k_papal_state.holder = {
+		# 			faith = {
+		# 				NOT = {
+		# 					has_doctrine = doctrine_spiritual_head
+		# 				}
+		# 			}
+		# 		}	
+		# 	}
+		# 	title:k_papal_state.holder = {
+		# 		faith = {
+		# 			add_doctrine = doctrine_spiritual_head
+		# 		}
+		# 	}
+		# }
 	}
 	on_actions = {
 		delay = { months = 1 }

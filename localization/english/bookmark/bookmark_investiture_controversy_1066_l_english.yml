@@ -1,5 +1,7 @@
 ﻿l_english: 
 
+ BOOKMARK_RELATION_FATHER_IN_LAW: "(Father-in-law)"
+
  bm_investiture: "The Investiture Controversy"
  bm_investiture_desc: "The year is 1066, and the Holy Roman Empire is soon to be in turmoil. Ildebrando di Soana, a charismatic reformer, is rapidly ascending through the Church’s ranks, driving a bold new vision for the Church’s role in the world. No longer shall the Papacy remain content with merely advising kings; the Church now seeks to define the very essence of its rule by confronting the unchecked practices of Simony, Clerical Celibacy, and the appointment of bishops and abbots - Investiture. \n\nEmperor Henry IV flagrantly disregards these reform talks, alienating his vassals and the Church. His actions deepened the rift between the German princes, particularly the Saxon lords, who were aware of the shifting balance and have positioned themselves to exploit the instability."
 
@@ -11,3 +13,11 @@
 
  bookmark_ordulf: "Ordulf of Saxony"
  bookmark_ordulf_desc: "Ordulf of Saxony, is the Duke of Saxony and the father of Magnus Billung. Tired of the Emperor’s enroachment on Saxony’s autonomy, Ordulf has been working to secure the interests the Saxon people. He has been quietly building alliances with other powerful German princes, such as Rudolf of Rheinfelden and Otto of Nordheim, and is now poised to challenge the Emperor’s authority and assert his own independence."
+
+ bookmark_matilda: "Matilda of Tuscany"
+ bookmark_matilda_desc: "Matilda of Tuscany is a powerful and influential figure in the Holy Roman Empire. The daughter of Boniface of Tuscany, she has inherited vast estates in Tuscany and Lombardy, and has been a close ally of the Papacy. She has been granted the title of Imperial Vicar for the Papacy, and has been tasked with defending the Church’s interests in Italy. Matilda is now poised to challenge the authority of the Emperor and assert the independence of the Church in Italy."
+
+  bookmark_welf: "Welf, Count of Ravensburg"
+  bookmark_welf_desc: "Welf Welf, Count of Ravensburg, son of Azzo II of Lombard-Este, and son-in-law to Otto Nordheim of Bavaria. With growing discontent among the German princes, Welf is stuck in between loyality to the Emperor in Germany, loyalities to his father-in-lwa or his possible inheritances in Italy." 
+  bookmark_azzo: "Azzo II of Lombardy"
+  bookmark_otto: "Otto of Nordheim" 
