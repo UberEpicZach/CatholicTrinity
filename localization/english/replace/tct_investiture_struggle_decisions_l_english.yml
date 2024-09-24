@@ -88,6 +88,9 @@
  tct_neutral_struggle.0003.a: "All in good time.."
 
 
+ tct_neutral_struggle.0004.t: "Ravensburg, Disinheritance and Rising Rebellion"
+ tct_neutral_struggle.0004.desc: "[spouse.GetFirstName]’s family, the Dukes of Bavaria, stand firm against [emperor.GetTitledFirstName]'s ambition, but I am left with little more than Ravensburg. My father, [father.GetFullName], favors my half-brother, leaving me to wonder where my future lies. The [spouse.GetDynastyName]’ potential rebellion is tempting, but aligning with the Emperor may secure my position. Or perhaps I could look back towards Lombardy, where my blood still ties me, offering another path." 
+
 
  tct_investiture_struggle.0051.t: "The Investiture Controversy"
  tct_investiture_struggle.0051.desc: "A new power struggle arrises, that threatens to rend Christendom asunder. The Holy Roman Emperor and the Pope stand opposed as the rights of [investiture|E] become the battleground for supremacy while Noble houses see both peril and promise...\n"

@@ -232,3 +232,58 @@ tct_neutral_struggle.0003 = {
 		}
 	}
 }
+
+# Welf IV, First Event in Chain
+tct_neutral_struggle.0004 = {
+	type = character_event
+	id = tct_neutral_struggle.0004
+	title = tct_neutral_struggle.0004.t
+	desc = tct_neutral_struggle.0004.desc
+	#  tct_neutral_struggle.0004.desc: "[spouse.GetFirstName]’s family stands firm against the Emperor as the Dukes of Bavaria, but I am left with little more than Ravensburg. My father, [father.GetFullName], favors my half-brother, leaving me to wonder where my future lies. The [spouce.GetDynastyName]’ potential rebellion is tempting, but aligning with the Emperor may secure my position. Or perhaps I could look back towards Lombardy, where my blood still ties me, offering another path."
+
+	theme = realm
+	override_background = {
+		reference = farmland
+	}
+	left_portrait = {
+		character = title:c_ravensburg.holder 
+		animation = thinking
+	}
+	right_portrait = {
+		character = primary_spouse
+		animation = personality_rational
+	}
+	lower_right_portrait = {
+		character = primary_spouse.real_father
+	}
+	lower_left_portrait = {
+		character = real_father
+	}
+	lower_center_portrait = {
+		character = real_mother
+	}
+
+	immediate = {
+		primary_spouse = {
+			save_scope_as = spouse
+		}
+		father = {
+			save_scope_as = father
+		}
+		title:e_hre.holder = {
+			save_scope_as = emperor
+		}
+	}
+
+	option = {
+		name = tct_neutral_struggle.0004.a
+	}
+
+	option = {
+		name = tct_neutral_struggle.0004.b
+	}
+
+	option = {
+		name = tct_neutral_struggle.0004.c
+	}
+}

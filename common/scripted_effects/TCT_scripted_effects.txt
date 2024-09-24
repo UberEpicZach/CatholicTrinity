@@ -923,6 +923,24 @@ pledge_ghw_piety_gain_effect = {
 	}
 }
 
+hof_ask_for_claim_interaction_effect = {
+	scope:secondary_recipient = {
+		add_opinion = {
+			target = scope:actor
+			modifier = claimed_my_title_opinion
+			opinion = -50
+		}
+	}
+	scope:actor = {
+		if = {
+			limit = { always = scope:claim_hook }
+			use_hook = scope:recipient
+		}
+		add_pressed_claim = scope:target
+	}
+}
+
+
 # Updates the likely next cardinal candidate ("Predictus" is the mod's term for it, but it is not a real term, unlike Preferatus.)
 select_highest_scoring_cardinal_candidate_test2 = { 
 	# Look for rulers who are valid candidates:
