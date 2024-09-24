@@ -83,6 +83,24 @@
 			}
 		}
 
+		AND = {
+			scope:actor = {
+				any_character_struggle = {
+					involvement = involved
+					is_struggle_type = investiture_controversy_struggle
+				}
+			}
+
+			scope:secondary_actor = {
+				scope:actor = {
+					any_character_struggle = {
+						involvement = involved
+						is_struggle_type = investiture_controversy_struggle
+					}
+				}
+			}
+		}
+
 		trigger_if = {
 			limit = {
 				exists = scope:recipient
