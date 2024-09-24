@@ -83,19 +83,24 @@
 			}
 		}
 
-		AND = {
-			scope:actor = {
-				any_character_struggle = {
-					involvement = involved
-					is_struggle_type = investiture_controversy_struggle
-				}
-			}
-
-			scope:secondary_actor = {
+		custom_description = {
+			text = "in_investiture_struggle"
+			AND = {
 				scope:actor = {
 					any_character_struggle = {
 						involvement = involved
 						is_struggle_type = investiture_controversy_struggle
+						is_struggle_phase = investiture_controversy_phase_hostility
+					}
+				}
+	
+				scope:secondary_actor = {
+					scope:actor = {
+						any_character_struggle = {
+							involvement = involved
+							is_struggle_type = investiture_controversy_struggle
+							is_struggle_phase = investiture_controversy_phase_hostility
+						}
 					}
 				}
 			}

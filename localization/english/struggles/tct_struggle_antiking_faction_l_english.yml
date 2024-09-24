@@ -3,6 +3,7 @@
  TCT_antiking_ui_trigger:0 "Create Anti-King Faction"
 
  has_claim_on_hre:0 "Is not a claim on the Holy Roman Empire"
+ in_investiture_struggle:0 "NOT in the Hostility Phase of the Investiture Struggle"
 
  FACTION_REASON_HRE_VASSAL: "Same [heritage|E] as Holy Roman [liege|E]: $VALUE|0+=$"
 

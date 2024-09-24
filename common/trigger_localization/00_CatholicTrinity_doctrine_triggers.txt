@@ -30,3 +30,7 @@ lots_of_money = {
 has_claim_on_hre = {
 	first_not = has_claim_on_hre
 }
+
+in_investiture_struggle = {
+	first_not = in_investiture_struggle
+}
