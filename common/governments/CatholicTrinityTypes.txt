@@ -2,9 +2,10 @@
 mercenary_government_mod = {
 	government_rules = {
 		court_generate_spouses = no
-		court_generate_commanders = 30
 		council = yes
 	}
+
+	court_generate_commanders = 30
 
 	primary_holding = castle_holding
 	required_county_holdings = { castle_holding city_holding church_holding }

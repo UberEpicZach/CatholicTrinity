@@ -1,7 +1,5 @@
 ﻿l_english:
-
-
- tct_investiture_struggle_install_loyalist_cb
+ #tct_investiture_struggle_install_loyalist_cb
  tct_install_imperial_loyalist_cb: "Install Imperial Loyalist"
  tct_install_imperial_loyalist_cb_cooldown_trigger: "You may only use this [casus_belli|E] once a year!"
  tct_install_imperial_loyalist_cb_victory_desc: "The [ruler|E] of [defender.GetPrimaryTitle.GetBaseName|U] is deposed and replaced with a [GetTrait('tct_imperial_supporter').GetName( GetNullCharacter )] of the Emperor."

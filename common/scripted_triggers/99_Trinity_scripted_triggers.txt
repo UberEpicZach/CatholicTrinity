@@ -553,7 +553,42 @@ tct_archbishop_trigger = {
 
 
 
-
+# Can the AI create a new laamp without threatening performance?
+## Beware of expanding this past the soft-cap figure of around ~200: code estimations were made with this number in mind, so the more we let slip the net, the more they'll start to degrade performance.
+### YOU HAVE BEEN WARNED.
+ai_can_valid_to_create_laamp_trigger = {
+	save_temporary_scope_as = char_temp
+	OR = {
+		# General checking.
+		global_variable_list_size = {
+			name = laamps_tally
+			value < max_desired_laamps_value
+		}
+		# Player-relevant.
+		any_player = {
+			OR = {
+				is_close_or_extended_family_of = scope:char_temp
+				is_consort_of = scope:char_temp
+				has_important_relationship_with_character_trigger = { CHARACTER = scope:char_temp }
+				is_allied_in_war = scope:char_temp
+				is_allied_to = scope:char_temp
+				is_at_war_with = scope:char_temp
+			}
+		}
+		# Encourage legitimists.
+		AND = {
+			any_claim = { tier >= tier_kingdom }
+			global_variable_list_size = {
+				name = laamps_tally
+				value < {
+					value = max_desired_laamps_value
+					multiply = 1.25
+				}
+			}
+		}
+		has_character_flag = force_ai_created_laamp
+	}
+}
 
 
 

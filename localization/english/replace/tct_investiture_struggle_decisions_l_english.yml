@@ -90,6 +90,69 @@
 
  tct_neutral_struggle.0004.t: "Ravensburg, Disinheritance and Rising Rebellion"
  tct_neutral_struggle.0004.desc: "[spouse.GetFirstName]’s family, the Dukes of Bavaria, stand firm against [emperor.GetTitledFirstName]'s ambition, but I am left with little more than Ravensburg. My father, [father.GetFullName], favors my half-brother, leaving me to wonder where my future lies. The [spouse.GetDynastyName]’ potential rebellion is tempting, but aligning with the Emperor may secure my position. Or perhaps I could look back towards Lombardy, where my blood still ties me, offering another path." 
+ tct_neutral_struggle.0004.a: "We should not be so hasty."
+ tct_neutral_struggle.0004.a.tt: "The future is uncertain and may present you different opportunities."
+
+ # Saxon Rebellion Chain
+
+# "Accusations of Treason" (1070). # Event for Otto of Bavaria and Heinrich IV 
+# Egeno of Konradsburg accuses Otto of Bavaria for Treason. Calls for a Trial
+ tct_neutral_struggle.0005.t: "Accusations of Treason"
+ tct_neutral_struggle.0005.desc: "A messenger from the court of [emperor.GetTitledFirstName] arrived unexpectedly, and the messenger urgently handed me a sealed letter marked with the royal crest. The demand is clear: I am to present myself in [province.GetNameNoTier] to answer for certain 'crimes' against the crown. My heart races as I break the seal, the contents heavy with accusation. \n\n#italic ‘I, [Egeno.GetFullName], stand before you with a dire truth: I have uncovered a vile conspiracy against our sovereign, [emperor.GetTitledFirstName]. The [saxons.GetName] counts alongside [otto.GetFirstName] [otto.GetDynastyName], [otto.GetTitleAsNameNoTooltip] of [otto.GetPrimaryTitle.GetNameNoTier], have plotted in secret to overthrow the crown. But it goes further—[otto.GetFirstName] himself gave me the order to murder the king! This treachery runs deep, and I have borne witness to their twisted designs.' #! \n\nConspiracy... #italic Murder...#! My name now tied to treason...\nNo doubt the entire realm has seen these accusations by now; all eyes are me."
+ tct_neutral_struggle.0005.a: "There's no proof.."
+ tct_neutral_struggle.0005.a.tt: "You will travel to [province.GetNameNoTier]"
+ 
+ 
+# "The Court's Judgment" # Event for Otto of Bavaria and Heinrich IV 
+# Attempt to plea your case, or break off as an adventurer. (If Deposed you become an adventurer anyways)
+ tct_neutral_struggle.0006.t: "The Court's Judgment"
+ tct_neutral_struggle.0006.desc: "As I ride through the city streets, the weight of countless eyes is upon me—nobles whisper behind closed doors, and commoners watch with wary curiosity. [emperor.GetTitledFirstName], perched on his seat of power, is not seeking justice today. His aim is clear: to eliminate a threat, one of the few [saxons.GetName]'s' who might stand against him.\n\nStill, I ride on. For the sake of my house, I must face what lies ahead. To flee now would only confirm every whisper, every accusation. But to stand my ground and face trial... perhaps there is still a chance, however slim, to turn this judgment to my advantage...My name is called, and the trial begins."
+ tct_neutral_struggle.0006.a: "I will face the court."
+ tct_neutral_struggle.0006.a.success: "Your speech convinces the jury of your innocence"
+ tct_neutral_struggle.0006.a.failure: "Your speech fails to convince anyone"
+ tct_neutral_struggle.0006.b: "I must #italic flee#!"
+ 
+# New Opportunities # Event for Welf IV
+# Offer from Emperor, for Welf to Divorce Wife / Split from Nordheim's, In exchange, get the Duchy of Bavaria
+ tct_neutral_struggle.0007.t: "New Opportunities"
+ tct_neutral_struggle.0007.desc: "The Imperial Chancellor has arrived unexpectedly, bearing a message from [emperor.GetTitledFirstName] himself. He begins, relaying the emperor's offer with exact and careful words. "[otto.GetFirstName] [otto.GetDynastyName], the [otto.GetTitleAsName] of [otto.GetPrimaryTitle.GetNameNoTier], your father-in-Law, currently stands trial in [province.GetNameNoTier]..." \n\nThough the chancellor's tone, it is clear the trial is merely a formality. Otto's fate has already been sealed—the emperor intends to remove him from power. \n\nThe chancellor leans closer, his voice lowering. "[emperor.GetTitledFirstName] offers you a great opportunity. Swear your loyalty to him, divorce your Nordheim wife, and sever all ties with her family. In exchange, the Duchy of Bavaria will be yours." The offer is straightforward: break from Otto's house, and the duchy will pass to my hands, but to turn my back on Otto and Ethelinde... I must decide quickly..."
+
+
+# New Opportunities # Event for Welf IV
+# Offer from Emperor, for Welf to Divorce Wife / Split from Nordheim's, In exchange, get the Duchy of Bavaria
+
+# "Allies in the Shadows" # Event for Otto of Bavaria and Magnus Billung
+# Otto Forging war plans with Magnus Billung
+
+# "The Saxon Revolt" # Event for Otto of Bavaria and Heinrich IV, maybe everyone in the struggle region?
+
+# The Treaty of Gerstungen # Event for Otto of Bavaria and Heinrich IV
+
+# "The Sack of Harzburg" # Event for Otto of Bavaria and Heinrich IV
+
+# The Second Rebellion # Event for Otto of Bavaria and Heinrich IV
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
  tct_investiture_struggle.0051.t: "The Investiture Controversy"

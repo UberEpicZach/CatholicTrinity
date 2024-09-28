@@ -1,5 +1,21 @@
 ﻿namespace = TCT_faction_demand
 
+scripted_effect TCT_faction_demand_ANTIKING_rejected_effect = {
+	# This effect should always be placed here, _before_ all the other effects in the block.
+	trigger_event = { on_action = on_TCT_faction_demand_rejected }
+	
+	show_as_tooltip = {
+		scope:faction = {
+			faction_start_war = { title = scope:target_title }
+			faction_spawn_member_county_armies_effect = {
+				FACTION = scope:faction
+				ARMY_OWNER = scope:faction_leader
+				PEASANT_ARMY_NAME = claimant_faction_event_troops
+			}
+		}
+	}
+}
+
 # Claimant Faction Demand
 # by Ismael Serrano
 TCT_faction_demand.2001 = {
@@ -27,7 +43,7 @@ TCT_faction_demand.2001 = {
 		# Grab our scope for loc.
 		save_scope_as = faction_target
 		set_variable = {
-			name = claimant_faction_sent_demand
+			name = antiking_faction_sent_demand
 			value = scope:faction_claimant
 		}
 	}
@@ -72,8 +88,6 @@ TCT_faction_demand.2001 = {
 			ATTACKER = scope:faction.faction_leader
 			DEFENDER = root
 			CLAIMANT = scope:faction.special_character
-		#	ATTACKER_PRESTIGE = 0
-		#	DEFENDER_PRESTIGE = 0
 		}
 
 		ai_chance = {
@@ -129,46 +143,46 @@ TCT_faction_demand.2001 = {
 		}
 	}
 
-	option = {
-		name = "TCT_FACTION_DEMAND_BRIBE_CO_EMPEROR"
-		show_as_unavailable = {
-			OR = {
-				has_active_diarchy = yes
-				scope:faction_leader != scope:faction.special_character
-			}
-		}
-		trigger = {
-			faction_target_can_attempt_to_bribe_with_co_emperorship_trigger = yes
-			custom_tooltip = {
-				text = TCT_FACTION_DEMAND_BRIBE_CO_EMPEROR_REASON
-				scope:faction_leader = scope:faction.special_character
-			}
-		}
+	# option = {
+	# 	name = "TCT_FACTION_DEMAND_BRIBE_CO_EMPEROR"
+	# 	show_as_unavailable = {
+	# 		OR = {
+	# 			has_active_diarchy = yes
+	# 			scope:faction_leader != scope:faction.special_character
+	# 		}
+	# 	}
+	# 	trigger = {
+	# 		faction_target_can_attempt_to_bribe_with_co_emperorship_trigger = yes
+	# 		custom_tooltip = {
+	# 			text = TCT_FACTION_DEMAND_BRIBE_CO_EMPEROR_REASON
+	# 			scope:faction_leader = scope:faction.special_character
+	# 		}
+	# 	}
 
-		# Ping-pong the choice back to the target.
-		## Laying out the consequences.
-		show_as_tooltip = {
-			random_list = {
-				# They accept!
-				100 = {
-					desc = TCT_faction_demand.0000.faction_leader_accepts
-					show_chance = no
-					TCT_faction_demand_counter_offer_co_rule_start_diarchy_effect = yes
-					TCT_faction_demand_ANTIKING_counter_offer_corule_accepted_effect = yes
-				}
-				# They decline.
-				100 = {
-					desc = TCT_faction_demand.0000.faction_leader_rejects
-					show_chance = no
-					TCT_faction_demand_ANTIKING_rejected_effect = yes
-				}
-			}
-		}
-		## And sorting the actual flow.
-		scope:faction_leader = { trigger_event = TCT_faction_demand.2006 }
+	# 	# Ping-pong the choice back to the target.
+	# 	## Laying out the consequences.
+	# 	show_as_tooltip = {
+	# 		random_list = {
+	# 			# They accept!
+	# 			100 = {
+	# 				desc = TCT_faction_demand.0000.faction_leader_accepts
+	# 				show_chance = no
+	# 				TCT_faction_demand_counter_offer_co_rule_start_diarchy_effect = yes
+	# 				TCT_faction_demand_ANTIKING_counter_offer_corule_accepted_effect = yes
+	# 			}
+	# 			# They decline.
+	# 			100 = {
+	# 				desc = TCT_faction_demand.0000.faction_leader_rejects
+	# 				show_chance = no
+	# 				TCT_faction_demand_ANTIKING_rejected_effect = yes
+	# 			}
+	# 		}
+	# 	}
+	# 	## And sorting the actual flow.
+	# 	scope:faction_leader = { trigger_event = TCT_faction_demand.2006 }
 
-		ai_chance = { liege_offer_co_emperorship_to_faction_leader_modifier = yes }
-	}
+	# 	ai_chance = { liege_offer_co_emperorship_to_faction_leader_modifier = yes }
+	# }
 
 	option = {
 		name = "TCT_FACTION_DEMAND_REFUSE"
@@ -224,7 +238,7 @@ TCT_faction_demand.2001 = {
 	}
 
 	after = {
-		remove_variable = claimant_faction_sent_demand
+		remove_variable = antiking_faction_sent_demand
 	}
 }
 
@@ -239,7 +253,7 @@ TCT_faction_demand.2002 = {
 	desc = "TCT_FACTION_DEMAND_ANTIKING_ACCEPTED_DESC"
 
 	option = {
-		name = "TCT_FACTION_DEMAND_ACCEPTED_OPT"
+		name = "FACTION_DEMAND_ACCEPTED_OPT"
 	}
 }
 
@@ -254,7 +268,7 @@ TCT_faction_demand.2003 = {
 	desc = "TCT_FACTION_DEMAND_ANTIKING_REFUSED_DESC"
 
 	option = {
-		name = "TCT_FACTION_DEMAND_REFUSED_OPT"
+		name = "FACTION_DEMAND_REFUSED_OPT"
 		scope:faction = {
 			every_faction_member = {
 				limit = {
@@ -288,7 +302,7 @@ TCT_faction_demand.2004 = {
 	desc = "TCT_FACTION_DEMAND_ANTIKING_REFUSED_DESC"
 
 	option = {
-		name = "TCT_FACTION_DEMAND_REFUSED_OPT"	
+		name = "FACTION_DEMAND_REFUSED_OPT"	
 		custom_tooltip = TCT_faction_demand.2004.opt_tt
 	}
 }
@@ -304,6 +318,6 @@ TCT_faction_demand.2005 = {
 	desc = "TCT_FACTION_DEMAND_ANTIKING_SEND_DEMAND_NOTIFICATION_DESC"
 
 	option = {
-		name = "TCT_FACTION_DEMAND_SEND_DEMAND_NOTIFICATION_OPT"	
+		name = "FACTION_DEMAND_SEND_DEMAND_NOTIFICATION_OPT"	
 	}
 }

@@ -1,7 +1,7 @@
 TCT_region_pentarchy_rome = {
 	duchies = {
 		# Britania
-		d_elmet d_cynwidion d_bedford d_norfolk d_hereford d_gloucester d_canterbury d_somerset d_gwynedd d_powys d_deheubarth d_cornwall
+		d_bedford d_norfolk d_hereford d_gloucester d_canterbury d_somerset d_gwynedd d_powys d_deheubarth d_cornwall
 		# Brigantia
 		d_northumberland d_lancaster d_york
 		# Scotland
@@ -10,11 +10,11 @@ TCT_region_pentarchy_rome = {
 		d_meath d_ulster d_connacht d_leinster d_munster
 	
 		# Alemannia
-		d_augsburg d_swabia d_baden d_alsace d_currezia
+		d_augsburg d_swabia d_alsace d_currezia
 		# Francia
-		d_west_franconia d_lower_lorraine d_trier
+		d_west_franconia d_lower_lorraine
 		# Burgundy
-		d_east_franconia d_nurnberg d_nordgau d_regensburg
+		d_east_franconia d_nordgau
 		# Frisia
 		d_holland d_gelre d_utrecht d_frisia
 		# Langobardy
@@ -26,22 +26,21 @@ TCT_region_pentarchy_rome = {
 		# Thuringia
 		d_thuringia d_hesse
 		# Rugia
-		d_achen
-		d_stettin d_pommerania d_pomerelia
+		d_pommerania d_pomerelia
 
 		d_ragusa d_julich d_lower_bosna
 	
 		# Belgica
 		d_flanders d_brabant d_luxembourg
 		# Gaul
-		d_boulogne d_valois d_berry d_anjou d_normandy d_orleans d_champagne d_burgundy d_bar d_upper_lorraine d_brittany d_upper_burgundy
+		d_valois d_berry d_anjou d_normandy d_orleans d_champagne d_burgundy d_bar d_upper_lorraine d_brittany d_upper_burgundy
 		# Aquitaine
 		d_gascogne d_aquitaine d_armagnac d_poitou d_bourbon
 		# Narbonensis
 		d_auvergne d_toulouse d_languedoc d_provence d_savoie d_dauphine d_transjurania
 	
 		# Tarraconensis
-		d_toledo d_cuenca d_aragon d_barcelona d_valencia d_mallorca d_murcia
+		d_toledo d_aragon d_barcelona d_valencia d_mallorca d_murcia
 		# Baetica
 		d_cordoba d_granada d_sevilla
 		# Lusitania
@@ -65,7 +64,7 @@ TCT_region_pentarchy_rome = {
 		# Dalmatia
 		d_krain d_syrmia d_slavonia d_macva d_dalmatia d_croatia d_bosna d_usora
 		# Pannonia
-		d_visegrad d_hewes d_somogy d_bacs d_gyor
+		d_visegrad d_somogy d_bacs d_gyor
 		# Noricum
 		d_bavaria d_salzburg d_steyermark d_osterreich d_tyrol d_carinthia
 		
@@ -75,7 +74,7 @@ TCT_region_pentarchy_rome = {
 		d_benevento d_capua d_apulia d_salerno d_calabria d_sicily
 		
 		# Wendish
-		d_bohemia d_znojmo d_moravia d_cherven d_lesser_poland d_wielkopolska d_mazovia d_upper_silesia d_lower_silesia d_kuyavia d_nyitra d_lower_quadia d_odeland d_ungvar
+		d_bohemia d_moravia d_lesser_poland d_wielkopolska d_mazovia d_upper_silesia d_lower_silesia d_kuyavia d_nyitra d_ungvar
 	
 		# Baltics
 		d_lithuanians d_prussia d_masuria d_samogitia d_courland d_latgalians d_esthonia d_livonia
@@ -91,9 +90,8 @@ TCT_region_pentarchy_rome = {
 TCT_region_pentarchy_constantinople = {
 	duchies = {
 		#Anatolia
-		d_aegean_islands d_ephese d_opsikion d_cilicia d_cibyrrhaeot d_anatolia d_thracesia d_optimatoi d_bucellaria d_paphlagonia d_armeniac d_sebasteia d_charsianon d_cappadocia d_chaldia
+		d_ephese d_opsikion d_cilicia d_cibyrrhaeot d_anatolia d_thracesia d_bucellaria d_paphlagonia d_armeniac d_sebasteia d_charsianon d_cappadocia d_chaldia
 		# Pontus
-		d_paphlagonia d_chaldia d_armeniac d_bucellaria
 		
 		# Moesia
 		d_vidin d_turnovo d_bulgaria d_rashka d_duklja
@@ -104,7 +102,7 @@ TCT_region_pentarchy_constantinople = {
 		# Hellas
 		d_aegean_islands d_athens d_achaia d_krete
 		# Macedonia
-		d_strumica d_thessalonika d_thessaly
+		d_thessalonika d_thessaly
 		
 		# Crimea
 		d_crimea
@@ -112,7 +110,7 @@ TCT_region_pentarchy_constantinople = {
 		# Visigoths
 		d_transylvanian_alps d_muntenia d_oltenia d_moldova
 		# Ostrogoths
-		d_yedisan d_bukovina d_iasi d_bugeac
+		d_yedisan d_bukovina d_bugeac
 		# Gepids
 		d_transylvania d_bihar d_temes d_transcarpathia
 	
@@ -120,7 +118,7 @@ TCT_region_pentarchy_constantinople = {
 		d_cherven_cities d_volhynia d_halych d_grodno d_turov d_kiev d_pereyaslavl d_chernigov d_minsk d_polotsk d_smolensk d_karachev d_novosil d_voronezh d_pinsk d_ryazan
 	
 		# Ilmenia and Vepsia
-		d_tver d_novgorod d_vepsia d_luki d_biarmia d_chudia d_vologda d_ustyug
+		d_novgorod d_vepsia d_luki d_biarmia d_chudia d_vologda d_ustyug
 	
 		# Volga-Ural
 		d_martyuba d_opolye d_nizhny_novgorod d_mordvinia d_chuvashia d_khopyor d_levedia
@@ -152,12 +150,6 @@ TCT_region_pentarchy_antiochia = {
 		d_tao-klarjeti d_abkhazia d_georgia
 		#Armenia-proper
 		d_vaspurakan d_mesopotamia d_greater_armenia d_shirvan
-		#Atropatene
-		d_azerbaijan
-		#Sophene
-		d_diyarbakr
-		#Gordyene & Adiabene
-		d_kurdistan
 
 		#Jazira
 		d_diyarrabia d_diyarmudar d_diyarbakr d_euphrates
@@ -168,7 +160,7 @@ TCT_region_pentarchy_antiochia = {
 		#Persia
 		d_isfahan d_kirman d_yazd d_rayy d_hamadan d_fars d_hormuz d_khuzestan  
 		#k_khorasan
-		d_nishapur d_merv d_ghur d_herat d_balkh d_nasa d_TCTestan
+		d_nishapur d_merv d_ghur d_herat d_balkh d_nasa d_kohestan
 		#k_daylam
 		d_daylam d_tabaristan d_gurgan d_azerbaijan
 		#k_transoxiana
@@ -190,11 +182,11 @@ TCT_region_pentarchy_antiochia = {
 		#Cumania
 		d_kurgan d_mugodzhar_hills d_atyrau d_turgay d_kush-murun d_saryarka d_kazakh d_kentarlau d_karkaraly d_karabas d_betpa d_semey
 	}
-	regions = {
-		ghw_region_siberia
-		ghw_region_caspian_steppe
-		dlc_ep1_mongol_trade_region
-	}
+	# regions = {
+	# 	ghw_region_siberia
+	# 	ghw_region_caspian_steppe
+	# 	dlc_ep1_mongol_trade_region
+	# }
 }
 TCT_region_pentarchy_jerusalem = {
 	duchies = {
@@ -214,8 +206,8 @@ custom_investiture_struggle = {
 		# Bohemia
 		d_bohemia d_moravia
 		# Saxony
-		d_anhalt d_angria d_westfalen d_ostfalen d_meissen d_lausitz d_holstein d_thuringia d_ostmark d_northmark
-		d_holland d_gelre d_brabant d_utrecht d_frisia
+		d_anhalt d_angria d_westfalen d_ostfalen d_meissen d_lausitz d_holstein d_thuringia d_ostmark d_nordmark
+		d_holland d_gelre d_utrecht d_frisia
 		d_luxembourg d_brabant d_julich d_upper_lorraine d_lower_lorraine
 		d_bavaria d_nordgau d_salzburg d_augsburg d_steyermark d_osterreich d_tyrol d_carinthia d_krain d_istria
 		d_east_franconia d_west_franconia d_hesse d_currezia d_alsace d_swabia

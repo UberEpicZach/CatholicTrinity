@@ -1,4 +1,4 @@
-﻿namespace = tct_neutral_struggle
+namespace = tct_neutral_struggle
 
 ##################################################
 # MAINTENANCE EVENTS
@@ -277,13 +277,329 @@ tct_neutral_struggle.0004 = {
 
 	option = {
 		name = tct_neutral_struggle.0004.a
-	}
-
-	option = {
-		name = tct_neutral_struggle.0004.b
-	}
-
-	option = {
-		name = tct_neutral_struggle.0004.c
+		custom_tooltip = tct_neutral_struggle.0004.a.tt
 	}
 }
+
+# Saxon Rebellion Chain
+
+# "Accusations of Treason" (1070). # Event for Otto of Bavaria and Heinrich IV 
+# Egeno of Konradsburg accuses Otto of Bavaria for Treason. Calls for a Trial
+
+tct_neutral_struggle.0005 = {
+	type = character_event
+	id = tct_neutral_struggle.0005
+	title = tct_neutral_struggle.0005.t
+	desc = tct_neutral_struggle.0005.desc
+
+	theme = realm
+	override_background = {
+		reference = throne_room
+	}
+	left_portrait = {
+		character = scope:otto
+		animation = thinking
+	}
+	right_portrait = {
+		character = scope:Egeno
+		animation = storyteller
+	}
+	lower_right_portrait = {
+		character = title:e_hre.holder
+	}
+
+	immediate = {
+		title:d_bavaria.holder = {
+			save_scope_as = otto
+		}
+		title:e_hre.holder = {
+			save_scope_as = emperor
+			capital_county = { save_scope_as = province }
+		}
+
+		culture:saxon = {
+			save_scope_as = saxons
+		}
+
+		create_character = {
+			age = { 20 32 }
+			name = "Egeno of Konradsburg"
+			location = root.capital_province
+			gender = male
+			culture = root.culture
+			faith = root.faith
+			random_traits = yes
+			martial = { 10 19 }
+			dynasty = none
+			after_creation = { 
+				add_gold = { minor_gold_value medium_gold_value }
+				add_prestige = { minor_prestige_gain medium_prestige_gain }
+				add_piety = { minor_piety_gain medium_piety_gain }
+				title:e_hre.holder = {
+					add_courtier = prev
+				}
+			}
+		
+			save_scope_as = Egeno
+		}
+	}
+
+	option = {
+		name = tct_neutral_struggle.0005.a
+
+		if = {
+			limit = {
+				this = character:112600
+			}		
+			add_character_flag = {
+				flag = no_redirect
+				days = 100
+			}
+			custom_tooltip = tct_neutral_struggle.0005.a.tt
+			start_travel_plan = {
+				players_use_planner = no
+				destination = scope:emperor.capital_province
+				on_arrival_destinations = last
+				on_arrival_event = tct_neutral_struggle.0006
+				return_trip = no # One way
+			}
+		}
+	}
+}
+
+# "The Court's Judgment" # Event for Otto of Bavaria and Heinrich IV 
+# Attempt to plea your case, or break off as an adventurer. (If Deposed you become an adventurer anyways)
+
+tct_neutral_struggle.0006 = {
+	type = character_event
+	id = tct_neutral_struggle.0006
+	title = tct_neutral_struggle.0006.t
+	desc = tct_neutral_struggle.0006.desc
+
+	theme = realm
+	override_background = {
+		reference = throne_room
+	}
+	left_portrait = {
+		character = scope:otto
+		animation = thinking
+	}
+	right_portrait = {
+		character = scope:Egeno
+		animation = storyteller
+	}
+	lower_right_portrait = {
+		character = title:e_hre.holder
+	}
+
+	immediate = {
+		title:c_ravensburg.holder = {
+			trigger_event = { days = 1 id = tct_neutral_struggle.0007 }
+		}
+	}
+
+	option = {
+		name = tct_neutral_struggle.0006.a
+		show_as_tooltip = {
+			duel = {
+				skills = { diplomacy intrigue }
+				value = extremely_high_skill_rating
+				50 = {
+					desc = tct_neutral_struggle.0006.a.success
+					compare_modifier = {
+						value = scope:duel_value
+						multiplier = 3.5
+					}
+					send_interface_toast = {
+						title = tct_neutral_struggle.0006.a.success
+						left_icon = root
+						add_legitimacy = medium_legitimacy_gain
+					}
+				}
+				50 = {
+					desc = tct_neutral_struggle.0006.a.failure
+					compare_modifier = {
+						value = scope:duel_value
+						multiplier = -3.5
+					}
+					send_interface_toast = {
+						title = tct_neutral_struggle.0006.a.failure
+						left_icon = root
+						attempted_murder_opinion_effect = { 
+							VICTIM = scope:emperor
+							MURDERER = scope:otto
+						}
+					}
+					depose_effect = { DEPOSER = scope:emperor }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = tct_neutral_struggle.0006.b
+	}
+
+	after = {
+		hidden_effect = {
+			send_interface_toast = {
+				title = tct_neutral_struggle.0006.a.failure
+				left_icon = root
+				attempted_murder_opinion_effect = { 
+					VICTIM = scope:emperor
+					MURDERER = scope:otto
+				}
+			}
+		}
+	}
+}
+
+
+# New Opportunities # Event for Welf IV
+# Offer from Emperor, for Welf to Divorce Wife / Split from Nordheim's, In exchange, get the Duchy of Bavaria
+
+tct_neutral_struggle.0007 = {
+	type = character_event
+	id = tct_neutral_struggle.0007
+	title = tct_neutral_struggle.0007.t
+	desc = tct_neutral_struggle.0007.desc
+
+	theme = realm
+	override_background = {
+		reference = throne_room
+	}
+	left_portrait = {
+		character = root
+		animation = thinking
+	}
+	lower_left_portrait = {
+		character = scope:spouse
+	}
+	lower_center_portrait = {
+		character = scope:otto
+	}
+	right_portrait = {
+		character = scope:imperial_councillor
+		animation = writing
+	}
+
+	immediate = {
+		random_spouse = {
+			save_scope_as = spouse
+		}
+		scope:emperor.cp:councillor_chancellor = {
+			save_scope_as = imperial_councillor
+		}
+	}
+
+	option = {
+		name = tct_neutral_struggle.0006.a
+		
+		divorce_effect = {
+			DIVORCER = root
+			DIVORCEE = scope:spouse
+		}
+
+		title:c_ravensburg.holder = {
+			create_title_and_vassal_change = {
+				type = granted
+				save_scope_as = change
+				add_claim_on_loss = no
+			}
+	
+			title:d_bavaria.holder = {
+				every_held_title = {
+					change_title_holder = {
+						holder = title:c_ravensburg.holder
+						change = scope:change
+					}
+				}
+				every_vassal = {
+					change_liege = {
+						liege = title:c_ravensburg.holder
+						change = scope:change
+					}
+				}
+			}
+			resolve_title_and_vassal_change = scope:change
+
+			scope:otto = { 
+				add_character_flag = force_ai_created_laamp 
+				#depose_effect = { DEPOSER = scope:emperor } 
+				create_landless_adventurer_title_effect = { REASON = flag:deposition FLAVOR_CHAR = title:e_hre.holder }
+			}
+
+			add_opinion = {
+				target = title:e_hre.holder
+				modifier = received_title_duchy
+				opinion = 80
+			}
+
+			scope:emperor = {
+				add_opinion = {
+					target = title:c_ravensburg.holder
+					modifier = loyal_servant
+					opinion = 50
+				}
+			}
+		}
+
+		ai_chance = {
+			base = 100
+		}
+	}
+
+	option = {
+		name = tct_neutral_struggle.0006.b
+	}
+}
+
+# "Allies in the Shadows" # Event for Otto of Bavaria and Magnus Billung
+# Otto Forging war plans with Magnus Billung
+
+tct_neutral_struggle.0008 = {
+	type = character_event
+	id = tct_neutral_struggle.0008
+	title = tct_neutral_struggle.0008.t
+	desc = tct_neutral_struggle.0008.desc
+
+	theme = realm
+	override_background = {
+		reference = throne_room
+	}
+	left_portrait = {
+		character = scope:otto
+		animation = thinking
+	}
+	right_portrait = {
+		character = scope:magnus
+		animation = storyteller
+	}
+	lower_right_portrait = {
+		character = title:e_hre.holder
+	}
+
+	immediate = {
+		title:d_saxony.holder = {
+			save_scope_as = magnus
+		}
+	}
+
+	option = {
+		name = tct_neutral_struggle.0008.a
+	}
+
+	option = {
+		name = tct_neutral_struggle.0008.b
+	}
+}
+
+
+# "The Saxon Revolt" # Event for Otto of Bavaria and Heinrich IV, maybe everyone in the struggle region?
+
+# The Treaty of Gerstungen # Event for Otto of Bavaria and Heinrich IV
+
+# "The Sack of Harzburg" # Event for Otto of Bavaria and Heinrich IV
+
+# The Second Rebellion # Event for Otto of Bavaria and Heinrich IV
+

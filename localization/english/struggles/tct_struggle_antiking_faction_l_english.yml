@@ -22,6 +22,8 @@
  TCT_FACTION_DEMAND_ANTIKING: "Anti-King Demand"
  TCT_FACTION_DEMAND_ANTIKING_DESC: "[faction_leader.Custom2('AppropriateGreetingNegative', ROOT.Char)]\n\nThe time has come to restore Papal authority to [faction_targeted_title.GetNameNoTier]. The throne belongs to [faction_claimant.GetName], divinely chosen to uphold the true faith, depose any Papal Pretenders, and enforce [papal_investiture|E]. Accept this, or we will see it done by force!"
 
+ TCT_FACTION_DEMAND_ACCEPT: "Accept Demand"
+
  TCT_FACTION_DEMAND_ANTIKING_DESC_ME: "The authority to rule [faction_targeted_title.GetNameNoTier] rightfully belongs to me, chosen to restore the true faith. I will restore [papal_investiture|E] and depose any papal pretenders who oppose the will of the Church. Stand aside or face righteous force!"
 
  TCT_FACTION_DEMAND_ANTIKING_ACCEPTED: "Anti-King Demands Accepted"

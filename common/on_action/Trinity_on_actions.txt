@@ -169,6 +169,9 @@ yearly_global_pulse = {
 		delay = { days = 357 }
 		TCT_christmas_set
 		TCT_saint_day
+
+		# Alexander II's Death
+		TCT_alexander_death
 	}
 }
 
@@ -200,6 +203,46 @@ TCT_saint_day = {
 		every_player = {
 			limit = { saintdays_event1trigger = yes }
 			trigger_event = TCT_saint_days.0001
+		}
+	}
+}
+
+TCT_alexander_death = {
+	effect = {
+		if = {
+			limit = {
+				NOT = { has_global_variable = TCT_alexander_death }
+			}
+			debug_log = "Checking for chance of firing Pope Alexander II's death event"
+
+			random = {
+				chance = zero_base_chance
+				modifier = {
+					add = 25
+					current_date > 867.1.1
+				}
+				modifier = {
+					add = 50
+					current_date > 870.1.1
+				}
+				modifier = {
+					add = 124
+					current_date > 873.1.1
+				}
+				set_global_variable = {
+					name = TCT_alexander_death
+					value = yes
+				}
+				debug_log = "Attempting to force Pope Alexander II's death event"
+				character:2008 = {
+					if = {
+						limit = {
+							is_alive = yes
+						}
+						death = { death_reason = death_natural_causes }
+					}
+				}
+			}
 		}
 	}
 }
