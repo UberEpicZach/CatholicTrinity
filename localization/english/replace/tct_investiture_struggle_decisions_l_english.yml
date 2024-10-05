@@ -98,8 +98,8 @@
 # "Accusations of Treason" (1070). # Event for Otto of Bavaria and Heinrich IV 
 # Egeno of Konradsburg accuses Otto of Bavaria for Treason. Calls for a Trial
  tct_neutral_struggle.0005.t: "Accusations of Treason"
- tct_neutral_struggle.0005.desc: "A messenger from the court of [emperor.GetTitledFirstName] arrived unexpectedly, and the messenger urgently handed me a sealed letter marked with the royal crest. The demand is clear: I am to present myself in [province.GetNameNoTier] to answer for certain 'crimes' against the crown. My heart races as I break the seal, the contents heavy with accusation. \n\n#italic ‘I, [Egeno.GetFullName], stand before you with a dire truth: I have uncovered a vile conspiracy against our sovereign, [emperor.GetTitledFirstName]. The [saxons.GetName] counts alongside [otto.GetFirstName] [otto.GetDynastyName], [otto.GetTitleAsNameNoTooltip] of [otto.GetPrimaryTitle.GetNameNoTier], have plotted in secret to overthrow the crown. But it goes further—[otto.GetFirstName] himself gave me the order to murder the king! This treachery runs deep, and I have borne witness to their twisted designs.' #! \n\nConspiracy... #italic Murder...#! My name now tied to treason...\nNo doubt the entire realm has seen these accusations by now; all eyes are me."
- tct_neutral_struggle.0005.a: "There's no proof.."
+ tct_neutral_struggle.0005.desc: "I find myself holding a sealed letter inked with [emperor.GetTitledFirstName]'s crest. The demand is clear: I am to present myself in [province.GetNameNoTier] to answer for certain 'crimes' against the crown.\n\n#italic ‘I, [Egeno.GetFullName], stand before you with a dire truth: I have uncovered a vile conspiracy against our sovereign, [emperor.GetTitledFirstName]. The [saxons.GetName] counts alongside [otto.GetFirstName] [otto.GetDynastyName], [otto.GetTitleAsNameNoTooltip] of [otto.GetPrimaryTitle.GetNameNoTier], have plotted in secret to overthrow the crown. But it goes further—[otto.GetFirstName] himself gave me the order to murder the king! This treachery runs deep, and I have borne witness to their twisted designs.' #! \n\nConspiracy... #italic Murder...#! My name now tied to treason...\nNo doubt the entire realm has seen these accusations by now; all eyes are me."
+ tct_neutral_struggle.0005.a: "I must defend myself.."
  tct_neutral_struggle.0005.a.tt: "You will travel to [province.GetNameNoTier]"
  
  
@@ -116,6 +116,8 @@
 # Offer from Emperor, for Welf to Divorce Wife / Split from Nordheim's, In exchange, get the Duchy of Bavaria
  tct_neutral_struggle.0007.t: "New Opportunities"
  tct_neutral_struggle.0007.desc: "The Imperial Chancellor has arrived unexpectedly, bearing a message from [emperor.GetTitledFirstName] himself. He begins, relaying the emperor's offer with exact and careful words. "[otto.GetFirstName] [otto.GetDynastyName], the [otto.GetTitleAsName] of [otto.GetPrimaryTitle.GetNameNoTier], your father-in-Law, currently stands trial in [province.GetNameNoTier]..." \n\nThough the chancellor's tone, it is clear the trial is merely a formality. Otto's fate has already been sealed—the emperor intends to remove him from power. \n\nThe chancellor leans closer, his voice lowering. "[emperor.GetTitledFirstName] offers you a great opportunity. Swear your loyalty to him, divorce your Nordheim wife, and sever all ties with her family. In exchange, the Duchy of Bavaria will be yours." The offer is straightforward: break from Otto's house, and the duchy will pass to my hands, but to turn my back on Otto and Ethelinde... I must decide quickly..."
+ tct_neutral_struggle.0007.a: "I will accept the offer."
+ tct_neutral_struggle.0007.b: "I must refuse..."
 
 
 # New Opportunities # Event for Welf IV
