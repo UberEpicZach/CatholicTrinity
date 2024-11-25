@@ -3,7 +3,7 @@
 		reference = "gfx/interface/illustrations/decisions/fp3/antagonistic.dds"
 	}
 	selection_tooltip = tct_investiture_struggle_switch_sides_decision_tooltip 
-	major = yes 
+	decision_group_type = major 
 	sort_order = -20
 	# We check this via the struggle itself.
 	ai_check_interval = 0

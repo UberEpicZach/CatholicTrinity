@@ -640,11 +640,6 @@ d_archbishop_bari = {
 
 	}
 }
-d_archbishop_salzburg = {
-	867.1.1 = {
-
-	}
-}
 d_archbishop_trier = {
 	867.1.1 = {
 

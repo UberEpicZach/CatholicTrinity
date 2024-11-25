@@ -548,8 +548,8 @@ ChangeHeirEffect = {
 						this = scope:primary_heir_crusade 
 					} 
 				} 
-			save_scope_as = childforheir 
-			add_character_flag = childforheir
+				save_scope_as = childforheir 
+				add_character_flag = childforheir
 			}
 		}
 	}

@@ -159,7 +159,7 @@ create_crusader_state_decision = {
 	}	
 	selection_tooltip = create_dynamic_crusader_state_decision_tooltip
 	cooldown = { days = 400 }
-	major = yes
+	decision_group_type = major
 
 	ai_check_interval = 2
 

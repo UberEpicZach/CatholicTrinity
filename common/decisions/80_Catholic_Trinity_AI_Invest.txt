@@ -7,7 +7,7 @@ invest_in_cardinal_Ai = {
 
 	desc = invest_in_cardinal_AI_decision_desc
 	selection_tooltip = invest_in_cardinal_AI_decision_tooltip
-	major = yes
+	decision_group_type = major
 
 	ai_check_interval = 6
 
@@ -210,7 +210,7 @@ deinvest_in_cardinal_AI = {
 
 	desc = deinvest_in_cardinal_AI_decision_desc
 	selection_tooltip = deinvest_in_cardinal_AI_decision_tooltip
-	major = yes
+	decision_group_type = major
 
 	ai_check_interval = 6
 
@@ -296,7 +296,7 @@ deinvest_in_cardinal_AI = {
 
 	desc = deinvest_in_cardinal_AI_decision_desc
 	selection_tooltip = deinvest_in_cardinal_AI_decision_tooltip
-	major = yes
+	decision_group_type = major
 
 	ai_check_interval = 6
 
@@ -381,7 +381,7 @@ take_free_investiture_early_AI = {
 
 	desc = take_free_investiture_AI_decision_desc
 	selection_tooltip = take_free_investiture_AI_decision_tooltip
-	major = yes
+	decision_group_type = major
 
 	ai_check_interval = 6
 
@@ -564,7 +564,7 @@ take_free_investiture_late_AI = {
 
 	desc = take_free_investiture_AI_decision_desc
 	selection_tooltip = take_free_investiture_AI_decision_tooltip
-	major = yes
+	decision_group_type = major
 
 	ai_check_interval = 6
 
@@ -747,7 +747,7 @@ take_papal_investiture_early_AI = {
 
 	desc = take_free_investiture_AI_decision_desc
 	selection_tooltip = take_free_investiture_AI_decision_tooltip
-	major = yes
+	decision_group_type = major
 
 	ai_check_interval = 6
 
@@ -931,7 +931,7 @@ take_papal_investiture_late_AI = {
 
 	desc = take_free_investiture_AI_decision_desc
 	selection_tooltip = take_free_investiture_AI_decision_tooltip
-	major = yes
+	decision_group_type = major
 
 	ai_check_interval = 6
 

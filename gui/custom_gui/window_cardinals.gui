@@ -815,7 +815,8 @@ types uniuitrinitytypes {
             }
         }
         widget_doctrine_item = {
-            visible = "[And(And(Faith.HasDoctrineByKey( 'doctrine_spiritual_head' ), Not(Faith.HasDoctrineByKey( 'doctrine_independent_papacy_head' ), Not(Faith.HasDoctrineByKey( 'doctrine_autocephaly_head' )))))"
+            visible = "[And(And(Faith.HasDoctrineByKey('doctrine_spiritual_head'), Not(Faith.HasDoctrineByKey('doctrine_independent_papacy_head'))), Not(Faith.HasDoctrineByKey('doctrine_autocephaly_head')))]"
+
             blockoverride "background" {}
 
             blockoverride "doctrine_icon"

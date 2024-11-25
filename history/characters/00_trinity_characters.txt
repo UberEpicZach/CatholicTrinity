@@ -198,7 +198,7 @@ auch_archbishop_8 = {
 }
 
 auch_archbishop_9 = {
-	name = "Garsias de la Barthe"
+	name = "Garsias_de_la_Barthe"
 	religion = "catholic"
 	culture = "french"
 	trait = education_learning_3
@@ -211,7 +211,7 @@ auch_archbishop_9 = {
 }
 
 auch_archbishop_10 = {
-	name = "Raimundus de Copa"
+	name = "Raimundus_de_Copa"
 	religion = "catholic"
 	culture = "french"
 	trait = education_learning_2
@@ -237,7 +237,7 @@ auch_archbishop_11 = {
 }
 
 auch_archbishop_12 = {
-	name = "Guillaume de Montaut"
+	name = "Guillaume_de_Montaut"
 	religion = "catholic"
 	culture = "french"
 	trait = education_learning_1
@@ -250,7 +250,7 @@ auch_archbishop_12 = {
 }
 
 auch_archbishop_13 = {
-	name = "Raimundus de Pardiac"
+	name = "Raimundus_de_Pardiac"
 	religion = "catholic"
 	culture = "french"
 	trait = education_learning_4
@@ -434,7 +434,7 @@ narbonne_archbishop_10 = {
 }
 
 narbonne_archbishop_11 = {
-	name = "Guifred de Cerdagne"
+	name = "Guifred_de_Cerdagne"
 	religion = "catholic"
 	culture = "french"
 	trait = education_learning_4
@@ -741,7 +741,7 @@ bordeaux_archbishop_13 = {
 }
 
 bordeaux_archbishop_14 = {
-	name = "Gérard d'Angoulême"
+	name = "Gerard_dangoleme"
 	religion = "catholic"
 	culture = "french"
 	trait = education_learning_4
@@ -938,7 +938,7 @@ marseille_archbishop_9 = {
 }
 
 marseille_archbishop_10 = {
-	name = "Raymond de Soliers"
+	name = "Raymond_de_Soliers"
 	religion = "catholic"
 	culture = "french"
 	trait = education_learning_4
@@ -1061,7 +1061,7 @@ lyon_archbishop_3 = {
 }
 
 lyon_archbishop_4 = {
-	name = "Alwala of Montdor"
+	name = "Alwala_of_Montdor"
 	religion = "catholic"
 	culture = "french"
 	trait = education_learning_2

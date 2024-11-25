@@ -232,7 +232,7 @@
 			AND = {
 				has_cultural_pillar = heritage_central_germanic
 				NOT = { 
-					culture = culture:saxon 
+					this = culture:saxon 
 					has_cultural_pillar = heritage_latin
 				}
 			}

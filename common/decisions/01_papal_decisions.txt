@@ -5,7 +5,7 @@
 
 	desc = Launch_Crusade_decision_desc
 	selection_tooltip = Launch_Crusade_decision_tooltip
-	major = yes
+	decision_group_type = major
 
 	ai_check_interval = 6
 
@@ -121,7 +121,7 @@ ProclaimDictatusPapae = {
 
 	desc = ProclaimDictatusPapae_decision_desc
 	selection_tooltip = ProclaimDictatusPapae_decision_tooltip
-	major = yes
+	decision_group_type = major
 	ai_check_interval = 1
 	#ai_goal = yes
 	is_shown = {
@@ -195,7 +195,7 @@ InstallAntipope = {
  
 	desc = InstallAntipope_decision_desc
 	selection_tooltip = InstallAntipope_decision_tooltip
-	major = yes
+	decision_group_type = major
 
 	ai_check_interval = 6
 
@@ -464,7 +464,7 @@ Declare_Minor_Crusade = {
 
 	desc = Declare_Minor_Crusade_decision_desc
 	selection_tooltip = Declare_Minor_Crusade_decision_tooltip
-	major = yes
+	decision_group_type = major
 
 	ai_check_interval = 6
 
