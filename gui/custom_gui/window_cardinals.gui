@@ -227,7 +227,18 @@ types Cardinals {
         onclick = "[GetVariableSystem.Toggle('window_cardinals')]"
         onclick = "[GetScriptedGui('refresh_cardinal_characters').Execute(GuiScope.SetRoot(Religion.MakeScope).End)]"
         onclick = "[GetScriptedGui('cardinal_music').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-        alwaystransparent = no
+
+		# # Testing?
+		# onclick = "[GetVariableSystem.Set( 'church_view_tabs', 'holychurch' )]"
+		# datacontext = "[GetScriptedGui( 'TCT_update_archbishoric' )]"
+		# #datacontext = "[GetScriptedGui( 'TCT_update_pentarchy' )]"
+		# onclick = "[GetVariableSystem.Toggle( 'pentarchy_open' )]"
+		# onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'faith', Faith.MakeScope ).End ) ]"
+		# onclick = "[GetScriptedGui( 'TCT_pentarchy_map' ).Execute(GuiScope.End)]"
+		# onclick = "[SetMapMode( 'TCT_pentarchy' )]"
+		# down = "[GetVariableSystem.HasValue( 'church_view_tabs', 'holychurch' )]"
+
+		alwaystransparent = no
         layoutpolicy_vertical = expanding
     }
 
@@ -626,66 +637,66 @@ types Cardinals {
 					margin_top = 2
 				}
 				
-				# dynamicgridbox = { # Archbishops
-				# 	name = "archbishops"
-				# 	datamodel = "[GetPlayer.MakeScope.GetList('TCT_archbishops_list')]"
-				# 	#layoutpolicy_horizontal = expanding
-				# 	#layoutpolicy_vertical = expanding
-				# 	datamodel_wrap = 2
-				# 	flipdirection = yes
-				# 	item = {
-				# 		flowcontainer = {
-				# 			margin_top = 2
-				# 			margin_bottom = 2
-				# 			margin_left = 6
-				# 			margin_right = 2
+				dynamicgridbox = { # Pentarchs
+					name = "archbishops"
+					datamodel = "[GetPlayer.MakeScope.GetList('TCT_pentarchs_list')]"
+					#layoutpolicy_horizontal = expanding
+					#layoutpolicy_vertical = expanding
+					datamodel_wrap = 2
+					flipdirection = yes
+					item = {
+						flowcontainer = {
+							margin_top = 2
+							margin_bottom = 2
+							margin_left = 6
+							margin_right = 2
 			
-				# 			vbox = {
+							vbox = {
 								
-				# 				#layoutpolicy_horizontal = expanding
-				# 				#layoutpolicy_vertical = expanding
-				# 				datacontext = "[Scope.GetCharacter]"
-				# 				spacer = { 
-				# 					size = { 5 50 }
-				# 				}
-				# 				# background = {
-				# 				# 	using = Background_Area
-				# 				# 	spacer = { 
-				# 				# 		size = { 0 50 }
-				# 				# 	}
-				# 				# }
-				# 				# text_label_center = {
-				# 				# 	margin_top = 5
-				# 				# 	parentanchor = left
-				# 				# 	text = "[Scope.GetCharacter.Custom('TCT_get_patriarchate_of_pentarch')]"
-				# 				# 	layoutpolicy_horizontal = expanding
-				# 				# 	max_width = 90
-				# 				# 	#size = { 150 100 }
-				# 				# }
-				# 				#spacer = { 
-				# 				#	size = { 0 5 }
-				# 				#}
-				# 				portrait_head = {
-				# 					#size = { 150 200 }
-				# 					parentanchor = left
-				# 					#datacontext = "[Character]"
+								#layoutpolicy_horizontal = expanding
+								#layoutpolicy_vertical = expanding
+								datacontext = "[Scope.GetCharacter]"
+								spacer = { 
+									size = { 5 50 }
+								}
+								# background = {
+								# 	using = Background_Area
+								# 	spacer = { 
+								# 		size = { 0 50 }
+								# 	}
+								# }
+								# text_label_center = {
+								# 	margin_top = 5
+								# 	parentanchor = left
+								# 	text = "[Scope.GetCharacter.Custom('TCT_get_patriarchate_of_pentarch')]"
+								# 	layoutpolicy_horizontal = expanding
+								# 	max_width = 90
+								# 	#size = { 150 100 }
+								# }
+								#spacer = { 
+								#	size = { 0 5 }
+								#}
+								portrait_head = {
+									#size = { 150 200 }
+									parentanchor = left
+									#datacontext = "[Character]"
 								
-				# 					# blockoverride "coa_button" {
-				# 					# 	datacontext = "[Scope.GetCharacter.GetTopLiege]"
-				# 					# 	tooltip = "[Character.GetDefaultRealmFlagTooltipPrimaryTitleClickInfo]"
-				# 					# 	onclick = "[DefaultOnCoatOfArmsClick(Character.GetPrimaryTitle.GetID)]"
-				# 					# }
-				# 				}
-				# 				text_single = {
-				# 					parentanchor = left
-				# 					text = "[Scope.GetCharacter.GetFirstNameNoTooltip]" 
-				# 					max_width = 100
-				# 					#size = { 150 100 }
-				# 				}
-				# 			}
-				# 		}
-				# 	}
-				# }
+									# blockoverride "coa_button" {
+									# 	datacontext = "[Scope.GetCharacter.GetTopLiege]"
+									# 	tooltip = "[Character.GetDefaultRealmFlagTooltipPrimaryTitleClickInfo]"
+									# 	onclick = "[DefaultOnCoatOfArmsClick(Character.GetPrimaryTitle.GetID)]"
+									# }
+								}
+								text_single = {
+									parentanchor = left
+									text = "[Scope.GetCharacter.GetFirstNameNoTooltip]" 
+									max_width = 100
+									#size = { 150 100 }
+								}
+							}
+						}
+					}
+				}
 				spacer = { 
 					size = { 20 0 }
 				}

@@ -4882,7 +4882,7 @@ select_cardinal_candidate_interaction = {
 						# In minimum good standing with faith
 						NOT = { has_trait = excommunicated }
 						is_ruler = no
-						is_clergy = yes
+						is_married = no
 						is_cardinal = no
 					}
 					add_to_list = characters
@@ -4898,9 +4898,10 @@ select_cardinal_candidate_interaction = {
 						#	target = root
 						#	value >= 0
 						#}
+						has_education_learning_trigger = yes
 						learning >= 7
 						is_ruler = no
-						is_clergy = yes
+						is_married = no
 						is_cardinal = no
 					}
 					#always = yes
@@ -4911,7 +4912,8 @@ select_cardinal_candidate_interaction = {
 				limit = {
 					AND = {
 						is_male = yes
-						is_clergy = yes
+						has_education_learning_trigger = yes
+						is_married = no
 						is_cardinal = no
 					}
 				}
@@ -4923,42 +4925,34 @@ select_cardinal_candidate_interaction = {
 	auto_accept = yes
 	
 	is_shown = {
-		is_male = yes
-		is_capable_adult = yes
-		is_imprisoned = no
-		is_married = no
-		is_betrothed = no
-		is_ruler = no
-		is_clergy = yes
-		is_cardinal = no
-		# In minimum good standing with faith
-		NOT = { has_trait = excommunicated }
+		scope:actor = {
+			has_cardinal_faith = yes
+		}
 	}
 
 	
 	
 	can_be_picked = {
 		is_adult = yes
-		is_ruler = no
-		is_cardinal = no
+		NOT = { is_cardinal = yes }
 		faith = scope:actor.faith
-		custom_tooltip = {
-			text = ghw_heir_to_a_title
-			NOT = {
-				any_heir_title = {} # Not heir to anything
-			}
-		}
-		custom_tooltip = {
-			text = ghw_married_to_a_ruler
-			OR = { #Either not married, or not married to a ruler.
-				is_married = no
-				NOT = {
-					any_spouse = {
-						is_ruler = yes
-					}
-				}
-			}
-		}
+		# custom_tooltip = {
+		# 	text = ghw_heir_to_a_title
+		# 	NOT = {
+		# 		any_heir_title = {} # Not heir to anything
+		# 	}
+		# }
+		# custom_tooltip = {
+		# 	text = ghw_married_to_a_ruler
+		# 	OR = { #Either not married, or not married to a ruler.
+		# 		is_married = no
+		# 		NOT = {
+		# 			any_spouse = {
+		# 				is_ruler = yes
+		# 			}
+		# 		}
+		# 	}
+		# }
 	}
 
 	has_valid_target_showing_failures_only = {
@@ -4966,15 +4960,10 @@ select_cardinal_candidate_interaction = {
 			NOR = {
 				has_trait = excommunicated
 				has_trait = incapable
-				has_trait = devoted
 				has_serious_disease_trigger = yes
 			}
 			faith = scope:actor.faith
 			is_adult = yes
-			#is_ruler = no
-			# NOT = {
-			# 	any_heir_title = {} # Not heir to anything
-			# }
 			OR = { #Either not married, or not married to a ruler.
 				is_married = no
 				NOT = {
@@ -4984,7 +4973,7 @@ select_cardinal_candidate_interaction = {
 				}
 			}
 		}
-		scope:recipient = { is_busy_in_events_localised = yes }
+		#scope:recipient = { is_busy_in_events_localised = yes }
 	}
 	
 	on_accept = {

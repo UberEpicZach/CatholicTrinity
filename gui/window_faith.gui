@@ -1100,6 +1100,15 @@ window = {
         			onclick = "[GetScriptedGui('refresh_cardinal_characters').Execute(GuiScope.SetRoot(Religion.MakeScope).End)]"
 					onclick = "[GetScriptedGui('cardinal_music').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 
+					# Testing?
+					onclick = "[GetVariableSystem.Set( 'church_view_tabs', 'holychurch' )]"
+					datacontext = "[GetScriptedGui( 'TCT_update_archbishoric' )]"
+					#datacontext = "[GetScriptedGui( 'TCT_update_pentarchy' )]"
+					onclick = "[GetVariableSystem.Toggle( 'pentarchy_open' )]"
+					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'faith', Faith.MakeScope ).End ) ]"
+					onclick = "[GetScriptedGui( 'TCT_pentarchy_map' ).Execute(GuiScope.End)]"
+					onclick = "[SetMapMode( 'TCT_pentarchy' )]"
+
 					using = tooltip_nw
 				}
 

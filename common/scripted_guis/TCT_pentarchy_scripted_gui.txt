@@ -177,39 +177,5 @@ TCT_update_archbishoric = {
 				}
 			}
 		}
-		# every_living_character = {
-		# 	limit = {
-		# 		is_ruler = yes
-		# 		any_held_title = { has_variable = TCT_autocephaly }
-		# 	}
-		# 	random_held_title = {
-		# 		limit = { has_variable = TCT_autocephaly }
-		# 		prev = {
-		# 			set_variable = {
-		# 				name = TCT_canonical_territory
-		# 				value = prev.var:TCT_autocephaly
-		# 			}
-		# 		}
-		# 	}
-		# 	root = {
-		# 		add_to_variable_list = {
-		# 			name = TCT_patriarchs_list
-		# 			target = prev
-		# 		}
-		# 	}
-		# }
-		# every_living_character = {
-		# 	limit = {
-		# 		#has_title = title:k_orthodox
-		# 		has_variable = tct_ecumenical_patriarch
-		# 	}
-		# 	root = {
-		# 		add_to_variable_list = {
-		# 			name = TCT_ecumenical_patriarch_list
-		# 			target = prev
-		# 		}
-		# 	}
-		# }
-
 	}
 }
