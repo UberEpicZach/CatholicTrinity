@@ -288,8 +288,22 @@ tct_neutral_struggle.0004 = {
 tct_neutral_struggle.0005 = {
 	type = character_event
 	title = tct_neutral_struggle.0005.t
-	desc = tct_neutral_struggle.0005.desc
-
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					this = scope:otto
+				}
+				desc = tct_neutral_struggle.0005.desc.a
+			}
+			triggered_desc = {
+				trigger = {
+					this = title:e_hre.holder
+				}
+				desc = tct_neutral_struggle.0005.desc.b
+			}
+		}
+	}
 	theme = intrigue
 	override_background = {
 		reference = throne_room
@@ -336,6 +350,7 @@ tct_neutral_struggle.0005 = {
 				title:e_hre.holder = {
 					add_courtier = prev
 				}
+				add_character_flag = wear_armor
 			}
 		
 			save_scope_as = Egeno
@@ -343,7 +358,24 @@ tct_neutral_struggle.0005 = {
 	}
 
 	option = {
-		name = tct_neutral_struggle.0005.a
+		name = {
+			text = {
+				first_valid = {
+					triggered_desc = {
+						trigger = {
+							this = scope:otto
+						}
+						desc = tct_neutral_struggle.0005.a
+					}
+					triggered_desc = {
+						trigger = {
+							this = title:e_hre.holder
+						}
+						desc = tct_neutral_struggle.0005.ab
+					}
+				}
+			}
+		}
 
 		if = {
 			limit = {
@@ -361,6 +393,12 @@ tct_neutral_struggle.0005 = {
 				on_arrival_event = tct_neutral_struggle.0006
 				return_trip = no # One way
 			}
+		}
+		if = {
+			limit = {
+				this = title:e_hre.holder
+			}
+			custom_tooltip = tct_neutral_struggle.0005.b.tt
 		}
 	}
 }
