@@ -30,8 +30,8 @@
 	}
 	
 	duchy_capital_county_modifier = {
-		monthly_county_control_change_factor = 0.2
-		monthly_county_control_change_add = 0.2
+		monthly_county_control_growth_factor = 0.2
+		monthly_county_control_growth_add = 0.2
 	}
 	
 	next_building = tct_leisure_palace_02
@@ -93,8 +93,8 @@ tct_leisure_palace_02 = {
 	}
 	
 	duchy_capital_county_modifier = {
-		monthly_county_control_change_factor = 0.4
-		monthly_county_control_change_add = 0.3
+		monthly_county_control_growth_factor = 0.4
+		monthly_county_control_growth_add = 0.3
 	}
 	
 	next_building = tct_leisure_palace_03

@@ -172,6 +172,44 @@ yearly_global_pulse = {
 
 		# Alexander II's Death
 		TCT_alexander_death
+
+		# Bavarian Chain
+		TCT_1066_Bavarian_Chain
+	}
+}
+
+TCT_1066_Bavarian_Chain = {
+	trigger = {
+		title:d_bavaria.holder = character:112600
+		title:e_hre.holder = character:1316
+		NOT = {
+			exists = global_var:TCT_1066_Bavarian_Chain_Fired
+		}
+	}
+	effect = {
+
+		debug_log = "Checking for chance of firing the 1066 Bavarian Event Chain"
+
+		random = {
+			chance = zero_base_chance
+			modifier = {
+				add = 25
+				current_date > 867.1.1
+			}
+			modifier = {
+				add = 50
+				current_date > 870.1.1
+			}
+			modifier = {
+				add = 124
+				current_date > 873.1.1
+			}
+			debug_log = "firing the 1066 Bavarian Event Chain"
+			set_global_variable = TCT_1066_Bavarian_Chain_Fired
+			character:1316 = {
+				trigger_event = tct_neutral_struggle.0005 
+			}
+		}
 	}
 }
 

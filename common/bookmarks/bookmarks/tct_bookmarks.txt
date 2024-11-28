@@ -1,7 +1,7 @@
 ﻿bm_investiture= { #The initial map for bookmarks is set in interface\bookmarks. This is a .dds file that would need edited. For now a placeholder works. 
 	start_date = 1066.9.15
 	is_playable = yes
-	default = yes
+	test_default = yes
 	group = bm_group_1066
 	recommended = yes
 	weight = { value = 500 }

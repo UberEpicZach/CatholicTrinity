@@ -122,18 +122,30 @@
  tct_neutral_struggle.0007.a: "I will accept the offer."
  tct_neutral_struggle.0007.b: "I must refuse..."
 
-
-# New Opportunities # Event for Welf IV
-# Offer from Emperor, for Welf to Divorce Wife / Split from Nordheim's, In exchange, get the Duchy of Bavaria
-
 # "Allies in the Shadows" # Event for Otto of Bavaria and Magnus Billung
 # Otto Forging war plans with Magnus Billung
+ tct_neutral_struggle.0008.t: "Allies in the Shadows"
+ #tct_neutral_struggle.0008.opening: "To Otto, once Duke of Bavaria and still a man of honor despite the crown’s betrayal"
+ tct_neutral_struggle.0008.desc: "#italic ‘To [otto.GetFirstName], once Duke of Bavaria and still a man of honor despite the crown’s betrayal, I have long considered the injustices done to you, a man who gave loyalty only to have it spat back in his face. Know that you are not forgotten—least of all by me. \n\nThe emperor’s trial may have silenced you within the Empire, but here in Saxony, we speak of your fall as proof of his tyranny. Men may rise with words, but only steel will bring the emperor to his knees. My people murmur of rebellion, and I can no longer stand idle while [emperor.GetFirstName] wields a powerful cudgel against the Saxons. \n\nYou'd be restored to your rightful station, as I would see my family avenged for their suffering. I have the means to fund a band of loyal warriors for you. In return, I ask for your sword and name to join with mine when the moment comes. Together, we will burn away the rot and reclaim what is owed.’#!"
+ tct_neutral_struggle.0008.a: "I must organize myself."
+ tct_neutral_struggle.0008.a.tt: "@warning_icon! #X You will join the #high Civil War#! against [emperor.GetShortUIName], on the side of the Saxons lead by [magnus.GetShortUIName] in a few months#!" 
+ tct_neutral_struggle.0008.b: "My time in the imperial court is over."
+ tct_neutral_struggle.0008.b.tt: "You will remain an adventurer"
 
 # "The Saxon Revolt" # Event for Otto of Bavaria and Heinrich IV, maybe everyone in the struggle region?
 
-# The Treaty of Gerstungen # Event for Otto of Bavaria and Heinrich IV
+ tct_neutral_struggle.0009.t: "The Saxon Revolt"
+ tct_neutral_struggle.0009.desc: "The Saxons have risen in defiance, their long-simmering anger now bursting into open rebellion. \n\nThe emperor’s trial of [otto.GetFirstName] [otto.GetDynastyName] has been the catalyst, igniting years of frustration into a full-scale revolt. Led by [magnus.GetFullName], the Saxon lords have united under a single banner, and the people, emboldened, have taken up arms to throw off the weight of imperial oppression. Rebel forces now march toward Goslar, their resolve clear: to bring the emperor to account for his tyranny"
+ tct_neutral_struggle.0009.a: "Let the best one win."
+ tct_neutral_struggle.0009.b: "Let the best one win."  
+
+ every_tct_faith_vassal: "Every [GetFaithByKey('catholic').GetAdjective] Vassal"
 
 # "The Sack of Harzburg" # Event for Otto of Bavaria and Heinrich IV
+
+ tct_neutral_struggle.0010.t: "The Sack of Goslar-Harzburg"
+ tct_neutral_struggle.0010.desc: "The once-proud Palace of Harzburg lies in ruin, its sacred grounds desecrated. A group of [magnus.GetFirstName]'s Rebel forces, have turned to unrestrained barbarism. Graves have been ripped open, the remains of princes and bishops discarded like refuse, their sanctity mocked by jeering looters. The chapel, once a place of reverence, is now rubble, its relics stolen or destroyed, and its altars smeared with blood and ash. \n\nThe monks who tried to shield the graves lie among the ruins, their lifeless bodies scattered where they made their final stand. Some rebels laugh at the carnage, their cruelty unchecked, while others falter, horror etched into their faces as the scale of their comrades' savagery became clear. \n\nThis is no longer rebellion—it is sacrilege. Whispers of unease spread through the empire itself: ‘This was not justice.’ This has not broken the emperor’s resolve but strengthened his claim to vengeance, what was once a rebellion for justice is now condemned as a campaign of heresy and barbarism."
+ tct_neutral_struggle.0010.a: ""This... this is unthinkable."
 
 # The Second Rebellion # Event for Otto of Bavaria and Heinrich IV
 

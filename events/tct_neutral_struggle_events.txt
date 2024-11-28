@@ -398,6 +398,9 @@ tct_neutral_struggle.0005 = {
 			limit = {
 				this = title:e_hre.holder
 			}
+			character:112600 = {
+				trigger_event = { days = 1 id = tct_neutral_struggle.0005 }
+			}
 			custom_tooltip = tct_neutral_struggle.0005.b.tt
 		}
 	}
@@ -486,7 +489,7 @@ tct_neutral_struggle.0006 = {
 				}
 			}
 
-			trigger_event = { id = tct_neutral_struggle.0008 days = 360 }
+			trigger_event = { id = tct_neutral_struggle.0008 days = 150 }
 		}
 	}
 }
@@ -643,25 +646,28 @@ tct_neutral_struggle.0008 = {
 	type = character_event
 	title = tct_neutral_struggle.0008.t
 	desc = tct_neutral_struggle.0008.desc
+	theme = laamp
 
-	theme = realm
-	override_background = {
-		reference = throne_room
-	}
 	left_portrait = {
-		character = scope:otto
-		animation = thinking
-	}
-	right_portrait = {
 		character = scope:magnus
-		animation = storyteller
+		animation = writing
+		camera = camera_event_chariot_very_left_hippodrome
+	}
+
+	right_portrait = {
+		character = scope:otto
+		animation = reading
+		camera = camera_event_center_pointing_left
 	}
 
 	immediate = {
 		character:1418 = {
 			save_scope_as = magnus
 		}
+	}
 
+	option = {
+		name = tct_neutral_struggle.0008.a
 		create_maa_regiment = {
 			type = bowmen
 			size = 5
@@ -676,33 +682,383 @@ tct_neutral_struggle.0008 = {
 			type = light_footmen
 			size = 5
 		}
-	}
-
-	option = {
-		name = tct_neutral_struggle.0008.a
-		create_faction = {
-			type = liberty_faction
-			target = title:e_hre.holder
-			save_scope_as = faction
+		
+		trigger_event = { days = 150 id = tct_neutral_struggle.0009 }
+		custom_tooltip = tct_neutral_struggle.0008.a.tt
+		ai_chance = {
+			base = 100
 		}
-
-		scope:magnus = {
-			join_faction = scope:faction
-		}
-
 	}
 
 	option = {
 		name = tct_neutral_struggle.0008.b
+		custom_tooltip = tct_neutral_struggle.0008.b.tt
+		
+		ai_chance = {
+			base = 0
+		}
 	}
 }
 
-
 # "The Saxon Revolt" # Event for Otto of Bavaria and Heinrich IV, maybe everyone in the struggle region?
 
-# The Treaty of Gerstungen # Event for Otto of Bavaria and Heinrich IV
+tct_neutral_struggle.0009 = {
+	type = character_event
+	title = tct_neutral_struggle.0009.t
+	desc = tct_neutral_struggle.0009.desc
+
+	theme = war
+	override_background = {
+		reference = ce1_legendary_battlefield
+	}
+	left_portrait = {
+		character = scope:otto
+		animation = marshal_shield
+		camera = camera_event_scheme_vs_center_positioned_left
+	}
+	right_portrait = {
+		character = scope:magnus
+		animation = marshal_shield
+		camera = camera_event_scheme_vs_center_look_left
+	}
+
+	immediate = {
+		character:1418 = {
+			save_scope_as = magnus
+		}
+		scope:magnus = {
+			add_character_flag = {
+				days = 130
+				flag = wear_armor
+			}
+		}
+		scope:otto = {
+			add_character_flag = {
+				days = 130
+				flag = wear_armor
+			}
+		}
+
+		struggle:investiture_controversy_struggle = {
+			every_involved_ruler = {
+				limit = {
+					NOT = {
+						this = scope:otto
+						has_character_flag = had_tct_neutral_struggle_0009
+					}
+				}
+				trigger_event = { days = 1 id = tct_neutral_struggle.0009 }
+				add_character_flag = had_tct_neutral_struggle_0009
+			}
+		}
+	}
+
+	option = {
+		name = tct_neutral_struggle.0009.a
+		trigger = {
+			this = scope:otto
+		}
+		hidden_effect = {
+			create_title_and_vassal_change = {
+				type = returned
+				save_scope_as = change
+				add_claim_on_loss = no
+			}
+			scope:magnus = {
+				change_liege = {
+					liege = scope:emperor
+					change = scope:change
+				}
+			}
+			resolve_title_and_vassal_change = scope:change
+		}
+		scope:magnus = { 
+			create_faction = {
+				type = liberty_faction
+				target = title:e_hre.holder
+			}
+			joined_faction = {
+				save_scope_as = faction
+			}
+		}
+
+		scope:emperor = {
+			every_vassal_or_below = {
+				limit = { 
+					culture = scope:magnus.culture 
+					NOT = { this = scope:magnus }
+	 				can_join_faction = scope:faction
+				}
+				custom = every_culture_vassal
+				random = {
+					chance = 40
+					join_faction = scope:faction
+				}
+			}
+		}
+		scope:faction = {
+			faction_start_war = { title = title:e_hre }
+		}
+
+		scope:magnus = {
+			random_character_war = {
+				limit = {
+					using_cb = liberty_faction_war
+					primary_defender = scope:emperor
+				}
+				save_scope_as = faction_war
+			}
+		}
+
+		# This needs to occur after the war begins, or the troops can't spawn correctly.
+		faction_spawn_member_county_armies_effect = {
+			FACTION = scope:faction
+			ARMY_OWNER = scope:magnus
+			PEASANT_ARMY_NAME = populist_faction_event_troops
+		}
+		
+		
+		hidden_effect = {
+			scope:faction_war = {
+				add_attacker = root
+			}
+			scope:emperor = {
+				every_vassal_or_below = {
+					limit = { 
+						culture = scope:magnus.culture 
+						NOR = { this = scope:magnus is_at_war = yes }
+						highest_held_title_tier > tier_county
+					}
+					custom = every_culture_vassal
+					random = {
+						chance = 30 
+						scope:faction_war = {
+							add_attacker = prev
+						}
+					}
+				}
+			}
+			scope:magnus = {
+				spawn_army = {
+					levies = 4000
+					location = scope:magnus.location
+					war = scope:faction_war
+					name = $PEASANT_ARMY_NAME$
+				}
+			}
+		}
+
+		title:e_hre.holder = { trigger_event = { days = 250 id = tct_neutral_struggle.0010 } }
+	}
+
+	option = {
+		name = tct_neutral_struggle.0009.b
+		trigger = {
+			NOT = {
+				this = scope:otto
+			}
+		}
+	}
+}
 
 # "The Sack of Harzburg" # Event for Otto of Bavaria and Heinrich IV
+
+tct_neutral_struggle.0010 = {
+	type = character_event
+	title = tct_neutral_struggle.0010.t
+	desc = tct_neutral_struggle.0010.desc
+
+	theme = war
+	override_background = {
+		reference = burning_building
+	}
+	right_portrait = {
+		character = scope:otto
+		animation = shock
+	}
+	lower_right_portrait = {
+		character = scope:magnus
+		animation = storyteller
+	}
+
+	widget = {
+		gui = "event_window_widget_vfx_conclusion_smoke"
+		container = "background_shader_vfx_container"
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				NOT = {
+					exists = global_var:sack_of_harzburg
+				}
+			}
+			set_global_variable = sack_of_harzburg
+			scope:magnus = {
+				spawn_army = {
+					levies = 3000
+					men_at_arms = {
+						type = mangonel
+						stacks = 6
+					}
+					location = title:c_gottingen.title_province
+					war = scope:faction_war
+					name = $PEASANT_ARMY_NAME$
+				}
+			}
+	
+			title:b_goslar = {
+				destroy_random_building_variable_effect = yes
+				destroy_random_building_effect = yes
+	
+				destroy_random_building_variable_effect = yes
+				destroy_random_building_effect = yes
+			}
+	
+			scope:faction_war = {
+				every_war_attacker = {
+					add_piety = medium_piety_loss
+					add_to_list = attacker_characters
+				}
+			}
+			scope:otto = {
+				faith = { save_scope_as = faith }
+			}
+			title:e_hre.holder = {
+				every_vassal = {
+					limit = {
+						faith = root.faith
+						NOR = { this = scope:otto this = scope:magnus }
+					}
+					custom = every_tct_faith_vassal
+					every_in_list = {
+						list = attacker_characters
+						reverse_add_opinion = {
+							target = prev
+							modifier = shrine_desecrater_opinion
+						}
+					}
+				}
+				every_in_list = {
+					list = attacker_characters
+					reverse_add_opinion = {
+						target = prev
+						modifier = shrine_desecrater_opinion
+						opinion = -75
+					}
+					reverse_add_opinion = {
+						target = prev
+						modifier = graverobber_opinion
+						opinion = -50
+					}
+				}
+				random_vassal = {
+					limit = {
+						NOR = { this = scope:otto this = scope:magnus}
+						highest_held_title_tier >= tier_duchy
+						is_ai = yes
+						opinion = {
+							target = title:e_hre.holder
+							value >= 20
+						}
+					}
+					scope:faction_war = {
+						add_defender = prev
+					}
+				}
+			}
+			scope:otto = {
+				trigger_event = tct_neutral_struggle.0010 
+			}
+			scope:magnus = {
+				trigger_event = tct_neutral_struggle.0010 
+			}
+		}
+		if = {
+			limit = {
+				exists = global_var:sack_of_harzburg
+			}
+			show_as_tooltip = {
+				scope:magnus = {
+					spawn_army = {
+						levies = 3000
+						men_at_arms = {
+							type = mangonel
+							stacks = 6
+						}
+						location = title:c_gottingen.title_province
+						war = scope:faction_war
+						name = $PEASANT_ARMY_NAME$
+					}
+				}
+		
+				title:b_goslar = {
+					destroy_random_building_variable_effect = yes
+					destroy_random_building_effect = yes
+		
+					destroy_random_building_variable_effect = yes
+					destroy_random_building_effect = yes
+				}
+		
+				scope:faction_war = {
+					every_war_attacker = {
+						add_piety = medium_piety_loss
+						add_to_list = attacker_characters
+					}
+				}
+				scope:otto = {
+					faith = { save_scope_as = faith }
+				}
+				title:e_hre.holder = {
+					every_vassal = {
+						limit = {
+							faith = root.faith
+							NOR = { this = scope:otto this = scope:magnus }
+						}
+						custom = every_tct_faith_vassal
+						every_in_list = {
+							list = attacker_characters
+							reverse_add_opinion = {
+								target = prev
+								modifier = shrine_desecrater_opinion
+							}
+						}
+					}
+					every_in_list = {
+						list = attacker_characters
+						reverse_add_opinion = {
+							target = prev
+							modifier = shrine_desecrater_opinion
+							opinion = -75
+						}
+						reverse_add_opinion = {
+							target = prev
+							modifier = graverobber_opinion
+							opinion = -50
+						}
+					}
+					random_vassal = {
+						limit = {
+							NOR = { this = scope:otto this = scope:magnus }
+							highest_held_title_tier >= tier_duchy
+							opinion = {
+								target = title:e_hre.holder
+								value >= 20
+							}
+						}
+						scope:faction_war = {
+							add_defender = prev
+						}
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = tct_neutral_struggle.0010.a
+	}
+}
 
 # The Second Rebellion # Event for Otto of Bavaria and Heinrich IV
 

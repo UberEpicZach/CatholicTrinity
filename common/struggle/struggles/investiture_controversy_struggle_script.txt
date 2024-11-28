@@ -387,6 +387,7 @@
 						tct_catalyst_hre_emperor_loses_revolt_war = major_struggle_catalyst_gain
 
 						tct_catalyst_became_friend_lover_papal_supporter_imperial_supporter = minor_struggle_catalyst_gain
+						catalyst_forming_alliance_between_supporter_detractor_rulers = catalyst_forming_alliance_between_supporter_detractor_rulers_value
 
 						# Yearly drift every year that the Pope and Emperor like eachother.
 						tct_papal_hre_opinions_good = massive_struggle_catalyst_gain
@@ -504,7 +505,7 @@
 
 				involved_county_modifier = {
 					# If you're at war, there's chaos at home.
-					monthly_county_control_change_at_war_add = -0.02
+					monthly_county_control_decline_at_war_add = -0.02
 					# Manpower is devoted to fighting, less able bodies to farm/build
 					build_speed = 0.35
 					tax_mult = -0.25
@@ -513,7 +514,7 @@
 
 				interloper_county_modifier = {
 					# If you're at war, there's chaos at home.
-					monthly_county_control_change_at_war_add = -0.01
+					monthly_county_control_decline_at_war_add = -0.01
 					# Manpower is devoted to fighting, less able bodies to farm/build
 					build_speed = 0.3
 					tax_mult = -0.2
@@ -522,7 +523,7 @@
 
 				uninvolved_county_modifier = {
 					# Everyone's squabbling amongst themselves in your struggle lands.
-					monthly_county_control_change_at_war_add = -0.03
+					monthly_county_control_decline_at_war_add = -0.03
 					# Manpower is devoted to fighting, less able bodies to farm/build
 					build_speed = 0.25
 					tax_mult = -0.2
@@ -532,7 +533,7 @@
 				involved_character_modifier = {
 					castle_holding_build_gold_cost = -0.3
 					owned_hostile_scheme_success_chance_add = 20
-					claim_throne_scheme_power_mult = 1
+					claim_throne_scclaim_throne_scheme_phase_duration_add = monumental_scheme_phase_duration_bonus_value
 				}
 
 				involved_parameters = {
@@ -684,7 +685,7 @@
 
 				involved_county_modifier = {
 					# If you're at war, there's chaos at home.
-					monthly_county_control_change_at_war_add = -0.05
+					monthly_county_control_decline_at_war_add = -0.05
 					# Manpower is devoted to fighting, less able bodies to farm/build
 					build_speed = 0.5
 					tax_mult = -0.35
@@ -693,7 +694,7 @@
 
 				interloper_county_modifier = {
 					# If you're at war, there's chaos at home.
-					monthly_county_control_change_at_war_add = -0.03
+					monthly_county_control_decline_at_war_add = -0.03
 					# Manpower is devoted to fighting, less able bodies to farm/build
 					build_speed = 0.35
 					tax_mult = -0.25
@@ -702,14 +703,14 @@
 
 				uninvolved_county_modifier = {
 					# Everyone's squabbling amongst themselves in your struggle lands.
-					monthly_county_control_change_at_war_add = -0.1
+					monthly_county_control_decline_at_war_add = -0.1
 				}
 
 				involved_character_modifier = {
 					vassal_levy_contribution_mult = 0.25 # Maybe remove
 					vassal_tax_contribution_mult = -0.25 # Maybe remove
 					owned_hostile_scheme_success_chance_add = 35
-					claim_throne_scheme_power_mult = 1.5
+					claim_throne_scclaim_throne_scheme_phase_duration_add = monumental_scheme_phase_duration_bonus_value
 				}
 
 				involved_parameters = {
@@ -866,22 +867,22 @@
 
 				involved_county_modifier = {
 					# If you're at war, there's chaos at home.
-					monthly_county_control_change_at_war_add = -0.02
+					monthly_county_control_decline_at_war_add = -0.02
 				}
 
 				interloper_county_modifier = {
 					# If you're at war, there's chaos at home.
-					monthly_county_control_change_at_war_add = -0.01
+					monthly_county_control_decline_at_war_add = -0.01
 				}
 
 				uninvolved_county_modifier = {
 					# Everyone's squabbling amongst themselves in your struggle lands.
-					monthly_county_control_change_at_war_add = -0.03
+					monthly_county_control_decline_at_war_add = -0.03
 				}
 
 				involved_character_modifier = {
 					owned_hostile_scheme_success_chance_add = 20
-					claim_throne_scheme_power_mult = 1
+					claim_throne_scclaim_throne_scheme_phase_duration_add = monumental_scheme_phase_duration_bonus_value
 				}
 
 				involved_parameters = {
