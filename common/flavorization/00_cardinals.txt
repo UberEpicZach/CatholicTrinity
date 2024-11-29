@@ -229,7 +229,7 @@ orthodox_patriarch = {
 		d_antioch_patriarchate
 		d_jerusalem_patriarchate
 		d_rome_patriarchate
-		d_constantinople_patriarchate
+		k_orthodox
 	}
 	flavourization_rules = {
 		top_liege = no

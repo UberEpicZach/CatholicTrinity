@@ -1,0 +1,229 @@
+﻿investiture_controversy_story = {
+	on_setup = { # HRE Emperor Should be the story owner
+		story_owner = { # Add Character Modifiers
+			
+		}
+	}
+
+	on_end = {
+		debug_log = "investiture_controversy_story story ended on:"
+		debug_log_date = yes
+	}
+
+	on_owner_death = {	
+		story_owner = {
+			if = {
+				limit = {
+					AND = {
+						exists = player_heir
+						exists = title:e_hre.holder
+					}
+				}
+				player_heir = {
+					limit = {
+						is_primary_heir_of = title:e_hre	
+					}
+					save_scope_as = new_story_owner # pass chain to appropriate target
+				}
+			}
+			else = {
+				limit = {
+					AND = {
+						exists = title:e_hre.holder
+					}
+				}
+				title:e_hre.holder = {
+					save_scope_as = new_story_owner # pass chain to appropriate target
+				}		
+			}
+		}
+		if = {
+			limit = { exists = scope:new_story_owner }
+			make_story_owner = scope:new_story_owner
+
+			debug_log = "Successfully replaced the investiture_controversy_story owner"
+			debug_log_date = yes
+			debug_log_scopes = yes
+		}
+	}
+
+	effect_group = { # Story handling in case of succession weirdness
+		days = 180
+
+		trigger = {
+			story_owner = {
+				NOT = {
+					any_held_title = {
+						this = title:e_hre
+					}
+				}
+			}
+		}
+
+		triggered_effect = {
+			trigger = { exists = title:e_hre }
+			effect = {
+				title:e_hre.holder = {
+					make_story_owner = title:e_hre.holder
+				}
+			}
+		}
+
+		triggered_effect = {
+			trigger = { 
+				NOT = { 
+					exists = title:e_hre 
+				} 
+			}
+			effect = {
+				end_story = yes
+			}
+		}
+	}
+
+
+	# Emperor's Appointment of an Anti-Pope
+	effect_group = { # 
+		days = 180
+
+		trigger = {
+			title:e_hre.holder = {
+				any_vassal_or_below = {
+					tct_possible_antipope_vassal_trigger = yes
+					save_temporary_scope_as = antipope_vassal_temp
+				}
+				is_character_interaction_potentially_accepted = {
+					recipient = scope:antipope_vassal_temp
+					interaction = TCT_make_antipope_interaction
+				}
+				any_character_struggle = {
+					is_struggle_type = investiture_controversy_struggle
+				}
+			}
+		}
+
+		triggered_effect = {
+			trigger = { exists = title:e_hre }
+			effect = {
+				title:e_hre.holder = {
+					random_vassal_or_below = {
+						limit = {
+							tct_possible_antipope_vassal_trigger = yes
+						}
+						save_scope_as = antipope_vassal
+					}
+					scope:antipope_vassal = {
+						if = {
+							limit = { 
+								is_theocratic_lessee = yes
+								NOT = { is_courtier_of = title:e_hre.holder }
+							}
+							title:e_hre.holder = { 
+								add_courtier = prev
+							}
+						}
+						if = {
+							limit = { 
+								OR = {
+									has_trait = cardinal_priest
+									has_trait = cardinal_bishop
+									has_trait = cardinal_archbishop
+								}
+							}
+							if = { limit = { has_trait = cardinal_priest } remove_trait = cardinal_priest }
+							if = { limit = { has_trait = cardinal_bishop } remove_trait = cardinal_bishop }
+							if = { limit = { has_trait = cardinal_archbishop } remove_trait = cardinal_archbishop }
+							remove_cardinal = yes
+							promote_new_cardinal = yes
+							update_cardinal_window = yes
+							update_preferatus = yes
+						}
+					}
+					title:e_hre.holder = {
+						add_piety = massive_piety_loss
+						struggle:investiture_controversy_struggle = {
+							every_involved_ruler = {
+								limit = {
+									NOT = {
+										has_character_flag = had_TCT_religious_events_0409
+									}
+								}
+								trigger_event = { days = 1 id = TCT_religious_events.403 }
+								add_character_flag = had_TCT_religious_events_0409
+							}
+						}
+						faith.religious_head = {
+							add_opinion = {
+								modifier = TCT_creator_of_antipope
+								target = scope:actor
+							}
+						}
+					}
+					TCT_create_antipope = {
+						ANTIPOPE = scope:recipient
+						CREATOR = scope:actor
+					}
+			
+					title:e_hre.holder = {
+						if = {
+							limit = {
+								title:e_hre.holder = {
+									any_character_struggle	 = {
+										involvement = involved
+										phase_has_catalyst = tct_create_antipope
+									}
+								}
+							}
+							every_character_struggle = {
+								involvement = involved
+								activate_struggle_catalyst = {
+									catalyst = tct_create_antipope
+									character = title:e_hre.holder
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		triggered_effect = {
+			trigger = { 
+				NOT = { 
+					exists = title:e_hre 
+				} 
+			}
+			effect = {
+				end_story = yes
+			}
+		}
+	}
+
+	# Papal Backing of an On-Going Rebellion
+	effect_group = {
+
+	}
+
+	# Papal excommunication of the Emperor
+	effect_group = {
+
+	}
+
+	# Papal states looking for allies
+	effect_group = {
+
+	}
+
+	# Seizure of Papal Assets
+	effect_group = {
+
+	}
+
+	# Public Oath of Loyalty, A powerful duke or count publicly swears allegiance to both Emperor and Pope, setting an example for reconciliation.	
+	effect_group = {
+
+	}
+
+	
+
+}

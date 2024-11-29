@@ -8,8 +8,8 @@
 
   d_rome_patriarchate:0 "Roman Patriarchy"
   d_rome_patriarchate_adj:0 "Roman"
-  d_constantinople_patriarchate:0 "Constantinopolitan Patriarchy"
-  d_constantinople_patriarchate_adj:0 "Patriarchal"
+  k_orthodox:0 "Constantinopolitan Patriarchy"
+  k_orthodox_adj:0 "Patriarchal"
   d_alexandria_patriarchate:0 "Alexandrian Patriarchy"
   d_alexandria_patriarchate_adj:0 "Patriarchal"
   d_antioch_patriarchate:0 "Antiochian Patriarchy"

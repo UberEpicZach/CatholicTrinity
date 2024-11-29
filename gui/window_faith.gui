@@ -1472,7 +1472,6 @@ window = {
 							margin_right = 2
 			
 							vbox = {
-								
 								#layoutpolicy_horizontal = expanding
 								#layoutpolicy_vertical = expanding
 								datacontext = "[Scope.GetCharacter]"

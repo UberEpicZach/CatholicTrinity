@@ -51,7 +51,7 @@
  TCT_patriarchs_title:0 "Autocephalous patriarchs"
  TCT_patriarch_name:0 "Patriarch: [Scope.GetCharacter.GetFirstNameNoTooltip]"
  TCT_patriarchate_territory:0 "Canonical territory: [Scope.GetCharacter.MakeScope.Var('TCT_canonical_territory').GetLandedTitle.GetName]"
- TCT_ecumenical_patriarch_title:0 "Head of the Church"
+ TCT_ecumenical_patriarch_title:0 "Ecumenical Patriarch"
  TCT_ecumenical_patriarch_name:0 "Ecumenical Patriarch\n[Scope.GetCharacter.GetFirstNameNoTooltip]"
  TCT_rom_title:0 "Rome"
  TCT_con_title:0 "Constantinople"
@@ -188,8 +188,12 @@
  TCT_governs_vast_estates:0 "This Character Governs Vast Esates for the pope."
 
  #Invest 
-  window_cardinals_divest_tooltip:0 "Withdraw Investment! Returns half initial investment."
-  window_cardinals_invest_tooltip:0 "Invest in Candidate! Costs 50 Gold, Removing Investment later returns only Half initial investment!"
+  invest: "Fund\n(@gold_icon! 50)"
+  withdraw: "Withdraw\n(@gold_icon! 25)"
+  window_cardinals_divest_tooltip:0 "#Tooltip_heading Withdraw Funds from Cardinal Campaign#!\n#weak You can withdraw your support from the selected candidate's campaign. #Warning However, only half, @gold_icon! 25, of the invested funds will be returned#!, as the rest has already been spent on campaign efforts.#!"
+  window_cardinals_divest_tooltip_not_funded: "#Alert_trial Nothing to Withdraw\nYou can't pull out of a campaign you never funded! Perhaps it's time to put your coin where your faith is?#! \n\n$window_cardinals_divest_tooltip$"
+
+  window_cardinals_invest_tooltip:0 "#Tooltip_heading Invest Funds in Cardinal Candidate#!\n#weak Funds will support the selected candidate's campaign, increasing their chances of being appointed to the College of Cardinals. However, a candidate's base skills and stats also play a significant role in the selection process.#!"
 
  game_concept_opposing_struggle_factions: "Opposing Struggle Faction"
  game_concept_opposing_struggle_factions_desc: "Opposing Struggle Factions are the usually the two sides of a [struggle|E], currently in the [investiture_controversy_struggle|E] the two sides are the [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )] and the [GetTrait('tct_imperial_supporter').GetName( GetNullCharacter )].\n\nIn the [persian_struggle|E] the two sides are the [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )] and the [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )]."

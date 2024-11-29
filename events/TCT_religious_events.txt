@@ -691,6 +691,20 @@ TCT_religious_events.8 = { #Monastery Monks"
 	}
 }
 
+scripted_trigger tct_religious_event_9_trigger = {
+	is_commanding_army = no
+	is_adult = yes
+	is_imprisoned = no
+	has_religion = religion:christianity_religion
+	any_child = {
+		is_ruler = no
+		age >= 13
+		NOT = { age >= 16 }
+		NOT = { has_trait = cynical }
+		NOT = { is_clergy = yes }
+	}
+}
+
 TCT_religious_events.9 = { #Child wants to be monk/nun - select child
 	title = TCT_religious_events.9.t
 	desc = TCT_religious_events.9.desc
@@ -5082,6 +5096,50 @@ TCT_religious_events.402 = {
 		}
 	}
 }
+
+TCT_religious_events.403 = {
+	title = TCT_religious_events.403.t
+	desc = TCT_religious_events.403.desc
+	theme = learning_scholarship_focus
+	left_portrait = {
+		character = title:e_hre.holder.var:TCT_antipope_of_ruler
+		animation = personality_honorable
+	}
+	right_portrait = {
+		character = title:e_hre.holder
+		animation = emotion_thinking_scepter
+	}
+	lower_right_portrait = {
+		character = title:k_papal_state.holder
+		animation = ecstasy
+	}
+
+	immediate = {
+		title:e_hre.holder = {
+			save_scope_as = emperor
+		}
+		title:e_hre.holder.var:TCT_antipope_of_ruler = {
+			if = {
+				limit = {
+					exists = var:duplicatenameexists
+				}
+				var:duplicatenameexists = {
+					save_scope_as = duplicatedname
+				}
+			}
+		}
+	}
+
+
+	option = { 
+		name = TCT_religious_events.403.a
+
+		ai_chance = {
+			base = 50
+		}
+	}
+}
+
 
 scripted_effect get_held_title_to_donate = {
 	clear_variable_list = personally_held_counties_list

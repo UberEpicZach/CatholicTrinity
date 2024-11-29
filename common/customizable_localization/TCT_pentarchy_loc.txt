@@ -62,7 +62,7 @@ TCT_get_patriarchate_of_pentarch = {
 	}
 	text = {
 		trigger = {
-			has_title = title:d_constantinople_patriarchate
+			has_title = title:k_orthodox
 		}
 		localization_key = TCT_con_title
 	}

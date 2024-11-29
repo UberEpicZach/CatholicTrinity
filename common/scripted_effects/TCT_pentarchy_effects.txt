@@ -116,7 +116,7 @@ TCT_pentarchy_map = {
 				county.title_province ?= {
 					set_variable = {
 						name = TCT_patriarchate_of_barony
-						value = title:d_constantinople_patriarchate
+						value = title:k_orthodox
 					}
 				}
 			}
@@ -203,7 +203,7 @@ TCT_get_patriarch_of_target = {
 			limit = { 
 				$TARGET$.capital_province = { geographical_region = TCT_region_pentarchy_constantinople } 
 			}
-			title:d_constantinople_patriarchate.holder = { save_scope_as = patriarch }
+			title:k_orthodox.holder = { save_scope_as = patriarch }
 		}
 		else_if = {
 			limit = { 
@@ -268,7 +268,7 @@ TCT_get_patriarch_of_target = {
 			limit = { 
 				$TARGET$.liege.capital_province = { geographical_region = TCT_region_pentarchy_constantinople } 
 			}
-			title:d_constantinople_patriarchate.holder = { save_scope_as = patriarch }
+			title:k_orthodox.holder = { save_scope_as = patriarch }
 		}
 		else_if = {
 			limit = { 
@@ -333,7 +333,7 @@ TCT_get_patriarch_of_target = {
 			limit = { 
 				$TARGET$.location = { geographical_region = TCT_region_pentarchy_constantinople } 
 			}
-			title:d_constantinople_patriarchate.holder = { save_scope_as = patriarch }
+			title:k_orthodox.holder = { save_scope_as = patriarch }
 		}
 		else_if = {
 			limit = { 

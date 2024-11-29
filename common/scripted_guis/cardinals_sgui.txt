@@ -1,9 +1,6 @@
 ﻿can_see_my_candidate = {
     scope = character
 	is_shown = {
-		NOT = {
-			has_title = title:k_papal_state
-		}
 		has_variable = cardinal_player_candidate
 	}
 }
@@ -11,10 +8,8 @@
 can_see_my_candidate_fail = {
     scope = character
 	is_shown = {
-		#has_title = title:k_papal_state
 		NOT = {
 			has_variable = cardinal_player_candidate
-			has_title = title:k_papal_state
 		}
 	}
 }

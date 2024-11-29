@@ -135,9 +135,10 @@
 # "The Saxon Revolt" # Event for Otto of Bavaria and Heinrich IV, maybe everyone in the struggle region?
 
  tct_neutral_struggle.0009.t: "The Saxon Revolt"
- tct_neutral_struggle.0009.desc: "The Saxons have risen in defiance, their long-simmering anger now bursting into open rebellion. \n\nThe emperor’s trial of [otto.GetFirstName] [otto.GetDynastyName] has been the catalyst, igniting years of frustration into a full-scale revolt. Led by [magnus.GetFullName], the Saxon lords have united under a single banner, and the people, emboldened, have taken up arms to throw off the weight of imperial oppression. Rebel forces now march toward Goslar, their resolve clear: to bring the emperor to account for his tyranny"
+ tct_neutral_struggle.0009.desc: "The Saxons have risen in defiance, their long-simmering anger now bursting into open rebellion. \n\nThe emperor’s trial of [otto.GetFirstName] [otto.GetDynastyName] has been the catalyst, igniting years of frustration into a full-scale revolt. Led by [magnus.GetFullName], the Saxon lords have united under a single banner, and the people, emboldened, have taken up arms to throw off the weight of imperial oppression. Rebel forces now march toward Goslar, their resolve clear: to bring the emperor to account for his tyranny."
  tct_neutral_struggle.0009.a: "Let the best one win."
- tct_neutral_struggle.0009.b: "Let the best one win."  
+ tct_neutral_struggle.0009.b: "Let the best one win." 
+ every_saxon_vassal: "Every vassal of your [culture.GetNameNoTooltip]" 
 
  every_tct_faith_vassal: "Every [GetFaithByKey('catholic').GetAdjective] Vassal"
 

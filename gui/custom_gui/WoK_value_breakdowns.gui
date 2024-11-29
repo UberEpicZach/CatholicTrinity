@@ -145,9 +145,9 @@ types WOKCardinalsValueBreakdownElements {
     }
 
 }
-# Breakdown invocation: 
-#wok_breakdown_box  = {
-#    datacontext = "[GetScriptedGui('some_sgui')]" 
-#    blockoverride "text"    {text = key} 
-#    blockoverride "     value" {text = key}
-#}
+Breakdown invocation: 
+wok_breakdown_box  = {
+   datacontext = "[GetScriptedGui('some_sgui')]" 
+   blockoverride "text"    {text = key} 
+   blockoverride "     value" {text = key}
+}

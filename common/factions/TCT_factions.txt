@@ -40,6 +40,7 @@
 		
 		exists = special_character
 		special_title.holder = faction_target
+		
 		OR = {
 			special_character = {
 				is_alive = yes
@@ -47,6 +48,18 @@
 				NOR = { 
 					has_trait = incapable
 					this = root.faction_target
+				}
+				any_character_struggle = {
+					involvement = involved
+					is_struggle_type = investiture_controversy_struggle
+					is_struggle_phase = investiture_controversy_phase_hostility
+				}
+				scope:faction_target = {
+					any_character_struggle = {
+						involvement = involved
+						is_struggle_type = investiture_controversy_struggle
+						is_struggle_phase = investiture_controversy_phase_hostility
+					}
 				}
 				# Byzantium does not brook
 				trigger_if = {
@@ -258,7 +271,7 @@
 	}
 
 	ai_create_score = { # How likely is an AI to create a faction?
-		base = -25
+		base = -10000
 
 		# ####
 		# # BLOCKERS

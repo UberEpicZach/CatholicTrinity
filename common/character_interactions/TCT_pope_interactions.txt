@@ -533,21 +533,21 @@ request_excommunication_interaction = {
 		if = {
 			limit = {
 				scope:actor = {
-					removingvariableeffecttrigger = yes
+					conclave_influence_variable_effect_trigger = yes
 				}
 			}
 			scope:actor = {
-				removingvariableeffect = yes
+				conclave_influence_variable_removing_effect = yes
 			}
 		}
 		if = {
 			limit = {
 				scope:secondary_recipient = {
-					removingvariableeffecttrigger = yes
+					conclave_influence_variable_effect_trigger = yes
 				}
 			}
 			scope:secondary_recipient = {
-				removingvariableeffect = yes
+				conclave_influence_variable_removing_effect = yes
 			}
 		}
 		if = {
@@ -570,16 +570,16 @@ request_excommunication_interaction = {
 					if = {
 						limit = {
 							scope:actor = {
-								NOT = { removingvariableeffecttrigger = yes }
+								NOT = { conclave_influence_variable_effect_trigger = yes }
 							}
 						}
 						scope:actor = {
-							setingvariableeffect = yes
+							conclave_influence_variable_initializing_effect = yes
 						}
 					}
 					else = {
 						scope:actor = {
-							changingvariableeffect = yes
+							conclave_influence_variable_change_effect = yes
 						}
 					}
 				}
@@ -596,16 +596,16 @@ request_excommunication_interaction = {
 					if = {
 						limit = {
 							scope:secondary_recipient = {
-								NOT = { removingvariableeffecttrigger = yes }
+								NOT = { conclave_influence_variable_effect_trigger = yes }
 							}
 						}
 						scope:secondary_recipient = {
-							setingvariableeffect = yes
+							conclave_influence_variable_initializing_effect = yes
 						}
 					}
 					else = {
 						scope:secondary_recipient = {
-							changingvariableeffect = yes
+							conclave_influence_variable_change_effect = yes
 						}
 					}
 				}
@@ -936,10 +936,10 @@ hof_ask_for_claim_interaction = {
 				scope:actor = { has_cardinal_faith = yes } #might error
 			}
 			scope:actor = {
-				removingvariableeffect = yes
+				conclave_influence_variable_removing_effect = yes
 			}
 			scope:secondary_recipient = {
-				removingvariableeffect = yes
+				conclave_influence_variable_removing_effect = yes
 			}
 			if = {
 				limit = {
@@ -961,16 +961,16 @@ hof_ask_for_claim_interaction = {
 						if = {
 							limit = {
 								scope:secondary_recipient = {
-									NOT = { removingvariableeffecttrigger = yes }
+									NOT = { conclave_influence_variable_effect_trigger = yes }
 								}
 							}
 							scope:secondary_recipient = {
-								setingvariableeffect = yes
+								conclave_influence_variable_initializing_effect = yes
 							}
 						}
 						else = {
 							scope:secondary_recipient = {
-								changingvariableeffect = yes
+								conclave_influence_variable_change_effect = yes
 							}
 						}
 					}
@@ -4928,6 +4928,7 @@ select_cardinal_candidate_interaction = {
 		scope:actor = {
 			has_cardinal_faith = yes
 		}
+		
 	}
 
 	
@@ -4936,23 +4937,23 @@ select_cardinal_candidate_interaction = {
 		is_adult = yes
 		NOT = { is_cardinal = yes }
 		faith = scope:actor.faith
-		# custom_tooltip = {
-		# 	text = ghw_heir_to_a_title
-		# 	NOT = {
-		# 		any_heir_title = {} # Not heir to anything
-		# 	}
-		# }
-		# custom_tooltip = {
-		# 	text = ghw_married_to_a_ruler
-		# 	OR = { #Either not married, or not married to a ruler.
-		# 		is_married = no
-		# 		NOT = {
-		# 			any_spouse = {
-		# 				is_ruler = yes
-		# 			}
-		# 		}
-		# 	}
-		# }
+		custom_tooltip = {
+			text = ghw_heir_to_a_title
+			NOT = {
+				any_heir_title = {} # Not heir to anything
+			}
+		}
+		custom_tooltip = {
+			text = ghw_married_to_a_ruler
+			OR = { #Either not married, or not married to a ruler.
+				is_married = no
+				NOT = {
+					any_spouse = {
+						is_ruler = yes
+					}
+				}
+			}
+		}
 	}
 
 	has_valid_target_showing_failures_only = {
