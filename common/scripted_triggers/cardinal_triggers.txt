@@ -15,9 +15,13 @@ is_eligible_for_cardinality = {
 is_eligible_for_cardinality_vassal = {
 	is_alive = yes
 	#is_councillor = yes
-	is_clergy = yes
+	#is_clergy = yes
 	#is_landed = no
-	OR = {has_government = theocracy_government is_landed = no}
+	OR = {
+		has_government = theocracy_government
+		is_clergy = yes
+	}
+	is_male = yes
 	has_cardinal_faith = yes
 	is_cardinal = no
 	is_pope = no

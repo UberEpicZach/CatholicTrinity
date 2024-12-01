@@ -152,12 +152,13 @@ select_highest_scoring_character_cardinal_candidate = {
 			realm_priest = {add_to_list = highest_scoring_character_cardinal_candidates}
 		}
 		# Select player's best candidate:
-		ordered_in_list = {
-			limit = {exists = this is_alive = yes NOT = { is_cardinal = yes}}
+		every_in_list = {
+			limit = { exists = this is_alive = yes NOT = { is_cardinal = yes}}
 			list = highest_scoring_character_cardinal_candidates
 			order_by = bishop_to_cardinal_score
 			position = 0
 			save_scope_as = highest_scoring_character_cardinal_candidate_selected
+			add_gold = 10
 		}
 		set_variable = {
 			name = cardinal_player_candidate

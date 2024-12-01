@@ -151,6 +151,13 @@ tct_on_start_1066 = {
 			set_father = character:bordeaux_archbishop_9_father
 		}
 
+		character:73530 = {
+			set_father = character:italian0024
+			set_house = character:italian0024.house
+			add_trait = bastard
+			add_trait = devoted
+		}
+
 		# Title Setup
 		title:e_hre.holder = {
 			add_realm_law_skip_effects = free_investiture_early

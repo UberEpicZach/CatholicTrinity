@@ -1,0 +1,10 @@
+﻿# DIARCH
+tct_paid_indulgence = {
+	display = feed
+	group = tct_messages
+}
+
+tct_lots_of_gold = {
+	display = feed
+	group = tct_messages
+}

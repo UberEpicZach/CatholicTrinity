@@ -530,7 +530,7 @@ types Cardinals {
 			hbox = {
 				name = "change_candidate"
 				layoutpolicy_horizontal = expanding
-				visible = "[GetScriptedGui('can_see_my_candidate').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+				#visible = "[GetScriptedGui('can_see_my_candidate').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 				visible_at_creation = yes
 				parentanchor = top
 				position = {-625 -170}
@@ -557,10 +557,6 @@ types Cardinals {
 				blockoverride "text"    {   raw_text = cardinals_my_candidate}
 				window_cardinals_campaign = {position = { -45 5}}
 				window_cardinals_score = {position = { 510 -5 }}
-				window_cardinals_invest_divest = {
-					parentanchor = bottom|hcenter
-					position = { -10 60 }
-				}
 			}
 			
 			window_cardinals_special_character = {

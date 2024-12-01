@@ -45,6 +45,10 @@
 	is_shown = { #IS SHOWN IS GOOD
 		any_character_struggle = { this = struggle:investiture_controversy_struggle }
 		has_religion = religion:christianity_religion
+		NOT = {
+			this = title:e_hre.holder
+			this = title:k_papal_state.holder
+		}
 	}
 
 	is_valid = {  # IS VALID IS GOOD
@@ -67,6 +71,10 @@
 				exists = title:e_hre.holder
 			}
 			NOT = { is_allied_to = title:e_hre.holder }
+		}
+		NOT = {
+			this = title:e_hre.holder
+			this = title:k_papal_state.holder
 		}
 	}
 

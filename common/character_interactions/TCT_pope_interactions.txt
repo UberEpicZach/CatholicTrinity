@@ -2283,7 +2283,7 @@ hof_ask_for_gold_interaction = {
 				object = scope:recipient
 				scope:recipient = {
 					AND = {
-						gold >= 500
+						gold >= 3000
 						NOT = {
 							has_any_major_negative_opinion_against_character_trigger = { CHARACTER = scope:actor }
 							has_any_petty_revenge_opinion_against_character_trigger = { CHARACTER = scope:actor }
@@ -2300,7 +2300,7 @@ hof_ask_for_gold_interaction = {
 	on_auto_accept = {
 		scope:recipient = {
 			send_interface_message = {
-				type = event_generic_good_text
+				type = msg_lots_of_gold_effect
 				title = TCT_lots_of_gold_pope_paid
 				desc = TCT_lots_of_gold_pope_paid_desc
 
@@ -2610,7 +2610,7 @@ seek_indulgences_interaction = {
 	on_auto_accept = {
 		scope:recipient = {
 			send_interface_message = {
-				type = event_generic_good_text
+				type = msg_paid_indulgence_effect
 				title = TCT_paid_indulgences
 				desc = TCT_paid_indulgences_desc
 
@@ -4828,8 +4828,31 @@ claim_throne_interaction = {
 select_cardinal_candidate_interaction = {
 	category = interaction_category_religion
 
-	
 	populate_recipient_list = {
+		scope:actor = {
+			if = {
+				limit = {
+					has_title = title:k_papal_state
+				}
+				title:k_papal_state.holder.faith = {
+					every_faith_ruler = {
+						if = {
+							limit = {
+								government_has_flag = theocracy_government
+							}
+							add_to_list = characters
+						}
+						every_courtier = {
+							limit = {
+								has_council_position = councillor_court_chaplain
+							}
+							add_to_list = characters
+						} 
+					}
+				}
+			}
+		}
+			
 		scope:recipient = {
 			#Any member of your own house.
 			house = {
@@ -4923,15 +4946,6 @@ select_cardinal_candidate_interaction = {
 	}
 	
 	auto_accept = yes
-	
-	is_shown = {
-		scope:actor = {
-			has_cardinal_faith = yes
-		}
-		
-	}
-
-	
 	
 	can_be_picked = {
 		is_adult = yes
