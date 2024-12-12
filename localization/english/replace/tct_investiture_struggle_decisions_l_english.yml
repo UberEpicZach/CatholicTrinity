@@ -1,5 +1,8 @@
 ﻿l_english:
 
+
+ CB_STRUGGLE_PHASE_ATTACKING_SAME_FACTION_MEMBER: "Fellow [struggle_faction_members|E]"
+
  tct_papal_supporter:0 "Papal Supporter"
  tct_imperial_supporter:0 "Imperial Supporter"
  trait_tct_papal_supporter:0 "Papal Supporter"
@@ -80,7 +83,7 @@
 
  #EVENT LOC
  tct_neutral_struggle.0002.t: "Goslar, Silver Mines and the Saxons"
- tct_neutral_struggle.0002.desc: "The air within the Imperial Palace of Goslar feels thick, a blend of past choices and the promise of a relentless future. Ah, the Saxons—a thorn in the flesh, one that dates back to the reign of my late father. Goslar, this palace which is supposed to signify unity, has instead become a chokehold upon their livelihoods. It's a bitter draught to swallow, but who am I to deny the burdens of lineage? \n\nYet, I stand resolute in my intentions. The silver mines of Rammelsberg, the fortresses that rise like dragons along the Harz mountains—these are not mere whims of a tyrant. They are bastions of imperial strength, each stone, each shimmering vein of silver, an expression of our indomitable will. My ministeriales, their Swabian roots notwithstanding, are the sinew and bone of this vision. If the Saxons see this as a threat, it is only because they are blinded by their own insecurities. They'll soon come to understand, either willingly or through the firm hand of my governance, that the grand tapestry of the Empire leaves no room for petty dissension."
+ tct_neutral_struggle.0002.desc: "I stand within the Imperial Palace of Goslar looking out to the fields below...the Saxons—a thorn in the flesh, a thorn that dates back to the reign of my late father. Goslar, this palace which is supposed to signify unity, has instead become a chokehold upon their livelihoods. It's a bitter draught to swallow, but who am I to deny the burdens of lineage? \n\nYet, I stand resolute in my intentions. The silver mines of Rammelsberg, the fortresses that rise like dragons along the Harz mountains—these are not mere whims of a tyrant. They are bastions of imperial strength, my strength as emperor, My ministeriales, their Swabian roots notwithstanding, are the sinew and bone of this vision. If the Saxons see this as a threat, it is only because they are blinded by their own insecurities. They'll soon come to understand, either willingly or through the firm hand of my governance."
  tct_neutral_struggle.0002.a: "All in good time.."
 
  tct_neutral_struggle.0003.t: "Goslar, Silver Mines and the Salians"
@@ -127,14 +130,14 @@
  tct_neutral_struggle.0008.t: "Allies in the Shadows"
  #tct_neutral_struggle.0008.opening: "To Otto, once Duke of Bavaria and still a man of honor despite the crown’s betrayal"
  tct_neutral_struggle.0008.desc: "#italic ‘To [otto.GetFirstName], once Duke of Bavaria and still a man of honor despite the crown’s betrayal, I have long considered the injustices done to you, a man who gave loyalty only to have it spat back in his face. Know that you are not forgotten—least of all by me. \n\nThe emperor’s trial may have silenced you within the Empire, but here in Saxony, we speak of your fall as proof of his tyranny. Men may rise with words, but only steel will bring the emperor to his knees. My people murmur of rebellion, and I can no longer stand idle while [emperor.GetFirstName] wields a powerful cudgel against the Saxons. \n\nYou'd be restored to your rightful station, as I would see my family avenged for their suffering. I have the means to fund a band of loyal warriors for you. In return, I ask for your sword and name to join with mine when the moment comes. Together, we will burn away the rot and reclaim what is owed.’#!"
- tct_neutral_struggle.0008.a: "I must organize myself."
- tct_neutral_struggle.0008.a.tt: "@warning_icon! #X You will join the #high Civil War#! against [emperor.GetShortUIName], on the side of the Saxons lead by [magnus.GetShortUIName] in a few months#!" 
+ tct_neutral_struggle.0008.a: "I will join you in this struggle."
+ tct_neutral_struggle.0008.a.tt: "@warning_icon! #X You will join the #high Civil War#! against [emperor.GetShortUIName], on the side of the Saxons led by [magnus.GetShortUIName] in a few months#!" 
  tct_neutral_struggle.0008.b: "My time in the imperial court is over."
  tct_neutral_struggle.0008.b.tt: "You will remain an adventurer"
 
 # "The Saxon Revolt" # Event for Otto of Bavaria and Heinrich IV, maybe everyone in the struggle region?
-
- tct_neutral_struggle.0009.t: "The Saxon Revolt"
+ FIRST_SAXON_REVOLT_WAR_NAME: "The Saxon Uprising"
+ tct_neutral_struggle.0009.t: "The Saxon Uprising"
  tct_neutral_struggle.0009.desc: "The Saxons have risen in defiance, their long-simmering anger now bursting into open rebellion. \n\nThe emperor’s trial of [otto.GetFirstName] [otto.GetDynastyName] has been the catalyst, igniting years of frustration into a full-scale revolt. Led by [magnus.GetFullName], the Saxon lords have united under a single banner, and the people, emboldened, have taken up arms to throw off the weight of imperial oppression. Rebel forces now march toward Goslar, their resolve clear: to bring the emperor to account for his tyranny."
  tct_neutral_struggle.0009.a: "Let the best one win."
  tct_neutral_struggle.0009.b: "Let the best one win." 
@@ -198,8 +201,25 @@
  tct_investiture_struggle.0051.b: "These foolish ambitions must be put to rest!"
 
 
+ less_then_20_percent_powerful_vassals_papal_supporter_tt: "You have less than 20% of your powerful vassals supporting the Papacy"
 
+  investiture_struggle_imperial_supremacy_decision:0 "Imperial Supremacy"
+  investiture_struggle_imperial_supremacy_decision_desc:0 "The Emperor's authority is supreme, and the Church must bow to his will."
+  investiture_struggle_imperial_supremacy_decision_tooltip:0 "The Emperor's authority is supreme, and the Church must bow to his will."
+  investiture_struggle_imperial_supremacy_decision_correct_phase_tt:0 "In the hostility phase"
+  investiture_struggle_imperial_supremacy_decision_kingdom_tt:0 "Kingdom"
+  investiture_struggle_imperial_supremacy_decision_county_light_tt:0 "Placeholder"
+  investiture_struggle_imperial_supremacy_decision_county_tt:0 "Placeholder"
+  investiture_struggle_imperial_supremacy_decision_region_tt:0 "Placeholder"
 
+  investiture_struggle_papal_supremacy_decision:0 "Papal Supremacy"
+  investiture_struggle_papal_supremacy_decision_desc:0 "The Papal's authority is supreme, and the Church must bow to his will."
+  investiture_struggle_papal_supremacy_decision_tooltip:0 "The Papal's authority is supreme, and the Church must bow to his will."
+  investiture_struggle_papal_supremacy_decision_correct_phase_tt:0 "In the hostility phase"
+  investiture_struggle_papal_supremacy_decision_kingdom_tt:0 "Kingdom"
+  investiture_struggle_papal_supremacy_decision_county_light_tt:0 "Placeholder"
+  investiture_struggle_papal_supremacy_decision_county_tt:0 "Placeholder"
+  investiture_struggle_papal_supremacy_decision_region_tt:0 "Placeholder"
 
 
  # 

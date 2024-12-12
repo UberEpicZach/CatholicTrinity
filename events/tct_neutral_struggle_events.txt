@@ -547,7 +547,7 @@ tct_neutral_struggle.0007 = {
 			create_title_and_vassal_change = {
 				type = granted
 				save_scope_as = change
-				add_claim_on_loss = no
+				add_claim_on_loss = yes
 			}
 	
 			title:d_bavaria.holder = {
@@ -689,7 +689,25 @@ tct_neutral_struggle.0008 = {
 		
 		scope:otto = { trigger_event = { days = 149 id = tct_neutral_struggle.0009 } }
 		title:e_hre.holder = { trigger_event = { days = 150 id = tct_neutral_struggle.0009 } }
-		scope:magnus = { trigger_event = { days = 150 id = tct_neutral_struggle.0009 } }
+		scope:magnus = { 
+			scope:magnus = {
+				create_title_and_vassal_change = {
+					type = returned
+					save_scope_as = change
+					add_claim_on_loss = no
+				}
+				scope:magnus = {
+					change_liege = {
+						liege = title:e_hre.holder
+						change = scope:change
+					}
+				}
+				resolve_title_and_vassal_change = scope:change
+			}
+			trigger_event = { 
+				days = 150 id = tct_neutral_struggle.0009 
+			}	 
+		}
 		
 		custom_tooltip = tct_neutral_struggle.0008.a.tt
 		ai_chance = {
@@ -749,6 +767,64 @@ tct_neutral_struggle.0009 = {
 			}
 		}
 
+		if = {
+			limit = {
+				NOT = {
+					exists = global_var:saxon_revolt_fired
+				}
+			}
+			set_global_variable = saxon_revolt_fired
+
+			scope:emperor = {
+				if = {
+					limit = {
+						NOT = {
+							OR = {
+								has_realm_law = crown_authority_1
+								has_realm_law = crown_authority_2
+								has_realm_law = crown_authority_3
+							}
+						}
+					}
+					add_realm_law = crown_authority_1
+				}
+			}
+
+			scope:magnus = { 
+				create_faction = {
+					type = liberty_faction
+					target = title:e_hre.holder
+				}
+				joined_faction = {
+					save_scope_as = faction
+				}
+			}
+			scope:emperor = {
+				every_vassal_or_below = {
+					limit = { 
+						culture = scope:magnus.culture 
+						NOT = { this = scope:magnus }
+						exists = scope:magnus.joined_faction
+						can_join_faction = scope:magnus.joined_faction
+					}
+					custom = every_culture_vassal
+					random = {
+						chance = 40
+						if = {
+							limit = {
+								exists = scope:magnus.joined_faction
+							}
+							join_faction = scope:magnus.joined_faction
+						}
+					}
+				}
+			}
+			scope:magnus.joined_faction = {
+				faction_start_war = { title = title:e_hre }
+				set_casus_belli = first_saxon_revolt_faction_war
+			}
+		}
+
 		struggle:investiture_controversy_struggle = {
 			every_involved_ruler = {
 				limit = {
@@ -770,55 +846,6 @@ tct_neutral_struggle.0009 = {
 		trigger = {
 			this = scope:otto
 		}
-		hidden_effect = {
-			scope:magnus = {
-				create_title_and_vassal_change = {
-					type = returned
-					save_scope_as = change
-					add_claim_on_loss = no
-				}
-				scope:magnus = {
-					change_liege = {
-						liege = title:e_hre.holder
-						change = scope:change
-					}
-				}
-				resolve_title_and_vassal_change = scope:change
-			}
-		}
-		scope:magnus = { 
-			create_faction = {
-				type = liberty_faction
-				target = title:e_hre.holder
-			}
-			joined_faction = {
-				save_scope_as = faction
-			}
-		}
-
-		scope:emperor = {
-			every_vassal_or_below = {
-				limit = { 
-					culture = scope:magnus.culture 
-					NOT = { this = scope:magnus }
-					exists = scope:magnus.joined_faction
-	 				can_join_faction = scope:magnus.joined_faction
-				}
-				custom = every_culture_vassal
-				random = {
-					chance = 40
-					if = {
-						limit = {
-							exists = scope:magnus.joined_faction
-						}
-						join_faction = scope:magnus.joined_faction
-					}
-				}
-			}
-		}
-		scope:magnus.joined_faction = {
-			faction_start_war = { title = title:e_hre }
-		}
 
 		scope:magnus = {
 			random_character_war = {
@@ -827,6 +854,9 @@ tct_neutral_struggle.0009 = {
 					primary_defender = scope:emperor
 				}
 				save_scope_as = faction_war
+			}
+			scope:faction_war = {
+				set_casus_belli = first_saxon_revolt_faction_war
 			}
 		}
 
@@ -1085,5 +1115,232 @@ tct_neutral_struggle.0010 = {
 	}
 }
 
+tct_neutral_struggle.0011 = {
+	type = character_event
+	title = tct_neutral_struggle.0011.t
+	desc = tct_neutral_struggle.0011.desc
+
+	theme = war
+	override_background = {
+		reference = burning_building
+	}
+	right_portrait = {
+		character = scope:otto
+		animation = shock
+	}
+
+	widget = {
+		gui = "event_window_widget_vfx_conclusion_smoke"
+		container = "background_shader_vfx_container"
+	}
+
+	immediate = {
+		start_war = {
+			casus_belli = claim_cb_non_target_top_liege
+			target = title:d_bavaria.holder
+			target_title = title:d_bavaria
+			claimant = character:112600
+		}
+		random_character_war = {
+			limit = { using_cb = claim_cb_non_target_top_liege }
+			save_scope_as = bavarian_reconquest
+		} 
+		scope:bavarian_reconquest = {
+			add_attacker = title:d_ostfalen.holder
+		}
+	}
+
+	option = {
+		name = tct_neutral_struggle.0010.a
+	}
+}
+
 # The Second Rebellion # Event for Otto of Bavaria and Heinrich IV
 
+# roman_army_acclaimation.0001 = { # After a victory, an army acclaims their leader as Emperor
+# 	window = visit_settlement_window
+# 	type = character_event
+# 	title = roman_army_acclaimation.0001.t
+# 	desc = roman_army_acclaimation.0001.desc
+# 	theme = crown # Change?
+# 	# override_background = { reference = terrain_scope }
+# 	left_portrait = {
+# 		character = root
+# 		animation = throne_room_one_handed_passive_1
+# 	}
+# 	right_portrait = {
+# 		character = character:kapnogenes0002
+# 		animation = personality_content
+# 	}
+
+# 	left_portrait = {
+# 		character = root
+# 		animation = throne_room_one_handed_passive_1
+# 	}
+# 	right_portrait = {
+# 		character = scope:recipient
+# 		animation = war_over_win
+# 	}
+# 	override_background = { reference = throne_room }
+
+# 	trigger = {
+# 		scope:attacker.liege = { # This event is inspired by Theophobos and his (likely unwilling) acclaimation as Emperor by his troops following rumors of the Emperor's death at the Battle of Anzen (as well as just general Roman shenanigans)
+# 			OR = {
+# 				this = title:e_byzantium.holder
+# 				this = title:e_roman_empire.holder
+# 			}
+# 		}
+# 		is_alive = yes
+# 		is_landed = yes
+# 		is_imprisoned = no
+# 		NOT = {
+# 			OR = {
+# 				has_trait = craven
+# 				has_trait = lazy
+# 			}
+# 		}
+# 	}
+
+# 	#Resend
+# 	on_trigger_fail = {
+
+# 	}
+
+# 	weight_multiplier = {
+#         base = 0 # Should happen to only characters who fit the mold in some way
+
+# 		# Bonuses
+#         modifier = { # More likely for charismatic leaders
+#             diplomacy >= 20
+#             add = 0.25
+#         }
+
+#         modifier = { # More likely for skilled military leaders
+#             martial >= 20
+#             add = 0.25
+#         }
+
+#         modifier = { # More likely for educated military leaders
+# 			OR = {
+# 				has_trait = education_martial_4
+# 				has_trait = education_martial_5
+# 			}
+#             add = 0.25
+#         }
+
+#         modifier = { # More likely for prestigious characters
+# 			prestige_level >= 4
+
+#             factor = 1.5
+#         }
+
+#         modifier = { # More likely for imperial claimants
+# 			OR = {
+# 				has_claim_on = title:e_byzantium
+# 				has_claim_on = title:e_roman_empire
+# 			}
+
+#             factor = 1.5
+#         }
+
+#         modifier = { # More likely for virtuous characters
+# 			num_virtuous_traits >= 1
+
+#             factor = 1.5
+#         }
+
+#         modifier = { # More likely for.... well, stalwart leaders
+#             has_perk = stalwart_leader_perk
+#             factor = 1.2
+#         }
+
+#         modifier = { # More likely for.... well, true rulers
+#             has_perk = true_ruler_perk
+#             factor = 1.2
+#         }
+
+# 		# Maluses
+#         modifier = { # Less likely for uncharismatic characters
+#             diplomacy <= 10
+#             add = -0.2
+#         }
+
+#         modifier = { # Less likely for militarily unskilled characters
+#             martial <= 10
+#             add = -0.2
+#         }
+
+#         modifier = { # Less likely for unprestigious characters
+#             prestige_level <= 2
+#             factor = 0.5
+#         }
+
+#         modifier = { # Less likely for sinful characters
+# 			num_sinful_traits >= 1	
+# 			factor = 0.5
+#         }
+
+#         modifier = { # Less likely if poor
+#             gold < medium_gold_value
+# 			factor = 0.5
+#         }
+#     }
+
+# 	immediate = {
+# 		if = { # Getting publicly acclaimed is stressful asf for characters with these traits
+# 			limit = {
+# 				OR = {
+# 					has_trait = shy
+# 					has_trait = reclusive
+# 				}
+# 			}
+# 			add_stress = massive_stress_impact_gain
+# 		}
+# 		if = { # Getting publicly acclaimed is minorly stressful for characters with these traits 
+# 			limit = {
+# 				OR = {
+# 					has_trait = content
+# 					has_trait = humble
+# 				}
+# 			}
+# 			add_stress = minor_stress_impact_gain			
+# 		}
+# 		if = { # Getting publicly acclaimed is a boost to the ego for characters with these traits
+# 			limit = {
+# 				OR = {
+# 					has_trait = arrogant
+# 					has_trait = ambitious
+# 				}
+# 			}
+# 			add_stress = medium_stress_impact_loss
+# 		}
+# 		if = { # Army Acclaimation is a valid form of claim granting
+# 			limit = {
+# 				AND = {
+# 					scope:attacker.liege = { this = title:e_byzantium.holder }
+# 					NOT = { has_claim_on = title:e_byzantium }
+# 				}
+# 			}
+# 			add_pressed_claim = title:e_byzantium
+# 		}
+# 		if = { # Army Acclaimation is a valid form of claim granting
+# 			limit = {
+# 				AND = {
+# 					scope:attacker.liege = { this = title:e_roman_empire.holder }
+# 					NOT = { has_claim_on = title:e_roman_empire }
+# 				}
+# 			}
+# 			add_pressed_claim = title:e_roman_empire
+# 		}
+# 	}
+
+# 	option = { # Go with the flow
+# 		name = roman_army_acclaimation.0001.b
+	
+# 	}
+
+# 	option = { # Go with the flow
+# 		name = roman_army_acclaimation.0001.b
+	
+# 	}
+# }

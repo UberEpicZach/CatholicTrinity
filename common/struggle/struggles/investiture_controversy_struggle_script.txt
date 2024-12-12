@@ -6,7 +6,7 @@
 	# Additional Design by Eren Humphrey, Ola Jentzsch, and Nikola Stokić
 	# Reworked by Maxence Voleau & Ewan Cowhig Croft
 	#########################################################################
-
+	
 	##################################################
 	# Setup
 	##################################################
@@ -384,7 +384,7 @@
 					# Catalyst values are low here because we track this stuff across every phase, so they need to take _roughly_ ~100-120 years to build up, all else being equal.
 					catalysts = {
 						# Emperor loses a revolt war
-						tct_catalyst_hre_emperor_loses_revolt_war = major_struggle_catalyst_gain
+						tct_catalyst_pope_or_emperor_loses_revolt_war = major_struggle_catalyst_gain
 
 						tct_catalyst_became_friend_lover_papal_supporter_imperial_supporter = minor_struggle_catalyst_gain
 						catalyst_forming_alliance_between_supporter_detractor_rulers = catalyst_forming_alliance_between_supporter_detractor_rulers_value
@@ -394,6 +394,14 @@
 
 						# Release a prisoner of the opposing side without demands
 						catalyst_release_supporter_detractor = minor_struggle_catalyst_gain
+
+						# HRE Emperor switches to Papal Investiture
+						tct_catalyst_hre_switched_papal_investiture = {}
+
+						# HRE Emperor is a Papal Supporter
+						tct_catalyst_hre_emperor_is_a_papal_supporter = {}
+					
+						
 					}
 				}
 			}
@@ -402,7 +410,7 @@
 				name = WAR_EFFECTS_NAME
 
 				involved_parameters = {
-					# install_loyalist_cb_unlocked = yes # Change to unlocked for Papal Supporter
+					install_loyalist_cb_unlocked = yes # Change to unlocked for Papal Supporter
 					offer_vassalization_removes_disloyalty = yes
 					# fp3_caliph_gets_cheaper_subjugation_cb = yes # Change to Pope?
 				}
@@ -551,9 +559,7 @@
 			}
 
 			ending_decisions = {
-				investiture_controversy_ending_foundation_decision # renamed Tempering the Caliphate
-				investiture_controversy_ending_assertion_decision # renamed Strenghten the Caliphate
-				investiture_controversy_ending_rekindle_iran_decision #renamed to Rekindle Iran
+				investiture_struggle_concordat_decision
 			}
 		}
 
@@ -562,15 +568,41 @@
 
 			future_phases = {
 				investiture_controversy_phase_unrest = {
+					# Hostility back to Unrest represents a shift from active, open conflict to a period of simmering but unresolved tension.
+					# This implies that the intense fighting or confrontation has subsided, but the underlying disputes remain unsettled and could flare up again.
 					catalysts = {
+						# White Peaces
 
+						# Prolonged Years fighting / something to check on how devesated the region is
+
+						# Indepedence 
+						catalyst_independence_from_non_dejure_vassal = {}
+
+
+						catalyst_accepted_independence_faction_demands = {}
 					}
 				}
  
 				investiture_controversy_phase_conciliation = {
 					# Catalyst values are low here because we track this stuff across every phase, so they need to take _roughly_ ~100-120 years to build up, all else being equal.
 					catalysts = {
-						
+						# Emperor loses a revolt war
+						tct_catalyst_pope_or_emperor_loses_revolt_war = major_struggle_catalyst_gain
+
+						tct_catalyst_became_friend_lover_papal_supporter_imperial_supporter = minor_struggle_catalyst_gain
+						catalyst_forming_alliance_between_supporter_detractor_rulers = catalyst_forming_alliance_between_supporter_detractor_rulers_value
+
+						# Yearly drift every year that the Pope and Emperor like eachother.
+						tct_papal_hre_opinions_good = massive_struggle_catalyst_gain
+
+						# Release a prisoner of the opposing side without demands
+						catalyst_release_supporter_detractor = minor_struggle_catalyst_gain
+
+						# HRE Emperor switches to Papal Investiture
+						tct_catalyst_hre_switched_papal_investiture = {}
+
+						# HRE Emperor is a Papal Supporter
+						tct_catalyst_hre_emperor_is_a_papal_supporter = {}
 					}
 				}
 			}
@@ -681,6 +713,9 @@
 				all_county_modifier = {
 					# Lotta armed folk on the road.
 					travel_danger = 50
+					tax_mult = 0.1
+					development_decline = -0.2
+					development_decline_factor = 0.4
 				}
 
 				involved_county_modifier = {
@@ -690,6 +725,7 @@
 					build_speed = 0.5
 					tax_mult = -0.35
 					development_growth_factor = -0.3
+					monthly_county_control_growth_at_war_factor = 0.35
 				}
 
 				interloper_county_modifier = {
@@ -730,9 +766,8 @@
 			}
 
 			ending_decisions = {
-				investiture_controversy_ending_foundation_decision # renamed Tempering the Caliphate
-				investiture_controversy_ending_assertion_decision # renamed Strenghten the Caliphate
-				investiture_controversy_ending_rekindle_iran_decision #renamed to Rekindle Iran
+				investiture_struggle_papal_supremacy_decision
+				investiture_struggle_imperial_supremacy_decision
 			}
 		}
 
@@ -741,15 +776,42 @@
 
 			future_phases = {
 				investiture_controversy_phase_unrest = {
+					# Hostility back to Unrest represents a shift from active, open conflict to a period of simmering but unresolved tension.
+					# This implies that the intense fighting or confrontation has subsided, but the underlying disputes remain unsettled and could flare up again.
 					catalysts = {
-						
+						# White Peaces
+
+						# Prolonged Years fighting / something to check on how devesated the region is
+						tct_catalyst_prolonged_years_of_fighting = {}
+
+						# Indepedence 
+						catalyst_independence_from_non_dejure_vassal = {}
+
+
+						catalyst_accepted_independence_faction_demands = {}
 					}
 				}
 
 				investiture_controversy_ending_phase_compromise = {
 					# Catalyst values are low here because we track this stuff across every phase, so they need to take _roughly_ ~100-120 years to build up, all else being equal.
 					catalysts = {
-						
+						# Emperor loses a revolt war
+						tct_catalyst_pope_or_emperor_loses_revolt_war = major_struggle_catalyst_gain
+
+						tct_catalyst_became_friend_lover_papal_supporter_imperial_supporter = minor_struggle_catalyst_gain
+						catalyst_forming_alliance_between_supporter_detractor_rulers = catalyst_forming_alliance_between_supporter_detractor_rulers_value
+
+						# Yearly drift every year that the Pope and Emperor like eachother.
+						tct_papal_hre_opinions_good = massive_struggle_catalyst_gain
+
+						# Release a prisoner of the opposing side without demands
+						catalyst_release_supporter_detractor = minor_struggle_catalyst_gain
+
+						# HRE Emperor switches to Papal Investiture
+						tct_catalyst_hre_switched_papal_investiture = {}
+
+						# HRE Emperor is a Papal Supporter
+						tct_catalyst_hre_emperor_is_a_papal_supporter = {}
 					}
 				}
 			}
@@ -898,12 +960,6 @@
 					### We do it this way to save a bit on performance.
 					caliph_cant_be_dissolutioned = yes
 				}
-			}
-
-			ending_decisions = {
-				investiture_controversy_ending_foundation_decision # renamed Tempering the Caliphate
-				investiture_controversy_ending_assertion_decision # renamed Strenghten the Caliphate
-				investiture_controversy_ending_rekindle_iran_decision #renamed to Rekindle Iran
 			}
 		}
 

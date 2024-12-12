@@ -533,12 +533,42 @@ TCT_create_antipope = {
 }
 
 TCT_spawn_HRE_Antipope = {
+	if = {
+		limit = {
+			title:e_hre.holder = {
+				OR = {
+					any_vassal_or_below = {
+						tct_possible_antipope_vassal_trigger = yes
+						save_temporary_scope_as = antipope_vassal_temp
+					}
+					exists = character:73530
+				}
+				is_character_interaction_potentially_accepted = {
+					recipient = scope:antipope_vassal_temp
+					interaction = TCT_make_antipope_interaction
+				}
+				any_character_struggle = {
+					is_struggle_type = investiture_controversy_struggle
+				}
+			}
+		}
+	}
 	title:e_hre.holder = {
-		random_vassal_or_below = {
-			# limit = {
-			# 	tct_possible_antipope_vassal_trigger = yes
-			# }
-			save_scope_as = antipope_vassal
+		if = {
+			limit = {
+				exists = character:73530
+			}
+			character:73530 = {
+				save_scope_as = antipope_vassal
+			}
+		}
+		else = {
+			random_vassal_or_below = {
+				limit = {
+					tct_possible_antipope_vassal_trigger = yes
+				}
+				save_scope_as = antipope_vassal
+			}
 		}
 		scope:antipope_vassal = {
 			if = {
@@ -561,10 +591,12 @@ TCT_spawn_HRE_Antipope = {
 				if = { limit = { has_trait = cardinal_priest } remove_trait = cardinal_priest }
 				if = { limit = { has_trait = cardinal_bishop } remove_trait = cardinal_bishop }
 				if = { limit = { has_trait = cardinal_archbishop } remove_trait = cardinal_archbishop }
+				if = { limit = { has_nickname = nick_cardinal } remove_nickname = yes }
 				remove_cardinal = yes
 				promote_new_cardinal = yes
 				update_cardinal_window = yes
 				update_preferatus = yes
+				save_scope_as = newpope
 			}
 		}
 		title:e_hre.holder = {
@@ -599,6 +631,13 @@ TCT_spawn_HRE_Antipope = {
 					}
 				}
 			}
+		}
+
+		if = {
+			limit = {
+				scope:newpope = character:73530
+			}
+			character:73530 = { change_first_name = Clemens }
 		}
 
 		struggle:investiture_controversy_struggle = {

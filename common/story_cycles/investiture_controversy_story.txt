@@ -88,9 +88,12 @@
 
 		trigger = {
 			title:e_hre.holder = {
-				any_vassal_or_below = {
-					tct_possible_antipope_vassal_trigger = yes
-					save_temporary_scope_as = antipope_vassal_temp
+				OR = {
+					any_vassal_or_below = {
+						tct_possible_antipope_vassal_trigger = yes
+						save_temporary_scope_as = antipope_vassal_temp
+					}
+					exists = character:73530
 				}
 				is_character_interaction_potentially_accepted = {
 					recipient = scope:antipope_vassal_temp
@@ -106,22 +109,32 @@
 			trigger = { exists = title:e_hre }
 			effect = {
 				title:e_hre.holder = {
-					random_vassal_or_below = {
+					if = {
 						limit = {
-							tct_possible_antipope_vassal_trigger = yes
+							exists = character:73530
 						}
-						save_scope_as = antipope_vassal
+						character:73530 = {
+							save_scope_as = antipope_vassal
+						}
+					}
+					else = {
+						random_vassal_or_below = {
+							limit = {
+								tct_possible_antipope_vassal_trigger = yes
+							}
+							save_scope_as = antipope_vassal
+						}
 					}
 					scope:antipope_vassal = {
-						if = {
-							limit = { 
-								is_theocratic_lessee = yes
-								NOT = { is_courtier_of = title:e_hre.holder }
-							}
-							title:e_hre.holder = { 
-								add_courtier = prev
-							}
-						}
+						# if = {
+						# 	limit = { 
+						# 		is_theocratic_lessee = yes
+						# 		NOT = { is_courtier_of = title:e_hre.holder }
+						# 	}
+						# 	title:e_hre.holder = { 
+						# 		add_courtier = prev
+						# 	}
+						# }
 						if = {
 							limit = { 
 								OR = {
@@ -160,8 +173,8 @@
 						}
 					}
 					TCT_create_antipope = {
-						ANTIPOPE = scope:recipient
-						CREATOR = scope:actor
+						ANTIPOPE = scope:antipope_vassal
+						CREATOR = title:e_hre.holder
 					}
 			
 					title:e_hre.holder = {
@@ -200,29 +213,29 @@
 	}
 
 	# Papal Backing of an On-Going Rebellion
-	effect_group = {
+	# effect_group = {
 
-	}
+	# }
 
-	# Papal excommunication of the Emperor
-	effect_group = {
+	# # Papal excommunication of the Emperor
+	# effect_group = {
 
-	}
+	# }
 
-	# Papal states looking for allies
-	effect_group = {
+	# # Papal states looking for allies
+	# effect_group = {
 
-	}
+	# }
 
-	# Seizure of Papal Assets
-	effect_group = {
+	# # Seizure of Papal Assets
+	# effect_group = {
 
-	}
+	# }
 
-	# Public Oath of Loyalty, A powerful duke or count publicly swears allegiance to both Emperor and Pope, setting an example for reconciliation.	
-	effect_group = {
+	# # Public Oath of Loyalty, A powerful duke or count publicly swears allegiance to both Emperor and Pope, setting an example for reconciliation.	
+	# effect_group = {
 
-	}
+	# }
 
 	
 

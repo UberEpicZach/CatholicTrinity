@@ -202,8 +202,15 @@
 
   window_cardinals_invest_tooltip:0 "#Tooltip_heading Invest Funds in Cardinal Candidate#!\n#weak Funds will support the selected candidate's campaign, increasing their chances of being appointed to the College of Cardinals. However, a candidate's base skills and stats also play a significant role in the selection process.#!"
 
- game_concept_opposing_struggle_factions: "Opposing Struggle Faction"
- game_concept_opposing_struggle_factions_desc: "Opposing Struggle Factions are the usually the two sides of a [struggle|E], currently in the [investiture_controversy_struggle|E] the two sides are the [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )] and the [GetTrait('tct_imperial_supporter').GetName( GetNullCharacter )].\n\nIn the [persian_struggle|E] the two sides are the [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )] and the [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )]."
+ game_concept_struggle_faction_members: "Struggle Faction Member"
+ game_concept_struggle_faction_members_desc: "Struggle Faction Members are participants in factions or organizations working toward specific goals within a [struggle|E]. When two factions find themselves in opposition, they become [opposing_factions|E]."
+
+ game_concept_struggle_factions: "Struggle Factions"
+ game_concept_struggle_factions_desc: "Factions within a [struggle|E] working toward specific goals, are known as a Struggle Faction. When two factions find themselves in opposition, they become [opposing_factions|E]."
+
+ game_concept_opposing_struggle_factions: "Opposing Struggle Factions"
+ game_concept_opposing_struggle_factions_desc: "Opposing [struggle_factions|E] represent the two conflicting sides within a [struggle|E]. For example, in the [investiture_controversy_struggle|E], the opposing factions are the [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )] and the [GetTrait('tct_imperial_supporter').GetName( GetNullCharacter )].\n\nSimilarly, in the [persian_struggle|E], the factions are the [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )] and the [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )]."
+
 
  game_concept_tct_install_loyalist_cb: "Install a Supporter"
  game_concept_tct_install_loyalist_cb_desc: "As either an [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )], or a [GetTrait('tct_imperial_supporter').GetName( GetNullCharacter )], allows you to wage a [war|E] in order to install a friendly factional leader at the head of the targeted [realm|E]"

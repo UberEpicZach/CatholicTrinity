@@ -9,12 +9,14 @@ tct_catalyst_install_loyalist_cb = {}
 tct_papal_hre_opinions_bad = {}
 tct_papal_hre_opinions_good = {}
 tct_catalyst_unnatural_death_supporter = {}
-tct_catalyst_hre_emperor_loses_revolt_war = {}
+tct_catalyst_pope_or_emperor_loses_revolt_war = {}
+tct_catalyst_hre_switched_papal_investiture = {}
+tct_catalyst_hre_emperor_is_a_papal_supporter = {}
 tct_catalyst_turn_imperial_supporter_into_papal_supporter = {}
 tct_catalyst_turn_papal_supporter_into_imperial_supporter = {}
 
 #tct_catalyst_release_papal_supporter_imperial_supporter = {}
-
+tct_catalyst_prolonged_years_of_fighting = {}
 tct_catalyst_becomes_rival_supporter_detractor = {}
 
 #Covers Best Friend, Friend, Soulmate and Lover

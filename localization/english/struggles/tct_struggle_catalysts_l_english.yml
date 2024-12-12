@@ -105,10 +105,17 @@
  
  tct_papal_hre_opinions_good: "Papal-Imperial Relations"
  tct_papal_hre_opinions_good_desc: "Relations between the $k_papal_state$ and the $e_hre$ have increased considsiderably"
- tct_catalyst_hre_emperor_loses_revolt_war_desc: "The [holder|E] of the [GetTitleByKey('e_hre').GetBaseName] loses a [civil_war|E]"
- tct_catalyst_hre_emperor_loses_revolt_war: "[holder|E] of the [GetTitleByKey('e_hre').GetBaseName] lost a [civil_war|E]"
+
+ tct_catalyst_pope_or_emperor_loses_revolt_war_desc: "The [holder|E] of the [GetTitleByKey('e_hre').GetBaseName] or the [GetTitleByKey('k_papal_state').GetBaseName] loses a [civil_war|E]"
+ tct_catalyst_pope_or_emperor_loses_revolt_war: "[holder|E] of the [GetTitleByKey('e_hre').GetBaseName] or the [GetTitleByKey('k_papal_state').GetBaseName] loses a [civil_war|E]" lost a [civil_war|E]"
+
  tct_catalyst_became_friend_lover_papal_supporter_imperial_supporter: "$catalyst_became_friend_lover_with_character$"
- tct_catalyst_became_friend_lover_papal_supporter_imperial_supporter_desc: "$supporter_and_detractor_caps$ members become [friends|E] or [lovers|E]"
+ tct_catalyst_became_friend_lover_papal_supporter_imperial_supporter_desc: "$supporter_and_detractor_caps$ become [friends|E] or [lovers|E]"
+
+ tct_catalyst_prolonged_years_of_fighting: "Prolonged Regional Devastation"
+ tct_catalyst_prolonged_years_of_fighting_desc: "The [struggle|E] has ravaged the region's resources and morale, stirring desires for less costly conflict."  
+
+The [struggle|E] has exhausted the region of resources, manpower, and morale; while the "
 
 
  struggle_supporter: "Factional Supporters"

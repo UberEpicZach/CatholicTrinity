@@ -691,107 +691,107 @@ TCT_religious_events.8 = { #Monastery Monks"
 	}
 }
 
-scripted_trigger tct_religious_event_9_trigger = {
-	is_commanding_army = no
-	is_adult = yes
-	is_imprisoned = no
-	has_religion = religion:christianity_religion
-	any_child = {
-		is_ruler = no
-		age >= 13
-		NOT = { age >= 16 }
-		NOT = { has_trait = cynical }
-		NOT = { is_clergy = yes }
-	}
-}
+# scripted_trigger tct_religious_event_9_trigger = {
+# 	is_commanding_army = no
+# 	is_adult = yes
+# 	is_imprisoned = no
+# 	has_religion = religion:christianity_religion
+# 	any_child = {
+# 		is_ruler = no
+# 		age >= 13
+# 		NOT = { age >= 16 }
+# 		NOT = { has_trait = cynical }
+# 		NOT = { is_clergy = yes }
+# 	}
+# }
 
-TCT_religious_events.9 = { #Child wants to be monk/nun - select child
-	title = TCT_religious_events.9.t
-	desc = TCT_religious_events.9.desc
-	theme = learning_scholarship_focus
-	left_portrait = {
-		character = this
-	}
-	right_portrait = {
-		character = scope:childforthechurch
-	}
+# TCT_religious_events.9 = { #Child wants to be monk/nun - select child
+# 	title = TCT_religious_events.9.t
+# 	desc = TCT_religious_events.9.desc
+# 	theme = learning_scholarship_focus
+# 	left_portrait = {
+# 		character = this
+# 	}
+# 	right_portrait = {
+# 		character = scope:childforthechurch
+# 	}
 
-	trigger = {		
-		triggerforTCT_religious_events9 = yes
-	}
+# 	trigger = {		
+# 		triggerforTCT_religious_events9 = yes
+# 	}
 
-	immediate = {
-		save_scope_as = parentofchild
-		random_child = {
-			limit = {
-				is_ruler = no
-				age >= 13
-				NOT = { age >= 16 }
-				NOT = { has_trait = cynical }
-				NOT = { is_clergy = yes }
-			}
-			save_scope_as = childforthechurch
-		}
-	}
+# 	immediate = {
+# 		save_scope_as = parentofchild
+# 		random_child = {
+# 			limit = {
+# 				is_ruler = no
+# 				age >= 13
+# 				NOT = { age >= 16 }
+# 				NOT = { has_trait = cynical }
+# 				NOT = { is_clergy = yes }
+# 			}
+# 			save_scope_as = childforthechurch
+# 		}
+# 	}
 
-	option = { 
-		name = TCT_religious_events.9.a
-		#custom_tooltip = TCT_religious_events.9.a.tt 
+# 	option = { 
+# 		name = TCT_religious_events.9.a
+# 		#custom_tooltip = TCT_religious_events.9.a.tt 
 	
-		scope:childforthechurch = {
-			send_child_to_clergy_effect_for_events = yes
+# 		scope:childforthechurch = {
+# 			send_child_to_clergy_effect_for_events = yes
 
-			if = {
-				limit = {
-					scope:parentofchild.top_liege = {
-						any_vassal_or_below = {
-							has_government = theocracy_government
-							primary_title.tier > tier_barony
-							faith = scope:parentofchild.faith
-						}
-					}
-				}
-				scope:parentofchild.top_liege = {
-					random_vassal_or_below = {
-						limit = {
-							has_government = theocracy_government
-							primary_title.tier > tier_barony
-							faith = scope:parentofchild.faith
-						}
-						save_scope_as = theocratic_travel_target
-					}
-				}
-				visit_court_of = scope:theocratic_travel_target
-				set_relation_guardian = scope:theocratic_travel_target 
-			}
-			else_if = {
-				limit = {
-					exists = scope:parentofchild.capital_province
-				}
-				move_to_pool_at = scope:parentofchild.capital_province
-			}
+# 			if = {
+# 				limit = {
+# 					scope:parentofchild.top_liege = {
+# 						any_vassal_or_below = {
+# 							has_government = theocracy_government
+# 							primary_title.tier > tier_barony
+# 							faith = scope:parentofchild.faith
+# 						}
+# 					}
+# 				}
+# 				scope:parentofchild.top_liege = {
+# 					random_vassal_or_below = {
+# 						limit = {
+# 							has_government = theocracy_government
+# 							primary_title.tier > tier_barony
+# 							faith = scope:parentofchild.faith
+# 						}
+# 						save_scope_as = theocratic_travel_target
+# 					}
+# 				}
+# 				visit_court_of = scope:theocratic_travel_target
+# 				set_relation_guardian = scope:theocratic_travel_target 
+# 			}
+# 			else_if = {
+# 				limit = {
+# 					exists = scope:parentofchild.capital_province
+# 				}
+# 				move_to_pool_at = scope:parentofchild.capital_province
+# 			}
 
-			add_opinion = {
-				target = ROOT
-				opinion = 50
-				modifier = grateful_opinion
-			}
-		}
-	}
+# 			add_opinion = {
+# 				target = ROOT
+# 				opinion = 50
+# 				modifier = grateful_opinion
+# 			}
+# 		}
+# 	}
 
-	option = { 
-		name = TCT_religious_events.9.b
-		scope:childforthechurch = {
-			add_stress = major_stress_loss
-			add_opinion = {
-				target = ROOT
-				opinion = -150
-				modifier = angry_opinion
-			}
-		}
-	}
+# 	option = { 
+# 		name = TCT_religious_events.9.b
+# 		scope:childforthechurch = {
+# 			add_stress = major_stress_loss
+# 			add_opinion = {
+# 				target = ROOT
+# 				opinion = -150
+# 				modifier = angry_opinion
+# 			}
+# 		}
+# 	}
 
-}
+# }
 
 TCT_religious_events.12 = { #Donate to local monastery
 	title = TCT_religious_events.12.t
@@ -1074,7 +1074,11 @@ scripted_effect get_investiture_characters = {
 				is_landed = no
 				is_female = no
 				is_adult = yes
-				NOT = { any_heir_to_title = { exists = this } }
+				NOT = { 
+					any_heir_to_title = { exists = this } 
+					exists = primary_title
+					is_cardinal = yes
+				}
 			}
 			root = {
 				add_to_variable_list = {
@@ -1093,7 +1097,11 @@ scripted_effect get_investiture_characters = {
 			is_landed = no
 			is_female = no
 			is_adult = yes
-			NOT = { any_heir_to_title = { exists = this } }
+			NOT = { 
+				any_heir_to_title = { exists = this } 
+				exists = primary_title
+				is_cardinal = yes
+			}
 		}
 		root = {
 			add_to_variable_list = {
@@ -1111,7 +1119,11 @@ scripted_effect get_investiture_characters = {
 			is_landed = no
 			is_adult = yes
 			is_female = no
-			NOT = { any_heir_to_title = { exists = this } }
+			NOT = { 
+				any_heir_to_title = { exists = this } 
+				exists = primary_title
+				is_cardinal = yes
+			}
 		}
 		root = {
 			add_to_variable_list = {
@@ -1162,11 +1174,43 @@ scripted_effect get_investiture_characters = {
 				learning >= 7
 			}
 			has_faith = root.faith
+			NOT = { 
+				any_heir_to_title = { exists = this } 
+				exists = primary_title
+				is_cardinal = yes
+			}
 		}
 		root = {
 			add_to_variable_list = {
 				name = possible_characters
 				target = prev
+			}
+		}
+	}
+
+	every_vassal = {
+		dynasty = {
+			every_dynasty_member = {
+				limit = {
+					OR = {
+						has_trait = devoted
+						has_education_learning_trigger = yes
+					}
+					is_landed = no
+					is_female = no
+					is_adult = yes
+					NOT = { 
+						any_heir_to_title = { exists = this } 
+						exists = primary_title
+						is_cardinal = yes
+					}
+				}
+				root = {
+					add_to_variable_list = {
+						name = possible_characters
+						target = prev
+					}
+				}
 			}
 		}
 	}
@@ -1228,10 +1272,12 @@ TCT_religious_events.16 = {
 					save_scope_as = title_change
 					add_claim_on_loss = no
 				}
-				scope:bishop_title = {
-					change_title_holder = {
-						holder = scope:new_bishop
-						change = scope:title_change
+				scope:papal_appointed_bishop = {
+					every_held_title = {
+						change_title_holder = {
+							holder = scope:new_bishop
+							change = scope:title_change
+						}
 					}
 				}
 				resolve_title_and_vassal_change = scope:title_change

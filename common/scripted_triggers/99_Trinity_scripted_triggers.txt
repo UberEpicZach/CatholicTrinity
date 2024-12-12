@@ -474,6 +474,15 @@ tct_investiture_struggle_is_the_emperor = {
 	}
 }
 
+
+tct_investiture_struggle_is_the_pope = {
+	AND = {
+		any_held_title = {
+			this = title:k_papal_state
+		}
+	}
+}
+
 fp3_struggle_involves_one_supporter_and_one_detractor = {
 	OR = {
 		AND = {

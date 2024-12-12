@@ -192,7 +192,11 @@ tct_on_war_won_attacker = {
 		scope:defender = {
 			if = {
 				limit = {
-					tct_investiture_struggle_is_the_emperor = yes
+					OR = {
+						tct_investiture_struggle_is_the_emperor = yes
+						tct_investiture_struggle_is_the_pope = yes
+					}
+					
 					scope:war = {
 						NOT = { has_variable = used_for_struggle_catalyst_on_war_ended }
 						using_civil_war_cb_trigger = yes
@@ -201,9 +205,9 @@ tct_on_war_won_attacker = {
 				# Direct scope because this is emperor-specific.
 				struggle:investiture_controversy_struggle = {
 					if = {
-						limit = { phase_has_catalyst = tct_catalyst_hre_emperor_loses_revolt_war }
+						limit = { phase_has_catalyst = tct_catalyst_pope_or_emperor_loses_revolt_war }
 						activate_struggle_catalyst = {
-							catalyst = tct_catalyst_hre_emperor_loses_revolt_war
+							catalyst = tct_catalyst_pope_or_emperor_loses_revolt_war
 							character = scope:defender
 						}
 						scope:war = { set_variable = used_for_struggle_catalyst_on_war_ended }
@@ -214,34 +218,6 @@ tct_on_war_won_attacker = {
 		}
 		## (Mostly) general checks.
 		scope:attacker = {
-			# # Win any war in the struggle region.
-			# if = {
-			# 	limit = {
-			# 		scope:war = {
-			# 			NOT = { has_variable = used_for_struggle_catalyst_on_war_ended }
-			# 		}
-			# 		any_character_struggle = {
-			# 			involvement = involved
-			# 			activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
-			# 				CATALYST = catalyst_win_any_war_within_the_region
-			# 				CHAR = scope:defender
-			# 			}
-			# 		}
-			# 	}
-			# 	every_character_struggle = {
-			# 		limit = {
-			# 			activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
-			# 				CATALYST = catalyst_win_any_war_within_the_region
-			# 				CHAR = scope:defender
-			# 			}
-			# 		}
-			# 		activate_struggle_catalyst = {
-			# 			catalyst = catalyst_win_any_war_within_the_region
-			# 			character = scope:attacker
-			# 		}
-			# 		scope:war = { set_variable = used_for_struggle_catalyst_on_war_ended }
-			# 	}
-			# }
 			# During the Investiture Controversy Struggle, a supporter wins any war in the region.
 			investiture_controversy_struggle_apply_imperial_supporter_papal_supporter_war_won_catalysts_effect = yes
 		}
@@ -433,6 +409,35 @@ tct_on_set_relation_rival = {
 					character = root
 				}
 				log_debug_variable_for_persian_struggle_effect = { VAR = unrest_catalyst_becomes_rival_supporter_detractor }
+			}
+		}
+	}
+}
+
+on_faction_demand_accepted = {
+	on_actions = {
+		tct_on_faction_demand_accepted
+	}
+}
+
+tct_on_faction_demand_accepted = {
+	effect = {
+		# Struggle Catalysts.
+		if = {
+			limit = { 
+				tct_investiture_struggle_is_the_emperor = yes 
+				scope:faction ?= {
+					faction_is_type = independence_faction
+				}
+			}
+			struggle:investiture_controversy_struggle ?= {
+				if = {
+					limit = { phase_has_catalyst = catalyst_accepted_independence_faction_demands }
+					activate_struggle_catalyst = {
+						catalyst = catalyst_accepted_independence_faction_demands
+						character = root
+					}
+				}
 			}
 		}
 	}

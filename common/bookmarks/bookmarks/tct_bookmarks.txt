@@ -73,7 +73,7 @@
 		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_MEDIUM"
 		position = { 500 750 }
 		
-		animation = prayer
+		animation = survey
 	}
 	
 	# AKA: Guelph
@@ -90,7 +90,7 @@
 		religion = catholic
 		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_HARD"
 		position = { 600 500 }
-		animation = personality_bold
+		animation = chess_cocky
 
 		character = {
 			name = "bookmark_azzo"

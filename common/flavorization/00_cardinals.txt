@@ -219,6 +219,17 @@ papacy_grand_inquisitor  = {
 	titles = { k_papal_state }
 }
 
+head_of_faith_antipope = {
+	type = character
+	gender = male
+	flag = TCT_antipope_of_ruler
+	priority = 1
+	flavourization_rules = { 
+		top_liege = no
+	}
+	faith = catholic
+}
+
 orthodox_patriarch = {
 	type = character
 	gender = male
