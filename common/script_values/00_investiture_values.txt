@@ -39,3 +39,93 @@ super_massive_legitimacy_loss = {
 	value = 0
 	subtract = 1000
 }
+
+tct_total_powerful_vassals = {
+    value = 0
+    every_powerful_vassal = {
+        add = 1
+    }
+}
+
+tct_papal_supporters = {
+    value = 0
+    every_powerful_vassal = {
+        limit = {
+            has_trait = tct_papal_supporter
+        }
+        add = 1
+    }
+}
+
+tct_imperial_supporters = {
+    value = 0
+    every_powerful_vassal = {
+        limit = {
+            has_trait = tct_imperial_supporter
+        }
+        add = 1
+    }
+}
+
+tct_investiture_papal_supporters_percent = {
+    value = tct_papal_supporters
+    divide = tct_total_powerful_vassals  # Dividing papal supporters by total vassals
+    multiply = 100  # Then multiplying by 100 to convert to percentage
+    round = yes  # Rounding to nearest integer for clean result
+}
+
+tct_investiture_imperial_supporters_percent = {
+    value = tct_imperial_supporters
+    divide = tct_total_powerful_vassals  # Dividing imperial supporters by total vassals
+    multiply = 100  # Then multiplying by 100 to convert to percentage
+    round = yes  # Rounding to nearest integer for clean result
+}
+
+tct_investiture_papal_threshold = {
+    value = 20
+}
+
+tct_investiture_imperial_threshold = {
+	value = 10
+}
+
+# Paramameter for percentage of Iberia that no other ruler can control
+tct_struggle_hostility_region_percent_value = 20
+
+# Uses above to plug in to script as a decimal
+tct_struggle_hostility_region_percent_decimal_value = {
+	value = tct_struggle_hostility_region_percent_value
+	divide = 100
+	max = 1
+}
+
+tct_base_struggle_region_counties = {
+	value = 0
+	every_county_in_region = {
+		region = custom_investiture_struggle
+		add = 1
+	}
+}
+
+tct_calculate_faction_control_percentage = {
+	value = 0
+	# Iterate through characters with the trait
+	every_county_in_region = {
+		region = custom_investiture_struggle
+		limit = { 
+			holder = { has_trait = tct_papal_supporter } 
+		}
+		add = 1
+	}
+}
+
+tct_calculate_faction_control_percentage_decimal_value = {
+	value = tct_calculate_faction_control_percentage
+	divide = tct_base_struggle_region_counties
+	multiply = 100  # Then multiplying by 100 to convert to percentage
+    round = yes  # Rounding to nearest integer for clean result
+}
+
+tct_calculate_faction_control_percentage_decimal_value_threshold = {
+	value = 60
+}

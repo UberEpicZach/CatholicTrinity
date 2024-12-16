@@ -559,7 +559,9 @@
 			}
 
 			ending_decisions = {
+				investiture_struggle_imperial_supremacy_decision
 				investiture_struggle_concordat_decision
+				investiture_struggle_papal_supremacy_decision
 			}
 		}
 
@@ -766,8 +768,9 @@
 			}
 
 			ending_decisions = {
-				investiture_struggle_papal_supremacy_decision
 				investiture_struggle_imperial_supremacy_decision
+				investiture_struggle_concordat_decision
+				investiture_struggle_papal_supremacy_decision
 			}
 		}
 
@@ -960,6 +963,11 @@
 					### We do it this way to save a bit on performance.
 					caliph_cant_be_dissolutioned = yes
 				}
+			}
+			ending_decisions = {
+				investiture_struggle_imperial_supremacy_decision
+				investiture_struggle_concordat_decision
+				investiture_struggle_papal_supremacy_decision
 			}
 		}
 

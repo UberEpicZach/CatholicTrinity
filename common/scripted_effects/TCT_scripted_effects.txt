@@ -100,6 +100,7 @@ update_preferatus = {
 				value = prev
 			}
 		}
+		save_scope_as = preferatus
 	}
 }
 # Updates the likely next cardinal candidate ("Predictus" is the mod's term for it, but it is not a real term, unlike Preferatus.)

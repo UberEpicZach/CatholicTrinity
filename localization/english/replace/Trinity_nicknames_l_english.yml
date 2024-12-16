@@ -42,3 +42,9 @@
 
  nick_the_flagellant:0 "the Flagellant"
  nick_of_the_desert_desc:1 "Driven by an unyielding desire for penance and spiritual purification, [CHARACTER.GetShortUINameNoTooltipNoFormat|U] embraces self-inflicted suffering, seeking closeness to [CHARACTER.GetFaith.CreatorName] through physical atonement."
+
+ nick_the_defender_of_the_faith:0 "Defender of the Faith"
+ nick_the_defender_of_the_faith_desc:1 "[CHARACTER.GetShortUINameNoTooltipNoFormat|U] is widely regarded to be the foremost defender of the faithful against heathen, infidel, and idolater."
+
+ nick_the_holy_sovereign:0 "the Holy Sovereign"
+ nick_the_holy_sovereign_desc:1 "By the will of God, [CHARACTER.GetShortUINameNoTooltipNoFormat|U] stands as the earthly ruler of Christendom, entrusted with the divine power to shape the fate of all souls."

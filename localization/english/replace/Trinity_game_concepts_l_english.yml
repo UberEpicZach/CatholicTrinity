@@ -16,6 +16,11 @@
  game_concept_papal_investitures: "Papal Investiture"
  game_concept_papal_investiture_desc: "$game_concept_papal_investiture$ is the standard for Catholic [investiture|E]. Only the Pope may appoint Bishops within the Realm. This will give the Crown a Piety cost discount when requesting special papal actions, like Divorce and Excommunication."
 
+ game_concept_antipope:0 "Anti-Pope"
+ game_concept_anti_pope:0 "Anti-Pope"
+ game_concept_anti_pope_desc:0 "An $game_concept_anti_pope$ is a rival claimant to the role of [head_of_faith|E] within the Catholic Church, established in opposition to the reigning Pope. Often backed by secular rulers or factions, an $game_concept_anti_pope$ serves to challenge the authority of the official Papacy.\n\nAnti-Popes are typically [head_of_faith_spiritual|E] #weak (e.g. contested Popes appointed by emperors)# but lack universal recognition and often lead to deep divisions within the Church."
+
+
  TCT_doctrine_head_of_faith_name: "Special Head of Faith Features"
  TCT_doctrine_head_of_faith_desc: "While the Head of Faith Doctrine Category supports various options, some like Spiritual may allow for some Special Faith Abilities such as the Papal Doctrine."
  TCT_doctrine_clerical_succession_name: "Clerical Abilities"
@@ -73,9 +78,9 @@
  TCT_create_patriarchate_effect:0 "the autocephaly [actor.GetPrimaryTitle.GetAdjectiveNoTooltip] will be formed"
  CREATE_AUTOCEPHALY_HOOK:0 "Use [hooks|El]"
 
- installed_antipope: "Installed Pope"
- TCT_created_antipope: "Created Antipope"
- TCT_make_antipope_interaction: "#W Create Anti-Pope#!"
+ installed_antipope: "Installed [antipope|E]"
+ TCT_created_antipope: "Created [antipope|E]"
+ TCT_make_antipope_interaction: "#W Create [antipope|E]#!"
  investiture_early: "[investiture|E]"
  investiture_late: "[investiture|E]"
  papal_investiture_early: "[papal_investiture|E]"
@@ -115,56 +120,49 @@
  feudal_government_raid:0 "Feudal"
  
 
-  doctrine_parameter_TCT_clerical_appointment_investiture:0 "Appointments to the positions "[realm_priest|E]" and "[court_chaplain|E]" are determined through the laws of investiture "
-  doctrine_clerical_succession_investiture_law_appointment_name:0 "Investiture"
-  doctrine_clerical_succession_investiture_law_appointment_desc:0 "Until the dispute over the supremacy of power between secular rulers and the Holy See is resolved, the appointment of bishops will be decided by each ruler independently. The appointment itself will ultimately be final and absolute."
-  investiture_is_on_cooldown:0 "The investiture law has changed not so long ago. It will not be possible to change it until [GetCurrentDateWithDiff (GetVarTimeRemaining (CHARACTER.MakeScope, 'investiture_cooldown'))]"
-  court_chaplain_cant_reassign_investiture:0 "Your realm has NOT passed the [free_investiture|E] [law|E]\nWithout it, [court_chaplains|E] and [realm_priests|E] cannot be assigned."
-
-  INVESTITURE_DESC:0 "   [investiture|E] is the authority of appointing Bishopic Successors, all realms are by default [papal_investiture|E] and such the ability is left to the Pope and unknown until the current bishop dies, with [free_investiture|E], you'll be able to determine the successor in advance. All [county|E] tier and higher bishopic [vassals|E], will appear here"
-
-  INVESTITURE_APPOINT:0 "Appoint a Successor to a Bishopic, they can be any Sibling, Child, who is Unlanded, Is Male, Is an adult and has an education in learning and is not in line-of-succession. Courier's and Guest's are also valid if they also meet a learning of 8 or higher.\n"
-  INVESTITURE_TITLE:0 "[GetPlayer.GetPrimaryTitle.MakeScope.Var('selected_title_for_investiture').Title.GetName]"
-  INVESTITURECouncil_TITLE:0 "[GetPlayer.GetPrimaryTitle.MakeScope.Var('selected_councillor_for_investiture').GetCharacter.GetName]"
-  
-  TRINITY_MAP_MODE_TOOLTIP: "Investiture Types: Papal Investiture = White. Free Investiture = Red"
-  INVESTITURE_LEGEND: "Map Legend"
-  CUSTOM_PAPAL_INVESTITURE: "Papal Investiture"
-  CUSTOM_FREE_INVESTITURE: "Free Investiture"
+ doctrine_parameter_TCT_clerical_appointment_investiture:0 "Appointments to the positions "[realm_priest|E]" and "[court_chaplain|E]" are determined through the laws of investiture "
+ doctrine_clerical_succession_investiture_law_appointment_name:0 "Investiture"
+ doctrine_clerical_succession_investiture_law_appointment_desc:0 "Until the dispute over the supremacy of power between secular rulers and the Holy See is resolved, the appointment of bishops will be decided by each ruler independently. The appointment itself will ultimately be final and absolute."
+ investiture_is_on_cooldown:0 "The investiture law has changed not so long ago. It will not be possible to change it until [GetCurrentDateWithDiff (GetVarTimeRemaining (CHARACTER.MakeScope, 'investiture_cooldown'))]"
+ court_chaplain_cant_reassign_investiture:0 "Your realm has NOT passed the [free_investiture|E] [law|E]\nWithout it, [court_chaplains|E] and [realm_priests|E] cannot be assigned." 
+ INVESTITURE_DESC:0 "   [investiture|E] is the authority of appointing Bishopic Successors, all realms are by default [papal_investiture|E] and such the ability is left to the Pope and unknown until the current bishop dies, with [free_investiture|E], you'll be able to determine the successor in advance. All [county|E] tier and higher bishopic [vassals|E], will appear here" 
+ INVESTITURE_APPOINT:0 "Appoint a Successor to a Bishopic, they can be any Sibling, Child, who is Unlanded, Is Male, Is an adult and has an education in learning and is not in line-of-succession. Courier's and Guest's are also valid if they also meet a learning of 8 or higher.\n"
+ INVESTITURE_TITLE:0 "[GetPlayer.GetPrimaryTitle.MakeScope.Va ('selected_title_for_investiture').Title.GetName]"
+ INVESTITURECouncil_TITLE:0 "[GetPlayer.GetPrimaryTitle.MakeScope.Va ('selected_councillor_for_investiture').GetCharacter.GetName]"
  
-  ### ANTIPOPES
-  TCT_antipopes_title:0 "Antipope:"
-  TCT_antipopes_name:0 "[Scope.GetCharacter.GetFirstNameNicknamed] #medium ([Scope.GetCharacter.GetLiege.GetPrimaryTitle.GetName]) #!"
-  TCT_no_antipopes:0 "Absent"
-  TCT_antipopes_title:0 "Antipope:"
-  TCT_antipopes_name:0 "[Scope.GetCharacter.GetFirstNameNicknamed] #medium ([Scope.GetCharacter.GetLiege.GetPrimaryTitle.GetName]) #!"
-  TCT_no_antipopes:0 "Absent"
-  
-  TCT_MAKE_ANTIPOPE_NEGATIVE_OPINION:0 "[recipient.GetShortUIName|U] has a negative opinion about my character: $VALUE|=+0$"
-  TCT_MAKE_ANTIPOPE_VIRTUES:0 "[actor.GetFaith.GetReligiousHead.GetShortUIName|U] has virtuous [traits|El]: $VALUE|=+0$"
-  TCT_MAKE_ANTIPOPE_SINS:0 "[recipient.GetFaith.GetReligiousHead.GetShortUIName|U] has sinful [traits|El]: $VALUE|=+0$"
-  TCT_MAKE_ANTIPOPE_IS_AMBITIOUS:0 "[GetTrait('ambitious').GetName(recipient.Self)]: $VALUE|=+0$"
-  TCT_MAKE_ANTIPOPE_IS_SUPPORTER:0 "[GetTrait('tct_imperial_supporter').GetName(recipient.Self)]: $VALUE|=+0$"
-  TCT_MAKE_ANTIPOPE_IS_CONTENT:0 "[GetTrait('content').GetName(recipient.Self)]: $VALUE|=+ 0 $""
-  TCT_MAKE_ANTIPOPE_IS_CARDINAL:0 "[GetTrait('TCT_cardinal').GetName(recipient.Self)]: $VALUE|=+0$"
-  TCT_MAKE_ANTIPOPE_IS_HUMBLE:0 "[GetTrait('humble').GetName(recipient.Self)]: $VALUE|=+0$"
-  TCT_MAKE_ANTIPOPE_IS_ARROGANT:0 "[GetTrait('arrogant').GetName(recipient.Self)]: $VALUE|=+0$"
-  TCT_MAKE_ANTIPOPE_IS_BRAVE:0 "[GetTrait('brave').GetName(recipient.Self)]: $VALUE|=+0$"
-  TCT_MAKE_ANTIPOPE_IS_CRAVEN:0 "[GetTrait('craven').GetName(recipient.Self)]: $VALUE|=+0$"
-  TCT_MAKE_ANTIPOPE_IS_DUKE:0 "You are just a duke: $VALUE|=+0$"
-  TCT_MAKE_ANTIPOPE_ANTIPOPE_IS_EXISTS:0 "At least one antipope already exists: $VALUE|=+0$"
-  
-  RELIGIOUS_HEAD_INTERACTION_CONCLAVE_INFLUENCE_ACTOR:0 "Your influence on [collegeofcardinals|E]: $VALUE|=+0$"
-  RELIGIOUS_HEAD_INTERACTION_CONCLAVE_INFLUENCE_RECIPIENT:0 "Influence of [secondary_recipient.GetShortUIName|U] on [collegeofcardinals|E]: $VALUE|=+0$"
-
-  RELIGIOUS_HEAD_INTERACTION_INVESTITURE_STRUGGLE_SUPPORTER_ACTOR:0 "[GetTrait('tct_papal_supporter').GetName( recipient.Self )] in the [investiture_controversy_struggle|E]: $VALUE|=+0$"
-  RELIGIOUS_HEAD_INTERACTION_INVESTITURE_STRUGGLE_SUPPORTER_RECIPIENT:0 "[GetTrait('tct_papal_supporter').GetName( secondary_recipient.Self )] in the [investiture_controversy_struggle|E]: $VALUE|=+0$"
-  RELIGIOUS_HEAD_INTERACTION_INVESTITURE_STRUGGLE_IMP_SUPPORTER_ACTOR:0 "[GetTrait('tct_imperial_supporter').GetName( recipient.Self )] in the [investiture_controversy_struggle|E]: $VALUE|=+0$"
-
-  doctrine_independent_papacy_head_name:0 "Papal"
-  doctrine_independent_papacy_head:0 "Papal"
-  doctrine_independent_papacy_head_desc:0 "The physical world and the spiritual world are not alike. We must know for sure that the spiritual world has its own ruler, which guides us and protects our faith from bodily contamination."
-  doctrine_parameter_TCT_antipopes:0 "Rulers with [free_investiture|E], can appoint Antipopes, contenders to the Papacy" 
+ TRINITY_MAP_MODE_TOOLTIP: "Investiture Types: Papal Investiture = White. Free Investiture = Red"
+ INVESTITURE_LEGEND: "Map Legend"
+ CUSTOM_PAPAL_INVESTITURE: "Papal Investiture"
+ CUSTOM_FREE_INVESTITURE: "Free Investiture"
+ 
+ ### ANTIPOPES
+ TCT_antipopes_title:0 "Antipope:"
+ TCT_antipopes_name:0 "[Scope.GetCharacter.GetFirstNameNicknamed] #medium ([Scope GetCharacter.GetLiege.GetPrimaryTitle.GetName]) #!"
+ TCT_no_antipopes:0 "Absent"
+ 
+ TCT_MAKE_ANTIPOPE_NEGATIVE_OPINION:0 "[recipient.GetShortUIName|U] has a negative opinion about my character: $VALUE|=+0$"
+ TCT_MAKE_ANTIPOPE_VIRTUES:0 "[actor.GetFaith.GetReligiousHead.GetShortUIName|U] has virtuous [traits|El]: $VALUE|=+0$"
+ TCT_MAKE_ANTIPOPE_SINS:0 "[recipient.GetFaith.GetReligiousHead.GetShortUIName|U] has sinful [traits|El]: $VALUE|=+0$"
+ TCT_MAKE_ANTIPOPE_IS_AMBITIOUS:0 "[GetTrait('ambitious').GetName(recipient.Self)]: $VALUE|=+0$"
+ TCT_MAKE_ANTIPOPE_IS_SUPPORTER:0 "[GetTrait('tct_imperial_supporter').GetName(recipient Self)]: $VALUE|=+0$"
+ TCT_MAKE_ANTIPOPE_IS_CONTENT:0 "[GetTrait('content').GetName(recipient.Self)]: $VALUE|=+ 0 $""
+ TCT_MAKE_ANTIPOPE_IS_CARDINAL:0 "[GetTrait('TCT_cardinal').GetName(recipient.Self)]: $VALUE|=+0$"
+ TCT_MAKE_ANTIPOPE_IS_HUMBLE:0 "[GetTrait('humble').GetName(recipient.Self)]: $VALUE|=+0$"
+ TCT_MAKE_ANTIPOPE_IS_ARROGANT:0 "[GetTrait('arrogant').GetName(recipient.Self)]: $VALUE| +0$"
+ TCT_MAKE_ANTIPOPE_IS_BRAVE:0 "[GetTrait('brave').GetName(recipient.Self)]: $VALUE|=+0$"
+ TCT_MAKE_ANTIPOPE_IS_CRAVEN:0 "[GetTrait('craven').GetName(recipient.Self)]: $VALUE|=+0$"
+ TCT_MAKE_ANTIPOPE_IS_DUKE:0 "You are just a duke: $VALUE|=+0$"
+ TCT_MAKE_ANTIPOPE_ANTIPOPE_IS_EXISTS:0 "At least one [antipope|E] already exists: $VALUE| +0$"
+ 
+ RELIGIOUS_HEAD_INTERACTION_CONCLAVE_INFLUENCE_ACTOR:0 "Your influence on [collegeofcardinals|E]: $VALUE|=+0$"
+ RELIGIOUS_HEAD_INTERACTION_CONCLAVE_INFLUENCE_RECIPIENT:0 "Influence of [secondary_recipient.GetShortUIName|U] on [collegeofcardinals|E]: $VALUE|=+0$" 
+ RELIGIOUS_HEAD_INTERACTION_INVESTITURE_STRUGGLE_SUPPORTER_ACTOR:0 "[GetTrai ('tct_papal_supporter').GetName( recipient.Self )] in the [investiture_controversy_struggle|E]: $VALUE|=+0$"
+ RELIGIOUS_HEAD_INTERACTION_INVESTITURE_STRUGGLE_SUPPORTER_RECIPIENT:0 "[GetTrai ('tct_papal_supporter').GetName( secondary_recipient.Self )] in the [investiture_controversy_struggle|E]: $VALUE|=+0$"
+ RELIGIOUS_HEAD_INTERACTION_INVESTITURE_STRUGGLE_IMP_SUPPORTER_ACTOR:0 "[GetTrai ('tct_imperial_supporter').GetName( recipient.Self )] in the [investiture_controversy_struggle|E]: $VALUE|=+0$" 
+ doctrine_independent_papacy_head_name:0 "Papal"
+ doctrine_independent_papacy_head:0 "Papal"
+ doctrine_independent_papacy_head_desc:0 "The physical world and the spiritual world are not alike. We must know for sure that the spiritual world has its own ruler, which guides us and protects our faith from bodily contamination."
+ doctrine_parameter_TCT_antipopes:0 "Rulers with [free_investiture|E], can appoint [antipope|E], contenders to the Papacy" 
 
   # "Investiture, #italic 'in#! #italic Vestire' #! meaning in dress or robe is the formal installationn which a person is given the authority and regalia of a high office, in the case of a Bishop's Investiture has brought upon differing views throughout the church and europe, The Pope had declared himself the sole appointer, while the european nobility, many of which who had donated lands and territory to the church themselves, wish to retain the legal authority to pick and choose the successors to these bishopics." [selected_title_for_investiture.GetNameNoTier]
   ErlembaldoCotta:0 "Erlembaldo Cotta"
@@ -183,7 +181,7 @@
   county_mercenary_mod:0 "Host"
   duke_mercenary_mod_male:0 "Captain General"
   duke_mercenary_mod_female:0 "Captain General"
-  duchy_mercenary:0 "Company"
+  duchy_mercenary_mod:0 "Company"
   king_mercenary_mod_male:0 "General"
   king_mercenary_mod_female:0 "Generaless"
   kingdom_mercenary_mod:0 "Army"
@@ -195,12 +193,11 @@
  TCT_governs_vast_estates:0 "This Character Governs Vast Esates for the pope."
 
  #Invest 
-  invest: "Fund\n(@gold_icon! 50)"
-  withdraw: "Withdraw\n(@gold_icon! 25)"
-  window_cardinals_divest_tooltip:0 "#Tooltip_heading Withdraw Funds from Cardinal Campaign#!\n#weak You can withdraw your support from the selected candidate's campaign. #Warning However, only half, @gold_icon! 25, of the invested funds will be returned#!, as the rest has already been spent on campaign efforts.#!"
-  window_cardinals_divest_tooltip_not_funded: "#Alert_trial Nothing to Withdraw\nYou can't pull out of a campaign you never funded! Perhaps it's time to put your coin where your faith is?#! \n\n$window_cardinals_divest_tooltip$"
-
-  window_cardinals_invest_tooltip:0 "#Tooltip_heading Invest Funds in Cardinal Candidate#!\n#weak Funds will support the selected candidate's campaign, increasing their chances of being appointed to the College of Cardinals. However, a candidate's base skills and stats also play a significant role in the selection process.#!"
+ invest: "Fund\n(@gold_icon! 50)"
+ withdraw: "Withdraw\n(@gold_icon! 25)"
+ window_cardinals_divest_tooltip:0 "#Tooltip_heading Withdraw Funds from Cardinal Campaign#!\n#weak You can withdraw your support from the selected candidate's campaign. #Warning However, only half, @gold_icon! 25, of the invested funds will be returned#!, as the rest has already been spent on campaign efforts.#!"
+ window_cardinals_divest_tooltip_not_funded: "#Alert_trial Nothing to Withdraw\nYou can't pull out of a campaign you never funded! Perhaps it's time to put your coin where your faith is?#! \n\n$window_cardinals_divest_tooltip$" 
+ window_cardinals_invest_tooltip:0 "#Tooltip_heading Invest Funds in Cardinal Candidate#!\n#weak Funds will support the selected candidate's campaign, increasing their chances of being appointed to the College of Cardinals. However, a candidate's base skills and stats also play a significant role in the selection process.#!"
 
  game_concept_struggle_faction_members: "Struggle Faction Member"
  game_concept_struggle_faction_members_desc: "Struggle Faction Members are participants in factions or organizations working toward specific goals within a [struggle|E]. When two factions find themselves in opposition, they become [opposing_factions|E]."
@@ -208,7 +205,7 @@
  game_concept_struggle_factions: "Struggle Factions"
  game_concept_struggle_factions_desc: "Factions within a [struggle|E] working toward specific goals, are known as a Struggle Faction. When two factions find themselves in opposition, they become [opposing_factions|E]."
 
- game_concept_opposing_struggle_factions: "Opposing Struggle Factions"
+ game_concept_opposing_struggle_factions: "Opposing Struggle Faction"
  game_concept_opposing_struggle_factions_desc: "Opposing [struggle_factions|E] represent the two conflicting sides within a [struggle|E]. For example, in the [investiture_controversy_struggle|E], the opposing factions are the [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )] and the [GetTrait('tct_imperial_supporter').GetName( GetNullCharacter )].\n\nSimilarly, in the [persian_struggle|E], the factions are the [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )] and the [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )]."
 
 

@@ -16,3 +16,6 @@ nick_the_miracle_worker_saint = {}
 nick_hammer_of_heretics = {}
 nick_of_the_desert = {}
 nick_the_flagellant = {}
+
+nick_the_defender_of_the_faith = {}
+nick_the_holy_sovereign = {}

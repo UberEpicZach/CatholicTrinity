@@ -77,7 +77,7 @@
  tct_appointed_bishop_investiture: "Enacted Investiture Rights"
  tct_appointed_bishop_investiture_desc: "Appointed a bishop using free [investiture|E] rights."
  
- tct_create_antipope_desc: "A [GetTrait('tct_imperial_supporter').GetName( GetNullCharacter )] creates an Antipope"
+ tct_create_antipope_desc: "A [GetTrait('tct_imperial_supporter').GetName( GetNullCharacter )] creates an [antipope|E]"
  
  tct_catalyst_unnatural_death_supporter: "$catalyst_unnatural_death_important_character$"
  tct_catalyst_unnatural_death_supporter_desc: "A [GetTrait('tct_imperial_supporter').GetName( GetNullCharacter )] is killed" 

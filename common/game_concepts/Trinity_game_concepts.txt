@@ -70,6 +70,11 @@ cardinal_archbishop = {
 	alias = { cardinal_archbishops }
 }
 
+anti_pope = {
+	alias = { antipope }
+	parent = head_of_faith
+}
+
 ###################################
 # Struggle Stuff
 ###################################

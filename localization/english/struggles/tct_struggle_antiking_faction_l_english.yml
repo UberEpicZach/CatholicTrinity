@@ -17,7 +17,7 @@
  TCT_antiking_faction_desc: "Members of the Anti-King faction seek to restore Papal authority in their [lieges|E] realm by uplifting one of their own as an Anti-King and install them as Emperor - along with deposing any possible Anti-Popes and ensuring the law of [papal_investiture|E] is upheld."
 
  antiking_faction_short_effect_desc: "Wants to restore Papal authority in [ROOT.Faction.GetSpecialTitle.GetName]."
-#  by installing [faction_leader.GetFirstName] on the throne, deposing any possbile antipope and passing the [papal_investiture|E] law."
+#  by installing [faction_leader.GetFirstName] on the throne, deposing any possbile [antipope|E] and passing the [papal_investiture|E] law."
  
  TCT_FACTION_DEMAND_ANTIKING: "Anti-King Demand"
  TCT_FACTION_DEMAND_ANTIKING_DESC: "[faction_leader.Custom2('AppropriateGreetingNegative', ROOT.Char)]\n\nThe time has come to restore Papal authority to [faction_targeted_title.GetNameNoTier]. The throne belongs to [faction_claimant.GetName], divinely chosen to uphold the true faith, depose any Papal Pretenders, and enforce [papal_investiture|E]. Accept this, or we will see it done by force!"

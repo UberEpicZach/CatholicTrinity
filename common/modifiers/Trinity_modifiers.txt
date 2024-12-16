@@ -76,3 +76,19 @@ saint_days_procession = {
 	county_opinion_add = 5
 	monthly_county_control_growth_add = 0.1
 }
+
+# Struggle Modiifers
+
+defender_of_the_faith = {
+	icon = piety_positive
+	monthly_piety_gain_mult = 0.4
+	church_holding_build_gold_cost = -0.4
+}
+
+seat_of_christendom = {
+	icon = piety_positive
+	development_growth = 0.4
+	supply_limit_mult = 1.5
+	levy_size = 0.5
+
+}

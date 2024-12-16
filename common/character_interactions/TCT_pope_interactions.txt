@@ -1221,8 +1221,8 @@ hof_ask_for_claim_interaction = {
 		modifier = { # Practically impossible to claim Kingdoms/Empires when already King/Emperor
 			add = -1000
 			desc = I_AM_ALREADY_HIGH_TIER
-			scope:actor.primary_title = {
-				tier >= tier_kingdom
+			scope:actor = {
+				highest_held_title_tier >= tier_kingdom
 			}
 			scope:target = {
 				tier >= tier_kingdom
