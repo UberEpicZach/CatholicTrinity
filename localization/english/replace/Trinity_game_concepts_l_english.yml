@@ -127,8 +127,8 @@
  court_chaplain_cant_reassign_investiture:0 "Your realm has NOT passed the [free_investiture|E] [law|E]\nWithout it, [court_chaplains|E] and [realm_priests|E] cannot be assigned." 
  INVESTITURE_DESC:0 "   [investiture|E] is the authority of appointing Bishopic Successors, all realms are by default [papal_investiture|E] and such the ability is left to the Pope and unknown until the current bishop dies, with [free_investiture|E], you'll be able to determine the successor in advance. All [county|E] tier and higher bishopic [vassals|E], will appear here" 
  INVESTITURE_APPOINT:0 "Appoint a Successor to a Bishopic, they can be any Sibling, Child, who is Unlanded, Is Male, Is an adult and has an education in learning and is not in line-of-succession. Courier's and Guest's are also valid if they also meet a learning of 8 or higher.\n"
- INVESTITURE_TITLE:0 "[GetPlayer.GetPrimaryTitle.MakeScope.Va ('selected_title_for_investiture').Title.GetName]"
- INVESTITURECouncil_TITLE:0 "[GetPlayer.GetPrimaryTitle.MakeScope.Va ('selected_councillor_for_investiture').GetCharacter.GetName]"
+ INVESTITURE_TITLE:0 "[GetPlayer.GetPrimaryTitle.MakeScope.Var('selected_title_for_investiture').Title.GetName]"
+ INVESTITURECouncil_TITLE:0 "[GetPlayer.GetPrimaryTitle.MakeScope.Var('selected_councillor_for_investiture').GetCharacter.GetName]"
  
  TRINITY_MAP_MODE_TOOLTIP: "Investiture Types: Papal Investiture = White. Free Investiture = Red"
  INVESTITURE_LEGEND: "Map Legend"
@@ -137,7 +137,7 @@
  
  ### ANTIPOPES
  TCT_antipopes_title:0 "Antipope:"
- TCT_antipopes_name:0 "[Scope.GetCharacter.GetFirstNameNicknamed] #medium ([Scope GetCharacter.GetLiege.GetPrimaryTitle.GetName]) #!"
+ TCT_antipopes_name:0 "[Scope.GetCharacter.GetFirstNameNicknamed] #medium ([Scope.GetCharacter.GetLiege.GetPrimaryTitle.GetName]) #!"
  TCT_no_antipopes:0 "Absent"
  
  TCT_MAKE_ANTIPOPE_NEGATIVE_OPINION:0 "[recipient.GetShortUIName|U] has a negative opinion about my character: $VALUE|=+0$"
