@@ -263,12 +263,12 @@ tct_investiture_struggle.0015 = {
 			# Supporter: switching to detractor.
 			triggered_desc = {
 				trigger = { has_trait = tct_papal_supporter }
-				desc = tct_investiture_struggle.0015.desc.switch.supporter_becoming_detractor
+				desc = tct_investiture_struggle.0015.desc.switch.supporter_becoming_papal_supporter
 			}
 			# Detractor: switching to supporter.
 			triggered_desc = {
 				trigger = { has_trait = tct_imperial_supporter }
-				desc = tct_investiture_struggle.0015.desc.switch.detractor_becoming_supporter
+				desc = tct_investiture_struggle.0015.desc.switch.papal_supporter_becoming_supporter
 			}
 			# Neutral: switching to either.
 			desc = tct_investiture_struggle.0015.desc.switch.presently_neutral

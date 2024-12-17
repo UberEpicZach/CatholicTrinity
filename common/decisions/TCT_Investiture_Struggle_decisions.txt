@@ -88,6 +88,10 @@
 			text = tct_investiture_struggle_switch_sides_decision.tt.hre_emperor_cannot_change_prayer_order
 			NOT = { has_title = title:e_hre }
 		} 
+		custom_tooltip = {
+			text = tct_investiture_struggle_switch_sides_decision.tt.pope_cannot_change_prayer_order
+			NOT = { has_title = title:k_papal_state }
+		} 
 		# If you've already got the modifier, then you can't flipflop unless the emperor changes.
 		trigger_if = {
 			limit = {
@@ -429,7 +433,7 @@ investiture_struggle_imperial_supremacy_decision = {
 		}
 
 		custom_tooltip = {
-			text = struggle_ending_decision_correct_involvement_spain_tt
+			text = struggle_ending_decision_correct_involvement_germany_tt
 			any_character_struggle = {
 				involvement = involved
 				is_struggle_type = investiture_controversy_struggle
