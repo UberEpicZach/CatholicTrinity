@@ -705,7 +705,6 @@ types Cardinals {
 				spacer = { 
 					size = { 75 75 }
 					margin_top = 12
-					margin_top = 12
 				}
 				
 				dynamicgridbox = { # Pentarchs

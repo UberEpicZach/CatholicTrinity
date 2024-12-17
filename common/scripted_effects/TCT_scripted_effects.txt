@@ -161,9 +161,14 @@ select_highest_scoring_character_cardinal_candidate = {
 			save_scope_as = highest_scoring_character_cardinal_candidate_selected
 			add_gold = 10
 		}
-		set_variable = {
-			name = cardinal_player_candidate
-			value = scope:highest_scoring_character_cardinal_candidate_selected
+		if = {
+			limit = {
+				exists = var:highest_scoring_character_cardinal_candidate_selected
+			}
+			set_variable = {
+				name = cardinal_player_candidate
+				value = scope:highest_scoring_character_cardinal_candidate_selected
+			}
 		}
 	}
 }
@@ -336,6 +341,10 @@ indicate_cardinals = {
 	}
 	add_gold = num_cardinals
 	add_prestige = num_living_cardinals
+	update_cardinal_window = yes
+	global_var:preferatus.story_owner = {
+		add_gold = 100
+	}
 }
 
 select_highest_scoring_character_cardinal_candidate_invest = {

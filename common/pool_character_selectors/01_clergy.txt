@@ -148,3 +148,28 @@ pool_theocratic_succession = {
 	pool = faith
 	gender = clergy
 }
+
+papacy_succession = {
+    valid_character = {
+        has_variable = current_papacy_successor
+    }
+
+    character_score = {
+        base = 1
+        modifier = {
+            add = 15000
+            has_variable = current_papacy_successor
+        }
+    }
+
+    config = {
+       	background = clergy
+        age = { 18 85 }
+    }
+
+    selection_count = 2100000000
+
+	court = yes
+    pool = faith
+    gender = clergy
+}
