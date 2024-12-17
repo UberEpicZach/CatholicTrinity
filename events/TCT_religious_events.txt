@@ -691,108 +691,6 @@ TCT_religious_events.8 = { #Monastery Monks"
 	}
 }
 
-# scripted_trigger tct_religious_event_9_trigger = {
-# 	is_commanding_army = no
-# 	is_adult = yes
-# 	is_imprisoned = no
-# 	has_religion = religion:christianity_religion
-# 	any_child = {
-# 		is_ruler = no
-# 		age >= 13
-# 		NOT = { age >= 16 }
-# 		NOT = { has_trait = cynical }
-# 		NOT = { is_clergy = yes }
-# 	}
-# }
-
-# TCT_religious_events.9 = { #Child wants to be monk/nun - select child
-# 	title = TCT_religious_events.9.t
-# 	desc = TCT_religious_events.9.desc
-# 	theme = learning_scholarship_focus
-# 	left_portrait = {
-# 		character = this
-# 	}
-# 	right_portrait = {
-# 		character = scope:childforthechurch
-# 	}
-
-# 	trigger = {		
-# 		triggerforTCT_religious_events9 = yes
-# 	}
-
-# 	immediate = {
-# 		save_scope_as = parentofchild
-# 		random_child = {
-# 			limit = {
-# 				is_ruler = no
-# 				age >= 13
-# 				NOT = { age >= 16 }
-# 				NOT = { has_trait = cynical }
-# 				NOT = { is_clergy = yes }
-# 			}
-# 			save_scope_as = childforthechurch
-# 		}
-# 	}
-
-# 	option = { 
-# 		name = TCT_religious_events.9.a
-# 		#custom_tooltip = TCT_religious_events.9.a.tt 
-	
-# 		scope:childforthechurch = {
-# 			send_child_to_clergy_effect_for_events = yes
-
-# 			if = {
-# 				limit = {
-# 					scope:parentofchild.top_liege = {
-# 						any_vassal_or_below = {
-# 							has_government = theocracy_government
-# 							primary_title.tier > tier_barony
-# 							faith = scope:parentofchild.faith
-# 						}
-# 					}
-# 				}
-# 				scope:parentofchild.top_liege = {
-# 					random_vassal_or_below = {
-# 						limit = {
-# 							has_government = theocracy_government
-# 							primary_title.tier > tier_barony
-# 							faith = scope:parentofchild.faith
-# 						}
-# 						save_scope_as = theocratic_travel_target
-# 					}
-# 				}
-# 				visit_court_of = scope:theocratic_travel_target
-# 				set_relation_guardian = scope:theocratic_travel_target 
-# 			}
-# 			else_if = {
-# 				limit = {
-# 					exists = scope:parentofchild.capital_province
-# 				}
-# 				move_to_pool_at = scope:parentofchild.capital_province
-# 			}
-
-# 			add_opinion = {
-# 				target = ROOT
-# 				opinion = 50
-# 				modifier = grateful_opinion
-# 			}
-# 		}
-# 	}
-
-# 	option = { 
-# 		name = TCT_religious_events.9.b
-# 		scope:childforthechurch = {
-# 			add_stress = major_stress_loss
-# 			add_opinion = {
-# 				target = ROOT
-# 				opinion = -150
-# 				modifier = angry_opinion
-# 			}
-# 		}
-# 	}
-
-# }
-
 TCT_religious_events.12 = { #Donate to local monastery
 	title = TCT_religious_events.12.t
 	desc = TCT_religious_events.12.desc
@@ -1058,7 +956,6 @@ TCT_religious_events.15 = {
 		}
 	}
 }
-
 
 scripted_effect get_investiture_characters = {
 	clear_variable_list = possible_characters
@@ -3975,15 +3872,6 @@ TCT_religious_events.58 = {#christmas
 		animation = ecstasy
 	}
 
-	# widgets = {
-	# 	widget = {
-	# 		gui = "window_activity_jank_start_widget"
-	# 		container = "custom_widgets_container"
-	# 		controller = default
-	# 		setup_scope = { }
-	# 	}
-	# }
-
 	immediate = {
 		play_music_cue = CK2_songs_of_yuletide 
 		random_List = {
@@ -4034,16 +3922,6 @@ TCT_religious_events.58 = {#christmas
 		}
 	}
 }
-
-#TCT_religious_events.59 #christmas
-
-#TCT_religious_events.60 #christmas
-
-#TCT_religious_events.61 #christmas
-
-#TCT_religious_events.62 #christmas
-
-#TCT_religious_events.63 moved to TCT_saint_days.0001
 
 # #Event: Baptism of my Heir / Quick and Dirty Baptism's
 # TCT_religious_events.70 = {
@@ -4462,90 +4340,91 @@ TCT_religious_events.58 = {#christmas
 # 	}
 # }
 
-#Ending a Pilgrimage to a Saintly Tomb
-TCT_religious_events.250 = { 
-	title = TCT_religious_events.250.t
-	desc = TCT_religious_events.250.desc
-	theme = learning_scholarship_focus
-	orphan = yes 
-	left_portrait = {
-		character = root
-	}
-	right_portrait = {
-		character = scope:localsaint
-		animation = personality_rational
-	}
+# #Ending a Pilgrimage to a Saintly Tomb
+# TCT_religious_events.250 = { 
+# 	title = TCT_religious_events.250.t
+# 	desc = TCT_religious_events.250.desc
+# 	theme = learning_scholarship_focus
+# 	orphan = yes 
+# 	left_portrait = {
+# 		character = root
+# 	}
+# 	right_portrait = {
+# 		character = scope:localsaint
+# 		animation = personality_rational
+# 	}
 	
-	immediate = {
-		if = {
-			limit = {
-				location.county = {
-					has_variable_list = faith_saints_and_capital
-				}
-			}
-			save_scope_as = saintlocation
-		}
-		scope:saintlocation = {
-			random_in_list = {
-				variable = faith_saints_and_capital
-	 			save_scope_as = localsaint
-			}
-		}
-		play_music_cue = Trinity_4
-	}
+# 	immediate = {
+# 		if = {
+# 			limit = {
+# 				location.county = {
+# 					has_variable_list = faith_saints_and_capital
+# 				}
+# 			}
+# 			save_scope_as = saintlocation
+# 		}
+# 		scope:saintlocation = {
+# 			random_in_list = {
+# 				variable = faith_saints_and_capital
+# 	 			save_scope_as = localsaint
+# 			}
+# 		}
+# 		play_music_cue = Trinity_4
+# 	}
 
-	option = { 
-		name = TCT_religious_events.300.a
+# 	option = { 
+# 		name = TCT_religious_events.300.a
 
-	}
-}
+# 	}
+# }
 
-#Saint related - finds nearby saint
-TCT_religious_events.300 = { 
-	title = TCT_religious_events.300.t
-	desc = TCT_religious_events.300.desc
-	theme = learning_scholarship_focus
-	orphan = yes 
-	left_portrait = {
-		character = scope:popewantsit
-	}
-	right_portrait = {
-		character = scope:localsaint
-		animation = personality_rational
-	}
+# #Saint related - finds nearby saint
+# TCT_religious_events.300 = { 
+# 	title = TCT_religious_events.300.t
+# 	desc = TCT_religious_events.300.desc
+# 	theme = learning_scholarship_focus
+# 	orphan = yes 
+# 	left_portrait = {
+# 		character = scope:popewantsit
+# 	}
+# 	right_portrait = {
+# 		character = scope:localsaint
+# 		animation = personality_rational
+# 	}
 
-	trigger = {
-		has_nearby_saint_site = yes
-	}
+# 	trigger = {
+# 		has_nearby_saint_site = yes
+# 	}
 
-	immediate = {
-		capital_county.duchy = {
-			random_in_de_jure_hierarchy = {
-				continue = {
-					tier > tier_county
-				}
-				limit = {
-					tier = tier_county
-					has_variable_list = faith_saints_and_capital
-				}
-				save_scope_as = saintlocation
-			}
+# 	immediate = {
+# 		capital_county.duchy = {
+# 			random_in_de_jure_hierarchy = {
+# 				continue = {
+# 					tier > tier_county
+# 				}
+# 				limit = {
+# 					tier = tier_county
+# 					has_variable_list = faith_saints_and_capital
+# 				}
+# 				save_scope_as = saintlocation
+# 			}
 				
-			scope:saintlocation = {
-				random_in_list = {
-					variable = faith_saints_and_capital
-					save_scope_as = localsaint
-				}
-			}
-		}
-	}
+# 			scope:saintlocation = {
+# 				random_in_list = {
+# 					variable = faith_saints_and_capital
+# 					save_scope_as = localsaint
+# 				}
+# 			}
+# 		}
+# 	}
 
-	option = { 
-		name = TCT_religious_events.300.a
+# 	option = { 
+# 		name = TCT_religious_events.300.a
 
-	}
-}
+# 	}
+# }
 
+# Death of a Pope, Election of a New Pope
 TCT_religious_events.400 = {
 	title = TCT_religious_events.400.t
 	desc = TCT_religious_events.400.desc
@@ -4633,7 +4512,7 @@ TCT_religious_events.400 = {
 		}
 	}
 }
-
+# The Papal Conclave
 TCT_religious_events.4001 = {
 	type = court_event
 	title = TCT_religious_events.4001.t
@@ -4790,7 +4669,54 @@ TCT_religious_events.4001 = {
 			name = event_chain_progress
 			value = 1
 		}
+		if = {
+			limit = {
+				remove_variable = current_papacy_successor
+			if = {
+				limit = {
+					NOT = { exists = cp:councillor_marshal }
+					exists = scope:marshal
+				}
+				assign_councillor_type = {
+					type = councillor_marshal
+					target = scope:marshal
+				}
+			}
+			if = {
+				limit = {
+					NOT = { exists = cp:councillor_steward }
+					exists = scope:steward
+				}
+				assign_councillor_type = {
+					type = councillor_steward
+					target = scope:steward
+				}
+			}
+			if = {
+				limit = {
+					NOT = { exists = cp:councillor_chancellor }
+					exists = scope:chancellor
+				}
+				assign_councillor_type = {
+					type = councillor_chancellor
+					target = scope:chancellor
+				}
+			}
+			if = {
+				limit = {
+					NOT = { exists = cp:councillor_spymaster }
+					exists = scope:spymaster
+				}
+				assign_councillor_type = {
+					type = councillor_spymaster
+					target = scope:spymaster
+				}
+			}
+			set_realm_capital = title:c_roma
+			}
+		}
 	}
+
 
 	option = { 
 		name = TCT_religious_events.4001.a
@@ -5015,7 +4941,7 @@ TCT_religious_events.5725 = {
 		}
 	}
 }
-
+# The Papal Conclave
 TCT_religious_events.401 = {
 	type = court_event
 	title = TCT_religious_events.401.t
@@ -5120,7 +5046,7 @@ TCT_religious_events.401 = {
 		}
 	}
 }
-
+# The Papal Conclave
 TCT_religious_events.402 = {
 	title = TCT_religious_events.402.t
 	desc = TCT_religious_events.402.desc
@@ -5142,7 +5068,7 @@ TCT_religious_events.402 = {
 		}
 	}
 }
-
+# Antipope Spawned
 TCT_religious_events.403 = {
 	title = TCT_religious_events.403.t
 	desc = TCT_religious_events.403.desc
@@ -5956,89 +5882,55 @@ TCT_religious_events.813 = {
 	}
 }
 
-#Crusader gets an event to decide to try to carve out a Crusader State during a GHW.
-#Fired on_army_enter_province
-#Hidden first event fires for the owner of the army.
-#root = owner of the army
-#scope:army = the army itself.
-# great_holy_war.0060 = {
-# 	hidden = yes
-	
-# 	trigger = {
-# 		exists = root.faith.great_holy_war
-# 		OR = { #Either army owner or one of his lieges is involved in a GHW.
-# 			any_character_war = {
-# 				OR = {
-# 					using_cb = undirected_great_holy_war
-# 					using_cb = directed_great_holy_war
-# 				}
-# 				is_attacker = root
-# 			}
-# 			any_liege_or_above = {
-# 				faith = root.faith
-# 				any_character_war = {
-# 					OR = {
-# 						using_cb = undirected_great_holy_war
-# 						using_cb = directed_great_holy_war
-# 					}
-# 					is_attacker = root
-# 				}
-# 			}
-# 		}
-# 		scope:army = {
-# 			exists = army_commander
-# 			location = { save_temporary_scope_as = current_location }
-# 			army_commander = {
-# 				NOR = {
-# 					has_trait = crusader_king
-# 					has_trait = faith_warrior
-# 				}
-# 			}
-# 		}
-# 		root.faith.great_holy_war.ghw_target_title = { #The dejure Kingdom targeted by the GHW
-# 			any_in_de_jure_hierarchy = {
-# 				tier = tier_barony
-# 				title_province = { this = scope:current_location } #Any province within it.
-# 				exists = holder
-# 				holder = { #The province's owner must also be part of the GHW on the opposite side.
-# 					OR = {
-# 						any_character_war = {
-# 							OR = {
-# 								using_cb = undirected_great_holy_war
-# 								using_cb = directed_great_holy_war
-# 							}
-# 							is_defender = prev
-# 						}
-# 						any_liege_or_above = {
-# 							any_character_war = {
-# 								OR = {
-# 									using_cb = undirected_great_holy_war
-# 									using_cb = directed_great_holy_war
-# 								}
-# 								is_defender = prev
-# 							}
-# 						}
-# 					}
-# 				}
-# 			}
-# 		}
-# 	}
-
-# 	immediate = {
-# 		scope:army.location = { save_scope_as = current_location }
-# 		faith = { save_scope_as = the_faith }
-# 		faith.great_holy_war = { save_scope_as = scoped_ghw }
-# 		faith.great_holy_war.ghw_target_title = { save_scope_as = target_kingdom }
-# 		scope:army = {
-# 			army_commander = { trigger_event = great_holy_war.0057 }
-# 			army_owner = {
-# 				every_knight = {
-# 					limit = {
-# 						location = scope:current_location
-# 					}
-# 					trigger_event = great_holy_war.0057
-# 				}
-# 			}
-# 		}
-# 	}
-# }
+# Pope Election Cleanu
+TCT_religious_events.814 = {
+	hidden = yes
+	immediate = {
+		remove_variable = current_papacy_successor
+		if = {
+			limit = {
+				NOT = { exists = cp:councillor_marshal }
+				exists = scope:marshal
+			}
+			assign_councillor_type = {
+				type = councillor_marshal
+				target = scope:marshal
+			}
+		}
+		if = {
+			limit = {
+				NOT = { exists = cp:councillor_steward }
+				exists = scope:steward
+			}
+			assign_councillor_type = {
+				type = councillor_steward
+				target = scope:steward
+			}
+		}
+		if = {
+			limit = {
+				NOT = { exists = cp:councillor_chancellor }
+				exists = scope:chancellor
+			}
+			assign_councillor_type = {
+				type = councillor_chancellor
+				target = scope:chancellor
+			}
+		}
+		if = {
+			limit = {
+				NOT = { exists = cp:councillor_spymaster }
+				exists = scope:spymaster
+			}
+			assign_councillor_type = {
+				type = councillor_spymaster
+				target = scope:spymaster
+			}
+		}
+		set_realm_capital = title:c_roma
+	}
+	option = {
+		name = TCT_religious_events.814.a
+	}
+}
+		

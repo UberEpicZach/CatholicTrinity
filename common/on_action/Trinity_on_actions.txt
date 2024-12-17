@@ -65,6 +65,7 @@ tct_on_start = {
 		}
 		title:k_papal_state.holder = {
 			set_variable = was_once_cardinal
+			add_realm_law = papal_succession_law
 		}
 		title:k_papal_state = {
 			add_title_law = papal_succession_law
@@ -756,216 +757,6 @@ on_preferatus_death = {
 	}
 }
 
-# on_pope_death = {
-#     trigger = {
-#         has_title = title:k_papal_state
-#     }
-#     effect = {
-# 		# if = {
-# 		# 	limit = {
-# 		# 		game_start_date = 1066.9.15
-# 		# 		exists = character:2010
-# 		# 		character:2010 = {
-# 		# 			is_alive = yes
-# 		# 		}
-# 		# 		NOT = { 
-# 		# 			character:2010 = title:k_papal_state.holder
-# 		# 			exists = global_var:TCT_Pope_Gregory_VII 
-# 		# 		}
-# 		# 	}
-# 		# 	set_global_variable = TCT_Pope_Gregory_VII
-			
-# 		# 	save_scope_as = deadpope
-
-# 		# 	character:2010 = {
-# 		# 		# Deal with Variables
-# 		# 		set_variable = was_once_cardinal
-# 		# 		remove_variable = cardinal
-# 		# 		set_variable = current_papacy_successor
-				
-# 		# 		save_scope_as = preferatus
-				
-# 		# 		# Give him cool things.
-# 		# 		add_prestige = 3000
-# 		# 		add_piety = 3000
-# 		# 		add_learning_skill = 3
-# 		# 		# Deal with succession
-# 		# 		depose = yes
-# 		# 		move_to_pool_at = title:k_papal_state.holder.capital_province
-# 		# 	}
-			
-# 		# 	set_player_character = global_var:preferatus.story_owner
-# 		# 	character:2010 = {
-# 		# 		set_realm_capital = title:c_roma
-# 		# 	}
-# 		# 	faith = { update_cardinal_window = yes }
-# 		# 	update_preferatus = yes
-
-# 		# 	global_var:preferatus.story_owner = {
-# 		# 		# This is used for the naming feature of the Popes, to be used as loc in the Cardinal X has Chosen Pope X as his name.	
-# 		# 		create_character = {
-# 		# 			location = scope:deadpope.capital_province
-# 		# 			faith = scope:deadpope.faith
-# 		# 			culture = scope:deadpope.culture
-# 		# 			gender = male
-# 		# 			learning = { 10 12 }
-# 		# 			save_scope_as = duplicatename
-# 		# 			after_creation = {
-# 		# 				change_first_name = { template_character = global_var:preferatus.story_owner }
-# 		# 			}
-# 		# 		}
-
-# 		# 		set_variable = {
-# 		# 			name = duplicatenameexists
-# 		# 			value = scope:duplicatename
-# 		# 		}
-
-# 		# 		trigger_event = TCT_religious_events.400
-# 		# 	}
-# 		# }
-# 		#else = {
-# # 			#Value Management
-# 			# if = {
-# 			# 	limit = {
-# 			# 		exists = cp:councillor_marshal
-# 			# 	}
-# 			# 	cp:councillor_marshal = {
-# 			# 		save_scope_as = marshal
-# 			# 	}
-# 			# }
-# 			# if = {
-# 			# 	limit = {
-# 			# 		exists = cp:councillor_chancellor
-# 			# 	}
-# 			# 	cp:councillor_chancellor = {
-# 			# 		save_scope_as = chancellor
-# 			# 	}
-# 			# }
-# 			# if = {
-# 			# 	limit = {
-# 			# 		exists = cp:councillor_steward
-# 			# 	}
-# 			# 	cp:councillor_steward = {
-# 			# 		save_scope_as = steward
-# 			# 	}
-# 			# }
-# 			# if = {
-# 			# 	limit = {
-# 			# 		exists = cp:councillor_spymaster
-# 			# 	}
-# 			# 	cp:councillor_spymaster = {
-# 			# 		save_scope_as = spymaster
-# 			# 	}
-# 			# }
-# 			save_scope_as = deadpope
-# 			faith = { update_cardinal_window = yes }
-# 			# Who's the most likely next pope? (Preferatus)
-# 			ordered_in_global_list = {
-# 				variable = cardinals
-# 				limit = {exists = this }
-# 				order_by = story_owner.cardinal_to_pope_score
-# 				position = 0
-# 				set_global_variable = {
-# 					name = preferatus
-# 					value = this
-# 				}
-# 				# Tell the GUI who it is:
-# 				global_var:gui_storage = {
-# 					set_variable = {
-# 						name = preferatus
-# 						value = prev
-# 					}
-# 				}
-# 			}
-# 			faith = { update_cardinal_window = yes }
-# 			title:k_papal_state.holder = {
-# 				set_realm_capital = title:c_roma
-# 			}
-
-# 			global_var:preferatus.story_owner  = {
-# 				if = { limit = { any_held_title = { count >= 1 } } depose = yes }
-# 				remove_variable = cardinal
-# 				#set_variable = current_papacy_successor
-# 				move_to_pool_at = title:k_papal_state.holder.capital_province
-# 			}
-# 			global_var:preferatus.story_owner = { if = { limit = { is_lowborn = yes } set_house = house:house_SanctiPetriFiliis } }
-# 			set_player_character = global_var:preferatus.story_owner
-			
-# 			# global_var:preferatus = {
-# 			# 	promote_new_cardinal = yes
-# 			# }
-# 			# faith = { update_cardinal_window = yes }
-
-# 			# global_var:preferatus.story_owner = {
-# 			# 	if = {
-# 			# 		limit = {
-# 			# 			NOT = { exists = cp:councillor_marshal }
-# 			# 			exists = scope:marshal
-# 			# 		}
-# 			# 		assign_councillor_type = {
-# 			# 			type = councillor_marshal
-# 			# 			target = scope:marshal
-# 			# 		}
-# 			# 	}
-# 			# 	if = {
-# 			# 		limit = {
-# 			# 			NOT = { exists = cp:councillor_steward }
-# 			# 			exists = scope:steward
-# 			# 		}
-# 			# 		assign_councillor_type = {
-# 			# 			type = councillor_steward
-# 			# 			target = scope:steward
-# 			# 		}
-# 			# 	}
-# 			# 	if = {
-# 			# 		limit = {
-# 			# 			NOT = { exists = cp:councillor_chancellor }
-# 			# 			exists = scope:chancellor
-# 			# 		}
-# 			# 		assign_councillor_type = {
-# 			# 			type = councillor_chancellor
-# 			# 			target = scope:chancellor
-# 			# 		}
-# 			# 	}
-# 			# 	if = {
-# 			# 		limit = {
-# 			# 			NOT = { exists = cp:councillor_spymaster }
-# 			# 			exists = scope:spymaster
-# 			# 		}
-# 			# 		assign_councillor_type = {
-# 			# 			type = councillor_spymaster
-# 			# 			target = scope:spymaster
-# 			# 		}
-# 			# 	}
-# 			# }
-
-# 			global_var:preferatus.story_owner = {	
-# 				# This is used for the naming feature of the Popes, to be used as loc in the Cardinal X has Chosen Pope X as his name.
-# 				create_character = {
-# 					gender = male
-# 					location = root.capital_province
-# 					faith = root.faith
-# 					culture = root.culture
-# 					learning = { 10 12 }
-# 					save_scope_as = duplicatename
-# 					after_creation = {
-# 						change_first_name = { template_character = global_var:preferatus.story_owner }
-# 					}
-# 				}
-
-# 				set_variable = {
-# 					name = duplicatenameexists
-# 					value = scope:duplicatename
-# 				}
-
-# 				global_var:preferatus.story_owner = { 
-# 					trigger_event = TCT_religious_events.400
-# 				}
-# 			}
-# 		#}
-#     }
-# }
-
 on_pope_death = {
 	trigger = {
 		has_title = title:k_papal_state
@@ -983,6 +774,41 @@ on_pope_death = {
 					exists = global_var:TCT_Pope_Gregory_VII 
 				}
 			}
+
+			# Save Councillors 
+			if = {
+				limit = {
+					exists = cp:councillor_marshal
+				}
+				cp:councillor_marshal = {
+					save_scope_as = marshal
+				}
+			}
+			if = {
+				limit = {
+					exists = cp:councillor_chancellor
+				}
+				cp:councillor_chancellor = {
+					save_scope_as = chancellor
+				}
+			}
+			if = {
+				limit = {
+					exists = cp:councillor_steward
+				}
+				cp:councillor_steward = {
+					save_scope_as = steward
+				}
+			}
+			if = {
+				limit = {
+					exists = cp:councillor_spymaster
+				}
+				cp:councillor_spymaster = {
+					save_scope_as = spymaster
+				}
+			}
+
 			set_global_variable = TCT_Pope_Gregory_VII
 			save_scope_as = deadpope
 
@@ -1013,10 +839,49 @@ on_pope_death = {
 					value = scope:duplicatename
 				}
 				trigger_event = TCT_religious_events.400
+				trigger_event = {
+					id = TCT_religious_events.814
+					days = 1
+				}
 			}
 		}
 		else = {
+			# Save Scopes
 			save_scope_as = deadpope
+
+			# Save Councillors 
+			if = {
+				limit = {
+					exists = cp:councillor_marshal
+				}
+				cp:councillor_marshal = {
+					save_scope_as = marshal
+				}
+			}
+			if = {
+				limit = {
+					exists = cp:councillor_chancellor
+				}
+				cp:councillor_chancellor = {
+					save_scope_as = chancellor
+				}
+			}
+			if = {
+				limit = {
+					exists = cp:councillor_steward
+				}
+				cp:councillor_steward = {
+					save_scope_as = steward
+				}
+			}
+			if = {
+				limit = {
+					exists = cp:councillor_spymaster
+				}
+				cp:councillor_spymaster = {
+					save_scope_as = spymaster
+				}
+			}
 
 			#update_preferatus = yes
 			global_var:preferatus.story_owner = { if = { limit = { any_held_title = { count >= 1 } } depose = yes } }
@@ -1045,6 +910,10 @@ on_pope_death = {
 				}
 				if = { limit = { is_lowborn = yes } set_house = house:house_SanctiPetriFiliis }
 				trigger_event = TCT_religious_events.400
+				trigger_event = {
+					id = TCT_religious_events.814
+					days = 1
+				}
 			}
 		} 
 	}

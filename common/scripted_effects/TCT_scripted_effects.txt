@@ -163,7 +163,7 @@ select_highest_scoring_character_cardinal_candidate = {
 		}
 		if = {
 			limit = {
-				exists = var:highest_scoring_character_cardinal_candidate_selected
+				exists = scope:highest_scoring_character_cardinal_candidate_selected
 			}
 			set_variable = {
 				name = cardinal_player_candidate
@@ -345,7 +345,7 @@ indicate_cardinals = {
 	global_var:preferatus.story_owner = {
 		add_gold = 100
 	}
-}
+}s
 
 select_highest_scoring_character_cardinal_candidate_invest = {
 	save_scope_as = player
