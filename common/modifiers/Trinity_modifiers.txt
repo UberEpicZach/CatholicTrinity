@@ -92,3 +92,11 @@ seat_of_christendom = {
 	levy_size = 0.5
 
 }
+
+tct_marriage_norms_modifier = {
+	icon = marriage_negative
+	zealot_opinion = -10
+	clergy_opinion = -10
+	general_opinion = -5
+	legitimacy_loss_mult = 0.1
+}

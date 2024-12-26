@@ -4827,7 +4827,7 @@ claim_throne_interaction = {
 
 select_cardinal_candidate_interaction = {
 	category = interaction_category_religion
-
+	hidden = yes 
 	populate_recipient_list = {
 		scope:actor = {
 			if = {
@@ -4942,6 +4942,15 @@ select_cardinal_candidate_interaction = {
 				}
 				add_to_list = characters
 			}
+		}
+	}
+
+	is_shown = {
+		scope:actor = {
+			faith = faith:catholic
+		}
+		scope:recipient = {
+			faith = faith:catholic
 		}
 	}
 	

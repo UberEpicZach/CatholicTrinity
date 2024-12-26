@@ -102,14 +102,6 @@ tct_install_loyalist_cb = {
 	parent = casus_belli
 }
 
-# struggle_persia_phase_stabilisation = {
-# 	parent = persian_struggle
-# }
-
-# struggle_persia_phase_unrest = {
-# 	parent = persian_struggle
-# }
-
-# struggle_persia_phase_concession = {
-# 	parent = persian_struggle
-# }
+title_recognition = {
+	parent = decision
+}

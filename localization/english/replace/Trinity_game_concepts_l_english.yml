@@ -21,6 +21,9 @@
  game_concept_anti_pope_desc:0 "An $game_concept_anti_pope$ is a rival claimant to the role of [head_of_faith|E] within the Catholic Church, established in opposition to the reigning Pope. Often backed by secular rulers or factions, an $game_concept_anti_pope$ serves to challenge the authority of the official Papacy.\n\nAnti-Popes are typically [head_of_faith_spiritual|E] #weak (e.g. contested Popes appointed by emperors)# but lack universal recognition and often lead to deep divisions within the Church."
 
 
+ game_concept_title_recognition: "$trinity_hre_confirmation_decision$"
+ game_concept_title_recognition_desc: "Holy Roman [dukes|E] can have their inherited titles by the Holy Roman Emperor formally and publicly confirmed by their [liege|E]."
+
  TCT_doctrine_head_of_faith_name: "Special Head of Faith Features"
  TCT_doctrine_head_of_faith_desc: "While the Head of Faith Doctrine Category supports various options, some like Spiritual may allow for some Special Faith Abilities such as the Papal Doctrine."
  TCT_doctrine_clerical_succession_name: "Clerical Abilities"
@@ -144,7 +147,7 @@
  TCT_MAKE_ANTIPOPE_VIRTUES:0 "[actor.GetFaith.GetReligiousHead.GetShortUIName|U] has virtuous [traits|El]: $VALUE|=+0$"
  TCT_MAKE_ANTIPOPE_SINS:0 "[recipient.GetFaith.GetReligiousHead.GetShortUIName|U] has sinful [traits|El]: $VALUE|=+0$"
  TCT_MAKE_ANTIPOPE_IS_AMBITIOUS:0 "[GetTrait('ambitious').GetName(recipient.Self)]: $VALUE|=+0$"
- TCT_MAKE_ANTIPOPE_IS_SUPPORTER:0 "[GetTrait('tct_imperial_supporter').GetName(recipient Self)]: $VALUE|=+0$"
+ TCT_MAKE_ANTIPOPE_IS_SUPPORTER:0 "[GetTrait('tct_imperial_supporter').GetName(recipient.Self)]: $VALUE|=+0$"
  TCT_MAKE_ANTIPOPE_IS_CONTENT:0 "[GetTrait('content').GetName(recipient.Self)]: $VALUE|=+ 0 $""
  TCT_MAKE_ANTIPOPE_IS_CARDINAL:0 "[GetTrait('TCT_cardinal').GetName(recipient.Self)]: $VALUE|=+0$"
  TCT_MAKE_ANTIPOPE_IS_HUMBLE:0 "[GetTrait('humble').GetName(recipient.Self)]: $VALUE|=+0$"

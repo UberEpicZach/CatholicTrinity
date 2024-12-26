@@ -58,6 +58,112 @@
  tct_investiture_struggle.0015.vassal_semi_rebel: "Vassal Rubbishes your Suzerainty"
 
 # Decisions
+ trinity_hre_confirmation_decision: "Title Confirmation"
+ trinity_hre_confirmation_decision_desc: "It is customary for the [ROOT.Char.GetTopLiege.GetTitleAsNameNoTooltip] to formally recognize the inheritance of titles in a ceremony held before the [ROOT.Char.GetTopLiege.GetPrimaryTitle.GetAdjectiveNoTooltip] court."
+ trinity_hre_confirmation_decision_tooltip: "Attend a [title_recognition|E] ceremony held by your [liege|E]"
+ trinity_hre_confirmation_decision_effects: "You travel to [THIS.Char.GetLiege.GetTitledFirstNamePossessiveRegnal] court to have your [duchy|E] formally recognized"
+ trinity_hre_confirmation_decision_confirm: "Depart for Ceremony"
+ title_recognition_grace_tt: "#weak You may not take the $trinity_hre_confirmation_decision$ more than once#!"
+ title_recognition_grace_valid_tt: "You have not had a [title_recognition|E] before"
+ title_recognition_costs_refunded: "$trinity_hre_confirmation_decision$ costs refunded"
+ title_recognition_rank_tt: "You are a [duke|E]"
+ title_recognition_liege_tt: "You are a [direct_vassal|E] of the [THIS.Char.GetTopLiege.GetTitleAsNameNoTooltip] ([THIS.Char.GetTopLiege. GetFirstNameRegnal])"
+ title_recognition_time_tt: "You have held your [primary_title|E] for at least #V 1#! year ([THIS.Char.GetPrimaryTitle.GetNameNoTier])"
+ trinity_hre_confirmation_decision_tt_if_accepted: "If [CHARACTER.GetLiege.GetTitledFirstName] accepts your audience:"
+ 
+ tct_investiture_struggle.2002.opening: "[confirmation_liege.Custom2('AppropriateGreeting', ROOT.Char )]"
+ tct_investiture_struggle.2002.desc: "I am afraid I am far too busy to hold a confirmation ceremony at this time. Many responsibilities vie for my time, as I'm sure you can understand.\n\nSafe travels back to [confirmation_vassal.GetCapitalLocation.GetBaronyNameExplicitlyNoTooltip]."
+ tct_investiture_struggle.2002.a: "#EMP What?!#!"
+
+ 
+ # General Loc Strings
+ title_confirmation_event_header: "Confirmation:"
+
+ # Activity Start: Liege welcomes Governor
+ tct_investiture_struggle.2001.opening: "Greetings, [ROOT.Char.GetTitleAsNameNoTooltip],"
+ tct_investiture_struggle.2001.desc: "I have arrived in [confirmation_liege.GetCapitalLocation.GetTitle.GetNameNoTierNoTooltip] seeking your confirmation of my continued rule as [confirmation_vassal.GetTitleAsNameNoTooltip] of the [confirmation_vassal.GetPrimaryTitle.GetName].\n\nI await at your earliest convenience, of course."
+ tct_investiture_struggle.2001.a: "Arrange the ceremony at once."
+ tct_investiture_struggle.2001.a.tt.court: "You receive [confirmation_vassal.GetTitledFirstName] in your [royal_court|E]"
+ tct_investiture_struggle.2001.a.tt: "You receive [confirmation_vassal.GetTitledFirstName]"
+ tct_investiture_struggle.2001.b: "I am far too busy to see #EMP [confirmation_vassal.GetHerHim]#!."
+ tct_investiture_struggle.2001.b.tt: "You send [confirmation_vassal.GetTitledFirstName] away"
+
+ tct_investiture_struggle.2002.opening: "[confirmation_liege.Custom2('AppropriateGreeting', ROOT.Char )]"
+ tct_investiture_struggle.2002.desc: "I am afraid I am far too busy to hold a confirmation ceremony at this time. Many responsibilities vie for my time, as I'm sure you can understand.\n\nSafe travels back to [confirmation_vassal.GetCapitalLocation.GetBaronyNameExplicitlyNoTooltip]."
+ tct_investiture_struggle.2002.a: "#EMP What?!#!"
+
+ # Liege Event
+ tct_investiture_struggle.2010.t: "$title_confirmation_event_header$ Servant of the Empire"
+ tct_investiture_struggle.2010.desc: "The [ROOT.Char.Custom('GetThroneRoom')] holds an endless line of vassals awaiting.\n\nMost notable of these is [confirmation_vassal.GetTitledFirstName] [confirmation_vassal.GetDynastyHouseName], who has traveled here from [confirmation_vassal.GetCapitalLocation.GetNameNoTooltip]. My [ROOT.Char.Custom2('RelationToMeShort', confirmation_vassal)] rules the [confirmation_vassal.GetPrimaryTitle.GetName]:"
+ tct_investiture_struggle.2010.desc_theme_small: "a small enclave of minor import,"
+ tct_investiture_struggle.2010.desc_theme_big: "a sprawling jurisdiction of significant import,"
+ tct_investiture_struggle.2010.desc_theme_balanced: "a fair-sized region of multifarious value to the realm,"
+ tct_investiture_struggle.2010.desc_cool_foreigners: "home to trusty, [confirmation_vassal.GetCapitalLocation.GetCounty.GetCulture.GetEthos.GetNameNoTooltip|l] [confirmation_vassal.GetCapitalLocation.GetCounty.GetCulture.GetCollectiveNoun]"
+ tct_investiture_struggle.2010.desc_weird_foreigners: "home to strange, [confirmation_vassal.GetCapitalLocation.GetCounty.GetCulture.GetEthos.GetNameNoTooltip|l] [confirmation_vassal.GetCapitalLocation.GetCounty.GetCulture.GetCollectiveNoun]"
+ tct_investiture_struggle.2010.desc_same_culture: "home to provincial [ROOT.Char.GetCulture.GetCollectiveNoun]"
+ tct_investiture_struggle.2010.desc_heretic_faith: "— foul [confirmation_vassal.GetCapitalLocation.GetCounty.GetFaith.GetAdjective] heathens!"
+ tct_investiture_struggle.2010.desc_accepted_faith: "— and the [ROOT.Char.GetFaith.HouseOfWorshipPlural] of their [confirmation_vassal.GetCapitalLocation.GetCounty.GetFaith.GetAdjective] faith."
+ tct_investiture_struggle.2010.desc_my_faith: "— and some fine [ROOT.Char.GetFaith.HouseOfWorshipPlural] of the true [ROOT.Char.GetFaith.GetAdjective] faith."
+ tct_investiture_struggle.2010.desc_hate: "\n\nEven gazing down at the back of [confirmation_vassal.GetTitledFirstNamePossessiveNoTooltip] head, I can feel his burning contempt. The [confirmation_vassal.GetWomanMan] mutters oaths [second.Custom('quirk_neg_adverb')]... while dreaming of beating me to death with [confirmation_vassal.GetHerHis] scepter of office."
+ tct_investiture_struggle.2010.desc_love: "\n\n[second.Custom('quirk_pos_adverb')|U], [confirmation_vassal.GetTitledFirstNameNoTooltip] undergoes the rites. Taking up [confirmation_vassal.GetHerHis] scepter of office, and [second.Custom('quirk_pos_pp')], [second.GetSheHe] swears to give loyal service."
+ tct_investiture_struggle.2010.desc_decrepit: "\n\n[confirmation_vassal.GetHerHis|U] years like a millstone on [confirmation_vassal.GetHerHis] bent back, [confirmation_vassal.GetTitledFirstNameNoTooltip] struggles up from supplication. The wizened elder has much experience to draw from... and, hopefully, a good few years to do it in."
+ tct_investiture_struggle.2010.desc_young: "\n\nBarely a fresh-faced youth, [confirmation_vassal.GetTitledFirstNameNoTooltip] intones the rites with [confirmation_vassal.GetHerHis] scepter of office gripped tight in soft hands. With this one, much remains to be proven..."
+ tct_investiture_struggle.2010.desc_skilled: "\n\nThe [confirmation_vassal.GetWomanMan] supplicated before me rules with a [confirmation_vassal.Custom('ComplimentAdjective')] touch. Whatever politics [confirmation_vassal.GetSheHe] espouses, whatever lies in [confirmation_vassal.GetHerHis] heart: [confirmation_vassal.GetTitledFirstNameNoTooltip] is a credit to the [ROOT.Char.GetPrimaryTitle.GetTierAsNameNoTooltip]."
+ tct_investiture_struggle.2010.desc_incompetent: "\n\nBy all reports, I now confirm the appointment of one who administers poorly, [second.Custom('quirk_neg_adverb')]. But spurning [confirmation_vassal.GetTitledFirstNameNoTooltip], as [confirmation_vassal.GetSheHe] vows the perfect service [confirmation_vassal.GetSheHe] cannot give, will be of little use..."
+ tct_investiture_struggle.2010.desc_generic_outro: "\n\n[confirmation_vassal.GetTitledFirstNameNoTooltip] bows deeply, takes up [confirmation_vassal.GetHerHis] symbolic scepter of authority, vowing to faithfully serve [confirmation_vassal.GetHerHis] [ROOT.Char.GetTitleAsNameNoTooltip]."
+ tct_investiture_struggle.2010.a: ""Govern well, [confirmation_vassal.GetTitleAsNameNoTooltip].""
+
+ # Vassal Event
+ tct_investiture_struggle.2011.desc: "In the [confirmation_liege.Custom('GetThroneRoom')] of [confirmation_liege.GetCapitalLocation.GetTitle.GetNameNoTierPossessive] royal court, [confirmation_liege.GetTitledFirstNameRegnal] — [confirmation_liege.GetFaith.HighGodNamePossessive] regent on Earth — sits in splendor.\n\n"
+ tct_investiture_struggle.2011.desc_child: "Awaiting, amidst other senior officials, as a pimple-faced youth whines and fidgets in [confirmation_liege.GetHerHis] throne is... rather strange."
+ tct_investiture_struggle.2011.desc_heretic: "The heathen that rules the [confirmation_liege.GetPrimaryTitle.GetTierAsName] of the [confirmation_liege.GetCapitalLocation.GetCounty.GetFaith.GetAdherentNamePlural]. Even here, amidst court [confirmation_liege.GetFaith.PriestNeuterPlural] and prelates, the mood is tense."
+ tct_investiture_struggle.2011.desc_war: "As we officials kneel and our ceremony begins, military officers huff impatiently. Their war, it seems, has little regard for our honors."
+ tct_investiture_struggle.2011.desc_poorly_run: "And in chaos. Palace creatures snicker while we officials are prodded into place, and few ritual observances are made."
+ tct_investiture_struggle.2011.desc_well_run: "An endless line of officials await; all in awe, all in eagerness to kneel before our sovereign."
+ tct_investiture_struggle.2011.desc_gender: "A [confirmation_liege.GetWomanMan], enthroned. It is well that we visiting officials are forbidden to look upon our sovereign!"
+ tct_investiture_struggle.2011.desc_typical_palace: "I am ushered to join a line of senior officials. With the outcry of all, of musicians and heralds, our grand ceremonies commence."
+
+ tct_investiture_struggle.2011.desc_hate: "The [confirmation_liege.GetTitleAsNameNoTooltip] addresses me [second.Custom('quirk_neg_adverb')]; [confirmation_liege.GetSheHe] drips scorn on my supplicated head, as my regalia is dangled above.\n\n"
+ tct_investiture_struggle.2011.desc_love: "Yet the [confirmation_liege.GetTitleAsNamePossessiveNoTooltip] voice is warm and [second.Custom('quirk_pos_adjective')] as [confirmation_liege.GetSheHe] addresses me, and presents my regalia.\n\n"
+ tct_investiture_struggle.2011.desc_meh: "The [confirmation_liege.GetTitleAsNameNoTooltip] addresses each appointee in turn, bestowing their regalia and receiving oaths, until [confirmation_liege.GetSheHe] comes to me.\n\n"
+
+ tct_investiture_struggle.2011.desc_theme_civilian: ""The peace of [confirmation_liege.GetFaith.PositiveAfterLife] may yet live in [confirmation_vassal.GetPrimaryTitle.GetNameNoTier]," says [confirmation_liege.GetSheHe], "it is a garden, to be kindly tended.""
+ tct_investiture_struggle.2011.desc_theme_military: ""You are to sharpen the sword of [confirmation_vassal.GetPrimaryTitle.GetNameNoTier]," says [confirmation_liege.GetSheHe], "and have it be wielded only by the righteous.""
+ tct_investiture_struggle.2011.desc_theme_frontier: ""Sleep little," commands [confirmation_liege.GetSheHe], "Stand your ground. [confirmation_vassal.GetPrimaryTitle.GetNameNoTier] is where all that is [confirmation_liege.GetPrimaryTitle.GetAdjective] lives or dies.""
+ tct_investiture_struggle.2011.desc_theme_imperial: ""In [confirmation_vassal.GetPrimaryTitle.GetNameNoTier]," says [confirmation_liege.GetSheHe]," you are to be the image of the [confirmation_liege.GetPrimaryTitle.GetTierAsNameNoTooltip] itself. Few, save the wicked, may know such liberties.""
+ tct_investiture_struggle.2011.desc_theme_naval: ""In the salt of [confirmation_vassal.GetPrimaryTitle.GetNameNoTierPossessive] shores," says [confirmation_liege.GetSheHe], "smell the blood of this [confirmation_liege.GetPrimaryTitle.GetTierAsNameNoTooltip]; see the tears of her widows.""
+ tct_investiture_struggle.2011.desc_theme_small: ""A modest jurisdiction, [confirmation_vassal.GetPrimaryTitle.GetNameNoTier]" says [confirmation_liege.GetSheHe], "but a worthy one.""
+ tct_investiture_struggle.2011.desc_theme_big: ""A vast domain like [confirmation_vassal.GetPrimaryTitle.GetNameNoTier]," says [confirmation_liege.GetSheHe], between formalities, "a mighty beast, to be tamed only by the right master...""
+ tct_investiture_struggle.2011.desc_theme_balanced: ""Your office is granted by [confirmation_liege.GetFaith.HighGodName] and your [confirmation_liege.GetTitleAsNameNoTooltip]," says [confirmation_liege.GetSheHe], "Remember this, and govern [confirmation_vassal.GetPrimaryTitle.GetNameNoTier] well.""
+ tct_investiture_struggle.2011.desc_outro: "\n\nI voice all the proper responses. And, bowing deeply before my liege, I at last take up the scepter of provincial authority."
+ tct_investiture_struggle.2011.a: "Hail to you, [confirmation_liege.GetTitleAsNameNoTooltip]."
+
+ # Invalidated event
+ tct_investiture_struggle.2080.t: "$title_confirmation_event_header$ Invalidated"
+ tct_investiture_struggle.2080.desc.court: "Now that I am [ROOT.Char.GetTitleAsNameNoTooltip] of [ROOT.Char.GetPrimaryTitle.GetNameNoTierNoTooltip], my journey is no longer necessary..."
+ tct_investiture_struggle.2080.desc.imprisoned_me: "$tct_investiture_struggle.2080_shared_intro$ [ROOT.Char.GetImprisonedBy.GetTitledFirstName] threw me into jail."
+ tct_investiture_struggle.2080.desc.imprisoned: "$tct_investiture_struggle.2080_shared_intro$ I was captured by [ROOT.Char.GetImprisonedBy.GetTitledFirstName]."
+ tct_investiture_struggle.2080.desc.liege_dead_me: "$tct_investiture_struggle.2080_shared_intro$ I ended up killing [confirmation_liege.GetTitledFirstName]... \n\n"
+ tct_investiture_struggle.2080.desc.liege_dead: "$tct_investiture_struggle.2080_shared_intro$ [confirmation_liege.GetTitledFirstName] [confirmation_liege.GetDeathReasonHideKiller]... \n\n"
+ tct_investiture_struggle.2080.desc.liege_imprisoned_me: "$tct_investiture_struggle.2080_shared_intro$ I ended up capturing [confirmation_liege.GetTitledFirstName]!"
+ tct_investiture_struggle.2080.desc.liege_imprisoned: "$tct_investiture_struggle.2080_shared_intro$ [confirmation_liege.GetTitledFirstName] was captured by [confirmation_liege.GetImprisonedBy.GetTitledFirstName]."
+ tct_investiture_struggle.2080.desc.new_liege: "If I am be confirmed, it must be by my new liege, [ROOT.Char.GetLiege.GetTitledFirstNameRegnal]."
+ tct_investiture_struggle.2080_shared_intro: "After all the trouble preparing for my confirmation ceremony,"
+ tct_investiture_struggle.2080.desc: "\n\nThis certainly changes the situation."
+ tct_investiture_struggle.2080.a_court: "Onward, to greater things."
+ tct_investiture_struggle.2080.a_prison: "Drat."
+ tct_investiture_struggle.2080.a_liege: "Most vexing..."
+ tct_investiture_struggle.2080.a: "Time to rethink things..."
+
+ tct_investiture_struggle_costs_refunded: "$tct_investiture_struggle_decision$ costs refunded"
+
+
+
+
+
+
+
+
  tct_investiture_struggle_switch_sides_decision.imperial_supporter_turns_papal_supporter.t:0 "Become Papal Supporter"
  tct_investiture_struggle_switch_sides_decision.papal_supporter_turns_imperial_supporter.t:0 "Become Imperial Supporter"
  tct_investiture_struggle_switch_sides_decision.neutral.t:0 "Declare Stance in the $investiture_controversy_struggle$"
@@ -79,6 +185,7 @@
  tct_investiture_struggle_switch_sides_decision.tt.fallback_validity: "#N Otherwise you may still take the [decision|E], at the cost of [stress|E] and extra [piety|E]#!"
  tct_investiture_struggle_switch_sides_decision_confirm: "For all to hear!"
  tct_investiture_struggle_switch_sides_decision_tooltip: "Change your allegiance in the [investiture_controversy_struggle|E]" 
+
 
 
 
@@ -154,6 +261,31 @@
  tct_neutral_struggle.0010.t: "The Sack of Goslar-Harzburg"
  tct_neutral_struggle.0010.desc: "The once-proud Palace of Harzburg lies in ruin, its sacred grounds desecrated. A group of [magnus.GetFirstName]'s Rebel forces, have turned to unrestrained barbarism. Graves have been ripped open, the remains of princes and bishops discarded like refuse, their sanctity mocked by jeering looters. The chapel, once a place of reverence, is now rubble, its relics stolen or destroyed, and its altars smeared with blood and ash. \n\nThe monks who tried to shield the graves lie among the ruins, their lifeless bodies scattered where they made their final stand. Some rebels laugh at the carnage, their cruelty unchecked, while others falter, horror etched into their faces as the scale of their comrades' savagery became clear. \n\nThis is no longer rebellion—it is sacrilege. Whispers of unease spread through the empire itself: ‘This was not justice.’ This has not broken the emperor’s resolve but strengthened his claim to vengeance, what was once a rebellion for justice is now condemned as a campaign of heresy and barbarism."
  tct_neutral_struggle.0010.a: ""This... this is unthinkable."
+
+
+ tct_neutral_struggle.0012.t: "A Hunchback's Dread"
+ tct_neutral_struggle.0012.desc: "Fear grips my every waking moment. The lords beneath me plot, their whispers growing louder with each passing day. They see my frailty, my lack of an heir, as an opportunity to divide my lands and erase my legacy. I cannot allow that. \n\nMy nephew, [nephew.GetFullName], is the answer—a strong, capable man who could defend what I cannot. But even as I settle on this decision, [wife.GetFullName] rails against it. We’ve been husband and wife in name only for years, her ambitions tied to [GetTitleByKey('d_toscana').GetNameNoTier], not to me. What right does she have to interfere now?"
+ tct_neutral_struggle.0012.a: "Godfrey of Bouillon shall be my heir."
+ tct_neutral_struggle.0012.a.tt: "[nephew.GetFullName] will become your heir"
+ tct_neutral_struggle.0012.b: "Perhaps I should reconsider..."
+
+ tct_neutral_struggle.0013.t: "A Hunchback's Heir"
+ tct_neutral_struggle.0013.desc: "News of my husband’s decision reaches me like a slap across the face. [husband.GetFullName] has chosen his nephew as his heir, ignoring my counsel and discarding my claim to any say in his legacy. Our union has been hollow for years, but to exclude me so completely? \n\n[nephew.GetFullName] may be capable, but this is no mere matter of competence. This is about respect—my rightful influence over the future of our shared domains. I refuse to be cast aside while my husband’s paranoia dictates everything."
+ tct_neutral_struggle.0013.a: "I will have my say..."
+ tct_neutral_struggle.0013.b: "He can have his heir."
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # The Second Rebellion # Event for Otto of Bavaria and Heinrich IV
 

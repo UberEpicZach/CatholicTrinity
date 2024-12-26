@@ -14,13 +14,13 @@ tct_neutral_struggle.0001 = {
 	scope = struggle
 
 	immediate = {
-		title:e_hre.holder = {
-			send_interface_toast = {
-				type = event_toast_effect_bad
-				title = tct_neutral_struggle.0001
-				left_icon = ROOT
-			}
-		}
+		# title:e_hre.holder = {
+		# 	send_interface_toast = {
+		# 		type = event_toast_effect_bad
+		# 		title = tct_neutral_struggle.0001
+		# 		left_icon = ROOT
+		# 	}
+		# }
 		## # Yearly drift every year that the Pope and Emperor dislike or like eachother
 		investiture_hre_papal_opinion_effect = yes
 
@@ -1155,192 +1155,169 @@ tct_neutral_struggle.0011 = {
 	}
 }
 
-# The Second Rebellion # Event for Otto of Bavaria and Heinrich IV
+# 
 
-# roman_army_acclaimation.0001 = { # After a victory, an army acclaims their leader as Emperor
-# 	window = visit_settlement_window
-# 	type = character_event
-# 	title = roman_army_acclaimation.0001.t
-# 	desc = roman_army_acclaimation.0001.desc
-# 	theme = crown # Change?
-# 	# override_background = { reference = terrain_scope }
-# 	left_portrait = {
-# 		character = root
-# 		animation = throne_room_one_handed_passive_1
-# 	}
-# 	right_portrait = {
-# 		character = character:kapnogenes0002
-# 		animation = personality_content
-# 	}
+# "A Hunchback's Dread" # Event for Godfrey the Hunchback
+tct_neutral_struggle.0012 = {
+	type = character_event
+	title = tct_neutral_struggle.0012.t
+	desc = tct_neutral_struggle.0012.desc
 
-# 	left_portrait = {
-# 		character = root
-# 		animation = throne_room_one_handed_passive_1
-# 	}
-# 	right_portrait = {
-# 		character = scope:recipient
-# 		animation = war_over_win
-# 	}
-# 	override_background = { reference = throne_room }
+	theme = realm
+	override_background = {
+		reference = study
+	}
+	left_portrait = {
+		character = root
+		animation = paranoia
+	}
+	right_portrait = {
+		character = scope:wife
+		animation = anger
+	}
+	lower_right_portrait = {
+		character = scope:nephew
+		animation = personality_content
+	}
 
-# 	trigger = {
-# 		scope:attacker.liege = { # This event is inspired by Theophobos and his (likely unwilling) acclaimation as Emperor by his troops following rumors of the Emperor's death at the Battle of Anzen (as well as just general Roman shenanigans)
-# 			OR = {
-# 				this = title:e_byzantium.holder
-# 				this = title:e_roman_empire.holder
-# 			}
-# 		}
-# 		is_alive = yes
-# 		is_landed = yes
-# 		is_imprisoned = no
-# 		NOT = {
-# 			OR = {
-# 				has_trait = craven
-# 				has_trait = lazy
-# 			}
-# 		}
-# 	}
+	immediate = {
+		character:10072 = { # Godfrey of Bouillon
+			save_scope_as = nephew
+		}
+		character:7757 = {
+			save_scope_as = wife
+		}
+	}
 
-# 	#Resend
-# 	on_trigger_fail = {
+	option = {
+		name = tct_neutral_struggle.0012.a
+		set_designated_heir_unsafe = scope:nephew
+		scope:nephew = {
+			add_pressed_claim = title:d_lower_lorraine
+			add_opinion = {
+				target = root
+				modifier = received_title_duchy
+				opinion = 50
+			}
+		}
+		scope:wife = {
+			trigger_event = tct_neutral_struggle.0013
+			add_opinion = {
+				target = root
+				modifier = insulted_opinion
+				opinion = -50
+			}
+		}
+		stress_impact = {
+			ambitious = medium_stress_impact_gain
+			paranoid = medium_stress_impact_gain
+		}
+		custom_tooltip = tct_neutral_struggle.0012.a.tt
+	}
 
-# 	}
+	option = {
+		name = tct_neutral_struggle.0012.b
+		trigger = {
+			NOT = { has_trait = paranoid }
+		}
+		scope:wife = {
+			add_opinion = {
+				target = root
+				modifier = grateful_opinion
+				opinion = 25
+			}
+		}
+		stress_impact = {
+			just = medium_stress_impact_gain
+			ambitious = medium_stress_impact_gain
+		}
 
-# 	weight_multiplier = {
-#         base = 0 # Should happen to only characters who fit the mold in some way
+		ai_chance = {
+			base = 0
+		}
+	}
 
-# 		# Bonuses
-#         modifier = { # More likely for charismatic leaders
-#             diplomacy >= 20
-#             add = 0.25
-#         }
+	after = {
+		trigger_event = {
+			id = tct_neutral_struggle.0014
+			days = { 30 60 }
+		}
+	}
+}
 
-#         modifier = { # More likely for skilled military leaders
-#             martial >= 20
-#             add = 0.25
-#         }
+# "The Hunchback's Heir" # Event for Matilda of Tuscany
 
-#         modifier = { # More likely for educated military leaders
-# 			OR = {
-# 				has_trait = education_martial_4
-# 				has_trait = education_martial_5
-# 			}
-#             add = 0.25
-#         }
+tct_neutral_struggle.0013 = {
+	type = character_event
+	title = tct_neutral_struggle.0013.t
+	desc = tct_neutral_struggle.0013.desc
 
-#         modifier = { # More likely for prestigious characters
-# 			prestige_level >= 4
+	theme = realm
+	override_background = {
+		reference = study
+	}
+	left_portrait = {
+		character = root
+		animation = anger
+	}
+	right_portrait = {
+		character = scope:husband
+		animation = personality_content
+	}
+	lower_right_portrait = {
+		character = scope:nephew
+		animation = personality_rational
+	}
 
-#             factor = 1.5
-#         }
+	immediate = {
+		character:10072 = {
+			save_scope_as = nephew
+		}
+		character:20248 = {
+			save_scope_as = husband
+		}
+	}
 
-#         modifier = { # More likely for imperial claimants
-# 			OR = {
-# 				has_claim_on = title:e_byzantium
-# 				has_claim_on = title:e_roman_empire
-# 			}
+	option = {
+		name = tct_neutral_struggle.0013.a
+		run_interaction = {
+			interaction = divorce_character_rel_head_interaction
+			actor = root
+			recipient = scope:husband
+			execute_threshold = decline
+		}
+		add_pressed_claim = title:d_lower_lorraine
+		stress_impact = {
+			ambitious = medium_stress_impact_gain
+			vengeful = medium_stress_impact_gain
+		}
+	}
 
-#             factor = 1.5
-#         }
+	option = {
+		name = tct_neutral_struggle.0013.b
+		stress_impact = {
+			forgiving = medium_stress_impact_gain
+			patient = medium_stress_impact_gain
+		}
+	}
+}
 
-#         modifier = { # More likely for virtuous characters
-# 			num_virtuous_traits >= 1
+tct_neutral_struggle.0014 = {
+	hidden = yes
 
-#             factor = 1.5
-#         }
+	immediate = {
+		play_music_cue = "mx_cue_murder"
+		death = {
+			death_reason = death_mysterious
+		}
+	}
+}
 
-#         modifier = { # More likely for.... well, stalwart leaders
-#             has_perk = stalwart_leader_perk
-#             factor = 1.2
-#         }
 
-#         modifier = { # More likely for.... well, true rulers
-#             has_perk = true_ruler_perk
-#             factor = 1.2
-#         }
 
-# 		# Maluses
-#         modifier = { # Less likely for uncharismatic characters
-#             diplomacy <= 10
-#             add = -0.2
-#         }
 
-#         modifier = { # Less likely for militarily unskilled characters
-#             martial <= 10
-#             add = -0.2
-#         }
 
-#         modifier = { # Less likely for unprestigious characters
-#             prestige_level <= 2
-#             factor = 0.5
-#         }
 
-#         modifier = { # Less likely for sinful characters
-# 			num_sinful_traits >= 1	
-# 			factor = 0.5
-#         }
 
-#         modifier = { # Less likely if poor
-#             gold < medium_gold_value
-# 			factor = 0.5
-#         }
-#     }
 
-# 	immediate = {
-# 		if = { # Getting publicly acclaimed is stressful asf for characters with these traits
-# 			limit = {
-# 				OR = {
-# 					has_trait = shy
-# 					has_trait = reclusive
-# 				}
-# 			}
-# 			add_stress = massive_stress_impact_gain
-# 		}
-# 		if = { # Getting publicly acclaimed is minorly stressful for characters with these traits 
-# 			limit = {
-# 				OR = {
-# 					has_trait = content
-# 					has_trait = humble
-# 				}
-# 			}
-# 			add_stress = minor_stress_impact_gain			
-# 		}
-# 		if = { # Getting publicly acclaimed is a boost to the ego for characters with these traits
-# 			limit = {
-# 				OR = {
-# 					has_trait = arrogant
-# 					has_trait = ambitious
-# 				}
-# 			}
-# 			add_stress = medium_stress_impact_loss
-# 		}
-# 		if = { # Army Acclaimation is a valid form of claim granting
-# 			limit = {
-# 				AND = {
-# 					scope:attacker.liege = { this = title:e_byzantium.holder }
-# 					NOT = { has_claim_on = title:e_byzantium }
-# 				}
-# 			}
-# 			add_pressed_claim = title:e_byzantium
-# 		}
-# 		if = { # Army Acclaimation is a valid form of claim granting
-# 			limit = {
-# 				AND = {
-# 					scope:attacker.liege = { this = title:e_roman_empire.holder }
-# 					NOT = { has_claim_on = title:e_roman_empire }
-# 				}
-# 			}
-# 			add_pressed_claim = title:e_roman_empire
-# 		}
-# 	}
-
-# 	option = { # Go with the flow
-# 		name = roman_army_acclaimation.0001.b
-	
-# 	}
-
-# 	option = { # Go with the flow
-# 		name = roman_army_acclaimation.0001.b
-	
-# 	}
-# }
+# The Second Rebellion # Event for Otto of Bavaria and Heinrich 

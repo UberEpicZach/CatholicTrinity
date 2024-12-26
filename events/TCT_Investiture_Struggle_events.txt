@@ -12,6 +12,10 @@ scripted_trigger tct_investiture_struggle_0001_valid_ai_struggle_char_trigger = 
 				target = title:e_hre.holder
 				value >= low_positive_opinion
 			}
+			opinion = {
+				target = title:k_papal_state.holder
+				value <= low_negative_opinion
+			}
 			OR = {
 				# We check for the opposite, since you're flipflopping.
 				has_trait = tct_papal_supporter
@@ -26,6 +30,10 @@ scripted_trigger tct_investiture_struggle_0001_valid_ai_struggle_char_trigger = 
 			opinion = {
 				target = title:e_hre.holder
 				value <= low_negative_opinion
+			}
+			opinion = {
+				target = title:k_papal_state.holder
+				value >= low_negative_opinion
 			}
 			OR = {
 				# We check for the opposite, since you're flipflopping.
@@ -669,4 +677,755 @@ tct_investiture_struggle.0015 = {
 	}
 }
 
+#Confirmation
 
+scripted_trigger title_confirmation_valid_trigger = { # Confirmation is still valid
+	is_alive = yes
+	is_imprisoned = no
+	var:confirmation_liege_scope ?= {
+		is_alive = yes 
+		is_imprisoned = no 
+	}
+	liege ?= var:confirmation_liege_scope
+}
+
+scripted_effect title_confirmation_refuse_effect = {
+	scope:confirmation_vassal = {
+		add_legitimacy = medium_legitmacy_loss
+		add_opinion = {
+			modifier = refusal_opinion
+			target = scope:confirmation_liege
+			opinion = -20
+		}
+	}
+}
+
+scripted_effect title_confirmation_clear_variable_effect = {
+	current_travel_plan ?= {
+		if = {
+			limit = { is_paused = yes }
+			resume_travel_plan = yes 
+		}
+	}
+	# Vassal
+	if = {
+		limit = { has_variable = confirmation_cooldown_vassal }
+		remove_variable = confirmation_cooldown_vassal
+	}
+	# Liege
+	if = {
+		limit = { has_variable = confirmation_liege_scope }
+		remove_variable = confirmation_liege_scope
+	}
+}
+
+
+# No Longer Available
+tct_investiture_struggle.2002 = {
+	type = letter_event
+	opening = tct_investiture_struggle.2002.opening
+	desc = tct_investiture_struggle.2002.desc
+	sender = scope:confirmation_liege
+
+	trigger = { title_confirmation_valid_trigger = yes }
+
+	immediate = {
+		show_as_tooltip = { title_confirmation_refuse_effect = yes }
+	}
+
+	option = {
+		name = tct_investiture_struggle.2002.a
+	}
+
+	after = { title_confirmation_clear_variable_effect = yes }
+}
+
+#Confirmation no longer available
+tct_investiture_struggle.2080 = {
+	type = character_event
+	title = tct_investiture_struggle.2080.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					OR = {
+						NOT = { government_allows = administrative }
+						primary_title.tier = scope:confirmation_liege.primary_title.tier
+					}
+				}
+				desc = tct_investiture_struggle.2080.desc.court
+			}
+			triggered_desc = {
+				trigger = { is_imprisoned = yes }
+				desc = tct_investiture_struggle.2080.desc.imprisoned
+			}
+			triggered_desc = {
+				trigger = {
+					scope:confirmation_liege = {
+						is_alive = no
+						exists = killer
+						killer = root
+					}
+				}
+				desc = tct_investiture_struggle.2080.desc.liege_dead_me
+			}
+			triggered_desc = {
+				trigger = {
+					scope:confirmation_liege = { is_alive = no }
+				}
+				desc = tct_investiture_struggle.2080.desc.liege_dead
+			}
+			triggered_desc = {
+				trigger = {
+					scope:confirmation_liege = {
+						is_imprisoned = yes
+						exists = imprisoner
+						imprisoner = root
+					}
+				}
+				desc = tct_investiture_struggle.2080.desc.liege_imprisoned_me
+			}
+			triggered_desc = {
+				trigger = {
+					scope:confirmation_liege = { is_imprisoned = yes }
+				}
+				desc = tct_investiture_struggle.2080.desc.liege_imprisoned
+			}
+		}
+		triggered_desc = {
+			trigger = {
+				exists = liege
+				NOR = {
+					liege = root
+					liege = scope:confirmation_liege
+				}
+				AND = { # Of the Emperor
+					top_liege ?= { highest_held_title_tier = tier_empire }
+					#government_allows = administrative
+					liege ?= top_liege
+				}
+			}
+			desc = tct_investiture_struggle.2080.desc.new_liege
+		}
+		triggered_desc = {
+			trigger = {
+				scope:confirmation_liege = { is_alive = yes }
+				exists = liege
+				NOT = { liege = root }
+			}
+			desc = tct_investiture_struggle.2080.desc
+		}
+	}
+	theme = administrative
+	left_portrait = {
+		character = scope:confirmation_liege
+		triggered_animation = {
+			trigger = { is_imprisoned = yes }
+			animation = prisondungeon
+		}
+		triggered_animation = {
+			trigger = { is_alive = no }
+			animation = idle
+		}
+		triggered_animation = {
+			trigger = { is_available = no }
+			animation = dismissal
+		}
+	}
+	right_portrait = {
+		character = liege
+		trigger = {
+			NOT = { liege = scope:confirmation_liege }
+		}
+	}
+
+	trigger = { title_confirmation_valid_trigger = no }
+
+	immediate = {
+		# Transfer the variable to a scope for loc & such.
+		var:homage_liege_scope ?= { save_scope_as = homage_liege }
+	}
+
+	option = {
+		name = {
+			text = tct_investiture_struggle.2080.a_court
+			trigger = { has_royal_court = yes }
+		}
+		name = {
+			text = tct_investiture_struggle.2080.a_prison
+			trigger = { is_imprisoned = yes }
+		}
+		name = {
+			text = tct_investiture_struggle.2080.a_liege
+			trigger = {
+				scope:confirmation_liege = {
+					is_alive = yes
+					is_imprisoned = no
+				}
+			}
+		}
+		name = {
+			text = tct_investiture_struggle.2080.a
+			trigger = { always = yes }
+		}
+	}
+
+	after = { title_confirmation_clear_variable_effect = yes }
+}
+
+# Invalidation handling
+tct_investiture_struggle.2090 = {
+	hidden = yes
+	immediate = {
+		if = {
+			limit = {
+				scope:confirmation_liege = {
+					OR = {
+						is_alive = no 
+						is_imprisoned = yes
+						is_travelling = yes
+					}
+				}
+			}
+			send_interface_toast = {
+				title = admin_confirmation_costs_refunded
+				left_icon = root 
+				if = { # Remove variable preventing you
+					limit = { has_variable = confirmation_grace }
+					remove_variable = confirmation_grace
+				}
+				# Refund any costs
+				add_prestige = standard_activity_cost
+			}
+			trigger_event = tct_investiture_struggle.2080
+		}
+		else = {
+			scope:confirmation_liege = { trigger_event = tct_investiture_struggle.2001 }
+		}
+		current_travel_plan ?= {
+			delay_travel_plan = { days = 90 }
+		}
+	}
+}
+
+tct_investiture_struggle.2001 = {
+	type = letter_event
+	opening = tct_investiture_struggle.2001.opening
+	sender = {
+		character = scope:confirmation_vassal
+		animation = throne_room_bow_1
+	}
+	desc = tct_investiture_struggle.2001.desc
+
+	trigger = {
+		scope:confirmation_vassal = {
+			is_alive = yes
+			is_imprisoned = no
+		}
+	}
+
+	on_trigger_fail = {
+		scope:confirmation_vassal = {
+			if = {
+				limit = { is_alive = no }
+				trigger_event = tct_investiture_struggle.2090
+			}
+		}
+	}
+
+	option = {
+		name = tct_investiture_struggle.2001.a
+		trigger = {
+			scope:confirmation_vassal = { title_confirmation_valid_trigger = yes }
+		}
+		custom_tooltip = tct_investiture_struggle.2001.a.tt
+		trigger_event = tct_investiture_struggle.2010
+		ai_chance = { base = 100 }
+	}
+
+	option = {
+		name = tct_investiture_struggle.2001.b
+		flavor = tct_investiture_struggle.2001.b.tt
+		title_confirmation_refuse_effect = yes
+		scope:confirmation_vassal = {
+			trigger_event = { on_action = trinity_hre_confirmation_invalid_on_action }
+		}
+		if = {
+			limit = {
+				NOT = { has_relation_rival = scope:confirmation_vassal }
+			}
+			stress_impact = {
+				arrogant = medium_stress_impact_gain
+				just = medium_stress_impact_gain
+			}
+		}
+		else = {
+			stress_impact = { base = medium_stress_impact_loss }
+		}
+		ai_chance = {
+			base = -4
+			modifier = {
+				add = 5
+				opinion = {
+					target = scope:confirmation_vassal
+					value < 0
+				}
+			}
+			modifier = {
+				add = 45
+				has_relation_rival = scope:confirmation_vassal
+			}
+		}
+	}
+}
+
+# Liege receives Governor
+tct_investiture_struggle.2010 = {
+	type = character_event # to avoid too much in the court for ruler
+	title = tct_investiture_struggle.2010.t
+	desc = {
+		desc = tct_investiture_struggle.2010.desc
+		#What kind of theme is it?
+		first_valid = {
+			#Is small
+			triggered_desc = {
+				trigger = {
+					scope:confirmation_vassal = {
+						OR = {
+							AND = {
+								highest_held_title_tier = tier_kingdom
+								sub_realm_size <= 5
+							}
+							AND = {
+								highest_held_title_tier = tier_duchy
+								sub_realm_size <= 2
+							}
+							AND = {
+								highest_held_title_tier <= tier_county
+								sub_realm_size <= 1
+							}
+						}
+					}
+				}
+				desc = tct_investiture_struggle.2010.desc_theme_small
+			}
+			#Is big
+			triggered_desc = {
+				trigger = {
+					scope:confirmation_vassal = {
+						OR = {
+							AND = {
+								highest_held_title_tier = tier_kingdom
+								sub_realm_size >= 20
+							}
+							AND = {
+								highest_held_title_tier <= tier_duchy
+								sub_realm_size >= 8
+							}
+						}
+					}
+				}
+				desc = ep3_decisions_event.2010.desc_theme_big
+			}
+
+			desc = tct_investiture_struggle.2010.desc_theme_balanced
+		}
+		#Who lives there?
+		first_valid = {
+			#Friendly foreigners
+			triggered_desc = {
+				trigger = {
+					scope:confirmation_vassal.capital_county.culture = {
+						NOT = {
+							this = root.culture
+						}
+						cultural_acceptance = {
+							target = root.culture
+							value >= 30
+						}
+					}
+				}
+				desc = tct_investiture_struggle.2010.desc_cool_foreigners
+			}
+			#Weird foreigners
+			triggered_desc = {
+				trigger = {
+					scope:confirmation_vassal.capital_county.culture = {
+						NOT = {
+							this = root.culture
+						}
+					}
+				}
+				desc = tct_investiture_struggle.2010.desc_weird_foreigners
+			}
+			#Same culture as emperor
+			desc = tct_investiture_struggle.2010.desc_same_culture
+		}
+		#What faith are they?
+		first_valid = {
+			#Awful heretics
+			triggered_desc = {
+				trigger = {
+					NOT = {
+						faith = scope:confirmation_vassal.capital_county.faith
+					}
+					faith = {
+						faith_hostility_level = {
+							target = scope:confirmation_vassal.capital_county.faith
+							value >= faith_hostile_level
+						}
+					}
+				}
+				desc = tct_investiture_struggle.2010.desc_heretic_faith
+			}
+			#Different faith,but alright
+			triggered_desc = {
+				trigger = {
+					NOT = {
+						faith = scope:confirmation_vassal.capital_county.faith
+					}
+				}
+				desc = tct_investiture_struggle.2010.desc_accepted_faith
+			}
+			#Emperor's faith
+			desc = tct_investiture_struggle.2010.desc_my_faith
+		}
+		#Does he like you?
+		random_valid = {
+			triggered_desc = {
+				trigger = {
+					#He hates you
+					scope:confirmation_vassal = {
+						opinion = {
+							target = root
+							value < -50
+						}
+					}
+				}
+				desc = tct_investiture_struggle.2010.desc_hate
+			}
+			triggered_desc = {
+				trigger = {
+					#He loves you
+					scope:confirmation_vassal = {
+						opinion = {
+							target = root
+							value > 50
+						}
+					}
+				}
+				desc = tct_investiture_struggle.2010.desc_love
+			}
+			triggered_desc = {
+				trigger = {
+					#He is old as shit and meh on you
+					scope:confirmation_vassal = {
+						age > 55
+						health < fine_health
+					}
+				}
+				desc = tct_investiture_struggle.2010.desc_decrepit
+			}
+			triggered_desc = {
+				trigger = {
+					#He is young as shit and meh on you
+					scope:confirmation_vassal = {
+						age < 25
+					}
+				}
+				desc = tct_investiture_struggle.2010.desc_young
+			}
+			#He's just meh
+			triggered_desc = {
+				trigger = {
+					scope:confirmation_vassal = {
+						NOR = {
+							opinion = {
+								target = root
+								value > 50
+							}
+							opinion = {
+								target = root
+								value < -50
+							}
+							AND = {
+								age > 55
+								health < fine_health
+							}
+							age < 25
+						}
+					}
+				}
+				desc = tct_investiture_struggle.2010.desc_generic_outro
+			}
+		}
+	}
+	theme = emperor
+	override_sound = { reference = "event:/SFX/Events/Themes/sfx_event_theme_type_duty" }
+
+	left_portrait = scope:confirmation_liege
+	right_portrait = {
+		character = scope:confirmation_vassal
+		animation = throne_room_bow_1
+	}
+
+	trigger = {
+		#is_available = yes
+		scope:confirmation_vassal = {
+			is_alive = yes
+			is_imprisoned = no
+		}
+	}
+
+	immediate = {
+		save_opinion_value_as = {
+			name = opinion_of_petitioner
+			target = scope:confirmation_vassal
+		}
+		scope:confirmation_vassal = {
+			save_scope_as = second
+			assign_quirk_effect = yes
+		}
+	}
+
+
+	option = {
+		name = tct_investiture_struggle.2010.a
+		show_as_tooltip = {
+			scope:confirmation_vassal = {
+				add_prestige = minor_prestige_gain
+				add_legitimacy = medium_legitimac_gain
+			}
+		}
+	}
+
+	after = {
+		title_confirmation_liege_reward_effect = yes
+		scope:confirmation_vassal = { trigger_event = tct_investiture_struggle.2011 }
+	}
+}
+# Governor learns of result (end)
+tct_investiture_struggle.2011 = {
+	type = court_event
+	title = tct_investiture_struggle.2010.t
+	desc = {
+		desc = tct_investiture_struggle.2011.desc
+		#Is this administration a shitshow?
+		random_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:confirmation_liege = {
+						age <= 20
+					}
+				}
+				desc = tct_investiture_struggle.2011.desc_child
+			}
+			triggered_desc = {
+				trigger = {
+					scope:confirmation_liege = {
+						faith = {
+							NOR = {
+								this = scope:confirmation_liege.capital_county.faith
+							}
+						}
+					}
+				}
+				desc = tct_investiture_struggle.2011.desc_heretic
+			}
+			triggered_desc = {
+				trigger = {
+					scope:confirmation_liege = {
+						is_at_war = yes
+						any_character_war = {
+							OR = {
+								AND = {
+									is_attacker = scope:confirmation_liege
+									attacker_war_score <= 60
+								}
+								AND = {
+									is_defender = scope:confirmation_liege
+									defender_war_score <= 60
+								}
+							}
+						}
+					}
+				}
+				desc = tct_investiture_struggle.2011.desc_war
+			}
+			triggered_desc = {
+				trigger = {
+					scope:confirmation_liege = {
+						OR = {
+							AND = {
+								diplomacy < average_skill_rating
+								stewardship < average_skill_rating
+								martial < average_skill_rating
+								intrigue < average_skill_rating
+								learning < average_skill_rating
+							}
+							capital_county = {
+								county_control < 90
+							}
+							legitimacy_level < 2
+						}
+					}
+				}
+				desc = tct_investiture_struggle.2011.desc_poorly_run
+			}
+			triggered_desc = {
+				trigger = {
+					scope:confirmation_liege = {
+						OR = {
+							AND = {
+								diplomacy >= average_skill_rating
+								stewardship >= average_skill_rating
+								martial >= average_skill_rating
+								intrigue >= average_skill_rating
+								learning >= average_skill_rating
+							}
+							legitimacy_level >= 4
+						}
+					}
+				}
+				desc = tct_investiture_struggle.2011.desc_well_run
+			}
+			triggered_desc = {
+				trigger = {
+					scope:confirmation_liege = {
+						OR = {
+							AND = {
+								is_female = yes
+								has_realm_law = male_preference_law
+							}
+							AND = {
+								is_male = yes
+								has_realm_law = female_preference_law
+							}
+						}
+						legitimacy_level < 5
+					}
+				}
+				desc = tct_investiture_struggle.2011.desc_gender
+			}
+			desc = tct_investiture_struggle.2011.desc_typical_palace
+		}
+		#What does emperor think of you?
+		first_valid = {
+			#Loathes you
+			triggered_desc = {
+				trigger = {
+					reverse_opinion = {
+						target = scope:confirmation_liege
+						value < -50
+					}
+				}
+				desc = tct_investiture_struggle.2011.desc_hate
+			}
+			#Loves you
+			triggered_desc = {
+				trigger = {
+					reverse_opinion = {
+						target = scope:confirmation_liege
+						value > 50
+					}
+				}
+				desc = tct_investiture_struggle.2011.desc_love
+			}
+			#meh
+			desc = tct_investiture_struggle.2011.desc_meh
+		}
+		#What kind of theme do you have?
+		first_valid = {
+			#Is small
+			triggered_desc = {
+				trigger = {
+					scope:confirmation_vassal = {
+						OR = {
+							AND = {
+								highest_held_title_tier = tier_kingdom
+								sub_realm_size <= 5
+							}
+							AND = {
+								highest_held_title_tier = tier_duchy
+								sub_realm_size <= 2
+							}
+							AND = {
+								highest_held_title_tier <= tier_county
+								sub_realm_size <= 1
+							}
+						}
+					}
+				}
+				desc = tct_investiture_struggle.2011.desc_theme_small
+			}
+			#Is big
+			triggered_desc = {
+				trigger = {
+					scope:confirmation_vassal = {
+						OR = {
+							AND = {
+								highest_held_title_tier = tier_kingdom
+								sub_realm_size >= 20
+							}
+							AND = {
+								highest_held_title_tier <= tier_duchy
+								sub_realm_size >= 8
+							}
+						}
+					}
+				}
+				desc = tct_investiture_struggle.2011.desc_theme_big
+			}
+			desc = tct_investiture_struggle.2011.desc_theme_balanced
+		}
+		desc = tct_investiture_struggle.2011.desc_outro
+	}
+	theme = administrative
+	override_sound = { reference = "event:/SFX/Events/Themes/sfx_event_theme_type_duty" }
+	court_scene = {
+		button_position_character = scope:confirmation_liege
+		court_owner = scope:confirmation_liege
+		show_timeout_info = no
+		roles = {
+		    scope:confirmation_vassal = {
+				group = petitioners_group
+				animation = throne_room_bow_1
+		    }
+		}
+	}
+
+	trigger = { title_confirmation_valid_trigger = yes }
+
+	immediate = {
+		scope:confirmation_liege = {
+			save_scope_as = second
+			assign_quirk_effect = yes
+			if = {
+				limit = { has_royal_court = yes }
+				open_view_data = {
+					view = royal_court
+					secondary_actor = scope:confirmation_vassal
+					player = scope:confirmation_vassal
+				}
+			}
+		}
+	}
+
+
+	option = {
+		name = ep3_decisions_event.2011.a
+	}
+
+	after = {
+		title_confirmation_vassal_reward_effect = yes
+		if = {
+			limit = {
+				scope:confirmation_liege = { has_royal_court = yes }
+			}
+			close_view = {
+				view = royal_court
+				player = scope:confirmation_vassal
+			}
+		}
+	}
+}

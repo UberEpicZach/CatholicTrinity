@@ -99,3 +99,6 @@
 
  TCT_appointed_bishop_investiture_good: "Appointed Bishop"
  TCT_appointed_bishop_investiture_good_desc: "Appointed Bishop Using Investiture Rights"
+
+ tct_marriage_norms_modifier: "Marriage Scandal"
+ tct_marriage_norms_modifier_desc: "Your controversial marriage arrangements have scandalized the realm, undermining their trust in your rule.."

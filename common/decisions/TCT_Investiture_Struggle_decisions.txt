@@ -1,4 +1,155 @@
-﻿tct_investiture_struggle_switch_sides_decision = {
+﻿# General Flavor for HRE
+#############################################
+# Governorship Confirmation					#
+# by Joe Parkin								#
+#############################################
+
+trinity_hre_confirmation_decision = {
+	ai_check_interval = 45
+	sort_order = 1000
+	picture = {
+		trigger = {
+			NOR = {
+				government_has_flag = government_is_tribal
+				government_has_flag = government_is_theocracy
+				top_liege ?= { government_has_flag = government_is_tribal }
+				top_liege ?= { government_has_flag = government_is_theocracy }
+			}
+			OR = {
+				top_liege ?= {
+					OR = {
+						primary_title ?= title:e_hre
+					}
+				}
+			}
+		}
+		reference = "gfx/interface/illustrations/decisions/trinity_hre_confirmation_decision.dds"
+	}
+	decision_group_type = major
+
+	cost = {
+		prestige = standard_activity_cost
+	}
+
+	is_shown = {
+		top_liege ?= { primary_title ?= title:e_hre }
+		is_playable_character = yes
+		highest_held_title_tier = tier_duchy
+		primary_title.tier >= tier_duchy 
+		liege ?= top_liege
+		NOR = {
+			government_has_flag = government_is_tribal
+			government_has_flag = government_is_theocracy
+			top_liege ?= { government_has_flag = government_is_tribal }
+			top_liege ?= { government_has_flag = government_is_theocracy }
+		}
+	}
+
+	is_valid = {
+		custom_tooltip = {
+			text = title_recognition_rank_tt
+			primary_title.tier >= tier_duchy # Governs a Province
+		}
+		custom_tooltip = {
+			text = admin_confirmation_liege_tt
+			is_independent_ruler = no
+			liege ?= top_liege
+			top_liege ?= { primary_title ?= title:e_hre }
+		}
+		custom_tooltip = {
+			text = title_recognition_time_tt
+			primary_title ?= {
+				title_held_years >= 0.5
+			}
+		}
+		custom_tooltip = {
+			text = title_recognition_grace_valid_tt
+			NOR = {
+				has_variable = confirmation_grace
+				has_variable = confirmation_cooldown_vassal
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		liege ?= { is_available_adult = yes }
+		is_at_war_with_liege = no
+		trigger_if = {
+			limit = {
+				is_ai = no
+				has_royal_court = yes
+			}
+			has_spawned_court_events = no # should only be used for human players
+		}
+		trigger_if = {
+			limit = { is_ai = yes }
+			NOT = {
+				liege = { has_variable = confirmation_cooldown }
+			}
+		}
+	}
+
+	effect = {
+		set_variable = {
+			name = confirmation_liege_scope
+			value = liege
+		}
+		custom_tooltip = trinity_hre_confirmation_decision_effects
+		save_scope_as = confirmation_vassal
+		liege ?= { save_scope_as = confirmation_liege }
+		show_as_tooltip = {
+			stress_impact = {
+				shy = medium_stress_impact_gain
+				humble = medium_stress_impact_gain
+			}
+			custom_description_no_bullet = {
+				text = trinity_hre_confirmation_decision_tt_if_accepted
+				subject = root
+			}
+			title_recognition_vassal_reward_guts_effect = yes
+		}
+		start_travel_plan = {
+			destination = liege.capital_province
+			on_start_on_action = trinity_hre_confirmation_start
+			on_travel_planner_cancel_on_action = trinity_hre_confirmation_travel_planner_exit
+			on_arrival_event = tct_investiture_struggle.2090
+			on_arrival_destinations = all_but_last
+		}
+	}
+	
+	ai_potential = {
+		is_at_war = no
+	}
+
+	ai_will_do = {
+		base = 0
+		modifier = {
+			add = 50
+			prestige > standard_activity_cost
+		}
+		modifier = {
+			add = -50
+			has_relation_rival = liege
+		}
+		modifier = {
+			add = -25
+			opinion = {
+				target = liege
+				value < 0
+			}
+		}
+		modifier = { # Kings should be more weighted
+			add = 25
+			primary_title.tier >= tier_kingdom
+		}
+	}
+}
+
+
+# During Struggle Interactions
+
+tct_investiture_struggle_switch_sides_decision = {
 	picture = {
 		reference = "gfx/interface/illustrations/decisions/fp3/antagonistic.dds"
 	}
@@ -157,6 +308,8 @@
 
 	# No AI checks here as we handle them taking the decision as part of general struggle stuff.
 }
+
+######## END STRUGGLE DECISIONS
 
 investiture_struggle_papal_supremacy_decision = {
 	decision_group_type = major

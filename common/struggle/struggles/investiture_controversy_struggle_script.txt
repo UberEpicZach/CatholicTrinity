@@ -395,13 +395,34 @@
 						# Release a prisoner of the opposing side without demands
 						catalyst_release_supporter_detractor = minor_struggle_catalyst_gain
 
-						# HRE Emperor switches to Papal Investiture
-						tct_catalyst_hre_switched_papal_investiture = {}
+						# HRE Emperor switches to Papal Investiture (One Time)
+						tct_catalyst_hre_switched_papal_investiture = major_struggle_catalyst_gain
 
-						# HRE Emperor is a Papal Supporter
-						tct_catalyst_hre_emperor_is_a_papal_supporter = {}
+						# HRE Emperor is a Papal Supporter (On Going)
+						tct_catalyst_hre_emperor_is_a_papal_supporter = minor_struggle_catalyst_gain
 					
+						# New Building in Temple
+						catalyst_new_building_in_temple = minor_struggle_catalyst_gain
 						
+						# Truce was enforced
+						catalyst_truce_was_enforced = minor_struggle_catalyst_gain 
+
+						# Gift to a ruler of the opposing side
+						catalyst_gift_supporter_detractor_ruler = minor_struggle_catalyst_gain
+
+						# War ends in White Peace between Papa and Emperor supporters
+						catalyst_war_ends_in_white_peace_between_supporter_detractor = minor_struggle_catalyst_gain
+						catalyst_release_supporter_detractor = minor_struggle_catalyst_gain
+						catalyst_ransom_supporter_detractor = minor_struggle_catalyst_gain
+					
+						# Abandon a Hook on a ruler of the opposing side
+						catalyst_abandon_hook_on_supporter_detractor = minor_struggle_catalyst_gain
+
+						# Grant pardon on a ruler of the opposing side
+						catalyst_grants_pardon_supporter_detractor = minor_struggle_catalyst_gain
+
+						# catalyst_grants_vassal_to_de_jure_liege_supporter_detractor
+						catalyst_grants_vassal_to_de_jure_liege_supporter_detractor = minor_struggle_catalyst_gain
 					}
 				}
 			}
@@ -559,9 +580,9 @@
 			}
 
 			ending_decisions = {
-				investiture_struggle_imperial_supremacy_decision
-				investiture_struggle_concordat_decision
 				investiture_struggle_papal_supremacy_decision
+				investiture_struggle_concordat_decision
+				investiture_struggle_imperial_supremacy_decision
 			}
 		}
 
@@ -574,14 +595,20 @@
 					# This implies that the intense fighting or confrontation has subsided, but the underlying disputes remain unsettled and could flare up again.
 					catalysts = {
 						# White Peaces
+						catalyst_war_ends_in_white_peace_between_supporter_detractor = minor_struggle_catalyst_gain
 
 						# Prolonged Years fighting / something to check on how devesated the region is
+						tct_catalyst_prolonged_years_of_fighting = medium_struggle_catalyst_gain
+
 
 						# Indepedence 
 						catalyst_independence_from_non_dejure_vassal = {}
 
-
+						# Independence Faction Demands
 						catalyst_accepted_independence_faction_demands = {}
+
+						# Truce was enforced
+						catalyst_truce_was_enforced = minor_struggle_catalyst_gain 
 					}
 				}
  
@@ -768,9 +795,9 @@
 			}
 
 			ending_decisions = {
-				investiture_struggle_imperial_supremacy_decision
-				investiture_struggle_concordat_decision
 				investiture_struggle_papal_supremacy_decision
+				investiture_struggle_concordat_decision
+				investiture_struggle_imperial_supremacy_decision
 			}
 		}
 
@@ -785,13 +812,13 @@
 						# White Peaces
 
 						# Prolonged Years fighting / something to check on how devesated the region is
-						tct_catalyst_prolonged_years_of_fighting = {}
+						tct_catalyst_prolonged_years_of_fighting = medium_struggle_catalyst_gain
 
 						# Indepedence 
-						catalyst_independence_from_non_dejure_vassal = {}
+						catalyst_independence_from_non_dejure_vassal = minor_struggle_catalyst_gain
 
-
-						catalyst_accepted_independence_faction_demands = {}
+						# Accepted Independence Faction Demands
+						catalyst_accepted_independence_faction_demands = medium_struggle_catalyst_gain
 					}
 				}
 
@@ -965,9 +992,9 @@
 				}
 			}
 			ending_decisions = {
-				investiture_struggle_imperial_supremacy_decision
-				investiture_struggle_concordat_decision
 				investiture_struggle_papal_supremacy_decision
+				investiture_struggle_concordat_decision
+				investiture_struggle_imperial_supremacy_decision
 			}
 		}
 

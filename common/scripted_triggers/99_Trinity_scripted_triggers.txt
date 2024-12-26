@@ -647,3 +647,44 @@ testing_fellow_vassal_opinion = {
 		}
 	}
 }
+
+testingTct = {
+	# any_in_de_jure_hierarchy = {
+	# 	tier = tier_barony
+	# 	OR = {
+	# 		county.development_level < 10
+	# 		# If the province has been looted recently.
+	# 		has_province_modifier = recently_looted_modifier
+	# 		has_province_modifier = fp3_plundered_county_modifier
+	# 		has_province_modifier = village_destroyed_modifier
+	# 		# If the province has is suffering from a thieves guild.
+	# 		has_province_modifier = county_corruption_thieves_guild_modifier
+	# 		# Realm has any nearby epidemic.
+	# 		realm_has_any_nearby_epidemic = { SIZE = 4 INTENSITY = minor }
+	# 		has_province_modifier = disease_spreading_modifier
+	# 		has_province_modifier = shattered_by_plague
+	# 		has_province_modifier = ravaged_by_plague
+	# 		has_province_modifier = blighted_by_plague
+	# 		has_province_modifier = struck_by_plague
+	# 		has_province_modifier = plague_cult
+	# 		# Harsh Winter 
+	# 		has_province_modifier = winter_harsh_modifier
+	# 		# Disgruntled Church
+	# 		has_province_modifier = modifier_dusgruntled_church
+	# 		has_province_modifier = depopulated_countryside
+	# 		county.development_rate < 0
+	# 	}
+	# 	percent >= 0.5
+	# }
+	top_liege ?= { primary_title ?= title:e_hre }
+	is_playable_character = yes
+	highest_held_title_tier = tier_duchy
+	primary_title.tier >= tier_duchy 
+	liege ?= top_liege
+	NOR = {
+		government_has_flag = government_is_tribal
+		government_has_flag = government_is_theocracy
+		top_liege ?= { government_has_flag = government_is_tribal }
+		top_liege ?= { government_has_flag = government_is_theocracy }
+	}
+}

@@ -181,8 +181,8 @@ yearly_global_pulse = {
 		TCT_christmas_set
 		TCT_saint_day
 
-		# Alexander II's Death
-		TCT_alexander_death
+		# Scripted Deaths
+		TCT_historical_deaths
 
 		# Bavarian Chain
 		TCT_1066_Bavarian_Chain
@@ -256,7 +256,7 @@ TCT_saint_day = {
 	}
 }
 
-TCT_alexander_death = {
+TCT_historical_deaths = {
 	effect = {
 		if = {
 			limit = {
@@ -268,15 +268,15 @@ TCT_alexander_death = {
 				chance = zero_base_chance
 				modifier = {
 					add = 25
-					current_date > 867.1.1
+					current_date > 1069.1.1
 				}
 				modifier = {
 					add = 50
-					current_date > 870.1.1
+					current_date > 1070.1.1
 				}
 				modifier = {
 					add = 124
-					current_date > 873.1.1
+					current_date > 1073.1.1
 				}
 				set_global_variable = {
 					name = TCT_alexander_death
@@ -289,6 +289,78 @@ TCT_alexander_death = {
 							is_alive = yes
 						}
 						death = { death_reason = death_natural_causes }
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_global_variable = TCT_godfrey_the_bearded_death }
+			}
+			debug_log = "Checking for chance of firing Godfrey the Bearded's death event"
+
+			random = {
+				chance = zero_base_chance
+				modifier = {
+					add = 25
+					current_date > 1067.1.1
+				}
+				modifier = {
+					add = 50
+					current_date > 1068.1.1
+				}
+				modifier = {
+					add = 124
+					current_date > 1069.1.1
+				}
+				set_global_variable = {
+					name = TCT_godfrey_the_bearded_death
+					value = yes
+				}
+				debug_log = "Attempting to force Godfrey the Bearded's death event"
+				character:11030 = {
+					if = {
+						limit = {
+							is_alive = yes
+						}
+						death = { death_reason = death_natural_causes }
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_global_variable = TCT_godfrey_the_hunchback_death }
+			}
+			debug_log = "Checking for chance of firing Godfrey the Hunchback's death event"
+
+			random = {
+				chance = zero_base_chance
+				modifier = {
+					add = 25
+					current_date > 1074.1.1
+				}
+				modifier = {
+					add = 50
+					current_date > 1075.1.1
+				}
+				modifier = {
+					add = 124
+					current_date > 1076.1.1
+				}
+				set_global_variable = {
+					name = TCT_godfrey_the_hunchback_death
+					value = yes
+				}
+				debug_log = "Attempting to force Godfrey the Hunchback's event"
+				character:20248 = {
+					if = {
+						limit = {
+							is_alive = yes
+						}
+						trigger_event = {
+							id = tct_neutral_struggle.0012
+						}
 					}
 				}
 			}
