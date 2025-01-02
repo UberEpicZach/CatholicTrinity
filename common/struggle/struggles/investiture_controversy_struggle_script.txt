@@ -61,15 +61,17 @@
 				}
 			}
 		}
+		
+		#MOVE THIS ELSEWHERE PLEASE
 
-		#Joining the Imperial Supporter side
+		# Joining the Imperial Supporter side 
 		if = {
 			limit = {
 				OR = {
 					top_liege = title:e_hre.holder
 					is_independent_ruler = yes
 					liege = title:k_papal_state.holder
-				}	
+				}    
 				NOR = {
 					this = title:k_papal_state.holder
 					has_trait = tct_imperial_supporter
@@ -77,60 +79,45 @@
 				}
 				any_character_struggle = { this = struggle:investiture_controversy_struggle }
 				OR = {
-					has_relation_friend = title:e_hre.holder
-					has_relation_lover = title:e_hre.holder
-					has_relation_rival = title:k_papal_state.holder
-					has_relation_nemesis = title:k_papal_state.holder
+					# Strong relationship with the Emperor
 					AND = {
-						top_liege = {
-							this = title:e_hre.holder 
-							has_trait = loyal
-							NOT = {
-								OR = {
-									has_relation_friend = title:k_papal_state.holder
-									has_relation_lover = title:k_papal_state.holder
-									has_relation_rival = title:e_hre.holder
-									has_relation_nemesis = title:e_hre.holder
-								}
-							}
-						}
+						has_relation_friend = title:e_hre.holder
+						NOT = { has_relation_rival = title:k_papal_state.holder }
 					}
+					# Zealous or loyal alignment with the Emperor
 					AND = {
+						top_liege = title:e_hre.holder
 						OR = {
-							AND = {
-								is_vassal_of = title:e_hre.holder
-								has_vassal_stance = zealot
-							}
-							ai_zeal >= 75
+							has_trait = loyal
+							has_vassal_stance = zealot
 						}
-						title:e_hre.holder = {
-							piety_level > title:k_papal_state.holder.piety_level
+						ai_zeal >= 60
+					}
+					# Moderate opinion of the Emperor
+					AND = {
+						top_liege = title:e_hre.holder
+						opinion = {
+							target = title:e_hre.holder
+							value >= 15
 						}
 					}
+					# Hierarchical inclusion with Papal opposition
 					AND = {
-						highest_held_title_tier = tier_county
+						highest_held_title_tier >= tier_county
 						exists = liege
 						liege = {
 							any_vassal = {
-								NOT = { this = root }
-								NOT = {
-									OR = {
-										has_relation_friend = root
-										has_relation_lover = root
-									}
-								}
+								has_trait = tct_papal_supporter
 								OR = {
-									opinion = { #They simply dislike you
+									opinion = {
 										target = root
-										value <= -30
+										value <= -15
 									}
-									#You dislike them
 									reverse_opinion = {
 										target = prev
-										value <= -30
+										value <= -15
 									}
 								}
-								has_trait = tct_papal_supporter
 							}
 						}
 					}
@@ -138,14 +125,17 @@
 			}
 			add_trait = tct_imperial_supporter
 		}
-		#Joining the Papal Supporter side
+
+
+		
+		# Joining the Papal Supporter side
 		else_if = {
 			limit = {
 				OR = {
 					top_liege = title:e_hre.holder
 					is_independent_ruler = yes
 					liege = title:k_papal_state.holder
-				}	
+				}
 				NOR = {
 					this = title:e_hre.holder
 					has_trait = tct_imperial_supporter
@@ -159,7 +149,7 @@
 					has_relation_nemesis = title:e_hre.holder
 					AND = {
 						top_liege = {
-							this = title:k_papal_state.holder 
+							this = title:k_papal_state.holder
 							has_trait = loyal
 							NOT = {
 								OR = {
@@ -180,72 +170,22 @@
 							ai_zeal >= 75
 						}
 						title:k_papal_state.holder = {
-							piety_level >= title:e_hre.holder.piety_level
-						}
-					}
-					AND = {
-						top_liege = title:e_hre.holder 
-						OR = {
-							has_trait = arrogant
-							has_trait = ambitious
-						}
-						opinion = {
-							target = title:e_hre.holder
-							value <= 0
-						}
-					}
-					AND = {
-						top_liege = title:e_hre.holder 
-						is_powerful_vassal = yes
-						NOR = {
-							is_councillor_of = title:e_hre.holder
-							has_trait = content
-							has_trait = humble
-						}
-						opinion = {
-							target = title:e_hre.holder
-							value <= 0
-						}
-					}
-					AND = {
-						highest_held_title_tier >= tier_county
-						exists = liege
-						liege = {
-							any_vassal = {
-								NOT = { this = root }
-								NOT = {
-									OR = {
-										has_relation_friend = root
-										has_relation_lover = root
-									}
-								}
-								OR = {
-									opinion = { #They simply dislike you
-										target = root
-										value <= -30
-									}
-									#You dislike them
-									reverse_opinion = {
-										target = prev
-										value <= -30
-									}
-								}
-								has_trait = tct_imperial_supporter
-							}
+							piety_level >= title:e_hre.holder.piety_level + 2
 						}
 					}
 				}
 			}
 			add_trait = tct_papal_supporter
 		}
-		# Join Neither (Don't satisfy other two categories)
+
+		# Joining Neutral
 		else_if = {
 			limit = {
 				OR = {
 					top_liege = title:e_hre.holder
 					is_independent_ruler = yes
 					liege = title:k_papal_state.holder
-				}	
+				}
 				NOR = {
 					this = title:e_hre.holder
 					this = title:k_papal_state.holder
@@ -253,35 +193,28 @@
 					has_trait = tct_papal_supporter
 				}
 				any_character_struggle = { this = struggle:investiture_controversy_struggle }
-				
-				has_trait = content
-
-				NOR = {
-					AND = {
-						opinion = {
-							target = title:e_hre.holder
-							value >= 25
-						}
-						opinion = {
-							target = title:e_hre.holder
-							value <= -25
-						}
+				OR = {
+					has_trait = content
+					has_trait = patient
+					has_trait = cynical
+					NOT = { ai_zeal >= 50 }
+					opinion = {
+						target = title:e_hre.holder
+						value <= 10
 					}
-					AND = {
-						opinion = {
-							target = title:k_papal_state.holder
-							value >= 25
-						}
-						opinion = {
-							target = title:k_papal_state.holder
-							value <= -25
-						}
+					opinion = {
+						target = title:k_papal_state.holder
+						value <= 10
 					}
 				}
+				random = {
+					chance = 20
+				}
 			}
-			#No Action
 			add_character_flag = not_interested_in_the_investiture_controversy
 		}
+
+		# For the Emperor or Pope directly
 		else_if = {
 			limit = {
 				this = title:e_hre.holder
@@ -294,6 +227,8 @@
 			}
 			add_trait = tct_papal_supporter
 		}
+
+		# Miscellaneous fallback to Imperial Support
 		else_if = {
 			limit = {
 				NOR = {
@@ -302,7 +237,6 @@
 					has_trait = tct_papal_supporter
 				}
 				any_character_struggle = { this = struggle:investiture_controversy_struggle }
-
 				AND = {
 					top_liege = title:e_hre.holder
 					opinion = {
@@ -313,7 +247,6 @@
 			}
 			add_trait = tct_imperial_supporter
 		}
-
 
 		if = {
 			limit = { is_ai = no }

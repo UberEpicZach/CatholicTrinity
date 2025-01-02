@@ -43,6 +43,10 @@ trinity_hre_confirmation_decision = {
 			top_liege ?= { government_has_flag = government_is_tribal }
 			top_liege ?= { government_has_flag = government_is_theocracy }
 		}
+		NOR = {
+			has_variable = confirmation_grace
+			has_variable = confirmation_cooldown_vassal
+		}
 	}
 
 	is_valid = {
@@ -108,6 +112,10 @@ trinity_hre_confirmation_decision = {
 				subject = root
 			}
 			title_recognition_vassal_reward_guts_effect = yes
+			if = { 
+				limit = { has_character_modifier = tct_unconfirmed_title_holder }
+				remove_character_modifier = tct_unconfirmed_title_holder
+			}
 		}
 		start_travel_plan = {
 			destination = liege.capital_province
@@ -127,6 +135,10 @@ trinity_hre_confirmation_decision = {
 		modifier = {
 			add = 50
 			prestige > standard_activity_cost
+		}
+		modifier = {
+			add = 500
+			has_character_modifier = tct_unconfirmed_title_holder
 		}
 		modifier = {
 			add = -50

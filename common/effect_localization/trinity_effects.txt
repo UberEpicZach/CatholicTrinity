@@ -1,0 +1,4 @@
+﻿trinity_hre_confirmation_decision_tt_if_accepted = {
+	global = trinity_hre_confirmation_decision_tt.if_accepted
+	first = trinity_hre_confirmation_decision_tt.if_accepted
+}

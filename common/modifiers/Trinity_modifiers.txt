@@ -100,3 +100,11 @@ tct_marriage_norms_modifier = {
 	general_opinion = -5
 	legitimacy_loss_mult = 0.1
 }
+
+tct_unconfirmed_title_holder = {
+	icon = prestige_negative
+	monthly_prestige = -0.1
+	legitimacy_gain_mult = -0.15
+	legitimacy_loss_mult = 0.15
+	domain_limit = -1
+}

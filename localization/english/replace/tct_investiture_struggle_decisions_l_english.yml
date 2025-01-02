@@ -69,12 +69,14 @@
  title_recognition_rank_tt: "You are a [duke|E]"
  title_recognition_liege_tt: "You are a [direct_vassal|E] of the [THIS.Char.GetTopLiege.GetTitleAsNameNoTooltip] ([THIS.Char.GetTopLiege. GetFirstNameRegnal])"
  title_recognition_time_tt: "You have held your [primary_title|E] for at least #V 1#! year ([THIS.Char.GetPrimaryTitle.GetNameNoTier])"
- trinity_hre_confirmation_decision_tt_if_accepted: "If [CHARACTER.GetLiege.GetTitledFirstName] accepts your audience:"
+ trinity_hre_confirmation_decision_tt.if_accepted: "If [CHARACTER.GetLiege.GetTitledFirstName] accepts your audience:"
  
  tct_investiture_struggle.2002.opening: "[confirmation_liege.Custom2('AppropriateGreeting', ROOT.Char )]"
  tct_investiture_struggle.2002.desc: "I am afraid I am far too busy to hold a confirmation ceremony at this time. Many responsibilities vie for my time, as I'm sure you can understand.\n\nSafe travels back to [confirmation_vassal.GetCapitalLocation.GetBaronyNameExplicitlyNoTooltip]."
  tct_investiture_struggle.2002.a: "#EMP What?!#!"
-
+  
+ tct_unconfirmed_title_holder: "Primary Title Not Confirmed"
+ tct_unconfirmed_title_holder_desc: "The held title position of this Ruler has not yet been confirmed by the Emperor or Pope."
  
  # General Loc Strings
  title_confirmation_event_header: "Confirmation:"
@@ -104,6 +106,11 @@
  tct_investiture_struggle.2010.desc_heretic_faith: "— foul [confirmation_vassal.GetCapitalLocation.GetCounty.GetFaith.GetAdjective] heathens!"
  tct_investiture_struggle.2010.desc_accepted_faith: "— and the [ROOT.Char.GetFaith.HouseOfWorshipPlural] of their [confirmation_vassal.GetCapitalLocation.GetCounty.GetFaith.GetAdjective] faith."
  tct_investiture_struggle.2010.desc_my_faith: "— and some fine [ROOT.Char.GetFaith.HouseOfWorshipPlural] of the true [ROOT.Char.GetFaith.GetAdjective] faith."
+
+ tct_investiture_struggle.2010.desc_papal_supporter: "\n\n[confirmation_vassal.GetDynastyHouseName] is bold, his allegiance to the Papacy in this [investiture_controversy_struggle|E] clear—a man who would see my rule undone. Yet here he kneels, seeking my confirmation of his titles all the same."
+ tct_investiture_struggle.2010.desc_imperial_supporter: "Thankfully, [confirmation_vassal.GetTitledFirstName] is a supporter of the Imperials in this [investiture_controversy_struggle|E], a faction of states content with the secular rule of the empire."
+ tct_investiture_struggle.2010.desc_no_support: "[confirmation_vassal.GetTitledFirstName] is a curious one; they have not yet declared [confirmation_vassal.GetHerHis] support for either faction in this [investiture_controversy_struggle|E]; perhaps this is the time to sway them."
+ 
  tct_investiture_struggle.2010.desc_hate: "\n\nEven gazing down at the back of [confirmation_vassal.GetTitledFirstNamePossessiveNoTooltip] head, I can feel his burning contempt. The [confirmation_vassal.GetWomanMan] mutters oaths [second.Custom('quirk_neg_adverb')]... while dreaming of beating me to death with [confirmation_vassal.GetHerHis] scepter of office."
  tct_investiture_struggle.2010.desc_love: "\n\n[second.Custom('quirk_pos_adverb')|U], [confirmation_vassal.GetTitledFirstNameNoTooltip] undergoes the rites. Taking up [confirmation_vassal.GetHerHis] scepter of office, and [second.Custom('quirk_pos_pp')], [second.GetSheHe] swears to give loyal service."
  tct_investiture_struggle.2010.desc_decrepit: "\n\n[confirmation_vassal.GetHerHis|U] years like a millstone on [confirmation_vassal.GetHerHis] bent back, [confirmation_vassal.GetTitledFirstNameNoTooltip] struggles up from supplication. The wizened elder has much experience to draw from... and, hopefully, a good few years to do it in."
@@ -111,6 +118,9 @@
  tct_investiture_struggle.2010.desc_skilled: "\n\nThe [confirmation_vassal.GetWomanMan] supplicated before me rules with a [confirmation_vassal.Custom('ComplimentAdjective')] touch. Whatever politics [confirmation_vassal.GetSheHe] espouses, whatever lies in [confirmation_vassal.GetHerHis] heart: [confirmation_vassal.GetTitledFirstNameNoTooltip] is a credit to the [ROOT.Char.GetPrimaryTitle.GetTierAsNameNoTooltip]."
  tct_investiture_struggle.2010.desc_incompetent: "\n\nBy all reports, I now confirm the appointment of one who administers poorly, [second.Custom('quirk_neg_adverb')]. But spurning [confirmation_vassal.GetTitledFirstNameNoTooltip], as [confirmation_vassal.GetSheHe] vows the perfect service [confirmation_vassal.GetSheHe] cannot give, will be of little use..."
  tct_investiture_struggle.2010.desc_generic_outro: "\n\n[confirmation_vassal.GetTitledFirstNameNoTooltip] bows deeply, takes up [confirmation_vassal.GetHerHis] symbolic scepter of authority, vowing to faithfully serve [confirmation_vassal.GetHerHis] [ROOT.Char.GetTitleAsNameNoTooltip]."
+ tct_investiture_struggle.2010.imperial: "He must kneel under the Imperial Faction"
+ tct_investiture_struggle.2010.imperial.tt: "You will demand the [confirmation_vassal.GetPrimaryTitle.GetNameNoTier] swear allegiance to your faction in the [investiture_controversy_struggle|E]"
+ tct_investiture_struggle.2010.deny: "I will refuse any Papal Supporting Scum..."
  tct_investiture_struggle.2010.a: ""Govern well, [confirmation_vassal.GetTitleAsNameNoTooltip].""
 
  # Vassal Event
@@ -137,6 +147,14 @@
  tct_investiture_struggle.2011.desc_theme_balanced: ""Your office is granted by [confirmation_liege.GetFaith.HighGodName] and your [confirmation_liege.GetTitleAsNameNoTooltip]," says [confirmation_liege.GetSheHe], "Remember this, and govern [confirmation_vassal.GetPrimaryTitle.GetNameNoTier] well.""
  tct_investiture_struggle.2011.desc_outro: "\n\nI voice all the proper responses. And, bowing deeply before my liege, I at last take up the scepter of provincial authority."
  tct_investiture_struggle.2011.a: "Hail to you, [confirmation_liege.GetTitleAsNameNoTooltip]."
+
+ # Imperial hardliner: if they're not a supporter, demand they become one. If they refuse, deny confirmation entirely.
+ 
+ tct_investiture_struggle.2020.t: "$title_confirmation_event_header$ Imperial Hardliner"
+ tct_investiture_struggle.2020.desc: "In the [confirmation_liege.Custom('GetThroneRoom')] of [confirmation_liege.GetCapitalLocation.GetTitle.GetNameNoTierPossessive] royal court, [confirmation_liege.GetTitledFirstNameRegnal] — [confirmation_liege.GetFaith.HighGodNamePossessive] regent on Earth — sits in splendor.\n\nThe Emperor's gaze is stern, his demand clear: to swear my allegiance to the Imperial Faction in the Investiture Struggle. In return, he promises to confirm my titles, but should I refuse, I will be cast out of his favor."
+ tct_investiture_struggle.2020.a: "I swear my allegiance to the Emperor and the Imperial Faction."
+ tct_investiture_struggle.2020.b: "I cannot betray my conscience, even for my titles."
+
 
  # Invalidated event
  tct_investiture_struggle.2080.t: "$title_confirmation_event_header$ Invalidated"

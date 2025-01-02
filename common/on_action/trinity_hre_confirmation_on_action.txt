@@ -1,4 +1,49 @@
-﻿trinity_hre_confirmation_start = {
+﻿on_game_start = {
+	on_actions = {
+		trinity_hre_confirm_on_game_start
+	}
+}
+
+on_title_gain = {
+	on_actions = {
+		trinity_hre_confirmation_on_title_gain
+	}
+}
+
+trinity_hre_confirmation_on_title_gain = {
+	trigger = {
+		liege ?= { this = title:e_hre.holder }
+		NOT = { this = title:e_hre.holder }
+	}
+	effect = {
+		if = {
+			limit = {
+				NOT = { has_variable = confirmation_cooldown_vassal }
+			}
+			add_character_modifier = tct_unconfirmed_title_holder
+		}
+	}
+}
+
+trinity_hre_confirm_on_game_start = {
+	effect = {
+		title:e_hre.holder = {
+			every_vassal = {
+				if = {
+					limit = {
+						NOT = { has_variable = confirmation_cooldown_vassal }
+					}
+					set_variable = {
+						name = confirmation_cooldown_vassal
+						years = 55
+					}
+				}
+			}
+		}
+	}
+}
+
+trinity_hre_confirmation_start = {
 	effect = {
 		switch = {
 			trigger = has_trait
@@ -15,7 +60,7 @@
 		}
 		set_variable = {
 			name = confirmation_cooldown_vassal
-			years = 25
+			years = 55
 		}
 		liege = {
 			if = { # Make sure the AI doesn't spam homage

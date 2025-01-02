@@ -979,6 +979,18 @@ tct_investiture_struggle.2001 = {
 	}
 }
 
+scripted_effect title_confirmation_liege_reward_effect = {
+	scope:confirmation_liege = {
+		if = {
+			limit = { has_royal_court = yes has_dlc_feature = royal_court }
+			change_current_court_grandeur = miniscule_court_grandeur_gain
+		}
+		add_prestige = minor_prestige_gain
+		change_influence = minor_influence_gain
+		dynasty = { add_dynasty_prestige = miniscule_dynasty_prestige_gain }
+	}
+}
+
 # Liege receives Governor
 tct_investiture_struggle.2010 = {
 	type = character_event # to avoid too much in the court for ruler
@@ -1090,6 +1102,25 @@ tct_investiture_struggle.2010 = {
 			#Emperor's faith
 			desc = tct_investiture_struggle.2010.desc_my_faith
 		}
+		# If the Struggle Exists, What Faction is the vassal
+		first_valid = {
+			#Papal Pretenders
+			triggered_desc = {
+				trigger = {
+					
+				}
+				desc = tct_investiture_struggle.2010.desc_papal_supporter
+			}
+			#Imperial Allies
+			triggered_desc = {
+				trigger = {
+					
+				}
+				desc = tct_investiture_struggle.2010.desc_imperial_supporter
+			}
+			#No faction
+			desc = tct_investiture_struggle.2010.desc_no_supporter
+		}
 		#Does he like you?
 		random_valid = {
 			triggered_desc = {
@@ -1188,20 +1219,150 @@ tct_investiture_struggle.2010 = {
 		}
 	}
 
+	# Imperial hardliner: if they're not a supporter, demand they become one. If they refuse, deny confirmation entirely.
+	option = {
+		name = tct_investiture_struggle.2010.imperial
+		trigger = { 
+			has_trait = tct_imperial_supporter
+			scope:confirmation_vassal = { 
+				NOT = { has_trait = tct_imperial_supporter }
+				AND = {
+					custom_tooltip = {
+						text = tct_investiture_struggle_switch_sides_decision.tt.hre_emperor_must_exist
+						exists = title:e_hre.holder
+					}
+					custom_tooltip = {
+						text = tct_investiture_struggle_switch_sides_decision.tt.hre_emperor_cannot_change_prayer_order
+						NOT = { has_title = title:e_hre }
+					} 
+					custom_tooltip = {
+						text = tct_investiture_struggle_switch_sides_decision.tt.pope_cannot_change_prayer_order
+						NOT = { has_title = title:k_papal_state }
+					} 
+					# If you've already got the modifier, then you can't flipflop unless the emperor changes.
+					trigger_if = {
+						limit = {
+							has_variable = switch_sides_decision_emperor
+							title:e_hre.holder ?= var:switch_sides_decision_emperor
+							OR = {
+								has_character_modifier = investiture_controversy_struggle_switch_sides_support_emperor
+								has_character_modifier = investiture_controversy_struggle_switch_sides_support_papal
+							}
+						}
+						custom_tooltip = {
+							text = tct_investiture_struggle_switch_sides_decision.tt.require_new_emperor_or_modifier_lapse
+							always = no
+						}
+					}
+					# If you rejected the emperor's demands previously, then you can't flipflop unless the emperor changes.
+					custom_tooltip = {
+						text = tct_investiture_struggle_switch_sides_decision.tt.require_new_emperor_or_flag_lapse
+						OR = {
+							NOT = { has_variable = last_explicit_defied_emperor }
+							NOT = { title:e_hre.holder ?= var:last_explicit_defied_emperor }
+						}
+					}
+					# If you killed the Emperor at any point, you can't switch at all.
+					trigger_if = {
+						limit = {
+							has_trait = tct_papal_supporter
+							exists = title:e_hre.holder
+							exists = title:e_hre.holder.dynasty
+							NOT = { dynasty ?= title:e_hre.holder.dynasty }
+						}
+						custom_tooltip = {
+							text = tct_investiture_struggle_switch_sides_decision.tt.emperor_murderers_cant_become_supporters
+							NOT = {
+								any_killed_character = {
+									save_temporary_scope_as = char_temp
+									title:e_hre = {
+										any_past_holder = { this = scope:char_temp }
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		custom_tooltip = tct_investiture_struggle.2010.imperial.tt
+		scope:confirmation_vassal = {
+			trigger_event = {
+				id = tct_investiture_struggle.2020
+				days = 1
+			}
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 50
+				has_trait = zealous
+			}
+			modifier = {
+				add = 30
+				has_trait = tct_imperial_supporter
+			}
+		}
+	}
 
+	# Moderate: confirm title regardless of faction
 	option = {
 		name = tct_investiture_struggle.2010.a
 		show_as_tooltip = {
 			scope:confirmation_vassal = {
 				add_prestige = minor_prestige_gain
 				add_legitimacy = medium_legitimac_gain
+				if = { 
+					limit = { has_character_modifier = tct_unconfirmed_title_holder }
+					remove_character_modifier = tct_unconfirmed_title_holder
+				}
+			}
+		}
+		title_confirmation_liege_reward_effect = yes
+		scope:confirmation_vassal = { trigger_event = tct_investiture_struggle.2011 }
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 50
+				has_trait = zealous
+			}
+			modifier = {
+				add = 30
+				has_trait = tct_imperial_supporter
 			}
 		}
 	}
 
-	after = {
-		title_confirmation_liege_reward_effect = yes
-		scope:confirmation_vassal = { trigger_event = tct_investiture_struggle.2011 }
+	# Outright denial: reject if they're in the opposing faction
+	option = {
+		name = tct_investiture_struggle.2010.deny
+		trigger = {
+			OR = {
+				AND = {
+					has_trait = tct_imperial_supporter
+					scope:confirmation_vassal = { has_trait = tct_papal_supporter }
+				}
+				AND = {
+					has_trait = tct_papal_supporter
+					scope:confirmation_vassal = { has_trait = tct_imperial_supporter }
+				}
+			}
+		}
+		custom_tooltip = tct_investiture_struggle.2010.deny.tt
+		scope:confirmation_vassal = { 
+			trigger_event = tct_investiture_struggle.2002
+		}
+		ai_chance = {
+			base = 30
+			modifier = {
+				add = 30
+				has_trait = arbitrary
+			}
+			modifier = {
+				add = 20
+				has_trait = vengeful
+			}
+		}
 	}
 }
 # Governor learns of result (end)
@@ -1413,11 +1574,27 @@ tct_investiture_struggle.2011 = {
 
 
 	option = {
-		name = ep3_decisions_event.2011.a
+		name = tct_investiture_struggle.2011.a
+		dynasty ?= { add_dynasty_prestige = minor_dynasty_prestige_gain }
+		if = {
+			limit = {
+				scope:confirmation_liege = { is_ai = yes }
+			}
+			reverse_add_opinion = {
+				target = scope:confirmation_liege
+				modifier = respect_opinion
+				opinion = 20
+			}
+		}
+		add_prestige = major_prestige_gain
+		change_influence = major_influence_gain
+		if = { 
+			limit = { has_character_modifier = tct_unconfirmed_title_holder }
+			remove_character_modifier = tct_unconfirmed_title_holder
+		}
 	}
 
 	after = {
-		title_confirmation_vassal_reward_effect = yes
 		if = {
 			limit = {
 				scope:confirmation_liege = { has_royal_court = yes }
@@ -1425,6 +1602,79 @@ tct_investiture_struggle.2011 = {
 			close_view = {
 				view = royal_court
 				player = scope:confirmation_vassal
+			}
+		}
+	}
+}
+
+# Imperial hardliner demand
+tct_investiture_struggle.2020 = {
+	type = court_event
+	title = tct_investiture_struggle.2020.t
+	desc = tct_investiture_struggle.2020.desc
+
+	theme = administrative
+	override_sound = { reference = "event:/SFX/Events/Themes/sfx_event_theme_type_duty" }
+	court_scene = {
+		button_position_character = scope:confirmation_liege
+		court_owner = scope:confirmation_liege
+		show_timeout_info = no
+		roles = {
+		    scope:confirmation_vassal = {
+				group = petitioners_group
+				animation = throne_room_bow_1
+		    }
+		}
+	}
+
+	# Accept and become imperial supporter
+	option = {
+		name = tct_investiture_struggle.2020.a
+		trigger = {
+			NOT = { has_trait = tct_papal_supporter }
+		}
+		add_trait = tct_imperial_supporter
+		add_prestige = minor_prestige_gain
+		if = { 
+			limit = { has_character_modifier = tct_unconfirmed_title_holder }
+			remove_character_modifier = tct_unconfirmed_title_holder
+		}
+		ai_chance = {
+			base = 75
+			modifier = {
+				add = 25
+				opinion = {
+					target = scope:confirmation_liege
+					value > 50
+				}
+			}
+			modifier = {
+				add = -25
+				trait = zealous
+			}
+		}
+	}
+
+	# Refuse and be denied confirmation
+	option = {
+		name = tct_investiture_struggle.2020.b
+		trigger_event = tct_investiture_struggle.2002
+		ai_chance = {
+			base = 25
+			modifier = {
+				add = 25
+				has_trait = zealous
+			}
+			modifier = {
+				add = 25
+				has_trait = tct_papal_supporter  
+			}
+			modifier = {
+				add = -25
+				opinion = {
+					target = scope:confirmation_liege
+					value > 50
+				}
 			}
 		}
 	}
