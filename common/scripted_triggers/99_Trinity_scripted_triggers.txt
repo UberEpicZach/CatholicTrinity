@@ -676,15 +676,34 @@ testingTct = {
 	# 	}
 	# 	percent >= 0.5
 	# }
-	top_liege ?= { primary_title ?= title:e_hre }
-	is_playable_character = yes
-	highest_held_title_tier = tier_duchy
-	primary_title.tier >= tier_duchy 
-	liege ?= top_liege
-	NOR = {
-		government_has_flag = government_is_tribal
-		government_has_flag = government_is_theocracy
-		top_liege ?= { government_has_flag = government_is_tribal }
-		top_liege ?= { government_has_flag = government_is_theocracy }
+	# top_liege ?= { primary_title ?= title:e_hre }
+	# is_playable_character = yes
+	# highest_held_title_tier = tier_duchy
+	# primary_title.tier >= tier_duchy 
+	# liege ?= top_liege
+	# NOR = {
+	# 	government_has_flag = government_is_tribal
+	# 	government_has_flag = government_is_theocracy
+	# 	top_liege ?= { government_has_flag = government_is_tribal }
+	# 	top_liege ?= { government_has_flag = government_is_theocracy }
+	# }
+	title:e_hre.holder = {
+		OR = {
+			any_vassal_or_below = {
+				tct_possible_antipope_vassal_trigger = yes
+				save_temporary_scope_as = antipope_vassal_temp
+			}
+			AND = {
+				exists = character:73530
+				character:73530 = { save_temporary_scope_as = antipope_vassal_temp }
+			}
+		}
+		is_character_interaction_potentially_accepted = {
+			recipient = scope:antipope_vassal_temp
+			interaction = TCT_make_antipope_interaction
+		}
+		any_character_struggle = {
+			is_struggle_type = investiture_controversy_struggle
+		}
 	}
 }

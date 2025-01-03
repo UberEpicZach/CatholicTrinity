@@ -575,6 +575,12 @@ GetActualBishopTitle = {
 	# 'Early Out' keys for Head of Faith/Landed Rulers.
 	text = {
 		trigger = {
+			has_trait = TCT_antipope
+		}
+		localization_key = popebishop
+	}
+	text = {
+		trigger = {
 			exists = faith.religious_head
 			this = faith.religious_head
 		}
@@ -586,12 +592,12 @@ GetActualBishopTitle = {
 		}
 		localization_key = ruler_title_name
 	}
-	text = {
-		trigger = {
-			has_trait = cardinal_priest
-		}
-		localization_key = CardinalFlavor1
-	}
+	# text = {
+	# 	trigger = {
+	# 		has_trait = cardinal_priest
+	# 	}
+	# 	localization_key = CardinalFlavor1
+	# }
 	text = {
 		trigger = {
 			has_trait = cardinal_bishop
@@ -615,13 +621,6 @@ GetActualBishopTitle = {
 		}
 		localization_key = CardinalFlavor4
 	}
-	text = {
-		trigger = {
-			has_trait = TCT_antipope
-		}
-		localization_key = popebishop
-	}
-
 	# Religion-By-Religion Titles for Bishops based on Liege's Tier.
 	# Zunism
 	text = {

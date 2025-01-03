@@ -222,12 +222,16 @@ papacy_grand_inquisitor  = {
 head_of_faith_antipope = {
 	type = character
 	gender = male
+	special = holder
+	tier = duchy
+	priority = 727
 	flag = TCT_antipope_of_ruler
-	priority = 1
+	governments = { theocracy_government }
+	religions = { christianity_religion }
 	flavourization_rules = { 
 		top_liege = no
+		only_holder = yes
 	}
-	faith = catholic
 }
 
 orthodox_patriarch = {

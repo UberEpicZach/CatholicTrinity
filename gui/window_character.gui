@@ -975,10 +975,6 @@ window = {
 							}
 						}
 
-						spacer = {
-							size = { 10 0 }
-						}
-
 						hbox = {
 							spacing = -5
 							vbox = {
@@ -1102,7 +1098,7 @@ window = {
 									addcolumn = 23
 									addrow = 23
 									datamodel_wrap = 2
-									maxhorizontalslots = 4
+									maxhorizontalslots = 2
 									maxverticalslots = 2
 
 									layoutpolicy_vertical = expanding
@@ -1442,7 +1438,6 @@ window = {
 					vbox = {
 						name = "diplomacy_items"
 
-						layoutpolicy_horizontal = expanding
 							layoutpolicy_vertical = expanding
 
 						vbox_diplomacy_box = {
@@ -2120,13 +2115,14 @@ window = {
 								blockoverride "header_text"
 								{
 									text = "[CharacterWindow.GetCharacter.GetDiarchTitle]"
+									max_width = 75
 								}
 
 								blockoverride "expand_button" {}
 							}
 
 							### LOVERS 5 PORTRAITS
-							vbox_character_row_item = {
+							vbox_character_row_relationship_item = {
 								name = "lovers_no_diarchy"
 								visible = "[And( CharacterWindow.GetCharacter.IsAdult, Not( CharacterWindow.GetCharacter.HasActiveDiarchy ) )]"
 								layoutpolicy_vertical = expanding
@@ -2159,7 +2155,7 @@ window = {
 							}
 
 							### LOVERS 4 PORTRAITS (FOR WHEN REGENT PORTRAIT IS VISIBLE)
-							vbox_character_row_item = {
+							vbox_character_row_relationship_item = {
 								name = "lovers_diarchy"
 								visible = "[And( CharacterWindow.GetCharacter.IsAdult, CharacterWindow.GetCharacter.HasActiveDiarchy )]"
 								layoutpolicy_vertical = expanding
@@ -2312,7 +2308,7 @@ window = {
 						scissor = yes
 
 						hbox = {
-							vbox_character_row_item = {
+							vbox_character_row_relationship_item = {
 								name = "friends"
 								layoutpolicy_vertical = expanding
 								layoutpolicy_horizontal = expanding
@@ -2350,7 +2346,7 @@ window = {
 						scissor = yes
 
 						hbox = {
-							vbox_character_row_item = {
+							vbox_character_row_relationship_item = {
 								name = "rivals"
 								layoutpolicy_vertical = expanding
 								layoutpolicy_horizontal = expanding
@@ -2376,7 +2372,7 @@ window = {
 								}
 							}
 
-							vbox_character_row_item = {
+							vbox_character_row_relationship_item = {
 								name = "bullies"
 								visible = "[Not( CharacterWindow.GetCharacter.IsAdult )]"
 								layoutpolicy_vertical = expanding
@@ -2394,7 +2390,7 @@ window = {
 								blockoverride "expand_button" {}
 							}
 
-							vbox_character_row_item = {
+							vbox_character_row_relationship_item = {
 								name = "victims"
 								visible = "[Not( CharacterWindow.GetCharacter.IsAdult )]"
 								layoutpolicy_vertical = expanding
@@ -2412,7 +2408,7 @@ window = {
 								blockoverride "expand_button" {}
 							}
 
-							vbox_character_row_item = {
+							vbox_character_row_relationship_item = {
 								name = "grudges"
 								visible = "[GreaterThanOrEqualTo_int32(GetDataModelSize(CharacterWindow.GetRelationsOfType( GetRelation( 'grudge' ) )), '(int32)1')]"
 								layoutpolicy_vertical = expanding
@@ -2451,7 +2447,7 @@ window = {
 					size = { 100% 100% }
 
 					blockoverride "scrollbox_replace_vbox" {
-						vbox_character_row_item = {
+						vbox_character_row_relationship_item = {
 							name = "rivals"
 							margin_top = 10
 							spacing = 5
@@ -2483,7 +2479,7 @@ window = {
 					size = { 100% 100% }
 
 					blockoverride "scrollbox_replace_vbox" {
-						vbox_character_row_item = {
+						vbox_character_row_relationship_item = {
 							name = "friends"
 							margin_top = 10
 							spacing = 5
@@ -2515,7 +2511,7 @@ window = {
 					size = { 100% 100% }
 
 					blockoverride "scrollbox_replace_vbox" {
-						vbox_character_row_item = {
+						vbox_character_row_relationship_item = {
 							name = "friends"
 							margin_top = 10
 							spacing = 5
@@ -2546,7 +2542,7 @@ window = {
 					size = { 100% 100% }
 
 					blockoverride "scrollbox_replace_vbox" {
-						vbox_character_row_item = {
+						vbox_character_row_relationship_item = {
 							name = "grudges"
 							margin_top = 10
 							spacing = 5
@@ -3789,26 +3785,43 @@ types CharacterWindow
 					}
 
 					item = {
-						portrait_head_small = {
-							blockoverride "portrait_button"
-							{
-								using = tooltip_ne
-							}
-							blockoverride "glow_visible"
-							{
-								visible = no
+						block "portrait_head_widget" {
+							portrait_head_small = {
+								blockoverride "portrait_button"
+								{
+									using = tooltip_ne
+								}
+								blockoverride "glow_visible"
+								{
+									visible = no
+								}
 							}
 						}
 					}
 				}
 			}
-
+			
 			block "find_partner" {}
 
 			expand = {}
 		}
 
 		expand = {}
+	}
+	### Modified character row for relationship tab
+	type vbox_character_row_relationship_item = vbox_character_row_item {
+		blockoverride "portrait_head_widget" {
+			portrait_head_small_relationship = {
+				blockoverride "portrait_button"
+				{
+					using = tooltip_ne
+				}
+				blockoverride "glow_visible"
+				{
+					visible = no
+				}
+			}
+		}
 	}
 
 	type vbox_titles_claims_box = vbox {
@@ -4032,7 +4045,7 @@ types CharacterWindow
 
 		button_standard_hover = {
 			layoutpolicy_horizontal = expanding
-			size = { 0 25 }
+			size = { 100 25 }
 			onclick = "[CharacterWindow.ToggleExpandedDiplomacy]"
 			down = "[CharacterWindow.AreDiplomacyExpanded]"
 			tooltip = "[SelectLocalization( CharacterWindow.AreDiplomacyExpanded, 'CV_DIPLOMACY_HIDE_TT', 'CV_DIPLOMACY_SHOW_TT' )]"
@@ -4043,6 +4056,7 @@ types CharacterWindow
 					text = "CV_DIPLOMACY"
 					autoresize = no
 					margin_right = 0
+					margin_left = 5
 				}
 
 				text_single = {

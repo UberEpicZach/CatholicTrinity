@@ -35,6 +35,9 @@
 			id = tct_investiture_struggle.0001
 			years = { 1 5 }
 		}
+		title:e_hre.holder = {
+			create_story = investiture_controversy_story
+		}
 	}
 
 	transition_state_duration = { months = 3 }
@@ -58,6 +61,9 @@
 				trigger_event = {
 					id = tct_investiture_struggle.0001
 					years = { 1 5 }
+				}
+				title:e_hre.holder = {
+					create_story = investiture_controversy_story
 				}
 			}
 		}

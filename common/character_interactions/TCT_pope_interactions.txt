@@ -190,6 +190,11 @@ TCT_make_antipope_interaction = {
 				has_trait = craven
 			}
 		}
+		modifier = {
+			add = 10000
+			# Historical antipopes
+			this = character:73530
+		}
 	}
 	
 	ai_min_reply_days = 1

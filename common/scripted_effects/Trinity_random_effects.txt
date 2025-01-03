@@ -411,31 +411,33 @@ create_papal_state_regency_effect = {
 }
 
 tct_test = {
-	every_vassal = {
-		dynasty = {
-			every_dynasty_member = {
-				limit = {
-					OR = {
-						has_trait = devoted
-						has_education_learning_trigger = yes
-					}
-					is_landed = no
-					is_female = no
-					is_adult = yes
-					NOT = { 
-						any_heir_to_title = { exists = this } 
-						exists = primary_title
-						is_cardinal = yes
-					}
+	if = {
+		limit = {
+			any_vassal = { 
+				max_military_strength >= liege.fifty_percent_of_max_military_strength
+				opinion = {
+					target = root
+					value <= -10
 				}
-				root = {
-					add_to_variable_list = {
-						name = possible_characters
-						target = prev
-					}
+				opinion = {
+					target = root.faith.religious_head
+					value >= 10
 				}
-				add_gold = 10
 			}
+		}
+		random_vassal = {
+			limit = {
+				max_military_strength >= liege.fifty_percent_of_max_military_strength
+				opinion = {
+					target = root
+					value <= -10
+				}
+				opinion = {
+					target = root.faith.religious_head
+					value >= 10
+				}
+			}
+			add_gold = 10
 		}
 	}
 }

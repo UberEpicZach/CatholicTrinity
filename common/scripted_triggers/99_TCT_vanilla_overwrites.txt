@@ -1,0 +1,42 @@
+﻿# Is allowed to marry (current marriage/concubine status ignored)
+can_marry_common_trigger = {
+	is_alive = yes
+	NOT = { has_trait_with_flag = can_not_marry }
+
+	trigger_if = {
+		limit = {
+			exists = primary_title
+		}
+		NOR = {
+			# Block Mercenaries from marrying or showing up in marriage interactions
+			primary_title = {
+				is_mercenary_company = yes
+			}
+			is_leading_faction_type = peasant_faction
+			is_leading_faction_type = populist_faction
+		}
+	}
+
+	# Clergy cannot marry if their faith disallows it
+	trigger_if = {
+		limit = {
+			OR = {
+				is_clergy = yes
+				AND = {
+					is_ruler = yes 
+					has_government = theocracy_government
+				}
+			}
+		}
+		faith = {
+			has_doctrine_parameter = clergy_can_marry
+		}
+	}
+	trigger_if = {
+		limit = {
+			exists = liege.involved_activity.var:tournament_marriage_prize
+			this = liege.involved_activity.var:tournament_marriage_prize
+		}
+		exists = scope:contest_winner
+	}
+}

@@ -2,35 +2,6 @@
 	type = character
 	text = {
 		trigger = {
-			is_preferatus_character = yes 
-			OR = {
-				has_trait = cardinal_archbishop
-				has_trait = cardinal_bishop
-				has_trait = cardinal_priest
-			}
-		}
-		localization_key = CardinalFlavor4
-	}
-	text = {
-		trigger = {
-			has_trait = cardinal_priest
-		}
-		localization_key = CardinalFlavor1
-	}
-	text = {
-		trigger = {
-			has_trait = cardinal_bishop
-		}
-		localization_key = CardinalFlavor2
-	}
-	text = {
-		trigger = {
-			has_trait = cardinal_archbishop
-		}
-		localization_key = CardinalFlavor3
-	}
-	text = {
-		trigger = {
 			OR = {
 				has_trait = TCT_antipope
 				has_title = title:k_papal_state
@@ -61,6 +32,35 @@
 			highest_held_title_tier = tier_county
 		}
 		localization_key = count_theocracy_male_christianity_religion
+	}
+	text = {
+		trigger = {
+			is_preferatus_character = yes 
+			OR = {
+				has_trait = cardinal_archbishop
+				has_trait = cardinal_bishop
+				has_trait = cardinal_priest
+			}
+		}
+		localization_key = CardinalFlavor4
+	}
+	text = {
+		trigger = {
+			has_trait = cardinal_priest
+		}
+		localization_key = CardinalFlavor1
+	}
+	text = {
+		trigger = {
+			has_trait = cardinal_bishop
+		}
+		localization_key = CardinalFlavor2
+	}
+	text = {
+		trigger = {
+			has_trait = cardinal_archbishop
+		}
+		localization_key = CardinalFlavor3
 	}
 	text = {
 		fallback = yes

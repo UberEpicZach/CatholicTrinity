@@ -1304,7 +1304,7 @@ TCT_religious_events.24 = {
 		character = this
 	}
 	right_portrait = {
-		character = scope:popewantsit
+		character = scope:ruler_who_refused
 	}
 	
 	trigger = {		
@@ -1350,7 +1350,7 @@ TCT_religious_events.24 = {
 					has_character_flag = pope_respects_our_law	
 				}
 			}
-			save_scope_as = popewantsit
+			save_scope_as = ruler_who_refused
 		}
 	}
 
@@ -1360,7 +1360,7 @@ TCT_religious_events.24 = {
 
 		if = {
 			limit = {
-				scope:popewantsit = {
+				scope:ruler_who_refused = {
 					OR = {
 						has_realm_law = free_investiture_early
 						has_realm_law = free_investiture_late
@@ -1375,7 +1375,7 @@ TCT_religious_events.24 = {
 					}
 				}
 			}
-			scope:popewantsit = {
+			scope:ruler_who_refused = {
 				add_character_flag = pope_wants_our_law_changed
 
 				trigger_event = {
@@ -1384,7 +1384,7 @@ TCT_religious_events.24 = {
 				}
 			}
 		}
-		#custom_tooltip = TCT_religious_events.24 #EVTTOOLTIP67001
+		flavor = TCT_religious_events.24.a.tt
 
 		ai_chance = {	
 			base = 100
@@ -1394,7 +1394,7 @@ TCT_religious_events.24 = {
 	
 	option = { 
 		name = TCT_religious_events.24.b
-		
+		flavor = TCT_religious_events.24.b.tt
 
 		ai_chance = { 
 			base = 0 
@@ -1409,7 +1409,7 @@ TCT_religious_events.25 = {
 	desc = TCT_religious_events.25.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
-		character = scope:popewantsit
+		character = scope:ruler_who_refused
 	}
 	right_portrait = {
 		character = faith.religious_head
@@ -1425,7 +1425,7 @@ TCT_religious_events.25 = {
 	}
 
 	immediate = {
-		save_scope_as = popewantsit
+		save_scope_as = ruler_who_refused
 
 		faith.religious_head = {
 			save_scope_as = popeman
@@ -1644,7 +1644,7 @@ TCT_religious_events.26 = {
 	desc = TCT_religious_events.26.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
-		character = scope:popewantsit
+		character = scope:ruler_who_refused
 	}
 
 	right_portrait = {
@@ -1670,7 +1670,7 @@ TCT_religious_events.27 = {
 	desc = TCT_religious_events.27.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
-		character = scope:popewantsit
+		character = scope:ruler_who_refused
 	}
 
 	right_portrait = {
@@ -1681,7 +1681,22 @@ TCT_religious_events.27 = {
 		name = TCT_religious_events.27.a
 		
 		add_prestige = 100
-
+		random_list = {
+			50 = {
+				custom_tooltip = TCT_religious_events.influence_bishop
+				trigger_event = {
+					id = TCT_religious_events.31
+					days = 5
+				}
+			}
+			50 = {
+				custom_tooltip = TCT_religious_events.influence_vassal
+				trigger_event = {
+					id = TCT_religious_events.34
+					days = 5
+				}
+			}
+		}
 		ai_chance = {	
 			base = 100
 		
@@ -1696,7 +1711,7 @@ TCT_religious_events.28 = {
 	desc = TCT_religious_events.28.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
-		character = scope:popewantsit
+		character = scope:ruler_who_refused
 	}
 
 	right_portrait = {
@@ -1708,7 +1723,7 @@ TCT_religious_events.28 = {
 		
 		custom_tooltip = TCT_religious_events.28.a.tt
 
-		scope:popewantsit = {
+		scope:ruler_who_refused = {
 			pay_short_term_gold = {
 				gold = 200	# Todo: Adjust this?
 				target = faith.religious_head
@@ -1718,7 +1733,7 @@ TCT_religious_events.28 = {
 			remove_character_flag = pope_wants_our_law_changed
 		}
 
-		scope:popewantsit = {
+		scope:ruler_who_refused = {
 			send_interface_toast = {
 				type = event_toast_effect_good
 				title = TCT_religious_events.28.a.toast
@@ -1790,16 +1805,33 @@ TCT_religious_events.28 = {
 		name = TCT_religious_events.28.b
 		custom_tooltip = TCT_religious_events.28.b.tt
 		add_opinion = {
-			target = scope:popewantsit
+			target = scope:ruler_who_refused
 			opinion = -20
 			modifier = impious_opinion
 		}
 
-		scope:popewantsit = {
+		scope:ruler_who_refused = {
 			send_interface_toast = {
 				type = event_toast_effect_bad
 				title = TCT_religious_events.28.b.toast
 				left_icon = faith.religious_head
+			}
+		}
+
+		random_list = {
+			50 = {
+				custom_tooltip = TCT_religious_events.influence_bishop
+				trigger_event = {
+					id = TCT_religious_events.31
+					days = 5
+				}
+			}
+			50 = {
+				custom_tooltip = TCT_religious_events.influence_vassal
+				trigger_event = {
+					id = TCT_religious_events.34
+					days = 5
+				}
 			}
 		}
 
@@ -1869,7 +1901,7 @@ TCT_religious_events.29 = {
 	desc = TCT_religious_events.29.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
-		character = scope:popewantsit
+		character = scope:ruler_who_refused
 	}
 
 	right_portrait = {
@@ -1881,7 +1913,7 @@ TCT_religious_events.29 = {
 		
 		add_piety = -5
 
-		scope:popewantsit = {
+		scope:ruler_who_refused = {
 			add_character_flag = pope_respects_our_law
 			remove_character_flag = pope_wants_our_law_changed
 		}
@@ -1895,7 +1927,7 @@ TCT_religious_events.29 = {
 			}
 		}
 
-		scope:popewantsit = {
+		scope:ruler_who_refused = {
 			send_interface_toast = {
 				type = event_toast_effect_good
 				title = TCT_religious_events.29.b.toast
@@ -1917,7 +1949,7 @@ TCT_religious_events.30 = {
 	desc = TCT_religious_events.30.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
-		character = scope:popewantsit
+		character = scope:ruler_who_refused
 	}
 
 	right_portrait = {
@@ -1932,16 +1964,16 @@ TCT_religious_events.30 = {
 		add_opinion = {
 			modifier = impious_opinion
 			opinion = -15
-			target = scope:popewantsit
+			target = scope:ruler_who_refused
 		}
 
 		add_opinion = {
-			target = scope:popewantsit
+			target = scope:ruler_who_refused
 			opinion = 10
 			modifier = refused_changed_investiture_law
 		}
 
-		scope:popewantsit = {
+		scope:ruler_who_refused = {
 			add_character_modifier = {
 				modifier = public_opinion_negative
 				days = 365
@@ -1949,11 +1981,28 @@ TCT_religious_events.30 = {
 			add_character_flag = pope_we_refuse_law_changed
 		}
 		
-		scope:popewantsit = {
+		scope:ruler_who_refused = {
 			send_interface_toast = {
 				type = event_toast_effect_bad
 				title = TCT_religious_events.30.a.toast
 				left_icon = faith.religious_head
+			}
+		}
+
+		random_list = {
+			50 = {
+				custom_tooltip = TCT_religious_events.influence_bishop
+				trigger_event = {
+					id = TCT_religious_events.31
+					days = 5
+				}
+			}
+			50 = {
+				custom_tooltip = TCT_religious_events.influence_vassal
+				trigger_event = {
+					id = TCT_religious_events.34
+					days = 5
+				}
 			}
 		}
 
@@ -2013,36 +2062,36 @@ TCT_religious_events.31 = {
 				title:k_papal_state.holder = faith.religious_head
 				has_character_flag = pope_we_refuse_law_changed
 			}
-			save_scope_as = popewantsit
+			save_scope_as = ruler_who_refused
 		}
 		if = {
 			limit = {
-				scope:popewantsit = {
+				scope:ruler_who_refused = {
 					any_vassal = {
 						NOT = { has_character_flag = pope_bribing }
 						has_government = theocracy_government
 						#And they have to actually like you enough to want to invest you.
 						opinion = {
-							target = scope:popewantsit
+							target = scope:ruler_who_refused
 							value <= -10
 						}
 						opinion = {
-							target = scope:popewantsit.faith.religious_head
+							target = scope:ruler_who_refused.faith.religious_head
 							value >= 10
 						}
 					}
 				}
 			}
-			scope:popewantsit = {
+			scope:ruler_who_refused = {
 				random_vassal = {
 					limit = {
 						has_government = theocracy_government
 						opinion = {
-							target = scope:popewantsit
+							target = scope:ruler_who_refused
 							value <= -10
 						}
 						opinion = {
-							target = scope:popewantsit.faith.religious_head
+							target = scope:ruler_who_refused.faith.religious_head
 							value >= 10
 						}
 					}
@@ -2086,7 +2135,7 @@ TCT_religious_events.31 = {
 	
 		remove_character_flag = pope_currently_demanding
 
-		scope:popewantsit = {
+		scope:ruler_who_refused = {
 			remove_character_flag = pope_we_refuse_law_changed
 		}
 
@@ -2145,7 +2194,7 @@ TCT_religious_events.32 = {
 			33 = { # Emperror finds out
 				custom_tooltip = TCT_religious_events.32.a.tt
 
-				scope:popewantsit = {
+				scope:ruler_who_refused = {
 					trigger_event = {
 						id = TCT_religious_events.33
 						days = { 14 16 }
@@ -2292,42 +2341,44 @@ TCT_religious_events.34 = {
 				title:k_papal_state.holder = faith.religious_head
 				has_character_flag = pope_we_refuse_law_changed
 			}
-			save_scope_as = popewantsit
+			add_gold = 10
+			save_scope_as = ruler_who_refused
 			primary_title = {
 				save_scope_as = primarytitle
 			}
 		}
 		if = {
 			limit = {
-				scope:popewantsit = {
+				scope:ruler_who_refused = {
 					any_vassal = { 
-						max_military_strength >= liege.max_military_strength.div2
-					}
-					NOT = { has_character_flag = pope_bribing }
-					has_faith = scope:popewantsit.faith
-					opinion = {
-						target = scope:popewantsit
-						value <= -10
-					}
-					opinion = {
-						target = scope:popewantsit.faith.religious_head
-						value >= 10
-					}
-				}
-			}
-			scope:popewantsit = {
-				random_vassal = {
-					limit = {
-						max_military_strength >= liege.max_military_strength.div2
+						max_military_strength >= liege.fifty_percent_of_max_military_strength
+						NOT = { has_character_flag = pope_bribing }
+						has_faith = scope:ruler_who_refused.faith
 						opinion = {
-							target = scope:popewantsit
+							target = scope:ruler_who_refused
 							value <= -10
 						}
 						opinion = {
-							target = scope:popewantsit.faith.religious_head
+							target = scope:ruler_who_refused.faith.religious_head
 							value >= 10
 						}
 					}
+				}
+			}
+			scope:ruler_who_refused = {
+				random_vassal = {
+					limit = {
+						max_military_strength >= liege.fifty_percent_of_max_military_strength
+						opinion = {
+							target = scope:ruler_who_refused
+							value <= -10
+						}
+						opinion = {
+							target = scope:ruler_who_refused.faith.religious_head
+							value >= 10
+						}
+					}
+					add_gold = 10
 					save_scope_as = powerful_vassal
 				}
 			}
@@ -2368,7 +2419,7 @@ TCT_religious_events.34 = {
 	
 		remove_character_flag = pope_currently_demanding
 
-		scope:popewantsit = {
+		scope:ruler_who_refused = {
 			remove_character_flag = pope_we_refuse_law_changed
 		}
 
@@ -2475,7 +2526,7 @@ TCT_religious_events.36 = {
 	}
 
 	left_portrait = {
-		character = scope:popewantsit
+		character = scope:ruler_who_refused
 	}
 
 	lower_left_portrait = {
@@ -2487,9 +2538,9 @@ TCT_religious_events.36 = {
 
 		if = {
 			limit = {
-				this = scope:popewantsit
+				this = scope:ruler_who_refused
 			}
-			scope:popewantsit = {
+			scope:ruler_who_refused = {
 				add_opinion = {
 					target = scope:powerful_vassal
 					modifier = angry_opinion
@@ -2504,7 +2555,7 @@ TCT_religious_events.36 = {
 			}
 			scope:powerful_vassal = {
 				add_opinion = {
-					target = scope:popewantsit
+					target = scope:ruler_who_refused
 					modifier = impious_opinion
 					opinion = -150
 				}
@@ -2557,7 +2608,7 @@ TCT_religious_events.37 = {
 	}
 
 	lower_center_portrait = {
-		character = scope:popewantsit
+		character = scope:ruler_who_refused
 	}
 
 	option = { 
@@ -2565,9 +2616,9 @@ TCT_religious_events.37 = {
 
 		start_war = {
 			cb = claim_cb
-			target = scope:popewantsit
+			target = scope:ruler_who_refused
 			claimant = scope:powerful_vassal
-			target_title = scope:popewantsit.primary_title
+			target_title = scope:ruler_who_refused.primary_title
 		}
 
 		ai_chance = {	
@@ -4385,7 +4436,7 @@ TCT_religious_events.58 = {#christmas
 # 	theme = learning_scholarship_focus
 # 	orphan = yes 
 # 	left_portrait = {
-# 		character = scope:popewantsit
+# 		character = scope:ruler_who_refused
 # 	}
 # 	right_portrait = {
 # 		character = scope:localsaint
@@ -5099,6 +5150,7 @@ TCT_religious_events.403 = {
 					save_scope_as = duplicatedname
 				}
 			}
+			change_government = theocracy_government
 		}
 	}
 
@@ -5342,7 +5394,7 @@ TCT_religious_events.800 = {
 	desc = TCT_religious_events.800.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
-		character = scope:popewantsit
+		character = scope:ruler_who_refused
 	}
 	right_portrait = {
 		character = scope:popeman
