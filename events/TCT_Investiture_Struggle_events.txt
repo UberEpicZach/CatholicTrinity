@@ -1311,7 +1311,7 @@ tct_investiture_struggle.2010 = {
 		show_as_tooltip = {
 			scope:confirmation_vassal = {
 				add_prestige = minor_prestige_gain
-				add_legitimacy = medium_legitimac_gain
+				add_legitimacy = medium_legitimacy_gain
 				if = { 
 					limit = { has_character_modifier = tct_unconfirmed_title_holder }
 					remove_character_modifier = tct_unconfirmed_title_holder
@@ -1650,7 +1650,7 @@ tct_investiture_struggle.2020 = {
 			}
 			modifier = {
 				add = -25
-				trait = zealous
+				has_trait = zealous
 			}
 		}
 	}
