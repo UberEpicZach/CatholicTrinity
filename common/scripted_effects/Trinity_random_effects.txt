@@ -1,10 +1,10 @@
 ﻿fix_variable_error = {
-    save_scope_as = $ERROR$ 
-    add_to_list = $ERROR$ 
-    clear_variable_list = $ERROR$ 
-    clear_saved_scope = $ERROR$ 
-    set_variable = {name = $ERROR$ value = flag:$ERROR$} 
-    set_global_variable = {name = $ERROR$ value = flag:$ERROR$}  
+    save_scope_as = $ERROR$
+    add_to_list = $ERROR$
+    clear_variable_list = $ERROR$
+    clear_saved_scope = $ERROR$
+    set_variable = {name = $ERROR$ value = flag:$ERROR$}
+    set_global_variable = {name = $ERROR$ value = flag:$ERROR$}
     if = {limit = {OR = {has_character_flag = $ERROR$ var:$ERROR$ = flag:$ERROR$}} remove_variable = $ERROR$ remove_global_variable = $ERROR$}
 }
 
@@ -69,6 +69,8 @@ secret_exposed_owner_effects_effect = {
 			}
 			secret_target = { save_scope_as = exposed_secret_target }
 		}
+
+		secret_owner = { save_scope_as = local_secret_owner }
 	}
 
 	###DEVIANT###
@@ -127,6 +129,20 @@ secret_exposed_owner_effects_effect = {
 		}
 		add_piety_level = -1
 	}
+	###EMBEZZLER###
+	else_if = {
+		limit = {
+			$SECRET$ = { secret_type = secret_embezzler }
+			scope:secret_target = { is_alive = yes }
+		}
+		scope:secret_target = {
+			# Apply appropriate criminal opinion.
+			add_opinion = {
+				target = scope:secret_owner
+				modifier = embezzled_opinion
+			}
+		}
+	}
 	###INCEST###
 	else_if = {
 		limit = { $SECRET$ = { secret_type = secret_incest } }
@@ -153,7 +169,7 @@ secret_exposed_owner_effects_effect = {
 				secret_type = secret_disputed_heritage
 			}
 		}
-		
+
 		# Child gains the Disputed Heritage trait
 		scope:child = { add_trait = disputed_heritage }
 
@@ -170,7 +186,7 @@ secret_exposed_owner_effects_effect = {
 		}
 		else_if = { limit = { scope:real_father = { is_alive = yes } }
 			# If the mother is dead, run this on the real_father instead (so it gets run somewhere). If the mother is alive, the real_father will have already suffered the penalties.
-			scope:real_father = {	
+			scope:real_father = {
 				expose_lover_secret_or_run_consequence_effect = {
 					TARGET = scope:mother
 					EXPOSER = $POV$
@@ -218,7 +234,11 @@ secret_exposed_owner_effects_effect = {
 			}
 		}
 		# Set the correct Father for the child
-		scope:child = { set_father = scope:real_father }
+		scope:child = {
+			set_father = scope:real_father
+			set_parent_house_effect = yes
+			remove_inherited_descendent_traits_effect = yes
+		}
 
 		#Father becomes adulterer/fornicator (mother already suffered these penalties when she was discovered pregnant out of wedlock)
 		scope:real_father = {
@@ -242,6 +262,7 @@ secret_exposed_owner_effects_effect = {
 		if = {
 			limit = { root = scope:murderer }
 			add_dread = 10
+			hostile_scheme_exposure_legitimacy_effect = yes
 			attempted_murder_opinion_effect = { VICTIM = scope:victim MURDERER = scope:murderer }
 		}
 	}
@@ -265,6 +286,85 @@ secret_exposed_owner_effects_effect = {
 			}
 		}
 		murder_consequences_known_or_exposed_effect = { MURDERER = scope:murderer VICTIM = scope:victim POV = $POV$ } #Traits, (crime) opinions, dread
+	}
+	else_if = {
+		limit = {
+			$SECRET$ = { secret_type = secret_coup_plotter }
+			scope:secret_target = { is_alive = yes }
+		}
+
+		scope:secret_target = {
+			# Apply appropriate criminal opinion.
+			add_opinion = {
+				target = scope:secret_owner
+				modifier = coup_plotter_opinion
+			}
+		}
+	}
+
+
+	## Struggle Catalysts
+	if = {
+		limit = {
+			scope:local_secret_owner = {
+				is_semi_important_ruler_struggle_character = yes
+				any_character_struggle	 = {
+					involvement = involved
+					phase_has_catalyst = catalyst_reveal_secret_important
+				}
+			}
+		}
+		scope:local_secret_owner = {
+			every_character_struggle = {
+				involvement = involved
+				activate_struggle_catalyst = {
+					catalyst = catalyst_reveal_secret_important
+					character = scope:local_secret_owner
+				}
+			}
+		}
+	}
+	if = {
+		limit = {
+			scope:local_secret_owner = {
+				has_trait = fp3_struggle_supporter
+				any_character_struggle	 = {
+					involvement = involved
+					phase_has_catalyst = catalyst_reveal_secret_supporter
+				}
+			}
+		}
+		scope:local_secret_owner = {
+			every_character_struggle = {
+				involvement = involved
+				activate_struggle_catalyst = {
+					catalyst = catalyst_reveal_secret_supporter
+					character = scope:local_secret_owner
+				}
+				log_debug_variable_for_persian_struggle_effect = { VAR = unrest_catalyst_reveal_secret_supporter }
+			}
+		}
+	}
+	if = {
+		limit = {
+			scope:local_secret_owner = {
+				has_trait = fp3_struggle_detractor
+				any_character_struggle	 = {
+					involvement = involved
+					phase_has_catalyst = catalyst_reveal_secret_detractor
+				}
+			}
+		}
+		scope:local_secret_owner = {
+			every_character_struggle = {
+				involvement = involved
+				activate_struggle_catalyst = {
+					catalyst = catalyst_reveal_secret_detractor
+					character = scope:local_secret_owner
+				}
+				log_debug_variable_for_persian_struggle_effect = { VAR = stabil_catalyst_reveal_secret_detractor }
+			}
+		}
 	}
 }
 
@@ -413,7 +513,7 @@ create_papal_state_regency_effect = {
 tct_test = {
 	if = {
 		limit = {
-			any_vassal = { 
+			any_vassal = {
 				max_military_strength >= liege.fifty_percent_of_max_military_strength
 				opinion = {
 					target = root
