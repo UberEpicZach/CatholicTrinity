@@ -4723,6 +4723,7 @@ TCT_religious_events.4001 = {
 		if = {
 			limit = {
 				remove_variable = current_papacy_successor
+			}
 			if = {
 				limit = {
 					NOT = { exists = cp:councillor_marshal }
@@ -4764,7 +4765,6 @@ TCT_religious_events.4001 = {
 				}
 			}
 			set_realm_capital = title:c_roma
-			}
 		}
 	}
 
