@@ -1,0 +1,24 @@
+﻿piety_level_plus_1 = {
+	value = piety_level
+	add = 1
+}
+piety_level_plus_2 = {
+	value = piety_level
+	add = 2
+}
+piety_level_plus_3 = {
+	value = piety_level
+	add = 3
+}
+piety_level_plus_4 = {
+	value = piety_level
+	add = 4
+}
+piety_level_plus_5 = {
+	value = piety_level
+	add = 5
+}
+piety_level_plus_6 = {
+	value = piety_level
+	add = 6
+}

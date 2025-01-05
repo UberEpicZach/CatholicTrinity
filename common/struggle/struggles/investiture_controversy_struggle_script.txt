@@ -176,7 +176,7 @@
 							ai_zeal >= 75
 						}
 						title:k_papal_state.holder = {
-							piety_level >= title:e_hre.holder.piety_level + 2
+							piety_level >= title:e_hre.holder.piety_level_plus_2
 						}
 					}
 				}
