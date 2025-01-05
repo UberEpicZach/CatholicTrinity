@@ -5264,13 +5264,13 @@ TCT_religious_events.500 = {
 				modifier = donatedlandtoclergy
 				years = 5
 			}
-
-			ai_chance = {
-				base = 100
-			}
 		}
 		else = {
 			remove_decision_cooldown = DonationCountyClergy
+		}
+
+		ai_chance = {
+			base = 100
 		}
 	}
 	option = {
