@@ -86,7 +86,7 @@
 		birth = 1035.1.1
 		title = c_ravensburg
 		government = feudal_government
-		culture = barvarian
+		culture = bavarian
 		religion = catholic
 		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_HARD"
 		position = { 600 500 }
