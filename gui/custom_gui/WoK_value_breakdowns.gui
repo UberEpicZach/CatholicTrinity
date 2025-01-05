@@ -5,7 +5,7 @@ types WOKValueBreakdown  {
         alwaystransparent = no
         layoutpolicy_vertical = expanding
         using = DefaultTooltipBackground
-        vbox = { 
+        vbox = {
             restrictparent_min = yes
             margin = { 5 5 }
             vbox = {
@@ -27,71 +27,71 @@ types WOKValueBreakdown  {
                 }
 				wok_cardinal_breakdown_box  = {
                     visible = "[GreaterThan_CFixedPoint(EmptyScope.ScriptValue('cardinal_score_per_gold'),'(CFixedPoint)0')]"
-                    blockoverride "text"     {text = cardinal_gold_bonus} 
+                    blockoverride "text"     {text = cardinal_gold_bonus}
                     blockoverride "value"    {text = "[TopScope.ScriptValue('cardinal_gold_bonus')|0=+]"}
 				}
 				wok_cardinal_breakdown_box  = {
                     visible = "[GreaterThan_CFixedPoint(EmptyScope.ScriptValue('cardinal_score_per_prestige'),'(CFixedPoint)0')]"
-                    blockoverride "text"     {text = cardinal_prestige_bonus} 
+                    blockoverride "text"     {text = cardinal_prestige_bonus}
                     blockoverride "value"    {text = "[TopScope.ScriptValue('cardinal_prestige_bonus')|0=+]"}
 				}
 				wok_cardinal_breakdown_box  = {
                     visible = "[GreaterThan_CFixedPoint(EmptyScope.ScriptValue('cardinal_score_per_piety'),'(CFixedPoint)0')]"
-                    blockoverride "text"     {text = cardinal_piety_bonus} 
+                    blockoverride "text"     {text = cardinal_piety_bonus}
                     blockoverride "value"    {text = "[TopScope.ScriptValue('cardinal_piety_bonus')|0=+]"}
 				}
 				wok_cardinal_breakdown_box  = {
                     visible = "[GreaterThan_CFixedPoint(EmptyScope.ScriptValue('cardinal_score_per_learning'),'(CFixedPoint)0')]"
-                    blockoverride "text"     {text = cardinal_learning_bonus} 
+                    blockoverride "text"     {text = cardinal_learning_bonus}
                     blockoverride "value"    {text = "[TopScope.ScriptValue('cardinal_learning_bonus')|0=+]"}
 				}
 				wok_cardinal_breakdown_box  = {
-                    blockoverride "text"     {text = cardinal_age_bonus} 
+                    blockoverride "text"     {text = cardinal_age_bonus}
                     blockoverride "value"    {text = "[TopScope.ScriptValue('cardinal_age_bonus')|0=+]"}
 				}
 				wok_cardinal_breakdown_box  = {
-                    blockoverride "text"     {text = cardinal_dynasty_bonus} 
+                    blockoverride "text"     {text = cardinal_dynasty_bonus}
                     blockoverride "value"    {text = "[TopScope.ScriptValue('cardinal_dynasty_bonus')|0=+]"}
 				}
 				wok_cardinal_breakdown_box  = {
-                    blockoverride "text"     {text = cardinal_location_bonus} 
+                    blockoverride "text"     {text = cardinal_location_bonus}
                     blockoverride "value"    {text = "[TopScope.ScriptValue('cardinal_location_bonus')|0=+]"}
 				}
 				wok_cardinal_breakdown_box  = {
-                    blockoverride "text"     {text = cardinal_culture_bonus} 
+                    blockoverride "text"     {text = cardinal_culture_bonus}
                     blockoverride "value"    {text = "[TopScope.ScriptValue('cardinal_culture_bonus')|0=+]"}
 				}
 				wok_cardinal_breakdown_box  = {
-                    blockoverride "text"     {text = cardinal_virtue_bonus} 
+                    blockoverride "text"     {text = cardinal_virtue_bonus}
                     blockoverride "value"    {text = "[TopScope.ScriptValue('cardinal_virtue_bonus')|0=+]"}
 				}
 				wok_cardinal_breakdown_box  = {
-                    blockoverride "text"     {text = cardinal_sin_penalty} 
+                    blockoverride "text"     {text = cardinal_sin_penalty}
                     blockoverride "value"    {text = "[TopScope.ScriptValue('cardinal_sin_penalty')|0=+]"}
 				}
 				wok_cardinal_breakdown_box  = {
-                    blockoverride "text"     {text = cardinal_popinion_bonus} 
+                    blockoverride "text"     {text = cardinal_popinion_bonus}
                     blockoverride "value"    {text = "[TopScope.ScriptValue('cardinal_popinion_bonus')|0=+]"}
 				}
 				wok_cardinal_breakdown_box  = {
-                    blockoverride "text"     {text = cardinal_secular_power_bonus} 
+                    blockoverride "text"     {text = cardinal_secular_power_bonus}
                     blockoverride "value"    {text = "[TopScope.ScriptValue('cardinal_secular_power_bonus')|0=+]"}
 				}
 				wok_cardinal_breakdown_box  = {
-                    blockoverride "text"     {text = cardinal_theocratic_power_bonus} 
+                    blockoverride "text"     {text = cardinal_theocratic_power_bonus}
                     blockoverride "value"    {text = "[TopScope.ScriptValue('cardinal_theocratic_power_bonus')|0=+]"}
 				}
                 wok_cardinal_breakdown_box  = {
-                    blockoverride "text"     {text = cardinal_event_bonus } 
+                    blockoverride "text"     {text = cardinal_event_bonus }
                     blockoverride "value"    {text = "[TopScope.ScriptValue('cardinal_recent_event_modiifer')|0=+]"}
 				}
                 wok_cardinal_breakdown_box  = {
-                    blockoverride "text"     {text = cardinal_too_old } 
+                    blockoverride "text"     {text = cardinal_too_old }
                     blockoverride "value"    {text = "[TopScope.ScriptValue('cardinal_too_old_modifiier')|0=+]"}
 				}
 				wok_breakdown_box  = {
                     datacontext = "[GetScriptedGui('not_cardinal')]"
-                    blockoverride "text"     {text = cardinal_money_bonus} 
+                    blockoverride "text"     {text = cardinal_money_bonus}
 				    blockoverride "value"    {text = "[TopScope.ScriptValue('cardinal_money_bonus')|0=+]"}
 				}
             }
@@ -102,7 +102,7 @@ types WOKCardinalsValueBreakdownElements {
     type wok_breakdown_box = hbox {
         block "topscope" {datacontext = "[GuiScope.SetRoot(Character.MakeScope)]"}
         block "visible" {visible = "[ScriptedGui.IsShown(TopScope.End)]"}
-        
+
         layoutpolicy_horizontal = expanding
         text_single = {
             align = left
@@ -119,7 +119,7 @@ types WOKCardinalsValueBreakdownElements {
     type wok_cardinal_breakdown_box = hbox {
         block "topscope" {datacontext = "[GuiScope.SetRoot(Character.MakeScope)]"}
         #block "visible" {visible = "[ScriptedGui.IsShown(TopScope.End)]"}
-        
+
         layoutpolicy_horizontal = expanding
         text_single = {
             align = left
@@ -145,9 +145,9 @@ types WOKCardinalsValueBreakdownElements {
     }
 
 }
-Breakdown invocation: 
+# Breakdown invocation:
 wok_breakdown_box  = {
-   datacontext = "[GetScriptedGui('some_sgui')]" 
-   blockoverride "text"    {text = key} 
+   datacontext = "[GetScriptedGui('some_sgui')]"
+   blockoverride "text"    {text = key}
    blockoverride "     value" {text = key}
 }
