@@ -1,4 +1,4 @@
-
+﻿
 tct_struggle_supporter = {
 	color_mode = baronies
 	small_map_names = realms

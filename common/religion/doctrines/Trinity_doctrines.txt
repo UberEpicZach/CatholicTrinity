@@ -1,4 +1,4 @@
-TCT_doctrine_head_of_faith = {
+﻿TCT_doctrine_head_of_faith = {
 	group = "main_group"
 
 	doctrine_independent_papacy_head = {

@@ -1,4 +1,4 @@
-namespace = tct_neutral_struggle
+﻿namespace = tct_neutral_struggle
 
 ##################################################
 # MAINTENANCE EVENTS
