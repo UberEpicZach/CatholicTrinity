@@ -85,9 +85,6 @@ tct_on_start = {
 			set_variable = was_once_cardinal
 			add_realm_law = papal_succession_law
 		}
-		title:k_papal_state = {
-			add_title_law = papal_succession_law
-		}
 
 		# Title Setup
 		if = {
