@@ -375,26 +375,24 @@ investiture_struggle_papal_supremacy_decision = {
 			}
 		}
 
-		AND = {
-			if = {
-				limit = { exists = title:e_hre }
-				custom_tooltip = {
-					text = more_then_10_percent_powerful_vassals_papal_supporter_tt
-			
-					title:e_hre.holder = { tct_investiture_papal_supporters_percent >= tct_investiture_papal_threshold }
-				}
-	
-				custom_tooltip = {
-					text = less_then_20_percent_powerful_vassals_imperial_supporter_tt
-				
-					title:e_hre.holder = {  tct_investiture_imperial_supporters_percent <= tct_investiture_imperial_threshold }
-				}
+		trigger_if = {
+			limit = { exists = title:e_hre }
+			custom_tooltip = {
+				text = more_then_10_percent_powerful_vassals_papal_supporter_tt
 		
-				custom_tooltip = {
-					text = holy_roman_empuire_has_papal_investiture_tt
-				
-					title:e_hre.holder = { has_realm_law = papal_investiture_late }
-				}
+				title:e_hre.holder = { tct_investiture_papal_supporters_percent >= tct_investiture_papal_threshold }
+			}
+
+			custom_tooltip = {
+				text = less_then_20_percent_powerful_vassals_imperial_supporter_tt
+			
+				title:e_hre.holder = {  tct_investiture_imperial_supporters_percent <= tct_investiture_imperial_threshold }
+			}
+	
+			custom_tooltip = {
+				text = holy_roman_empuire_has_papal_investiture_tt
+			
+				title:e_hre.holder = { has_realm_law = papal_investiture_late }
 			}
 		}
 
