@@ -4,7 +4,7 @@
  SAINT_WIND_UNIUI_GENERIC_SAINT: "Saint"
  SAINT_WIND_UNIUI_SAINT_NAME: "[Character.GetFirstNameNicknamed]"
  SAINT_WIND_UNIUI_SAINT_DYNASTY: "[Character.GetDynasty.GetName]"
- SAINT_WIND_UNIUI_SAINT_HOUSE: "[Character.GeHouse.GetName]"
+ SAINT_WIND_UNIUI_SAINT_HOUSE: "[Character.GetHouse.GetName]"
  GOV_WIND_UNIUI_GOV_NAME: "[Character.GetFirstName]"
  REP_FAMILY_WIND_UNIUI_CHAR_NAME: "[Scope.GetCharacter.GetTitledFirstName]"
  REP_SENATE_WIND_UNIUI_CHAR_NAME: "[Scope.GetCharacter.GetTitledFirstName]"

@@ -2,7 +2,7 @@
   candiatesoon: "A Candidate Will Appear Soon"
   candiatesoonpope: "The Pope Cannot Have Candidates."
   TCT_religious_events.1.t: "A Pope and His Estates"
-  TCT_religious_events.1.desc: "It has come to my attention that my kin, [scope:scoped_pope.Char.GetTitledFirstName] has arranged for the transportation of [Sibling/Son] and [Sibling/Son] to the vicinity of Rome, and has promised them a share of vast estates… in the name of ‘ease of governance’, of course. While His Holiness’ request is for my family, the news is to be relayed through my channels, and this leaves the decision ultimately up to me."
+  TCT_religious_events.1.desc: "It has come to my attention that my kin, [scoped_pope.GetTitledFirstName] has arranged for the transportation of [player_one.GetFirstName] and [player_two.GetFirstName] to the vicinity of Rome, and has promised them a share of vast estates… in the name of ‘ease of governance’, of course. While His Holiness’ request is for my family, the news is to be relayed through my channels, and this leaves the decision ultimately up to me."
   TCT_religious_events.1.a: "Let them go"
 
   TCT_religious_events.2.t: "Drunk as a Monk: Beer"

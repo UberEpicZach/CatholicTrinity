@@ -50,6 +50,9 @@ TCT_religious_events.1 = { #A Pope and His Estates
 	}
 
 	immediate = {
+		title:k_papal_state.holder = {
+			save_scope_as = scoped_pope
+		}
 		scripted_effect_popethingevent = yes
 	}
 
