@@ -377,7 +377,7 @@ window = {
 				using = tooltip_below
 
 				flowcontainer = {
-					visible = "[And( GetScriptedGui('line_investiture_map').IsShown(GuiScope.End), IsMapMode('TCT_investiture') ), IsDefaultGUIMode ) )]"
+					visible = "[And(And( GetScriptedGui('line_investiture_map').IsShown(GuiScope.End), IsMapMode('TCT_investiture')), IsDefaultGUIMode )]"
 					parentanchor = bottom|right
 					position = { 1325 760 }
 					direction = vertical
