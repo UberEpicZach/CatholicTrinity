@@ -386,7 +386,7 @@
  investiture_struggle_papal_supremacy_decision_confirm:1 "End the Investiture Controversy"
  investiture_struggle_papal_supremacy_decision_correct_phase_tt:0 "In the hostility phase"
  investiture_struggle_papal_supremacy_decision_kingdom_tt:0 "Kingdom"
- investiture_struggle_papal_supremacy_decision_county_light_tt:0 "Placeholder"\
+ investiture_struggle_papal_supremacy_decision_county_light_tt:0 "Placeholder"
  investiture_struggle_papal_supremacy_decision_county_tt:0 "Placeholder"
  investiture_struggle_papal_supremacy_decision_region_tt:0 "No other [struggle_involved|E] [ruler|E] of [opposing_struggle_factions|E] controls more than [SCOPE.ScriptValue('tct_struggle_hostility_region_percent_value')]% of [GetGeographicalRegion('custom_investiture_struggle').GetName]"
 
