@@ -449,7 +449,7 @@ CrusaderStateEvents.5 = { #In another life....
 	}
 	right_portrait = {
 		character = scope:beneficiary
-		animation = animation_bold
+		animation = personality_bold
 	}
 	
 	trigger = {

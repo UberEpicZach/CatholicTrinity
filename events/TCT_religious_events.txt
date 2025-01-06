@@ -6,7 +6,7 @@ TCT_religious_events.1 = { #A Pope and His Estates
 	desc = TCT_religious_events.1.desc
 	theme = unfriendly
 	left_portrait = {
-		character = this
+		character = root
 	}
 
 	trigger = {		
@@ -160,7 +160,7 @@ TCT_religious_events.2 = { #Monks Make Good Beer
 	desc = TCT_religious_events.2.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
-		character = this
+		character = root
 	}
 	right_portrait = {
 		character = scope:monk
@@ -252,7 +252,7 @@ TCT_religious_events.3 = { #Monks Make Good Wine
 	desc = TCT_religious_events.3.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
-		character = this
+		character = root
 	}
 
 	right_portrait = {
@@ -349,7 +349,7 @@ TCT_religious_events.4 = { #Monks have healing herbs
 	desc = TCT_religious_events.4.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
-		character = this
+		character = root
 	}
 	right_portrait = {
 		character = scope:monk
@@ -426,7 +426,7 @@ TCT_religious_events.5 = { #Monks is fantastic painter
 	desc = TCT_religious_events.5.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
-		character = this
+		character = root
 	}
 	right_portrait = {
 		character = scope:monk
@@ -492,7 +492,7 @@ TCT_religious_events.6 = { #Monks is fantastic painter
 	desc = TCT_religious_events.6.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
-		character = this
+		character = root
 	}
 	right_portrait = {
 		character = scope:monk
@@ -555,7 +555,7 @@ TCT_religious_events.7 = { #Monks is fantastic painter
 	desc = TCT_religious_events.7.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
-		character = this
+		character = root
 	}
 	right_portrait = {
 		character = scope:monk
@@ -620,7 +620,7 @@ TCT_religious_events.8 = { #Monastery Monks"
 	desc = TCT_religious_events.8.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
-		character = this
+		character = root
 	}
 	right_portrait = {
 		character = scope:monk
@@ -696,7 +696,7 @@ TCT_religious_events.12 = { #Donate to local monastery
 	desc = TCT_religious_events.12.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
-		character = this
+		character = root
 	}
 	right_portrait = {
 		character = scope:monk
@@ -1301,7 +1301,7 @@ TCT_religious_events.24 = {
 	desc = TCT_religious_events.24.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
-		character = this
+		character = root
 	}
 	right_portrait = {
 		character = scope:ruler_who_refused
@@ -4510,7 +4510,7 @@ TCT_religious_events.400 = {
 	}
 	lower_left_portrait = {
 		character = scope:cardinal2
-		animation = content
+		animation = personality_content
 		triggered_outfit = {
 			trigger = { exists = global_var:cfp_is_loaded }
 			outfit_tags = { cardinal_outfit }
@@ -4594,37 +4594,37 @@ TCT_religious_events.4001 = {
 		roles = {
 		    scope:newpope = {
 				group = event_group
-				animation = worried
+				animation = worry
 				#outfit_tags = { bishop_outfit }
 		    }
 			scope:cardinal2 = {
 				group = event_group
-				animation = worried
+				animation = worry
 				
 		    }
 			scope:cardinal3 = {
 				group = event_group
-				animation = worried
+				animation = worry
 				
 		    }
 			scope:cardinal4 = {
 				group = event_group
-				animation = worried
+				animation = worry
 				
 		    }
 			scope:cardinal5 = {
 				group = event_group
-				animation = worried
+				animation = worry
 				
 		    }
 			scope:cardinal6 = {
 				group = event_group
-				animation = worried
+				animation = worry
 				
 		    }
 			scope:cardinal7 = {
 				group = event_group
-				animation = worried
+				animation = worry
 		
 		    }
 		}
@@ -4837,37 +4837,37 @@ TCT_religious_events.5725 = {
 		roles = {
 		    scope:newpope = {
 				group = event_group
-				animation = worried
+				animation = worry
 				
 		    }
 			scope:cardinal2 = {
 				group = event_group
-				animation = worried
+				animation = worry
 				
 		    }
 			scope:cardinal3 = {
 				group = event_group
-				animation = worried
+				animation = worry
 				
 		    }
 			scope:cardinal4 = {
 				group = event_group
-				animation = worried
+				animation = worry
 				
 		    }
 			scope:cardinal5 = {
 				group = event_group
-				animation = worried
+				animation = worry
 				
 		    }
 			scope:cardinal6 = {
 				group = event_group
-				animation = worried
+				animation = worry
 				
 		    }
 			scope:cardinal7 = {
 				group = event_group
-				animation = worried
+				animation = worry
 		
 		    }
 		}
@@ -5016,36 +5016,36 @@ TCT_religious_events.401 = {
 		roles = {
 		    scope:newpope= {
 				group = event_group
-				animation = worried
+				animation = worry
 		    }
 			scope:cardinal2 = {
 				group = event_group
-				animation = worried
+				animation = worry
 				
 		    }
 			scope:cardinal3 = {
 				group = event_group
-				animation = worried
+				animation = worry
 				
 		    }
 			scope:cardinal4 = {
 				group = event_group
-				animation = worried
+				animation = worry
 				
 		    }
 			scope:cardinal5 = {
 				group = event_group
-				animation = worried
+				animation = worry
 				
 		    }
 			scope:cardinal6 = {
 				group = event_group
-				animation = worried
+				animation = worry
 				
 		    }
 			scope:cardinal7 = {
 				group = event_group
-				animation = worried
+				animation = worry
 
 		    }
 		}
