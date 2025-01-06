@@ -153,7 +153,7 @@ select_highest_scoring_character_cardinal_candidate = {
 			realm_priest = {add_to_list = highest_scoring_character_cardinal_candidates}
 		}
 		# Select player's best candidate:
-		every_in_list = {
+		ordered_in_list = {
 			limit = { exists = this is_alive = yes NOT = { is_cardinal = yes}}
 			list = highest_scoring_character_cardinal_candidates
 			order_by = bishop_to_cardinal_score
@@ -173,13 +173,24 @@ select_highest_scoring_character_cardinal_candidate = {
 	}
 }
 
+#scope:cardinal_story is the story to replace the owner of. It won't exist if remove_cardinal was called, so a new one is created instead.
 promote_new_cardinal = {
-#Scope: The cardinal story to replace the owner of
 	# Promote the best candidate
 	select_highest_scoring_cardinal_candidate = yes
-	make_story_owner = scope:highest_scoring_cardinal_candidate
-		# Reward beneficiary if it exists.
+
+	# Reward beneficiary if it exists.
 	scope:highest_scoring_cardinal_candidate = {
+		if = {
+			limit = {
+				exists = scope:cardinal_story
+			}
+			scope:story = {
+				make_story_owner = scope:cardinal_story
+			}
+		}
+		else = {
+			create_story = cardinal_story
+		}
 		if = {
 			limit = {
 				exists = var:beneficiary
