@@ -690,7 +690,7 @@ scripted_trigger title_confirmation_valid_trigger = { # Confirmation is still va
 
 scripted_effect title_confirmation_refuse_effect = {
 	scope:confirmation_vassal = {
-		add_legitimacy = medium_legitmacy_loss
+		add_legitimacy = medium_legitimacy_loss
 		add_opinion = {
 			modifier = refusal_opinion
 			target = scope:confirmation_liege
