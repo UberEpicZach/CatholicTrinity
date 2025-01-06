@@ -67,6 +67,16 @@ tct_neutral_struggle.0002 = {
 				}
 			}
 		}
+		hidden_effect = {
+			worsen_relationship_effect = {
+				TARGET = title:d_bavaria.holder
+				REASON = rival_generic_history
+			}
+			worsen_relationship_effect = {
+				TARGET = title:d_swabia.holder
+				REASON = rival_generic_history
+			}
+		}
 	}
 
 	option = {

@@ -1,6 +1,12 @@
 ﻿Investiture_Controversy_Game_Start_1066 = {
 	#1066 Improved some historical traits of people important to the Investiture Controversy Struggle
 
+	character:1316 = {
+		add_trait = generous
+		add_trait = lustful
+		add_trait = just
+	}
+
 	character:2010 = {
 		title:k_papal_state.holder = {
 			add_courtier ?= prev
@@ -82,10 +88,6 @@
 		}
 	}
 	title:d_bavaria.holder = {
-		worsen_relationship_effect = {
-			TARGET = title:e_hre.holder
-			REASON = rival_generic_history
-		}
 		create_alliance = title:d_angria.holder
 		title:d_angria.holder = {
 			add_opinion = {
@@ -102,10 +104,6 @@
 		}
 	}
 	title:d_swabia.holder = {
-		worsen_relationship_effect = {
-			TARGET = title:e_hre.holder
-			REASON = rival_generic_history
-		}
 		create_alliance = title:d_angria.holder
 		title:d_angria.holder = {
 			add_opinion = {
@@ -122,9 +120,27 @@
 		}
 	}
 	title:d_toscana.holder = {
-		improve_relationship_effect = {
-			TARGET = title:k_papal_state.holder
-			REASON = friend_generic_history
+		# Taken from improve_relationship_effect because it doesn't work on Trinity_on_actions
+		set_relation_potential_friend = title:k_papal_state.holder
+		if = {
+			limit = {
+				root = { is_ai = yes }
+			}
+			add_opinion = {
+				target = title:k_papal_state.holder
+				modifier = friendliness_opinion
+				opinion = 15
+			}
+		}
+		if = {
+			limit = { 
+				title:k_papal_state.holder = { is_ai = yes }
+			}
+			reverse_add_opinion = {
+				target = title:k_papal_state.holder
+				modifier = friendliness_opinion
+				opinion = 15
+			}
 		}
 	}
 	title:e_hre.holder = {
