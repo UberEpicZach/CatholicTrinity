@@ -115,10 +115,10 @@ TCT_general_doctrines = {
 				text = doctrine_pluralism_pluralistic_trigger
 				NOT = { doctrine:doctrine_pluralism_pluralistic = { is_in_list = selected_doctrines } }
 			}
-			custom_description = {
-				text = doctrine_not_followers_of_peter_trigger
-				NOT = { doctrine:tenet_followers_of_peter = { is_in_list = selected_doctrines } }
-			}
+			#custom_description = {
+				#text = doctrine_not_followers_of_peter_trigger
+				#NOT = { doctrine:tenet_followers_of_peter = { is_in_list = selected_doctrines } }
+			#}
 		}
 
 		parameters = {

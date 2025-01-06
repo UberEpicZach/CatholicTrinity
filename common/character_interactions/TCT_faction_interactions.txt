@@ -168,8 +168,8 @@
 	}
 
 	on_send = {
-		save_scope_as = claimant
 		scope:actor = {
+			save_scope_as = claimant
 			set_variable = {
 				name = claiming_title
 				value = scope:landed_title

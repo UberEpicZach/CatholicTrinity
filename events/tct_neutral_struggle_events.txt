@@ -1191,7 +1191,7 @@ tct_neutral_struggle.0012 = {
 
 	option = {
 		name = tct_neutral_struggle.0012.a
-		set_designated_heir_unsafe = scope:nephew
+		set_designated_heir = scope:nephew
 		scope:nephew = {
 			add_pressed_claim = title:d_lower_lorraine
 			add_opinion = {
