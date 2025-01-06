@@ -2,7 +2,6 @@
     category = fame
     learning = 2
 	flag = can_not_marry
-    random_creation = 0
     same_faith_opinion = 10
 
     advantage_against_coreligionists = 5
@@ -25,7 +24,6 @@ cardinal_bishop = {
     category = fame
     learning = 2
 	flag = can_not_marry
-    random_creation = 0
     same_faith_opinion = 15
 
     advantage_against_coreligionists = 10
@@ -50,7 +48,6 @@ cardinal_archbishop = {
     learning = 2
     stewardship = 1
 	flag = can_not_marry
-    random_creation = 0
     same_faith_opinion = 20
 
     advantage_against_coreligionists = 15
@@ -71,23 +68,14 @@ cardinal_archbishop = {
 }
  
 beatified = {
-	birth = 0
-	random_creation = 0
-
 	monthly_piety_gain_mult = 0.2
 }
 
 pope_trait = {
-	index = 903
-	birth = 0
-	random_creation = 0
-
 	monthly_piety_gain_mult = 0.2
 }
 
-TCT_antipope = {
-	index = 904
-	
+TCT_antipope = {	
 	same_faith_opinion = 10
 	monthly_income = 3
 	monthly_piety = 0.1
