@@ -192,7 +192,7 @@ TCT_1066_Bavarian_Chain = {
 		debug_log = "Checking for chance of firing the 1066 Bavarian Event Chain"
 
 		random = {
-			chance = zero_base_chance
+			chance = 0
 			modifier = {
 				add = 25
 				current_date > 867.1.1
@@ -255,7 +255,7 @@ TCT_historical_deaths = {
 			debug_log = "Checking for chance of firing Pope Alexander II's death event"
 
 			random = {
-				chance = zero_base_chance
+				chance = 0
 				modifier = {
 					add = 25
 					current_date > 1069.1.1
@@ -290,7 +290,7 @@ TCT_historical_deaths = {
 			debug_log = "Checking for chance of firing Godfrey the Bearded's death event"
 
 			random = {
-				chance = zero_base_chance
+				chance = 0
 				modifier = {
 					add = 25
 					current_date > 1067.1.1
@@ -325,7 +325,7 @@ TCT_historical_deaths = {
 			debug_log = "Checking for chance of firing Godfrey the Hunchback's death event"
 
 			random = {
-				chance = zero_base_chance
+				chance = 0
 				modifier = {
 					add = 25
 					current_date > 1074.1.1
