@@ -17,6 +17,12 @@ tct_on_start = {
 		}
 
 		### Pentarchy setups
+		title:k_orthodox.holder = {
+			set_variable = tct_ecumenical_patriarch
+		}
+		faith:orthodox = {
+			add_doctrine = doctrine_autocephaly_head
+		}
 		every_living_character = {
 			limit = {
 				OR = {
@@ -32,6 +38,18 @@ tct_on_start = {
 		}
 
 		# Catholicism Setup
+		faith:catholic = {
+			add_doctrine = doctrine_independent_papacy_head
+			add_doctrine = doctrine_clerical_succession_investiture_law_appointment
+			if = {
+				limit = { has_doctrine = doctrine_consanguinity_aunt_nephew_and_uncle_niece }
+				remove_doctrine = doctrine_consanguinity_aunt_nephew_and_uncle_niece
+			}
+			if = {
+				limit = { NOT = { has_doctrine = doctrine_consanguinity_restricted } }
+				add_doctrine = doctrine_consanguinity_restricted
+			}
+		}
 		title:k_papal_state = {
 			if = {
 				limit = {
@@ -92,6 +110,8 @@ tct_on_start = {
 				add_realm_law = mercenary_company_mod_succession_law
 			}
 		}
+
+		title:b_paterno.title_province = { set_holding_type = castle_holding }
 	}
 }
 
@@ -100,29 +120,10 @@ tct_on_start_867 = {
 		game_start_date = 867.1.1
 	}
 	effect = {
-		# Religion Setup
-		title:k_orthodox.holder = {
-			set_variable = tct_ecumenical_patriarch
-		}
-		faith:catholic = {
-			add_doctrine = doctrine_independent_papacy_head
-			add_doctrine = doctrine_clerical_succession_investiture_law_appointment
-			remove_doctrine = doctrine_consanguinity_aunt_nephew_and_uncle_niece
-			add_doctrine = doctrine_consanguinity_restricted
-		}
-		faith:orthodox = {
-			add_doctrine = doctrine_autocephaly_head
-		}
-
 		# Title Setup
 		title:k_papal_state.holder = { if = { limit = { is_lowborn = yes } title:k_papal_state.holder = { set_house = house:house_SanctiPetriFiliis } } }
 		title:k_papal_state.holder = { if = { limit = { has_trait = cardinal_archbishop } remove_trait = cardinal_archbishop } }
 		title:k_papal_state.holder = { if = { limit = { has_trait = cardinal_bishop } remove_trait = cardinal_bishop } }
-
-
-		title:b_paterno.title_province = { set_holding_type = castle_holding }
-		character:7913 = { get_title = title:b_paterno.title_province } 
-		title:b_paterno = { lease_out_to = character:7913 }
 
 		create_the_papal_states_effect_867 = yes
 	}
@@ -136,18 +137,6 @@ tct_on_start_1066 = {
 		# Religion Setup
 		title:k_papal_state.holder = {
 			set_variable = tct_ecumenical_patriarch
-		}
-		title:k_orthodox.holder = {
-			set_variable = tct_ecumenical_patriarch
-		}
-		faith:catholic = {
-			add_doctrine = doctrine_independent_papacy_head
-			add_doctrine = doctrine_clerical_succession_investiture_law_appointment
-			remove_doctrine = doctrine_consanguinity_aunt_nephew_and_uncle_niece
-			add_doctrine = doctrine_consanguinity_restricted
-		}
-		faith:orthodox = {
-			add_doctrine = doctrine_autocephaly_head
 		}
 
 		# History Fixes
