@@ -164,6 +164,7 @@ tct_on_start_1066 = {
 
 		# Title Setup
 		title:e_hre.holder = {
+			add_character_flag = TCT_start_investiture_controversy
 			add_realm_law_skip_effects = free_investiture_early
 		}
 	}

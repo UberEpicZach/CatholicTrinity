@@ -5410,8 +5410,9 @@ TCT_religious_events.800 = {
 	option = { 
 		name = TCT_religious_events.800.a
 		trigger = {
-			NOT = {
-				this = title:e_hre.holder
+			NOR = {
+				has_realm_law = free_investiture_early
+				has_realm_law = free_investiture_late
 			}
 		}
 
@@ -5425,26 +5426,37 @@ TCT_religious_events.800 = {
 	option = {
 		name = TCT_religious_events.800.b
 		trigger = {
-			this = title:e_hre.holder
-		}
-		custom_tooltip = TCT_religious_events.800.b.imperial_refusal
-		title:k_papal_state.holder = {
-			add_opinion = {
-				target = title:e_hre.holder
-				modifier = insulted_opinion
-				opinion = -60
+			OR = {
+				has_realm_law = free_investiture_early
+				has_realm_law = free_investiture_late
 			}
 		}
-		title:e_hre.holder = {
-			add_opinion = {
-				target = title:k_papal_state.holder
-				modifier = insulted_opinion
-				opinion = -60
+
+		add_piety_level = -1
+		if = {
+			limit = {
+				this = title:e_hre.holder
+			}
+			add_internal_flag = dangerous
+			custom_tooltip = TCT_religious_events.800.b.imperial_refusal
+			title:k_papal_state.holder = {
+				set_relation_rival = {
+					target = root
+					reason = investiture_controversy_struggle
+				}
+			}
+			start_struggle = {
+				struggle_type = investiture_controversy_struggle
+				start_phase = investiture_controversy_phase_unrest
 			}
 		}
-		start_struggle = {
-			struggle_type = investiture_controversy_struggle
-			start_phase = investiture_controversy_phase_unrest
+		else = {
+			title:k_papal_state.holder = {
+				worsen_relationship_effect = {
+					TARGET = root
+					reason = investiture_controversy_struggle
+				}
+			}
 		}
 
 		ai_chance = {	
@@ -5456,10 +5468,21 @@ TCT_religious_events.800 = {
 	option = {
 		name = TCT_religious_events.800.c
 		trigger = {
-			this = title:e_hre.holder
+			OR = {
+				has_realm_law = free_investiture_early
+				has_realm_law = free_investiture_late
+			}
 		}
 
 		add_realm_law = papal_investiture_late
+
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 0
+				has_character_flag = TCT_start_investiture_controversy
+			}
+		}
 	}
 }
 
