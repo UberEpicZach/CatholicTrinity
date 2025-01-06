@@ -501,7 +501,7 @@
 				involved_character_modifier = {
 					castle_holding_build_gold_cost = -0.3
 					owned_hostile_scheme_success_chance_add = 20
-					claim_throne_scclaim_throne_scheme_phase_duration_add = monumental_scheme_phase_duration_bonus_value
+					claim_throne_scheme_phase_duration_add = monumental_scheme_phase_duration_bonus_value
 				}
 
 				involved_parameters = {
@@ -714,7 +714,7 @@
 					vassal_levy_contribution_mult = 0.25 # Maybe remove
 					vassal_tax_contribution_mult = -0.25 # Maybe remove
 					owned_hostile_scheme_success_chance_add = 35
-					claim_throne_scclaim_throne_scheme_phase_duration_add = monumental_scheme_phase_duration_bonus_value
+					claim_throne_scheme_phase_duration_add = monumental_scheme_phase_duration_bonus_value
 				}
 
 				involved_parameters = {
@@ -913,7 +913,7 @@
 
 				involved_character_modifier = {
 					owned_hostile_scheme_success_chance_add = 20
-					claim_throne_scclaim_throne_scheme_phase_duration_add = monumental_scheme_phase_duration_bonus_value
+					claim_throne_scheme_phase_duration_add = monumental_scheme_phase_duration_bonus_value
 				}
 
 				involved_parameters = {
