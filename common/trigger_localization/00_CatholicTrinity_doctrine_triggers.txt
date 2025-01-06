@@ -3,11 +3,6 @@
 	first_not = COURT_CHAPLAIN_CANT_FIRE_DOCTRINES_TCT
 }
 
-court_chaplain_cant_reassign_doctrines = {
-	first = COURT_CHAPLAIN_CANT_REASSIGN_DOCTRINES
-	first_not = COURT_CHAPLAIN_CANT_REASSIGN_DOCTRINES
-}
-
 has_investiture_cooldown = {
 	first_not = investiture_is_on_cooldown
 }
