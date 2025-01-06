@@ -44,7 +44,7 @@
  EXCOMMUNICATION_99_OPINION:0 "[recipient.GetShortUIName|U] has a positive Opinion of over 99 of [secondary_recipient.GetShortUIName]: $VALUE|=+0$" 
 
  ProclaimDictatusPapae_decision_desc: "Following the decline of the Western Roman Empire, [investiture|E] was performed by members of  the ruling nobility despite theoretically being a task of the church. Secular rulers across Christendom have appointed Bishops to  enrich themselves and their family through nepotistic practices. Perhaps it is time to remind the Kings of Europe that the Catholic  Church was founded by God alone, and as the successor to St Peter the Pope alone has the authority to appoint or depose churchmen."
- ProclaimDictatusPapae_decision_tooltip: "This will increase your hatred of rulers with [Free_investiture|E] by -50 Opinion."
+ ProclaimDictatusPapae_decision_tooltip: "This will increase your hatred of rulers with [free_investiture|E] by #color_red -100#! Opinion."
  ProclaimDictatusPapae: "Proclaim the Dictatus Papae"
  ProclaimDictatusPapae_confirm: "Proclaim the Dictatus Papae!"
  
