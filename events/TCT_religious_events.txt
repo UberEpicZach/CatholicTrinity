@@ -975,7 +975,7 @@ scripted_effect get_investiture_characters = {
 				is_female = no
 				is_adult = yes
 				NOT = { 
-					any_heir_to_title = { exists = this } 
+					any_heir_title = { exists = this } 
 					exists = primary_title
 					is_cardinal = yes
 				}
@@ -998,7 +998,7 @@ scripted_effect get_investiture_characters = {
 			is_female = no
 			is_adult = yes
 			NOT = { 
-				any_heir_to_title = { exists = this } 
+				any_heir_title = { exists = this } 
 				exists = primary_title
 				is_cardinal = yes
 			}
@@ -1020,7 +1020,7 @@ scripted_effect get_investiture_characters = {
 			is_adult = yes
 			is_female = no
 			NOT = { 
-				any_heir_to_title = { exists = this } 
+				any_heir_title = { exists = this } 
 				exists = primary_title
 				is_cardinal = yes
 			}
@@ -1075,7 +1075,7 @@ scripted_effect get_investiture_characters = {
 			}
 			has_faith = root.faith
 			NOT = { 
-				any_heir_to_title = { exists = this } 
+				any_heir_title = { exists = this } 
 				exists = primary_title
 				is_cardinal = yes
 			}
@@ -1100,7 +1100,7 @@ scripted_effect get_investiture_characters = {
 					is_female = no
 					is_adult = yes
 					NOT = { 
-						any_heir_to_title = { exists = this } 
+						any_heir_title = { exists = this } 
 						exists = primary_title
 						is_cardinal = yes
 					}
