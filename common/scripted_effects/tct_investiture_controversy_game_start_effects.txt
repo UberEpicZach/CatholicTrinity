@@ -194,30 +194,12 @@ Investiture_Controversy_Game_Start_After_Lobby_1066 = {
 	#1066 Improved some historical traits of people important to the Investiture Controversy Struggle
 
 	title:e_hre.holder = {
-		if = {
-			limit = {
-				stewardship <= 5
+		every_character_artifact = { 
+			limit = { 
+				has_variable = reichskrone	
 			}
-			every_character_artifact = { 
-				limit = { 
-					has_variable = reichskrone	
-				}
-			 
-				equip_artifact_to_owner_replace = yes
-				add_artifact_modifier = artifact_domain_limit_2_modifier 
-			}
-		}
-		else = {
-			limit = {
-				stewardship >= 5
-			}
-			every_character_artifact = { 
-				limit = { 
-					has_variable = reichskrone	
-				}
-				equip_artifact_to_owner_replace = yes
-				add_artifact_modifier = artifact_domain_limit_1_modifier 
-			}
+			equip_artifact_to_owner_replace = yes
+			add_artifact_modifier = artifact_domain_limit_1_modifier 
 		}
 	}
 }
