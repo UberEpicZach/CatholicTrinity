@@ -64,7 +64,7 @@ CrusaderStateEvents.1 = { #
 
 	option = {  #beneficiary 
 		name = CrusaderStateEvents.1.a
-		custom_tooltip = benefiticary_cruasder_state	
+		custom_tooltip = benefiticary_crusader_state	
 		WarDuchyEffect = yes
 		scope:beneficiary = {
 			add_character_modifier = {
@@ -140,7 +140,7 @@ CrusaderStateEvents.1 = { #
 
 	option = { #self
 		name = CrusaderStateEvents.1.b
-		custom_tooltip = self_serving_cruasder_state
+		custom_tooltip = self_serving_crusader_state
 
 		scope:war_attacker = {
 			add_character_modifier = {
@@ -218,7 +218,7 @@ CrusaderStateEvents.1 = { #
 	option = { #I'll personally go, abdicate
 		name = CrusaderStateEvents.1.c 
 
-		custom_tooltip = adbicate_cruasder_state			
+		custom_tooltip = adbicate_crusader_state			
 		
 		hidden_effect = {
 			WarDuchyEffect_forSelfButDepose = yes
@@ -295,7 +295,7 @@ CrusaderStateEvents.1 = { #
 
 	option = { #don't care
 		name = CrusaderStateEvents.1.d
-		custom_tooltip = leaving_cruasder_state
+		custom_tooltip = leaving_crusader_state
 	}
 }
 

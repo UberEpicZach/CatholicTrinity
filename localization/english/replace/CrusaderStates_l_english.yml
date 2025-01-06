@@ -22,13 +22,13 @@
  create_dynamic_crusader_state_decision_effect_tooltip:0 "You gather your men to decide the future of this territory, for a [CrusaderStates|E] could be established in the name of your beneficiary, or in your own name independently abicating your old lands to move here, or by incorporating the lands directly into your realm!"
  create_dynamic_crusader_state:0 "During a crusade, You must have an entire [duchy|E] [occupied|E], in the lands of the primary defender of a [great_holy_wars|E], that is not within the target kingdom realm."
  
- adbicate_cruasder_state:0 "#S You leave your old life behind, abdicating your old possessions to your heirs following fedual succession law.\n\nYou turn to focus your dedication to the faith by defending these new regions of the [duchyforloc.GetNameNoTooltip], in the Holy Land."
+ adbicate_crusader_state:0 "#S You leave your old life behind, abdicating your old possessions to your heirs following fedual succession law.\n\nYou turn to focus your dedication to the faith by defending these new regions of the [duchyforloc.GetNameNoTooltip], in the Holy Land."
 
- benefiticary_cruasder_state:0 "#S You send your men to secure the perimeter territories of the [duchyforloc.GetNameNoTooltip], and you begin the preparations for the ascension of [beneficiary.GetFullName] to the throne of the great new [duchyforloc.GetName].\n"
+ benefiticary_crusader_state:0 "#S You send your men to secure the perimeter territories of the [duchyforloc.GetNameNoTooltip], and you begin the preparations for the ascension of [beneficiary.GetFullName] to the throne of the great new [duchyforloc.GetName].\n"
 
- self_serving_cruasder_state:0 "#S You directly sieze the land into [primary_title.GetNameNoTier], this is generally seen as self-serving from the collective crusader forces, using pledged crusaders to further your own goals, and in relation you may face consequence in form of greatly damaged relations with the rest of the Crusaders and the Pope himself.\n"
+ self_serving_crusader_state:0 "#S You directly sieze the land into [primary_title.GetNameNoTier], this is generally seen as self-serving from the collective crusader forces, using pledged crusaders to further your own goals, and in relation you may face consequence in form of greatly damaged relations with the rest of the Crusaders and the Pope himself.\n"
 
- leaving_cruasder_state:0 "#S You take second thoughts on the possible state, and move to leave these lands as they are, and take direction to head towards and further the war-goal."
+ leaving_crusader_state:0 "#S You take second thoughts on the possible state, and move to leave these lands as they are, and take direction to head towards and further the war-goal."
 
  game_concept_CrusaderState: "Crusader State"
  game_concept_CrusaderStates: "Crusader State"

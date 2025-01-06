@@ -258,7 +258,7 @@
 		#EP2 accolade glory gain from winning against higher ranked enemy
 		scope:attacker = { accolade_attacker_war_end_glory_gain_low_effect = yes }
 
-		scope:war.var:cruasder_state_holder ?= {
+		scope:war.var:crusader_state_holder ?= {
 			create_title_and_vassal_change = {
 				type = conquest_holy_war
 				save_scope_as = change
@@ -279,7 +279,7 @@
 			every_in_list = {
 				list = vassals_taken
 				change_liege = {
-					liege = scope:war.var:cruasder_state_holder
+					liege = scope:war.var:crusader_state_holder
 					change = scope:change
 				}
 			}
@@ -287,7 +287,7 @@
 			every_in_list = {
 				list = titles_taken
 				change_title_holder = {
-					holder = scope:war.var:cruasder_state_holder
+					holder = scope:war.var:crusader_state_holder
 					change = scope:change
 					take_baronies = yes
 				}

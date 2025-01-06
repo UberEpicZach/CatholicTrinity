@@ -5703,7 +5703,7 @@ TCT_religious_events.810 = {
 				save_scope_as = war
 				add_attacker = title:k_jerusalem.holder
 				set_variable = {
-					name = cruasder_state_holder
+					name = crusader_state_holder
 					value = title:k_jerusalem.holder
 				}
 			}
