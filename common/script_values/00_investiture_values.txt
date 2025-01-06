@@ -101,6 +101,7 @@ tct_struggle_hostility_region_percent_decimal_value = {
 
 tct_base_struggle_region_counties = {
 	value = 0
+	min = 1 # Avoid division by 0
 	every_county_in_region = {
 		region = custom_investiture_struggle
 		add = 1
