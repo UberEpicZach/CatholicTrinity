@@ -147,20 +147,20 @@ on_set_relation_friend = {
 }
 
 tct_on_set_relation_friend = {
-	effect = {
-		limit = {
-			any_character_struggle = {
-				involvement = involved
-				activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
-					CATALYST = tct_catalyst_became_friend_lover_papal_supporter_imperial_supporter
-					CHAR = scope:target
-				}
-			}
-			fp3_struggle_involves_one_supporter_and_one_detractor = {
-				FIRST = root
-				SECOND = scope:target
+	trigger = {
+		any_character_struggle = {
+			involvement = involved
+			activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
+				CATALYST = tct_catalyst_became_friend_lover_papal_supporter_imperial_supporter
+				CHAR = scope:target
 			}
 		}
+		fp3_struggle_involves_one_supporter_and_one_detractor = {
+			FIRST = root
+			SECOND = scope:target
+		}
+	}
+	effect = {
 		every_character_struggle = {
 			involvement = involved
 			activate_struggle_catalyst = {
