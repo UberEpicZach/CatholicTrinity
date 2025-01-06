@@ -1,0 +1,246 @@
+﻿###############################################################################
+# 
+# Utility Scripted Effects
+# 
+###############################################################################
+
+
+
+HEE_remove_education_traits_effect = {
+	remove_trait = education_diplomacy_1
+	remove_trait = education_diplomacy_2
+	remove_trait = education_diplomacy_3
+	remove_trait = education_diplomacy_4
+	remove_trait = education_diplomacy_5
+	remove_trait = education_martial_1
+	remove_trait = education_martial_2
+	remove_trait = education_martial_3
+	remove_trait = education_martial_4
+	remove_trait = education_martial_5
+	remove_trait = education_stewardship_1
+	remove_trait = education_stewardship_2
+	remove_trait = education_stewardship_3
+	remove_trait = education_stewardship_4
+	remove_trait = education_stewardship_5
+	remove_trait = education_intrigue_1
+	remove_trait = education_intrigue_2
+	remove_trait = education_intrigue_3
+	remove_trait = education_intrigue_4
+	remove_trait = education_intrigue_5
+	remove_trait = education_learning_1
+	remove_trait = education_learning_2
+	remove_trait = education_learning_3
+	remove_trait = education_learning_4
+	remove_trait = education_learning_5
+
+}
+
+HEE_remove_personality_traits_effect = {
+	remove_trait = ambitious
+	remove_trait = arbitrary
+	remove_trait = arrogant
+	remove_trait = brave
+	remove_trait = callous
+	remove_trait = calm
+	remove_trait = chaste
+	remove_trait = compassionate
+	remove_trait = content
+	remove_trait = craven
+	remove_trait = cynical
+	remove_trait = deceitful
+	remove_trait = diligent
+	remove_trait = fickle
+	remove_trait = forgiving
+	remove_trait = generous
+	remove_trait = gluttonous
+	remove_trait = greedy
+	remove_trait = gregarious
+	remove_trait = honest
+	remove_trait = humble
+	remove_trait = impatient
+	remove_trait = just
+	remove_trait = lazy	
+	remove_trait = lustful
+	remove_trait = paranoid
+	remove_trait = patient
+	remove_trait = sadistic
+	remove_trait = shy
+	remove_trait = stubborn
+	remove_trait = temperate
+	remove_trait = trusting
+	remove_trait = vengeful
+	remove_trait = wrathful
+	remove_trait = zealous
+	remove_trait = eccentric
+}
+
+# HEE_remove_perks_effect = {
+
+# 	# Diplomacy - Foreign Affairs 
+# 	remove_perk = thoughtful_perk
+# 	remove_perk = ducal_conquest_perk
+# 	remove_perk = forced_vassalage_perk
+# 	remove_perk = adaptive_traditions_perk
+# 	remove_perk = flexible_truces_perk
+# 	remove_perk = defensive_negotiations_perk
+# 	remove_perk = embassies_perk
+# 	remove_perk = accomplished_forger_perk
+# 	remove_perk = diplomat_perk
+
+# 	# Diplomacy - Majesty
+# 	remove_perk = benevolent_intent_perk
+# 	remove_perk = inspiring_rule_perk
+# 	remove_perk = firm_hand_perk
+# 	remove_perk = praetorian_guard_perk
+# 	remove_perk = true_ruler_perk
+# 	remove_perk = writing_history_perk
+# 	remove_perk = a_life_of_glory_perk
+# 	remove_perk = dignitas_perk
+# 	remove_perk = august_perk
+
+# 	# Diplomacy - Family Focus
+# 	remove_perk = befriend_perk
+# 	remove_perk = confidants_perk
+# 	remove_perk = flatterer_perk
+# 	remove_perk = groomed_to_rule_perk
+# 	remove_perk = familial_familiar_perk
+# 	remove_perk = thicker_than_water_perk
+# 	remove_perk = friendly_counsel_perk
+# 	remove_perk = sound_foundations_perk
+# 	remove_perk = family_man_perk
+
+# 	# Martial - Strategy
+# 	remove_perk = bellum_justum_perk
+# 	remove_perk = parthian_tactics_perk
+# 	remove_perk = envelopment_perk
+# 	remove_perk = organized_retreat_perk
+# 	remove_perk = hit_and_run_perk
+# 	remove_perk = engineered_for_destruction_perk
+# 	remove_perk = living_off_the_land_perk
+# 	remove_perk = sappers_perk
+# 	remove_perk = strategist_perk
+
+# 	# Martial - Authority
+# 	remove_perk = serve_the_crown_perk
+# 	remove_perk = a_mans_home_perk
+# 	remove_perk = enduring_hardships_perk
+# 	remove_perk = prepared_conscription_perk
+# 	remove_perk = strict_organization_perk
+# 	remove_perk = hard_rule_perk
+# 	remove_perk = soldiers_of_lesser_fortune_perk
+# 	remove_perk = absolute_control_perk
+# 	remove_perk = overseer_perk
+
+# 	# Martial - Chivalry
+# 	remove_perk = stalwart_leader_perk
+# 	remove_perk = courtship_perk
+# 	remove_perk = promising_prospects_perk
+# 	remove_perk = loyalty_and_respect_perk
+# 	remove_perk = chivalric_dominance_perk
+# 	remove_perk = never_back_down_perk
+# 	remove_perk = kingsguard_perk
+# 	remove_perk = peacemaker_perk
+# 	remove_perk = gallant_perk
+	
+# 	# Stewardship - Wealth
+# 	remove_perk = golden_obligations_perk
+# 	remove_perk = heregeld_perk
+# 	remove_perk = detailed_ledgers_perk
+# 	remove_perk = war_profiteer_perk
+# 	remove_perk = fearful_troops_perk
+# 	remove_perk = it_is_my_domain_perk
+# 	remove_perk = golden_aplomb_perk
+# 	remove_perk = at_any_cost_perk
+# 	remove_perk = avaricious_perk
+
+# 	# Stewardship - Domain
+# 	remove_perk = tax_man_perk
+# 	remove_perk = defensive_measures_perk
+# 	remove_perk = organized_muster_rolls_perk
+# 	remove_perk = cutting_corners_perk
+# 	remove_perk = professional_workforce_perk
+# 	remove_perk = centralization_perk
+# 	remove_perk = popular_figurehead_perk
+# 	remove_perk = divided_attention_perk
+# 	remove_perk = architect_perk
+
+# 	# Stewardship - Duty
+# 	remove_perk = meritocracy_perk
+# 	remove_perk = chains_of_loyalty_perk
+# 	remove_perk = likable_perk
+# 	remove_perk = positions_of_power_perk
+# 	remove_perk = large_levies_perk
+# 	remove_perk = soon_forgiven_perk
+# 	remove_perk = toe_the_line_perk
+# 	remove_perk = honored_to_serve_perk
+# 	remove_perk = administrator_perk
+
+# 	# Intrigue - Skulduggery
+# 	remove_perk = truth_is_relative_perk
+# 	remove_perk = digging_for_dirt_perk
+# 	remove_perk = kidnapper_perk
+# 	remove_perk = court_of_shadows_perk
+# 	remove_perk = prepared_for_anything_perk
+# 	remove_perk = swift_execution_perk
+# 	remove_perk = a_job_done_right_perk
+# 	remove_perk = twice_schemed_perk
+# 	remove_perk = schemer_perk
+	
+# 	# Intrigue - Temptation
+# 	remove_perk = like_weed_in_a_garden_perk
+# 	remove_perk = unshackled_lust_perk
+# 	remove_perk = subtle_desire_perk
+# 	remove_perk = mortal_adoration_perk
+# 	remove_perk = enticing_opportunity_perk
+# 	remove_perk = home_advantage_perk
+# 	remove_perk = graceful_recovery_perk
+# 	remove_perk = smooth_operator_perk
+# 	remove_perk = seducer_perk
+
+# 	# Intrigue - Intimidation
+# 	remove_perk = dark_insights_perk
+# 	remove_perk = divine_retribution_perk
+# 	remove_perk = dreadful_perk
+# 	remove_perk = thriving_in_chaos_perk
+# 	remove_perk = malice_implicit_perk
+# 	remove_perk = fear_tax_perk
+# 	remove_perk = forever_infamous_perk
+# 	remove_perk = prison_feudal_complex_perk
+# 	remove_perk = torturer_perk
+
+# 	# Learning - Medicine
+# 	remove_perk = anatomical_studies_perk
+# 	remove_perk = carefree_perk
+# 	remove_perk = mental_resilience_perk
+# 	remove_perk = restraint_perk
+# 	remove_perk = know_thyself_perk
+# 	remove_perk = wash_your_hands_perk
+# 	remove_perk = iron_constitution_perk
+# 	remove_perk = healthy_perk
+# 	remove_perk = whole_of_body_perk
+	
+# 	# Learning - Scholarship
+# 	remove_perk = pedagogy_perk
+# 	remove_perk = open_minded_perk
+# 	remove_perk = apostate_perk
+# 	remove_perk = scientific_perk
+# 	remove_perk = planned_cultivation_perk
+# 	remove_perk = scholarly_circles_perk
+# 	remove_perk = learn_on_the_job_perk
+# 	remove_perk = sanctioned_loopholes_perk
+# 	remove_perk = scholar_perk
+
+# 	# Learning - Theology
+# 	remove_perk = faithful_perk
+# 	remove_perk = zealous_proselytizer_perk
+# 	remove_perk = religious_icon_perk
+# 	remove_perk = prophet_perk
+# 	remove_perk = clerical_justifications_perk
+# 	remove_perk = church_and_state_perk
+# 	remove_perk = radiant_perk
+# 	remove_perk = defender_of_the_faith_perk
+# 	remove_perk = theologian_perk
+# }
+# Use 			
+# refund_all_perks = yes
+# remove_all_perk_lifestyle_traits_effect = yes
