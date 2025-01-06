@@ -152,17 +152,15 @@
 	}
 
 	can_send = {
-		hidden_trigger = {
-			scope:target = {
-				this = title:e_hre
-			}
-			scope:landed_title = {
-				this = title:e_hre
-			}
-			scope:recipient = {
-				NOT = {
-					is_female = yes
-				}
+		scope:target = {
+			this = title:e_hre
+		}
+		scope:landed_title = {
+			this = title:e_hre
+		}
+		scope:recipient = {
+			NOT = {
+				is_female = yes
 			}
 		}
 	}
