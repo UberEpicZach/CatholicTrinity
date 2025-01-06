@@ -1757,8 +1757,9 @@ first_saxon_revolt_faction_war = {
 				save_scope_as = change
 			}
 			title:c_gottingen.title_province = {
-				destroy_or_downgrade_building_effect = { BUILDING = tct_leisure_palace }
-				hidden_effect = { destroy_or_downgrade_building_effect = { BUILDING = tct_leisure_palace } }
+				# Uses the Duchal Building effect because it only has 3 levels
+				destroy_or_downgrade_ducal_building_effect = { BUILDING = tct_leisure_palace }
+				hidden_effect = { destroy_or_downgrade_ducal_building_effect = { BUILDING = tct_leisure_palace } }
 			}
 			title:c_gottingen = {
 				change_title_holder = {
