@@ -50,89 +50,27 @@ tct_neutral_struggle.0002 = {
 		character = title:d_angria.holder
 		animation = anger
 	}
+	lower_left_portrait = {
+		character = title:d_bavaria.holder
+	}
+	lower_right_portrait = {
+		character = title:d_swabia.holder
+	}
 
 	immediate = {
-		culture:franconian = {
-			change_cultural_acceptance = {
-				target = culture:saxon
-				value = -5
-				desc = cultural_acceptance_historical_relations
-			}
-		}
-		title:d_angria.holder = {
-			add_opinion = {
-				target = title:e_hre.holder
-				modifier = insulted_opinion
-				opinion = -50
-			}
-			create_alliance = title:d_bavaria.holder
-			title:d_bavaria.holder = {
-				add_opinion = {
-					target = title:d_angria.holder
-					modifier = event_negotiated_alliance_opinion
+		show_as_tooltip = {
+			culture:franconian = {
+				change_cultural_acceptance = {
+					target = culture:saxon
+					value = -5
+					desc = cultural_acceptance_historical_relations
 				}
 			}
-			create_alliance = title:d_swabia.holder
-			title:d_swabia.holder = {
-				add_opinion = {
-					target = title:d_angria.holder
-					modifier = event_negotiated_alliance_opinion
-				}
-			}
-		}
-		title:d_bavaria.holder = {
-			add_opinion = {
-				target = title:e_hre.holder
-				modifier = insulted_opinion
-				opinion = -20
-			}
-			create_alliance = title:d_angria.holder
-			create_alliance = title:d_swabia.holder
-			title:d_angria.holder = {
-				add_opinion = {
-					target = title:d_bavaria.holder
-					modifier = event_negotiated_alliance_opinion
-				}
-			}
-			title:d_swabia.holder = {
-				add_opinion = {
-					target = title:d_bavaria.holder
-					modifier = event_negotiated_alliance_opinion
-				}
-			}
-		}
-		title:d_swabia.holder = {
-			add_opinion = {
-				target = title:e_hre.holder
-				modifier = insulted_opinion
-				opinion = -20
-			}
-			create_alliance = title:d_bavaria.holder
-			create_alliance = title:d_angria.holder
-			title:d_angria.holder = {
-				add_opinion = {
-					target = title:d_swabia.holder
-					modifier = event_negotiated_alliance_opinion
-				}
-			}
-			title:d_bavaria.holder = {
-				add_opinion = {
-					target = title:d_swabia.holder
-					modifier = event_negotiated_alliance_opinion
-				}
-			}
-		}
-		hidden_effect = {
-			add_legitimacy = super_massive_legitimacy_loss
 		}
 	}
 
 	option = {
 		name = tct_neutral_struggle.0002.a
-
-		title:d_angria.holder = {
-			trigger_event = tct_neutral_struggle.0003
-		}
 	}
 }
 
@@ -147,17 +85,21 @@ tct_neutral_struggle.0003 = {
 		reference = farmland
 	}
 	left_portrait = {
-		character = title:e_hre.holder
-		animation = drink_goblet
-	}
-	right_portrait = {
 		character = title:d_angria.holder
 		animation = anger
 	}
+	right_portrait = {
+		character = title:e_hre.holder
+		animation = drink_goblet
+	}
+	lower_left_portrait = {
+		character = title:d_bavaria.holder
+	}
+	lower_right_portrait = {
+		character = title:d_swabia.holder
+	}
 
-	option = {
-		name = tct_neutral_struggle.0003.a
-
+	immediate = {
 		show_as_tooltip = {
 			culture:franconian = {
 				change_cultural_acceptance = {
@@ -167,69 +109,14 @@ tct_neutral_struggle.0003 = {
 				}
 			}
 			title:d_angria.holder = {
-				add_opinion = {
-					target = title:e_hre.holder
-					modifier = insulted_opinion
-					opinion = -50
-				}
 				create_alliance = title:d_bavaria.holder
-				title:d_bavaria.holder = {
-					add_opinion = {
-						target = title:d_angria.holder
-						modifier = event_negotiated_alliance_opinion
-					}
-				}
 				create_alliance = title:d_swabia.holder
-				title:d_swabia.holder = {
-					add_opinion = {
-						target = title:d_angria.holder
-						modifier = event_negotiated_alliance_opinion
-					}
-				}
-			}
-			title:d_bavaria.holder = {
-				add_opinion = {
-					target = title:e_hre.holder
-					modifier = insulted_opinion
-					opinion = -20
-				}
-				create_alliance = title:d_angria.holder
-				create_alliance = title:d_swabia.holder
-				title:d_angria.holder = {
-					add_opinion = {
-						target = title:d_bavaria.holder
-						modifier = event_negotiated_alliance_opinion
-					}
-				}
-				title:d_swabia.holder = {
-					add_opinion = {
-						target = title:d_bavaria.holder
-						modifier = event_negotiated_alliance_opinion
-					}
-				}
-			}
-			title:d_swabia.holder = {
-				add_opinion = {
-					target = title:e_hre.holder
-					modifier = insulted_opinion
-					opinion = -20
-				}
-				create_alliance = title:d_bavaria.holder
-				create_alliance = title:d_angria.holder
-				title:d_angria.holder = {
-					add_opinion = {
-						target = title:d_swabia.holder
-						modifier = event_negotiated_alliance_opinion
-					}
-				}
-				title:d_bavaria.holder = {
-					add_opinion = {
-						target = title:d_swabia.holder
-						modifier = event_negotiated_alliance_opinion
-					}
-				}
 			}
 		}
+	}
+
+	option = {
+		name = tct_neutral_struggle.0003.a
 	}
 }
 

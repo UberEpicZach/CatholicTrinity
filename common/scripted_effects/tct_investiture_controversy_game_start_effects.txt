@@ -53,6 +53,80 @@
 		}
 	}
 
+	culture:franconian = {
+		change_cultural_acceptance = {
+			target = culture:saxon
+			value = -5
+			desc = cultural_acceptance_historical_relations
+		}
+	}
+	
+	title:d_angria.holder = {
+		set_relation_rival = {
+			target = title:e_hre.holder
+			reason = rival_generic_history
+		}
+		create_alliance = title:d_bavaria.holder
+		title:d_bavaria.holder = {
+			add_opinion = {
+				target = title:d_angria.holder
+				modifier = event_negotiated_alliance_opinion
+			}
+		}
+		create_alliance = title:d_swabia.holder
+		title:d_swabia.holder = {
+			add_opinion = {
+				target = title:d_angria.holder
+				modifier = event_negotiated_alliance_opinion
+			}
+		}
+	}
+	title:d_bavaria.holder = {
+		worsen_relationship_effect = {
+			TARGET = title:e_hre.holder
+			REASON = rival_generic_history
+		}
+		create_alliance = title:d_angria.holder
+		title:d_angria.holder = {
+			add_opinion = {
+				target = title:d_bavaria.holder
+				modifier = event_negotiated_alliance_opinion
+			}
+		}
+		create_alliance = title:d_swabia.holder
+		title:d_swabia.holder = {
+			add_opinion = {
+				target = title:d_bavaria.holder
+				modifier = event_negotiated_alliance_opinion
+			}
+		}
+	}
+	title:d_swabia.holder = {
+		worsen_relationship_effect = {
+			TARGET = title:e_hre.holder
+			REASON = rival_generic_history
+		}
+		create_alliance = title:d_angria.holder
+		title:d_angria.holder = {
+			add_opinion = {
+				target = title:d_swabia.holder
+				modifier = event_negotiated_alliance_opinion
+			}
+		}
+		create_alliance = title:d_bavaria.holder
+		title:d_bavaria.holder = {
+			add_opinion = {
+				target = title:d_swabia.holder
+				modifier = event_negotiated_alliance_opinion
+			}
+		}
+	}
+	title:d_toscana.holder = {
+		improve_relationship_effect = {
+			TARGET = title:k_papal_state.holder
+			REASON = friend_generic_history
+		}
+	}
 	title:e_hre.holder = {
 		create_title_and_vassal_change = {
 			type = revoked
@@ -65,8 +139,16 @@
 			}
 		}
 		resolve_title_and_vassal_change = scope:change
+		add_legitimacy = super_massive_legitimacy_loss
 		trigger_event = {
 			id = tct_neutral_struggle.0002
+			days = 1
+		}
+	}
+	
+	title:d_angria.holder = {
+		trigger_event = {
+			id = tct_neutral_struggle.0003
 			days = 1
 		}
 	}
@@ -90,8 +172,6 @@
 	title:d_ostfalen.holder = {
 		set_primary_title_to = title:d_ostfalen
 	}
-
-
 }
 
 Investiture_Controversy_Game_Start_After_Lobby_1066 = {
