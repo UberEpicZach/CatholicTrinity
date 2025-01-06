@@ -5454,7 +5454,7 @@ TCT_religious_events.800 = {
 			title:k_papal_state.holder = {
 				worsen_relationship_effect = {
 					TARGET = root
-					reason = investiture_controversy_struggle
+					REASON = investiture_controversy_struggle
 				}
 			}
 		}
