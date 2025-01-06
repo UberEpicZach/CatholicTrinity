@@ -121,9 +121,9 @@ The [struggle|E] has exhausted the region of resources, manpower, and morale; wh
  struggle_supporter: "Factional Supporters"
  struggle_supporter_desc: "#T $struggle_supporter$#!\nShow the $supporter_and_detractor$ of the [investiture_controversy_struggle|E]"
 
- name_trait_tct_papal_supporter: "#high $trait_tct_papal_supporter$\n[ROOT.Province.GetCounty.GetTitle.GetHolder.GetName]#![AddTextIf(Not(ROOT.Province.GetCounty.GetTitle.GetHolder.IsIndependentRuler), '\nVassal of '))][AddTextIf(Not(ROOT.Province.GetCounty.GetTitle.GetHolder.IsIndependentRuler), ROOT.Province.GetCounty.GetTitle.GetHolder.GetTopLiege.GetName))]"
+ name_trait_tct_papal_supporter: "#high $trait_tct_papal_supporter$\n[ROOT.Province.GetCounty.GetTitle.GetHolder.GetName]#![AddTextIf(Not(ROOT.Province.GetCounty.GetTitle.GetHolder.IsIndependentRuler), '\nVassal of ')][AddTextIf(Not(ROOT.Province.GetCounty.GetTitle.GetHolder.IsIndependentRuler), ROOT.Province.GetCounty.GetTitle.GetHolder.GetTopLiege.GetName)]"
 
- name_trait_tct_imperial_supporter: "#high $trait_tct_imperial_supporter$\n[ROOT.Province.GetCounty.GetTitle.GetHolder.GetName]#![AddTextIf(Not(ROOT.Province.GetCounty.GetTitle.GetHolder.IsIndependentRuler), '\nVassal of '))][AddTextIf(Not(ROOT.Province.GetCounty.GetTitle.GetHolder.IsIndependentRuler), ROOT.Province.GetCounty.GetTitle.GetHolder.GetTopLiege.GetName))]"
+ name_trait_tct_imperial_supporter: "#high $trait_tct_imperial_supporter$\n[ROOT.Province.GetCounty.GetTitle.GetHolder.GetName]#![AddTextIf(Not(ROOT.Province.GetCounty.GetTitle.GetHolder.IsIndependentRuler), '\nVassal of ')][AddTextIf(Not(ROOT.Province.GetCounty.GetTitle.GetHolder.IsIndependentRuler), ROOT.Province.GetCounty.GetTitle.GetHolder.GetTopLiege.GetName)]"
 
  # OVERWRITING VANILLA KEY
  supporter_and_detractor: "opposing [struggle|e] factions."

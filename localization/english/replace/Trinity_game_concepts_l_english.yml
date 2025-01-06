@@ -160,9 +160,9 @@
  
  RELIGIOUS_HEAD_INTERACTION_CONCLAVE_INFLUENCE_ACTOR:0 "Your influence on [collegeofcardinals|E]: $VALUE|=+0$"
  RELIGIOUS_HEAD_INTERACTION_CONCLAVE_INFLUENCE_RECIPIENT:0 "Influence of [secondary_recipient.GetShortUIName|U] on [collegeofcardinals|E]: $VALUE|=+0$" 
- RELIGIOUS_HEAD_INTERACTION_INVESTITURE_STRUGGLE_SUPPORTER_ACTOR:0 "[GetTrai ('tct_papal_supporter').GetName( recipient.Self )] in the [investiture_controversy_struggle|E]: $VALUE|=+0$"
- RELIGIOUS_HEAD_INTERACTION_INVESTITURE_STRUGGLE_SUPPORTER_RECIPIENT:0 "[GetTrai ('tct_papal_supporter').GetName( secondary_recipient.Self )] in the [investiture_controversy_struggle|E]: $VALUE|=+0$"
- RELIGIOUS_HEAD_INTERACTION_INVESTITURE_STRUGGLE_IMP_SUPPORTER_ACTOR:0 "[GetTrai ('tct_imperial_supporter').GetName( recipient.Self )] in the [investiture_controversy_struggle|E]: $VALUE|=+0$" 
+ RELIGIOUS_HEAD_INTERACTION_INVESTITURE_STRUGGLE_SUPPORTER_ACTOR:0 "[GetTrait ('tct_papal_supporter').GetName( recipient.Self )] in the [investiture_controversy_struggle|E]: $VALUE|=+0$"
+ RELIGIOUS_HEAD_INTERACTION_INVESTITURE_STRUGGLE_SUPPORTER_RECIPIENT:0 "[GetTrait ('tct_papal_supporter').GetName( secondary_recipient.Self )] in the [investiture_controversy_struggle|E]: $VALUE|=+0$"
+ RELIGIOUS_HEAD_INTERACTION_INVESTITURE_STRUGGLE_IMP_SUPPORTER_ACTOR:0 "[GetTrait ('tct_imperial_supporter').GetName( recipient.Self )] in the [investiture_controversy_struggle|E]: $VALUE|=+0$" 
  doctrine_independent_papacy_head_name:0 "Papal"
  doctrine_independent_papacy_head:0 "Papal"
  doctrine_independent_papacy_head_desc:0 "The physical world and the spiritual world are not alike. We must know for sure that the spiritual world has its own ruler, which guides us and protects our faith from bodily contamination."
