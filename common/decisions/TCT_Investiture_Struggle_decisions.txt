@@ -750,7 +750,7 @@ investiture_struggle_concordat_decision = {
 	desc = investiture_struggle_concordat_decision_desc
 	selection_tooltip = investiture_struggle_concordat_decision_tooltip
 	confirm_click_sound = "event:/DLC/FP2/SFX/UI/fp2_struggle_ending_decision_confirm"
-	is_invisible = no
+	is_invisible = yes
 	sort_order = 80
 
 	is_shown = {
