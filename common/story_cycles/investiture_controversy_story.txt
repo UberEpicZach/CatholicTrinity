@@ -10,33 +10,24 @@
 		debug_log_date = yes
 	}
 
-	on_owner_death = {	
-		story_owner = {
-			if = {
-				limit = {
-					AND = {
-						exists = player_heir
-						exists = title:e_hre.holder
-					}
-				}
-				player_heir = {
-					limit = {
-						is_primary_heir_of = title:e_hre	
-					}
-					save_scope_as = new_story_owner # pass chain to appropriate target
-				}
+	on_owner_death = {
+		if = {
+			limit = {
+				exists = story_owner.player_heir
 			}
-			else = {
-				limit = {
-					AND = {
-						exists = title:e_hre.holder
-					}
-				}
-				title:e_hre.holder = {
-					save_scope_as = new_story_owner # pass chain to appropriate target
-				}		
+			story_owner.player_heir = {
+				save_scope_as = new_story_owner # pass chain to appropriate target
 			}
 		}
+		else_if = {
+			limit = {
+				exists = story_owner.primary_heir
+			}
+			story_owner.primary_heir = {
+				save_scope_as = new_story_owner # pass chain to appropriate target
+			}
+		}
+
 		if = {
 			limit = { exists = scope:new_story_owner }
 			make_story_owner = scope:new_story_owner
@@ -44,6 +35,9 @@
 			debug_log = "Successfully replaced the investiture_controversy_story owner"
 			debug_log_date = yes
 			debug_log_scopes = yes
+		}
+		else = {
+			end_story = yes
 		}
 	}
 
@@ -63,9 +57,7 @@
 		triggered_effect = {
 			trigger = { exists = title:e_hre }
 			effect = {
-				title:e_hre.holder = {
-					make_story_owner = title:e_hre.holder
-				}
+				make_story_owner = title:e_hre.holder
 			}
 		}
 
