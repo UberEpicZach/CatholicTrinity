@@ -124,7 +124,7 @@
 		set_relation_potential_friend = title:k_papal_state.holder
 		if = {
 			limit = {
-				root = { is_ai = yes }
+				is_ai = yes
 			}
 			add_opinion = {
 				target = title:k_papal_state.holder
@@ -155,7 +155,6 @@
 			}
 		}
 		resolve_title_and_vassal_change = scope:change
-		add_legitimacy = super_massive_legitimacy_loss
 		trigger_event = {
 			id = tct_neutral_struggle.0002
 			days = 1
@@ -194,6 +193,12 @@ Investiture_Controversy_Game_Start_After_Lobby_1066 = {
 	#1066 Improved some historical traits of people important to the Investiture Controversy Struggle
 
 	title:e_hre.holder = {
+		if = {
+			limit = {
+				game_start_date = 1066.9.15
+			}
+			add_legitimacy = super_massive_legitimacy_loss
+		}
 		every_character_artifact = { 
 			limit = { 
 				has_variable = reichskrone	
