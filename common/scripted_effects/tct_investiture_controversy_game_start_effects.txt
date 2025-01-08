@@ -2,9 +2,12 @@
 	#1066 Improved some historical traits of people important to the Investiture Controversy Struggle
 
 	character:1316 = {
+		HEE_remove_personality_traits_effect = yes
 		add_trait = generous
 		add_trait = lustful
 		add_trait = just
+		add_trait = cynical
+		add_trait = education_martial_3
 	}
 
 	character:2010 = {
@@ -86,6 +89,10 @@
 				modifier = event_negotiated_alliance_opinion
 			}
 		}
+		trigger_event = {
+			id = tct_neutral_struggle.0003
+			days = 1
+		}
 	}
 	title:d_bavaria.holder = {
 		create_alliance = title:d_angria.holder
@@ -160,16 +167,10 @@
 			days = 1
 		}
 	}
-	
-	title:d_angria.holder = {
-		trigger_event = {
-			id = tct_neutral_struggle.0003
-			days = 1
-		}
-	}
+}
 
+Investiture_Controversy_Game_Start_De_Jure_Changes_1066 = {
 	title:c_gottingen.title_province = { add_building = tct_leisure_palace_02 }
-
 
 	title:k_italy = { set_de_jure_liege_title = title:e_hre }
 

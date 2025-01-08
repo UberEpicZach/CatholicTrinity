@@ -26,7 +26,13 @@ Investiture_Controversy_Game_Start_After_Lobby = {
 
 Investiture_Controversy_Game_Start = {
 	effect = {
-		Investiture_Controversy_Game_Start_1066 = yes #Improve some historical traits of people important to the Investiture Controversy Struggle
+		if = {
+			limit = {
+				game_start_date = 1066.9.15
+			}
+			Investiture_Controversy_Game_Start_1066 = yes #Improve some historical traits of people important to the Investiture Controversy Struggle
+		}
+		Investiture_Controversy_Game_Start_De_Jure_Changes_1066 = yes
 	}
 }
 
