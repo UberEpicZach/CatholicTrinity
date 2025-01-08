@@ -5438,6 +5438,27 @@ tct_investiture_controversy_change_allegiance = {
 					limit = { scope:actor = title:e_hre.holder }
 					add = 0.5
 				}
+				# If you're a Papal supporter, disliking the Emperor is a positive
+				else_if = {
+					limit = { scope:actor = { has_trait = tct_papal_supporter } }
+					subtract = 1
+				}
+			}
+		}
+		opinion_modifier = {
+			who = scope:recipient
+			opinion_target = title:k_papal_state.holder
+			multiplier = {
+				value = 0.5
+				if = {
+					limit = { scope:actor = title:k_papal_state.holder }
+					add = 0.5
+				}
+				# If you're an Imperial supporter, disliking the Pope is a positive
+				else_if = {
+					limit = { scope:actor = { has_trait = tct_imperial_supporter } }
+					subtract = 1
+				}
 			}
 		}
 		# Traits.
