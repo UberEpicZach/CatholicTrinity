@@ -1,7 +1,7 @@
 ﻿l_english:
 
  # Struggle Region
- custom_investiture_struggle:0 "the Holy Roman Investiture Controversy"
+ custom_investiture_struggle:0 "Holy Roman Investiture Controversy"
 
  CB_STRUGGLE_PHASE_ATTACKING_SAME_FACTION_MEMBER: "Fellow [struggle_faction_members|E]"
 
@@ -393,7 +393,7 @@
  investiture_struggle_papal_supremacy_decision_kingdom_tt:0 "Kingdom"
  investiture_struggle_papal_supremacy_decision_county_light_tt:0 "Placeholder"
  investiture_struggle_papal_supremacy_decision_county_tt:0 "Placeholder"
- investiture_struggle_papal_supremacy_decision_region_tt:0 "No other [struggle_involved|E] [ruler|E] of [opposing_struggle_factions|E] controls more than [SCOPE.ScriptValue('tct_struggle_hostility_region_percent_value')]% of [GetGeographicalRegion('custom_investiture_struggle').GetName]"
+ investiture_struggle_papal_supremacy_decision_region_tt:0 "No other [struggle_involved|E] [ruler|E] of [opposing_struggle_factions|E] controls more than [SCOPE.ScriptValue('tct_struggle_hostility_region_percent_value')]% of the [GetGeographicalRegion('custom_investiture_struggle').GetName]"
 
  investiture_struggle_concordat_decision: "The Pactum Callixtinum"
  investiture_struggle_concordat_decision_desc: "The Pactum Callixtinum, it is time to forge a lasting peace between the Church and the Empire, to ensure that the spiritual and temporal realms may coexist in harmony."
