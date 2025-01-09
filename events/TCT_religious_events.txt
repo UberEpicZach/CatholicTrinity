@@ -5148,7 +5148,12 @@ TCT_religious_events.403 = {
 					save_scope_as = duplicatedname
 				}
 			}
-			change_government = theocracy_government
+			if = {
+				limit = {
+					NOT = { has_government = theocracy_government }
+				}
+				change_government = theocracy_government
+			}
 		}
 	}
 
