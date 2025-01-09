@@ -360,17 +360,17 @@
  tct_investiture_struggle.0051.b: "These foolish ambitions must be put to rest!"
 
 
- less_then_20_percent_powerful_vassals_papal_supporter_tt: "The Holy Roman Empire needs to have less than #Z 20% #!of it's [powerful_vassals|E] supporting the Papacy. (currently: #Z [SCOPE.ScriptValue('tct_investiture_papal_supporters_percent')]%, [SCOPE.ScriptValue('tct_papal_supporters')|0] out of [SCOPE.ScriptValue('tct_total_powerful_vassals')|0]#! [powerful_vassals|E] are Supporting the Papacy)."
+ less_then_20_percent_powerful_vassals_papal_supporter_tt: "Less than #Z 20%#! of the [GetTitleByKey('e_hre').GetBaseNameNoTooltip]'s [powerful_vassals|E] are Papal Supporters. #weak Currently [SCOPE.ScriptValue('tct_investiture_papal_supporters_percent')]% ([SCOPE.ScriptValue('tct_papal_supporters')|0]/[SCOPE.ScriptValue('tct_total_powerful_vassals')|0])#!"
 
- more_then_10_percent_powerful_vassals_papal_supporter_tt: "The Holy Roman Empire needs to have more than #Z 10% #!of it's [powerful_vassals|E] supporting the Papacy. (currently: #Z [SCOPE.ScriptValue('tct_investiture_papal_supporters_percent')]%, [SCOPE.ScriptValue('tct_papal_supporters')|0] out of [SCOPE.ScriptValue('tct_total_powerful_vassals')|0]#! [powerful_vassals|E] are Supporting the Papacy)."
+ more_then_10_percent_powerful_vassals_papal_supporter_tt: "At least #Z 10%#! of the [GetTitleByKey('e_hre').GetBaseNameNoTooltip]'s [powerful_vassals|E] are Papal Supporters. #weak Currently: [SCOPE.ScriptValue('tct_investiture_papal_supporters_percent')]% ([SCOPE.ScriptValue('tct_papal_supporters')|0]/[SCOPE.ScriptValue('tct_total_powerful_vassals')|0])#!"
 
- less_then_20_percent_powerful_vassals_imperial_supporter_tt: "The Holy Roman Empire needs to have less than #Z 20% #!of it's [powerful_vassals|E] supporting the Imperium. (currently: #Z [SCOPE.ScriptValue('tct_investiture_imperial_supporters_percent')]%, [SCOPE.ScriptValue('tct_imperial_supporters')|0] out of [SCOPE.ScriptValue('tct_total_powerful_vassals')|0]#! [powerful_vassals|E] are Supporting the Imperium)."
+ less_then_20_percent_powerful_vassals_imperial_supporter_tt: "Less than #Z 20%#! of the [GetTitleByKey('e_hre').GetBaseNameNoTooltip]'s [powerful_vassals|E] are Imperial Supporters. #weak Currently: [SCOPE.ScriptValue('tct_investiture_imperial_supporters_percent')]% ([SCOPE.ScriptValue('tct_imperial_supporters')|0]/[SCOPE.ScriptValue('tct_total_powerful_vassals')|0])#!"
 
- more_then_10_percent_powerful_vassals_imperial_supporter_tt: "The Holy Roman Empire needs to have more than #Z 10% #!of it's [powerful_vassals|E] supporting the Imperium. (currently: #Z [SCOPE.ScriptValue('tct_investiture_imperial_supporters_percent')]%, [SCOPE.ScriptValue('tct_imperial_supporters')|0] out of [SCOPE.ScriptValue('tct_total_powerful_vassals')|0]#! [powerful_vassals|E] are Supporting the Imperium)."
+ more_then_10_percent_powerful_vassals_imperial_supporter_tt: "At least #Z 10%#! of the [GetTitleByKey('e_hre').GetBaseNameNoTooltip]'s [powerful_vassals|E] are Imperial Supporters. #weak Currently: [SCOPE.ScriptValue('tct_investiture_imperial_supporters_percent')]% ([SCOPE.ScriptValue('tct_imperial_supporters')|0]/[SCOPE.ScriptValue('tct_total_powerful_vassals')|0])#!"
 
  less_then_60_percent_faction_supporter_tt: "currently: #Z [SCOPE.ScriptValue('tct_calculate_faction_control_percentage_decimal_value')]%, [SCOPE.ScriptValue('tct_calculate_faction_control_percentage')|0] out of [SCOPE.ScriptValue('tct_base_struggle_region_counties')|0]."
  
- holy_roman_empuire_has_papal_investiture_tt: "The Holy Roman Empire needs to have the [papal_investiture|E] Law"
+ holy_roman_empuire_has_papal_investiture_tt: "The [GetTitleByKey('e_hre').GetBaseNameNoTooltip] has the [papal_investiture|E] Law"
  struggle_ending_decision_correct_involvement_germany_tt:0 "You are [struggle_involved|E] in [investiture_controversy_struggle|E]."
  
  investiture_struggle_papal_supremacy_decision_antipope_tt: "There is no current [antipope|E]."
