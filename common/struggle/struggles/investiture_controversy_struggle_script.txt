@@ -95,9 +95,9 @@
 						top_liege = title:e_hre.holder
 						OR = {
 							has_trait = loyal
-							has_vassal_stance = zealot
+							has_vassal_stance = courtly
 						}
-						ai_zeal >= 60
+						ai_honor >= 60
 					}
 					# Moderate opinion of the Emperor
 					AND = {
@@ -173,7 +173,7 @@
 								is_vassal_of = title:e_hre.holder
 								has_vassal_stance = zealot
 							}
-							ai_zeal >= 75
+							ai_zeal >= 60
 						}
 						title:k_papal_state.holder = {
 							piety_level >= title:e_hre.holder.piety_level_plus_2
