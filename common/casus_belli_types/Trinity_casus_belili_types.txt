@@ -1776,7 +1776,7 @@ first_saxon_revolt_faction_war = {
 				character:112600 = { is_alive = yes }
 			}
 			character:112600 = {
-				trigger_event = {days = 2 id = tct_neutral_struggle.0011 }
+				trigger_event = {days = 2 id = tct_neutral_struggle.1006 }
 			}
 		}
 

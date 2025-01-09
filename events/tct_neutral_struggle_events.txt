@@ -4,9 +4,14 @@
 # MAINTENANCE EVENTS
 
 ##################################################
-# Activate Passing of Time
-# by Ewan Cowhig Croft
-# 0001 - 0010
+# #Start Up Events
+# 0001 - 0999
+#
+# # Saxon Rebellion Chain
+# 1001 - 1XXX
+#
+# # Matilda and Gottfried the Hunchback
+# 2001 - 2XXX
 ##################################################
 
 tct_neutral_struggle.0001 = {
@@ -84,6 +89,7 @@ tct_neutral_struggle.0002 = {
 	}
 }
 
+# Ordulf of Saxony
 tct_neutral_struggle.0003 = {
 	type = character_event
 	title = tct_neutral_struggle.0003.t
@@ -182,22 +188,22 @@ tct_neutral_struggle.0004 = {
 # "Accusations of Treason" (1070). # Event for Otto of Bavaria and Heinrich IV 
 # Egeno of Konradsburg accuses Otto of Bavaria for Treason. Calls for a Trial
 
-tct_neutral_struggle.0005 = {
+tct_neutral_struggle.1001 = {
 	type = character_event
-	title = tct_neutral_struggle.0005.t
+	title = tct_neutral_struggle.1001.t
 	desc = {
 		first_valid = {
 			triggered_desc = {
 				trigger = {
 					this = scope:otto
 				}
-				desc = tct_neutral_struggle.0005.desc.a
+				desc = tct_neutral_struggle.1001.desc.a
 			}
 			triggered_desc = {
 				trigger = {
 					this = title:e_hre.holder
 				}
-				desc = tct_neutral_struggle.0005.desc.b
+				desc = tct_neutral_struggle.1001.desc.b
 			}
 		}
 	}
@@ -262,13 +268,13 @@ tct_neutral_struggle.0005 = {
 						trigger = {
 							this = scope:otto
 						}
-						desc = tct_neutral_struggle.0005.a
+						desc = tct_neutral_struggle.1001.a
 					}
 					triggered_desc = {
 						trigger = {
 							this = title:e_hre.holder
 						}
-						desc = tct_neutral_struggle.0005.ab
+						desc = tct_neutral_struggle.1001.ab
 					}
 				}
 			}
@@ -282,12 +288,12 @@ tct_neutral_struggle.0005 = {
 				flag = no_redirect
 				days = 100
 			}
-			custom_tooltip = tct_neutral_struggle.0005.a.tt
+			custom_tooltip = tct_neutral_struggle.1001.a.tt
 			start_travel_plan = {
 				players_use_planner = no
 				destination = scope:emperor.capital_province
 				on_arrival_destinations = last
-				on_arrival_event = tct_neutral_struggle.0006
+				on_arrival_event = tct_neutral_struggle.1002
 				return_trip = no # One way
 			}
 		}
@@ -296,9 +302,9 @@ tct_neutral_struggle.0005 = {
 				this = title:e_hre.holder
 			}
 			character:112600 = {
-				trigger_event = { days = 1 id = tct_neutral_struggle.0005 }
+				trigger_event = { days = 1 id = tct_neutral_struggle.1001 }
 			}
-			custom_tooltip = tct_neutral_struggle.0005.b.tt
+			custom_tooltip = tct_neutral_struggle.1001.b.tt
 		}
 	}
 }
@@ -306,10 +312,10 @@ tct_neutral_struggle.0005 = {
 # "The Court's Judgment" # Event for Otto of Bavaria and Heinrich IV 
 # Attempt to plea your case, or break off as an adventurer. (If Deposed you become an adventurer anyways)
 
-tct_neutral_struggle.0006 = {
+tct_neutral_struggle.1002 = {
 	type = character_event
-	title = tct_neutral_struggle.0006.t
-	desc = tct_neutral_struggle.0006.desc
+	title = tct_neutral_struggle.1002.t
+	desc = tct_neutral_struggle.1002.desc
 
 	theme = realm
 	override_background = {
@@ -329,36 +335,36 @@ tct_neutral_struggle.0006 = {
 
 	immediate = {
 		title:c_ravensburg.holder = {
-			trigger_event = { days = 1 id = tct_neutral_struggle.0007 }
+			trigger_event = { days = 1 id = tct_neutral_struggle.1003 }
 		}
 	}
 
 	option = {
-		name = tct_neutral_struggle.0006.a
+		name = tct_neutral_struggle.1002.a
 		show_as_tooltip = {
 			duel = {
 				skills = { diplomacy intrigue }
 				value = extremely_high_skill_rating
 				50 = {
-					desc = tct_neutral_struggle.0006.a.success
+					desc = tct_neutral_struggle.1002.a.success
 					compare_modifier = {
 						value = scope:duel_value
 						multiplier = 3.5
 					}
 					send_interface_toast = {
-						title = tct_neutral_struggle.0006.a.success
+						title = tct_neutral_struggle.1002.a.success
 						left_icon = root
 						add_legitimacy = medium_legitimacy_gain
 					}
 				}
 				50 = {
-					desc = tct_neutral_struggle.0006.a.failure
+					desc = tct_neutral_struggle.1002.a.failure
 					compare_modifier = {
 						value = scope:duel_value
 						multiplier = -3.5
 					}
 					send_interface_toast = {
-						title = tct_neutral_struggle.0006.a.failure
+						title = tct_neutral_struggle.1002.a.failure
 						left_icon = root
 						attempted_murder_opinion_effect = { 
 							VICTIM = scope:emperor
@@ -376,13 +382,13 @@ tct_neutral_struggle.0006 = {
 	}
 
 	option = {
-		name = tct_neutral_struggle.0006.b
+		name = tct_neutral_struggle.1002.b
 	}
 
 	after = {
 		hidden_effect = {
 			send_interface_toast = {
-				title = tct_neutral_struggle.0006.a.failure
+				title = tct_neutral_struggle.1002.a.failure
 				left_icon = root
 				attempted_murder_opinion_effect = { 
 					VICTIM = scope:emperor
@@ -390,7 +396,7 @@ tct_neutral_struggle.0006 = {
 				}
 			}
 
-			trigger_event = { id = tct_neutral_struggle.0008 days = 150 }
+			trigger_event = { id = tct_neutral_struggle.1004 days = 150 }
 		}
 	}
 }
@@ -399,10 +405,10 @@ tct_neutral_struggle.0006 = {
 # New Opportunities # Event for Welf IV
 # Offer from Emperor, for Welf to Divorce Wife / Split from Nordheim's, In exchange, get the Duchy of Bavaria
 
-tct_neutral_struggle.0007 = {
+tct_neutral_struggle.1003 = {
 	type = character_event
-	title = tct_neutral_struggle.0007.t
-	desc = tct_neutral_struggle.0007.desc
+	title = tct_neutral_struggle.1003.t
+	desc = tct_neutral_struggle.1003.desc
 
 	theme = realm
 	override_background = {
@@ -433,7 +439,7 @@ tct_neutral_struggle.0007 = {
 	}
 
 	option = {
-		name = tct_neutral_struggle.0007.a
+		name = tct_neutral_struggle.1003.a
 		
 		divorce_effect = {
 			DIVORCER = root
@@ -490,7 +496,7 @@ tct_neutral_struggle.0007 = {
 	}
 
 	option = {
-		name = tct_neutral_struggle.0007.b
+		name = tct_neutral_struggle.1003.b
 
 		hidden_effect = {
 			character:7054 = { # For fun, if Welf doesn't take the deal, Frederich Hohenstaufen will
@@ -543,10 +549,10 @@ tct_neutral_struggle.0007 = {
 # "Allies in the Shadows" # Event for Otto of Bavaria and Magnus Billung
 # Otto Forging war plans with Magnus Billung
 
-tct_neutral_struggle.0008 = {
+tct_neutral_struggle.1004 = {
 	type = character_event
-	title = tct_neutral_struggle.0008.t
-	desc = tct_neutral_struggle.0008.desc
+	title = tct_neutral_struggle.1004.t
+	desc = tct_neutral_struggle.1004.desc
 	theme = laamp
 
 	left_portrait = {
@@ -568,7 +574,7 @@ tct_neutral_struggle.0008 = {
 	}
 
 	option = {
-		name = tct_neutral_struggle.0008.a
+		name = tct_neutral_struggle.1004.a
 		create_maa_regiment = {
 			type = bowmen
 			size = 5
@@ -584,8 +590,8 @@ tct_neutral_struggle.0008 = {
 			size = 5
 		}
 		
-		scope:otto = { trigger_event = { days = 149 id = tct_neutral_struggle.0009 } }
-		title:e_hre.holder = { trigger_event = { days = 150 id = tct_neutral_struggle.0009 } }
+		scope:otto = { trigger_event = { days = 149 id = tct_neutral_struggle.1005 } }
+		title:e_hre.holder = { trigger_event = { days = 150 id = tct_neutral_struggle.1005 } }
 		scope:magnus = { 
 			scope:magnus = {
 				create_title_and_vassal_change = {
@@ -602,19 +608,19 @@ tct_neutral_struggle.0008 = {
 				resolve_title_and_vassal_change = scope:change
 			}
 			trigger_event = { 
-				days = 150 id = tct_neutral_struggle.0009 
+				days = 150 id = tct_neutral_struggle.1005 
 			}	 
 		}
 		
-		custom_tooltip = tct_neutral_struggle.0008.a.tt
+		custom_tooltip = tct_neutral_struggle.1004.a.tt
 		ai_chance = {
 			base = 1000
 		}
 	}
 
 	option = {
-		name = tct_neutral_struggle.0008.b
-		custom_tooltip = tct_neutral_struggle.0008.b.tt
+		name = tct_neutral_struggle.1004.b
+		custom_tooltip = tct_neutral_struggle.1004.b.tt
 		
 		ai_chance = {
 			base = 0
@@ -624,10 +630,10 @@ tct_neutral_struggle.0008 = {
 
 # "The Saxon Revolt" # Event for Otto of Bavaria and Heinrich IV, maybe everyone in the struggle region?
 
-tct_neutral_struggle.0009 = {
+tct_neutral_struggle.1005 = {
 	type = character_event
-	title = tct_neutral_struggle.0009.t
-	desc = tct_neutral_struggle.0009.desc
+	title = tct_neutral_struggle.1005.t
+	desc = tct_neutral_struggle.1005.desc
 
 	theme = war
 	override_background = {
@@ -732,14 +738,14 @@ tct_neutral_struggle.0009 = {
 						has_character_flag = had_tct_neutral_struggle_0009
 					}
 				}
-				trigger_event = { days = 1 id = tct_neutral_struggle.0009 }
+				trigger_event = { days = 1 id = tct_neutral_struggle.1005 }
 				add_character_flag = had_tct_neutral_struggle_0009
 			}
 		}
 	}
 
 	option = {
-		name = tct_neutral_struggle.0009.a
+		name = tct_neutral_struggle.1005.a
 		trigger = {
 			this = scope:otto
 		}
@@ -800,11 +806,11 @@ tct_neutral_struggle.0009 = {
 			}
 		}
 
-		title:e_hre.holder = { trigger_event = { days = 250 id = tct_neutral_struggle.0010 } }
+		title:e_hre.holder = { trigger_event = { days = 250 id = tct_neutral_struggle.1006 } }
 	}
 
 	option = {
-		name = tct_neutral_struggle.0009.b
+		name = tct_neutral_struggle.1005.b
 		trigger = {
 			NOT = {
 				this = scope:otto
@@ -815,10 +821,10 @@ tct_neutral_struggle.0009 = {
 
 # "The Sack of Harzburg" # Event for Otto of Bavaria and Heinrich IV
 
-tct_neutral_struggle.0010 = {
+tct_neutral_struggle.1006 = {
 	type = character_event
-	title = tct_neutral_struggle.0010.t
-	desc = tct_neutral_struggle.0010.desc
+	title = tct_neutral_struggle.1006.t
+	desc = tct_neutral_struggle.1006.desc
 
 	theme = war
 	override_background = {
@@ -920,10 +926,10 @@ tct_neutral_struggle.0010 = {
 				}
 			}
 			scope:otto = {
-				trigger_event = tct_neutral_struggle.0010 
+				trigger_event = tct_neutral_struggle.1006 
 			}
 			scope:magnus = {
-				trigger_event = tct_neutral_struggle.0010 
+				trigger_event = tct_neutral_struggle.1006 
 			}
 		}
 		if = {
@@ -1008,14 +1014,14 @@ tct_neutral_struggle.0010 = {
 	}
 
 	option = {
-		name = tct_neutral_struggle.0010.a
+		name = tct_neutral_struggle.1006.a
 	}
 }
 
-tct_neutral_struggle.0011 = {
+tct_neutral_struggle.1006 = {
 	type = character_event
-	title = tct_neutral_struggle.0011.t
-	desc = tct_neutral_struggle.0011.desc
+	title = tct_neutral_struggle.1006.t
+	desc = tct_neutral_struggle.1006.desc
 
 	theme = war
 	override_background = {
@@ -1048,17 +1054,17 @@ tct_neutral_struggle.0011 = {
 	}
 
 	option = {
-		name = tct_neutral_struggle.0010.a
+		name = tct_neutral_struggle.1006.a
 	}
 }
 
 # 
 
 # "A Hunchback's Dread" # Event for Godfrey the Hunchback
-tct_neutral_struggle.0012 = {
+tct_neutral_struggle.2001 = {
 	type = character_event
-	title = tct_neutral_struggle.0012.t
-	desc = tct_neutral_struggle.0012.desc
+	title = tct_neutral_struggle.2001.t
+	desc = tct_neutral_struggle.2001.desc
 
 	theme = realm
 	override_background = {
@@ -1087,7 +1093,7 @@ tct_neutral_struggle.0012 = {
 	}
 
 	option = {
-		name = tct_neutral_struggle.0012.a
+		name = tct_neutral_struggle.2001.a
 		set_designated_heir = scope:nephew
 		scope:nephew = {
 			add_pressed_claim = title:d_lower_lorraine
@@ -1098,7 +1104,7 @@ tct_neutral_struggle.0012 = {
 			}
 		}
 		scope:wife = {
-			trigger_event = tct_neutral_struggle.0013
+			trigger_event = tct_neutral_struggle.2002
 			add_opinion = {
 				target = root
 				modifier = insulted_opinion
@@ -1109,11 +1115,11 @@ tct_neutral_struggle.0012 = {
 			ambitious = medium_stress_impact_gain
 			paranoid = medium_stress_impact_gain
 		}
-		custom_tooltip = tct_neutral_struggle.0012.a.tt
+		custom_tooltip = tct_neutral_struggle.2001.a.tt
 	}
 
 	option = {
-		name = tct_neutral_struggle.0012.b
+		name = tct_neutral_struggle.2001.b
 		trigger = {
 			NOT = { has_trait = paranoid }
 		}
@@ -1136,7 +1142,7 @@ tct_neutral_struggle.0012 = {
 
 	after = {
 		trigger_event = {
-			id = tct_neutral_struggle.0014
+			id = tct_neutral_struggle.2003
 			days = { 30 60 }
 		}
 	}
@@ -1144,10 +1150,10 @@ tct_neutral_struggle.0012 = {
 
 # "The Hunchback's Heir" # Event for Matilda of Tuscany
 
-tct_neutral_struggle.0013 = {
+tct_neutral_struggle.2002 = {
 	type = character_event
-	title = tct_neutral_struggle.0013.t
-	desc = tct_neutral_struggle.0013.desc
+	title = tct_neutral_struggle.2002.t
+	desc = tct_neutral_struggle.2002.desc
 
 	theme = realm
 	override_background = {
@@ -1176,7 +1182,7 @@ tct_neutral_struggle.0013 = {
 	}
 
 	option = {
-		name = tct_neutral_struggle.0013.a
+		name = tct_neutral_struggle.2002.a
 		run_interaction = {
 			interaction = divorce_character_rel_head_interaction
 			actor = root
@@ -1191,7 +1197,7 @@ tct_neutral_struggle.0013 = {
 	}
 
 	option = {
-		name = tct_neutral_struggle.0013.b
+		name = tct_neutral_struggle.2002.b
 		stress_impact = {
 			forgiving = medium_stress_impact_gain
 			patient = medium_stress_impact_gain
@@ -1199,7 +1205,7 @@ tct_neutral_struggle.0013 = {
 	}
 }
 
-tct_neutral_struggle.0014 = {
+tct_neutral_struggle.2003 = {
 	hidden = yes
 
 	immediate = {

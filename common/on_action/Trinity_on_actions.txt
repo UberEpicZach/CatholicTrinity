@@ -205,7 +205,7 @@ TCT_1066_Bavarian_Chain = {
 			debug_log = "firing the 1066 Bavarian Event Chain"
 			set_global_variable = TCT_1066_Bavarian_Chain_Fired
 			character:1316 = {
-				trigger_event = tct_neutral_struggle.0005 
+				trigger_event = tct_neutral_struggle.1001 
 			}
 		}
 	}
@@ -346,7 +346,7 @@ TCT_historical_deaths = {
 							is_alive = yes
 						}
 						trigger_event = {
-							id = tct_neutral_struggle.0012
+							id = tct_neutral_struggle.2001
 						}
 					}
 				}

@@ -229,68 +229,68 @@
 
 # "Accusations of Treason" (1070). # Event for Otto of Bavaria and Heinrich IV 
 # Egeno of Konradsburg accuses Otto of Bavaria for Treason. Calls for a Trial
- tct_neutral_struggle.0005.t: "Accusations of Treason"
- tct_neutral_struggle.0005.desc.a: "I find myself holding a sealed letter inked with [emperor.GetTitledFirstName]'s crest. The demand is clear: I am to present myself in [province.GetNameNoTier] to answer for certain 'crimes' against the crown.\n\n#italic ‘I, [Egeno.GetFullName], stand before you with a dire truth: I have uncovered a vile conspiracy against our sovereign, [emperor.GetTitledFirstName]. The [saxons.GetName] counts alongside [otto.GetFirstName] [otto.GetDynastyName], [otto.GetTitleAsNameNoTooltip] of [otto.GetPrimaryTitle.GetNameNoTier], have plotted in secret to overthrow the crown. But it goes further—[otto.GetFirstName] himself gave me the order to murder the king! This treachery runs deep, and I have borne witness to their twisted designs.' #! \n\nConspiracy... #italic Murder...#! My name now tied to treason...\nNo doubt the entire realm has seen these accusations by now; all eyes are me."
- tct_neutral_struggle.0005.desc.b: "The court buzzes with low murmurs as Egeno strides forward, his head held high and eyes locked on mine. He kneels briefly, then rises to speak, commanding the attention of all present. \n\n#italic "I, [Egeno.GetFullName], bring dire news before Your Imperial Majesty. Treason festers within your realm! The [saxons.GetName] counts, with [otto.GetFirstName] [otto.GetDynastyName], [otto.GetTitleAsNameNoTooltip] of [otto.GetPrimaryTitle.GetNameNoTier], at their head, have conspired to overthrow your divine rule. And worse—[otto.GetFirstName] himself commanded me to murder you, my liege!" #! \n\nGasps ripple through the hall, but I watch as eyes dart not to Egeno, but to me. His performance is flawless, as we had agreed. The court believes this to be his moment of bravery, but the path ahead was charted long before he spoke. \n\n"These are grave accusations," I declare, my voice steady. "Let [otto.GetFirstName] [otto.GetDynastyName] stand trial and answer for them before God and the Empire.""
- tct_neutral_struggle.0005.a: "I must defend myself.."
- tct_neutral_struggle.0005.a.tt: "You will travel to [province.GetNameNoTier]"
- tct_neutral_struggle.0005.ab: "All according to plan"
- tct_neutral_struggle.0005.b.tt: "[otto.GetFirstName] [otto.GetDynastyName] will recieve a letter and travel to [province.GetNameNoTier] to stand trial"
+ tct_neutral_struggle.1001.t: "Accusations of Treason"
+ tct_neutral_struggle.1001.desc.a: "I find myself holding a sealed letter inked with [emperor.GetTitledFirstName]'s crest. The demand is clear: I am to present myself in [province.GetNameNoTier] to answer for certain 'crimes' against the crown.\n\n#italic ‘I, [Egeno.GetFullName], stand before you with a dire truth: I have uncovered a vile conspiracy against our sovereign, [emperor.GetTitledFirstName]. The [saxons.GetName] counts alongside [otto.GetFirstName] [otto.GetDynastyName], [otto.GetTitleAsNameNoTooltip] of [otto.GetPrimaryTitle.GetNameNoTier], have plotted in secret to overthrow the crown. But it goes further—[otto.GetFirstName] himself gave me the order to murder the king! This treachery runs deep, and I have borne witness to their twisted designs.' #! \n\nConspiracy... #italic Murder...#! My name now tied to treason...\nNo doubt the entire realm has seen these accusations by now; all eyes are me."
+ tct_neutral_struggle.1001.desc.b: "The court buzzes with low murmurs as Egeno strides forward, his head held high and eyes locked on mine. He kneels briefly, then rises to speak, commanding the attention of all present. \n\n#italic "I, [Egeno.GetFullName], bring dire news before Your Imperial Majesty. Treason festers within your realm! The [saxons.GetName] counts, with [otto.GetFirstName] [otto.GetDynastyName], [otto.GetTitleAsNameNoTooltip] of [otto.GetPrimaryTitle.GetNameNoTier], at their head, have conspired to overthrow your divine rule. And worse—[otto.GetFirstName] himself commanded me to murder you, my liege!" #! \n\nGasps ripple through the hall, but I watch as eyes dart not to Egeno, but to me. His performance is flawless, as we had agreed. The court believes this to be his moment of bravery, but the path ahead was charted long before he spoke. \n\n"These are grave accusations," I declare, my voice steady. "Let [otto.GetFirstName] [otto.GetDynastyName] stand trial and answer for them before God and the Empire.""
+ tct_neutral_struggle.1001.a: "I must defend myself.."
+ tct_neutral_struggle.1001.a.tt: "You will travel to [province.GetNameNoTier]"
+ tct_neutral_struggle.1001.ab: "All according to plan"
+ tct_neutral_struggle.1001.b.tt: "[otto.GetFirstName] [otto.GetDynastyName] will recieve a letter and travel to [province.GetNameNoTier] to stand trial"
  
  
 # "The Court's Judgment" # Event for Otto of Bavaria and Heinrich IV 
 # Attempt to plea your case, or break off as an adventurer. (If Deposed you become an adventurer anyways)
- tct_neutral_struggle.0006.t: "The Court's Judgment"
- tct_neutral_struggle.0006.desc: "As I ride through the city streets, the weight of countless eyes is upon me—nobles whisper behind closed doors, and commoners watch with wary curiosity. [emperor.GetTitledFirstName], perched on his seat of power, is not seeking justice today. His aim is clear: to eliminate a threat, one of the few [saxons.GetName]'s' who might stand against him.\n\nStill, I ride on. For the sake of my house, I must face what lies ahead. To flee now would only confirm every whisper, every accusation. But to stand my ground and face trial... perhaps there is still a chance, however slim, to turn this judgment to my advantage...My name is called, and the trial begins."
- tct_neutral_struggle.0006.a: "I will face the court."
- tct_neutral_struggle.0006.a.success: "Your speech convinces the jury of your innocence"
- tct_neutral_struggle.0006.a.failure: "Your speech fails to convince anyone"
- tct_neutral_struggle.0006.b: "I must #italic flee#!"
+ tct_neutral_struggle.1002.t: "The Court's Judgment"
+ tct_neutral_struggle.1002.desc: "As I ride through the city streets, the weight of countless eyes is upon me—nobles whisper behind closed doors, and commoners watch with wary curiosity. [emperor.GetTitledFirstName], perched on his seat of power, is not seeking justice today. His aim is clear: to eliminate a threat, one of the few [saxons.GetName]'s' who might stand against him.\n\nStill, I ride on. For the sake of my house, I must face what lies ahead. To flee now would only confirm every whisper, every accusation. But to stand my ground and face trial... perhaps there is still a chance, however slim, to turn this judgment to my advantage...My name is called, and the trial begins."
+ tct_neutral_struggle.1002.a: "I will face the court."
+ tct_neutral_struggle.1002.a.success: "Your speech convinces the jury of your innocence"
+ tct_neutral_struggle.1002.a.failure: "Your speech fails to convince anyone"
+ tct_neutral_struggle.1002.b: "I must #italic flee#!"
  
 # New Opportunities # Event for Welf IV
 # Offer from Emperor, for Welf to Divorce Wife / Split from Nordheim's, In exchange, get the Duchy of Bavaria
- tct_neutral_struggle.0007.t: "New Opportunities"
- tct_neutral_struggle.0007.desc: "The Imperial Chancellor has arrived unexpectedly, bearing a message from [emperor.GetTitledFirstName] himself. He begins, relaying the emperor's offer with exact and careful words. "[otto.GetFirstName] [otto.GetDynastyName], the [otto.GetTitleAsName] of [otto.GetPrimaryTitle.GetNameNoTier], your father-in-Law, currently stands trial in [province.GetNameNoTier]..." \n\nThough the chancellor's tone, it is clear the trial is merely a formality. Otto's fate has already been sealed—the emperor intends to remove him from power. \n\nThe chancellor leans closer, his voice lowering. "[emperor.GetTitledFirstName] offers you a great opportunity. Swear your loyalty to him, divorce your Nordheim wife, and sever all ties with her family. In exchange, the Duchy of Bavaria will be yours." The offer is straightforward: break from Otto's house, and the duchy will pass to my hands, but to turn my back on Otto and Ethelinde... I must decide quickly..."
- tct_neutral_struggle.0007.a: "I will accept the offer."
- tct_neutral_struggle.0007.b: "I must refuse..."
+ tct_neutral_struggle.1003.t: "New Opportunities"
+ tct_neutral_struggle.1003.desc: "The Imperial Chancellor has arrived unexpectedly, bearing a message from [emperor.GetTitledFirstName] himself. He begins, relaying the emperor's offer with exact and careful words. "[otto.GetFirstName] [otto.GetDynastyName], the [otto.GetTitleAsName] of [otto.GetPrimaryTitle.GetNameNoTier], your father-in-Law, currently stands trial in [province.GetNameNoTier]..." \n\nThough the chancellor's tone, it is clear the trial is merely a formality. Otto's fate has already been sealed—the emperor intends to remove him from power. \n\nThe chancellor leans closer, his voice lowering. "[emperor.GetTitledFirstName] offers you a great opportunity. Swear your loyalty to him, divorce your Nordheim wife, and sever all ties with her family. In exchange, the Duchy of Bavaria will be yours." The offer is straightforward: break from Otto's house, and the duchy will pass to my hands, but to turn my back on Otto and Ethelinde... I must decide quickly..."
+ tct_neutral_struggle.1003.a: "I will accept the offer."
+ tct_neutral_struggle.1003.b: "I must refuse..."
 
 # "Allies in the Shadows" # Event for Otto of Bavaria and Magnus Billung
 # Otto Forging war plans with Magnus Billung
- tct_neutral_struggle.0008.t: "Allies in the Shadows"
- #tct_neutral_struggle.0008.opening: "To Otto, once Duke of Bavaria and still a man of honor despite the crown’s betrayal"
- tct_neutral_struggle.0008.desc: "#italic ‘To [otto.GetFirstName], once Duke of Bavaria and still a man of honor despite the crown’s betrayal, I have long considered the injustices done to you, a man who gave loyalty only to have it spat back in his face. Know that you are not forgotten—least of all by me. \n\nThe emperor’s trial may have silenced you within the Empire, but here in Saxony, we speak of your fall as proof of his tyranny. Men may rise with words, but only steel will bring the emperor to his knees. My people murmur of rebellion, and I can no longer stand idle while [emperor.GetFirstName] wields a powerful cudgel against the Saxons. \n\nYou'd be restored to your rightful station, as I would see my family avenged for their suffering. I have the means to fund a band of loyal warriors for you. In return, I ask for your sword and name to join with mine when the moment comes. Together, we will burn away the rot and reclaim what is owed.’#!"
- tct_neutral_struggle.0008.a: "I will join you in this struggle."
- tct_neutral_struggle.0008.a.tt: "@warning_icon! #X You will join the #high Civil War#! against [emperor.GetShortUIName], on the side of the Saxons led by [magnus.GetShortUIName] in a few months#!" 
- tct_neutral_struggle.0008.b: "My time in the imperial court is over."
- tct_neutral_struggle.0008.b.tt: "You will remain an adventurer"
+ tct_neutral_struggle.1004.t: "Allies in the Shadows"
+ #tct_neutral_struggle.1004.opening: "To Otto, once Duke of Bavaria and still a man of honor despite the crown’s betrayal"
+ tct_neutral_struggle.1004.desc: "#italic ‘To [otto.GetFirstName], once Duke of Bavaria and still a man of honor despite the crown’s betrayal, I have long considered the injustices done to you, a man who gave loyalty only to have it spat back in his face. Know that you are not forgotten—least of all by me. \n\nThe emperor’s trial may have silenced you within the Empire, but here in Saxony, we speak of your fall as proof of his tyranny. Men may rise with words, but only steel will bring the emperor to his knees. My people murmur of rebellion, and I can no longer stand idle while [emperor.GetFirstName] wields a powerful cudgel against the Saxons. \n\nYou'd be restored to your rightful station, as I would see my family avenged for their suffering. I have the means to fund a band of loyal warriors for you. In return, I ask for your sword and name to join with mine when the moment comes. Together, we will burn away the rot and reclaim what is owed.’#!"
+ tct_neutral_struggle.1004.a: "I will join you in this struggle."
+ tct_neutral_struggle.1004.a.tt: "@warning_icon! #X You will join the #high Civil War#! against [emperor.GetShortUIName], on the side of the Saxons led by [magnus.GetShortUIName] in a few months#!" 
+ tct_neutral_struggle.1004.b: "My time in the imperial court is over."
+ tct_neutral_struggle.1004.b.tt: "You will remain an adventurer"
 
 # "The Saxon Revolt" # Event for Otto of Bavaria and Heinrich IV, maybe everyone in the struggle region?
  FIRST_SAXON_REVOLT_WAR_NAME: "The Saxon Uprising"
- tct_neutral_struggle.0009.t: "The Saxon Uprising"
- tct_neutral_struggle.0009.desc: "The Saxons have risen in defiance, their long-simmering anger now bursting into open rebellion. \n\nThe emperor’s trial of [otto.GetFirstName] [otto.GetDynastyName] has been the catalyst, igniting years of frustration into a full-scale revolt. Led by [magnus.GetFullName], the Saxon lords have united under a single banner, and the people, emboldened, have taken up arms to throw off the weight of imperial oppression. Rebel forces now march toward Goslar, their resolve clear: to bring the emperor to account for his tyranny."
- tct_neutral_struggle.0009.a: "Let the best one win."
- tct_neutral_struggle.0009.b: "Let the best one win." 
+ tct_neutral_struggle.1005.t: "The Saxon Uprising"
+ tct_neutral_struggle.1005.desc: "The Saxons have risen in defiance, their long-simmering anger now bursting into open rebellion. \n\nThe emperor’s trial of [otto.GetFirstName] [otto.GetDynastyName] has been the catalyst, igniting years of frustration into a full-scale revolt. Led by [magnus.GetFullName], the Saxon lords have united under a single banner, and the people, emboldened, have taken up arms to throw off the weight of imperial oppression. Rebel forces now march toward Goslar, their resolve clear: to bring the emperor to account for his tyranny."
+ tct_neutral_struggle.1005.a: "Let the best one win."
+ tct_neutral_struggle.1005.b: "Let the best one win." 
  every_saxon_vassal: "Every vassal of your [culture.GetNameNoTooltip]" 
 
  every_tct_faith_vassal: "Every [GetFaithByKey('catholic').GetAdjective] Vassal"
 
 # "The Sack of Harzburg" # Event for Otto of Bavaria and Heinrich IV
 
- tct_neutral_struggle.0010.t: "The Sack of Goslar-Harzburg"
- tct_neutral_struggle.0010.desc: "The once-proud Palace of Harzburg lies in ruin, its sacred grounds desecrated. A group of [magnus.GetFirstName]'s Rebel forces, have turned to unrestrained barbarism. Graves have been ripped open, the remains of princes and bishops discarded like refuse, their sanctity mocked by jeering looters. The chapel, once a place of reverence, is now rubble, its relics stolen or destroyed, and its altars smeared with blood and ash. \n\nThe monks who tried to shield the graves lie among the ruins, their lifeless bodies scattered where they made their final stand. Some rebels laugh at the carnage, their cruelty unchecked, while others falter, horror etched into their faces as the scale of their comrades' savagery became clear. \n\nThis is no longer rebellion—it is sacrilege. Whispers of unease spread through the empire itself: ‘This was not justice.’ This has not broken the emperor’s resolve but strengthened his claim to vengeance, what was once a rebellion for justice is now condemned as a campaign of heresy and barbarism."
- tct_neutral_struggle.0010.a: ""This... this is unthinkable."
+ tct_neutral_struggle.1006.t: "The Sack of Goslar-Harzburg"
+ tct_neutral_struggle.1006.desc: "The once-proud Palace of Harzburg lies in ruin, its sacred grounds desecrated. A group of [magnus.GetFirstName]'s Rebel forces, have turned to unrestrained barbarism. Graves have been ripped open, the remains of princes and bishops discarded like refuse, their sanctity mocked by jeering looters. The chapel, once a place of reverence, is now rubble, its relics stolen or destroyed, and its altars smeared with blood and ash. \n\nThe monks who tried to shield the graves lie among the ruins, their lifeless bodies scattered where they made their final stand. Some rebels laugh at the carnage, their cruelty unchecked, while others falter, horror etched into their faces as the scale of their comrades' savagery became clear. \n\nThis is no longer rebellion—it is sacrilege. Whispers of unease spread through the empire itself: ‘This was not justice.’ This has not broken the emperor’s resolve but strengthened his claim to vengeance, what was once a rebellion for justice is now condemned as a campaign of heresy and barbarism."
+ tct_neutral_struggle.1006.a: ""This... this is unthinkable."
 
 
- tct_neutral_struggle.0012.t: "A Hunchback's Dread"
- tct_neutral_struggle.0012.desc: "Fear grips my every waking moment. The lords beneath me plot, their whispers growing louder with each passing day. They see my frailty, my lack of an heir, as an opportunity to divide my lands and erase my legacy. I cannot allow that. \n\nMy nephew, [nephew.GetFullName], is the answer—a strong, capable man who could defend what I cannot. But even as I settle on this decision, [wife.GetFullName] rails against it. We’ve been husband and wife in name only for years, her ambitions tied to [GetTitleByKey('d_toscana').GetNameNoTier], not to me. What right does she have to interfere now?"
- tct_neutral_struggle.0012.a: "Godfrey of Bouillon shall be my heir."
- tct_neutral_struggle.0012.a.tt: "[nephew.GetFullName] will become your heir"
- tct_neutral_struggle.0012.b: "Perhaps I should reconsider..."
+ tct_neutral_struggle.2001.t: "A Hunchback's Dread"
+ tct_neutral_struggle.2001.desc: "Fear grips my every waking moment. The lords beneath me plot, their whispers growing louder with each passing day. They see my frailty, my lack of an heir, as an opportunity to divide my lands and erase my legacy. I cannot allow that. \n\nMy nephew, [nephew.GetFullName], is the answer—a strong, capable man who could defend what I cannot. But even as I settle on this decision, [wife.GetFullName] rails against it. We’ve been husband and wife in name only for years, her ambitions tied to [GetTitleByKey('d_toscana').GetNameNoTier], not to me. What right does she have to interfere now?"
+ tct_neutral_struggle.2001.a: "Godfrey of Bouillon shall be my heir."
+ tct_neutral_struggle.2001.a.tt: "[nephew.GetFullName] will become your heir"
+ tct_neutral_struggle.2001.b: "Perhaps I should reconsider..."
 
- tct_neutral_struggle.0013.t: "A Hunchback's Heir"
- tct_neutral_struggle.0013.desc: "News of my husband’s decision reaches me like a slap across the face. [husband.GetFullName] has chosen his nephew as his heir, ignoring my counsel and discarding my claim to any say in his legacy. Our union has been hollow for years, but to exclude me so completely? \n\n[nephew.GetFullName] may be capable, but this is no mere matter of competence. This is about respect—my rightful influence over the future of our shared domains. I refuse to be cast aside while my husband’s paranoia dictates everything."
- tct_neutral_struggle.0013.a: "I will have my say..."
- tct_neutral_struggle.0013.b: "He can have his heir."
+ tct_neutral_struggle.2002.t: "A Hunchback's Heir"
+ tct_neutral_struggle.2002.desc: "News of my husband’s decision reaches me like a slap across the face. [husband.GetFullName] has chosen his nephew as his heir, ignoring my counsel and discarding my claim to any say in his legacy. Our union has been hollow for years, but to exclude me so completely? \n\n[nephew.GetFullName] may be capable, but this is no mere matter of competence. This is about respect—my rightful influence over the future of our shared domains. I refuse to be cast aside while my husband’s paranoia dictates everything."
+ tct_neutral_struggle.2002.a: "I will have my say..."
+ tct_neutral_struggle.2002.b: "He can have his heir."
 
 
 
