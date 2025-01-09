@@ -225,6 +225,11 @@
  tct_neutral_struggle.0004.a: "We should not be so hasty."
  tct_neutral_struggle.0004.a.tt: "The future is uncertain and may present you different opportunities."
 
+ tct_neutral_struggle.0005.t: "Lower Lotharingia and Empire"
+ tct_neutral_struggle.0005.desc: "About 1 year ago, Henry IV granted me the [GetTitleByKey('d_lower_lorraine').GetName] and [GetTitleByKey('c_antwerpen').GetName], settling a decades-long dispute I had with his father, Henry III.\n\nThough I am still missing the [GetTitleByKey('d_upper_lorraine').GetName] that Henry III revoked from me, I wonder if I should stir up the region again or if I should rule what I've got."
+ tct_neutral_struggle.0005.a: "I'll keep away from trouble"
+ tct_neutral_struggle.0005.b: "I'll be honest, I can't promise anything..."
+ 
  # Saxon Rebellion Chain
 
 # "Accusations of Treason" (1070). # Event for Otto of Bavaria and Heinrich IV 

@@ -150,6 +150,65 @@
 			}
 		}
 	}
+	
+	character:11030 = { # Gottfried of Lower Lotharingia
+		HEE_remove_education_traits_effect = yes
+		HEE_remove_personality_traits_effect = yes
+
+		add_trait = calm
+		add_trait = honest
+		add_trait = brave
+		add_trait = stubborn
+		add_trait = education_martial_3
+		
+		learn_language = language_italian
+
+		refund_all_perks = yes
+		remove_all_perk_lifestyle_traits_effect = yes
+		add_intrigue_lifestyle_perk_points = -16
+		add_perk = bellum_justum_perk
+		add_perk = parthian_tactics_perk
+		add_perk = envelopment_perk
+		add_perk = organized_retreat_perk
+		add_perk = hit_and_run_perk
+		add_perk = engineered_for_destruction_perk
+		add_perk = living_off_the_land_perk
+		add_perk = sappers_perk
+		add_perk = strategist_perk
+		add_trait = strategist
+
+		add_perk = stalwart_leader_perk
+		add_perk = chivalric_dominance_perk
+		add_perk = never_back_down_perk
+
+		add_perk = serve_the_crown_perk
+		add_perk = a_mans_home_perk
+		add_perk = enduring_hardships_perk
+		add_perk = prepared_conscription_perk
+
+		set_relation_friend = {
+			target = character:7755
+			reason = friend_generic_history
+		}
+		add_opinion = {
+			target = title:e_hre.holder
+			opinion = 58.8
+			years = 49
+			modifier = received_title_duchy
+		}
+		add_opinion = {
+			target = title:e_hre.holder
+			opinion = 78.8
+			years = 49
+			modifier = received_title_county
+		}
+		add_truce_both_ways = {
+			character = title:e_hre.holder
+			days = 1442
+			result = TRUCE_COLLABORATION
+		}
+		trigger_event = { id = tct_neutral_struggle.0005 }
+	}
 	title:e_hre.holder = {
 		create_title_and_vassal_change = {
 			type = revoked
