@@ -183,7 +183,7 @@ tct_neutral_struggle.0004 = {
 	}
 }
 
-# Gottfried III
+# Gottfried of Lower Lotharingia
 tct_neutral_struggle.0005 = {
 	type = character_event
 	title = tct_neutral_struggle.0005.t
@@ -201,18 +201,8 @@ tct_neutral_struggle.0005 = {
 		character = title:e_hre.holder
 		animation = drink_goblet
 	}
-	lower_left_portrait = {
-		character = spouse
-	}
-	lower_right_portrait = {
-		character = matilda
-	}
 
 	immediate = {
-		character:20248 = { save_scope_as = hunchback }
-		character:7755 = { save_scope_as = spouse }
-		character:7757 = { save_scope_as = matilda }
-
 		show_as_tooltip = {
 			create_title_and_vassal_change = {
 				type = granted
