@@ -2756,6 +2756,12 @@ TCT_religious_events.42 = {
 	# 	character = scope:rulerwithheretic
 	# }
 
+	immediate = {
+		faith.religious_head = {
+			save_scope_as = sender
+		}
+	}
+
 	option = { 
 		name = TCT_religious_events.42.a
 		if = { #Can I fire them?

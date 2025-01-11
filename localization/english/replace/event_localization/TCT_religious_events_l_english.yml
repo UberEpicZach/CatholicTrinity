@@ -333,7 +333,7 @@
   TCT_religious_events.41.b: "Ignore the issue."
 
   TCT_religious_events.42.t: "Heretical Courtiers"
-  TCT_religious_events.42.opening: "[faith.religious_head.Custom2('AppropriateGreetingPositive', ROOT.Char)]"
+  TCT_religious_events.42.opening: "[sender.Custom2('AppropriateGreetingPositive', ROOT.Char)]"
   TCT_religious_events.42.desc: "I am most concerned that you allow heretics as your advisors. They should immediately be removed from position their position."
   TCT_religious_events.42.a: "Fire the heretic!"
   TCT_religious_events.42.b: "I rule in my realm!"
