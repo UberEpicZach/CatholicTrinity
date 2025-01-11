@@ -1263,7 +1263,7 @@ TCT_religious_events.22 = {
 				}
 				add_trait = cardinal_priest
 			}
-			if = {
+			else_if = {
 				limit = {
 					is_landed = yes
 					highest_held_title_tier >= tier_duchy
@@ -5573,11 +5573,7 @@ TCT_religious_events.805 = {
 	hidden = yes
 
 	trigger = {
-		OR = {
-			has_trait = cardinal_archbishop
-			has_trait = cardinal_bishop
-			has_trait = cardinal_priest
-		}
+		has_trait = cardinal
 	}
 
 	immediate = {
@@ -5590,7 +5586,7 @@ TCT_religious_events.805 = {
 			remove_trait = cardinal_archbishop
 			add_trait = cardinal_bishop
 		}
-		if = {
+		else_if = {
 			limit = {
 				has_trait = cardinal_bishop
 				is_landed = no
@@ -5610,11 +5606,7 @@ TCT_religious_events.806 = {
 	hidden = yes
 
 	trigger = {
-		OR = {
-			has_trait = cardinal_archbishop
-			has_trait = cardinal_bishop
-			has_trait = cardinal_priest
-		}
+		has_trait = cardinal
 	}
 
 	immediate = {

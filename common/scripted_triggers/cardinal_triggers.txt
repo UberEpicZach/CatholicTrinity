@@ -46,11 +46,7 @@ ruler_has_cardinality_eligible_realm_priest = {
 # Is this character a valid cardinal?
 is_cardinal = {
 	has_cardinal_faith = yes
-	OR = {
-		has_trait = cardinal_archbishop
-		has_trait = cardinal_bishop
-		has_trait = cardinal_priest
-	}
+	has_trait = cardinal
 	any_owned_story = {
 		story_type = cardinal_story
 	}

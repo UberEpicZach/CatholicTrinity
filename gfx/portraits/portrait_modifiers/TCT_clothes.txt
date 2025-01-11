@@ -28,11 +28,7 @@
 				NOT = {
 					exists = global_var:cfp_is_loaded
 				}
-				OR = {
-					has_trait = cardinal_priest
-					has_trait = cardinal_bishop
-					has_trait = cardinal_archbishop
-				}
+				has_trait = cardinal
             }
         }
     }

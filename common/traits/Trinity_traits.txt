@@ -1,5 +1,8 @@
 ﻿cardinal_priest = {
     category = fame
+	group = cardinal
+	level = 1
+
     learning = 2
 	flag = can_not_marry
     same_faith_opinion = 10
@@ -22,6 +25,9 @@
 
 cardinal_bishop = {
     category = fame
+	group = cardinal
+	level = 2
+
     learning = 2
 	flag = can_not_marry
     same_faith_opinion = 15
@@ -45,6 +51,9 @@ cardinal_bishop = {
 
 cardinal_archbishop = {
     category = fame
+	group = cardinal
+	level = 3
+
     learning = 2
     stewardship = 1
 	flag = can_not_marry

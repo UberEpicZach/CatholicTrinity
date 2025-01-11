@@ -36,11 +36,7 @@
 	text = {
 		trigger = {
 			is_preferatus_character = yes 
-			OR = {
-				has_trait = cardinal_archbishop
-				has_trait = cardinal_bishop
-				has_trait = cardinal_priest
-			}
+			has_trait = cardinal
 		}
 		localization_key = CardinalFlavor4
 	}

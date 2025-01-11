@@ -226,16 +226,14 @@ promote_new_cardinal = {
 				is_landed = no
 			}
 			add_trait = cardinal_priest
-		}
-		if = {
-			limit = {
-				is_landed = no
-				is_theocratic_lessee = no
+			if = {
+				limit = {
+					is_theocratic_lessee = no
+				}
+				give_nickname = nick_cardinal
 			}
-			add_trait = cardinal_priest
-			give_nickname = nick_cardinal
 		}
-		if = {
+		else_if = {
 			limit = {
 				is_landed = yes
 				highest_held_title_tier >= tier_duchy
@@ -277,7 +275,6 @@ initialize_random_cardinal = {
 		order_by = bishop_to_cardinal_score
 		limit = { is_male = yes NOT = { this = character:7853 this = character:2010 } }
 		position = 0
-		#realm_priest = {
 		become_initial_cardinal = yes 
 		add_piety = 100
 		if = {
@@ -286,7 +283,7 @@ initialize_random_cardinal = {
 			}
 			add_trait = cardinal_priest
 		}
-		if = {
+		else_if = {
 			limit = {
 				is_landed = yes
 				highest_held_title_tier >= tier_duchy
@@ -422,7 +419,7 @@ CardinalsAreCardinals = {
 			}
 			add_trait = cardinal_priest
 		}
-		if = {
+		else_if = {
 			limit = {
 				is_landed = yes
 				highest_held_title_tier >= tier_duchy
@@ -603,11 +600,7 @@ TCT_spawn_HRE_Antipope = {
 			}
 			if = {
 				limit = { 
-					OR = {
-						has_trait = cardinal_priest
-						has_trait = cardinal_bishop
-						has_trait = cardinal_archbishop
-					}
+					has_trait = cardinal
 				}
 				if = { limit = { has_trait = cardinal_priest } remove_trait = cardinal_priest }
 				if = { limit = { has_trait = cardinal_bishop } remove_trait = cardinal_bishop }

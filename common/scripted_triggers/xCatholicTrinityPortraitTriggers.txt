@@ -1,8 +1,6 @@
 ﻿CatholicTrinityCardinalTrigger = {
 	OR = {
-		has_trait = cardinal_archbishop
-		has_trait = cardinal_bishop
-		has_trait = cardinal_priest
+		has_trait = cardinal
 		has_nickname = nick_cardinal
 		has_character_flag = wearing_cardinal
 	}

@@ -215,11 +215,7 @@ is_preferatus_character = {
 		has_faith = faith:catholic
 		has_faith = faith:insular_celtic
 	}
-	OR = {
-		has_trait = cardinal_archbishop
-		has_trait = cardinal_bishop
-		has_trait = cardinal_priest
-	}
+	has_trait = cardinal
 	exists = global_var:preferatus
 	this = global_var:preferatus.story_owner
 	any_owned_story = {

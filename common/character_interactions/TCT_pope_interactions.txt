@@ -155,11 +155,7 @@ TCT_make_antipope_interaction = {
 			desc = TCT_MAKE_ANTIPOPE_IS_CARDINAL
 			add = -10
 			scope:recipient = {
-				OR = {
-					has_trait = cardinal_priest
-					has_trait = cardinal_bishop
-					has_trait = cardinal_archbishop
-				}
+				has_trait = cardinal
 			}
 		}
 		modifier = {
@@ -213,11 +209,7 @@ TCT_make_antipope_interaction = {
 			}
 			if = {
 				limit = { 
-					OR = {
-						has_trait = cardinal_priest
-						has_trait = cardinal_bishop
-						has_trait = cardinal_archbishop
-					}
+					has_trait = cardinal
 				}
 				if = { limit = { has_trait = cardinal_priest } remove_trait = cardinal_priest }
 				if = { limit = { has_trait = cardinal_bishop } remove_trait = cardinal_bishop }
@@ -566,11 +558,7 @@ request_excommunication_interaction = {
 			scope:actor.faith = {
 				every_faith_ruler = {
 					limit = { 
-						OR = {
-							has_trait = cardinal_priest
-							has_trait = cardinal_bishop
-							has_trait = cardinal_archbishop
-						}
+						has_trait = cardinal
 						faith = scope:actor.faith
 						top_liege = scope:actor
 					}
@@ -592,11 +580,7 @@ request_excommunication_interaction = {
 				}
 				every_faith_ruler = {
 					limit = { 
-						OR = {
-							has_trait = cardinal_priest
-							has_trait = cardinal_bishop
-							has_trait = cardinal_archbishop
-						}
+						has_trait = cardinal
 						faith = scope:secondary_recipient.faith
 						top_liege = scope:secondary_recipient
 					}
@@ -957,11 +941,7 @@ hof_ask_for_claim_interaction = { #TCT
 				scope:actor.faith = {
 					every_faith_ruler = {
 						limit = { 
-							OR = {
-								has_trait = cardinal_priest
-								has_trait = cardinal_bishop
-								has_trait = cardinal_archbishop
-							}
+							has_trait = cardinal
 							faith = scope:secondary_recipient.faith
 							top_liege = scope:secondary_recipient
 						}
