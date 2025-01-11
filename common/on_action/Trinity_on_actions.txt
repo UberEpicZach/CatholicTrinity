@@ -282,41 +282,6 @@ TCT_historical_deaths = {
 		}
 		if = {
 			limit = {
-				NOT = { has_global_variable = TCT_godfrey_the_bearded_death }
-			}
-			debug_log = "Checking for chance of firing Godfrey the Bearded's death event"
-
-			random = {
-				chance = 0
-				modifier = {
-					add = 25
-					current_date > 1067.1.1
-				}
-				modifier = {
-					add = 50
-					current_date > 1068.1.1
-				}
-				modifier = {
-					add = 124
-					current_date > 1069.1.1
-				}
-				set_global_variable = {
-					name = TCT_godfrey_the_bearded_death
-					value = yes
-				}
-				debug_log = "Attempting to force Godfrey the Bearded's death event"
-				character:11030 = {
-					if = {
-						limit = {
-							is_alive = yes
-						}
-						death = { death_reason = death_natural_causes }
-					}
-				}
-			}
-		}
-		if = {
-			limit = {
 				character:20248 = { is_ruler = yes }
 				NOT = { has_global_variable = TCT_godfrey_the_hunchback_death }
 			}
