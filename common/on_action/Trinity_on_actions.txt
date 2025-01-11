@@ -502,18 +502,18 @@ on_game_start_after_lobby = {
 
 on_great_holy_war_countdown_end = {
 	effect = {
-		if = {
-			limit = {
-				exists = religious_head
-				religious_head = {
-					has_title = title:k_papal_state
+		faith = {
+			if = {
+				limit = {
+					exists = religious_head
+					religious_head = {
+						has_title = title:k_papal_state
+					}
+					exists = title:d_captain_general_church.holder
 				}
-				exists = title:d_captain_general_church.holder
-			}
-			title:d_captain_general_church.holder = {
-				save_scope_as = ghw_sponsor
-			}
-			faith = {
+				title:d_captain_general_church.holder = {
+					save_scope_as = ghw_sponsor
+				}
 				great_holy_war = {
 					set_war_declarer = scope:ghw_sponsor
 					if = {
