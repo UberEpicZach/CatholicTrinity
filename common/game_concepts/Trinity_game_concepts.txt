@@ -5,7 +5,6 @@
 }
 
 free_investiture = {
-	parent = investiture 
 	alias = { free_investitures }
 	texture = "gfx/interface/icons/message_feed/law.dds"
 	#texture = "gfx/interface/icons/laws/crown_authority_0.dds"
@@ -13,7 +12,6 @@ free_investiture = {
 } 
  
 papal_investiture = {
-	parent = investiture 
 	alias = { papal_investitures }
 	texture = "gfx/interface/icons/message_feed/law.dds"
 	#texture = "gfx/interface/icons/laws/crown_authority_1.dds"
