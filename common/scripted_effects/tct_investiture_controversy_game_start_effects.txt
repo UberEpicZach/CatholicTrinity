@@ -226,7 +226,10 @@
 			days = 1442
 			name = TRUCE_COLLABORATION
 		}
-		trigger_event = { id = tct_neutral_struggle.0005 }
+		trigger_event = { 
+			id = tct_neutral_struggle.0005 
+			days = 1
+		}
 	}
 	title:e_hre.holder = {
 		create_title_and_vassal_change = {
