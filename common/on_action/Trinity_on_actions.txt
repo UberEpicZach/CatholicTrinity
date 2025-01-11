@@ -164,8 +164,6 @@ on_army_enter_province = {
 
 yearly_global_pulse = {
 	on_actions = {
-		delay = { days = 357 }
-		TCT_christmas_set
 		TCT_saint_day
 
 		# Scripted Deaths
@@ -173,6 +171,9 @@ yearly_global_pulse = {
 
 		# Bavarian Chain
 		TCT_1066_Bavarian_Chain
+
+		delay = { days = 357 }
+		TCT_christmas_set
 	}
 }
 
@@ -191,21 +192,24 @@ TCT_1066_Bavarian_Chain = {
 		random = {
 			chance = 0
 			modifier = {
-				add = 25
-				current_date > 867.1.1
+				add = 20
+				current_date > 1068.1.1
 			}
 			modifier = {
-				add = 50
-				current_date > 870.1.1
+				add = 40
+				current_date > 1069.1.1
 			}
 			modifier = {
-				add = 124
-				current_date > 873.1.1
+				add = 40
+				current_date > 1070.1.1
 			}
 			debug_log = "firing the 1066 Bavarian Event Chain"
 			set_global_variable = TCT_1066_Bavarian_Chain_Fired
 			character:1316 = {
-				trigger_event = tct_neutral_struggle.1001 
+				trigger_event = {
+					id = tct_neutral_struggle.1001
+					days = { 120 300 }
+				}
 			}
 		}
 	}
@@ -247,10 +251,8 @@ TCT_historical_deaths = {
 	effect = {
 		if = {
 			limit = {
-				NOT = { has_global_variable = TCT_alexander_death }
+				character:2008 = { is_ruler = yes }
 			}
-			debug_log = "Checking for chance of firing Pope Alexander II's death event"
-
 			random = {
 				chance = 0
 				modifier = {
@@ -262,21 +264,11 @@ TCT_historical_deaths = {
 					current_date > 1070.1.1
 				}
 				modifier = {
-					add = 124
+					add = 25
 					current_date > 1073.1.1
 				}
-				set_global_variable = {
-					name = TCT_alexander_death
-					value = yes
-				}
-				debug_log = "Attempting to force Pope Alexander II's death event"
 				character:2008 = {
-					if = {
-						limit = {
-							is_alive = yes
-						}
-						death = { death_reason = death_natural_causes }
-					}
+					death = { death_reason = death_natural_causes }
 				}
 			}
 		}
