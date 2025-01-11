@@ -439,9 +439,9 @@ tct_neutral_struggle.1002 = {
 					send_interface_toast = {
 						title = tct_neutral_struggle.1002.a.failure
 						left_icon = root
-						attempted_murder_opinion_effect = { 
-							VICTIM = scope:emperor
-							MURDERER = scope:otto
+						rightfully_imprison_character_less_verbose_effect = { 
+							TARGET = scope:otto
+							IMPRISONER = scope:emperor
 						}
 					}
 					depose_effect = { DEPOSER = scope:emperor }
@@ -460,15 +460,6 @@ tct_neutral_struggle.1002 = {
 
 	after = {
 		hidden_effect = {
-			send_interface_toast = {
-				title = tct_neutral_struggle.1002.a.failure
-				left_icon = root
-				attempted_murder_opinion_effect = { 
-					VICTIM = scope:emperor
-					MURDERER = scope:otto
-				}
-			}
-
 			trigger_event = { id = tct_neutral_struggle.1004 days = 150 }
 		}
 	}
@@ -546,6 +537,10 @@ tct_neutral_struggle.1003 = {
 				add_character_flag = force_ai_created_laamp 
 				#depose_effect = { DEPOSER = scope:emperor } 
 				create_landless_adventurer_title_effect = { REASON = flag:deposition FLAVOR_CHAR = title:e_hre.holder }
+				hidden_effect = {
+					add_pressed_claim = title:k_bavaria
+					add_realm_law_skip_effects = camp_purpose_legitimists
+				}
 			}
 
 			add_opinion = {
@@ -798,6 +793,37 @@ tct_neutral_struggle.1005 = {
 			scope:magnus.joined_faction = {
 				faction_start_war = { title = title:e_hre }
 				set_casus_belli = first_saxon_revolt_faction_war
+				faction_spawn_member_county_armies_effect = {
+					FACTION = scope:faction
+					ARMY_OWNER = scope:magnus
+					PEASANT_ARMY_NAME = populist_faction_event_troops
+				}
+			}
+			scope:magnus = {
+				random_character_war = {
+					limit = {
+						using_cb = liberty_faction_war
+						primary_defender = scope:emperor
+					}
+					save_scope_as = faction_war
+				}
+				scope:faction_war = {
+					set_casus_belli = first_saxon_revolt_faction_war
+				}
+				if = {
+					limit = {
+						exists = scope:faction_war
+					}
+					spawn_army = {
+						levies = 4000
+						location = scope:magnus.location
+						war = scope:faction_war
+						name = populist_faction_event_troops
+					}
+				}
+			}
+			scope:faction_war ?= {
+				add_attacker = root
 			}
 		}
 
@@ -821,33 +847,9 @@ tct_neutral_struggle.1005 = {
 		name = tct_neutral_struggle.1005.a
 		trigger = {
 			this = scope:otto
-		}
-
-		scope:magnus = {
-			random_character_war = {
-				limit = {
-					using_cb = liberty_faction_war
-					primary_defender = scope:emperor
-				}
-				save_scope_as = faction_war
-			}
-			scope:faction_war = {
-				set_casus_belli = first_saxon_revolt_faction_war
-			}
-		}
-
-		# This needs to occur after the war begins, or the troops can't spawn correctly.
-		faction_spawn_member_county_armies_effect = {
-			FACTION = scope:faction
-			ARMY_OWNER = scope:magnus
-			PEASANT_ARMY_NAME = populist_faction_event_troops
-		}
-		
+		}	
 		
 		hidden_effect = {
-			scope:faction_war ?= {
-				add_attacker = root
-			}
 			scope:emperor = {
 				every_vassal_or_below = {
 					limit = { 
@@ -861,19 +863,6 @@ tct_neutral_struggle.1005 = {
 						scope:faction_war ?= {
 							add_attacker = prev
 						}
-					}
-				}
-			}
-			scope:magnus = {
-				if = {
-					limit = {
-						exists = scope:faction_war
-					}
-					spawn_army = {
-						levies = 4000
-						location = scope:magnus.location
-						war = scope:faction_war
-						name = $PEASANT_ARMY_NAME$
 					}
 				}
 			}
