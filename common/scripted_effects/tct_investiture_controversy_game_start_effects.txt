@@ -89,10 +89,6 @@
 				modifier = event_negotiated_alliance_opinion
 			}
 		}
-		trigger_event = {
-			id = tct_neutral_struggle.0003
-			days = 1
-		}
 	}
 	title:d_bavaria.holder = {
 		create_alliance = title:d_angria.holder
@@ -226,10 +222,6 @@
 			days = 1442
 			name = TRUCE_COLLABORATION
 		}
-		trigger_event = { 
-			id = tct_neutral_struggle.0005 
-			days = 1
-		}
 	}
 	title:e_hre.holder = {
 		create_title_and_vassal_change = {
@@ -243,10 +235,6 @@
 			}
 		}
 		resolve_title_and_vassal_change = scope:change
-		trigger_event = {
-			id = tct_neutral_struggle.0002
-			days = 1
-		}
 	}
 }
 
@@ -274,13 +262,23 @@ Investiture_Controversy_Game_Start_De_Jure_Changes_1066 = {
 Investiture_Controversy_Game_Start_After_Lobby_1066 = {
 	#1066 Improved some historical traits of people important to the Investiture Controversy Struggle
 
-	title:e_hre.holder = {
-		if = {
-			limit = {
-				game_start_date = 1066.9.15
-			}
-			add_legitimacy = super_massive_legitimacy_loss
+	if = {
+		limit = {
+			game_start_date = 1066.9.15
 		}
+		title:e_hre.holder = {
+			add_legitimacy = super_massive_legitimacy_loss
+			trigger_event = tct_neutral_struggle.0002
+		}
+		title:d_angria.holder = {
+			trigger_event = tct_neutral_struggle.0003
+		}
+		character:11030 = {
+			trigger_event = tct_neutral_struggle.0005 
+		}
+	}
+
+	title:e_hre.holder = {
 		every_character_artifact = { 
 			limit = { 
 				has_variable = reichskrone	
