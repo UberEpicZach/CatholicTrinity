@@ -24,7 +24,6 @@ cardinal_score_location_holy_site 						= 50
 cardinal_score_culture 									= 200
 cardinal_score_culture_group 							= 50
 cardinal_score_per_popinion 							= 3.5
-cardinal_score_per_campaign_contribution 				= 1
 dynasty_prestige_per_cardinal_score 					= 40
 
 # Election Campaign parameters
