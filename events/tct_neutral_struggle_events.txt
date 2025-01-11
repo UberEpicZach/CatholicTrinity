@@ -1334,7 +1334,7 @@ tct_neutral_struggle.2001 = {
 
 	option = {
 		name = tct_neutral_struggle.2001.a
-		set_designated_heir = scope:nephew
+		set_designated_heir_unsafe = scope:nephew
 		tct_neutral_struggle_2001_title_claims_effect = { SCOPED = scope:nephew }
 		if = {
 			limit = {
