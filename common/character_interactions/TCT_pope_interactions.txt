@@ -4232,7 +4232,7 @@ take_vows_interaction = {
 			scope:actor.primary_title = {
 				place_in_line_of_succession = {
 					target = prev
-					value == 2
+					value = 2
 				}
 			}
 			desc = TAKE_THE_VOWS_SECOND_HEIR
@@ -4248,7 +4248,7 @@ take_vows_interaction = {
 			scope:actor.primary_title = {
 				place_in_line_of_succession = {
 					target = prev
-					value == 3
+					value = 3
 				}
 			}
 			desc = TAKE_THE_VOWS_THIRD_HEIR
