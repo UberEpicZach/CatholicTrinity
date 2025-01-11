@@ -225,7 +225,7 @@
 		add_truce_both_ways = {
 			character = title:e_hre.holder
 			days = 1442
-			result = TRUCE_COLLABORATION
+			name = TRUCE_COLLABORATION
 		}
 		trigger_event = { id = tct_neutral_struggle.0005 }
 	}
