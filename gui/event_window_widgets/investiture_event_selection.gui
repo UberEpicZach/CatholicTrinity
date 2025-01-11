@@ -12,7 +12,7 @@
                 raw_text = "Clear Selection:"
             }
             text_single = {
-                raw_text = " [GetPlayer.MakeScope.Var('selected_character').Character.GetName]"
+                raw_text = " [GetPlayer.MakeScope.Var('selected_character').Char.GetName]"
                 visible = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) ]"
             }
             text_single = {

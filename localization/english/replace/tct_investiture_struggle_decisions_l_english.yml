@@ -25,7 +25,6 @@
  #Struggle 
  game_concept_investiture_controversy_struggle: "Investiture Controversy"
  game_concept_investiture_controversy_struggle_desc: "The $game_concept_investiture_controversy_struggle$" 
- investiture_controversy_struggle:0 "$game_concept_investiture_controversy_struggle$"
 
  custom.every_opposed_involved_struggle_ruler.imperal_supporter: "Every [GetTrait('tct_imperial_supporter').GetName( GetNullCharacter )] [struggle_involved|E] [ruler|E]"
  custom.every_opposed_interloper_struggle_ruler.imperal_supporter: "Every [GetTrait('tct_imperial_supporter').GetName( GetNullCharacter )] [struggle_interloper|E] [ruler|E]"

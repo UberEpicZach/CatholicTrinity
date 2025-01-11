@@ -150,7 +150,7 @@
  TCT_MAKE_ANTIPOPE_IS_AMBITIOUS:0 "[GetTrait('ambitious').GetName(recipient.Self)]: $VALUE|=+0$"
  TCT_MAKE_ANTIPOPE_IS_SUPPORTER:0 "[GetTrait('tct_imperial_supporter').GetName(recipient.Self)]: $VALUE|=+0$"
  TCT_MAKE_ANTIPOPE_IS_CONTENT:0 "[GetTrait('content').GetName(recipient.Self)]: $VALUE|=+ 0 $""
- TCT_MAKE_ANTIPOPE_IS_CARDINAL:0 "[GetTrait('TCT_cardinal').GetName(recipient.Self)]: $VALUE|=+0$"
+ TCT_MAKE_ANTIPOPE_IS_CARDINAL:0 "Cardinal: $VALUE|=+0$"
  TCT_MAKE_ANTIPOPE_IS_HUMBLE:0 "[GetTrait('humble').GetName(recipient.Self)]: $VALUE|=+0$"
  TCT_MAKE_ANTIPOPE_IS_ARROGANT:0 "[GetTrait('arrogant').GetName(recipient.Self)]: $VALUE| +0$"
  TCT_MAKE_ANTIPOPE_IS_BRAVE:0 "[GetTrait('brave').GetName(recipient.Self)]: $VALUE|=+0$"
