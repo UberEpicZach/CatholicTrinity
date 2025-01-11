@@ -1133,11 +1133,123 @@ tct_neutral_struggle.1006 = {
 
 # 
 
+scripted_effect tct_neutral_struggle_2001_heir_effect = {
+	primary_title = {
+		ordered_title_heir = { # Pick first male heir
+			limit = {
+				is_male = yes
+			}
+			position = 1
+			save_scope_as = first_male_heir
+		}
+		if = { # If first is someone else's heir, pick the next one
+			limit = {
+				scope:first_male_heir = {
+					OR = {
+						any_pretender_title = {
+							exists = holder
+							NOT = { holder = root }
+						}
+						any_heir_title = {
+							exists = holder
+							NOT = { holder = root }
+						}
+					}
+				}
+			}
+			ordered_title_heir = {
+				limit = {
+					NOT = { this = scope:first_male_heir }
+					is_male = yes
+				}
+				position = 2
+				save_scope_as = nephew
+			}
+			clear_saved_scope = first_male_heir
+		}
+		else = { # First one is fine
+			scope:first_male_heir = {
+				save_scope_as = nephew
+			}
+			clear_saved_scope = first_male_heir
+		}
+	}
+}
+
+scripted_effect tct_neutral_struggle_2001_title_claims_effect = {
+	every_held_title = {
+		limit = {
+			is_landless_type_title = no
+			is_noble_family_title = no
+			trigger_if = {
+				limit = {
+					scope:actor = { has_claim_on = scope:target }
+				}
+				scope:pressed = yes
+				scope:actor = { has_weak_claim_on = scope:target }
+			}
+			tier >= tier_county
+		}
+		save_temporary_scope_as = title_temp
+		$SCOPED$ = {
+			if = {
+				limit = {
+					OR = {
+						this = character:7757
+						has_claim_on = scope:title_temp
+					}
+				}
+				add_pressed_claim = scope:title_temp
+			}
+			else = {
+				add_unpressed_claim = scope:title_temp
+			}
+		}
+	}
+}
+
 # "A Hunchback's Dread" # Event for Godfrey the Hunchback
 tct_neutral_struggle.2001 = {
 	type = character_event
 	title = tct_neutral_struggle.2001.t
-	desc = tct_neutral_struggle.2001.desc
+	desc = {
+		triggered_desc = {
+			trigger = { always = yes }
+			desc = tct_neutral_struggle.2001.desc
+		}
+		triggered_desc = {
+			trigger = {
+				is_married = yes
+				scope:female_party = character:7757
+			}
+			desc = tct_neutral_struggle.2001.desc.matilda
+		}
+		triggered_desc = {
+			trigger = {
+				is_married = yes
+				NOT = { scope:female_party = character:7757 }
+			}
+			desc = tct_neutral_struggle.2001.desc.wife
+		}
+		triggered_desc = {
+			trigger = {
+				scope:female_party = scope:nephew.mother
+			}
+			desc = tct_neutral_struggle.2001.desc.mother
+		}
+	}
+	
+	trigger = {
+		player_heir = {
+			is_female = yes
+			NOT = { is_child_of = root }
+		}
+		primary_title = {
+			any_title_heir = {
+				is_male = yes
+			}
+		}
+	}
 
 	theme = realm
 	override_background = {
@@ -1148,47 +1260,125 @@ tct_neutral_struggle.2001 = {
 		animation = paranoia
 	}
 	right_portrait = {
-		character = scope:wife
-		animation = anger
+		character = scope:female_party
+		triggered_animation = {
+			trigger = {
+				this = scope:nephew.mother
+			}
+			animation = personality_content
+		}
+		triggered_animation = {
+			trigger = {
+				this = character:7757
+			}
+			animation = anger
+		}
+		triggered_animation = {
+			trigger = {
+				always = yes
+			}
+			animation = sadness
+		}
 	}
-	lower_right_portrait = {
-		character = scope:nephew
-		animation = personality_content
-	}
+	lower_right_portrait = scope:nephew
 
 	immediate = {
-		character:10072 = { # Godfrey of Bouillon
-			save_scope_as = nephew
+		if = {
+			limit = { is_married = yes }
+			primary_spouse = { save_scope_as = female_party }
 		}
-		character:7757 = {
-			save_scope_as = wife
+		else = {
+			player_heir = { save_scope_as = female_party }
+		}
+		primary_title = {
+			ordered_title_heir = { # Pick first male heir
+				limit = {
+					is_male = yes
+				}
+				position = 1
+				save_scope_as = first_male_heir
+			}
+			if = { # If first is someone else's heir, pick the next one
+				limit = {
+					scope:first_male_heir = {
+						OR = {
+							any_pretender_title = {
+								exists = holder
+								NOT = { holder = root }
+							}
+							any_heir_title = {
+								exists = holder
+								NOT = { holder = root }
+							}
+						}
+					}
+				}
+				ordered_title_heir = {
+					limit = {
+						NOT = { this = scope:first_male_heir }
+						is_male = yes
+					}
+					position = 2
+					save_scope_as = nephew
+				}
+				clear_saved_scope = first_male_heir
+			}
+			else = { # First one is fine
+				scope:first_male_heir = {
+					save_scope_as = nephew
+				}
+				clear_saved_scope = first_male_heir
+			}
 		}
 	}
 
 	option = {
 		name = tct_neutral_struggle.2001.a
 		set_designated_heir = scope:nephew
-		scope:nephew = {
-			add_pressed_claim = title:d_lower_lorraine
-			add_opinion = {
-				target = root
-				modifier = received_title_duchy
-				opinion = 50
+		tct_neutral_struggle_2001_title_claims_effect = { SCOPED = scope:nephew }
+		if = {
+			limit = {
+				NOT = { scope:female_party = scope:nephew.mother }
 			}
-		}
-		scope:wife = {
-			trigger_event = tct_neutral_struggle.2002
-			add_opinion = {
-				target = root
-				modifier = insulted_opinion
-				opinion = -50
+			scope:female_party ?= {
+				if = {
+					limit = { is_ruler = yes }
+					trigger_event = tct_neutral_struggle.2002
+				}
+				add_opinion = {
+					target = root
+					modifier = insulted_opinion
+					opinion = -50
+				}
+			}
+			show_as_tooltip = {
+				random_list = {
+					100 = {
+						show_chance = no
+						desc = hunchback_dread_if_female_party_rejects_tt
+						if = {
+							limit = {
+								OR = {
+									scope:female_party = character:7757
+									matrilinear_marriage = yes
+								}
+							}
+							show_as_tooltip = {
+								tct_neutral_struggle_2001_title_claims_effect = { SCOPED = scope:female_party }
+							}
+						}
+					}
+					100 = {
+						show_chance = no
+						desc = hunchback_dread_if_female_party_accepts_tt
+					}
+				}
 			}
 		}
 		stress_impact = {
 			ambitious = medium_stress_impact_gain
 			paranoid = medium_stress_impact_gain
 		}
-		custom_tooltip = tct_neutral_struggle.2001.a.tt
 	}
 
 	option = {
@@ -1196,7 +1386,7 @@ tct_neutral_struggle.2001 = {
 		trigger = {
 			NOT = { has_trait = paranoid }
 		}
-		scope:wife = {
+		scope:female_party = {
 			add_opinion = {
 				target = root
 				modifier = grateful_opinion
@@ -1216,7 +1406,7 @@ tct_neutral_struggle.2001 = {
 	after = {
 		trigger_event = {
 			id = tct_neutral_struggle.2003
-			days = { 30 60 }
+			days = { 30 300 }
 		}
 	}
 }
@@ -1246,10 +1436,7 @@ tct_neutral_struggle.2002 = {
 	}
 
 	immediate = {
-		character:10072 = {
-			save_scope_as = nephew
-		}
-		character:20248 = {
+		primary_spouse = {
 			save_scope_as = husband
 		}
 	}
@@ -1262,18 +1449,34 @@ tct_neutral_struggle.2002 = {
 			recipient = scope:husband
 			execute_threshold = decline
 		}
-		add_pressed_claim = title:d_lower_lorraine
+		tct_neutral_struggle_2001_title_claims_effect = { SCOPED = root }
 		stress_impact = {
-			ambitious = medium_stress_impact_gain
-			vengeful = medium_stress_impact_gain
+			ambitious = medium_stress_impact_loss
+			forgiving = medium_stress_impact_gain
+			patient = medium_stress_impact_gain
+			vengeful = medium_stress_impact_loss
 		}
 	}
 
 	option = {
 		name = tct_neutral_struggle.2002.b
 		stress_impact = {
-			forgiving = medium_stress_impact_gain
-			patient = medium_stress_impact_gain
+			ambitious = medium_stress_impact_gain
+			forgiving = medium_stress_impact_loss
+			patient = medium_stress_impact_loss
+			vengeful = medium_stress_impact_gain
+		}
+
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 50
+				has_trait = forgiving
+			}
+			modifier = {
+				add = 50
+				has_trait = patient
+			}
 		}
 	}
 }
@@ -1286,6 +1489,7 @@ tct_neutral_struggle.2003 = {
 		death = {
 			death_reason = death_mysterious
 		}
+		remove_global_variable = TCT_godfrey_the_hunchback_death
 	}
 }
 

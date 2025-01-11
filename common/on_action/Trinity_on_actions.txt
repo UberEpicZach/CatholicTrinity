@@ -317,38 +317,31 @@ TCT_historical_deaths = {
 		}
 		if = {
 			limit = {
+				character:20248 = { is_ruler = yes }
 				NOT = { has_global_variable = TCT_godfrey_the_hunchback_death }
 			}
-			debug_log = "Checking for chance of firing Godfrey the Hunchback's death event"
-
 			random = {
 				chance = 0
 				modifier = {
-					add = 25
-					current_date > 1074.1.1
-				}
-				modifier = {
-					add = 50
-					current_date > 1075.1.1
-				}
-				modifier = {
-					add = 124
-					current_date > 1076.1.1
-				}
-				set_global_variable = {
-					name = TCT_godfrey_the_hunchback_death
-					value = yes
-				}
-				debug_log = "Attempting to force Godfrey the Hunchback's event"
-				character:20248 = {
-					if = {
-						limit = {
-							is_alive = yes
+					add = {
+						value = 0
+						if = {
+							limit = { current_date > 1074.1.1 }
+							add = 25
 						}
-						trigger_event = {
-							id = tct_neutral_struggle.2001
+						if = {
+							limit = { current_date > 1075.1.1 }
+							add = 50
+						}
+						if = {
+							limit = { current_date > 1076.1.1 }
+							add = 25
 						}
 					}
+				}
+				set_global_variable = TCT_godfrey_the_hunchback_death
+				character:20248 = {
+					trigger_event = tct_neutral_struggle.2001
 				}
 			}
 		}

@@ -287,13 +287,18 @@
 
 
  tct_neutral_struggle.2001.t: "A Hunchback's Dread"
- tct_neutral_struggle.2001.desc: "Fear grips my every waking moment. The lords beneath me plot, their whispers growing louder with each passing day. They see my frailty, my lack of an heir, as an opportunity to divide my lands and erase my legacy. I cannot allow that. \n\nMy nephew, [nephew.GetFullName], is the answer—a strong, capable man who could defend what I cannot. But even as I settle on this decision, [wife.GetFullName] rails against it. We’ve been husband and wife in name only for years, her ambitions tied to [GetTitleByKey('d_toscana').GetNameNoTier], not to me. What right does she have to interfere now?"
- tct_neutral_struggle.2001.a: "Godfrey of Bouillon shall be my heir."
+ tct_neutral_struggle.2001.desc: "Fear grips my every waking moment. The lords beneath me plot, their whispers growing louder with each passing day. They see my frailty, my lack of an heir, as an opportunity to divide my lands and erase my legacy. I cannot allow that. \n\nMy [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('nephew'))], [nephew.GetFullName], is the answer—a strong, capable [nephew.Custom('WomanManGirlBoy')] who could defend what I cannot."
+ tct_neutral_struggle.2001.desc.matilda: " But even as I settle on this decision, [female_party.GetFullName] rails against it. We’ve been husband and wife in name only for years, her ambitions tied to [GetTitleByKey('d_toscana').GetNameNoTier], not to me. What right does she have to interfere now?"
+ tct_neutral_struggle.2001.desc.wife: " My wife, [female_party.GetFullName], rails against it. We’ve been husband and wife in name only for years, what right does she have to interfere now?"
+ tct_neutral_struggle.2001.desc.mother: " His mother, [female_party.GetFullName], won't hold any grudge against me for picking her [female_party.Custom2('RelationToMe', SCOPE.sC('nephew'))] over her."
+ tct_neutral_struggle.2001.a: "[nephew.GetFullName] shall be my heir."
  tct_neutral_struggle.2001.a.tt: "[nephew.GetFullName] will become your heir"
  tct_neutral_struggle.2001.b: "Perhaps I should reconsider..."
+ hunchback_dread_if_female_party_accepts_tt: "If [female_party.GetFirstNameNoTooltip] accepts"
+ hunchback_dread_if_female_party_rejects_tt: "If [female_party.GetFirstNameNoTooltip] rejects"
 
  tct_neutral_struggle.2002.t: "A Hunchback's Heir"
- tct_neutral_struggle.2002.desc: "News of my husband’s decision reaches me like a slap across the face. [husband.GetFullName] has chosen his nephew as his heir, ignoring my counsel and discarding my claim to any say in his legacy. Our union has been hollow for years, but to exclude me so completely? \n\n[nephew.GetFullName] may be capable, but this is no mere matter of competence. This is about respect—my rightful influence over the future of our shared domains. I refuse to be cast aside while my husband’s paranoia dictates everything."
+ tct_neutral_struggle.2002.desc: "News of my husband’s decision reaches me like a slap across the face. [husband.GetFullName] has chosen his [husband.Custom2('RelationToMe', SCOPE.sC('nephew'))] as his heir, ignoring my counsel and discarding my claim to any say in his legacy. Our union has been hollow for years, but to exclude me so completely? \n\n[nephew.GetFullName] may be capable, but this is no mere matter of competence. This is about respect—my rightful influence over the future of our shared domains. I refuse to be cast aside while my husband’s paranoia dictates everything."
  tct_neutral_struggle.2002.a: "I will have my say..."
  tct_neutral_struggle.2002.b: "He can have his heir."
 
