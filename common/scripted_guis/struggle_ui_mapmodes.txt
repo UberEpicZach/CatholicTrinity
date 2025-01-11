@@ -1,5 +1,5 @@
 ﻿tct_investiture_controversy_check = {
-	scope = strugge
+	scope = struggle
 	is_shown = {
 		this = struggle:investiture_controversy_struggle
 	}
