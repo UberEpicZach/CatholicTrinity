@@ -184,7 +184,7 @@
 
   saint_desc_nick_the_holy:0 "The purity and sanctity of Saint [Character.GetFirstNameNoTooltip]'s life set [Character.GetHerHim] apart as a true embodiment of holiness. Free from vice and sin, [Character.GetSheHe] exemplifies the virtues that all believers aspire to achieve in their own lives."
   
-  saint_desc_nick_the_martyr:0 "Saint [Character.GetFirstNameNoTooltip] sacrificed [Character.GetHerHimself] for the faith, becoming an inspiration. Through martyrdom, [Character.GetFirstNameNoTooltip] showed devotion."
+  saint_desc_nick_the_martyr:0 "Saint [Character.GetFirstNameNoTooltip] sacrificed [Character.GetHerselfHimself] for the faith, becoming an inspiration. Through martyrdom, [Character.GetFirstNameNoTooltip] showed devotion."
   
   saint_desc_nick_the_architect:0 "With masterful designs and sacred constructions, Saint [Character.GetFirstNameNoTooltip] bridged the gap between earth and the divine, leaving a lasting mark."
   

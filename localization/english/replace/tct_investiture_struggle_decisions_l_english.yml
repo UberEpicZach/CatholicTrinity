@@ -67,7 +67,7 @@
  title_recognition_grace_valid_tt: "You have not had a [title_recognition|E] before"
  title_recognition_costs_refunded: "$trinity_hre_confirmation_decision$ costs refunded"
  title_recognition_rank_tt: "You are a [duke|E]"
- title_recognition_liege_tt: "You are a [direct_vassal|E] of the [THIS.Char.GetTopLiege.GetTitleAsNameNoTooltip] ([THIS.Char.GetTopLiege. GetFirstNameRegnal])"
+ title_recognition_liege_tt: "You are a [direct_vassal|E] of the [THIS.Char.GetTopLiege.GetTitleAsNameNoTooltip] ([THIS.Char.GetTopLiege.GetFirstNameRegnal])"
  title_recognition_time_tt: "You have held your [primary_title|E] for at least #V 1#! year ([THIS.Char.GetPrimaryTitle.GetNameNoTier])"
  trinity_hre_confirmation_decision_tt.if_accepted: "If [CHARACTER.GetLiege.GetTitledFirstName] accepts your audience:"
  
@@ -226,7 +226,7 @@
  tct_neutral_struggle.0004.a.tt: "The future is uncertain and may present you different opportunities."
 
  tct_neutral_struggle.0005.t: "Lower Lotharingia and Empire"
- tct_neutral_struggle.0005.desc: "About 1 year ago, Henry IV granted me the [GetTitleByKey('d_lower_lorraine').GetName] and [GetTitleByKey('c_antwerpen').GetName], settling a decades-long dispute I had with his father, Henry III.\n\nThough I am still missing the [GetTitleByKey('d_upper_lorraine').GetName] that Henry III revoked from me, I wonder if I should stir up the region again or if I should rule what I've got."
+ tct_neutral_struggle.0005.desc: "About one year ago, Henry IV granted me the [GetTitleByKey('d_lower_lorraine').GetName] and [GetTitleByKey('c_antwerpen').GetName], settling a decades-long dispute I had with his father, Henry III.\n\nThough I am still missing the [GetTitleByKey('d_upper_lorraine').GetName] that Henry III revoked from me, I wonder if I should stir up the region again or if I should rule what I've got."
  tct_neutral_struggle.0005.a: "I'll keep away from trouble"
  tct_neutral_struggle.0005.b: "I'll be honest, I can't promise anything..."
  
