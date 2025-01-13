@@ -1362,7 +1362,7 @@ window = {
 								datamodel = "[MyRealmWindow.GetRealmLaws]"
 								item = {
 									hbox = {
-										visible = "[And( Not( GuiLawGroup.GetLawGroup.HasFlag( 'realm_law' ) ), GuiLawGroup.IsAvailable )]"
+										visible = "[And( And( And( Not( GuiLawGroup.GetLawGroup.HasFlag( 'realm_law' ) ), Not( GuiLawGroup.GetLawGroup.HasFlag( 'admin_law' ) ) ), Not( GuiLawGroup.GetLawGroup.HasFlag( 'investiture_law' ) ) ), GuiLawGroup.IsAvailable )]"
 
 										layoutpolicy_horizontal = growing
 
