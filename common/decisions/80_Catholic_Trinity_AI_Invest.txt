@@ -49,7 +49,6 @@ invest_in_cardinal_Ai = {
 	effect = {
 		#custom_tooltip = invest_in_cardinal_AI_decision_effect_tooltip
 		#invest_in_cardinal_effect = yes
-		select_highest_scoring_character_cardinal_candidate = yes
 		select_highest_scoring_character_cardinal_candidate_invest = yes
 		
 	}
