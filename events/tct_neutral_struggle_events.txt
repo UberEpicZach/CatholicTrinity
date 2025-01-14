@@ -792,7 +792,9 @@ tct_neutral_struggle.1005 = {
 			}
 			scope:magnus.joined_faction = {
 				faction_start_war = { title = title:e_hre }
-				set_casus_belli = first_saxon_revolt_faction_war
+				faction_war = {
+					set_casus_belli = first_saxon_revolt_faction_war
+				}
 				faction_spawn_member_county_armies_effect = {
 					FACTION = scope:faction
 					ARMY_OWNER = scope:magnus
@@ -923,7 +925,7 @@ tct_neutral_struggle.1006 = {
 					}
 					location = title:c_gottingen.title_province
 					war = scope:faction_war
-					name = $PEASANT_ARMY_NAME$
+					name = populist_faction_event_troops
 				}
 			}
 	
@@ -1008,7 +1010,7 @@ tct_neutral_struggle.1006 = {
 						}
 						location = title:c_gottingen.title_province
 						war = scope:faction_war
-						name = $PEASANT_ARMY_NAME$
+						name = populist_faction_event_troops
 					}
 				}
 		
