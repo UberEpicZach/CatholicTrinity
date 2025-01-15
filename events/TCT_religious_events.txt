@@ -1089,7 +1089,7 @@ scripted_effect get_investiture_characters = {
 	}
 
 	every_vassal = {
-		dynasty = {
+		dynasty ?= {
 			every_dynasty_member = {
 				limit = {
 					OR = {
