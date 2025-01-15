@@ -496,6 +496,7 @@ on_game_start_after_lobby = {
 	on_actions = {
 		on_cardinal_initialize
 		CardinalsTraits
+		saint_setup
 	}
 }
 
@@ -1017,3 +1018,117 @@ on_faith_created = {
 	}
 }
 
+saint_setup = {
+	effect = {
+		faith:catholic = {
+			if = {
+				limit = {
+					character:145292 = {
+						exists = this
+						has_trait = saint
+					}
+				}
+				add_to_variable_list = {
+					name = faith_saints
+					target = character:145292
+				}
+			}
+			if = {
+				limit = {
+					character:168716 = {
+						exists = this
+						has_trait = saint
+					}
+				}
+				add_to_variable_list = {
+					name = faith_saints
+					target = character:168716
+				}
+			}
+			if = {
+				limit = {
+					character:190260 = {
+						exists = this
+						has_trait = saint
+					}
+				}
+				add_to_variable_list = {
+					name = faith_saints
+					target = character:190260
+				}
+			}
+			if = {
+				limit = {
+					character:galician0201 = {
+						exists = this
+						has_trait = saint
+					}
+				}
+				add_to_variable_list = {
+					name = faith_saints
+					target = character:galician0201
+				}
+			}
+			if = {
+				limit = {
+					character:73881 = {
+						exists = this
+						has_trait = saint
+					}
+				}
+				add_to_variable_list = {
+					name = faith_saints
+					target = character:73881
+				}
+			}
+			if = {
+				limit = {
+					character:214094 = {
+						exists = this
+						has_trait = saint
+					}
+				}
+				add_to_variable_list = {
+					name = faith_saints
+					target = character:214094
+				}
+			}
+			if = {
+				limit = {
+					character:castilian0147 = {
+						exists = this
+						has_trait = saint
+					}
+				}
+				add_to_variable_list = {
+					name = faith_saints
+					target = character:castilian0147
+				}
+			}
+			if = {
+				limit = {
+					character:baranis0061 = {
+						exists = this
+						has_trait = saint
+					}
+				}
+				add_to_variable_list = {
+					name = faith_saints
+					target = character:baranis0061
+				}
+			}
+			if = {
+				limit = {
+					character:cisalpine0147 = {
+						exists = this
+						has_trait = saint
+					}
+				}
+				add_to_variable_list = {
+					name = faith_saints
+					target = character:cisalpine0147
+				}
+			}
+		}
+	}
+}
