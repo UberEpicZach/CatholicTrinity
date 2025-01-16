@@ -388,7 +388,22 @@ tct_neutral_struggle.1001 = {
 tct_neutral_struggle.1002 = {
 	type = character_event
 	title = tct_neutral_struggle.1002.t
-	desc = tct_neutral_struggle.1002.desc
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					this = scope:otto
+				}
+				desc = tct_neutral_struggle.1002.desc.a
+			}
+			triggered_desc = {
+				trigger = {
+					this = title:e_hre.holder
+				}
+				desc = tct_neutral_struggle.1002.desc.b
+			}
+		}
+	}
 
 	theme = realm
 	override_background = {
@@ -407,12 +422,30 @@ tct_neutral_struggle.1002 = {
 	}
 
 	immediate = {
+		if = {
+			limit = {
+				NOT = {
+					title:e_hre.holder = {
+						has_character_flag = fired_tct_neutral_struggle_1002
+					}
+				}
+			}
+			title:e_hre.holder = {
+				add_character_flag = fired_tct_neutral_struggle_1002
+				trigger_event = { id = tct_neutral_struggle.1002 }
+			}
+		}
+
 		title:c_ravensburg.holder = {
+			save_scope_as = welf
 			trigger_event = { days = 1 id = tct_neutral_struggle.1003 }
 		}
 	}
 
 	option = {
+		trigger = {
+			this = scope:otto
+		}
 		name = tct_neutral_struggle.1002.a
 		show_as_tooltip = {
 			duel = {
@@ -455,7 +488,17 @@ tct_neutral_struggle.1002 = {
 	}
 
 	option = {
+		trigger = {
+			this = scope:otto
+		}
 		name = tct_neutral_struggle.1002.b
+	}
+
+	option = {
+		trigger = {
+			this = title:e_hre.holder
+		}
+		name = tct_neutral_struggle.1002.c
 	}
 
 	after = {

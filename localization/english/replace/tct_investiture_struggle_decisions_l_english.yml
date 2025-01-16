@@ -245,12 +245,14 @@
 # "The Court's Judgment" # Event for Otto of Bavaria and Heinrich IV 
 # Attempt to plea your case, or break off as an adventurer. (If Deposed you become an adventurer anyways)
  tct_neutral_struggle.1002.t: "The Court's Judgment"
- tct_neutral_struggle.1002.desc: "As I ride through the city streets, the weight of countless eyes is upon me—nobles whisper behind closed doors, and commoners watch with wary curiosity. [emperor.GetTitledFirstName], perched on his seat of power, is not seeking justice today. His aim is clear: to eliminate a threat, one of the few [saxons.GetName]'s' who might stand against him.\n\nStill, I ride on. For the sake of my house, I must face what lies ahead. To flee now would only confirm every whisper, every accusation. But to stand my ground and face trial... perhaps there is still a chance, however slim, to turn this judgment to my advantage...My name is called, and the trial begins."
+ tct_neutral_struggle.1002.desc.a: "As I ride through the city streets, the weight of countless eyes is upon me—nobles whisper behind closed doors, and commoners watch with wary curiosity. [emperor.GetTitledFirstName], perched on his seat of power, is not seeking justice today. His aim is clear: to eliminate a threat, one of the few [saxons.GetName]'s' who might stand against him.\n\nStill, I ride on. For the sake of my house, I must face what lies ahead. To flee now would only confirm every whisper, every accusation. But to stand my ground and face trial... perhaps there is still a chance, however slim, to turn this judgment to my advantage...My name is called, and the trial begins."
+ tct_neutral_struggle.1002.desc.b: "[otto.GetFirstName] [otto.GetDynastyName] is escorted into the royal chamber, the silence of the gathered nobles broken only by the rustle of robes. This trial will bring no justice—The charges, the 'evidence', the whispers—it has all been arranged to ensure his fall. \n\nEven now, the pieces are moving still. [welf.GetFullName], a vassal of the accused, has been offered a path to power: sever ties with the traitor, cast off his marriage to [otto.GetFirstName]'s daughter, and swear loyalty to me. In exchange, [GetTitleByKey('d_bavaria').GetName] will be his. He knows what this trial represents—the fate of [otto.GetFirstName] is sealed. The only question is whether [welf.GetFirstName] will rise from this or share the fall."
+
  tct_neutral_struggle.1002.a: "I will face the court."
  tct_neutral_struggle.1002.a.success: "Your speech convinces the jury of your innocence"
  tct_neutral_struggle.1002.a.failure: "Your speech fails to convince anyone"
  tct_neutral_struggle.1002.b: "I must #italic flee#!"
- 
+ tct_neutral_struggle.1002.c: "Down falls the Saxon..."
 # New Opportunities # Event for Welf IV
 # Offer from Emperor, for Welf to Divorce Wife / Split from Nordheim's, In exchange, get the Duchy of Bavaria
  tct_neutral_struggle.1003.t: "New Opportunities"
