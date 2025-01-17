@@ -492,6 +492,9 @@ tct_neutral_struggle.1002 = {
 			this = scope:otto
 		}
 		name = tct_neutral_struggle.1002.b
+		hidden_effect = {
+			trigger_event = { id = tct_neutral_struggle.1004 days = 150 }
+		}
 	}
 
 	option = {
@@ -499,12 +502,6 @@ tct_neutral_struggle.1002 = {
 			this = title:e_hre.holder
 		}
 		name = tct_neutral_struggle.1002.c
-	}
-
-	after = {
-		hidden_effect = {
-			trigger_event = { id = tct_neutral_struggle.1004 days = 150 }
-		}
 	}
 }
 
