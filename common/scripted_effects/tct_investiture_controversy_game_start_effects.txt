@@ -124,12 +124,6 @@
 	}
 
 	character:7755 = {
-		HEE_remove_education_traits_effect = yes
-		HEE_remove_personality_traits_effect = yes
-		add_trait = diligent
-		add_trait = just
-		add_trait = zealous
-		add_trait = education_diplomacy_3
 		set_relation_friend = {
 			target = character:2008
 			reason = friend_generic_history
@@ -144,12 +138,6 @@
 		set_relation_friend = {
 			target = character:7755
 			reason = friend_generic_history
-		}
-		designate_diarch = character:7755
-		start_diarchy = co_monarchy
-		remove_generated_diarch_consequences_effect = {
-			NEW_DIARCH = character:7755
-			LIEGE = character:7757
 		}
 		set_relation_friend = {
 			target = character:2008
