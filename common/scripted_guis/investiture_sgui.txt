@@ -62,7 +62,9 @@ get_all_investiture_candidates = {
 				is_landed = no
 				is_female = no
 				is_adult = yes
-				NOT = { any_heir_to_title = { exists = this } }
+				NOT = {
+					any_heir_title = {} # Not heir to anything
+				}
 			}
 			save_scope_as = person_thing
 			scope:title_thing = {
@@ -81,7 +83,9 @@ get_all_investiture_candidates = {
 				is_landed = no
 				is_female = no
 				is_adult = yes
-				NOT = { any_heir_to_title = { exists = this } }
+				NOT = {
+					any_heir_title = {} # Not heir to anything
+				}
 			}
 			save_scope_as = person_thing
 			scope:title_thing = {
@@ -100,7 +104,9 @@ get_all_investiture_candidates = {
 				is_landed = no
 				is_adult = yes
 				is_female = no
-				NOT = { any_heir_to_title = { exists = this } }
+				NOT = {
+					any_heir_title = {} # Not heir to anything
+				}
 			}
 			save_scope_as = person_thing
 			scope:title_thing = {
