@@ -63,7 +63,7 @@
  
  # Activities
  activity_TCT_saint_days_host_an_a: "a"
- activity_TCT_saint_days: "Saint's Day"
+ activity_TCT_saint_days: "Saint's Day Celebration"
  activity_TCT_saint_days_desc: "Saint's Day is a revered tradition, a time to honor the divine intercessors who've guided our faith and protected our realm. By celebrating these sacred figures, we not only deepen our spiritual bond but also unite our community in gratitude and reverence. It is a day of solemnity, joy, and reflection, where we come together to pay homage to their holy legacy."
  activity_TCT_saint_days_selection_tooltip: "Commune with the divine and celebrate the saints that have blessed your realm and faith\n\nAnticipated Rewards:\n$BULLET_WITH_TAB$[piety_i|E] [piety|E] Gain\n$BULLET_WITH_TAB$[prestige_i|E] [prestige|E] Gain\n$BULLET_WITH_TAB$[dynasty_prestige_i|E] [dynasty_prestige|E] Gain\n$BULLET_WITH_TAB$[opinion_i|E] [opinion|E]\n$BULLET_WITH_TAB$[stress_loss_i|E] [stress|E] Loss"
  
