@@ -62,7 +62,7 @@ labor_instead_of_masses = {
 
 saintly_tomb = {
 	icon = piety_positive
-	monthly_income_mult = 0.1
+	tax_mult = 0.1
 }
 
 #Saint Days
