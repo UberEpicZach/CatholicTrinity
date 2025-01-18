@@ -164,8 +164,6 @@ on_army_enter_province = {
 
 yearly_global_pulse = {
 	on_actions = {
-		TCT_saint_day
-
 		# Scripted Deaths
 		TCT_historical_deaths
 
@@ -174,6 +172,12 @@ yearly_global_pulse = {
 
 		delay = { days = 357 }
 		TCT_christmas_set
+	}
+}
+
+random_yearly_playable_pulse = {
+	on_actions = {
+		TCT_saint_day
 	}
 }
 
@@ -239,11 +243,11 @@ TCT_christmas_real = {
 }
 
 TCT_saint_day = {
+	trigger = {
+		is_ai = no
+	}
 	effect = {
-		every_player = {
-			limit = { saintdays_event1trigger = yes }
-			trigger_event = TCT_saint_days.0001
-		}
+		trigger_event = TCT_saint_days.0001
 	}
 }
 

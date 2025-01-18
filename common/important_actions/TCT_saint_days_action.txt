@@ -1,0 +1,43 @@
+﻿action_available_saint_days = {
+	priority = 200
+	combine_into_one = yes
+
+	check_create_action = {
+		if = {
+			limit = {
+				is_available_healthy_adult = yes
+				OR = {
+					faith = faith:catholic
+					faith = faith:iconoclast
+					faith = faith:nestorian
+					faith = faith:insular_celtic
+					#faith = faith:paulician # No not you
+					faith = faith:orthodox
+					faith = faith:coptic
+				}
+				NOT = { has_character_flag = TCT_humbug }
+				any_sub_realm_county = {
+					saintdays_province = yes
+				}
+			}
+			every_sub_realm_county = {
+				limit = {
+					saintdays_province = yes
+				}
+				try_create_important_action = {
+					important_action_type = action_available_saint_days
+					actor = root
+					landed_title = this
+					saint_day_saint = this.var:saint_day_saint
+				}
+			}
+		}
+	}
+
+	effect = {
+		open_view_data = {
+			view = activity_list_detail_host_window
+			data = activity_type:activity_TCT_saint_days
+		}
+	}
+}

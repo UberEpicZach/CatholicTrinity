@@ -1,42 +1,15 @@
 ﻿activity_TCT_saint_days = {
 	is_shown = {
 		NOT = { has_character_flag = hosted_saint_day }
+		exists = capital_county
 		OR = {
-			AND = {
-				is_ai = yes
-				exists = capital_county
-				OR = {
-					faith = faith:catholic
-					faith = faith:iconoclast
-					faith = faith:nestorian
-					faith = faith:insular_celtic
-					#faith = faith:paulician # No not you
-					faith = faith:orthodox
-					faith = faith:coptic
-				}
-				any_held_title = {
-					tier = tier_county
-					any_county_province = {
-						has_holding_type = church_holding
-					}
-					any_county_province = {
-						has_province_modifier = saintly_tomb
-						has_variable = saint_day_saint
-						has_variable = saint_person_death_date
-						#NOT = { has_variable = saint_day_cooldown }
-						squared_distance = {
-							target = root.capital_county
-							value <= squared_distance_small #150 map-pixels. Roughly one Wales away (top to bottom).
-						}
-						save_temporary_scope_as = saint_day_province
-					}
-				}
-				current_month = saint_day_script_value
-			}
-			AND = {
-				is_ai = no
-				has_character_flag = hosting_saint_day
-			}
+			faith = faith:catholic
+			faith = faith:iconoclast
+			faith = faith:nestorian
+			faith = faith:insular_celtic
+			#faith = faith:paulician # No not you
+			faith = faith:orthodox
+			faith = faith:coptic
 		}
 		trigger_if = {
 			limit = {
@@ -47,8 +20,19 @@
 		}
 	}
 
+	can_always_plan = no
+
 	can_start_showing_failures_only = {
 		is_available_adult = yes
+	}
+
+	can_start = {
+		custom_tooltip = {
+			text = has_available_saint_to_celebrate_tt
+			any_sub_realm_county = {
+				saintdays_province = yes
+			}
+		}
 	}
 
 	is_valid = {
@@ -205,7 +189,12 @@
 			TCT_saint_days_cost_type_small = {
 				default = yes
 				cost = {
-					gold = tiny_gold_value
+					gold = {
+						add = {
+							value = tiny_gold_value
+							desc = TCT_saint_days_cost_type_small
+						}
+					}
 				}
 				ai_will_do = {
 					value = 15
@@ -213,7 +202,13 @@
 			}
 			TCT_saint_days_cost_type_large = {
 				cost = {
-					gold = medium_gold_value 
+					gold = {
+						desc = TCT_saint_days_cost_type_large
+						add = {
+							value = medium_gold_value
+							desc = TCT_saint_days_cost_type_large
+						}
+					}
 				}				
 				ai_will_do = {
 					value = 5
@@ -448,6 +443,10 @@
 	
 	is_location_valid = {
 		has_holding_type = church_holding
+		county = {
+			has_variable = saint_day_saint
+			var:saint_person_death_date = current_month
+		}
 	}
 	
 	province_score = {
@@ -543,6 +542,7 @@
 		defaults = {
 			1 = activity_invite_rule_friends
 			1 = activity_invite_rule_close_family
+			1 = activity_invite_rule_vassals
 			3 = activity_invite_rule_courtiers
 			4 = activity_invite_rule_guests
 			1 = activity_invite_spouses
@@ -555,7 +555,7 @@
 		is_available = yes
 		in_diplomatic_range = scope:host
 		OR = {
-			is_landed = no
+			is_courtier_of - scope:host
 			dynasty = scope:host.dynasty
 		}
 	}

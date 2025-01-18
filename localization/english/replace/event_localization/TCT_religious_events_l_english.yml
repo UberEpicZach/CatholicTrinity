@@ -150,6 +150,7 @@
   TCT_sainthood.11.a.info: "#emphasis Historical Context:#! Canonization is the solemn proclamation by the Church that a person, having practiced heroic virtue and often having performed verified miracles, is truly in Heaven and worthy of veneration by all the faithful as a saint. This process traces its origins to the early Christian community when martyrs were publicly recognized and remembered during the Eucharistic celebrations. Over the centuries, the process formalized and evolved, with the papacy centralizing control to ensure uniformity in the standards of sainthood. Thus, canonization not only confirms the sanctity of the individual but also offers the faithful a model of virtuous life and assures them of a powerful intercessor before God."
   TCT_sainthood.11.b: "The canonization shall not proceed."
   TCT_sainthood.11.b.info: "In light of divine contemplation I discern that, at this time, the cause for canonization of [saint_person.GetFirstNameNicknamed] shall not proceed."
+  every_same_faith_dynasty_member_of_saint_tt: "Every [saint_person.GetFaith.GetAdjectiveNoTooltip] dynasty member"
 
   TCT_sainthood.12.t: "A Saint in Heaven"
   TCT_sainthood.12.desc.a: "[saint_person.GetFirstNameNicknamed] was a true exemplar of the Christian faith, living a pious and inspiring life. In a grand announcement [canonizer_person.GetTitledFirstName] has decided to include [saint_person.GetFirstNameNicknamed] among the venerated ancestors of old.\n\nMany tales are told about the feats [saint_person.GetFirstName] did in life, and [saint_person.GetSheHe] will be an inspiration for our descendants in the years to come.\n\nIt is a great honor for the family of the blessed one, and may we all aspire to follow in [saint_person.GetHerHis] footsteps."
@@ -224,7 +225,7 @@
   saintlypilgrimagetooltip: "Visit the Tomb of Saint [localsaint.GetFirstNameNicknamedRegnal]!"
   activity_pilgrimage.is_location_valid.faith_saints_and_capital: "Pilgrimage can be to Holy Sites or Saintly Tombs."
   saintly_bloodline: "Blood of a Saint"
-  saintly_tomb: "A Tomb of a Saint"
+  saintly_tomb: "Pilgrims Visiting Saint's Tomb"
 
   #Pope and Free Investiture
   

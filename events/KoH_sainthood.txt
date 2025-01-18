@@ -52,20 +52,7 @@ TCT_sainthood.1 = {
 
 			#Save the death date for Saint's Day Feast Activity
 			scope:saint_capital_province = {
-				#switch does not work >:(
-				if = { limit = { current_month = 1 } set_variable = { name = saint_person_death_date value = 1 } }
-				else_if = { limit = { current_month = 2 } set_variable = { name = saint_person_death_date value = 2 } }
-				else_if = { limit = { current_month = 3 } set_variable = { name = saint_person_death_date value = 3 } }
-				else_if = { limit = { current_month = 4 } set_variable = { name = saint_person_death_date value = 4 } }
-				else_if = { limit = { current_month = 5 } set_variable = { name = saint_person_death_date value = 5 } }
-				else_if = { limit = { current_month = 6 } set_variable = { name = saint_person_death_date value = 6 } }
-				else_if = { limit = { current_month = 7 } set_variable = { name = saint_person_death_date value = 7 } }
-				else_if = { limit = { current_month = 8 } set_variable = { name = saint_person_death_date value = 8 } }
-				else_if = { limit = { current_month = 9 } set_variable = { name = saint_person_death_date value = 9 } }
-				else_if = { limit = { current_month = 10 } set_variable = { name = saint_person_death_date value = 10 } }
-				else_if = { limit = { current_month = 11 } set_variable = { name = saint_person_death_date value = 11 } }
-				else_if = { limit = { current_month = 12 } set_variable = { name = saint_person_death_date value = 12 } }
-
+				county = { set_variable = { name = saint_person_death_date value = current_month } }
 
 				#faith = { #KGDEBUG
 				#	add_to_variable_list = { name = venerated_person target = scope:saint_person }
@@ -289,80 +276,17 @@ TCT_sainthood.1 = {
 				#Extra high piety increases your chance of becoming a Saint
 				# It's >= for christs' sake!
 				modifier = {
-					factor = 1.2
-					piety >= 1000
-				}
-				modifier = {
-					factor = 1.2 
-					piety >= 1500
-				}
-				modifier = {
-					factor = 1.2
-					piety >= 2000
-				}
-				modifier = {
-					factor = 1.2
-					piety >= 2500
-				}
-				modifier = {
-					factor = 1.2
-					piety >= 3000
-				}
-				modifier = {
-					factor = 1.2
-					piety >= 3500
-				}
-				modifier = {
-					factor = 1.2
-					piety >= 4000
-				}
-				modifier = {
-					factor = 1.2
-					piety >= 4500
-				}
-				modifier = {
-					factor = 1.2
-					piety >= 5000
-				}
-				modifier = {
-					factor = 1.2
-					piety >= 5500
-				}
-				modifier = {
-					factor = 1.2
-					piety >= 6000
-				}
-				modifier = {
-					factor = 1.2
-					piety >= 6500
-				}
-				modifier = {
-					factor = 1.2 
-					piety >= 7000
-				}
-				modifier = {
-					factor = 1.2
-					piety >= 7500
-				}
-				modifier = {
-					factor = 1.2
-					piety >= 8000
-				}
-				modifier = {
-					factor = 1.2
-					piety >= 8500
-				}
-				modifier = {
-					factor = 1.2
-					piety >= 9000
-				}
-				modifier = {
-					factor = 1.2
-					piety >= 9500
-				}
-				modifier = {
-					factor = 1.2
-					piety >= 10000
+					factor = {
+						value = 0
+						if = {
+							limit = {
+								piety >= 1000
+							}
+							add = piety
+							divide = 5000
+						}
+						add = 1
+					}
 				}
 			
 				#Level of Piety
@@ -1273,7 +1197,10 @@ TCT_sainthood.11 = { # Positio is presented to the Pope
 							limit = {
 								NOT = { this = scope:canonizer_person }
 							}
-							trigger_event = TCT_sainthood.12
+							trigger_event = { # Avoids sending the event upon saint-player's death
+								id = TCT_sainthood.12
+								days = 1
+							}
 						}
 					}
 				}
@@ -1284,16 +1211,15 @@ TCT_sainthood.11 = { # Positio is presented to the Pope
 					limit = { has_province_modifier = local_veneration }
 					remove_province_modifier = local_veneration
 				}
-				add_province_modifier = saintly_tomb
-				county = {
-					add_to_variable_list = {
-						name = faith_saints_and_capital
-						target = scope:saint_person
-					}
+				add_to_variable_list = {
+					name = faith_saints_and_capital
+					target = scope:saint_person
 				}
-				set_variable = {
-					name = saint_day_saint
-					value = scope:saint_person
+				county = {
+					set_variable = {
+						name = saint_day_saint
+						value = scope:saint_person
+					}
 				}
 			}
 
@@ -1330,6 +1256,11 @@ TCT_sainthood.11 = { # Positio is presented to the Pope
 				culture = scope:saint_person.culture
 			}
 			modifier = {
+				factor = 1.25
+				NOT = { culture = scope:saint_person.culture }
+				culture = { has_same_culture_heritage = scope:saint_person.culture }
+			}
+			modifier = {
 				add = 40
 				scope:saint_person = { martyrs_death_trigger = yes }
 			}
@@ -1345,12 +1276,22 @@ TCT_sainthood.11 = { # Positio is presented to the Pope
 					has_variable = player_veneration
 				}
 			}
+			modifier = { # Check if the Pope was the deceased's friend
+				factor = 4
+				is_in_list = send_death_management_0002_friend
+			}
 		}
 	}
 
 	option = { # no
 		name = TCT_sainthood.11.b
 		custom_tooltip = TCT_sainthood.11.b.info
+
+		scope:saint_capital_province = {
+			county = {
+				remove_variable = saint_person_death_date
+			}
+		}
 
 		ai_chance = {
 			base = 50
@@ -1458,18 +1399,9 @@ TCT_sainthood.101 = {
 
 			#Save the death date for Saint's Day Feast Activity
 			scope:saint_capital_province = {
-				if = { limit = { current_month = 1 } set_variable = { name = saint_person_death_date value = 1 } }
-				else_if = { limit = { current_month = 2 } set_variable = { name = saint_person_death_date value = 2 } }
-				else_if = { limit = { current_month = 3 } set_variable = { name = saint_person_death_date value = 3 } }
-				else_if = { limit = { current_month = 4 } set_variable = { name = saint_person_death_date value = 4 } }
-				else_if = { limit = { current_month = 5 } set_variable = { name = saint_person_death_date value = 5 } }
-				else_if = { limit = { current_month = 6 } set_variable = { name = saint_person_death_date value = 6 } }
-				else_if = { limit = { current_month = 7 } set_variable = { name = saint_person_death_date value = 7 } }
-				else_if = { limit = { current_month = 8 } set_variable = { name = saint_person_death_date value = 8 } }
-				else_if = { limit = { current_month = 9 } set_variable = { name = saint_person_death_date value = 9 } }
-				else_if = { limit = { current_month = 10 } set_variable = { name = saint_person_death_date value = 10 } }
-				else_if = { limit = { current_month = 11 } set_variable = { name = saint_person_death_date value = 11 } }
-				else_if = { limit = { current_month = 12 } set_variable = { name = saint_person_death_date value = 12 } }
+				county = {
+					set_variable = { name = saint_person_death_date value = current_month }
+				}
 			}
 
 			#Instantly skip process to canonization, why even matter

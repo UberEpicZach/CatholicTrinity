@@ -7,36 +7,6 @@
 namespace = TCT_saint_days
 
 TCT_saint_days.0001 = {
-	hidden = yes
-	
-	immediate = {
-		random_sub_realm_county = {
-			limit = {
-				any_county_province = {
-					has_province_modifier = saintly_tomb
-					has_variable = saint_day_saint
-					has_variable = saint_person_death_date
-					NOT = { has_variable = saint_day_cooldown }
-					squared_distance = {
-						target = root.capital_county
-						value <= squared_distance_small
-					}
-					save_temporary_scope_as = saint_day_province_temp
-				}
-			}
-			scope:saint_day_province_temp = { save_scope_as = saint_day_province } #isn't there a better way?
-		}
-		scope:saint_day_province.var:saint_day_saint = {
-			save_scope_as = localsaint
-		}
-		trigger_event = {
-			id = TCT_saint_days.0002
-			months = saint_day_script_value
-		}
-	}
-}
-
-TCT_saint_days.0002 = {
 	type = character_event
 	title = TCT_saint_days.0001.t
 	desc = {
@@ -66,117 +36,87 @@ TCT_saint_days.0002 = {
 		character = scope:localsaint
 	}
 
-	immediate = {			
-		random_List = {
-			50 = {
-				primary_spouse ?= {
-					save_scope_as = family
+	trigger = {
+		saintdays_event1trigger = yes
+	}
+	
+	immediate = {
+		if = { # Get random family member for portrait
+			limit = {
+				any_close_family_member = {
+					count >= 1
+					is_alive = yes
+					is_in_the_same_court_as = root
+					opinion = {
+						target = root
+						value >= 0
+					}
 				}
 			}
-			50 = {
-				random_child ?= {
-					save_scope_as = family
+			random_close_family_member = {
+				limit = {
+					is_in_the_same_court_as = root
+					opinion = {
+						target = root
+						value >= 0
+					}
 				}
+				weight = {
+					base = 1
+					modifier = {
+						add = 10
+						is_child_of = root
+					}
+				}
+				save_scope_as = family
 			}
-		}	
-		root.capital_province ?= {
-			save_scope_as = provincefun
 		}
-		scope:saint_day_province = {
+		if = { # Get husband as stand-in for portrait
+			limit = {
+				exists = primary_spouse
+				is_in_the_same_court_as = root
+			}
+			if = {
+				limit = {
+					NOT = { exists = scope:family }
+				}
+				primary_spouse = { save_scope_as = family }
+			}
+			else = {
+				random_List = {
+					50 = {
+						primary_spouse = {
+							save_scope_as = family
+						}
+					}
+					50 = {}
+				}
+			}
+		}
+		random_sub_realm_county = {
+			limit = {
+				saintdays_province = yes
+			}
+			save_scope_as = saint_day_province
+			
 			set_variable = {
 				name = saint_day_cooldown
 				years = 10
 			}
 		}
-	}
-
-	option = { #start activity
-		name = TCT_saint_days.0001.a
-
-		trigger = {
-			NOT = {	has_character_flag = hosted_saint_day }
-		}
-
-		trait = zealous
-		add_internal_flag = special
-
-		add_character_flag = {
-			flag = hosting_saint_day
-			months = 3
-		}
-		open_view_data = {
-			view = activity_list_detail_host_window
-			data = activity_type:activity_TCT_saint_days
-			player = root
-		}
-		custom_tooltip = TCT_saint_days.0001.a.tooltip
-		ai_chance = {
-			base = 15
-			ai_value_modifier = {
-				ai_zeal = 1
-				ai_greed = -0.5
-			}
-			modifier = {
-				add = 5
-				OR = {
-					has_trait = zealous
-					has_trait = diligent
-					has_trait = ambitious
-					has_trait = just
-					has_trait = gregarious
-					has_trait = lifestyle_reveler
-					has_trait = drunkard
-				}
-			}
-			modifier = {
-				factor = 5
-				OR = {
-					has_trait = vengeful
-					has_trait = sadistic
-					has_trait = callous
-					has_trait = arbitrary
-					has_trait = wrathful
-				}
-			}
+		scope:saint_day_province.county.var:saint_day_saint = {
+			save_scope_as = localsaint
 		}
 	}
 
 	option = { #ok
 		name = TCT_saint_days.0001.b
-		add_stress = minor_stress_loss
-		ai_chance = {
-			base = 10
-		}
-	}
-
-	option = { #family
-		name = TCT_saint_days.0001.c
-		every_close_family_member = {
-			limit = {
-				NOR = {
-					has_relation_rival = root
-					has_relation_potential_rival = root
-				}
-			}
-			add_opinion = {
-				modifier = TCT_saintdaysaint_opinion
-				target = root
-				opinion = 5
-			}
-		}
-		ai_chance = {
-			base = 5
-		}
 	}
 
 	option = { #Bah, humbug!
 		name = TCT_saint_days.0001.d
-		add_internal_flag = dangerous
 		add_character_flag = TCT_humbug
 		custom_tooltip = TCT_saint_days.0001.d.tooltip
-		ai_chance = {
-			base = 0
-		}
 	}
 }
 
@@ -350,324 +290,75 @@ TCT_saint_days.0004 = {
 	
 	option = { # Ok
 		name = TCT_saint_days.0004.a
-        if = {
+		add_piety = saint_day_arrival_piety_gain
+		if = { # Procession: Sizeable
 			limit = {
 				scope:activity = {
-                    AND = {
-                        has_activity_option = {
-                            category = TCT_saint_days_cost_type
-                            option = TCT_saint_days_cost_type_small
-                        }
-                        has_activity_option = {
-                            category = TCT_saint_days_procession_type
-                            option = TCT_saint_days_procession_type_modest
-                        }
-                    }
-                }
-			}
-			add_piety = 10
-            dynasty = {
-				add_dynasty_prestige = { 0 RICE_ancestor_max_dynasty_prestige_small_value }
-			}
-            every_close_family_member = {
-				limit = {
-					NOR = {
-						has_relation_rival = root
-						has_relation_potential_rival = root
-					}
-				}
-                add_opinion = {
-                    modifier = TCT_saint_days_procession_opinion
-                    target = root
-                    opinion = 5
-                }
-            }
-		}
-		else_if = {
-			limit = {
-				scope:activity = {
-                    AND = {
-                        has_activity_option = {
-                            category = TCT_saint_days_cost_type
-                            option = TCT_saint_days_cost_type_small
-                        }
-                        has_activity_option = {
-                            category = TCT_saint_days_procession_type
-                            option = TCT_saint_days_procession_type_sizeable
-                        }
-                    }
-                }
-			}
-			add_piety = 10
-			add_prestige = 20
-            dynasty = {
-				add_dynasty_prestige = { 0 RICE_ancestor_max_dynasty_prestige_small_value }
-			}
-            every_close_family_member = {
-				limit = {
-					NOR = {
-						has_relation_rival = root
-						has_relation_potential_rival = root
-					}
-				}
-                add_opinion = {
-                    modifier = TCT_saint_days_procession_opinion
-                    target = root
-                    opinion = 10
-                }
-                add_character_flag = {
-					flag = received_TCT_opinion
-					days = 2
-				}
-            }
-			hidden_effect = {
-            	every_vassal = {
-            	    limit = {
-						NOT = { has_character_flag = received_TCT_opinion }
-            	    }
-            	    add_opinion = {
-            	        modifier = TCT_saint_days_procession_opinion
-            	        target = root
-            	        opinion = 5
-            	    }
-            	}
-			}
-			custom_tooltip = TCT_saint_days.0004.opinion.tooltip.a
-		}
-		else_if = {
-			limit = {
-				scope:activity = {
-                    AND = {
-                        has_activity_option = {
-                            category = TCT_saint_days_cost_type
-                            option = TCT_saint_days_cost_type_small
-                        }
-                        has_activity_option = {
-                            category = TCT_saint_days_procession_type
-                            option = TCT_saint_days_procession_type_grand
-                        }
-                    }
-                }
-			}
-			add_piety = 30
-			add_prestige = 30
-            dynasty = {
-				add_dynasty_prestige = { 0 RICE_ancestor_max_dynasty_prestige_small_value }
-			}
-			every_close_family_member = {
-				limit = {
-					NOR = {
-						has_relation_rival = root
-						has_relation_potential_rival = root
-					}
-				}
-                add_opinion = {
-                    modifier = TCT_saint_days_procession_opinion
-                    target = root
-                    opinion = 15
-                }
-                add_character_flag = {
-					flag = received_TCT_opinion
-					days = 2
-				}
-            }
-			hidden_effect = {
-            	every_vassal = {
-            	    limit = {
-            	        NOT = { has_character_flag = received_TCT_opinion }
-            	    }
-            	    add_opinion = {
-            	        modifier = TCT_saint_days_procession_opinion
-            	        target = root
-            	        opinion = 10
-            	    }
-					add_character_flag = {
-						flag = received_TCT_opinion
-						days = 2
-					}
-            	}
-				scope:activity = {
-					every_attending_character = {
-						limit = {
-            		        NOR = {
-								this = root
-								has_character_flag = received_TCT_opinion
-							}
-            		    }
-            		    add_opinion = {
-            		        modifier = TCT_saint_days_procession_opinion
-            		        target = root
-            		        opinion = 5
-            		    }
-            		}
-            		activity_location.county = {
-            		    add_county_modifier = {
-							modifier = saint_days_procession
-							years = 5
+					NOT = {
+						has_activity_option = {
+							category = TCT_saint_days_procession_type
+							option = TCT_saint_days_procession_type_modest
 						}
-            		}
+					}
 				}
 			}
-			custom_tooltip = TCT_saint_days.0004.opinion.tooltip.b
+			add_prestige = saint_day_arrival_prestige_gain
 		}
-        else_if = {
+		if = { # Procession: Modest
 			limit = {
 				scope:activity = {
-                    AND = {
-                        has_activity_option = {
-                            category = TCT_saint_days_cost_type
-                            option = TCT_saint_days_cost_type_large
-                        }
-                        has_activity_option = {
-                            category = TCT_saint_days_procession_type
-                            option = TCT_saint_days_procession_type_modest
-                        }
-                    }
-                }
-			}
-			add_piety = 10
-            dynasty = {
-				add_dynasty_prestige = { 0 RICE_ancestor_max_dynasty_prestige_large_value }
-			}
-			every_close_family_member = {
-				limit = {
-					NOR = {
-						has_relation_rival = root
-						has_relation_potential_rival = root
+					has_activity_option = {
+						category = TCT_saint_days_procession_type
+						option = TCT_saint_days_procession_type_modest
 					}
 				}
-                add_opinion = {
-                    modifier = TCT_saint_days_procession_opinion
-                    target = root
-                    opinion = 5
-                }
-            }
+			}
+			scope:activity = {
+				every_attending_character = {
+					limit = { NOT = { this = root } }
+					custom = every_saint_days_celebration_participant
+					add_opinion = {
+						modifier = TCT_saint_days_procession_opinion
+						target = root
+						opinion = 5
+					}
+				}
+			}
 		}
-        else_if = {
+		else_if = { # Procession: Sizeable
 			limit = {
 				scope:activity = {
-                    AND = {
-                        has_activity_option = {
-                            category = TCT_saint_days_cost_type
-                            option = TCT_saint_days_cost_type_large
-                        }
-                        has_activity_option = {
-                            category = TCT_saint_days_procession_type
-                            option = TCT_saint_days_procession_type_sizeable
-                        }
-                    }
-                }
-			}
-			add_piety = 10
-			add_prestige = 20
-            dynasty = {
-				add_dynasty_prestige = { 0 RICE_ancestor_max_dynasty_prestige_large_value }
-			}
-			every_close_family_member = {
-				limit = {
-					NOR = {
-						has_relation_rival = root
-						has_relation_potential_rival = root
+					has_activity_option = {
+						category = TCT_saint_days_procession_type
+						option = TCT_saint_days_procession_type_sizeable
 					}
 				}
-                add_opinion = {
-                    modifier = TCT_saint_days_procession_opinion
-                    target = root
-                    opinion = 10
-                }
-                add_character_flag = {
-					flag = received_TCT_opinion
-					days = 2
-				}
-            }
-            hidden_effect = {
-            	every_vassal = {
-            	    limit = {
-						NOT = { has_character_flag = received_TCT_opinion }
-            	    }
-            	    add_opinion = {
-            	        modifier = TCT_saint_days_procession_opinion
-            	        target = root
-            	        opinion = 5
-            	    }
-            	}
 			}
-			custom_tooltip = TCT_saint_days.0004.opinion.tooltip.a
+			scope:activity = {
+				every_attending_character = {
+					limit = { NOT = { this = root } }
+					custom = every_saint_days_celebration_participant
+					add_opinion = {
+						modifier = TCT_saint_days_procession_opinion
+						target = root
+						opinion = 10
+					}
+				}
+			}
 		}
-        else_if = {
-			limit = {
-				scope:activity = {
-                    AND = {
-                        has_activity_option = {
-                            category = TCT_saint_days_cost_type
-                            option = TCT_saint_days_cost_type_large
-                        }
-                        has_activity_option = {
-                            category = TCT_saint_days_procession_type
-                            option = TCT_saint_days_procession_type_grand
-                        }
-                    }
-                }
-			}
-			add_piety = 30
-			add_prestige = 30
-            dynasty = {
-				add_dynasty_prestige = { 0 RICE_ancestor_max_dynasty_prestige_large_value }
-			}
-			every_close_family_member = {
-				limit = {
-					NOR = {
-						has_relation_rival = root
-						has_relation_potential_rival = root
+		else = { # Procession: Grand
+			scope:activity = {
+				every_attending_character = {
+					limit = { NOT = { this = root } }
+					custom = every_saint_days_celebration_participant
+					add_opinion = {
+						modifier = TCT_saint_days_procession_opinion
+						target = root
+						opinion = 10
 					}
 				}
-                add_opinion = {
-                    modifier = TCT_saint_days_procession_opinion
-                    target = root
-                    opinion = 15
-                }
-                add_character_flag = {
-					flag = received_TCT_opinion
-					days = 2
-				}
-            }	
-            hidden_effect = {
-            	every_vassal = {
-            	    limit = {
-            	        NOT = { has_character_flag = received_TCT_opinion }
-            	    }
-            	    add_opinion = {
-            	        modifier = TCT_saint_days_procession_opinion
-            	        target = root
-            	        opinion = 10
-            	    }
-					add_character_flag = {
-						flag = received_TCT_opinion
-						days = 2
-					}
-            	}
-				scope:activity = {
-					every_attending_character = {
-						limit = {
-            		        NOR = {
-								this = root
-								has_character_flag = received_TCT_opinion
-							}
-            		    }
-            		    add_opinion = {
-            		        modifier = TCT_saint_days_procession_opinion
-            		        target = root
-            		        opinion = 5
-            		    }
-            		}
-            		activity_location.county = {
-            		    change_county_control = 5
-            		}
-				}
 			}
-			custom_tooltip = TCT_saint_days.0004.opinion.tooltip.b
 		}
-        custom_tooltip = TCT_saint_days.0004.a.tooltip
         trigger_event = {
 			id = TCT_saint_days.0005
 			days = { 4 12 }
@@ -896,31 +587,24 @@ TCT_saint_days.0005 = {
 				save_scope_as = attendee
 			}
 		}
-		root = {
-			add_character_flag = {
-				flag = hosted_saint_day
-				years = 10
-			}
-			#faith = { #KGDEBUG
-			#	add_to_variable_list = {
-			#		name = held_saints_day
-			#		target = scope:host
-			#	}
-			#} #/KGDEBUG
+		add_character_flag = {
+			flag = hosted_saint_day
+			years = 10
 		}
 	}
 	
 	option = { # Ok
 		name = TCT_saint_days.0005.a
+		dynasty = {
+			add_dynasty_prestige = saint_day_end_renown_gain
+		}
         if = {
 			limit = {
-				AND = {
-					has_activity_intent = TCT_saint_days_reverence_intent
-					scope:activity = {
-						has_activity_option = {
-							category = special_type
-							option = TCT_saint_days_type_reverence
-						}
+				has_activity_intent = TCT_saint_days_reverence_intent
+				scope:activity = {
+					has_activity_option = {
+						category = special_type
+						option = TCT_saint_days_type_reverence
 					}
 				}
 			}
@@ -936,13 +620,11 @@ TCT_saint_days.0005 = {
 		}
 		else_if = {
 			limit = {
-				AND = {
-					has_activity_intent = TCT_saint_days_reverence_intent
-					scope:activity = {
-						has_activity_option = {
-							category = special_type
-							option = TCT_saint_days_type_tradition
-						}
+				has_activity_intent = TCT_saint_days_reverence_intent
+				scope:activity = {
+					has_activity_option = {
+						category = special_type
+						option = TCT_saint_days_type_tradition
 					}
 				}
 			}
@@ -958,20 +640,18 @@ TCT_saint_days.0005 = {
 		}
 		else_if = {
 			limit = {
-				AND = {
-					has_activity_intent = TCT_saint_days_reverence_intent
-					scope:activity = {
-						has_activity_option = {
-							category = special_type
-							option = TCT_saint_days_type_festivity
-						}
+				has_activity_intent = TCT_saint_days_reverence_intent
+				scope:activity = {
+					has_activity_option = {
+						category = special_type
+						option = TCT_saint_days_type_festivity
 					}
 				}
 			}
 			add_piety = { 10 RICE_ancestor_max_bonus_value }
 			add_prestige = { 40 RICE_ancestor_max_bonus_value }
-            add_stress = minor_stress_loss
             stress_impact = {
+				base = minor_stress_loss
 				zealous = minor_stress_impact_loss
                 diligent = minor_stress_impact_loss
                 lifestyle_reveler = minor_stress_impact_loss
@@ -1039,8 +719,8 @@ TCT_saint_days.0005 = {
 			}
 			add_piety = { 20 RICE_ancestor_max_bonus_value }
 			add_prestige = { 30 RICE_ancestor_max_bonus_value }
-            add_stress = minor_stress_loss
             stress_impact = {
+				base = minor_stress_loss
 				content = minor_stress_impact_loss
 				generous = minor_stress_impact_loss
 				zealous = minor_stress_impact_loss
@@ -1110,8 +790,8 @@ TCT_saint_days.0005 = {
 			}
 			add_piety = { 30 RICE_ancestor_max_bonus_value }
 			add_prestige = { 20 RICE_ancestor_max_bonus_value }
-            add_stress = minor_stress_loss
             stress_impact = {
+				base = minor_stress_loss
 				honest = minor_stress_impact_loss
                 humble = minor_stress_impact_loss
 				zealous = minor_stress_impact_loss
@@ -1122,6 +802,16 @@ TCT_saint_days.0005 = {
 				shy = minor_stress_impact_gain
                 paranoid = minor_stress_impact_gain
             }
+		}
+		scope:activity = {
+			activity_location = {
+				county = {
+					add_province_modifier = {
+						modifier = saintly_tomb
+						years = 1
+					}
+				}
+			}
 		}
 	}
 

@@ -876,7 +876,8 @@ become_saint = {
 			# Why even bother at this point?
 		}
 		every_dynasty_member = {
-			limit = { is_alive = yes }
+			custom = every_same_faith_dynasty_member_of_saint_tt
+			limit = { faith = root.faith }
 			add_piety = 300
 		}
 		add_dynasty_prestige_level = 1 # Why was this placed outside the dynasty scope??

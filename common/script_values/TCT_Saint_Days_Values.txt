@@ -2,3 +2,72 @@
 	value = scope:saint_day_province.var:saint_person_death_date
 }
 
+saint_day_arrival_piety_gain = {
+	value = 75
+	if = { # Procession: Sizeable
+		limit = {
+			scope:activity = {
+				has_activity_option = {
+					category = TCT_saint_days_procession_type
+					option = TCT_saint_days_procession_type_sizeable
+				}
+			}
+		}
+		add = 25
+	}
+	if = { # Procession: Grand
+		limit = {
+			scope:activity = {
+				has_activity_option = {
+					category = TCT_saint_days_procession_type
+					option = TCT_saint_days_procession_type_grand
+				}
+			}
+		}
+		add = 75
+	}
+}
+
+saint_day_arrival_prestige_gain = {
+	value = 0
+	if = { # Procession: Sizeable
+		limit = {
+			scope:activity = {
+				has_activity_option = {
+					category = TCT_saint_days_procession_type
+					option = TCT_saint_days_procession_type_sizeable
+				}
+			}
+		}
+		add = 50
+	}
+	if = { # Procession: Grand
+		limit = {
+			scope:activity = {
+				has_activity_option = {
+					category = TCT_saint_days_procession_type
+					option = TCT_saint_days_procession_type_grand
+				}
+			}
+		}
+		add = 100
+	}
+}
+
+saint_day_end_renown_gain = {
+	value = 0
+	if = {
+		limit = {
+			scope:activity = {
+				has_activity_option = {
+					category = TCT_saint_days_cost_type
+					option = TCT_saint_days_cost_type_large
+				}
+			}
+		}
+		add = RICE_ancestor_max_dynasty_prestige_large_value
+	}
+	else = {
+		add = RICE_ancestor_max_dynasty_prestige_small_value
+	}
+}

@@ -132,6 +132,20 @@ sainthood_event1trigger = {
 	has_virtue_trigger = yes
 }
 
+saintdays_province = {
+	has_variable = saint_day_saint
+	var:saint_person_death_date = current_month
+	squared_distance = {
+		target = root.capital_county
+		value <= squared_distance_small #150 map-pixels. Roughly one Wales away (top to bottom).
+	}
+	county = { # Throws a scope error but works correctly
+		has_holding_type = church_holding
+	}
+
+	save_temporary_scope_as = saint_province
+}
+
 saintdays_event1trigger = {
 	NOT = { has_character_flag = TCT_humbug }
 	is_available_adult = yes
@@ -146,22 +160,10 @@ saintdays_event1trigger = {
 		faith = faith:coptic
 	}
 	any_sub_realm_county = {
-		any_county_province = {
-			has_province_modifier = saintly_tomb
-			has_variable = saint_day_saint
-			has_variable = saint_person_death_date
-			NOT = { has_variable = saint_day_cooldown }
-			squared_distance = {
-				target = root.capital_county
-				value <= squared_distance_small #150 map-pixels. Roughly one Wales away (top to bottom).
-			}
-		}
+		saintdays_province = yes
 	}
-	any_held_title = {
-		tier = tier_county
-		any_county_province = {
-			has_holding_type = church_holding
-		}
+	scope:saint_province = {
+		NOT = { has_variable = saint_day_cooldown }
 	}
 }
 
