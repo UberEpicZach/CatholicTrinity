@@ -74,6 +74,5 @@ VIET_trinity_events_five_yearly_pulse = {
 		100 = TCT_religious_events.43
 		100 = TCT_religious_events.45
 		100 = TCT_religious_events.48
-		500 = TCT_religious_events.9
 	}
 }
