@@ -125,9 +125,10 @@
 							limit = { 
 								has_trait = cardinal
 							}
-							if = { limit = { has_trait = cardinal_priest } remove_trait = cardinal_priest }
-							if = { limit = { has_trait = cardinal_bishop } remove_trait = cardinal_bishop }
-							if = { limit = { has_trait = cardinal_archbishop } remove_trait = cardinal_archbishop }
+							change_trait_rank = {
+								trait = cardinal
+								rank = -3
+							}
 							remove_cardinal = yes
 							promote_new_cardinal = yes
 							update_cardinal_window = yes

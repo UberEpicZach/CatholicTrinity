@@ -602,9 +602,11 @@ TCT_spawn_HRE_Antipope = {
 				limit = { 
 					has_trait = cardinal
 				}
-				if = { limit = { has_trait = cardinal_priest } remove_trait = cardinal_priest }
-				if = { limit = { has_trait = cardinal_bishop } remove_trait = cardinal_bishop }
-				if = { limit = { has_trait = cardinal_archbishop } remove_trait = cardinal_archbishop }
+				change_trait_rank = {
+					trait = cardinal
+					rank = -3
+					min = 0
+				}
 				if = { limit = { has_nickname = nick_cardinal } remove_nickname = yes }
 				remove_cardinal = yes
 				promote_new_cardinal = yes

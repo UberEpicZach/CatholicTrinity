@@ -343,25 +343,12 @@ TCT_on_faith_conversion = {
 		}
 		if = {
 			limit = {
-				has_trait = cardinal_archbishop
+				has_trait = cardinal
 			}
-			remove_trait = cardinal_archbishop
-			remove_cardinal = yes
-			promote_new_cardinal = yes
-		}
-		if = {
-			limit = {
-				has_trait = cardinal_bishop
+			change_trait_rank = {
+				trait = cardinal
+				rank = -3
 			}
-			remove_trait = cardinal_bishop
-			remove_cardinal = yes
-			promote_new_cardinal = yes
-		}
-		if = {
-			limit = {
-				has_trait = cardinal_priest
-			}
-			remove_trait = cardinal_priest
 			remove_cardinal = yes
 			promote_new_cardinal = yes
 		}
