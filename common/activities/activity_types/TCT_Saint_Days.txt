@@ -555,7 +555,7 @@
 		is_available = yes
 		in_diplomatic_range = scope:host
 		OR = {
-			is_courtier_of - scope:host
+			is_courtier_of = scope:host
 			dynasty = scope:host.dynasty
 		}
 	}
