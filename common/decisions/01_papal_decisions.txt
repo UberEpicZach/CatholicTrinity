@@ -477,18 +477,9 @@ Declare_Minor_Crusade = {
 		religion = { exists = var:variable_ghw_unlocked }
 		NOT = { is_decision_on_cooldown = Declare_Minor_Crusade }
 		is_pope = no
-	}
-
-	is_valid = {
-		is_pope = no
-		has_faith = faith:catholic
-		is_ruler = yes
-		is_landed = yes
-		is_at_war = no
-		is_alive = yes
-		religion = { exists = var:variable_ghw_unlocked }
 		faith = {
-			NOT = { 
+			religion = { exists = var:variable_ghw_unlocked }
+			NOR = {
 				exists = great_holy_war
 				#exists = var:variable_ghw_cooldown
 				religion = { exists = var:variable_first_ghw_cooldown }
@@ -511,7 +502,14 @@ Declare_Minor_Crusade = {
 				has_doctrine = tenet_pacifism
 			}
 		}
+	}
+
+	is_valid = {
 		prestige_level >= medium_prestige_level
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
 	}
 
 	cost = {

@@ -488,7 +488,7 @@
   TCT_religious_events.803.desc: "Further and further do the heathens encroach upon Christendom, bound by their evil custom to pummel the longsuffering believers lower and lower into the dirt.\n\nThe leader of the Eastern schismatics, [eastern_patriarch.GetTitledFirstName] of Constantinople, is the only other ecclesiastical leader with the prestige and influence to rally common will for a solution. But he is said to be ironbound to the will of the Eastern Emperor — I, on the other hand, am in effect bound to none.\n\nI steel my nerve by uttering to myself from the 59th Psalm:\n#bold “Scatter them by Your power, and bring them down, O Lord, our shield.” #! \n\nTaking up my quill and sending word for a host of messengers, I try not to consider the first sentence of the verse. This not a time for contemplation and tolerance, but for action."
   TCT_religious_events.803.a: "Deus Vult!"
 
-  Declare_Minor_Crusade:0 "Declaration of A Minor Crusade"
+  Declare_Minor_Crusade:0 "Declare a Minor Crusade"
   Declare_Minor_Crusade_confirm:0 "Choose Selected Title"
   Declare_Minor_Crusade_decision_desc:0 "As I gaze upon the horizon, my mind wanders to the distant lands of the Outremer. I've heard of noble peers extending their hands in support, be it through gold, troops, or even leading armed-pilgrimages to the Holy Land personally. Such acts not only bolster the defenses of the Holy Land but also serve as a testament to one's unyielding faith and piety. I feel compelled to act, to prove my commitment. Declaring a minor crusade will not only aid our Christian allies but also allow me to display my deep-rooted devotion."  
   Declare_Minor_Crusade_decision_tooltip:0 "Deus Vult!"
