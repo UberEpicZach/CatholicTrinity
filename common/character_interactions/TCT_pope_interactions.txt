@@ -207,54 +207,10 @@ TCT_make_antipope_interaction = {
 					add_courtier = prev
 				}
 			}
-			if = {
-				limit = { 
-					has_trait = cardinal
-				}
-				if = { limit = { has_trait = cardinal_priest } remove_trait = cardinal_priest }
-				if = { limit = { has_trait = cardinal_bishop } remove_trait = cardinal_bishop }
-				if = { limit = { has_trait = cardinal_archbishop } remove_trait = cardinal_archbishop }
-				remove_cardinal = yes
-				promote_new_cardinal = yes
-				update_cardinal_window = yes
-				update_preferatus = yes
-			}
-		}
-		scope:actor = {
-			add_piety = massive_piety_loss
-			#trigger_event = {
-			# 	id = religious_interaction.1022
-			#}
-			faith.religious_head = {
-				add_opinion = {
-					modifier = TCT_creator_of_antipope
-					target = scope:actor
-				}
-			}
 		}
 		TCT_create_antipope = {
 			ANTIPOPE = scope:recipient
 			CREATOR = scope:actor
-		}
-
-		scope:actor = {
-			if = {
-				limit = {
-					scope:actor = {
-						any_character_struggle	 = {
-							involvement = involved
-							phase_has_catalyst = tct_create_antipope
-						}
-					}
-				}
-				every_character_struggle = {
-					involvement = involved
-					activate_struggle_catalyst = {
-						catalyst = tct_create_antipope
-						character = scope:actor
-					}
-				}
-			}
 		}
 	}
 

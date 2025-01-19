@@ -923,12 +923,27 @@ on_gain_papacy = {
 	effect = {
 		add_trait = pope_trait
 		if = { limit = { is_lowborn = yes } title:k_papal_state.holder = { set_house = house:house_SanctiPetriFiliis } }
-		if = { limit = { has_trait = cardinal_bishop } remove_trait = cardinal_bishop }
-		if = { limit = { has_trait = cardinal_priest } remove_trait = cardinal_priest }
-		if = { limit = { has_trait = cardinal_archbishop } remove_trait = cardinal_archbishop }
-		every_player = {add_gold = 1}
-		if = {limit = {is_cardinal = yes} every_player = {add_piety = 1}}
+		if = {
+			limit = { 
+				has_trait = cardinal
+			}
+			change_trait_rank = {
+				trait = cardinal
+				rank = -3
+			}
+		}
 		if = { limit = { has_trait = TCT_antipope } TCT_remove_antipope = yes}
+		if = {
+			limit = {
+				any_held_title = {
+					has_variable = antipope_title
+				}
+			}
+			every_held_title = {
+				limit = { has_variable = antipope_title }
+				destroy_title = prev
+			}
+		}
 	}
 }
 

@@ -507,7 +507,23 @@ TCT_is_pope_test = {
 }
 
 TCT_create_antipope = {
+	$CREATOR$.culture = {
+		save_scope_as = liege_culture
+	}
 	$ANTIPOPE$ = {
+		if = {
+			limit = { 
+				has_trait = cardinal
+			}
+			change_trait_rank = {
+				trait = cardinal
+				rank = -3
+			}
+			remove_cardinal = yes
+			promote_new_cardinal = yes
+			update_cardinal_window = yes
+			update_preferatus = yes
+		}
 		create_character = {
 			location = $ANTIPOPE$.capital_province
 			faith = $ANTIPOPE$.faith
@@ -542,10 +558,68 @@ TCT_create_antipope = {
 			value = $CREATOR$
 		}
 	}
+	create_dynamic_title = {
+		tier = duchy
+		name = TCT_ANTIPAPCY
+	}
+	create_title_and_vassal_change = {
+		type = created
+		save_scope_as = change
+		add_claim_on_loss = no
+	}
+	scope:new_title = {
+		change_title_holder = {
+			holder = $ANTIPOPE$
+			change = scope:change
+		}
+		set_capital_county = $CREATOR$.primary_title.title_capital_county
+		set_color_from_title = title:k_papal_state
+		set_ruler_uses_title_name = no
+		set_coa = title:k_papal_state
+		set_definitive_form = yes
+		set_can_be_named_after_dynasty = no
+		set_landless_title = yes
+		
+		set_no_automatic_claims = yes
+		set_always_follows_primary_heir = yes
+		set_destroy_if_invalid_heir = yes
+		copy_title_history = title:k_papal_state
+
+		set_variable = antipope_title
+	}
+	change_liege = {
+		liege = $CREATOR$
+		change = scope:change
+	}
+
+	resolve_title_and_vassal_change = scope:change
+
 	$CREATOR$ = {
+		add_piety = massive_piety_loss
+		faith.religious_head = {
+			add_opinion = {
+				modifier = TCT_creator_of_antipope
+				target = title:e_hre.holder
+			}
+		}
 		set_variable = {
 			name = TCT_antipope_of_ruler
 			value = $ANTIPOPE$
+		}
+		if = {
+			limit = {
+				any_character_struggle = {
+					involvement = involved
+					phase_has_catalyst = tct_create_antipope
+				}
+			}
+			every_character_struggle = {
+				involvement = involved
+				activate_struggle_catalyst = {
+					catalyst = tct_create_antipope
+					character = $CREATOR$
+				}
+			}
 		}
 	}
 }
@@ -598,55 +672,11 @@ TCT_spawn_HRE_Antipope = {
 					add_courtier = prev
 				}
 			}
-			if = {
-				limit = { 
-					has_trait = cardinal
-				}
-				change_trait_rank = {
-					trait = cardinal
-					rank = -3
-					min = 0
-				}
-				if = { limit = { has_nickname = nick_cardinal } remove_nickname = yes }
-				remove_cardinal = yes
-				promote_new_cardinal = yes
-				update_cardinal_window = yes
-				update_preferatus = yes
-				save_scope_as = newpope
-			}
-		}
-		title:e_hre.holder = {
-			add_piety = massive_piety_loss
-			faith.religious_head = {
-				add_opinion = {
-					modifier = TCT_creator_of_antipope
-					target = title:e_hre.holder 
-				}
-			}
+			save_scope_as = newpope
 		}
 		TCT_create_antipope = {
 			ANTIPOPE = scope:antipope_vassal
 			CREATOR = title:e_hre.holder
-		}
-
-		title:e_hre.holder = {
-			if = {
-				limit = {
-					title:e_hre.holder = {
-						any_character_struggle	 = {
-							involvement = involved
-							phase_has_catalyst = tct_create_antipope
-						}
-					}
-				}
-				every_character_struggle = {
-					involvement = involved
-					activate_struggle_catalyst = {
-						catalyst = tct_create_antipope
-						character = title:e_hre.holder
-					}
-				}
-			}
 		}
 
 		if = {
