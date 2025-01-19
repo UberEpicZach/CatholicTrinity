@@ -516,9 +516,9 @@ TCT_pentarchy_test2 = {
 } 
 TCT_coa_test = {
 	
-	title:d_viennois = {
-		set_coa = title:d_viennois
-	}
+	#title:d_viennois = {
+	#	set_coa = title:d_viennois
+	#}
 } 
 
 # TCT_archbishops_867 = {
