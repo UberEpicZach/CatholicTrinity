@@ -1014,10 +1014,8 @@ saint_setup = {
 		faith:catholic = {
 			if = {
 				limit = {
-					character:145292 = {
-						exists = this
-						has_trait = saint
-					}
+					exists = character:145292
+					character:145292 = { has_trait = saint }
 				}
 				add_to_variable_list = {
 					name = faith_saints
@@ -1026,10 +1024,8 @@ saint_setup = {
 			}
 			if = {
 				limit = {
-					character:168716 = {
-						exists = this
-						has_trait = saint
-					}
+					exists = character:168716
+					character:168716 = { has_trait = saint }
 				}
 				add_to_variable_list = {
 					name = faith_saints
@@ -1038,10 +1034,8 @@ saint_setup = {
 			}
 			if = {
 				limit = {
-					character:190260 = {
-						exists = this
-						has_trait = saint
-					}
+					exists = character:190260
+					character:190260 = { has_trait = saint }
 				}
 				add_to_variable_list = {
 					name = faith_saints
@@ -1050,10 +1044,8 @@ saint_setup = {
 			}
 			if = {
 				limit = {
-					character:galician0201 = {
-						exists = this
-						has_trait = saint
-					}
+					exists = character:galician0201
+					character:galician0201 = { has_trait = saint }
 				}
 				add_to_variable_list = {
 					name = faith_saints
@@ -1062,10 +1054,8 @@ saint_setup = {
 			}
 			if = {
 				limit = {
-					character:73881 = {
-						exists = this
-						has_trait = saint
-					}
+					exists = character:73881
+					character:73881 = { has_trait = saint }
 				}
 				add_to_variable_list = {
 					name = faith_saints
@@ -1074,10 +1064,8 @@ saint_setup = {
 			}
 			if = {
 				limit = {
-					character:214094 = {
-						exists = this
-						has_trait = saint
-					}
+					exists = character:214094
+					character:214094 = { has_trait = saint }
 				}
 				add_to_variable_list = {
 					name = faith_saints
@@ -1086,10 +1074,8 @@ saint_setup = {
 			}
 			if = {
 				limit = {
-					character:castilian0147 = {
-						exists = this
-						has_trait = saint
-					}
+					exists = character:castilian0147
+					character:castilian0147 = { has_trait = saint }
 				}
 				add_to_variable_list = {
 					name = faith_saints
@@ -1098,10 +1084,8 @@ saint_setup = {
 			}
 			if = {
 				limit = {
-					character:baranis0061 = {
-						exists = this
-						has_trait = saint
-					}
+					exists = character:baranis0061
+					character:baranis0061 = { has_trait = saint }
 				}
 				add_to_variable_list = {
 					name = faith_saints
@@ -1110,10 +1094,8 @@ saint_setup = {
 			}
 			if = {
 				limit = {
-					character:cisalpine0147 = {
-						exists = this
-						has_trait = saint
-					}
+					exists = character:cisalpine0147
+					character:cisalpine0147 = { has_trait = saint }
 				}
 				add_to_variable_list = {
 					name = faith_saints
