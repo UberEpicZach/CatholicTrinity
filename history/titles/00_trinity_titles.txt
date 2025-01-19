@@ -645,7 +645,7 @@ d_archbishop_trier = {
 
 	}
 }
-d_archbishop_colonge = {
+d_archbishop_cologne = {
 	867.1.1 = {
 
 	}
