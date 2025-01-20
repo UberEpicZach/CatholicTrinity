@@ -590,7 +590,9 @@ AntipopeCB = {
 					is_landed = yes
 				}
 			}
-			scope:claimant = { depose = yes }
+			hidden_effect = {
+				scope:claimant = { depose = yes }
+			}
 		}
 
 		title:k_papal_state.holder = {
