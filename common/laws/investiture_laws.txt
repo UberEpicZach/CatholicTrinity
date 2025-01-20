@@ -22,6 +22,13 @@ investiture_early = {
 				add = 1000
 			}
 		}
+
+		on_pass = {
+			set_variable = {
+				name = investiture_cooldown
+				years = @investiture_cooldown_years
+			}
+		}
 	} 
 	free_investiture_early = {
 		modifier = {
@@ -55,37 +62,43 @@ investiture_early = {
 		}
 		
 		on_pass = {
+			set_variable = {
+				name = investiture_cooldown
+				years = @investiture_cooldown_years
+			}
 			if = {
 				limit = {
 					NOT = { has_realm_law = free_investiture_early }
 				}
-				set_variable = {
-					name = investiture_cooldown
-					years = @investiture_cooldown_years
-				}
-	
 				hidden_effect = {	
 					every_vassal = {
 						limit = {
-							any_vassal = {
+							OR = {
+								any_vassal = {
+									has_government = theocracy_government
+								}
 								has_government = theocracy_government
 							}
 						} 
-						add_opinion = {
-							target = root
-							modifier = TCT_free_investiture
-							opinion = 10
+						if = {
+							limit = {
+								any_vassal = {
+									has_government = theocracy_government
+								}
+								has_government = theocracy_government
+							}
+							add_opinion = {
+								target = root
+								modifier = TCT_free_investiture
+								opinion = 20
+							}
 						}
-					}
-
-					every_vassal = {
-						limit = {
-							has_government = theocracy_government
-						} 
-						add_opinion = {
-							target = root
-							modifier = TCT_free_investiture
-							opinion = 10
+						else = {
+							add_opinion = {
+								target = root
+								modifier = TCT_free_investiture
+								opinion = 10
+							}
 						}
 					}
 				}
@@ -307,6 +320,13 @@ investiture_late = {
 				add = 1000
 			}
 		}
+
+		on_pass = {
+			set_variable = {
+				name = investiture_cooldown
+				years = @investiture_cooldown_years
+			}
+		}
 	}
 	free_investiture_late = {
 		modifier = {
@@ -340,6 +360,10 @@ investiture_late = {
 		}
 		
 		on_pass = {
+			set_variable = {
+				name = investiture_cooldown
+				years = @investiture_cooldown_years
+			}
 			if = {
 				limit = {
 					NOT = { has_realm_law = free_investiture_late }
@@ -352,25 +376,32 @@ investiture_late = {
 				hidden_effect = {	
 					every_vassal = {
 						limit = {
-							any_vassal = {
+							OR = {
+								any_vassal = {
+									has_government = theocracy_government
+								}
 								has_government = theocracy_government
 							}
 						} 
-						add_opinion = {
-							target = root
-							modifier = TCT_free_investiture
-							opinion = 10
+						if = {
+							limit = {
+								any_vassal = {
+									has_government = theocracy_government
+								}
+								has_government = theocracy_government
+							}
+							add_opinion = {
+								target = root
+								modifier = TCT_free_investiture
+								opinion = 20
+							}
 						}
-					}
-
-					every_vassal = {
-						limit = {
-							has_government = theocracy_government
-						} 
-						add_opinion = {
-							target = root
-							modifier = TCT_free_investiture
-							opinion = 10
+						else = {
+							add_opinion = {
+								target = root
+								modifier = TCT_free_investiture
+								opinion = 10
+							}
 						}
 					}
 				}
