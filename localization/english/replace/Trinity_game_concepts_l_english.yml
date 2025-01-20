@@ -87,9 +87,13 @@
  investiture_early: "[investiture|E]"
  investiture_late: "[investiture|E]"
  papal_investiture_early: "[papal_investiture|E]"
+ papal_investiture_early_effects: "$EFFECT_LIST_BULLET$#indent_newline:3 [theocratic|E] [vassals|e] and [court_chaplains|e] of your [realm|e] can only be appointed the Pope.#!"
  free_investiture_early: "[free_investiture|E]"
+ free_investiture_early_effects: "$EFFECT_LIST_BULLET$#indent_newline:3 [theocratic|E] [vassals|e] and [court_chaplains|e] of your [realm|e] can be appointed by their [liege|E] without intervention of the Pope.#!"
  papal_investiture_late: "[papal_investiture|E]"
+ papal_investiture_late_effects: "$papal_investiture_early_effects$"
  free_investiture_late: "[free_investiture|E]"
+ free_investiture_late_effects: "$free_investiture_early_effects$"
  free_investiture_effects:0 "$EFFECT_LIST_BULLET$Rulers may appoint and, once per lifetime, dismiss the current [realm_priest|E] on the Council \n$EFFECT_LIST_BULLET$ [vassals|E], who have further [vassals|E] bishops gain #P +10#! [opinion|E]. \n$EFFECT_LIST_BULLET$ [head_of_faith|E] loses #N -150#! [opinion|E]."
  
  COURT_CHAPLAIN_CANT_FIRE_DOCTRINES_TCT: "$EFFECT_LIST_BULLET$[CHARACTER.GetFaith.GetName] does #bold not#! have #V Revocable Clerical Appointment#! [doctrine|E].\n\n$EFFECT_LIST_BULLET$[CHARACTER.GetName] does not have [free_investiture|E].\n\nWithout such a $game_concept_doctrine$, or [law|E], there is always a [court_chaplain|E] or [realm_priest|E]."

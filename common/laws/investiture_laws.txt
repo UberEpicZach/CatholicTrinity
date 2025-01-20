@@ -19,7 +19,7 @@ investiture_early = {
 
 		pass_cost = {
 			prestige = {
-				add = 1000
+				add = change_investiture_prestige_cost
 			}
 		}
 
@@ -41,11 +41,10 @@ investiture_early = {
 
 		can_pass = {
 			trigger_if = {
-				is_ai = no
+				limit = { is_ai = no }
 				is_independent_ruler = yes
-				has_realm_law = papal_investiture_early
 				realm_law_pass_investiture_early = yes
-				NOT = {
+				NOR = {
 					has_primary_title = title:k_papal_state
 					has_variable = investiture_cooldown
 				}
@@ -54,10 +53,10 @@ investiture_early = {
 		
 		pass_cost = {
 			piety = {
-				add = 100
+				add = change_investiture_piety_cost
 			}
 			prestige = {
-				add = 200
+				add = change_investiture_prestige_cost
 			}
 		}
 		
@@ -317,7 +316,7 @@ investiture_late = {
 
 		pass_cost = {
 			prestige = {
-				add = 1000
+				add = change_investiture_prestige_cost
 			}
 		}
 
@@ -339,11 +338,10 @@ investiture_late = {
 
 		can_pass = {
 			trigger_if = {
-				is_ai = no
+				limit = { is_ai = no }
 				is_independent_ruler = yes
-				has_realm_law = papal_investiture_late
 				realm_law_pass_investiture_late = yes
-				NOT = {
+				NOR = {
 					has_primary_title = title:k_papal_state
 					has_variable = investiture_cooldown
 				}
@@ -352,10 +350,20 @@ investiture_late = {
 		
 		pass_cost = {
 			piety = {
-				add = 1000
+				add = change_investiture_piety_cost
+				multiply = {
+					desc = "Dictatus Papae"
+					value = 10
+					format = "BASE_VALUE_FORMAT"
+				}
 			}
 			prestige = {
-				add = 2500
+				add = change_investiture_prestige_cost
+				multiply = {
+					desc = "Dictatus Papae"
+					value = 12.5
+					format = "BASE_VALUE_FORMAT_DECIMALS_PLUS_NEGATIVE"
+				}
 			}
 		}
 		

@@ -1,4 +1,56 @@
-﻿diplomacy_theocrat = {
+﻿change_investiture_prestige_cost = {
+	add = {
+		desc = "BASE_VALUE"
+		value = 200
+		format = "BASE_VALUE_FORMAT"
+	}
+
+	# Character Modifier Bonuses
+	if = {
+		limit = { has_character_modifier = yearly_benevolent_forgiveness_modifier }
+		multiply = {
+			desc = "character_modifiers_law_cost_tooltip"
+			value = 0.9 # yearly_benevolent_forgiveness_modifier = -10%
+		}
+	}
+
+	# Character Modifier Maluses
+	if = {
+		limit = { has_character_modifier = vassal_distrust_modifier }
+		multiply = {
+			desc = "character_modifiers_law_cost_tooltip"
+			value = 1.1 # vassal_distrust_modifier = +10%
+		}
+	}
+}
+
+change_investiture_piety_cost = {
+	add = {
+		desc = "BASE_VALUE"
+		value = 100
+		format = "BASE_VALUE_FORMAT"
+	}
+
+	# Character Modifier Bonuses
+	if = {
+		limit = { has_character_modifier = yearly_benevolent_forgiveness_modifier }
+		multiply = {
+			desc = "character_modifiers_law_cost_tooltip"
+			value = 0.9 # yearly_benevolent_forgiveness_modifier = -10%
+		}
+	}
+
+	# Character Modifier Maluses
+	if = {
+		limit = { has_character_modifier = vassal_distrust_modifier }
+		multiply = {
+			desc = "character_modifiers_law_cost_tooltip"
+			value = 1.1 # vassal_distrust_modifier = +10%
+		}
+	}
+}
+
+diplomacy_theocrat = {
 	value = 0
 	add = diplomacy
 }
