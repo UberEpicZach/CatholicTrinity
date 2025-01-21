@@ -986,3 +986,53 @@ hof_ask_for_claim_interaction_effect = {
 	}
 }
 
+
+TCT_theocrat_investiture_opinion = {
+	if = {
+		limit = {
+			any_held_title = {
+				tier = tier_kingdom
+			}
+		}
+		$SUCESSOR$ = {
+			add_opinion = {
+				target = scope:important_liege
+				modifier = received_title_kingdom
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			any_held_title = {
+				tier = tier_duchy
+			}
+		}
+		$SUCESSOR$ = {
+			add_opinion = {
+				target = scope:important_liege
+				modifier = received_title_duchy
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			any_held_title = {
+				tier = tier_county
+			}
+		}
+		$SUCESSOR$ = {
+			add_opinion = {
+				target = scope:important_liege
+				modifier = received_title_county
+			}
+		}
+	}
+	else = {
+		$SUCESSOR$ = {
+			add_opinion = {
+				target = scope:important_liege
+				modifier = received_title_barony
+			}
+		}
+	}
+}

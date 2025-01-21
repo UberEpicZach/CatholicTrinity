@@ -613,6 +613,9 @@ on_theocrat_investiture_death = {
 	effect = {
 		liege = { save_scope_as = important_liege }
 		primary_title = { var:theocratic_successor = { save_scope_as = theocratic_inheritor } remove_variable = theocratic_successor }
+		TCT_theocrat_investiture_opinion = {
+			SUCCESSOR = scope:theocratic_inheritor
+		}
 		create_title_and_vassal_change = {
 			type = granted
 			save_scope_as = title_change
@@ -637,6 +640,15 @@ on_theocrat_investiture_death = {
 				change = scope:change
 			}
 			resolve_title_and_vassal_change = scope:change
+		}
+		scope:important_liege = {
+			faith.religious_head = {
+				add_opinion = {
+					target = scope:important_liege
+					opinion = -20
+					modifier = TCT_appointed_bishop_investiture_bad
+				}
+			}
 		}
 	}
 }

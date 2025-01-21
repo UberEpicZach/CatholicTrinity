@@ -1164,6 +1164,9 @@ TCT_religious_events.16 = {
 			
 			scope:bishop_title.holder = {
 				save_scope_as = papal_appointed_bishop
+				TCT_theocrat_investiture_opinion = {
+					SUCCESSOR = scope:new_bishop
+				}
 			}
 
 			scope:new_bishop = {
