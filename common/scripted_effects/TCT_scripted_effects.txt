@@ -994,7 +994,7 @@ TCT_theocrat_investiture_opinion = {
 				tier = tier_kingdom
 			}
 		}
-		$SUCESSOR$ = {
+		$SUCCESSOR$ = {
 			add_opinion = {
 				target = scope:important_liege
 				modifier = received_title_kingdom
@@ -1007,7 +1007,7 @@ TCT_theocrat_investiture_opinion = {
 				tier = tier_duchy
 			}
 		}
-		$SUCESSOR$ = {
+		$SUCCESSOR$ = {
 			add_opinion = {
 				target = scope:important_liege
 				modifier = received_title_duchy
@@ -1020,7 +1020,7 @@ TCT_theocrat_investiture_opinion = {
 				tier = tier_county
 			}
 		}
-		$SUCESSOR$ = {
+		$SUCCESSOR$ = {
 			add_opinion = {
 				target = scope:important_liege
 				modifier = received_title_county
@@ -1028,7 +1028,7 @@ TCT_theocrat_investiture_opinion = {
 		}
 	}
 	else = {
-		$SUCESSOR$ = {
+		$SUCCESSOR$ = {
 			add_opinion = {
 				target = scope:important_liege
 				modifier = received_title_barony
