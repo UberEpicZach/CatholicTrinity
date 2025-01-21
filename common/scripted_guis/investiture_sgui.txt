@@ -25,8 +25,11 @@ get_all_realm_theocracies = {
 			save_scope_as = your_primary_title
 			clear_variable_list = theocracy_vassals_for_investiture
 		}
-		every_vassal = {
+		ordered_vassal = {
 			limit = { has_government = theocracy_government }
+			order_by = highest_held_title_tier
+			max = 9999
+			check_range_bounds = no
 			save_scope_as = to_add
 			scope:your_primary_title = {
 				add_to_variable_list = {
