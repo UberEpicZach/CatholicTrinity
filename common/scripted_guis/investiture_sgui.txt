@@ -156,7 +156,7 @@ get_all_investiture_candidates = {
 							target = root
 							value >= 0
 						}
-						learning >= 7
+						learning >= average_skill_rating
 					}
 					has_faith = scope:employer_liege_guy.faith
 				}
@@ -208,7 +208,7 @@ get_all_investiture_candidates = {
 						target = root
 						value >= 0
 					}
-					learning >= 7
+					learning >= average_skill_rating
 				}
 				has_faith = scope:employer_liege_guy.faith
 			}

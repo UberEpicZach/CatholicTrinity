@@ -1071,7 +1071,7 @@ scripted_effect get_investiture_characters = {
 					target = root
 					value >= 0
 				}
-				learning >= 7
+				learning >= average_skill_rating
 			}
 			has_faith = root.faith
 			NOT = { 

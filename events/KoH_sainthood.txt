@@ -1086,7 +1086,7 @@ TCT_sainthood.11 = { # Positio is presented to the Pope
 								has_trait = intellect_good_3
 								has_trait = shrewd
 								has_trait = intellect_good_1
-								learning >= 15
+								learning >= high_skill_rating
 							}
 						}
 						give_nickname = nick_the_wise

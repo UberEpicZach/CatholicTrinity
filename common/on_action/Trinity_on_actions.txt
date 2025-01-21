@@ -1010,7 +1010,7 @@ priests_learn_latin = {
 			limit = {
 				is_clergy = yes
 				has_faith = faith:catholic
-				learning > average_skill_rating #8
+				learning >= average_skill_rating #8
 				NOT = { knows_language = language_latin }
 			}
 			learn_language = language_latin

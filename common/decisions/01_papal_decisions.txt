@@ -151,7 +151,7 @@ ProclaimDictatusPapae = {
 				has_realm_law = free_investiture_late 
 			}
 		}
-		learning >= 16
+		learning >= high_skill_rating
 		prestige_level >= medium_prestige_level
 		piety_level >= medium_piety_level
 		is_independent_ruler = yes

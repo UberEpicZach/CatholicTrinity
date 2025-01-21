@@ -5080,7 +5080,7 @@ select_cardinal_candidate_interaction = {
 						#	value >= 0
 						#}
 						has_education_learning_trigger = yes
-						learning >= 7
+						learning >= average_skill_rating
 						is_ruler = no
 						is_married = no
 						is_cardinal = no
