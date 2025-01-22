@@ -5392,7 +5392,7 @@ TCT_religious_events.800 = {
 	option = { 
 		name = TCT_religious_events.800.a
 		trigger = {
-			Nhas_realm_law = free_investiture
+			has_realm_law = free_investiture
 		}
 
 		ai_chance = {	
