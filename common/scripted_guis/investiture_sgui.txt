@@ -62,12 +62,7 @@ get_all_investiture_candidates = {
 					has_trait = devoted
 					has_education_learning_trigger = yes
 				}
-				is_landed = no
-				is_female = no
-				is_adult = yes
-				NOT = {
-					any_heir_title = {} # Not heir to anything
-				}
+				TCT_investiture_candidates_common_trigger = yes
 			}
 			save_scope_as = person_thing
 			scope:title_thing = {
@@ -83,12 +78,7 @@ get_all_investiture_candidates = {
 					has_trait = devoted
 					has_education_learning_trigger = yes
 				}
-				is_landed = no
-				is_female = no
-				is_adult = yes
-				NOT = {
-					any_heir_title = {} # Not heir to anything
-				}
+				TCT_investiture_candidates_common_trigger = yes
 			}
 			save_scope_as = person_thing
 			scope:title_thing = {
@@ -104,12 +94,7 @@ get_all_investiture_candidates = {
 					has_trait = devoted
 					has_education_learning_trigger = yes
 				}
-				is_landed = no
-				is_adult = yes
-				is_female = no
-				NOT = {
-					any_heir_title = {} # Not heir to anything
-				}
+				TCT_investiture_candidates_common_trigger = yes
 			}
 			save_scope_as = person_thing
 			scope:title_thing = {
@@ -123,45 +108,7 @@ get_all_investiture_candidates = {
 		every_vassal = {
 			every_courtier_or_guest = {
 				limit = {
-					OR = {
-						AND = {
-							is_councillor_of = scope:employer_liege_guy
-							has_council_position = councillor_court_chaplain
-						}
-						AND = {
-							NOT = {
-								AND = {
-									court_owner = { has_realm_law = male_only_law }
-									is_female = yes
-								}
-								AND = {
-									court_owner = { has_realm_law = male_preference_law }
-									is_female = yes
-								}
-								AND = {
-									court_owner = { has_realm_law = female_only_law }
-									is_female = no
-								}
-								AND = {
-									court_owner = { has_realm_law = female_preference_law }
-									is_female = no
-								}
-								has_variable = theocratic_successor
-								father = liege_or_court_owner
-								mother = liege_or_court_owner
-								primary_spouse = liege_or_court_owner
-							}
-						}
-					}
-					AND = {
-						#And they have to actually like you enough to want to invest you.
-						opinion = {
-							target = root
-							value >= 0
-						}
-						learning >= average_skill_rating
-					}
-					has_faith = scope:employer_liege_guy.faith
+					TCT_investiture_candidates_courtier_trigger = yes
 				}
 				save_scope_as = person_thing
 				scope:title_thing = {
@@ -175,45 +122,7 @@ get_all_investiture_candidates = {
 
 		every_courtier_or_guest = {
 			limit = {
-				OR = {
-					AND = {
-						is_councillor_of = scope:employer_liege_guy
-						has_council_position = councillor_court_chaplain
-					}
-					AND = {
-						NOT = {
-							AND = {
-								court_owner = { has_realm_law = male_only_law }
-								is_female = yes
-							}
-							AND = {
-								court_owner = { has_realm_law = male_preference_law }
-								is_female = yes
-							}
-							AND = {
-								court_owner = { has_realm_law = female_only_law }
-								is_female = no
-							}
-							AND = {
-								court_owner = { has_realm_law = female_preference_law }
-								is_female = no
-							}
-							has_variable = theocratic_successor
-							father = liege_or_court_owner
-							mother = liege_or_court_owner
-							primary_spouse = liege_or_court_owner
-						}
-					}
-				}
-				AND = {
-					#And they have to actually like you enough to want to invest you.
-					opinion = {
-						target = root
-						value >= 0
-					}
-					learning >= average_skill_rating
-				}
-				has_faith = scope:employer_liege_guy.faith
+				TCT_investiture_candidates_courtier_trigger = yes
 			}
 			save_scope_as = person_thing
 			scope:title_thing = {

@@ -554,6 +554,35 @@ tct_archbishop_trigger = {
 	government_has_flag = government_is_theocracy
 }
 
+TCT_investiture_candidates_common_trigger = {
+	is_landed = no
+	can_be_clergy_due_to_gender_trigger = yes
+	is_adult = yes
+	NOT = {
+		any_heir_title = {} # Not heir to anything
+	}
+}
+
+TCT_investiture_candidates_courtier_trigger = {
+	TCT_investiture_candidates_common_trigger = yes
+	NOR = {
+		has_variable = theocratic_successor
+		is_child_of = liege_or_court_owner
+		primary_spouse = liege_or_court_owner
+	}
+	#And they have to actually like you enough to want to invest you.
+	opinion = {
+		target = root
+		value >= 0
+	}
+	OR = {
+		has_trait = devoted
+		has_education_learning_trigger = yes
+		learning >= average_skill_rating
+	}
+	has_faith = root.faith
+}
+
 
 # Can the AI create a new laamp without threatening performance?
 ## Beware of expanding this past the soft-cap figure of around ~200: code estimations were made with this number in mind, so the more we let slip the net, the more they'll start to degrade performance.
