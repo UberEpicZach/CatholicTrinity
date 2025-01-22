@@ -137,34 +137,16 @@ ProclaimDictatusPapae = {
 	}
 
 	is_valid = {
-		NOT = { exists = global_var:dictatuspapae }
-		has_faith = faith:catholic
-		is_ruler = yes
-		is_landed = yes
-		is_pope = yes
-		has_government = theocracy_government
-		#is_at_war = no
-		is_alive = yes
-		any_independent_ruler = {
-			has_realm_law = free_investiture
+		custom_tooltip = {
+			text = any_ruler_free_investiture
+			any_independent_ruler = {
+				has_realm_law = free_investiture
+			}
 		}
 		learning >= high_skill_rating
 		prestige_level >= medium_prestige_level
 		piety_level >= medium_piety_level
 		is_independent_ruler = yes
-		gold >= 250
-	}
-
-	cost = {
-		# gold = {
-		# 	value = 250
-		# }
-		# piety = {
-		# 	value = 1000
-		# }
-		# prestige = {
-		# 	value = 2500
-		# }
 	}
 
 	effect = {
