@@ -132,10 +132,11 @@
  doctrine_clerical_succession_investiture_law_appointment_desc:0 "Until the dispute over the supremacy of power between secular rulers and the Holy See is resolved, the appointment of bishops will be decided by each ruler independently. The appointment itself will ultimately be final and absolute."
  investiture_is_on_cooldown:0 "The investiture law has changed not so long ago. It will not be possible to change it until [GetCurrentDateWithDiff(GetVarTimeRemaining(CHARACTER.MakeScope, 'investiture_cooldown'))]"
  court_chaplain_cant_reassign_investiture:0 "Your realm has NOT passed the [free_investiture|E] [law|E]\nWithout it, [court_chaplains|E] and [realm_priests|E] cannot be assigned." 
- INVESTITURE_DESC:0 "   [investiture|E] is the authority of appointing Bishopic Successors, all realms are by default [papal_investiture|E] and such the ability is left to the Pope and unknown until the current bishop dies, with [free_investiture|E], you'll be able to determine the successor in advance. All [county|E] tier and higher bishopic [vassals|E], will appear here" 
- INVESTITURE_APPOINT:0 "Appoint a Successor to a Bishopic, they can be any Sibling, Child, who is Unlanded, Is Male, Is an adult and has an education in learning and is not in line-of-succession. Courier's and Guest's are also valid if they also meet a learning of 8 or higher.\n"
- INVESTITURE_TITLE:0 "[GetPlayer.GetPrimaryTitle.MakeScope.Var('selected_title_for_investiture').Title.GetName]"
- INVESTITURECouncil_TITLE:0 "[GetPlayer.GetPrimaryTitle.MakeScope.Var('selected_councillor_for_investiture').GetCharacter.GetName]"
+ INVESTITURE_BUTTON:0 "Appoint Successor"
+ INVESTITURE_DESC:0 "[investiture|E] is the authority of appointing Bishopric Successors, all realms are by default [papal_investiture|E] and such the ability is left to the Pope and unknown until the current bishop dies, with [free_investiture|E], you'll be able to determine the successor in advance. All [county|E] tier and higher bishopric [vassals|E], will appear here" 
+ INVESTITURE_APPOINT:0 "Appoint a successor to the [GetPlayer.GetPrimaryTitle.MakeScope.Var('selected_title_for_investiture').Title.GetNameNoTooltip]."
+ INVESTITURE_APPOINT_REQUIREMENTS:0 "#Bold Requirements:#! A children or sibling who is not in any line of succession that either has education in Learning or is a Monk, or any courtier or guest with a Learning skill of 8 or higher."
+ INVESTITURE_TITLE:0 "[Title.GetNameNoTierNoTooltip]"
  
  TRINITY_MAP_MODE_TOOLTIP: "Investiture Types: Papal Investiture = White. Free Investiture = Red"
  INVESTITURE_LEGEND: "Map Legend"
@@ -172,7 +173,7 @@
  doctrine_independent_papacy_head_desc:0 "The physical world and the spiritual world are not alike. We must know for sure that the spiritual world has its own ruler, which guides us and protects our faith from bodily contamination."
  doctrine_parameter_TCT_antipopes:0 "Rulers with [free_investiture|E], can appoint [antipope|E], contenders to the Papacy" 
 
-  # "Investiture, #italic 'in#! #italic Vestire' #! meaning in dress or robe is the formal installationn which a person is given the authority and regalia of a high office, in the case of a Bishop's Investiture has brought upon differing views throughout the church and europe, The Pope had declared himself the sole appointer, while the european nobility, many of which who had donated lands and territory to the church themselves, wish to retain the legal authority to pick and choose the successors to these bishopics." [selected_title_for_investiture.GetNameNoTier]
+  # "Investiture, #italic 'in#! #italic Vestire' #! meaning in dress or robe is the formal installationn which a person is given the authority and regalia of a high office, in the case of a Bishop's Investiture has brought upon differing views throughout the church and europe, The Pope had declared himself the sole appointer, while the european nobility, many of which who had donated lands and territory to the church themselves, wish to retain the legal authority to pick and choose the successors to these bishoprics." [selected_title_for_investiture.GetNameNoTier]
   ErlembaldoCotta:0 "Erlembaldo Cotta"
   Herlembaldus:"Herlembaldus"
   mercenary_government_mod:0 "Papal Army"

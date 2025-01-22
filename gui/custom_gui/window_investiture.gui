@@ -58,7 +58,15 @@
                             hbox = { # Everything in it is arranged horizontally and centered vertically.
                                 vbox = { # Arranged vertically and centered horizontally.
                                     datacontext = "[Character.GetPrimaryTitle]" # Datacontext essentially just means that it gets one here
+                                    text_multi = {
+                                        autoresize = yes
+                                        maximumsize = { 96 50 }
+                                        text = "INVESTITURE_TITLE"
+                                        default_format = "#bold"
+                                        align = center
+                                    }
                                     coa_title_big = {} # This gets the datacontext title and shows it as a large coa.
+                                    margin = { 5 5 }
                                 }
                                 spacer = { size = { 10 0 } } # Literally what it sounds like. Adds some empty space.
                                 vbox = {
@@ -83,7 +91,7 @@
                                 button_sidepanel_right = { # This is a type I'm calling here
                                     blockoverride "button_text" # So we need a blockoverride.
                                     {
-                                        raw_text = "Appoint Successor"
+                                        text = INVESTITURE_BUTTON
                                     }
                                     visible = "[And(Not(GetScriptedGui('set_up_new_successor').IsShown(GuiScope.SetRoot(Scope.GetCharacter.GetPrimaryTitle.MakeScope).End)),GetScriptedGui('can_see_investiture_law').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]" # Not(), And(), Nor() and the like are the GUI versions of NOT, AND, NOR, etc. Items can be seperated with a comma. Capitalization here is important
                                     onclick = "[GetScriptedGui('get_all_investiture_candidates').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('selected_title_inv',Scope.GetCharacter.GetPrimaryTitle.MakeScope).End)]" # AddScope is the GUI version of save_scope_as for script values. It follows the format ('scope name',who is the scope data functions)
@@ -118,7 +126,8 @@
     
                 blockoverride "header_text"
                 {
-                    raw_text = "Appoint Successor"
+                    datacontext = "[GetPlayer.GetPrimaryTitle.MakeScope.Var('selected_title_for_investiture').Title]"
+                    text = "INVESTITURE_APPOINT"
                 }
     
                 blockoverride "button_close"
@@ -131,22 +140,15 @@
                 layoutpolicy_horizontal = expanding
                 layoutpolicy_vertical = expanding
                 vbox = {
+                    maximumsize = { 564 100 }
                     datacontext = "[GetPlayer.GetPrimaryTitle.MakeScope.Var('selected_title_for_investiture').Title]" # Get your primary title's variable selected_title_for_investiture and the title stored on it
                     text_multi = {
                         autoresize = yes
-                        maximumsize = { 520 150 }
-                        text = "INVESTITURE_APPOINT"
+                        maximumsize = { 600 50 }
+                        text = "INVESTITURE_APPOINT_REQUIREMENTS"
                         default_format = "#weak"
-                        align = center
+                        margin = { 5 5 }
                     }
-                    text_multi = {
-                        autoresize = yes
-                        maximumsize = { 200 100 }
-                        text = "INVESTITURE_TITLE"
-                        default_format = "#bold"
-                        align = center
-                    }
-                    coa_title_medium = {}
                 }
                 scrollbox = {
                     name = "appoint_investiture_successor_scrollarea"
