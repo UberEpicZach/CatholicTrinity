@@ -26,10 +26,7 @@ TCT_get_InvestitureLaw_of_barony = {
 	text = {
 		trigger = {
 			county.holder.top_liege = {
-				OR = {
-					has_realm_law = free_investiture_early
-					has_realm_law = free_investiture_late 
-				}
+				has_realm_law = free_investiture
 			}
 		}
 		localization_key = TCT_FreeInvestitureMapMode
@@ -38,10 +35,7 @@ TCT_get_InvestitureLaw_of_barony = {
 	text = {
 		trigger = {
 			county.holder.top_liege = {
-				OR = {
-					has_realm_law = papal_investiture_early
-					has_realm_law = papal_investiture_late
-				}
+				has_realm_law = papal_investiture
 			}
 		}
 		localization_key = TCT_PapalInvestitureMapMode

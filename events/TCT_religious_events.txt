@@ -1325,10 +1325,7 @@ TCT_religious_events.24 = {
 		exists = global_var:dictatuspapae
 
 		any_independent_ruler = {
-			OR = {
-				has_realm_law = free_investiture_early
-				has_realm_law = free_investiture_late
-			}
+			has_realm_law = free_investiture
 			highest_held_title_tier >= tier_duchy
 			has_faith = faith:catholic
 			title:k_papal_state.holder = faith.religious_head
@@ -1343,10 +1340,7 @@ TCT_religious_events.24 = {
 	immediate = {
 		random_independent_ruler = {
 			limit = {
-				OR = {
-					has_realm_law = free_investiture_early
-					has_realm_law = free_investiture_late
-				}
+				has_realm_law = free_investiture
 				highest_held_title_tier >= tier_duchy
 				has_faith = faith:catholic
 				title:k_papal_state.holder = faith.religious_head
@@ -1367,10 +1361,7 @@ TCT_religious_events.24 = {
 		if = {
 			limit = {
 				scope:ruler_who_refused = {
-					OR = {
-						has_realm_law = free_investiture_early
-						has_realm_law = free_investiture_late
-					}
+					has_realm_law = free_investiture
 					highest_held_title_tier >= tier_duchy
 					has_faith = faith:catholic
 					faith.religious_head = PREV
@@ -1422,10 +1413,7 @@ TCT_religious_events.25 = {
 	}
 	
 	trigger = {		
-		OR = {
-			has_realm_law = free_investiture_early
-			has_realm_law = free_investiture_late
-		}
+		has_realm_law = free_investiture
 		highest_held_title_tier >= tier_duchy
 		has_faith = faith:catholic
 	}
@@ -1468,17 +1456,9 @@ TCT_religious_events.25 = {
 		
 		if = {
 			limit = {
-				has_realm_law = free_investiture_early
+				has_realm_law = free_investiture
 			}
-			remove_realm_law = free_investiture_early
-			add_realm_law_skip_effects = papal_investiture_early
-		}
-		if = {
-			limit = {
-				has_realm_law = free_investiture_late
-			}
-			remove_realm_law = free_investiture_late
-			add_realm_law_skip_effects = papal_investiture_late
+			add_realm_law_skip_effects = papal_investiture
 		}
 		
 		
@@ -2043,10 +2023,7 @@ TCT_religious_events.31 = {
 		faith = { fervor >= 50 }
 
 		any_independent_ruler = {
-			OR = {
-				has_realm_law = free_investiture_early
-				has_realm_law = free_investiture_late
-			}
+			has_realm_law = free_investiture
 			highest_held_title_tier >= tier_duchy
 			has_faith = faith:catholic
 			title:k_papal_state.holder = faith.religious_head
@@ -2059,10 +2036,7 @@ TCT_religious_events.31 = {
 	immediate = {
 		random_independent_ruler = {
 			limit = {
-				OR = {
-					has_realm_law = free_investiture_early
-					has_realm_law = free_investiture_late
-				}
+				has_realm_law = free_investiture
 				highest_held_title_tier >= tier_duchy
 				has_faith = faith:catholic
 				title:k_papal_state.holder = faith.religious_head
@@ -2322,10 +2296,7 @@ TCT_religious_events.34 = {
 		faith = { fervor >= 50 }
 
 		any_independent_ruler = {
-			OR = {
-				has_realm_law = free_investiture_early
-				has_realm_law = free_investiture_late
-			}
+			has_realm_law = free_investiture
 			highest_held_title_tier >= tier_duchy
 			has_faith = faith:catholic
 			title:k_papal_state.holder = faith.religious_head
@@ -2338,10 +2309,7 @@ TCT_religious_events.34 = {
 	immediate = {
 		random_independent_ruler = {
 			limit = {
-				OR = {
-					has_realm_law = free_investiture_early
-					has_realm_law = free_investiture_late
-				}
+				has_realm_law = free_investiture
 				highest_held_title_tier >= tier_county
 				has_faith = faith:catholic
 				title:k_papal_state.holder = faith.religious_head
@@ -5381,7 +5349,7 @@ TCT_religious_events.799 = {
 
 	option = { 
 		name = TCT_religious_events.799.a
-		dictatuspapae = yes
+		set_global_variable = dictatuspapae
 
 		every_ruler = {
 			limit = {
@@ -5424,10 +5392,7 @@ TCT_religious_events.800 = {
 	option = { 
 		name = TCT_religious_events.800.a
 		trigger = {
-			NOR = {
-				has_realm_law = free_investiture_early
-				has_realm_law = free_investiture_late
-			}
+			Nhas_realm_law = free_investiture
 		}
 
 		ai_chance = {	
@@ -5440,10 +5405,7 @@ TCT_religious_events.800 = {
 	option = {
 		name = TCT_religious_events.800.b
 		trigger = {
-			OR = {
-				has_realm_law = free_investiture_early
-				has_realm_law = free_investiture_late
-			}
+			has_realm_law = free_investiture
 		}
 
 		add_piety_level = -1
@@ -5493,13 +5455,10 @@ TCT_religious_events.800 = {
 	option = {
 		name = TCT_religious_events.800.c
 		trigger = {
-			OR = {
-				has_realm_law = free_investiture_early
-				has_realm_law = free_investiture_late
-			}
+			has_realm_law = free_investiture
 		}
 
-		add_realm_law = papal_investiture_late
+		add_realm_law = papal_investiture
 		every_vassal = {
 			limit = {
 				has_vassal_stance = zealot
@@ -5522,22 +5481,13 @@ TCT_religious_events.800 = {
 	}
 }
 
-TCT_religious_events.802 = {
-	hidden = yes
-
-	immediate = {
-		every_in_global_list = {
-			variable = rulersthathaveinvestiture
-			add_realm_law_skip_effects = free_investiture_late
-		}
-	}
-}
+# TCT_religious_events.802
 
 TCT_religious_events.801 = {
 	hidden = yes
 
 	immediate = {
-		faith = { update_cardinal_window = yes }
+		faith:catholic = { update_cardinal_window = yes }
 	}
 }
 

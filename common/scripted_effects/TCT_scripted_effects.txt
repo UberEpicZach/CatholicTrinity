@@ -355,7 +355,7 @@ indicate_cardinals = {
 	}
 }
 
-select_highest_scoring_character_cardinal_candidate_invest = {
+invest_in_cardinal_effect = {
 	save_scope_as = player
 	select_highest_scoring_character_cardinal_candidate = yes 
 
@@ -727,23 +727,6 @@ TCT_remove_antipope = {
 	if = {
 		limit = { exists = var:TCT_ruler_of_antipope }
 		remove_variable = TCT_ruler_of_antipope
-	}
-}
-
-dictatuspapae = {
-	every_ruler = {
-		limit = {
-			has_realm_law = free_investiture_early
-		}
-		add_to_global_variable_list = {
-			name = rulersthathaveinvestiture
-			target = this
-		}
-	}
-	set_global_variable = dictatuspapae
-	trigger_event = {
-		id = TCT_religious_events.802
-		days = 6
 	}
 }
 

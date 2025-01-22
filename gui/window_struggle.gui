@@ -1637,7 +1637,7 @@ types Struggle
 						onclick = "[GetScriptedGui('struggle_supporter_mapmode').Execute( GuiScope.End )]"
 					}
 					blockoverride "mm_icon" {
-						texture = "gfx/interface/icons/laws/papal_investiture_early.dds"
+						texture = "gfx/interface/icons/laws/papal_investiture.dds"
 					}
 
 					blockoverride 'mm_datacontext'

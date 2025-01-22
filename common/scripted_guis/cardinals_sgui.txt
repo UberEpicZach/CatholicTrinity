@@ -35,16 +35,12 @@ investiturelawcheck = {
     scope = character
 	is_shown = {
 		NOR = {
-			has_realm_law = papal_investiture_early
-			top_liege = { has_realm_law = papal_investiture_early }
-			has_realm_law = papal_investiture_late
-			top_liege = { has_realm_law = papal_investiture_late }
+			has_realm_law = papal_investiture
+			top_liege = { has_realm_law = papal_investiture }
 		}
 		OR = {
-			has_realm_law = free_investiture_early
-			top_liege = { has_realm_law = free_investiture_early }
-			has_realm_law = free_investiture_late
-			top_liege = { has_realm_law = free_investiture_late }
+			has_realm_law = free_investiture
+			top_liege = { has_realm_law = free_investiture }
 		}
 	}
 }
@@ -62,7 +58,7 @@ can_see_my_candidate_pope = {
 refresh_cardinal_characters = {
 	# Can use arbitrary scopes
     effect = {
-		faith = { update_cardinal_window = yes }
+		faith:catholic = { update_cardinal_window = yes }
     }
 } 
 

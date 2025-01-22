@@ -5,40 +5,20 @@
 	can_fire = {
 		custom_description = {
 			text = "court_chaplain_cant_fire_doctrines_TCT"
-			NOR = {
-                AND = {
-					has_faith = faith:catholic
-					has_realm_law = papal_investiture_early
-				}
-				AND = {
-					has_faith = faith:catholic
-					has_realm_law = papal_investiture_late
-				}	
-                AND = {
-					has_faith = faith:catholic
-					top_liege = { has_realm_law = papal_investiture_early }
-				}
-				AND = {
-					has_faith = faith:catholic
-					top_liege = { has_realm_law = papal_investiture_late }
+			NOT = {
+				has_faith = faith:catholic
+				OR = {
+					has_realm_law = papal_investiture
+					top_liege = { has_realm_law = papal_investiture }
 				}
             }
             OR = {
 				AND = {
 					has_faith = faith:catholic
-					has_realm_law = free_investiture_early
-				}
-				AND = {
-					has_faith = faith:catholic
-					has_realm_law = free_investiture_late
-				}
-				AND = {
-					has_faith = faith:catholic
-					top_liege = { has_realm_law = free_investiture_early }
-				}
-				AND = {
-					has_faith = faith:catholic
-					top_liege = { has_realm_law = free_investiture_late }
+					OR = {
+						has_realm_law = free_investiture
+						top_liege = { has_realm_law = free_investiture }
+					}
 				}
 				AND = {
 					faith = {
@@ -61,40 +41,20 @@
 	can_reassign = {
 		custom_description = {
             text = "court_chaplain_cant_reassign_doctrines"
-			NOR = {
-                AND = {
-					has_faith = faith:catholic
-					has_realm_law = papal_investiture_early
-				}
-				AND = {
-					has_faith = faith:catholic
-					has_realm_law = papal_investiture_late
-				}	
-                AND = {
-					has_faith = faith:catholic
-					top_liege = { has_realm_law = papal_investiture_early }
-				}
-				AND = {
-					has_faith = faith:catholic
-					top_liege = { has_realm_law = papal_investiture_late }
+			NOT = {
+				has_faith = faith:catholic
+				OR = {
+					has_realm_law = papal_investiture
+					top_liege = { has_realm_law = papal_investiture }
 				}
             }
             OR = {
 				AND = {
 					has_faith = faith:catholic
-					has_realm_law = free_investiture_early
-				}
-				AND = {
-					has_faith = faith:catholic
-					has_realm_law = free_investiture_late
-				}
-				AND = {
-					has_faith = faith:catholic
-					top_liege = { has_realm_law = free_investiture_early }
-				}
-				AND = {
-					has_faith = faith:catholic
-					top_liege = { has_realm_law = free_investiture_late }
+					OR = {
+						has_realm_law = free_investiture
+						top_liege = { has_realm_law = free_investiture }
+					}
 				}
 				AND = {
 					faith = {
@@ -113,40 +73,20 @@
     }
 
 	can_change_once = {
-		NOR = {
-			AND = {
-				has_faith = faith:catholic
-				has_realm_law = papal_investiture_early
-			}
-			AND = {
-				has_faith = faith:catholic
-				has_realm_law = papal_investiture_late
-			}	
-			AND = {
-				has_faith = faith:catholic
-				top_liege = { has_realm_law = papal_investiture_early }
-			}
-			AND = {
-				has_faith = faith:catholic
-				top_liege = { has_realm_law = papal_investiture_late }
+		NOT = {
+			has_faith = faith:catholic
+			OR = {
+				has_realm_law = papal_investiture
+				top_liege = { has_realm_law = papal_investiture }
 			}
 		}
 		OR = {
 			AND = {
 				has_faith = faith:catholic
-				has_realm_law = free_investiture_early
-			}
-			AND = {
-				has_faith = faith:catholic
-				has_realm_law = free_investiture_late
-			}
-			AND = {
-				has_faith = faith:catholic
-				top_liege = { has_realm_law = free_investiture_early }
-			}
-			AND = {
-				has_faith = faith:catholic
-				top_liege = { has_realm_law = free_investiture_late }
+				OR = {
+					has_realm_law = free_investiture
+					top_liege = { has_realm_law = free_investiture }
+				}
 			}
 			AND = {
 				faith = {

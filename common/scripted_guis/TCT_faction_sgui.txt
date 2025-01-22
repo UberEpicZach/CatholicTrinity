@@ -7,10 +7,7 @@
 				exists = title:e_hre
 
 				title:e_hre.holder = { 
-					OR = {
-						has_realm_law = free_investiture_early
-						has_realm_law = free_investiture_late 
-					}
+					has_realm_law = free_investiture
 					has_faith = faith:catholic
 				}
 			

@@ -1,10 +1,10 @@
 ﻿title_succession_laws = {
 	mercenary_company_mod_succession_law = {
 		can_keep = {
-			can_have_mercenary_succession_mod_law_trigger = yes
+			has_government = mercenary_government_mod
 		}
 		can_have = {
-			can_have_mercenary_succession_mod_law_trigger = yes
+			has_government = mercenary_government_mod
 		}
 		should_start_with = {
 			has_government = mercenary_government_mod

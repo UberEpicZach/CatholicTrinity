@@ -151,7 +151,7 @@ tct_on_start_1066 = {
 		# Title Setup
 		title:e_hre.holder = {
 			add_character_flag = TCT_start_investiture_controversy
-			add_realm_law_skip_effects = free_investiture_early
+			add_realm_law_skip_effects = free_investiture
 		}
 	}
 }
@@ -524,7 +524,7 @@ CardinalsTraits = {
 	effect = {
 		title:k_papal_state.holder = {
 			trigger_event = TCT_religious_events.22
-			faith = { update_cardinal_window = yes }
+			faith:catholic = { update_cardinal_window = yes }
 		}
 		# if = {
 		# 	limit = {
@@ -575,7 +575,7 @@ on_cardinal_initialize = {
 		debug_log = "initializing cardinals"
 		initialize_random_cardinals = yes
 		update_preferatus = yes
-		faith = { update_cardinal_window = yes }
+		faith:catholic = { update_cardinal_window = yes }
 	}
 }
 
@@ -663,16 +663,47 @@ on_theocratic_investiture_death_no_successor = {
 		}
 		government_has_flag = government_is_theocracy
 		top_liege = {
-			OR = {
-				has_realm_law = free_investiture_early
-				has_realm_law = free_investiture_late 
-			}
+			has_realm_law = free_investiture
 		}
 	}
 	effect = {
-		save_scope_as = dying_bishop
-		liege = {
-			trigger_event = TCT_religious_events.15
+		if = {
+			limit = {
+				is_ai = yes
+			}
+			if = {
+				limit = {
+					any_character_struggle	 = {
+						involvement = involved
+						phase_has_catalyst = tct_appointed_bishop_investiture
+					}
+				}
+				every_character_struggle = {
+					involvement = involved
+					activate_struggle_catalyst = {
+						catalyst = tct_appointed_bishop_investiture
+						character = root
+					}
+				}
+			}
+			faith.religious_head = {
+				add_opinion = {
+					target = liege
+					opinion = -20
+					modifier = TCT_appointed_bishop_investiture_bad
+				}
+			}
+			add_opinion = {
+				target = liege
+				opinion = 40
+				modifier = TCT_appointed_bishop_investiture_good
+			}
+		}
+		else = {
+			save_scope_as = dying_bishop
+			liege = {
+				trigger_event = TCT_religious_events.15
+			}
 		}
 	}
 }
@@ -725,7 +756,7 @@ on_cardinal_death = {
 	effect = {
 		save_scope_as = dyingcardinal
 		give_nickname = nick_cardinal
-		faith = { update_cardinal_window = yes }
+		faith:catholic = { update_cardinal_window = yes }
 		update_preferatus = yes
 
 		title:k_papal_state.holder = {
@@ -753,12 +784,12 @@ on_preferatus_death = {
 		}
 	}
 	effect = {
-		faith = { update_cardinal_window = yes }
+		faith:catholic = { update_cardinal_window = yes }
 		global_var:preferatus = {
 			promote_new_cardinal = yes
 		}
 		global_var:preferatus.story_owner = {
-			faith = { update_cardinal_window = yes }
+			faith:catholic = { update_cardinal_window = yes }
 		}
 		title:k_papal_state.holder = {
 			trigger_event = TCT_religious_events.801

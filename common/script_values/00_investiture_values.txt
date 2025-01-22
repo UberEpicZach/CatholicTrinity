@@ -4,6 +4,16 @@
 		value = 200
 		format = "BASE_VALUE_FORMAT"
 	}
+	if = {
+		limit = {
+			has_global_variable = dictatuspapae
+		}
+		multiply = {
+			desc = "Dictatus Papae"
+			value = 12.5
+			format = "BASE_VALUE_FORMAT_DECIMALS_PLUS_NEGATIVE"
+		}
+	}
 
 	# Character Modifier Bonuses
 	if = {

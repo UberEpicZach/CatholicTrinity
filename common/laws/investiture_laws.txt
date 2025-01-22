@@ -1,25 +1,26 @@
 ﻿@investiture_cooldown_years = 10
 
-investiture_early = { 
-	default = papal_investiture_early
+investiture_law = { 
+	default = papal_investiture
 	cumulative = no
 	flag = realm_law
 	flag = investiture_law
 	
-	papal_investiture_early = {
-		modifier = {
-			religious_head_opinion = 15
-		}
+	papal_investiture = {
+		modifier = {}
 		flag = papal_enacted
-		can_keep = { realm_law_use_investiture_early = yes }
+		can_keep = {
+			faith = faith:catholic
+			is_independent_ruler = yes
+			highest_held_title_tier >= tier_duchy
+		}
 
 		can_pass = {
-			is_ai = no
-		}
-
-		pass_cost = {
-			prestige = {
-				add = change_investiture_prestige_cost
+			faith = faith:catholic
+			is_independent_ruler = yes
+			NOR = {
+				has_primary_title = title:k_papal_state
+				has_variable = investiture_cooldown
 			}
 		}
 
@@ -29,25 +30,153 @@ investiture_early = {
 				years = @investiture_cooldown_years
 			}
 		}
+
+		ai_will_do = {
+			value = 1
+			modifier = {
+				add = -0.37
+				has_trait = cynical
+			}
+			modifier = {
+				add = -1
+				has_trait = ambitious
+			}
+			modifier = {
+				add = 0.5
+				has_trait = craven
+			}
+			modifier = {
+				add = 1
+				has_trait = content
+			}
+			modifier = {
+				add = 0.37
+				has_trait = zealous
+			}
+			modifier = {
+				add = 0.5
+				has_trait = lazy
+			}
+			modifier = {
+				add = 0.25
+				has_trait = stubborn
+			}
+			modifier = {
+				add = -0.25
+				has_trait = fickle
+			}
+			modifier = {
+				add = -0.5
+				has_trait = greedy
+			}
+			modifier = {
+				add = 1
+				has_trait = humble
+			}
+			modifier = {
+				add = -1
+				has_trait = arrogant
+			}
+			modifier = {
+				add = 0.25
+				has_trait = just
+			}
+			modifier = {
+				add = -0.25
+				has_trait = arbitrary
+			}
+			modifier = {
+				add = -0.12
+				has_trait = gluttonous
+			}
+			modifier = { 
+				add = 0.12
+				has_trait = trusting
+			}
+			modifier = {
+				add = 0.25
+				has_perk = theologian_perk
+			}
+			modifier = {
+				add = -0.12
+				has_trait = scholar
+			}
+			modifier = {
+				add = 0.25
+				has_trait = celibate			
+			}
+			modifier = {
+				add = 0.12
+				has_trait = flagellant
+			}
+			modifier = {
+				add = 0.05
+				has_trait = contrite
+			}
+			modifier = { 
+				add = 0.5
+				has_trait = paragon
+			}
+			modifier = {
+				add = 0.25
+				has_trait = consecrated_blood
+			}
+			modifier = { 
+				add = 1
+				faith.religious_head = { reverse_opinion = { target = root value >= 100 } }
+			}
+			modifier = {
+				add = 0.5
+				faith.religious_head = { reverse_opinion = { target = root value >= 75 } }
+			}
+			modifier = { 
+				add = 0.25
+				faith.religious_head = { reverse_opinion = { target = root value >= 50 } }
+			}
+			modifier = {
+				add = 0.12
+				faith.religious_head = { reverse_opinion = { target = root value >= 25} }
+			}
+			modifier = {
+				add = -0.12	
+				faith.religious_head = { reverse_opinion = { target = root value >= -25 } }
+			}
+			modifier = {
+				add = -0.25
+				faith.religious_head = { reverse_opinion = { target = root value >= -50 } }
+			}
+			modifier = {
+				add = -0.5
+				faith.religious_head = { reverse_opinion = { target = root value >= -75 } }
+			}
+			modifier = {
+				add = -1
+				faith.religious_head = { reverse_opinion = { target = root value >= -99 } }
+			}
+		}
 	} 
-	free_investiture_early = {
+	free_investiture = {
 		modifier = {
 			theocracy_government_tax_contribution_mult = 0.25
 			religious_head_opinion = -50
 		}
 		flag = free_enacted
 	
-		can_keep = { realm_law_use_investiture_early = yes }
+		can_keep = {
+			faith = faith:catholic
+			is_independent_ruler = yes
+			highest_held_title_tier >= tier_duchy
+		}
 
 		can_pass = {
+			faith = faith:catholic
+			is_independent_ruler = yes
 			trigger_if = {
-				limit = { is_ai = no }
-				is_independent_ruler = yes
-				realm_law_pass_investiture_early = yes
-				NOR = {
-					has_primary_title = title:k_papal_state
-					has_variable = investiture_cooldown
-				}
+				limit = { is_ai = yes }
+				highest_held_title_tier >= tier_kingdom
+			}
+			else_if = {
+				highest_held_title_tier >= tier_duchy
 			}
 		}
 		
@@ -67,7 +196,7 @@ investiture_early = {
 			}
 			if = {
 				limit = {
-					NOT = { has_realm_law = free_investiture_early }
+					NOT = { has_realm_law = free_investiture }
 				}
 				hidden_effect = {	
 					every_vassal = {
@@ -105,505 +234,126 @@ investiture_early = {
 		}
  
 		ai_will_do = {
-			if = {
-				limit = { 
-					has_realm_law = papal_investiture_early
-				}
-				value = 0
-				
-				if = {
-                    limit = { 
-                        has_trait = cynical
-                    }
-                    add = 0.75
-                }
-         		if = {
-                	limit = {
-                        has_trait = ambitious
-                    }
-                    add = 2
-                }
-         		if = {
-                	limit = {
-                        has_trait = craven
-                    }
-                    add = -1
-                }
-        		if = {
-                	limit = {
-                        has_trait = content
-                    }
-                    add = -2
-                }
-         		if = {
-               		limit = {
-                        has_trait = zealous
-                    }
-                    add = -0.75
-                }
-         		if = {
-                	limit = {
-                        has_trait = lazy
-                    }
-                    add = -1
-                }
-         		if = {
-                	limit = {
-                        has_trait = stubborn
-                    }
-                    add = -0.5
-                }
-        		if = {
-                	limit = {
-                        has_trait = fickle
-                    }
-                    add = 0.5
-                }
-				if = {
-					limit = {
-						has_trait = greedy
-                    }
-                    add = 1
-                }
-         		if = {
-                	limit = {
-                   	 	has_trait = humble
-                    }
-                    add = -2
-                }
-        		if = {
-                	limit = {
-                        has_trait = arrogant
-                    }
-                    add = 2
-                }
-				if = {
-					limit = {
-                        has_trait = just
-                    }
-                    add = -0.5
-                } 
-
-				if = {
-					limit = { 
-						has_trait = arbitrary
-					}
-					add = 0.5
-				}
-				if = {
-					limit = { 
-						has_trait = gluttonous
-					}
-					add = 0.25
-				}
-				if = {
-					limit = { 
-						has_trait = trusting
-					}
-					add = -0.25
-				}
-				if = {
-					limit = { 
-						has_perk = theologian_perk
-					}
-					add = -0.5
-				}
-				if = {
-					limit = { 
-						has_trait = scholar
-					}
-					add = 0.25
-				}
-				if = {
-					limit = { 
-						has_trait = celibate
-					}
-					add = -0.5
-				}
-				if = {
-					limit = { 
-						has_trait = flagellant
-					}
-					add = -0.25
-				}
-				if = {
-					limit = { 
-						has_trait = contrite
-					}
-					add = -0.10
-				}
-				if = {
-					limit = { 
-						has_trait = paragon
-					}
-					add = -1
-				}
-				if = {
-					limit = { 
-						has_trait = consecrated_blood
-					}
-					add = -0.5
-				}
-				if = {
-					limit = { 
-						faith.religious_head = { reverse_opinion = { target = root value >= 100 } }
-					}
-					add = -2
-				}
-				if = {
-					limit = { 
-						faith.religious_head = { reverse_opinion = { target = root value >= 75 } }
-					}
-					add = -1
-				}
-				if = {
-					limit = { 
-						faith.religious_head = { reverse_opinion = { target = root value >= 50 } }
-					}
-					add = -0.5
-				}
-				if = {
-					limit = { 
-						faith.religious_head = { reverse_opinion = { target = root value >= 25} }
-					}
-					add = -0.25
-				}
-				if = {
-					limit = { 
-						faith.religious_head = { reverse_opinion = { target = root value >= -25 } }
-					}
-					add = 0.25
-				}
-				if = {
-					limit = { 
-						faith.religious_head = { reverse_opinion = { target = root value >= -50 } }
-					}
-					add = 0.5
-				}
-				if = {
-					limit = { 
-						faith.religious_head = { reverse_opinion = { target = root value >= -75 } }
-					}
-					add = 1
-				}
-				if = {
-					limit = { 
-						faith.religious_head = { reverse_opinion = { target = root value >= -99 } }
-					}
-					add = 2
-				}
+			value = 0
+			modifier = {
+				add = 0.37
+				has_trait = cynical
 			}
-		}
-	}
-}
- 
-investiture_late = { 
-	default = papal_investiture_late
-	cumulative = no
-	flag = realm_law
-	flag = investiture_law
-	
-	papal_investiture_late = {
-		modifier = {
-			religious_head_opinion = 20
-		}
-		flag = papal_enacted
-		can_keep = { realm_law_use_investiture_late = yes }
-
-		can_pass = {
-			is_ai = no
-		}
-
-		pass_cost = {
-			prestige = {
-				add = change_investiture_prestige_cost
+			modifier = {
+				add = 1
+				has_trait = ambitious
 			}
-		}
-
-		on_pass = {
-			set_variable = {
-				name = investiture_cooldown
-				years = @investiture_cooldown_years
+			modifier = {
+				add = -0.5
+				has_trait = craven
 			}
-		}
-	}
-	free_investiture_late = {
-		modifier = {
-			theocracy_government_tax_contribution_mult = 0.35
-			religious_head_opinion = -150
-		}
-		flag = free_enacted
-	
-		can_keep = { realm_law_use_investiture_late = yes }
-
-		can_pass = {
-			trigger_if = {
-				limit = { is_ai = no }
-				is_independent_ruler = yes
-				realm_law_pass_investiture_late = yes
-				NOR = {
-					has_primary_title = title:k_papal_state
-					has_variable = investiture_cooldown
-				}
+			modifier = {
+				add = -1
+				has_trait = content
 			}
-		}
-		
-		pass_cost = {
-			piety = {
-				add = change_investiture_piety_cost
-				multiply = {
-					desc = "Dictatus Papae"
-					value = 10
-					format = "BASE_VALUE_FORMAT"
-				}
+			modifier = {
+				add = -0.37
+				has_trait = zealous
 			}
-			prestige = {
-				add = change_investiture_prestige_cost
-				multiply = {
-					desc = "Dictatus Papae"
-					value = 12.5
-					format = "BASE_VALUE_FORMAT_DECIMALS_PLUS_NEGATIVE"
-				}
+			modifier = {
+				add = -0.5
+				has_trait = lazy
 			}
-		}
-		
-		on_pass = {
-			set_variable = {
-				name = investiture_cooldown
-				years = @investiture_cooldown_years
+			modifier = {
+				add = -0.25
+				has_trait = stubborn
 			}
-			if = {
-				limit = {
-					NOT = { has_realm_law = free_investiture_late }
-				}
-				set_variable = {
-					name = investiture_cooldown
-					years = @investiture_cooldown_years
-				}
-	
-				hidden_effect = {	
-					every_vassal = {
-						limit = {
-							OR = {
-								any_vassal = {
-									has_government = theocracy_government
-								}
-								has_government = theocracy_government
-							}
-						} 
-						if = {
-							limit = {
-								any_vassal = {
-									has_government = theocracy_government
-								}
-								has_government = theocracy_government
-							}
-							add_opinion = {
-								target = root
-								modifier = TCT_free_investiture
-								opinion = 20
-							}
-						}
-						else = {
-							add_opinion = {
-								target = root
-								modifier = TCT_free_investiture
-								opinion = 10
-							}
-						}
-					}
-				}
+			modifier = {
+				add = 0.25
+				has_trait = fickle
 			}
-		}
-
-		ai_will_do = {
-			if = {
-				limit = { 
-					has_realm_law = papal_investiture_late
-				}
-				value = 0
-				
-				if = {
-                    limit = { 
-                        has_trait = cynical
-                    }
-                    add = 0.75
-                }
-         		if = {
-                	limit = {
-                        has_trait = ambitious
-                    }
-                    add = 2
-                }
-         		if = {
-                	limit = {
-                        has_trait = craven
-                    }
-                    add = -1
-                }
-        		if = {
-                	limit = {
-                        has_trait = content
-                    }
-                    add = -2
-                }
-         		if = {
-               		limit = {
-                        has_trait = zealous
-                    }
-                    add = -0.75
-                }
-         		if = {
-                	limit = {
-                        has_trait = lazy
-                    }
-                    add = -1
-                }
-         		if = {
-                	limit = {
-                        has_trait = stubborn
-                    }
-                    add = -0.5
-                }
-        		if = {
-                	limit = {
-                        has_trait = fickle
-                    }
-                    add = 0.5
-                }
-				if = {
-					limit = {
-						has_trait = greedy
-                    }
-                    add = 1
-                }
-         		if = {
-                	limit = {
-                   	 	has_trait = humble
-                    }
-                    add = -2
-                }
-        		if = {
-                	limit = {
-                        has_trait = arrogant
-                    }
-                    add = 2
-                }
-				if = {
-					limit = {
-                        has_trait = just
-                    }
-                    add = -0.5
-                } 
-
-				if = {
-					limit = { 
-						has_trait = arbitrary
-					}
-					add = 0.5
-				}
-				if = {
-					limit = { 
-						has_trait = gluttonous
-					}
-					add = 0.25
-				}
-				if = {
-					limit = { 
-						has_trait = trusting
-					}
-					add = -0.25
-				}
-				if = {
-					limit = { 
-						has_perk = theologian_perk
-					}
-					add = -0.5
-				}
-				if = {
-					limit = { 
-						has_trait = scholar
-					}
-					add = 0.25
-				}
-				if = {
-					limit = { 
-						has_trait = celibate
-					}
-					add = -0.5
-				}
-				if = {
-					limit = { 
-						has_trait = flagellant
-					}
-					add = -0.25
-				}
-				if = {
-					limit = { 
-						has_trait = contrite
-					}
-					add = -0.10
-				}
-				if = {
-					limit = { 
-						has_trait = paragon
-					}
-					add = -1
-				}
-				if = {
-					limit = { 
-						has_trait = consecrated_blood
-					}
-					add = -0.5
-				}
-				if = {
-					limit = { 
-						faith.religious_head = { reverse_opinion = { target = root value >= 100 } }
-					}
-					add = -2
-				}
-				if = {
-					limit = { 
-						faith.religious_head = { reverse_opinion = { target = root value >= 75 } }
-					}
-					add = -1
-				}
-				if = {
-					limit = { 
-						faith.religious_head = { reverse_opinion = { target = root value >= 50 } }
-					}
-					add = -0.5
-				}
-				if = {
-					limit = { 
-						faith.religious_head = { reverse_opinion = { target = root value >= 25} }
-					}
-					add = -0.25
-				}
-				if = {
-					limit = { 
-						faith.religious_head = { reverse_opinion = { target = root value >= -25 } }
-					}
-					add = 0.25
-				}
-				if = {
-					limit = { 
-						faith.religious_head = { reverse_opinion = { target = root value >= -50 } }
-					}
-					add = 0.5
-				}
-				if = {
-					limit = { 
-						faith.religious_head = { reverse_opinion = { target = root value >= -75 } }
-					}
-					add = 1
-				}
-				if = {
-					limit = { 
-						faith.religious_head = { reverse_opinion = { target = root value >= -99 } }
-					}
-					add = 2
-				}
+			modifier = {
+				add = 0.5
+				has_trait = greedy
+			}
+			modifier = {
+				add = -1
+				has_trait = humble
+			}
+			modifier = {
+				add = 1
+				has_trait = arrogant
+			}
+			modifier = {
+				add = -0.25
+				has_trait = just
+			}
+			modifier = {
+				add = 0.25
+				has_trait = arbitrary
+			}
+			modifier = {
+				add = 0.12
+				has_trait = gluttonous
+			}
+			modifier = { 
+				add = -0.12
+				has_trait = trusting
+			}
+			modifier = {
+				add = -0.25
+				has_perk = theologian_perk
+			}
+			modifier = {
+				add = 0.12
+				has_trait = scholar
+			}
+			modifier = {
+				add = -0.25
+				has_trait = celibate			
+			}
+			modifier = {
+				add = -0.12
+				has_trait = flagellant
+			}
+			modifier = {
+				add = -0.05
+				has_trait = contrite
+			}
+			modifier = { 
+				add = -0.5
+				has_trait = paragon
+			}
+			modifier = {
+				add = -0.25
+				has_trait = consecrated_blood
+			}
+			modifier = { 
+				add = -1
+				faith.religious_head = { reverse_opinion = { target = root value >= 100 } }
+			}
+			modifier = {
+				add = -0.5
+				faith.religious_head = { reverse_opinion = { target = root value >= 75 } }
+			}
+			modifier = { 
+				add = -0.25
+				faith.religious_head = { reverse_opinion = { target = root value >= 50 } }
+			}
+			modifier = {
+				add = -0.25
+				faith.religious_head = { reverse_opinion = { target = root value >= 25} }
+			}
+			modifier = {
+				add = 0.12	
+				faith.religious_head = { reverse_opinion = { target = root value >= -25 } }
+			}
+			modifier = {
+				add = 0.25
+				faith.religious_head = { reverse_opinion = { target = root value >= -50 } }
+			}
+			modifier = {
+				add = 0.5
+				faith.religious_head = { reverse_opinion = { target = root value >= -75 } }
+			}
+			modifier = {
+				add = 1
+				faith.religious_head = { reverse_opinion = { target = root value >= -99 } }
 			}
 		}
 	}

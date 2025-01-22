@@ -133,7 +133,7 @@ ProclaimDictatusPapae = {
 		has_government = theocracy_government
 		#is_at_war = no
 		is_alive = yes
-		any_independent_ruler = { OR = { has_realm_law = free_investiture_early has_realm_law = free_investiture_late }}
+		any_independent_ruler = { has_realm_law = free_investiture }
 	}
 
 	is_valid = {
@@ -146,10 +146,7 @@ ProclaimDictatusPapae = {
 		#is_at_war = no
 		is_alive = yes
 		any_independent_ruler = {
-			OR = {
-				has_realm_law = free_investiture_early
-				has_realm_law = free_investiture_late 
-			}
+			has_realm_law = free_investiture
 		}
 		learning >= high_skill_rating
 		prestige_level >= medium_prestige_level
@@ -206,10 +203,7 @@ InstallAntipope = {
 		is_landed = yes
 		is_at_war = no
 		is_alive = yes
-		OR = {
-			has_realm_law = free_investiture_early
-			has_realm_law = free_investiture_late 
-		}
+		has_realm_law = free_investiture
 		highest_held_title_tier >= tier_kingdom
 	}
 
@@ -221,10 +215,7 @@ InstallAntipope = {
 		is_pope = no
 		is_at_war = no
 		is_alive = yes
-		OR = {
-			has_realm_law = free_investiture_early
-			has_realm_law = free_investiture_late 
-		}
+		has_realm_law = free_investiture
 		prestige_level >= high_prestige_level
 		piety_level >= high_piety_level
 		is_independent_ruler = yes

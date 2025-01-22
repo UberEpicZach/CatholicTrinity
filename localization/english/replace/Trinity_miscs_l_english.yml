@@ -48,28 +48,6 @@
  ProclaimDictatusPapae: "Proclaim the Dictatus Papae"
  ProclaimDictatusPapae_confirm: "Proclaim the Dictatus Papae!"
  
- take_free_investiture_early_AI: "take_free_investiture_early_AI"
- take_free_investiture_AI: "take_free_investiture_early_AI"
- take_free_investiture_AI_decision_tooltip: "take_free_investiture_early_AI"
- take_free_investiture_AI_decision_desc: "take_free_investiture_early_AI"
- take_free_investiture_early_AI_confirm: "take_free_investiture_early_AI"
- 
- take_free_investiture_late_AI_decision_desc: "take_free_investiture_late_AI"
- take_free_investiture_late_AI_decision_tooltip: "take_free_investiture_late_AI"
- take_free_investiture_late_AI: "take_free_investiture_late_AI"
- take_free_investiture_late_AI_confirm: "take_free_investiture_late_AI_AI"
- 
- take_papal_investiture_early_AI_decision_desc: "take_papal_investiture_early_AI"
- take_papal_investiture_early_AI_decision_tooltip: "take_papal_investiture_early_AI"
- take_papal_investiture_early_AI: "take_papal_investiture_early_AI"
- take_papal_investiture_early_AI_confirm: "take_papal_investiture_early_AI"
- 
- 
- take_papal_investiture_late_AI_decision_desc: "take_papal_investiture_late_AI"
- take_papal_investiture_late_AI_decision_tooltip: "take_papal_investiture_late_AI"
- take_papal_investiture_late_AI: "take_papal_investiture_late_AI"
- take_papal_investiture_late_AI_confirm: "take_papal_investiture_late_AI"
- 
  CardinalElectionWon: "Cardinal Election"
  HookGainedTCT: "You have gained a Hook"
  deinvest_in_cardinal_AI_decision_effect_tooltip: "This decision is for AI to Deinvest in the College of Cardinals, Please report this  as a bug if you can see this"
@@ -84,8 +62,7 @@
  DonationCountyClergy_decision_desc: "The act of donation, of giving away, is a most pious thing. And most would say that the Clergy  are always in need of more land to administer, land on which they can guide the people down the right path in life. As such, I could  give away a bit of my own lands to the Clergy, and be seen as a most Pious person for it"
  DonationCountyClergy_confirm: "Let us decide.."
  
- investiture_early_singular: "[investiture|E]"
- investiture_late_singular: "[investiture|E]"
+ investiture_law_singular: "[investiture|E]"
  
  environment_standard: "You shouldn't see this"
  environment_saint: "You shouldn't see this, but for saints!"

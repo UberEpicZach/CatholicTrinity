@@ -392,7 +392,7 @@ investiture_struggle_papal_supremacy_decision = {
 			custom_tooltip = {
 				text = holy_roman_empuire_has_papal_investiture_tt
 			
-				title:e_hre.holder = { has_realm_law = papal_investiture_late }
+				title:e_hre.holder = { has_realm_law = papal_investiture }
 			}
 		}
 

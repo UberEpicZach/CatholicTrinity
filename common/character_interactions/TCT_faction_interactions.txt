@@ -12,10 +12,7 @@
 		scope:secondary_actor = {
 			has_title = title:e_hre
 			#has_variable = TCT_antipope_of_ruler
-			OR = {
-				has_realm_law = free_investiture_early
-				has_realm_law = free_investiture_late 
-			}
+			has_realm_law = free_investiture
 			has_faith = faith:catholic
 		}
 

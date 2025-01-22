@@ -10,10 +10,8 @@ can_see_investiture_law = {
     scope = character
 	is_shown = {
 		OR = {
-			has_realm_law = free_investiture_early
-			has_realm_law = free_investiture_late
-			top_liege = { has_realm_law = free_investiture_late }
-			top_liege = { has_realm_law = free_investiture_early }
+			has_realm_law = free_investiture
+			top_liege = { has_realm_law = free_investiture }
 		}
 	}
 }
