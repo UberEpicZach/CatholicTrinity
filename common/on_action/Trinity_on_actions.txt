@@ -164,12 +164,6 @@ on_army_enter_province = {
 
 yearly_global_pulse = {
 	on_actions = {
-		# Scripted Deaths
-		TCT_historical_deaths
-
-		# Bavarian Chain
-		TCT_1066_Bavarian_Chain
-
 		delay = { days = 357 }
 		TCT_christmas_set
 	}
@@ -178,11 +172,18 @@ yearly_global_pulse = {
 random_yearly_playable_pulse = {
 	on_actions = {
 		TCT_saint_day
+
+		# Scripted Deaths
+		TCT_historical_deaths
+
+		# Bavarian Chain
+		TCT_1066_Bavarian_Chain
 	}
 }
 
 TCT_1066_Bavarian_Chain = {
 	trigger = {
+		this = character:1316
 		title:d_bavaria.holder = character:112600
 		title:e_hre.holder = character:1316
 		NOT = {
@@ -190,9 +191,6 @@ TCT_1066_Bavarian_Chain = {
 		}
 	}
 	effect = {
-
-		debug_log = "Checking for chance of firing the 1066 Bavarian Event Chain"
-
 		random = {
 			chance = 0
 			modifier = {
@@ -207,13 +205,9 @@ TCT_1066_Bavarian_Chain = {
 				add = 40
 				current_date > 1070.1.1
 			}
-			debug_log = "firing the 1066 Bavarian Event Chain"
 			set_global_variable = TCT_1066_Bavarian_Chain_Fired
 			character:1316 = {
-				trigger_event = {
-					id = tct_neutral_struggle.1001
-					days = { 120 300 }
-				}
+				trigger_event = tct_neutral_struggle.1001
 			}
 		}
 	}
@@ -255,7 +249,7 @@ TCT_historical_deaths = {
 	effect = {
 		if = {
 			limit = {
-				character:2008 = { is_ruler = yes }
+				this = character:2008
 			}
 			random = {
 				chance = 0
@@ -278,8 +272,7 @@ TCT_historical_deaths = {
 		}
 		if = {
 			limit = {
-				character:20248 = { is_ruler = yes }
-				NOT = { has_global_variable = TCT_godfrey_the_hunchback_death }
+				this = character:20248
 			}
 			random = {
 				chance = 0
@@ -300,7 +293,6 @@ TCT_historical_deaths = {
 						}
 					}
 				}
-				set_global_variable = TCT_godfrey_the_hunchback_death
 				character:20248 = {
 					trigger_event = tct_neutral_struggle.2001
 				}

@@ -1271,6 +1271,7 @@ tct_neutral_struggle.2001 = {
 	}
 	
 	trigger = {
+		NOT = { has_character_flag = had_tct_neutral_struggle_9998_recently }
 		player_heir = {
 			is_female = yes
 			NOT = { is_child_of = root }
@@ -1314,6 +1315,7 @@ tct_neutral_struggle.2001 = {
 	lower_right_portrait = scope:nephew
 
 	immediate = {
+		set_character_flag = had_tct_neutral_struggle_2001
 		if = {
 			limit = { is_married = yes }
 			primary_spouse = { save_scope_as = female_party }
@@ -1435,16 +1437,17 @@ tct_neutral_struggle.2001 = {
 	}
 
 	after = {
+		# Bypass Know Thyself in case it is picked after this event
+		add_character_flag = {
+			flag = know_thyself_perk_delay_period
+			days = 390
+		}
+		add_character_flag = know_thyself_has_triggered_delay
 		if = {
 			limit = {
 				has_perk = know_thyself_perk
 				NOT = { has_character_flag = had_death_management_9998_recently }
 			}
-			add_character_flag = {
-				flag = know_thyself_perk_delay_period
-				days = 390
-			}
-			add_character_flag = know_thyself_has_triggered_delay
 			trigger_event = {
 				id = death_management.9998
 				days = { 15 45 }
@@ -1537,7 +1540,6 @@ tct_neutral_struggle.2003 = {
 		death = {
 			death_reason = death_mysterious
 		}
-		remove_global_variable = TCT_godfrey_the_hunchback_death
 	}
 }
 
