@@ -92,7 +92,7 @@
 					}
 					# Zealous or loyal alignment with the Emperor
 					AND = {
-						top_liege = title:e_hre.holder
+						is_vassal_or_below_of = title:e_hre.holder
 						OR = {
 							has_trait = loyal
 							has_vassal_stance = courtly
@@ -101,7 +101,7 @@
 					}
 					# Moderate opinion of the Emperor
 					AND = {
-						top_liege = title:e_hre.holder
+						is_vassal_or_below_of = title:e_hre.holder
 						opinion = {
 							target = title:e_hre.holder
 							value >= 15
