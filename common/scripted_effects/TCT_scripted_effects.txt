@@ -574,7 +574,7 @@ TCT_create_antipope = {
 		}
 		set_capital_county = $CREATOR$.primary_title.title_capital_county
 		set_color_from_title = title:k_papal_state
-		set_ruler_uses_title_name = no
+		#set_ruler_uses_title_name = no # Not actually valid
 		set_coa = title:k_papal_state
 		set_definitive_form = yes
 		set_can_be_named_after_dynasty = no
