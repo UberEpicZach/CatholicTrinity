@@ -1435,9 +1435,26 @@ tct_neutral_struggle.2001 = {
 	}
 
 	after = {
-		trigger_event = {
-			id = tct_neutral_struggle.2003
-			days = { 30 300 }
+		if = {
+			limit = {
+				has_perk = know_thyself_perk
+				NOT = { has_character_flag = had_death_management_9998_recently }
+			}
+			add_character_flag = {
+				flag = know_thyself_perk_delay_period
+				days = 390
+			}
+			add_character_flag = know_thyself_has_triggered_delay
+			trigger_event = {
+				id = death_management.9998
+				days = { 15 45 }
+			}
+		}
+		else = {
+			trigger_event = {
+				id = tct_neutral_struggle.2003
+				days = { 340 380 } # Similar to death_management.9999
+			}
 		}
 	}
 }
