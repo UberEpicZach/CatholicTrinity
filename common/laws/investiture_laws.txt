@@ -32,7 +32,10 @@ investiture_law = {
 		}
 
 		ai_will_do = {
-			value = 1
+			modifier = {
+				value = -1000
+				has_character_flag = TCT_start_investiture_controversy
+			}
 			modifier = {
 				add = -0.37
 				has_trait = cynical
@@ -234,7 +237,6 @@ investiture_law = {
 		}
  
 		ai_will_do = {
-			value = 0
 			modifier = {
 				add = 0.37
 				has_trait = cynical
