@@ -21,6 +21,10 @@
             desc = trait_cardinal_priest_character_desc
         }
     }
+	
+	shown_in_ruler_designer = no
+
+	ai_zeal = 20
 }
 
 cardinal_bishop = {
@@ -47,6 +51,10 @@ cardinal_bishop = {
             desc = trait_cardinal_bishop_character_desc
         }
     }
+	
+	shown_in_ruler_designer = no
+
+	ai_zeal = 20
 }
 
 cardinal_archbishop = {
@@ -74,14 +82,24 @@ cardinal_archbishop = {
             desc = trait_cardinal_archbishop_character_desc
         }
     }
+	
+	shown_in_ruler_designer = no
+
+	ai_zeal = 20
 }
  
 beatified = {
 	monthly_piety_gain_mult = 0.2
+
+	shown_in_ruler_designer = no
+
+	ai_zeal = 20
 }
 
 pope_trait = {
 	monthly_piety_gain_mult = 0.2
+
+	shown_in_ruler_designer = no
 }
 
 TCT_antipope = {	
@@ -89,6 +107,8 @@ TCT_antipope = {
 	monthly_income = 3
 	monthly_piety = 0.1
 	monthly_prestige = 0.2
+
+	shown_in_ruler_designer = no
 }
 
 tct_imperial_supporter = {
