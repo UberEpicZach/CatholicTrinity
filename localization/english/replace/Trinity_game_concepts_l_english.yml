@@ -89,7 +89,7 @@
  free_investiture: "[free_investiture|E]"
  free_investiture_effects: "$EFFECT_LIST_BULLET$#indent_newline:3 [theocratic|E] [vassals|e] and [court_chaplains|e] of your [realm|e] can be appointed by their [liege|E].#!"
  
- COURT_CHAPLAIN_CANT_FIRE_DOCTRINES_TCT: "$EFFECT_LIST_BULLET$[CHARACTER.GetFaith.GetName] does #bold not#! have #V Revocable Clerical Appointment#! [doctrine|E].\n\n$EFFECT_LIST_BULLET$[CHARACTER.GetName] does not have [free_investiture|E].\n\nWithout such a $game_concept_doctrine$, or [law|E], there is always a [court_chaplain|E] or [realm_priest|E]."
+ COURT_CHAPLAIN_CANT_FIRE_DOCTRINES_TCT: "$EFFECT_LIST_BULLET$#indent_newline:3 [CHARACTER.GetFaith.GetName] does #bold not#! have #V Revocable Clerical Appointment#! [doctrine|E].#!\n$EFFECT_LIST_BULLET$#indent_newline:3 You do #bold not#! have the Law [free_investiture|E].#!\n\nWithout such a $game_concept_doctrine$ or [law|E], there is always a [court_chaplain|E] or [realm_priest|E]."
 
  COUNCILLOR_ALREADY_CHANGED: "@warning_icon!#X The [councillor|E] has already been fired or assigned once#!\nInvestiture does not apply to this."
 

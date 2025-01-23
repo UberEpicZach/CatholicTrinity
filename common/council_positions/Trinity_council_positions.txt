@@ -1,38 +1,51 @@
 ﻿councillor_court_chaplain = {
 	skill = learning
 
-	auto_fill = yes
+	auto_fill = {
+		trigger_if = {
+			limit = { is_ai = yes }
+			always = yes
+		}
+		trigger_else = {
+			faith = {
+				NOT = { has_doctrine_parameter = clerical_appointment_ruler }
+			}
+			OR = {
+				NOT = { faith = faith:catholic }
+				NOR = {
+					has_realm_law = free_investiture
+					top_liege = { has_realm_law = free_investiture }
+				}
+			}
+		}
+	}
+
 	can_fire = {
-		custom_description = {
-			text = "court_chaplain_cant_fire_doctrines_TCT"
-			NOT = {
-				has_faith = faith:catholic
+		trigger_if = {
+			limit = {
+				faith = faith:catholic
+			}
+			custom_description = {
+				text = "court_chaplain_cant_fire_doctrines_TCT"
 				OR = {
-					has_realm_law = papal_investiture
-					top_liege = { has_realm_law = papal_investiture }
-				}
-            }
-            OR = {
-				AND = {
-					has_faith = faith:catholic
-					OR = {
-						has_realm_law = free_investiture
-						top_liege = { has_realm_law = free_investiture }
-					}
-				}
-				AND = {
 					faith = {
-						NOT = {
-							has_doctrine = doctrine_clerical_succession_spiritual_fixed_appointment
+						NOT = { has_doctrine_parameter = clerical_appointment_fixed }
+					}
+					AND = {
+						faith = faith:catholic
+						OR = {
+							has_realm_law = free_investiture
+							top_liege = { has_realm_law = free_investiture }
 						}
 					}
 				}
-				AND = {
-					NOT = {
-						has_faith = faith:catholic
-						top_liege = { has_faith = faith:catholic }
-					}
-					#religion = { is_in_family = rf_pagan }
+			}
+		}
+		trigger_else = {
+			custom_description = {
+				text = "court_chaplain_cant_fire_doctrines"
+				faith = {
+					NOT = { has_doctrine_parameter = clerical_appointment_fixed }
 				}
 			}
 		}
@@ -41,77 +54,38 @@
 	can_reassign = {
 		custom_description = {
             text = "court_chaplain_cant_reassign_doctrines"
-			NOT = {
-				has_faith = faith:catholic
-				OR = {
-					has_realm_law = papal_investiture
-					top_liege = { has_realm_law = papal_investiture }
-				}
-            }
             OR = {
+				faith = {
+					NOT = { has_doctrine_parameter = clerical_appointment_fixed }
+				}
+				NOT = { exists = cp:councillor_court_chaplain }
 				AND = {
-					has_faith = faith:catholic
+					faith = faith:catholic
 					OR = {
 						has_realm_law = free_investiture
 						top_liege = { has_realm_law = free_investiture }
 					}
-				}
-				AND = {
-					faith = {
-						has_doctrine_parameter = clerical_appointment_ruler
-					}
-				}
-				AND = {
-					NOT = {
-						has_faith = faith:catholic
-						top_liege = { has_faith = faith:catholic }
-					}
-					#religion = { is_in_family = rf_pagan }
 				}
 			}
         }
     }
 
 	can_change_once = {
-		NOT = {
-			has_faith = faith:catholic
-			OR = {
-				has_realm_law = papal_investiture
-				top_liege = { has_realm_law = papal_investiture }
-			}
-		}
 		OR = {
-			AND = {
-				has_faith = faith:catholic
-				OR = {
-					has_realm_law = free_investiture
-					top_liege = { has_realm_law = free_investiture }
-				}
-			}
-			AND = {
-				faith = {
-					has_doctrine_parameter = clerical_appointment_fixed
-				}
+			NOT = { faith = faith:catholic }
+			NOR = {
+				has_realm_law = free_investiture
+				top_liege = { has_realm_law = free_investiture }
 			}
 		}
+		faith = {
+			has_doctrine_parameter = clerical_appointment_fixed
+		}
+		exists = cp:councillor_court_chaplain
 	}
 	
 	inherit = no
 	fill_from_pool = yes
-	
-	councillor_cooldown_days = {
-		value = 0
-		if = {
-			limit = {
-				faith = {
-					NOT = {
-						has_doctrine_parameter = clerical_appointment_fixed
-					}
-				}
-			}
-			add = 3650
-		}
-	}
 	
 	name = {
 		first_valid = {
@@ -210,6 +184,12 @@
 		scale = court_chaplain_learn_on_the_job_scale
 	}
 
+	council_owner_modifier = {
+		name = reliable_house_modifier
+		learning = 1
+		scale = court_chaplain_reliable_house_scale
+	}
+
 	pool_character_config = pool_court_chaplain
 	
 	valid_character = {
@@ -217,8 +197,110 @@
 		can_be_court_chaplain_trigger = { COURT_OWNER = root.liege_or_court_owner }
 	}
 
+	valid_position = {
+		NOT = { government_has_flag = government_is_landless_adventurer }
+	}
+
 	on_get_position = {
 		got_council_position_effect = yes
+		if = {
+			limit = {
+				years_from_game_start >= 1
+			}
+			if = {
+				limit = {
+					is_ruler = no
+					liege = {
+						faith = { has_doctrine = doctrine_clerical_succession_spiritual_fixed_appointment }
+						NOT = {
+							faith = faith:catholic
+							OR = {
+								has_realm_law = free_investiture
+								liege = { has_realm_law = free_investiture }
+							}
+						}
+						any_vassal = {
+							is_physically_able_adult = yes
+							is_councillor = no
+							government_has_flag = government_is_theocracy
+							can_be_court_chaplain_trigger = { COURT_OWNER = liege }
+							faith = liege.faith
+						}
+					}
+				}
+				liege = {
+					random_vassal = {
+						limit = {
+							is_physically_able_adult = yes
+							is_councillor = no
+							government_has_flag = government_is_theocracy
+							can_be_court_chaplain_trigger = { COURT_OWNER = liege }
+							faith = liege.faith
+						}
+						weight = {
+							base = 1
+							modifier = {
+								add = 1000
+								faith.religious_head ?= this
+							}
+							modifier = {
+								add = learning
+							}
+							modifier = {
+								add = primary_title.tier
+							}
+						}
+						liege = {
+							assign_councillor_type = {
+								type = councillor_court_chaplain
+								remove_existing_councillor = yes
+								target = prev
+							}
+						}
+					}
+				}
+				move_to_pool = yes
+			}
+			if = {
+				limit = {
+					exists = this
+					exists = liege.culture
+					NOT = {
+						knows_language_of_culture = liege.culture
+					}
+				}
+				random_list = {
+					10 = {
+						modifier = {
+							add = learning
+						}
+						learn_language_of_culture = liege.culture
+					}
+					5 = {
+						trigger = {
+							can_start_scheme = { 
+								type = learn_language 
+								target_character = liege 
+							}
+						}
+						start_scheme = {
+							type = learn_language
+							target_character = liege
+						}
+					}
+					5 = {
+						trigger = {
+							OR = {
+								has_trait = arrogant
+								has_trait = arbitrary
+								has_trait = lazy
+								has_trait = fickle
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 
 	on_fired_from_position = {
@@ -226,4 +308,9 @@
 	}
 
 	portrait_animation = chaplain
+
+	barbershop_data = {
+		position = { 1618.0 172.0  }
+		click_to_front = no
+	}
 }
