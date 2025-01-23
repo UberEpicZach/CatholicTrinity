@@ -7,13 +7,18 @@ TCT_make_antipope_interaction = {
 	desc = TCT_make_antipope_interaction_desc
 
 	is_shown = {
-		scope:actor.faith = scope:recipient.faith
-		scope:actor.faith = {
-			has_doctrine = doctrine_independent_papacy_head
-			NOT = { 
-				religious_head = scope:actor 
-				religious_head = scope:recipient 
+		scope:actor = {
+			faith = {
+				this = scope:recipient.faith
+				has_doctrine = doctrine_independent_papacy_head
+				NOT = { 
+					religious_head = scope:actor 
+					religious_head = scope:recipient 
+				}
 			}
+			highest_held_title_tier >= tier_duchy
+			NOT = { has_variable = TCT_antipope_of_ruler }
+			is_independent_ruler = yes
 		}
 		scope:recipient = {
 			OR = {
@@ -21,10 +26,7 @@ TCT_make_antipope_interaction = {
 				is_theocratic_lessee = yes
 			}
 			is_adult = yes
-		}
-		scope:actor = {
-			highest_held_title_tier >= tier_duchy
-			NOT = { has_variable = TCT_antipope_of_ruler }
+			is_vassal_of = scope:actor
 		}
 	}
 	
@@ -35,20 +37,6 @@ TCT_make_antipope_interaction = {
 				has_trait = incapable
 				has_trait = excommunicated
 			}
-			trigger_if = {
-				limit = {
-					has_government = theocracy_government
-				}
-				is_vassal_of = scope:actor 
-			}
-			trigger_else = {
-				scope:actor = {
-					is_liege_or_above_of = prev
-				}
-			}
-		}
-		scope:actor = {
-			is_independent_ruler = yes
 		}
 		scope:actor.faith.religious_head = {
 			NOT = { is_vassal_of = scope:actor }
@@ -61,6 +49,21 @@ TCT_make_antipope_interaction = {
 
 	ai_accept = {
 		base = -50
+
+		ai_value_modifier = { # +50 to -50
+			who = scope:recipient
+			ai_greed = {
+				if = {
+					limit = {
+						scope:recipient = {
+							ai_greed > ai_zeal
+							ai_greed > 0
+						}
+					}
+					value = 2
+				}
+			}
+		}
 			
 		modifier = {
 			desc = TCT_MAKE_ANTIPOPE_IS_DUKE
