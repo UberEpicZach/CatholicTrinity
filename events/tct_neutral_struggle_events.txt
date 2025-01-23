@@ -1164,49 +1164,6 @@ tct_neutral_struggle.1006 = {
 
 # 
 
-scripted_effect tct_neutral_struggle_2001_heir_effect = {
-	primary_title = {
-		ordered_title_heir = { # Pick first male heir
-			limit = {
-				is_male = yes
-			}
-			position = 1
-			save_scope_as = first_male_heir
-		}
-		if = { # If first is someone else's heir, pick the next one
-			limit = {
-				scope:first_male_heir = {
-					OR = {
-						any_pretender_title = {
-							exists = holder
-							NOT = { holder = root }
-						}
-						any_heir_title = {
-							exists = holder
-							NOT = { holder = root }
-						}
-					}
-				}
-			}
-			ordered_title_heir = {
-				limit = {
-					NOT = { this = scope:first_male_heir }
-					is_male = yes
-				}
-				position = 2
-				save_scope_as = nephew
-			}
-			clear_saved_scope = first_male_heir
-		}
-		else = { # First one is fine
-			scope:first_male_heir = {
-				save_scope_as = nephew
-			}
-			clear_saved_scope = first_male_heir
-		}
-	}
-}
-
 scripted_effect tct_neutral_struggle_2001_title_claims_effect = {
 	every_held_title = {
 		limit = {
@@ -1271,7 +1228,7 @@ tct_neutral_struggle.2001 = {
 	}
 	
 	trigger = {
-		NOT = { has_character_flag = had_tct_neutral_struggle_9998_recently }
+		NOT = { has_character_flag = had_tct_neutral_struggle_2001 }
 		player_heir = {
 			is_female = yes
 			NOT = { is_child_of = root }
@@ -1315,7 +1272,7 @@ tct_neutral_struggle.2001 = {
 	lower_right_portrait = scope:nephew
 
 	immediate = {
-		set_character_flag = had_tct_neutral_struggle_2001
+		add_character_flag = had_tct_neutral_struggle_2001
 		if = {
 			limit = { is_married = yes }
 			primary_spouse = { save_scope_as = female_party }
