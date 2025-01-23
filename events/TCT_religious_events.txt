@@ -3755,36 +3755,54 @@ TCT_religious_events.55 = {
 #Pope Excommunicates Ruler for Declaring War Against Prince-Bishop
 TCT_religious_events.56 = {
 	title = TCT_religious_events.56.t
-	desc = TCT_religious_events.56.desc
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:BishopyDefender = { is_cardinal = yes }
+				}
+				desc = TCT_religious_events.56.desc.cardinal
+			}
+			desc = TCT_religious_events.56.desc
+		}
+	}
 	theme = faith
 	left_portrait = {
 		character = scope:BishopAttacker
+		animation = war_attacker
 	}
 	lower_right_portrait = {
 		character = scope:BishopyDefender
 	}
 	right_portrait = {
 		character = scope:Pope
+		animation = disapproval
 	}
 
 	immediate = {
-		every_ruler = {
-			limit = {
-				is_at_war_with = scope:BishopyDefender		
-				any_character_war = {
-					is_war_leader = scope:attacker
-					is_participant = scope:BishopyDefender
-				}
-			}
-			save_scope_as = BishopAttacker
-		}
-
 		title:k_papal_state.holder = {
 			save_scope_as = Pope
 		}
 
-		random_living_cardinal = {
-			save_scope_as = cardinal
+		if = {
+			limit = {
+				scope:BishopyDefender = { is_cardinal = yes }
+			}
+			scope:BishopyDefender = { save_scope_as = cardinal }
+		}
+		else = {
+			random_living_cardinal = {
+				save_scope_as = cardinal
+			}
+		}
+		scope:BishopAttacker = {
+			every_character_war = {
+				casus_belli = {
+					primary_attacker = scope:BishopAttacker
+					primary_defender = scope:BishopyDefender
+				}
+				save_scope_as = war
+			}
 		}
 	}
 
@@ -3792,22 +3810,48 @@ TCT_religious_events.56 = {
 		name = TCT_religious_events.56.a
 		
 		scope:BishopAttacker = {
-			show_as_tooltip = {
-				every_character_war = {
-					limit = {
-						is_attacker = scope:BishopAttacker
-						is_defender = scope:BishopyDefender
-					}
-					every_war_attacker = {
-						add_excommunication_actual_effect = yes
-					}
-				}
-			}
 			trigger_event = {
 				id = TCT_religious_events.57
 				days = 3
 			}
-			
+		}
+		
+		show_as_tooltip = {
+			random_list = {
+				50 = {
+					show_chance = no
+					desc = TCT_religious_events.56.accept
+
+					scope:BishopAttacker = {
+						every_character_war = {
+							casus_belli = {
+								primary_attacker = scope:BishopAttacker
+								primary_defender = scope:BishopyDefender
+							}
+							end_war = white_peace
+						}
+					}
+				}
+				50 = {
+					show_chance = no
+					desc = TCT_religious_events.56.reject
+					scope:BishopAttacker = {
+						add_excommunication_actual_effect = yes
+					}
+					if = {
+						limit = {
+							scope:BishopAttacker = {
+								scope:war = {
+									any_war_ally = {
+										count > 1
+									}
+								}
+							}
+						}
+						custom_tooltip = TCT_religious_events.56.tt
+					}
+				}
+			}
 		}
 
 		ai_chance = {	
@@ -3817,8 +3861,27 @@ TCT_religious_events.56 = {
 				add = 250
 				has_trait = zealous
 			}
+
+			modifier = {
+				factor = 0
+				scope:BishopAttacker = {
+					has_trait = tct_papal_supporter
+					casus_belli = {
+						primary_attacker = prev
+						primary_defender = scope:BishopyDefender
+						any_target_title = { count >= 1 }
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				scope:BishopyDefender = {
+					has_trait = tct_imperial_supporter
+				}
+			}
 		}
 	}
+
 	option = { 
 		name = TCT_religious_events.56.b
 
@@ -3826,7 +3889,7 @@ TCT_religious_events.56 = {
 			base = 10
 	
 			modifier = {
-				add = -75
+				factor = 0.1
 				has_trait = zealous
 			}
 		}
@@ -3835,54 +3898,117 @@ TCT_religious_events.56 = {
 
 TCT_religious_events.57 = {
 	title = TCT_religious_events.57.t
-	desc = TCT_religious_events.57.desc
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:BishopAttacker = root
+				}
+				desc = TCT_religious_events.57.desc.attacker
+			}
+			desc = TCT_religious_events.57.desc
+		}
+	}
 	theme = faith
 	left_portrait = {
 		character = scope:BishopAttacker
+		animation = shock
 	}
 	lower_right_portrait = {
 		character = scope:BishopyDefender
 	}
 	right_portrait = {
 		character = scope:Pope
+		animation = disapproval
 	}
 
 	immediate = {
-		every_ruler = {
-			limit = {
-				is_at_war_with = scope:BishopyDefender		
-				any_character_war = {
-					is_war_leader = scope:attacker
-					is_participant = scope:BishopyDefender
-				}
+		every_character_war = {
+			casus_belli = {
+				primary_attacker = scope:BishopAttacker
+				primary_defender = scope:BishopyDefender
 			}
-			save_scope_as = BishopAttacker
-		}
-
-		title:k_papal_state.holder = {
-			save_scope_as = Pope
+			save_scope_as = war
 		}
 	}
 
 	option = { 
 		name = TCT_religious_events.57.a
 		
-		scope:BishopAttacker = {
-			every_character_war = {
-				limit = {
-					is_attacker = scope:BishopAttacker
-					is_defender = scope:BishopyDefender
+		add_excommunication_actual_effect = yes
+		if = {
+			limit = {
+				this = scope:BishopAttacker
+				scope:BishopAttacker = {
+					scope:war = {
+						any_war_ally = {
+							count > 1
+						}
+					}
 				}
+			}
+			custom_tooltip = TCT_religious_events.56.tt
+			scope:war = {
 				every_war_attacker = {
-					add_excommunication_actual_effect = yes
+					limit = {
+						NOT = { this = root }
+						faith = faith:catholic
+					}
+					trigger_event = {
+						id = TCT_religious_events.57
+						days = { 1 3 }
+					}
 				}
 			}
 		}
 
-
 		ai_chance = {	
-			base = 1
+			base = 100
+			ai_value_modifier = {
+				ai_zeal = 1
+				ai_greed = -0.25
+				ai_bold = 0.25
+			}
 		}
+	}
+
+	option = {
+		name = TCT_religious_events.57.b
+		scope:war = {
+			if = {
+				limit = {
+					root = scope:BishopAttacker
+				}
+				end_war = white_peace
+			}
+			else = {
+				remove_participant = root
+				scope:BishopAttacker = {
+					add_opinion = {
+						modifier = left_war_early
+						opinion = 30
+						target = root
+					}
+				}
+			}
+		}
+
+		ai_chance = {
+			base = 10
+			ai_value_modifier = {
+				ai_zeal = -1
+				ai_greed = 0.25
+				ai_bold = 0.25
+			}
+		}
+	}
+
+	option = {
+		name = TCT_religious_events.57.c
+		trigger = {
+			has_hook = scope:Pope
+		}
+		use_hook = scope:Pope
 	}
 }
 

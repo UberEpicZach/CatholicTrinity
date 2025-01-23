@@ -994,12 +994,16 @@ Trinity_on_war_started = {
 				scope:attacker = {
 					has_faith = faith:catholic
 					NOT = { has_government = theocracy_government }
+					NOT = { has_trait = excommunicated }
 				}
 				
 				scope:defender = {
 					has_faith = faith:catholic
 					has_government = theocracy_government
 				}
+			}
+			scope:attacker = {
+				save_scope_as = BishopAttacker
 			}
 			scope:defender = {
 				save_scope_as = BishopyDefender
