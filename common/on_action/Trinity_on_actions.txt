@@ -83,7 +83,6 @@ tct_on_start = {
 		}
 		title:k_papal_state.holder = {
 			set_variable = was_once_cardinal
-			add_realm_law = papal_succession_law
 		}
 
 		# Title Setup
@@ -104,7 +103,6 @@ tct_on_start = {
 					change = scope:change
 				}
 				resolve_title_and_vassal_change = scope:change
-				add_realm_law = mercenary_company_mod_succession_law
 			}
 		}
 
