@@ -12,10 +12,7 @@
 			}
 			OR = {
 				NOT = { faith = faith:catholic }
-				NOR = {
-					has_realm_law = free_investiture
-					top_liege = { has_realm_law = free_investiture }
-				}
+				NOT = { top_liege = { has_realm_law = free_investiture } }
 			}
 		}
 	}
@@ -33,10 +30,7 @@
 					}
 					AND = {
 						faith = faith:catholic
-						OR = {
-							has_realm_law = free_investiture
-							top_liege = { has_realm_law = free_investiture }
-						}
+						top_liege = { has_realm_law = free_investiture }
 					}
 				}
 			}
@@ -61,10 +55,7 @@
 				NOT = { exists = cp:councillor_court_chaplain }
 				AND = {
 					faith = faith:catholic
-					OR = {
-						has_realm_law = free_investiture
-						top_liege = { has_realm_law = free_investiture }
-					}
+					top_liege = { has_realm_law = free_investiture }
 				}
 			}
         }
@@ -73,10 +64,7 @@
 	can_change_once = {
 		OR = {
 			NOT = { faith = faith:catholic }
-			NOR = {
-				has_realm_law = free_investiture
-				top_liege = { has_realm_law = free_investiture }
-			}
+			NOT = { top_liege = { has_realm_law = free_investiture } }
 		}
 		faith = {
 			has_doctrine_parameter = clerical_appointment_fixed

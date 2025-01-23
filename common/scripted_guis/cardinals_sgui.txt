@@ -38,10 +38,7 @@ investiturelawcheck = {
 			has_realm_law = papal_investiture
 			top_liege = { has_realm_law = papal_investiture }
 		}
-		OR = {
-			has_realm_law = free_investiture
-			top_liege = { has_realm_law = free_investiture }
-		}
+		top_liege = { has_realm_law = free_investiture }
 	}
 }
 
