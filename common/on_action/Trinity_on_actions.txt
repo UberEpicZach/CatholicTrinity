@@ -1000,6 +1000,7 @@ Trinity_on_war_started = {
 				scope:defender = {
 					has_faith = faith:catholic
 					has_government = theocracy_government
+					NOT = { this = title:k_papal_state.holder }
 				}
 			}
 			scope:attacker = {
