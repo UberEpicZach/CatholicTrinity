@@ -159,10 +159,7 @@ ProclaimDictatusPapae = {
 	}
 
 	effect = {
-		trigger_event = {
-			id = TCT_religious_events.799
-			days = 1
-		}
+		trigger_event = TCT_religious_events.799
 		add_piety_level = 1
 	}
 	ai_will_do = {
