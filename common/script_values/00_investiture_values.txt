@@ -104,29 +104,35 @@ super_massive_legitimacy_loss = {
 
 tct_total_powerful_vassals = {
     value = 0
-    every_powerful_vassal = {
-        add = 1
-    }
+	title:e_hre.holder = {
+		every_powerful_vassal = {
+			add = 1
+		}
+	}
 }
 
 tct_papal_supporters = {
     value = 0
-    every_powerful_vassal = {
-        limit = {
-            has_trait = tct_papal_supporter
-        }
-        add = 1
-    }
+	title:e_hre.holder = {
+		every_powerful_vassal = {
+			limit = {
+				has_trait = tct_papal_supporter
+			}
+			add = 1
+		}
+	}
 }
 
 tct_imperial_supporters = {
     value = 0
-    every_powerful_vassal = {
-        limit = {
-            has_trait = tct_imperial_supporter
-        }
-        add = 1
-    }
+    title:e_hre.holder = {
+		every_powerful_vassal = {
+			limit = {
+				has_trait = tct_imperial_supporter
+			}
+			add = 1
+		}
+	}
 }
 
 tct_investiture_papal_supporters_percent = {
