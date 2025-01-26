@@ -178,7 +178,7 @@ investiture_law = {
 				limit = { is_ai = yes }
 				highest_held_title_tier >= tier_kingdom
 			}
-			else_if = {
+			else = {
 				highest_held_title_tier >= tier_duchy
 			}
 		}
