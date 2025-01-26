@@ -255,7 +255,10 @@ Investiture_Controversy_Game_Start_After_Lobby_1066 = {
 			game_start_date = 1066.9.15
 		}
 		title:e_hre.holder = {
-			add_legitimacy = super_massive_legitimacy_loss
+			if = { # AI starts with a higher Legitimacy than the player
+				limit = { is_ai = yes }
+				add_legitimacy = -902
+			}
 			trigger_event = tct_neutral_struggle.0002
 		}
 		title:d_angria.holder = {
