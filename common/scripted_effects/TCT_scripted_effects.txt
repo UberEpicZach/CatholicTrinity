@@ -506,6 +506,74 @@ TCT_is_pope_test = {
 	}
 }
 
+TCT_random_pope_name = {
+	random_list = {
+		1 = {
+			change_first_name = Alexander
+		}
+		1 = {
+			change_first_name = Anastasius
+		}
+		1 = {
+			change_first_name = Caelestinus
+		}
+		1 = {
+			change_first_name = Callistus
+		}
+		1 = {
+			change_first_name = Clemens
+		}
+		1 = {
+			change_first_name = Eugenius
+		}
+		1 = {
+			change_first_name = Leo
+		}
+		1 = {
+			change_first_name = Gregorius
+		}
+		1 = {
+			change_first_name = Hadrianus
+		}
+		1 = {
+			change_first_name = Honorius
+		}
+		1 = {
+			change_first_name = Innocentius
+		}
+		1 = {
+			change_first_name = Ioannes
+		}
+		1 = {
+			change_first_name = Lucius
+		}
+		1 = {
+			change_first_name = Marinus
+		}
+		1 = {
+			change_first_name = Martinus
+		}
+		1 = {
+			change_first_name = Nicolaus
+		}
+		1 = {
+			change_first_name = Sergius
+		}
+		1 = {
+			change_first_name = Silvester
+		}
+		1 = {
+			change_first_name = Stephanus
+		}
+		1 = {
+			change_first_name = Urbanus
+		}
+		1 = {
+			change_first_name = Victor
+		}
+	}
+}
+
 TCT_create_antipope = {
 	$CREATOR$.culture = {
 		save_scope_as = liege_culture
@@ -534,6 +602,15 @@ TCT_create_antipope = {
 			after_creation = {
 				change_first_name = { template_character = $ANTIPOPE$ }
 			}
+		}
+		if = {
+			limit = {
+				this = character:73530
+			}
+			change_first_name = Clemens
+		}
+		else = {
+			TCT_random_pope_name = yes
 		}
 
 		set_variable = {
@@ -587,9 +664,11 @@ TCT_create_antipope = {
 
 		set_variable = antipope_title
 	}
-	change_liege = {
-		liege = $CREATOR$
-		change = scope:change
+	$ANTIPOPE$ = {
+		change_liege = {
+			liege = $CREATOR$
+			change = scope:change
+		}
 	}
 
 	resolve_title_and_vassal_change = scope:change
@@ -619,82 +698,6 @@ TCT_create_antipope = {
 					catalyst = tct_create_antipope
 					character = $CREATOR$
 				}
-			}
-		}
-	}
-}
-
-TCT_spawn_HRE_Antipope = {
-	if = {
-		limit = {
-			title:e_hre.holder = {
-				OR = {
-					any_vassal_or_below = {
-						tct_possible_antipope_vassal_trigger = yes
-						save_temporary_scope_as = antipope_vassal_temp
-					}
-					exists = character:73530
-				}
-				is_character_interaction_potentially_accepted = {
-					recipient = scope:antipope_vassal_temp
-					interaction = TCT_make_antipope_interaction
-				}
-				any_character_struggle = {
-					is_struggle_type = investiture_controversy_struggle
-				}
-			}
-		}
-	}
-	title:e_hre.holder = {
-		if = {
-			limit = {
-				exists = character:73530
-			}
-			character:73530 = {
-				save_scope_as = antipope_vassal
-			}
-		}
-		else = {
-			random_vassal_or_below = {
-				limit = {
-					tct_possible_antipope_vassal_trigger = yes
-				}
-				save_scope_as = antipope_vassal
-			}
-		}
-		scope:antipope_vassal = {
-			if = {
-				limit = { 
-					is_theocratic_lessee = yes
-					NOT = { is_courtier_of = title:e_hre.holder }
-				}
-				title:e_hre.holder = { 
-					add_courtier = prev
-				}
-			}
-			save_scope_as = newpope
-		}
-		TCT_create_antipope = {
-			ANTIPOPE = scope:antipope_vassal
-			CREATOR = title:e_hre.holder
-		}
-
-		if = {
-			limit = {
-				scope:newpope = character:73530
-			}
-			character:73530 = { change_first_name = Clemens }
-		}
-
-		struggle:investiture_controversy_struggle = {
-			every_involved_ruler = {
-				limit = {
-					NOT = {
-						has_character_flag = had_TCT_religious_events_0409
-					}
-				}
-				trigger_event = TCT_religious_events.403
-				add_character_flag = had_TCT_religious_events_0409
 			}
 		}
 	}

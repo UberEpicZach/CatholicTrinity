@@ -54,21 +54,23 @@
 			}
 		}
 
-		triggered_effect = {
-			trigger = { exists = title:e_hre }
-			effect = {
-				make_story_owner = title:e_hre.holder
+		first_valid = {
+			triggered_effect = {
+				trigger = { exists = title:e_hre }
+				effect = {
+					make_story_owner = title:e_hre.holder
+				}
 			}
-		}
 
-		triggered_effect = {
-			trigger = { 
-				NOT = { 
-					exists = title:e_hre 
-				} 
-			}
-			effect = {
-				end_story = yes
+			triggered_effect = {
+				trigger = { 
+					NOT = { 
+						exists = title:e_hre 
+					} 
+				}
+				effect = {
+					end_story = yes
+				}
 			}
 		}
 	}
@@ -100,27 +102,35 @@
 			}
 		}
 
-		triggered_effect = {
-			trigger = { exists = title:e_hre }
-			effect = {
-				title:e_hre.holder = {
-					if = {
-						limit = {
-							exists = character:73530
-						}
-						character:73530 = {
-							save_scope_as = antipope_vassal
-						}
-					}
-					else = {
-						random_vassal_or_below = {
-							limit = {
-								tct_possible_antipope_vassal_trigger = yes
-							}
-							save_scope_as = antipope_vassal
-						}
-					}
+		first_valid = {
+			triggered_effect = {
+				trigger = { exists = title:e_hre }
+				effect = {
 					title:e_hre.holder = {
+						if = {
+							limit = {
+								exists = character:73530
+							}
+							character:73530 = {
+								save_scope_as = antipope_vassal
+							}
+						}
+						else = {
+							random_vassal_or_below = {
+								limit = {
+									is_character_interaction_potentially_accepted = {
+										recipient = title:e_hre.holder
+										interaction = TCT_make_antipope_interaction
+									}
+									tct_possible_antipope_vassal_trigger = yes
+								}
+								save_scope_as = antipope_vassal
+							}
+						}
+						TCT_create_antipope = {
+							ANTIPOPE = scope:antipope_vassal
+							CREATOR = title:e_hre.holder
+						}
 						struggle:investiture_controversy_struggle = {
 							every_involved_ruler = {
 								limit = {
@@ -133,22 +143,18 @@
 							}
 						}
 					}
-					TCT_create_antipope = {
-						ANTIPOPE = scope:antipope_vassal
-						CREATOR = title:e_hre.holder
-					}
 				}
 			}
-		}
 
-		triggered_effect = {
-			trigger = { 
-				NOT = { 
-					exists = title:e_hre 
-				} 
-			}
-			effect = {
-				end_story = yes
+			triggered_effect = {
+				trigger = { 
+					NOT = { 
+						exists = title:e_hre 
+					} 
+				}
+				effect = {
+					end_story = yes
+				}
 			}
 		}
 	}

@@ -215,6 +215,22 @@ TCT_make_antipope_interaction = {
 			ANTIPOPE = scope:recipient
 			CREATOR = scope:actor
 		}
+		if = {
+			limit = {
+				exists = struggle:investiture_controversy_struggle
+			}
+			struggle:investiture_controversy_struggle = {
+				every_involved_ruler = {
+					limit = {
+						NOT = {
+							has_character_flag = had_TCT_religious_events_0409
+						}
+					}
+					trigger_event = { days = 1 id = TCT_religious_events.403 }
+					add_character_flag = had_TCT_religious_events_0409
+				}
+			}
+		}
 	}
 
 	on_decline = {
