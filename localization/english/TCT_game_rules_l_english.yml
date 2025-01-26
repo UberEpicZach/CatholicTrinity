@@ -1,0 +1,8 @@
+﻿l_english:
+ game_rule_category_tct: "Catholic Trinity"
+
+ rule_latin_learning: "Latin Language for Priests"
+ setting_latin_learning_on: "Default"
+ setting_latin_learning_on_desc: "Catholic priests will learn Latin and the Papal State's court language will be Latin."
+ setting_latin_learning_off: "Disabled"
+ setting_latin_learning_off_desc: "Catholic priests won't learn Latin and the Papal State's court language won't be changed."

@@ -1,0 +1,12 @@
+﻿latin_learning = {
+	
+	categories = {
+		flavor tct
+	}
+	
+	default = latin_learning_on
+
+	latin_learning_on = {}
+	
+	latin_learning_off = {}
+}

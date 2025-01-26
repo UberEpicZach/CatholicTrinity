@@ -50,31 +50,34 @@ tct_on_start = {
 				add_doctrine = doctrine_consanguinity_restricted
 			}
 		}
-		title:k_papal_state = {
-			if = {
-				limit = {
-					exists = holder
-					has_dlc_feature = royal_court
-				}
-				holder = {
-					set_court_language = language_latin
-					if = {
-						limit = { NOT = { knows_court_language_of = this } }
-						learn_court_language_of = this
+
+		if = {
+			limit = { has_game_rule = latin_learning_on}
+			title:k_papal_state = {
+				if = {
+					limit = {
+						exists = holder
+						has_dlc_feature = royal_court
+					}
+					holder = {
+						set_court_language = language_latin
+						if = {
+							limit = { NOT = { knows_court_language_of = this } }
+							learn_court_language_of = this
+						}
 					}
 				}
 			}
-		}
-
-		faith:catholic = { 
-			every_faith_character = { 
-				limit = { 
-					is_clergy = yes 
-					NOT = { 
-						knows_language = language_latin 
+			faith:catholic = { 
+				every_faith_character = { 
+					limit = { 
+						is_clergy = yes 
+						NOT = { 
+							knows_language = language_latin 
+						} 
 					} 
-				} 
-				learn_language = language_latin 
+					learn_language = language_latin 
+				}
 			}
 		}
 		set_global_variable = {
@@ -551,7 +554,6 @@ on_title_gain = {
 	on_actions = {
 		on_gain_papacy
 		on_gain_cardinal
-		delay = { days = { 2 4 } }		
 		priests_learn_latin
 	}
 }
@@ -1030,27 +1032,27 @@ Trinity_on_war_started = {
 #Priests learn latin!
 on_title_gain_inheritance = {
 	on_actions = {
-		delay = { days = { 2 4 } }		
 		priests_learn_latin
 	}
 }
 
 on_title_gain_usurpation = {
 	on_actions = {
-		delay = { days = { 2 4 } }		
 		priests_learn_latin
 	}
 }
 
 on_baron_found_or_created_for_title = {
 	on_actions = {
-		delay = { days = { 2 4 } }		
 		priests_learn_latin
 	}
 }
 
 
 priests_learn_latin = {
+	trigger = {
+		has_game_rule = latin_learning_on
+	}
 	effect = {	
 		if = {
 			limit = {
