@@ -1,0 +1,19 @@
+﻿1075.1.1 = {
+	effect = {
+		set_global_variable = dictatuspapae
+
+		start_struggle = {
+			struggle_type = investiture_controversy_struggle
+			start_phase = investiture_controversy_phase_unrest
+		}
+	}
+}
+
+1122.9.23 = {
+	effect = {
+		if = { 
+			limit = { exists = struggle:investiture_controversy_struggle }
+			struggle:investiture_controversy_struggle = { end_struggle = yes }
+		}
+	}
+}

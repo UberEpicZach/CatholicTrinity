@@ -5568,6 +5568,9 @@ TCT_religious_events.800 = {
 				struggle_type = investiture_controversy_struggle
 				start_phase = investiture_controversy_phase_unrest
 			}
+			title:e_hre = {
+				set_variable = struggle_block_dissolution_faction
+			}
 		}
 		title:k_papal_state.holder = {
 			worsen_relationship_effect = {

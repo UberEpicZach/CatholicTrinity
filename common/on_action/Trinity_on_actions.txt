@@ -107,6 +107,14 @@ tct_on_start = {
 		}
 
 		title:b_paterno.title_province = { set_holding_type = castle_holding }
+
+		# Struggle Setup
+		if = {
+			limit = {
+				exists = struggle:investiture_controversy_struggle
+			}
+			title:e_hre = { set_variable = struggle_block_dissolution_faction }
+		}
 	}
 }
 

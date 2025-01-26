@@ -152,6 +152,10 @@ end_investiture_controversy_struggle_effect = {
 		}
 		title:e_hre.holder = { remove_character_modifier = fp3_struggle_caliph_super_suspicious_modifier }
 	}
+	if = { 
+		limit = { title:e_hre = { has_variable = struggle_block_dissolution_faction } }
+		title:e_hre = { remove_variable = struggle_block_dissolution_faction }
+	}
 
 	every_in_global_list = { # We de-flag chars (surprisingly performance friendly, from all possible options)
 		variable = fp3_intro_flag_character_list
