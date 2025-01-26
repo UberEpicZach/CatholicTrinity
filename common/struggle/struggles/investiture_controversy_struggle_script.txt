@@ -213,11 +213,12 @@
 						value <= 10
 					}
 				}
-				random = {
-					chance = 20
-				}
 			}
-			add_character_flag = not_interested_in_the_investiture_controversy
+			random = {
+				chance = 20
+				add_character_flag = not_interested_in_the_investiture_controversy
+			}
+			
 		}
 
 		# For the Emperor or Pope directly
@@ -272,6 +273,7 @@
 			future_phases = {
 				investiture_controversy_phase_hostility = {
 					catalysts = {
+						catalyst_passing_of_time = minimal_struggle_catalyst_over_time_gain
 						# Win/Start a War against another involved ruler of the same tier or higher who has an opposing trait faction.(tct_papal_supporter vs tct_imperial_supporter)
 						tct_catalyst_supporter_win_unfair_war_within_the_region = major_struggle_catalyst_gain
 						tct_catalyst_supporter_win_fair_war_within_the_region = massive_struggle_catalyst_gain
@@ -533,6 +535,7 @@
 					# Hostility back to Unrest represents a shift from active, open conflict to a period of simmering but unresolved tension.
 					# This implies that the intense fighting or confrontation has subsided, but the underlying disputes remain unsettled and could flare up again.
 					catalysts = {
+						catalyst_passing_of_time = minimal_struggle_catalyst_over_time_gain
 						# White Peaces
 						catalyst_war_ends_in_white_peace_between_supporter_detractor = minor_struggle_catalyst_gain
 
@@ -748,6 +751,7 @@
 					# Hostility back to Unrest represents a shift from active, open conflict to a period of simmering but unresolved tension.
 					# This implies that the intense fighting or confrontation has subsided, but the underlying disputes remain unsettled and could flare up again.
 					catalysts = {
+						catalyst_passing_of_time = minimal_struggle_catalyst_over_time_gain
 						# White Peaces
 
 						# Prolonged Years fighting / something to check on how devesated the region is

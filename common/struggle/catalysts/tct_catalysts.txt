@@ -31,3 +31,6 @@ tct_catalyst_imprison_imperial_supporter = {}
 tct_appointed_bishop_investiture = {}
 
 tct_create_antipope = {}
+
+### Passage of Time
+catalyst_passing_of_time = {}
