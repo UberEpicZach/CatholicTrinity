@@ -111,7 +111,6 @@
 			type = male
 			birth = 1020.1.2
 			culture = saxon
-			trait = arrogant
 			history_id = 112600
 			animation = personality_bold
 		}
