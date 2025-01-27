@@ -3797,7 +3797,7 @@ TCT_religious_events.56 = {
 		}
 		scope:BishopAttacker = {
 			every_character_war = {
-				casus_belli = {
+				limit = {
 					primary_attacker = scope:BishopAttacker
 					primary_defender = scope:BishopyDefender
 				}
@@ -3824,7 +3824,7 @@ TCT_religious_events.56 = {
 
 					scope:BishopAttacker = {
 						every_character_war = {
-							casus_belli = {
+							limit = {
 								primary_attacker = scope:BishopAttacker
 								primary_defender = scope:BishopyDefender
 							}
@@ -3866,7 +3866,7 @@ TCT_religious_events.56 = {
 				factor = 0
 				scope:BishopAttacker = {
 					has_trait = tct_papal_supporter
-					casus_belli = {
+					limit = {
 						primary_attacker = prev
 						primary_defender = scope:BishopyDefender
 						any_target_title = { count >= 1 }
@@ -3924,7 +3924,7 @@ TCT_religious_events.57 = {
 
 	immediate = {
 		every_character_war = {
-			casus_belli = {
+			limit = {
 				primary_attacker = scope:BishopAttacker
 				primary_defender = scope:BishopyDefender
 			}
@@ -3967,7 +3967,7 @@ TCT_religious_events.57 = {
 			ai_value_modifier = {
 				ai_zeal = 1
 				ai_greed = -0.25
-				ai_bold = 0.25
+				ai_boldness = 0.25
 			}
 		}
 	}
@@ -3998,7 +3998,7 @@ TCT_religious_events.57 = {
 			ai_value_modifier = {
 				ai_zeal = -1
 				ai_greed = 0.25
-				ai_bold = 0.25
+				ai_boldness = 0.25
 			}
 		}
 	}
