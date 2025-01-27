@@ -4,9 +4,11 @@
 		flavor tct
 	}
 	
-	default = latin_learning_on
+	default = latin_learning_default
 
-	latin_learning_on = {}
+	latin_learning_default = {}
+
+	latin_learning_priests = {}
 	
 	latin_learning_off = {}
 }
