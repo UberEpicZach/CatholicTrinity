@@ -10,10 +10,6 @@
 			faith = {
 				NOT = { has_doctrine_parameter = clerical_appointment_ruler }
 			}
-			OR = {
-				NOT = { faith = faith:catholic }
-				NOT = { top_liege = { has_realm_law = free_investiture } }
-			}
 		}
 	}
 
