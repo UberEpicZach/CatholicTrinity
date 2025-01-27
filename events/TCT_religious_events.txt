@@ -3866,7 +3866,7 @@ TCT_religious_events.56 = {
 				factor = 0
 				scope:BishopAttacker = {
 					has_trait = tct_papal_supporter
-					limit = {
+					any_character_war = {
 						primary_attacker = prev
 						primary_defender = scope:BishopyDefender
 						any_target_title = { count >= 1 }
@@ -6052,9 +6052,6 @@ TCT_religious_events.814 = {
 			}
 		}
 		set_realm_capital = title:c_roma
-	}
-	option = {
-		name = TCT_religious_events.814.a
 	}
 }
 		
