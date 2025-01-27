@@ -20,9 +20,9 @@ tct_on_start = {
 		title:k_orthodox.holder = {
 			set_variable = tct_ecumenical_patriarch
 		}
-		faith:orthodox = {
-			add_doctrine = doctrine_autocephaly_head
-		}
+		# faith:orthodox = {
+		# 	add_doctrine = doctrine_autocephaly_head
+		# }
 		every_living_character = {
 			limit = {
 				OR = {
