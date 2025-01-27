@@ -854,21 +854,21 @@ types Cardinals {
 
 types uniuitrinitytypes {
     type UniUI_Trinity_window_faith_widget_doctrine_item = container {
-        widget_doctrine_item = {
-            visible = "[Faith.HasDoctrineByKey( 'doctrine_autocephaly_head' )]"
-            blockoverride "background" {}
+        # widget_doctrine_item = {
+        #     visible = "[Faith.HasDoctrineByKey( 'doctrine_autocephaly_head' )]"
+        #     blockoverride "background" {}
 
-            blockoverride "doctrine_icon"
-            {
-                texture = "[GetDoctrine( 'doctrine_autocephaly_head' ).GetIcon]"
-            }
+        #     blockoverride "doctrine_icon"
+        #     {
+        #         texture = "[GetDoctrine( 'doctrine_autocephaly_head' ).GetIcon]"
+        #     }
 
-            blockoverride "wdi_context"
-            {
-                datacontext = "[GetDoctrine('doctrine_autocephaly_head')]"
-                datacontext = "[Faith]"
-            }
-        }
+        #     blockoverride "wdi_context"
+        #     {
+        #         datacontext = "[GetDoctrine('doctrine_autocephaly_head')]"
+        #         datacontext = "[Faith]"
+        #     }
+        # }
 		widget_doctrine_item = {
             visible = "[Faith.HasDoctrineByKey( 'doctrine_independent_papacy_head' )]"
             blockoverride "background" {}
@@ -885,7 +885,8 @@ types uniuitrinitytypes {
             }
         }
         widget_doctrine_item = {
-            visible = "[And(And(Faith.HasDoctrineByKey('doctrine_spiritual_head'), Not(Faith.HasDoctrineByKey('doctrine_independent_papacy_head'))), Not(Faith.HasDoctrineByKey('doctrine_autocephaly_head')))]"
+            # visible = "[And(And(Faith.HasDoctrineByKey('doctrine_spiritual_head'), Not(Faith.HasDoctrineByKey('doctrine_independent_papacy_head'))), Not(Faith.HasDoctrineByKey('doctrine_autocephaly_head')))]"
+            visible = "[And(Faith.HasDoctrineByKey('doctrine_spiritual_head'), Not(Faith.HasDoctrineByKey('doctrine_independent_papacy_head')))]"
 
             blockoverride "background" {}
 
