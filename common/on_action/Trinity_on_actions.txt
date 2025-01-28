@@ -1035,26 +1035,6 @@ Trinity_on_war_started = {
 	}
 }
 
-#Priests learn latin!
-on_title_gain_inheritance = {
-	on_actions = {
-		priests_learn_latin
-	}
-}
-
-on_title_gain_usurpation = {
-	on_actions = {
-		priests_learn_latin
-	}
-}
-
-on_baron_found_or_created_for_title = {
-	on_actions = {
-		priests_learn_latin
-	}
-}
-
-
 priests_learn_latin = {
 	trigger = {
 		OR = {
