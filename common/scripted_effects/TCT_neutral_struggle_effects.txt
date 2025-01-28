@@ -1,0 +1,37 @@
+﻿tct_neutral_struggle_1006_start_war = {
+	start_war = {
+		casus_belli = claim_cb_non_target_top_liege
+		target = title:d_bavaria.holder
+		target_title = title:d_bavaria
+		claimant = character:112600
+	}
+	random_character_war = {
+		limit = { using_cb = claim_cb_non_target_top_liege }
+		save_scope_as = bavarian_reconquest
+	} 
+	scope:bavarian_reconquest = {
+		add_attacker = title:d_ostfalen.holder
+	}
+}
+
+tct_neutral_struggle_war_transfer_gottingen = {
+	title:d_ostfalen.holder = {
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = change
+		}
+		title:c_gottingen.title_province = {
+			# Uses the Duchal Building effect because it only has 3 levels
+			destroy_or_downgrade_ducal_building_effect = { BUILDING = tct_leisure_palace }
+			hidden_effect = { destroy_or_downgrade_ducal_building_effect = { BUILDING = tct_leisure_palace } }
+		}
+		title:c_gottingen = {
+			change_title_holder = {
+				holder = title:d_ostfalen.holder
+				change = scope:change
+				take_baronies = yes
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+	}
+}

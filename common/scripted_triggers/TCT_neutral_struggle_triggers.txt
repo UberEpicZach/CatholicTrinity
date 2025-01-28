@@ -1,0 +1,8 @@
+﻿tct_neutral_struggle_bavarian_chain_trigger = {
+	this = character:1316
+	title:d_bavaria.holder = character:112600
+	title:e_hre.holder = character:1316
+	NOT = {
+		exists = global_var:TCT_1066_Bavarian_Chain_Fired
+	}
+}

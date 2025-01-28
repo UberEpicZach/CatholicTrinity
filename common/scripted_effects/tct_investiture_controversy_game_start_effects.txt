@@ -70,52 +70,52 @@
 		}
 	}
 	
-	title:d_angria.holder = {
+	character:1416 = {
 		set_relation_rival = {
 			target = title:e_hre.holder
 			reason = rival_generic_history
 		}
-		create_alliance = title:d_bavaria.holder
-		title:d_bavaria.holder = {
+		create_alliance = character:112600
+		character:112600 = {
 			add_opinion = {
-				target = title:d_angria.holder
+				target = character:1416
 				modifier = event_negotiated_alliance_opinion
 			}
 		}
 		create_alliance = title:d_swabia.holder
 		title:d_swabia.holder = {
 			add_opinion = {
-				target = title:d_angria.holder
+				target = character:1416
 				modifier = event_negotiated_alliance_opinion
 			}
 		}
 	}
-	title:d_bavaria.holder = {
-		create_alliance = title:d_angria.holder
-		title:d_angria.holder = {
+	character:112600 = {
+		create_alliance = character:1416
+		character:1416 = {
 			add_opinion = {
-				target = title:d_bavaria.holder
+				target = character:112600
 				modifier = event_negotiated_alliance_opinion
 			}
 		}
 		create_alliance = title:d_swabia.holder
 		title:d_swabia.holder = {
 			add_opinion = {
-				target = title:d_bavaria.holder
+				target = character:112600
 				modifier = event_negotiated_alliance_opinion
 			}
 		}
 	}
 	title:d_swabia.holder = {
-		create_alliance = title:d_angria.holder
-		title:d_angria.holder = {
+		create_alliance = character:1416
+		character:1416 = {
 			add_opinion = {
 				target = title:d_swabia.holder
 				modifier = event_negotiated_alliance_opinion
 			}
 		}
-		create_alliance = title:d_bavaria.holder
-		title:d_bavaria.holder = {
+		create_alliance = character:112600
+		character:112600 = {
 			add_opinion = {
 				target = title:d_swabia.holder
 				modifier = event_negotiated_alliance_opinion
@@ -133,7 +133,7 @@
 			reason = friend_generic_history
 		}
 	}
-	title:d_toscana.holder = {
+	character:7757 = {
 		add_courtier = character:7755
 		set_relation_friend = {
 			target = character:7755
@@ -231,13 +231,6 @@ Investiture_Controversy_Game_Start_De_Jure_Changes_1066 = {
 
 	title:k_italy = { set_de_jure_liege_title = title:e_hre }
 
-	title:k_romagna = {
-		change_de_jure_drift_progress = {
-			target = title:e_hre
-			value = medium_de_jure_drift_progress_gain
-		} 
-	}
-
 	title:d_ostfalen = {
 		set_title_name = d_saxony
 		set_coa = d_anhalt
@@ -261,7 +254,7 @@ Investiture_Controversy_Game_Start_After_Lobby_1066 = {
 			}
 			trigger_event = tct_neutral_struggle.0002
 		}
-		title:d_angria.holder = {
+		character:1416 = {
 			trigger_event = tct_neutral_struggle.0003
 		}
 		character:11030 = {
