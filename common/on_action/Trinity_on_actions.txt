@@ -17,9 +17,9 @@ tct_on_start = {
 		}
 
 		### Pentarchy setups
-		title:k_orthodox.holder = {
-			set_variable = tct_ecumenical_patriarch
-		}
+		# title:k_orthodox.holder = {
+		# 	set_variable = tct_ecumenical_patriarch
+		# }
 		# faith:orthodox = {
 		# 	add_doctrine = doctrine_autocephaly_head
 		# }
@@ -149,9 +149,9 @@ tct_on_start_1066 = {
 	}
 	effect = {
 		# Religion Setup
-		title:k_papal_state.holder = {
-			set_variable = tct_ecumenical_patriarch
-		}
+		# title:k_papal_state.holder = {
+		# 	set_variable = tct_ecumenical_patriarch
+		# }
 
 		# History Fixes
 		character:40060 = {
