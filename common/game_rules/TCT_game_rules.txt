@@ -12,3 +12,14 @@
 	
 	latin_learning_off = {}
 }
+
+tct_cosanguinity = {
+	categories = {
+		faith flavor tct
+	}
+
+	default = tct_cosanguinity_on
+
+	tct_cosanguinity_on = {}
+	tct_cosanguinity_off = {}
+}

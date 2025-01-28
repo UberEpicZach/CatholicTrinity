@@ -42,12 +42,15 @@ tct_on_start = {
 			add_doctrine = doctrine_independent_papacy_head
 			add_doctrine = doctrine_clerical_succession_investiture_law_appointment
 			if = {
-				limit = { has_doctrine = doctrine_consanguinity_aunt_nephew_and_uncle_niece }
-				remove_doctrine = doctrine_consanguinity_aunt_nephew_and_uncle_niece
-			}
-			if = {
-				limit = { NOT = { has_doctrine = doctrine_consanguinity_restricted } }
-				add_doctrine = doctrine_consanguinity_restricted
+				limit = { has_game_rule = tct_cosanguinity_on }
+				if = {
+					limit = { has_doctrine = doctrine_consanguinity_aunt_nephew_and_uncle_niece }
+					remove_doctrine = doctrine_consanguinity_aunt_nephew_and_uncle_niece
+				}
+				if = {
+					limit = { NOT = { has_doctrine = doctrine_consanguinity_restricted } }
+					add_doctrine = doctrine_consanguinity_restricted
+				}
 			}
 		}
 

@@ -8,3 +8,9 @@
  setting_latin_learning_priests_desc: "Catholic priests will learn Latin, but the Papal State's court language won't be changed."
  setting_latin_learning_off: "Disabled"
  setting_latin_learning_off_desc: "Catholic priests won't learn Latin and the Papal State's court language won't be changed."
+
+ rule_TCT_cosanguinity: "Catholic Cosanguinity Doctrine"
+ setting_tct_cosanguinity_on: "Default"
+ setting_tct_cosanguinity_on_desc: "The Catholic faith will have the $doctrine_consanguinity_restricted_name$ doctrine, disabling cousin marriages."
+ setting_tct_cosanguinity_off: "Vanilla"
+ setting_tct_cosanguinity_off_desc: "The Catholic faith will have the $doctrine_consanguinity_aunt_nephew_and_uncle_niece_name$ doctrine, allowing cousin marriages."
