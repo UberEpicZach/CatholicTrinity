@@ -134,7 +134,6 @@
 		}
 	}
 	character:7757 = {
-		add_courtier = character:7755
 		set_relation_friend = {
 			target = character:7755
 			reason = friend_generic_history
@@ -248,10 +247,6 @@ Investiture_Controversy_Game_Start_After_Lobby_1066 = {
 			game_start_date = 1066.9.15
 		}
 		title:e_hre.holder = {
-			if = { # AI starts with a higher Legitimacy than the player
-				limit = { is_ai = yes }
-				add_legitimacy = -902
-			}
 			trigger_event = tct_neutral_struggle.0002
 		}
 		character:1416 = {
