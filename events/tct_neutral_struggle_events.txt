@@ -1223,7 +1223,7 @@ tct_neutral_struggle.2001 = {
 	
 	trigger = {
 		NOT = { has_character_flag = had_tct_neutral_struggle_2001 }
-		player_heir = {
+		primary_heir = {
 			is_female = yes
 			NOT = { is_child_of = root }
 		}
@@ -1272,7 +1272,7 @@ tct_neutral_struggle.2001 = {
 			primary_spouse = { save_scope_as = female_party }
 		}
 		else = {
-			player_heir = { save_scope_as = female_party }
+			primary_heir = { save_scope_as = female_party }
 		}
 		primary_title = {
 			ordered_title_heir = { # Pick first male heir
