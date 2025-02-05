@@ -1,4 +1,127 @@
-﻿change_investiture_prestige_cost = {
+﻿investiture_law_ai_will_do_value = {
+	if = {
+		limit = { has_trait = cynical }
+		subtract = 0.37
+	}
+	if = {
+		limit = { has_trait = ambitious }
+		subtract = 1
+	}
+	if = {
+		limit = { has_trait = craven }
+		add = 0.5
+	}
+	if = {
+		limit = { has_trait = content }
+		add = 1
+	}
+	if = {
+		limit = { has_trait = zealous }
+		add = 0.37
+	}
+	if = {
+		limit = { has_trait = lazy }
+		add = 0.5
+	}
+	if = {
+		limit = { has_trait = stubborn }
+		add = 0.25
+	}
+	if = {
+		limit = { has_trait = fickle }
+		subtract = 0.25
+	}
+	if = {
+		limit = { has_trait = greedy }
+		subtract = 0.5
+	}
+	if = {
+		limit = { has_trait = humble }
+		add = 1
+	}
+	if = {
+		limit = { has_trait = arrogant }
+		subtract = 1
+	}
+	if = {
+		limit = { has_trait = just }
+		add = 0.25
+	}
+	if = {
+		limit = { has_trait = arbitrary }
+		subtract = 0.25
+	}
+	if = {
+		limit = { has_trait = gluttonous }
+		subtract = 0.12
+	}
+	if = {
+		limit = { has_trait = trusting }
+		add = 0.12
+	}
+	if = {
+		limit = { has_perk = theologian_perk }
+		add = 0.25
+	}
+	if = {
+		limit = { has_trait = scholar }
+		subtract = 0.12
+	}
+	if = {
+		limit = { has_trait = celibate }
+		add = 0.25
+	}
+	if = {
+		limit = { has_trait = flagellant }
+		add = 0.12
+	}
+	if = {
+		limit = { has_trait = contrite }
+		add = 0.05
+	}
+	if = {
+		limit = { has_trait = paragon }
+		add = 0.5
+	}
+	if = {
+		limit = { has_trait = consecrated_blood }
+		add = 0.25
+	}
+	if = {
+		limit = { faith.religious_head = { reverse_opinion = { target = root value >= 100 } } }
+		add = 1
+	}
+	if = {
+		limit = { faith.religious_head = { reverse_opinion = { target = root value >= 75 } } }
+		add = 0.5
+	}
+	if = {
+		limit = { faith.religious_head = { reverse_opinion = { target = root value >= 50 } } }
+		add = 0.25
+	}
+	if = {
+		limit = { faith.religious_head = { reverse_opinion = { target = root value >= 25 } } }
+		add = 0.12
+	}
+	if = {
+		limit = { faith.religious_head = { reverse_opinion = { target = root value >= -25 } } }
+		subtract = 0.12
+	}
+	if = {
+		limit = { faith.religious_head = { reverse_opinion = { target = root value >= -50 } } }
+		subtract = 0.25
+	}
+	if = {
+		limit = { faith.religious_head = { reverse_opinion = { target = root value >= -75 } } }
+		subtract = 0.5
+	}
+	if = {
+		limit = { faith.religious_head = { reverse_opinion = { target = root value >= -99 } } }
+		subtract = 1
+	}	
+}
+
+change_investiture_prestige_cost = {
 	add = {
 		desc = "BASE_VALUE"
 		value = 200
