@@ -87,7 +87,7 @@ update_preferatus = {
 	ordered_in_global_list = {
 		limit = {exists = this }
 		variable = cardinals
-		order_by = cardinal_to_pope_score
+		order_by = story_owner.cardinal_to_pope_score
 		position = 0
 		set_global_variable = {
 			name = preferatus
@@ -320,7 +320,7 @@ update_cardinal_window = {
 		# Fetch all cardinal characters into gui_storage
 		clear_variable_list = cardinal_characters
 		ordered_in_global_list = {
-			order_by = cardinal_to_pope_score
+			order_by = story_owner.cardinal_to_pope_score
 			max = num_cardinals
 			variable = cardinals
 			prev = {
