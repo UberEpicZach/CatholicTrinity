@@ -4,6 +4,7 @@ adopt_court_language = {
 	gold = {	
 		if = {
 			limit = {
+				has_game_rule = latin_learning_default
 				primary_title = title:k_papal_state
 				is_ai = yes
 			}
