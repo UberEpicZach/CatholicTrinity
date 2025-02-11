@@ -105,6 +105,12 @@ autoerrorfixer.1 = {
         fix_variable_error = {ERROR = tct_investiture_struggle_intro_flag_character_list}
         fix_variable_error = {ERROR = TCT_antiking_faction}
         fix_variable_error = {ERROR = TCT_pentarchy_map }
+        fix_variable_error = {ERROR = TCT_patriarchate } 
+        fix_variable_error = {ERROR = tct_ecumenical_patriarch }
+        fix_variable_error = {ERROR = force_ai_created_laamp }
+        fix_variable_error = {ERROR = saint_days_procession }
+        fix_variable_error = {ERROR = seat_of_christendom } 
+        fix_variable_error = {ERROR = tct_unconfirmed_title_holder }
 	}
 }
 autoerrorfixer.2 = {

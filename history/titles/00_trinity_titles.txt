@@ -4,6 +4,7 @@
 		government = mercenary_government_mod
 		succession_laws = {
 			male_only_law
+			mercenary_company_mod_succession_law
 		}
 	}
 	
@@ -12,6 +13,7 @@
 		government = mercenary_government_mod
 		succession_laws = {
 			male_only_law
+			mercenary_company_mod_succession_law
 		}
 	}
 }

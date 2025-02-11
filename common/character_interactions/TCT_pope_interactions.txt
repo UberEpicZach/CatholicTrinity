@@ -231,6 +231,15 @@ TCT_make_antipope_interaction = {
 				}
 			}
 		}
+		every_faith_ruler = {
+			limit = {
+				NOT = {
+					has_character_flag = had_TCT_religious_events_0409
+				}
+			}
+			trigger_event = { days = 1 id = TCT_religious_events.403 }
+			add_character_flag = had_TCT_religious_events_0409
+		}
 	}
 
 	on_decline = {
@@ -1029,13 +1038,13 @@ hof_ask_for_claim_interaction = { #TCT
 					}
 
 					# Unless it's the HRE in the Investiture Controversy
-					scope:recipient = {
-						has_title = title:e_hre
-						any_character_struggle = {
-							involvement = involved
-							is_struggle_type = investiture_controversy_struggle
-						}
-					}
+					# scope:recipient = {
+					# 	has_title = title:e_hre
+					# 	any_character_struggle = {
+					# 		involvement = involved
+					# 		is_struggle_type = investiture_controversy_struggle
+					# 	}
+					# }
 				}
 			}
 			custom_description = {

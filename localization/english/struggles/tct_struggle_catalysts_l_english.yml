@@ -124,6 +124,3 @@
  name_trait_tct_papal_supporter: "#high $trait_tct_papal_supporter$\n[ROOT.Province.GetCounty.GetTitle.GetHolder.GetName]#![AddTextIf(Not(ROOT.Province.GetCounty.GetTitle.GetHolder.IsIndependentRuler), '\nVassal of ')][AddTextIf(Not(ROOT.Province.GetCounty.GetTitle.GetHolder.IsIndependentRuler), ROOT.Province.GetCounty.GetTitle.GetHolder.GetTopLiege.GetName)]"
 
  name_trait_tct_imperial_supporter: "#high $trait_tct_imperial_supporter$\n[ROOT.Province.GetCounty.GetTitle.GetHolder.GetName]#![AddTextIf(Not(ROOT.Province.GetCounty.GetTitle.GetHolder.IsIndependentRuler), '\nVassal of ')][AddTextIf(Not(ROOT.Province.GetCounty.GetTitle.GetHolder.IsIndependentRuler), ROOT.Province.GetCounty.GetTitle.GetHolder.GetTopLiege.GetName)]"
-
- # OVERWRITING VANILLA KEY
- supporter_and_detractor: "opposing [struggle|e] factions."

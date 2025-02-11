@@ -139,8 +139,8 @@ tct_imperial_supporter = {
 				desc = trait_tct_imperial_supporter_desc
 			}
 			triggered_desc = {
-				trigger = { has_title = title:d_sunni }
-				desc = trait_tct_imperial_supporter_character_is_caliph_desc
+				trigger = { has_title = title:e_hre }
+				desc = trait_tct_imperial_supporter_character_is_emperor_desc
 			}
 			desc = trait_tct_imperial_supporter_character_desc
 		}
@@ -175,8 +175,8 @@ tct_papal_supporter = {
 				desc = trait_tct_papal_supporter_desc
 			}
 			triggered_desc = {
-				trigger = { has_title = title:d_sunni }
-				desc = trait_tct_papal_supporter_character_is_caliph_desc
+				trigger = { has_title = title:k_papal_state }
+				desc = trait_tct_papal_supporter_character_is_pope_desc
 			}
 			desc = trait_tct_papal_supporter_character_desc
 		}

@@ -139,8 +139,7 @@ tct_neutral_struggle.0004 = {
 	type = character_event
 	title = tct_neutral_struggle.0004.t
 	desc = tct_neutral_struggle.0004.desc
-	#  tct_neutral_struggle.0004.desc: "[spouse.GetFirstName]’s family stands firm against the Emperor as the Dukes of Bavaria, but I am left with little more than Ravensburg. My father, [father.GetFullName], favors my half-brother, leaving me to wonder where my future lies. The [spouce.GetDynastyName]’ potential rebellion is tempting, but aligning with the Emperor may secure my position. Or perhaps I could look back towards Lombardy, where my blood still ties me, offering another path."
-
+	orphan = yes
 	theme = realm
 	override_background = {
 		reference = farmland
@@ -1118,10 +1117,10 @@ tct_neutral_struggle.1006 = {
 	}
 }
 
-tct_neutral_struggle.1006 = {
+tct_neutral_struggle.1007 = {
 	type = character_event
-	title = tct_neutral_struggle.1006.t
-	desc = tct_neutral_struggle.1006.desc
+	title = tct_neutral_struggle.1007.t
+	desc = tct_neutral_struggle.1007.desc
 
 	theme = war
 	override_background = {
@@ -1152,7 +1151,7 @@ tct_neutral_struggle.1006 = {
 	}
 
 	option = {
-		name = tct_neutral_struggle.1006.a
+		name = tct_neutral_struggle.1007.a
 	}
 }
 

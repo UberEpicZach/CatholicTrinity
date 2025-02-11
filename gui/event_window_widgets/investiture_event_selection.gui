@@ -50,7 +50,7 @@
 							layoutpolicy_horizontal = expanding
 
 							portrait_head_small = {
-								datacontext = "[Scope.Character]"
+								datacontext = "[Scope.Char]"
 							}
 
 							hbox = {

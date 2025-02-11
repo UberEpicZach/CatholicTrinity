@@ -31,3 +31,13 @@
   trait_pope_trait:0 "Pope"
   trait_pope_trait_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] was the head of the Roman Catholic Church and the head of the Catholic Faith, and now rests with the lord."
   trait_beatified_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] was beatified by the church, blessed."
+
+  trait_tct_imperial_supporter:0 "Imperial Supporter"
+  trait_tct_imperial_supporter_desc:0 "This character is a supporter of the Imperial system, and believes that the Emperor should have the right to appoint the Pope."
+  trait_tct_imperial_supporter_character_is_emperor_desc:0 "As the Emperor, you believe that you should have the right to appoint the Pope."
+  trait_tct_imperial_supporter_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip|U] is a supporter of the Imperial system, and believes that the Emperor should have the right to appoint the Pope." 
+
+  trait_tct_papal_supporter:0 "Papal Supporter"
+  trait_tct_papal_supporter_desc:0 "This character is a supporter of the Papal system, and believes that the Pope should have the right to appoint the Emperor."
+  trait_tct_papal_supporter_character_is_pope_desc:0 "As the Pope, you believe that you should have the right to appoint the Emperor."
+  trait_tct_papal_supporter_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip|U] is a supporter of the Papal system, and believes that the Pope should have the right to appoint the Emperor."
