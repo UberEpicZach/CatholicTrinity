@@ -7,6 +7,10 @@
 		can_pick = { 
 			religion_tag = christianity_religion 
 			always = no
+			custom_description = {
+				text = doctrine_requires_theocratic_head_of_faith_trigger
+				doctrine:doctrine_spiritual_head = { is_in_list = selected_doctrines }
+			}
 		}
 		piety_cost = {
 			value = faith_doctrine_cost_massive
@@ -16,12 +20,9 @@
 			}
 		}
 		parameters = {
-			spiritual_head_of_faith = yes
-			spiritual_head_of_faith_claims = yes
-			spiritual_head_of_faith_gold = yes
 			TCT_antipopes = yes
 			clergy_can_fight = yes
-			disable_theocracy_lease = yes
+			# disable_theocracy_lease = yes
 		}
 	}
 
@@ -53,6 +54,7 @@
 
 	doctrine_TCT_blank = {
 		visible = no
+		is_shown = { religion_tag = christianity_religion }
 		can_pick = {
 			always = yes
 		}
@@ -63,19 +65,6 @@
 			
 		}
 	}
-
-	#doctrine_TCT_blank_2 = {
-	#	visible = no
-	#	can_pick = {
-	#		always = yes
-	#	}
-	#	piety_cost = {
-	#		
-	#	}
-	#	parameters = {
-	#		
-	#	}
-	#}		
 }
 
 TCT_doctrine_clerical_succession = {
@@ -85,6 +74,7 @@ TCT_doctrine_clerical_succession = {
 
 	doctrine_clerical_TCT_blank = {
 		visible = no
+		is_shown = { religion_tag = christianity_religion }
 		can_pick = {
 			always = yes
 		}
@@ -131,15 +121,22 @@ TCT_doctrine_clerical_succession = {
 		can_pick = {
 			always = no
 			custom_description = {
-				text = incompatible_doctrine_spiritual_appointment_temporal_trigger
+				text = incompatible_doctrine_investiture_law_temporal_trigger
 				NOT = { doctrine:doctrine_temporal_head = { is_in_list = selected_doctrines } }
+			}
+			custom_description = {
+				text = must_select_spiritual_fixed_appointment
+				doctrine:doctrine_clerical_succession_spiritual_fixed_appointment = { is_in_list = selected_doctrines }
+			}
+			custom_description = {
+				text = must_select_independent_papacy_head
+				doctrine:doctrine_independent_papacy_head = { is_in_list = selected_doctrines }
 			}
 		}
 
 		parameters = {
-			clerical_appointment_fixed = yes
+			# clerical_appointment_fixed = yes
 			TCT_clerical_appointment_investiture = yes
-			
 		}
 	}
 }
