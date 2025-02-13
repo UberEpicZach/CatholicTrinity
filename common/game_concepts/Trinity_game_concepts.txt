@@ -82,17 +82,14 @@ investiture_controversy_struggle = {
 }
 
 struggle_factions = {
-	alias = { struggle_factions }
 	parent = struggle
 }
 
 struggle_faction_members = {
-	alias = { struggle_faction_members }
 	parent = struggle
 }
 
 opposing_struggle_factions = {
-	alias = { opposing_struggle_factions }
 	parent = struggle
 }
 
