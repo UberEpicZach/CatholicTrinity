@@ -753,28 +753,30 @@ on_person_death_saint = {
 # }
 
 on_cardinal_death = {
-	trigger = {
-		owns_story_of_type = cardinal_story
-		NOT = {
-			this = title:k_papal_state.holder
-		}
-	}
-	effect = {
-		save_scope_as = dyingcardinal
-		give_nickname = nick_cardinal
-		faith:catholic = { update_cardinal_window = yes }
-		update_preferatus = yes
+    trigger = {
+        owns_story_of_type = cardinal_story
+        NOT = {
+            this = title:k_papal_state.holder
+        }
+    }
+    effect = {
+        save_scope_as = dyingcardinal
+        give_nickname = nick_cardinal
+        faith:catholic = { 
+            update_cardinal_window = yes 
+            promote_new_cardinal = yes
+        }
+        update_preferatus = yes
 
-		title:k_papal_state.holder = {
-			send_interface_message = {
-				type = event_generic_bad_text
-				title = cardinaldied
-				desc = cardinaldied_desc
-		
-				left_icon = root
-			}
-		}
-	}
+        title:k_papal_state.holder = {
+            send_interface_message = {
+                type = event_generic_bad_text
+                title = cardinaldied
+                desc = cardinaldied_desc
+                left_icon = root
+            }
+        }
+    }
 }
 
 on_preferatus_death = {
