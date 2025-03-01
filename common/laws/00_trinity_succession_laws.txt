@@ -15,22 +15,5 @@
 		}
 		flag = elective_succession_law
 	}
-
-	papal_succession_law = {
-		can_keep = {
-			has_title = title:k_papal_state
-		}
-		can_have = {
-			has_title = title:k_papal_state
-		}
-		should_start_with = {
-			has_title = title:k_papal_state
-		}
-		succession = {
-            order_of_succession = generate
-            pool_character_config = papacy_succession
-        }
-		flag = elective_succession_law
-	}	
 }
 

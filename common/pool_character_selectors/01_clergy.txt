@@ -91,7 +91,7 @@ papacy_succession = {
     }
 
     config = {
-       	background = clergy
+       	background = cardinal
         age = { 18 85 }
     }
 

@@ -4592,7 +4592,7 @@ TCT_religious_events.400 = {
 		character = scope:deadpope
 	}
 	right_portrait = {
-		character = title:k_papal_state.holder
+		character = scope:cardinal4 #let's make this an additional cardinal though the steward would be better
 		animation = personality_honorable
 		triggered_outfit = {
 			trigger = { exists = global_var:cfp_is_loaded }
@@ -4602,7 +4602,6 @@ TCT_religious_events.400 = {
 			trigger = { NOT = { exists = global_var:cfp_is_loaded } }
 			outfit_tags = { bishop_outfit }
 		}
-		hide_info = yes
 	}
 	lower_center_portrait = {
 		character = scope:cardinal1
@@ -4642,6 +4641,7 @@ TCT_religious_events.400 = {
 	}
 
 	immediate = {
+		save_scope_as = newpope
 		random_living_cardinal = {
 			save_scope_as = cardinal1
 		}
@@ -4652,6 +4652,10 @@ TCT_religious_events.400 = {
 		random_living_cardinal = {
 			limit = { NOT = { this = scope:cardinal1 this = scope:cardinal2 } }
 			save_scope_as = cardinal3
+		}
+		random_living_cardinal = {
+			limit = { NOT = { this = scope:cardinal1 this = scope:cardinal2 this = scope:cardinal3 } }
+			save_scope_as = cardinal4
 		}
 	}
 
@@ -4680,7 +4684,7 @@ TCT_religious_events.4001 = {
 	override_background = { reference = throne_room }
 
 	right_portrait = {
-		character = title:k_papal_state.holder
+		character = scope:newpope #title:k_papal_state.holder
 		animation = personality_honorable
 		triggered_outfit = {
 			trigger = { exists = global_var:cfp_is_loaded }
@@ -4703,7 +4707,6 @@ TCT_religious_events.4001 = {
 		    scope:newpope = {
 				group = event_group
 				animation = worry
-				#outfit_tags = { bishop_outfit }
 		    }
 			scope:cardinal2 = {
 				group = event_group
@@ -4745,11 +4748,6 @@ TCT_religious_events.4001 = {
 	}
 
 	immediate = {
-		save_scope_as = newpope
-		add_character_flag = {
-			flag = wearing_cardinal
-			days = 3
-		}
 		if = {
 			limit = {
 				exists = var:duplicatenameexists
@@ -4882,6 +4880,7 @@ TCT_religious_events.4001 = {
 			trigger_event = TCT_religious_events.600
 		}
 		else = {
+			hidden_effect = { TCT_random_pope_name = yes } 	
 			trigger_event = TCT_religious_events.5725
 		}	
 
@@ -4983,15 +4982,21 @@ TCT_religious_events.5725 = {
 
 	immediate = {
 		save_scope_as = child
-
 		if = {
 			limit = {
-				title:k_papal_state.holder = { is_ai = yes }
+				exists = character:2010
+				scope:newpope = character:2010
 			}
-			title:k_papal_state.holder = {
-				TCT_random_pope_name = yes
-			}
+			change_first_name = Gregorius
 		}
+		else_if = {
+			limit = {
+				scope:newpope = {
+					is_ai = yes
+				}
+			}
+			TCT_random_pope_name = yes
+		}	
 
 		# Tracking for how many petitioners have come through.
 		set_variable = {
@@ -5021,15 +5026,6 @@ TCT_religious_events.5725 = {
 		name = birth.9004.a
 		trigger_event = TCT_religious_events.401
 	}
-	after = {
-		if = {
-			limit = {
-				exists = character:2010
-				this = character:2010
-			}
-			change_first_name = Gregorius
-		}
-	}
 }
 # The Papal Conclave
 TCT_religious_events.401 = {
@@ -5040,7 +5036,7 @@ TCT_religious_events.401 = {
 	override_background = { reference = throne_room }
 
 	right_portrait = {
-		character = title:k_papal_state.holder
+		character = scope:newpope
 		animation = personality_honorable
 		triggered_outfit = {
 			trigger = { exists = global_var:cfp_is_loaded }
@@ -5058,7 +5054,7 @@ TCT_religious_events.401 = {
 		court_event_force_open = yes
 		should_pause_time = yes
 		roles = {
-		    scope:newpope= {
+		    scope:newpope = {
 				group = event_group
 				animation = worry
 		    }
@@ -5142,7 +5138,7 @@ TCT_religious_events.402 = {
 	desc = TCT_religious_events.402.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
-		character = title:k_papal_state.holder
+		character = scope:newpope
 		animation = personality_honorable
 	}
 	right_portrait = {
@@ -5273,10 +5269,6 @@ TCT_religious_events.500 = {
 			var:selected_title = {
 				save_scope_as = selected_title
 			}
-			# set_variable = {
-			# 	name = selected_title_kingdom
-			# 	value = var:selected_title
-			# }
 			custom_tooltip = TCT_religious_events.500.a.tt
 			hidden_effect = {
 				create_character = {
@@ -6012,7 +6004,6 @@ TCT_religious_events.813 = {
 TCT_religious_events.814 = {
 	hidden = yes
 	immediate = {
-		remove_variable = current_papacy_successor
 		if = {
 			limit = {
 				NOT = { exists = cp:councillor_marshal }
@@ -6055,5 +6046,53 @@ TCT_religious_events.814 = {
 		}
 		set_realm_capital = title:c_roma
 	}
+	
+	scope:duplicatename = { # Let's get rid of this character though it may be cool to make this a papal squire or the sort
+		death = {
+			death_reason = death_vanished
+		}
+	}	
 }
-		
+
+# Keeping the College of Cardinals full
+TCT_religious_events.9999 = {
+    type = character_event
+    hidden = yes
+
+    trigger = {
+		any_living_character = {
+			count < 16
+			has_trait = cardinal
+		}
+    }
+
+    immediate = {
+        faith:catholic = {
+            promote_new_cardinal = yes
+            update_cardinal_window = yes
+            update_preferatus = yes
+        }
+		scope:preferatus = {
+			set_variable = current_papacy_successor
+		}	
+        if = {
+			limit = {
+				any_living_character = {
+					count < 16
+					has_trait = cardinal
+				}
+			}
+            trigger_event = {
+                id = TCT_religious_events.9999
+                days = 15
+            }
+        }
+    }
+
+    option = {
+        name = "OK"
+    }
+}
+
+
+

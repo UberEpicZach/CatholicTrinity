@@ -508,71 +508,360 @@ TCT_is_pope_test = {
 
 TCT_random_pope_name = {
 	random_list = {
-		1 = {
-			change_first_name = Alexander
-		}
-		1 = {
-			change_first_name = Anastasius
-		}
-		1 = {
-			change_first_name = Caelestinus
-		}
-		1 = {
-			change_first_name = Callistus
-		}
-		1 = {
-			change_first_name = Clemens
-		}
-		1 = {
-			change_first_name = Eugenius
-		}
-		1 = {
-			change_first_name = Leo
-		}
-		1 = {
+		25 = {
+			modifier = {
+				factor = 2
+				has_trait = generous
+			}	
 			change_first_name = Gregorius
 		}
-		1 = {
-			change_first_name = Hadrianus
-		}
-		1 = {
-			change_first_name = Honorius
-		}
-		1 = {
-			change_first_name = Innocentius
-		}
-		1 = {
+		25 = {
+			modifier = {
+				factor = 3
+				has_trait = theologian
+			}	
 			change_first_name = Ioannes
 		}
-		1 = {
-			change_first_name = Lucius
+		20 = {
+			modifier = {
+				factor = 2
+				has_trait = forgiving
+			}	
+			change_first_name = Benedictus
 		}
-		1 = {
-			change_first_name = Marinus
+		20 = {
+			modifier = {
+				factor = 2
+				has_trait = chaste
+			}	
+			change_first_name = Innocentius
 		}
-		1 = {
-			change_first_name = Martinus
+		20 = {
+			change_first_name = Clemens
+		}	
+		20 = {
+			modifier = {
+				factor = 2
+				has_trait = ambitious
+			}	
+			change_first_name = Pius
 		}
-		1 = {
-			change_first_name = Nicolaus
+		20 = {
+			modifier = {
+				factor = 2
+				has_trait = arrogant
+			}	
+			change_first_name = Alexander
+		}			
+		15 = {
+			modifier = {
+				factor = 2
+				has_trait = brave
+			}	
+			change_first_name = Leo
 		}
-		1 = {
-			change_first_name = Sergius
-		}
-		1 = {
-			change_first_name = Silvester
-		}
-		1 = {
-			change_first_name = Stephanus
-		}
-		1 = {
+		15 = {
+			modifier = {
+				factor = 2
+				has_trait = gregarious
+			}	
 			change_first_name = Urbanus
 		}
-		1 = {
+		15 = {
+			modifier = {
+				factor = 2
+				has_trait = honest
+			}
+			modifier = {
+				factor = 3
+				has_trait = theologian
+			}	
+			change_first_name = Paulus
+		}
+		15 = {
+			modifier = {
+				factor = 2
+				has_trait = diligent
+			}	
+			change_first_name = Caelestinus
+		}
+		10 = {
+			modifier = {
+				factor = 3
+				has_trait = theologian
+			}	
+			change_first_name = Stephanus
+		}
+		10 = {
+			modifier = {
+				factor = 2
+				has_trait = just
+			}	
+			modifier = {
+				factor = 3
+				has_trait = theologian
+			}	
+			change_first_name = Nicolaus
+		}
+		10 = {
+			modifier = {
+				factor = 2
+				has_trait = forgiving
+			}	
+			change_first_name = Bonifatius
+		}
+		10 = {
+			change_first_name = Sergius	
+		}					
+		5 = {
+			modifier = {
+				factor = 2
+				has_trait = wrathful
+			}	
 			change_first_name = Victor
+		}
+		5 = {
+			change_first_name = Hardianus
+		}						
+		5 = {
+			change_first_name = Sixtus
+		}					
+		5 = {
+			change_first_name = Iulius
+		}						
+		3 = {
+			modifier = {
+				factor = 2
+				has_trait = beauty_good
+			}	
+			change_first_name = Callistus
+		}
+
+		5 = {
+			modifier = {
+				factor = 3
+				has_trait = theologian
+			}
+			change_first_name = Anastasius
+		}
+		3 = {
+			modifier = {
+				factor = 2
+				has_trait = chaste
+			}	
+			change_first_name = Honorius
+		}
+		3 = {
+			modifier = {
+				factor = 4
+				has_trait = lifestyle_mystic
+			}
+			change_first_name = Lucius
+		}	
+		3 = {
+			modifier = {
+				factor = 0
+				is_lowborn = yes
+			}
+			change_first_name = Eugenius
+		}		
+		2 = {
+			change_first_name = Damasus	
+		}					
+		2 = {
+			change_first_name = Gelasius
+		}						
+		2 = {
+			change_first_name = Marcelius
+		}						
+		2 = {
+			change_first_name = Marinus
+		}						
+		2 = {
+			change_first_name = Martinus
+		}						
+		2 = {
+			change_first_name = Lando	
+		}					
+		2 = {
+			change_first_name = Hyginus	
+		}					
+		2 = {
+			change_first_name = Sisinnius
+		}						
+		1 = {
+			modifier = {
+				factor = 4
+				has_trait = lifestyle_reveler
+			}
+			change_first_name = Paschalis
+		}
+		1 = {
+			modifier = {
+				factor = 4
+				has_trait = lifestyle_traveler
+			}
+			change_first_name = Felix
+		}
+		1 = {
+			modifier = {
+				factor = 4
+				has_trait = lifestyle_hunter
+			}
+			change_first_name = Silvester	
+		}
+		#Apostle Names
+		1 = {
+			modifier = {
+				factor = 4
+				has_trait = theologian
+			}
+			modifier = {
+				factor = 4
+				has_trait = lifestyle_physician
+			}
+			change_first_name = Lucas
+		}
+		1 = {
+			modifier = {
+				factor = 4
+				has_trait = theologian
+			}
+			change_first_name = Simon
+		}
+		1 = {
+			modifier = {
+				factor = 4
+				has_trait = theologian
+			}
+			change_first_name = Andreas
+		}
+		1 = {
+			modifier = {
+				factor = 4
+				has_trait = theologian
+			}
+			change_first_name = Iacobus
+		}
+		1 = {
+			modifier = {
+				factor = 4
+				has_trait = theologian
+			}
+			change_first_name = Philippus
+		}
+		1 = {
+			modifier = {
+				factor = 4
+				has_trait = theologian
+			}
+			change_first_name = Bartholomaeus
+		}
+		1 = {
+			modifier = {
+				factor = 4
+				has_trait = theologian
+			}
+			change_first_name = Thomas
+		}
+		1 = {
+			modifier = {
+				factor = 4
+				has_trait = theologian
+			}
+			change_first_name = Matthaeus
+		}
+		1 = {
+			modifier = {
+				factor = 4
+				has_trait = theologian
+			}
+			change_first_name = Matthias
+		}
+		1 = {
+			modifier = {
+				factor = 4
+				has_trait = theologian
+			}
+			change_first_name = Thaddaeus
+		}
+		1 = { #Famous
+			change_first_name = Constantinus
+		}
+		1 = { #Olaf for the Norse
+			modifier = {
+				factor = 10
+				culture = { has_cultural_pillar = heritage_north_germanic }
+			}
+			modifier = {
+				factor = 0
+				current_date < 1031.1.1
+			}
+			change_first_name = Olaus
+		}
+		1 = { #Arthur for the Britons
+			modifier = {
+				factor = 10
+				culture = { has_cultural_pillar = heritage_brythonic }
+			}
+			modifier = {
+				factor = 0
+				culture = {
+					NOT = { has_cultural_pillar = heritage_brythonic }
+				}
+			}
+			change_first_name = Arturias
+		}
+		1 = { #King Ezana for the Aksumites
+			modifier = {
+				factor = 10
+				culture = { has_cultural_pillar = heritage_east_african }
+			}
+			modifier = {
+				factor = 0
+				culture = {
+					NOT = { has_cultural_pillar = heritage_east_african }
+				}
+			}
+			change_first_name = Aezanus
+		}
+		1 = { #Keep Given Name
+			modifier = {
+				factor = 50
+				current_date <= 983.1.1
+			}
+			# change_first_name = BLANK
+		}
+				
+		#Oddballs
+		10000 = { #Pope Joan
+			modifier = {
+				factor = 0
+				is_male = yes
+			}
+			change_first_name = Ioanna
+		}
+		5000 = { #Maria
+			modifier = {
+				factor = 0
+				is_male = yes
+			}
+			change_first_name = Magdalena
+		}
+		1000 = {
+			modifier = {
+				factor = 0
+				NAND = {
+					has_trait = sadistic
+					has_trait = greedy
+					has_trait = deceitful
+				}
+			}
+			change_first_name = Iudus
 		}
 	}
 }
+
 
 TCT_create_antipope = {
 	$CREATOR$.culture = {

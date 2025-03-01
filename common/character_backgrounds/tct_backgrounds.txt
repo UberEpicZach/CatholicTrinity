@@ -1,0 +1,3 @@
+﻿cardinals = {
+	trait = cardinal
+}

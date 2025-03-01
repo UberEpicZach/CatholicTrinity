@@ -97,6 +97,7 @@ tct_on_start = {
 		}
 		title:k_papal_state.holder = {
 			set_variable = was_once_cardinal
+			add_trait = pope_trait #ZGC
 		}
 
 		# Title Setup
@@ -186,6 +187,18 @@ yearly_global_pulse = {
 	on_actions = {
 		delay = { days = 357 }
 		TCT_christmas_set
+	}
+}
+
+yearly_global_pulse = {
+    on_actions = {
+        yearly_update_preferatus
+    }
+}
+
+yearly_update_preferatus = {
+	effect = {
+		trigger_event = TCT_religious_events.9999
 	}
 }
 
@@ -533,22 +546,9 @@ CardinalsTraits = {
 			trigger_event = TCT_religious_events.22
 			faith:catholic = { update_cardinal_window = yes }
 		}
-		# if = {
-		# 	limit = {
-		# 		title:k_papal_state.holder = {
-		# 			faith = {
-		# 				NOT = {
-		# 					has_doctrine = doctrine_spiritual_head
-		# 				}
-		# 			}
-		# 		}	
-		# 	}
-		# 	title:k_papal_state.holder = {
-		# 		faith = {
-		# 			add_doctrine = doctrine_spiritual_head
-		# 		}
-		# 	}
-		# }
+		scope:preferatus = {
+			set_variable = current_papacy_successor
+		}
 	}
 	on_actions = {
 		delay = { months = 1 }
@@ -582,6 +582,9 @@ on_cardinal_initialize = {
 		initialize_random_cardinals = yes
 		update_preferatus = yes
 		faith:catholic = { update_cardinal_window = yes }
+		scope:preferatus = {
+			set_variable = current_papacy_successor
+		}
 	}
 }
 
@@ -753,30 +756,33 @@ on_person_death_saint = {
 # }
 
 on_cardinal_death = {
-    trigger = {
-        owns_story_of_type = cardinal_story
-        NOT = {
-            this = title:k_papal_state.holder
-        }
-    }
-    effect = {
-        save_scope_as = dyingcardinal
-        give_nickname = nick_cardinal
-        faith:catholic = { 
-            update_cardinal_window = yes 
-            promote_new_cardinal = yes
-        }
-        update_preferatus = yes
-
-        title:k_papal_state.holder = {
-            send_interface_message = {
-                type = event_generic_bad_text
-                title = cardinaldied
-                desc = cardinaldied_desc
-                left_icon = root
-            }
-        }
-    }
+	trigger = {
+		owns_story_of_type = cardinal_story
+		NOT = {
+			this = title:k_papal_state.holder
+		}
+	}
+	effect = {
+		save_scope_as = dyingcardinal
+		give_nickname = nick_cardinal
+		faith:catholic = {
+			update_cardinal_window = yes
+			promote_new_cardinal = yes
+		}
+		update_preferatus = yes
+		scope:preferatus = {
+			set_variable = current_papacy_successor
+		}
+		title:k_papal_state.holder = {
+			send_interface_message = {
+				type = event_generic_bad_text
+				title = cardinaldied
+				desc = cardinaldied_desc
+		
+				left_icon = root
+			}
+		}
+	}
 }
 
 on_preferatus_death = {
@@ -802,6 +808,9 @@ on_preferatus_death = {
 		title:k_papal_state.holder = {
 			trigger_event = TCT_religious_events.801
 		}
+		scope:preferatus = {
+			set_variable = current_papacy_successor
+		}	
 	}
 }
 
@@ -939,7 +948,8 @@ on_pope_death = {
 			}
 			if = { limit = { is_ai = no } set_player_character = global_var:preferatus.story_owner }
 
-			global_var:preferatus.story_owner = {	
+			global_var:preferatus.story_owner = {
+				#ZGC remove this as here this is based on their original name not their papal name
 				create_character = {
 					gender = male
 					location = scope:deadpope.capital_province
@@ -956,7 +966,6 @@ on_pope_death = {
 					name = duplicatenameexists
 					value = scope:duplicatename
 				}
-				if = { limit = { is_lowborn = yes } set_house = house:house_SanctiPetriFiliis }
 				trigger_event = TCT_religious_events.400
 				trigger_event = {
 					id = TCT_religious_events.814
@@ -983,7 +992,7 @@ on_gain_papacy = {
 				rank = -3
 			}
 		}
-		if = { limit = { has_trait = TCT_antipope } TCT_remove_antipope = yes}
+		if = { limit = { has_trait = TCT_antipope } TCT_remove_antipope = yes }
 		if = {
 			limit = {
 				any_held_title = {
@@ -994,6 +1003,10 @@ on_gain_papacy = {
 				limit = { has_variable = antipope_title }
 				root = { destroy_title = prev }
 			}
+		}
+		update_preferatus = yes	
+		scope:preferatus = {
+			set_variable = current_papacy_successor
 		}
 	}
 }

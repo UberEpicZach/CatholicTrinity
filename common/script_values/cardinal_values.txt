@@ -114,7 +114,10 @@ bishop_to_cardinal_score = {
 }
 cardinal_to_pope_score = {
 	value = 0
-	if = {limit = {exists = this} add = cardinal_to_pope_base_score}
+	if = {
+		limit = { exists = this }
+		add = cardinal_to_pope_base_score
+	}
 }
 # Subterms
 cardinal_piety_bonus = {

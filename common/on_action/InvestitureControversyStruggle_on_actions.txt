@@ -31,8 +31,8 @@ Investiture_Controversy_Game_Start = {
 				game_start_date = 1066.9.15
 			}
 			Investiture_Controversy_Game_Start_1066 = yes #Improve some historical traits of people important to the Investiture Controversy Struggle
+			Investiture_Controversy_Game_Start_De_Jure_Changes_1066 = yes
 		}
-		Investiture_Controversy_Game_Start_De_Jure_Changes_1066 = yes
 	}
 }
 

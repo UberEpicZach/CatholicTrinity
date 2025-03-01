@@ -23,8 +23,8 @@ invest_in_cardinal_Ai = {
 		is_alive = yes
 		primary_title.tier >= tier_county
 		is_ai = yes
-		# exists = var:cardinal_player_candidate
-		# has_variable = cardinal_player_candidate
+		exists = var:cardinal_player_candidate
+		has_variable = cardinal_player_candidate
 	}
 
 	is_valid = {

@@ -1,0 +1,53 @@
+﻿succession_rel_head = {
+	papacy_succession_law = {
+        can_keep = {
+            has_title = title:k_papal_state
+        }
+        can_have = {
+            has_title = title:k_papal_state
+        }
+        should_start_with = {
+            has_government = theocracy_government
+        }
+        succession = {
+            order_of_succession = generate
+            pool_character_config = papacy_succession
+        }
+    }
+
+	### Replaced ###
+    same_faith_theocratic_succession_law = {
+        can_keep = {
+            NOT = { has_title = title:k_papal_state }
+            faith = {
+                religious_head = root
+                has_doctrine = doctrine_spiritual_head
+            }
+        }
+        succession = {
+            order_of_succession = theocratic
+            faith = same_faith
+            pool_character_config = pool_theocratic_succession
+        }
+    }
+
+    ### Replaced ###
+    bishop_theocratic_succession_law = {
+        can_keep = {
+            NOT = { has_title = title:k_papal_state }
+            can_have_bishop_theocratic_succession_law_trigger = yes # same as can_have
+        }
+        can_have = {
+            NOT = { has_title = title:k_papal_state }
+            can_have_bishop_theocratic_succession_law_trigger = yes
+        }
+        should_start_with = {
+            always = yes
+        }
+        succession = {
+            order_of_succession = theocratic
+            faith = same_faith
+            pool_character_config = pool_theocratic_succession
+        }
+    }
+}
