@@ -238,3 +238,12 @@ num_living_cardinals = {
 	# Can't use custom scripted lists in script math (Yet!)
 	every_living_character = {limit = {is_cardinal = yes is_pope = no} add = 1}
 }
+initial_cardinal_number = {
+	value = num_initial_cardinals
+	if = {
+		limit = {
+			game_start_date = 1066.9.15
+		}
+		subtract = 1
+	}
+}

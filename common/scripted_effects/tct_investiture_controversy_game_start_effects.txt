@@ -24,6 +24,11 @@
 			value = title:k_papal_state.holder
 			years = 20
 		}
+		become_initial_cardinal = yes
+		if = {
+			limit = { has_any_nickname = yes }
+			remove_nickname = yes
+		}
 		add_trait = temperate
 		add_trait = brave
 		add_trait = diligent

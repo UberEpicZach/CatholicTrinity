@@ -824,85 +824,36 @@ on_pope_death = {
 			}
 		}
 		save_scope_as = deadpope
-		if = {
-			limit = {
-				game_start_date = 1066.9.15
-				exists = character:2010
-				character:2010 = {
-					is_alive = yes
-				}
-				NOT = { 
-					character:2010 = title:k_papal_state.holder
-					exists = global_var:TCT_Pope_Gregory_VII 
-				}
-			}
-			set_global_variable = TCT_Pope_Gregory_VII
-			
-			character:2010 = {
-				set_variable = was_once_cardinal
-				set_variable = current_papacy_successor
-				save_scope_as = preferatus
-				add_prestige = 3000
-				add_piety = 3000
-				add_learning_skill = 3
-				move_to_pool_at = title:k_papal_state.holder.capital_province
-			}
-			if = { limit = { is_ai = no } set_player_character = scope:preferatus }
-			scope:preferatus = {
-				create_character = {
-					location = scope:deadpope.capital_province
-					faith = scope:deadpope.faith
-					culture = scope:deadpope.culture
-					gender = male
-					learning = { 10 12 }
-					save_scope_as = duplicatename
-					after_creation = {
-						change_first_name = { template_character = scope:preferatus }
-					}
-				}
-				set_variable = {
-					name = duplicatenameexists
-					value = scope:duplicatename
-				}
-				trigger_event = TCT_religious_events.400
-				trigger_event = {
-					id = TCT_religious_events.814
-					days = 1
-				}
-			}
+		global_var:preferatus.story_owner = {
+			set_variable = current_papacy_successor
+			if = { limit = { any_held_title = { count >= 1 } } depose = yes }
+			move_to_pool_at = title:k_papal_state.holder.capital_province
 		}
-		else = {
-			global_var:preferatus.story_owner = {
-				set_variable = current_papacy_successor
-				if = { limit = { any_held_title = { count >= 1 } } depose = yes }
-				move_to_pool_at = title:k_papal_state.holder.capital_province
+		if = { limit = { is_ai = no } set_player_character = global_var:preferatus.story_owner }
+
+		global_var:preferatus.story_owner = {
+			#ZGC remove this as here this is based on their original name not their papal name
+			create_character = {
+				gender = male
+				location = scope:deadpope.capital_province
+				faith = scope:deadpope.faith
+				culture = scope:deadpope.culture
+				learning = { 10 12 }
+				save_scope_as = duplicatename
+				after_creation = {
+					change_first_name = { template_character = global_var:preferatus.story_owner }
+				}
 			}
-			if = { limit = { is_ai = no } set_player_character = global_var:preferatus.story_owner }
 
-			global_var:preferatus.story_owner = {
-				#ZGC remove this as here this is based on their original name not their papal name
-				create_character = {
-					gender = male
-					location = scope:deadpope.capital_province
-					faith = scope:deadpope.faith
-					culture = scope:deadpope.culture
-					learning = { 10 12 }
-					save_scope_as = duplicatename
-					after_creation = {
-						change_first_name = { template_character = global_var:preferatus.story_owner }
-					}
-				}
-
-				set_variable = {
-					name = duplicatenameexists
-					value = scope:duplicatename
-				}
-				if = { limit = { is_lowborn = yes } set_house = house:house_SanctiPetriFiliis }
-				trigger_event = TCT_religious_events.400
-				trigger_event = {
-					id = TCT_religious_events.814
-					days = 1
-				}
+			set_variable = {
+				name = duplicatenameexists
+				value = scope:duplicatename
+			}
+			if = { limit = { is_lowborn = yes } set_house = house:house_SanctiPetriFiliis }
+			trigger_event = TCT_religious_events.400
+			trigger_event = {
+				id = TCT_religious_events.814
+				days = 1
 			}
 		}
 		faith:catholic = {
