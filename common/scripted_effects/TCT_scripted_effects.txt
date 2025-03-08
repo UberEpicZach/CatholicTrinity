@@ -1083,6 +1083,19 @@ TCT_remove_antipope = {
 	}
 }
 
+TCT_upgrade_to_pope = {
+	if = { limit = { is_lowborn = yes } set_house = house:house_SanctiPetriFiliis }
+	if = {
+		limit = { 
+			has_trait = cardinal
+		}
+		change_trait_rank = {
+			trait = cardinal
+			rank = -3
+		}
+	}	
+}
+
 send_child_to_clergy_effect_for_events = {
 	# add_opinion = {
 	# 	modifier = demanded_taking_vows
