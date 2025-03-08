@@ -122,7 +122,7 @@ ProclaimDictatusPapae = {
 	desc = ProclaimDictatusPapae_decision_desc
 	selection_tooltip = ProclaimDictatusPapae_decision_tooltip
 	decision_group_type = major
-	ai_check_interval = 1
+	ai_check_interval = 12
 	#ai_goal = yes
 	is_shown = {
 		NOT = { exists = global_var:dictatuspapae }
@@ -148,19 +148,10 @@ ProclaimDictatusPapae = {
 		piety_level >= medium_piety_level
 		is_independent_ruler = yes
 	}
-	
-	cost = {
-		gold = {
-			value = 250
-		}
-		prestige = {
-			value = 2500
-		}
-	}
 
 	effect = {
+		custom_tooltip = DictatusPapaeIncreaseCosts
 		trigger_event = TCT_religious_events.799
-		add_piety_level = 1
 	}
 	ai_will_do = {
 		base = 1000

@@ -47,6 +47,7 @@
  ProclaimDictatusPapae_decision_tooltip: "This will increase your hatred of rulers with [free_investiture|E] by #color_red -100#! Opinion."
  ProclaimDictatusPapae: "Proclaim the Dictatus Papae"
  ProclaimDictatusPapae_confirm: "Proclaim the Dictatus Papae!"
+ DictatusPapaeIncreaseCosts: "The [prestige_i|E] Prestige and [piety_i|E] Piety costs to enact the [free_investiture|E] law increases."
  any_ruler_free_investiture:0 "At least 1 Catholic ruler has [free_investiture|E] law."
  
  CardinalElectionWon: "Cardinal Election"
