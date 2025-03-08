@@ -3,23 +3,67 @@
 		limit = {
 			scope:will_override_government = no
 		}
-		# custom_description = {
-		# 	text = "GAME_OVER_CANNOT_PLAY_THEOCRACY"
-		# 	OR = {
-		# 		#NOT = { has_government = theocracy_government }
-		# 		has_title = title:k_papal_state
-		# 	}
-		# }
+		custom_description = {
+			text = "GAME_OVER_CANNOT_PLAY_THEOCRACY"
+			OR = {
+				NOT = { government_has_flag = government_is_theocracy }
+				has_title = title:k_papal_state
+			}
+		}
 
 		custom_description = {
 			text = "GAME_OVER_CANNOT_PLAY_REPUBLIC"
-			OR = {
-				NOT = { has_government = republic_government }
-				AND = {
-					exists = global_var:TCT_is_loaded
-					has_government = republic_government
-				}
+			NOT = { government_has_flag = government_is_republic }
+		}
+
+		custom_description = {
+			text = "GAME_OVER_CANNOT_PLAY_MERCENARY"
+			NOT = { government_has_flag = government_is_mercenary }
+		}
+		
+		custom_description = {
+			text = "GAME_OVER_CANNOT_PLAY_HOLY_ORDER"
+			NOT = { government_has_flag = government_is_holy_order }
+		}
+
+		trigger_if = {
+			limit = {
+				NOT = { has_dlc_feature = admin_gov }
 			}
+			custom_description = {
+				text = "GAME_OVER_CANNOT_PLAY_ADMIN"
+				NOT = { government_has_flag = government_is_administrative }
+			}
+		}
+
+		# We cannot become landless adventurers
+		trigger_if = {
+			limit = {
+				NOT = { has_dlc_feature = landless_playable }
+			}
+			custom_description = {
+				text = "GAME_OVER_CANNOT_PLAY_ADVENTURER"
+				NOT = { government_has_flag = government_is_landless_adventurer }
+			}
+			custom_description = {
+				text = "GAME_OVER_CANNOT_PLAY_BARON"
+				NOT = { highest_held_title_tier = tier_barony }
+			}
+
+			# This is a generic "catch all", we should have caught it before this
+			is_playable_character = yes
+		}
+		# We can become landless adventurers
+		trigger_else = {
+			# This is a generic "catch all", we should have caught it before this
+			OR = {
+				AND = {
+					is_ruler = no # We're not a ruler, but we can become a landless adventurer
+					is_valid_for_laampdom = yes
+				}
+				is_playable_character = yes # General catch-all, we can continue playing
+			}
+			NOT = { has_character_flag = declined_become_laamp }
 		}
 	}
 } 
