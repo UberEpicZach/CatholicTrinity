@@ -5,6 +5,7 @@
 d_captain_general_church = {
 	color = { 255 249 198 }
 	landless = yes
+	definite_form = yes
 	
 	capital = c_roma
 	
@@ -23,6 +24,7 @@ d_rome_patriarchate = {
 	
 	ruler_uses_title_name = no
 	landless = yes
+	definite_form = yes
 
 	capital = c_roma
 
@@ -39,6 +41,7 @@ d_constantinople_patriarchate = {
 	
 	ruler_uses_title_name = no
 	landless = yes
+	definite_form = yes
 
 	capital = c_byzantion
 
@@ -55,6 +58,7 @@ d_alexandria_patriarchate = {
 	
 	ruler_uses_title_name = no
 	landless = yes
+	definite_form = yes
 
 	capital = c_alexandria
 
@@ -71,6 +75,7 @@ d_antioch_patriarchate = {
 	
 	ruler_uses_title_name = no
 	landless = yes
+	definite_form = yes
 
 	capital = c_antiocheia	#Etchmiadzin
 
@@ -87,6 +92,7 @@ d_jerusalem_patriarchate = {
 	
 	ruler_uses_title_name = yes
 	landless = yes
+	definite_form = yes
 
 	capital = c_jerusalem	#Etchmiadzin
 

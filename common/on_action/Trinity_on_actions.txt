@@ -189,18 +189,6 @@ yearly_global_pulse = {
 	}
 }
 
-yearly_global_pulse = {
-    on_actions = {
-        yearly_update_preferatus
-    }
-}
-
-yearly_update_preferatus = {
-	effect = {
-		trigger_event = TCT_religious_events.9999
-	}
-}
-
 random_yearly_playable_pulse = {
 	on_actions = {
 		TCT_saint_day
@@ -368,8 +356,11 @@ TCT_on_faith_conversion = {
 				trait = cardinal
 				rank = -3
 			}
-			remove_cardinal = yes
-			promote_new_cardinal = yes
+			faith:catholic = {
+				update_cardinal_window = yes
+				remove_cardinal = yes
+				promote_new_cardinal = yes
+			}
 		}
 	}
 }
@@ -510,7 +501,6 @@ on_game_start_after_lobby = {
 	}
 }
 
-
 on_great_holy_war_countdown_end = {
 	effect = {
 		faith = {
@@ -545,9 +535,6 @@ CardinalsTraits = {
 			trigger_event = TCT_religious_events.22
 			faith:catholic = { update_cardinal_window = yes }
 		}
-		scope:preferatus = {
-			set_variable = current_papacy_successor
-		}
 	}
 	on_actions = {
 		delay = { months = 1 }
@@ -579,11 +566,7 @@ on_cardinal_initialize = {
 	effect = {
 		debug_log = "initializing cardinals"
 		initialize_random_cardinals = yes
-		update_preferatus = yes
 		faith:catholic = { update_cardinal_window = yes }
-		scope:preferatus = {
-			set_variable = current_papacy_successor
-		}
 	}
 }
 
@@ -764,14 +747,6 @@ on_cardinal_death = {
 	effect = {
 		save_scope_as = dyingcardinal
 		give_nickname = nick_cardinal
-		faith:catholic = {
-			update_cardinal_window = yes
-			promote_new_cardinal = yes
-		}
-		update_preferatus = yes
-		scope:preferatus = {
-			set_variable = current_papacy_successor
-		}
 		title:k_papal_state.holder = {
 			send_interface_message = {
 				type = event_generic_bad_text
@@ -780,6 +755,13 @@ on_cardinal_death = {
 		
 				left_icon = root
 			}
+		}
+		faith:catholic = {
+			update_delete_dead = yes
+			promote_new_cardinal = yes
+			update_preferatus = yes
+			predict_new_cardinal = yes
+			update_cardinal_window = yes
 		}
 	}
 }
@@ -797,19 +779,9 @@ on_preferatus_death = {
 		}
 	}
 	effect = {
-		faith:catholic = { update_cardinal_window = yes }
-		global_var:preferatus = {
-			promote_new_cardinal = yes
-		}
-		global_var:preferatus.story_owner = {
-			faith:catholic = { update_cardinal_window = yes }
-		}
 		title:k_papal_state.holder = {
 			trigger_event = TCT_religious_events.801
 		}
-		scope:preferatus = {
-			set_variable = current_papacy_successor
-		}	
 	}
 }
 
@@ -818,6 +790,40 @@ on_pope_death = {
 		has_title = title:k_papal_state
 	}
 	effect = {
+		# Save Councillors 
+		if = {
+			limit = {
+				exists = cp:councillor_marshal
+			}
+			cp:councillor_marshal = {
+				save_scope_as = marshal
+			}
+		}
+		if = {
+			limit = {
+				exists = cp:councillor_chancellor
+			}
+			cp:councillor_chancellor = {
+				save_scope_as = chancellor
+			}
+		}
+		if = {
+			limit = {
+				exists = cp:councillor_steward
+			}
+			cp:councillor_steward = {
+				save_scope_as = steward
+			}
+		}
+		if = {
+			limit = {
+				exists = cp:councillor_spymaster
+			}
+			cp:councillor_spymaster = {
+				save_scope_as = spymaster
+			}
+		}
+		save_scope_as = deadpope
 		if = {
 			limit = {
 				game_start_date = 1066.9.15
@@ -830,44 +836,8 @@ on_pope_death = {
 					exists = global_var:TCT_Pope_Gregory_VII 
 				}
 			}
-
-			# Save Councillors 
-			if = {
-				limit = {
-					exists = cp:councillor_marshal
-				}
-				cp:councillor_marshal = {
-					save_scope_as = marshal
-				}
-			}
-			if = {
-				limit = {
-					exists = cp:councillor_chancellor
-				}
-				cp:councillor_chancellor = {
-					save_scope_as = chancellor
-				}
-			}
-			if = {
-				limit = {
-					exists = cp:councillor_steward
-				}
-				cp:councillor_steward = {
-					save_scope_as = steward
-				}
-			}
-			if = {
-				limit = {
-					exists = cp:councillor_spymaster
-				}
-				cp:councillor_spymaster = {
-					save_scope_as = spymaster
-				}
-			}
-
 			set_global_variable = TCT_Pope_Gregory_VII
-			save_scope_as = deadpope
-
+			
 			character:2010 = {
 				set_variable = was_once_cardinal
 				set_variable = current_papacy_successor
@@ -902,47 +872,9 @@ on_pope_death = {
 			}
 		}
 		else = {
-			# Save Scopes
-			save_scope_as = deadpope
-
-			# Save Councillors 
-			if = {
-				limit = {
-					exists = cp:councillor_marshal
-				}
-				cp:councillor_marshal = {
-					save_scope_as = marshal
-				}
-			}
-			if = {
-				limit = {
-					exists = cp:councillor_chancellor
-				}
-				cp:councillor_chancellor = {
-					save_scope_as = chancellor
-				}
-			}
-			if = {
-				limit = {
-					exists = cp:councillor_steward
-				}
-				cp:councillor_steward = {
-					save_scope_as = steward
-				}
-			}
-			if = {
-				limit = {
-					exists = cp:councillor_spymaster
-				}
-				cp:councillor_spymaster = {
-					save_scope_as = spymaster
-				}
-			}
-
-			#update_preferatus = yes
-			global_var:preferatus.story_owner = { if = { limit = { any_held_title = { count >= 1 } } depose = yes } }
 			global_var:preferatus.story_owner = {
 				set_variable = current_papacy_successor
+				if = { limit = { any_held_title = { count >= 1 } } depose = yes }
 				move_to_pool_at = title:k_papal_state.holder.capital_province
 			}
 			if = { limit = { is_ai = no } set_player_character = global_var:preferatus.story_owner }
@@ -965,13 +897,21 @@ on_pope_death = {
 					name = duplicatenameexists
 					value = scope:duplicatename
 				}
+				if = { limit = { is_lowborn = yes } set_house = house:house_SanctiPetriFiliis }
 				trigger_event = TCT_religious_events.400
 				trigger_event = {
 					id = TCT_religious_events.814
 					days = 1
 				}
 			}
-		} 
+		}
+		faith:catholic = {
+			update_delete_dead = yes
+			promote_new_cardinal = yes
+			update_preferatus = yes
+			predict_new_cardinal = yes
+			update_cardinal_window = yes
+		}
 	}
 }
 
@@ -1002,10 +942,6 @@ on_gain_papacy = {
 				limit = { has_variable = antipope_title }
 				root = { destroy_title = prev }
 			}
-		}
-		update_preferatus = yes	
-		scope:preferatus = {
-			set_variable = current_papacy_successor
 		}
 	}
 }

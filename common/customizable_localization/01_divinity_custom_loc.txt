@@ -592,12 +592,19 @@ GetActualBishopTitle = {
 		}
 		localization_key = ruler_title_name
 	}
-	# text = {
-	# 	trigger = {
-	# 		has_trait = cardinal_priest
-	# 	}
-	# 	localization_key = CardinalFlavor1
-	# }
+	text = {
+		trigger = {
+			is_preferatus_character = yes
+			has_trait = cardinal
+		}
+		localization_key = CardinalFlavor4
+	}
+	text = {
+		trigger = {
+	 		has_trait = cardinal_priest
+	 	}
+	 	localization_key = CardinalFlavor1
+	}
 	text = {
 		trigger = {
 			has_trait = cardinal_bishop
@@ -609,13 +616,6 @@ GetActualBishopTitle = {
 			has_trait = cardinal_archbishop
 		}
 		localization_key = CardinalFlavor3
-	}
-	text = {
-		trigger = {
-			is_preferatus_character = yes
-			has_trait = cardinal
-		}
-		localization_key = CardinalFlavor4
 	}
 	# Religion-By-Religion Titles for Bishops based on Liege's Tier.
 	# Zunism

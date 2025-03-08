@@ -75,10 +75,15 @@ become_initial_cardinal = {
 	if = {
 		limit = {
 			is_landed = no
-			is_theocratic_lessee = no
 		}
 		add_trait = cardinal_priest
-		give_nickname = nick_cardinal
+		if = {
+			limit = {
+				is_theocratic_lessee = no
+				NOT = { any_council_position = { is_councillor = yes } }
+			}
+			give_nickname = nick_cardinal
+		}
 	}
 }
 # Updates Preferatus
@@ -173,6 +178,27 @@ select_highest_scoring_character_cardinal_candidate = {
 	}
 }
 
+update_delete_dead = {
+	every_in_global_list = {
+		variable = cardinals # List of cardinal stories
+		limit = { story_owner = { is_alive = no } } # Make sure the owner is dead before replacing them
+		make_story_owner = prev
+		prev = {
+			set_global_variable = {
+				name = death_cardinal
+				value = prev
+			}
+		}
+	}
+	global_var:gui_storage = {
+		set_variable = {
+			name = death_cardinal
+			value = prev
+		}
+	}
+	save_scope_as = death_cardinal
+}
+
 #scope:cardinal_story is the story to replace the owner of. It won't exist if remove_cardinal was called, so a new one is created instead.
 promote_new_cardinal = {
 	# Promote the best candidate
@@ -221,7 +247,14 @@ promote_new_cardinal = {
 				remove_variable = has_set_cardinal_player_candidate
 			}
 		}
-		if = {
+		if = { # Fix for unlanded archbishops
+			limit = {
+				is_landed = no
+				highest_held_title_tier >= tier_duchy
+			}
+			add_trait = cardinal_archbishop
+		}
+		else_if = {
 			limit = {
 				is_landed = no
 			}
@@ -280,6 +313,13 @@ initialize_random_cardinal = {
 		if = {
 			limit = {
 				is_landed = no
+				highest_held_title_tier >= tier_duchy
+			}
+			add_trait = cardinal_archbishop
+		}
+		else_if = {
+			limit = {
+				is_landed = no
 			}
 			add_trait = cardinal_priest
 		}
@@ -303,13 +343,14 @@ initialize_random_cardinal = {
 initialize_random_cardinals = {
 	# Can easily split up the number of realm priest and ruler characters if you run out of one type.
 	while = {
-		count = num_initial_cardinals
+		count = initial_cardinal_number
 		initialize_random_cardinal = yes
 	}
 }
 # Updates the variables that are accessed by the cardinal window from the gui storage unit.
 update_cardinal_window = {
 	global_var:gui_storage = {
+		update_delete_dead = yes
 		update_preferatus = yes
 		predict_new_cardinal = yes
 		# Fetch the preferatus character into gui_storage
@@ -324,15 +365,27 @@ update_cardinal_window = {
 			max = num_cardinals
 			variable = cardinals
 			prev = {
-				add_to_variable_list = {
-					name = cardinal_characters
-					target = prev.story_owner
+				if = {
+					limit = { exists = prev.story_owner }
+					add_to_variable_list = {
+						name = cardinal_characters
+						target = prev.story_owner
+					}
 				}
 			}
 		}
+		remove_list_variable = {
+			name = cardinal_characters
+			target = scope:death_cardinal.story_owner
+		}
 		# The preferatus gets their own icon slot, so let's remove them from the list.
 		remove_list_variable = {
-			name = cardinal_characters target = global_var:preferatus.story_owner
+			name = cardinal_characters
+			target = global_var:preferatus.story_owner
+		}
+		remove_list_variable = {
+			name = cardinal_characters
+			target = title:k_papal_state.holder
 		}
 		# Update player's candidates. They do not get a refund on their investments if this replaces the candidate.
 		every_player = {
@@ -416,8 +469,22 @@ CardinalsAreCardinals = {
 		if = {
 			limit = {
 				is_landed = no
+				highest_held_title_tier >= tier_duchy
+			}
+			add_trait = cardinal_archbishop
+		}
+		else_if = {
+			limit = {
+				is_landed = no
 			}
 			add_trait = cardinal_priest
+			if = {
+				limit = {
+					is_theocratic_lessee = no
+					NOT = { any_council_position = { is_councillor = yes } }
+				}
+				give_nickname = nick_cardinal
+			}
 		}
 		else_if = {
 			limit = {
@@ -434,12 +501,6 @@ CardinalsAreCardinals = {
 			}
 			add_trait = cardinal_bishop
 		}
-		# if = {
-		# 	limit = {
-		# 		is_landed = no
-		# 	}
-		# 	give_nickname = nick_cardinal
-		# }
 	}
 }
 
@@ -621,7 +682,7 @@ TCT_random_pope_name = {
 			change_first_name = Victor
 		}
 		5 = {
-			change_first_name = Hardianus
+			change_first_name = Hadrianus
 		}						
 		5 = {
 			change_first_name = Sixtus

@@ -181,9 +181,7 @@ types CardinalsGridStuff { #Reusable templates for showing characters
 		datamodel_wrap = 4
 		flipdirection = yes
 		item = {
-			window_cardinal_griditem = {
-				visible = "[Not(ObjectsEqual(Scope.GetCharacter,Religion.MakeScope.Var('preferatus_character').Char))]"
-			}
+			window_cardinal_griditem = {}
 		}
 	}
 }

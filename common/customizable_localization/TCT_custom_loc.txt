@@ -11,30 +11,6 @@
 	}
 	text = {
 		trigger = {
-			highest_held_title_tier = tier_empire
-		}
-		localization_key = emperorbishop
-	}
-	text = {
-		trigger = {
-			highest_held_title_tier = tier_kingdom
-		}
-		localization_key = king_theocracy_male_christianity_religion
-	}
-	text = {
-		trigger = {
-			highest_held_title_tier = tier_duchy
-		}
-		localization_key = duke_theocracy_male_christianity_religion
-	}
-	text = {
-		trigger = {
-			highest_held_title_tier = tier_county
-		}
-		localization_key = count_theocracy_male_christianity_religion
-	}
-	text = {
-		trigger = {
 			is_preferatus_character = yes 
 			has_trait = cardinal
 		}
@@ -57,6 +33,30 @@
 			has_trait = cardinal_archbishop
 		}
 		localization_key = CardinalFlavor3
+	}
+	text = {
+		trigger = {
+			highest_held_title_tier = tier_empire
+		}
+		localization_key = emperor_theocracy_male_christianity_religion
+	}
+	text = {
+		trigger = {
+			highest_held_title_tier = tier_kingdom
+		}
+		localization_key = king_theocracy_male_christianity_religion
+	}
+	text = {
+		trigger = {
+			highest_held_title_tier = tier_duchy
+		}
+		localization_key = duke_theocracy_male_christianity_religion
+	}
+	text = {
+		trigger = {
+			highest_held_title_tier = tier_county
+		}
+		localization_key = count_theocracy_male_christianity_religion
 	}
 	text = {
 		fallback = yes

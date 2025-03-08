@@ -6004,6 +6004,7 @@ TCT_religious_events.813 = {
 TCT_religious_events.814 = {
 	hidden = yes
 	immediate = {
+		remove_variable = current_papacy_successor
 		if = {
 			limit = {
 				NOT = { exists = cp:councillor_marshal }
@@ -6055,13 +6056,13 @@ TCT_religious_events.814 = {
 }
 
 # Keeping the College of Cardinals full
-TCT_religious_events.9999 = {
+TCT_religious_events.9999 = { # Unused
     type = character_event
     hidden = yes
 
     trigger = {
 		any_living_character = {
-			count < 16
+			count < num_initial_cardinals
 			has_trait = cardinal
 		}
     }
@@ -6078,7 +6079,7 @@ TCT_religious_events.9999 = {
         if = {
 			limit = {
 				any_living_character = {
-					count < 16
+					count < num_initial_cardinals
 					has_trait = cardinal
 				}
 			}

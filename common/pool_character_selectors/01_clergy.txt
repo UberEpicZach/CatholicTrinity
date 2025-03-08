@@ -79,11 +79,16 @@
 
 papacy_succession = {
     valid_character = {
-        has_variable = current_papacy_successor
+        valid = {
+            exists = global_var:preferatus.story_owner
+            scope:actor = global_var:preferatus.story_owner
+            actor = { has_variable = current_papacy_successor }
+        }
+        fail_if_no_valid = yes
     }
 
     character_score = {
-        base = 1
+        base = 0
         modifier = {
             add = 15000
             has_variable = current_papacy_successor
@@ -91,7 +96,7 @@ papacy_succession = {
     }
 
     config = {
-       	background = cardinal
+       	background = cardinals
         age = { 18 85 }
     }
 

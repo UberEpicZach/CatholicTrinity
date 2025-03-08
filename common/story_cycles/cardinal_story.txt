@@ -27,7 +27,5 @@ cardinal_story = {
 				on_action = on_cardinal_death
 			}
 		}
-		promote_new_cardinal = yes
-		update_preferatus = yes
 	}
 }
