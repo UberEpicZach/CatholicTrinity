@@ -65,6 +65,11 @@ investiture_law = {
 				highest_held_title_tier >= tier_duchy
 			}
 		}
+
+		should_start_with = {
+			game_start_date = 1066.9.15
+			has_title = title:e_hre
+		}
 		
 		pass_cost = {
 			piety = {
