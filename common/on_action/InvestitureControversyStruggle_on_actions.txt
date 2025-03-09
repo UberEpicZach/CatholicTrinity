@@ -5,13 +5,6 @@
 #
 #on_war_won_attacker - for Struggle Catalysts
 
-
-on_game_start = {
-	on_actions = {
-		Investiture_Controversy_Game_Start	
-	}
-}
-
 on_game_start_after_lobby = {
 	on_actions = {
 		Investiture_Controversy_Game_Start_After_Lobby

@@ -4,6 +4,7 @@
 		tct_on_start
 		tct_on_start_867
 		tct_on_start_1066
+		Investiture_Controversy_Game_Start
 	}
 }
 
