@@ -15,11 +15,11 @@
  setting_tct_cosanguinity_off: "Vanilla"
  setting_tct_cosanguinity_off_desc: "The Catholic faith will have the $doctrine_consanguinity_aunt_nephew_and_uncle_niece_name$ doctrine, allowing cousin marriages."
 
- rule_tct_papacy_867_start: "Papal State's 867 Start"
+ rule_tct_papacy_867_start: "Papal States' 867 Start"
  setting_tct_papacy_867_start_on: "Default"
- setting_tct_papacy_867_start_on_desc: "The Papal State will start controlling the Duchies of Latium and Romagna, the Counties of Ancona, Arezzo, Orbetello, Orvieto and Urbino, and will start in an [entrenched_regency|E] under Orvieto."
+ setting_tct_papacy_867_start_on_desc: "The Papal States will start controlling the Duchies of Latium and Romagna, the Counties of Ancona, Arezzo, Orbetello, Orvieto and Urbino, and will start in an [entrenched_regency|E] under Orvieto."
  setting_tct_papacy_867_start_donation: "Donation of Pepin"
- setting_tct_papacy_867_start_donation_desc: "The Papal State will start controlling the Duchies of Latium and Romagna, and the Counties of Ancona, Arezzo, Orbetello, Orvieto and Urbino."
+ setting_tct_papacy_867_start_donation_desc: "The Papal States will start controlling the Duchies of Latium and Romagna, and the Counties of Ancona, Arezzo, Orbetello, Orvieto and Urbino."
  setting_tct_papacy_867_start_off: "Vanilla"
- setting_tct_papacy_867_start_off_desc: "The Papal State will start controlling the Duchy of Latium."
+ setting_tct_papacy_867_start_off_desc: "The Papal States will start controlling the Duchy of Latium."
  
