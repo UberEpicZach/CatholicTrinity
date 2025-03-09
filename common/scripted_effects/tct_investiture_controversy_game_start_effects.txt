@@ -26,7 +26,7 @@
 		}
 		become_initial_cardinal = yes
 		if = {
-			limit = { has_any_nickname = yes }
+			limit = { has_nickname = nick_cardinal }
 			remove_nickname = yes
 		}
 		add_trait = temperate
