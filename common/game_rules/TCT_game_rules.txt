@@ -23,3 +23,15 @@ tct_cosanguinity = {
 	tct_cosanguinity_on = {}
 	tct_cosanguinity_off = {}
 }
+
+tct_papacy_867_start = {
+	categories = {
+		titles tct
+	}
+
+	default = tct_papacy_867_start_on
+
+	tct_papacy_867_start_on = {}
+	tct_papacy_867_start_donation = {}
+	tct_papacy_867_start_off = {}
+}

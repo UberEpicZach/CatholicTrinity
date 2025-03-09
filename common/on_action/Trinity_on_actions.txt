@@ -136,6 +136,7 @@ tct_on_start = {
 tct_on_start_867 = {
 	trigger = {
 		game_start_date = 867.1.1
+		NOT = { has_game_rule = tct_papacy_867_start_off }
 	}
 	effect = {
 		create_the_papal_states_effect_867 = yes
