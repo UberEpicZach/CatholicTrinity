@@ -138,11 +138,6 @@ tct_on_start_867 = {
 		game_start_date = 867.1.1
 	}
 	effect = {
-		# Title Setup
-		title:k_papal_state.holder = {
-			TCT_upgrade_to_pope = yes
-		}
-
 		create_the_papal_states_effect_867 = yes
 	}
 }
@@ -871,7 +866,8 @@ on_gain_papacy = {
 	}
 	effect = {
 		add_trait = pope_trait
-		TCT_upgrade_to_pope = yes
+		if = { limit = { is_lowborn = yes } set_house = house:house_SanctiPetriFiliis }
+		remove_cardinal = yes
 		if = { limit = { has_trait = TCT_antipope } TCT_remove_antipope = yes }
 		if = {
 			limit = {
