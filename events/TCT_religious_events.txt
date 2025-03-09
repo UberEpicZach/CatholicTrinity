@@ -6045,7 +6045,13 @@ TCT_religious_events.814 = {
 				target = scope:spymaster
 			}
 		}
-		set_realm_capital = title:c_roma
+		if = {
+			limit = {
+				is_ai = yes
+				has_title = title:c_roma
+			}
+			set_realm_capital = title:c_roma
+		}
 	}
 	
 	scope:duplicatename = { # Let's get rid of this character though it may be cool to make this a papal squire or the sort
