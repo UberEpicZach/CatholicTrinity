@@ -16,6 +16,7 @@ TCT_SIEGE1 = {
 		faith.great_holy_war.ghw_target_title ?= { save_scope_as = target_kingdom }
 		if = { 
 			limit = {
+				exists = scope:target_kingdom
 				scope:war = {
 					using_holy_war_cb_trigger = yes
 				}
