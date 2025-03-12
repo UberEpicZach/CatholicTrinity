@@ -131,7 +131,7 @@
  CUSTOM_FREE_INVESTITURE: "Free Investiture"
  
  ### ANTIPOPES
- TCT_antipopes_title:0 "Antipope:"
+ TCT_antipopes_title:0 "Antipopes:"
  TCT_antipopes_name:0 "[Scope.GetCharacter.GetFirstNameNicknamed] #medium ([Scope.GetCharacter.GetLiege.GetPrimaryTitle.GetName]) #!"
  TCT_no_antipopes:0 "Absent"
  TCT_ANTIPAPCY:0 "The [liege_culture.GetNameNoTooltip] Antipapal States"

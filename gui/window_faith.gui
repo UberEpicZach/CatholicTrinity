@@ -142,8 +142,8 @@ window = {
 						expand = {}
 
 						vbox = {
-							# Gib don't kill me for this
-							#layoutpolicy_vertical = expanding
+							expand = {} # I am required because the View Saints button changes the layout
+							layoutpolicy_vertical = expanding
 							margin_bottom = 4
 							margin_left = 25
 							spacing = 1
@@ -519,6 +519,7 @@ window = {
 				scrollbox = {
 					layoutpolicy_horizontal = expanding
 					layoutpolicy_vertical = expanding
+
 
 					blockoverride "scrollbox_content"
 					{
@@ -916,43 +917,70 @@ window = {
 
 								expand = {}
 							}
-
-							expand = {}
-							vbox = { #TCT
+							
+							hbox = {
 								layoutpolicy_horizontal = expanding
-								#layoutpolicy_vertical = expanding
-								
-								margin_bottom = 5
-								
-								visible = "[Faith.HasDoctrineByKey('doctrine_independent_papacy_head')]"
-								text_single = {
+
+								button_round = {
+									datacontext = "[Faith.GetReligiousHead]"
 									visible = "[Faith.GetReligiousHead.IsValid]"
-									text = "TCT_antipopes_title"
-									default_format = "#medium"
-									layoutpolicy_horizontal = expanding
-									fontsize_min = 10
-								}
-								
-								datamodel = "[Faith.MakeScope.GetList('TCT_antipopes')]"
-								item = {
+
+									tooltip = "HOF_INTERACTIONS_BUTTON_TOOLTIP"
+									tooltip_visible = "[Not(IsInteractionMenuOpenForCharacterWithFilter(Character.Self, 'interaction_category_religion'))]"
+
+									onclick = "[ToggleFilteredCharacterInteractionMenu(Character.Self, 'interaction_category_religion')]"
+
+									button_icon = {
+										alwaystransparent = yes
+										parentanchor = center
+										size = { 30 30 }
+										texture = "gfx/interface/icons/flat_icons/character_interactions.dds"
+									}
+
 									text_single = {
-										visible = "[Faith.GetReligiousHead.IsValid]"
-										text = "TCT_antipopes_name"
-										default_format = "#high"
-										layoutpolicy_horizontal = expanding
-										fontsize_min = 14
-										max_width = 245
+										parentanchor = bottom|hcenter
+										position = { 0 3 }
+										text = "[GetNumberOfValidInteractionsWithFilter(Character.Self, 'interaction_category_religion')]"
+										default_format = "#glow_color:{0.1,0.1,0.1,1.0}"
+
+										background = {
+											margin = { 5 0 }
+											margin_top = -5
+											using = Background_Area_Dark
+										}
 									}
 								}
-								text_single = {
-									visible = "[GetScriptedGui( 'TCT_no_antipopes' ).IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'faith', Faith.MakeScope ).End )]"
-									text = "TCT_no_antipopes"
-									default_format = "#weak"
+
+								expand = {}
+								
+								vbox = { #TCT
 									layoutpolicy_horizontal = expanding
-									fontsize_min = 14
-									max_width = 245
+									margin = { 5 0 }
+									
+									visible = "[And(Faith.HasDoctrineByKey('doctrine_independent_papacy_head'), Not(GetScriptedGui( 'TCT_no_antipopes' ).IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'faith', Faith.MakeScope ).End )))]"
+									text_single = {
+										visible = "[Faith.GetReligiousHead.IsValid]"
+										text = "TCT_antipopes_title"
+										default_format = "#medium"
+										layoutpolicy_horizontal = expanding
+										fontsize_min = 10
+									}
+									
+									datamodel = "[Faith.MakeScope.GetList('TCT_antipopes')]"
+									item = {
+										text_single = {
+											visible = "[Faith.GetReligiousHead.IsValid]"
+											text = "TCT_antipopes_name"
+											default_format = "#high"
+											layoutpolicy_horizontal = expanding
+											fontsize_min = 14
+											max_width = 245
+										}
+									}
 								}
 							}
+							
+							expand = {}
 						}
 					}
 
@@ -988,23 +1016,6 @@ window = {
 						}
 
 						UniUI_Trinity_window_faith_widget_doctrine_item = {}
-
-						widget_doctrine_item = {
-							visible = "[Faith.HasDoctrineByKey( 'doctrine_temporal_head' )]"
-
-							blockoverride "background" {}
-
-							blockoverride "doctrine_icon"
-							{
-								texture = "[GetDoctrine( 'doctrine_temporal_head' ).GetIcon]"
-							}
-
-							blockoverride "wdi_context"
-							{
-								datacontext = "[GetDoctrine('doctrine_temporal_head')]"
-								datacontext = "[Faith]"
-							}
-						}
 
 						expand = {}
 

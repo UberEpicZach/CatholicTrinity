@@ -883,7 +883,6 @@ types uniuitrinitytypes {
             }
         }
         widget_doctrine_item = {
-            # visible = "[And(And(Faith.HasDoctrineByKey('doctrine_spiritual_head'), Not(Faith.HasDoctrineByKey('doctrine_independent_papacy_head'))), Not(Faith.HasDoctrineByKey('doctrine_autocephaly_head')))]"
             visible = "[And(Faith.HasDoctrineByKey('doctrine_spiritual_head'), Not(Faith.HasDoctrineByKey('doctrine_independent_papacy_head')))]"
 
             blockoverride "background" {}
@@ -899,6 +898,23 @@ types uniuitrinitytypes {
                 datacontext = "[Faith]"
             }
         }
+
+		widget_doctrine_item = {
+			visible = "[Faith.HasDoctrineByKey( 'doctrine_temporal_head' )]"
+
+			blockoverride "background" {}
+
+			blockoverride "doctrine_icon"
+			{
+				texture = "[GetDoctrine( 'doctrine_temporal_head' ).GetIcon]"
+			}
+
+			blockoverride "wdi_context"
+			{
+				datacontext = "[GetDoctrine('doctrine_temporal_head')]"
+				datacontext = "[Faith]"
+			}
+		}
     }
 	
 	type struggle_mini_map_mode = flowcontainer {
