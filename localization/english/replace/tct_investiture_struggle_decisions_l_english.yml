@@ -239,7 +239,7 @@
  tct_neutral_struggle.1001.a: "I must defend myself.."
  tct_neutral_struggle.1001.a.tt: "You will travel to [province.GetNameNoTier]"
  tct_neutral_struggle.1001.ab: "All according to plan"
- tct_neutral_struggle.1001.b.tt: "[otto.GetFirstName] [otto.GetDynastyName] will recieve a letter and travel to [province.GetNameNoTier] to stand trial"
+ tct_neutral_struggle.1001.b.tt: "[otto.GetFirstName] [otto.GetDynastyName] will receive a letter and travel to [province.GetNameNoTier] to stand trial"
  
  
 # "The Court's Judgment" # Event for Otto of Bavaria and Heinrich IV 

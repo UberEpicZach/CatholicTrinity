@@ -308,7 +308,7 @@ tct_neutral_struggle.1001 = {
 
 		create_character = {
 			age = { 20 32 }
-			name = "Egeno of Konradsburg"
+			name = "Egeno of Konradsburg" # TODO make name localizable or just Egeno
 			location = root.capital_province
 			gender = male
 			culture = root.culture
@@ -499,6 +499,16 @@ tct_neutral_struggle.1002 = {
 			this = title:e_hre.holder
 		}
 		name = tct_neutral_struggle.1002.c
+	}
+
+	after = {
+		hidden_effect = {
+			scope:Egeno = {
+				death = {
+					death_reason = death_disappearance
+				}
+			}
+		}
 	}
 }
 
