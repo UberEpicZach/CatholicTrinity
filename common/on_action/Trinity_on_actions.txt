@@ -98,7 +98,6 @@ tct_on_start = {
 		}
 		title:k_papal_state.holder = {
 			set_variable = was_once_cardinal
-			add_trait = pope_trait #ZGC
 		}
 
 		# Title Setup
@@ -585,7 +584,6 @@ on_antipope_death = {
 	}
 	effect = {
 		TCT_remove_antipope = yes
-		add_trait = pope_trait
 		add_trait = TCT_antipope
 		give_nickname = nick_pope
 	}
@@ -867,7 +865,6 @@ on_gain_papacy = {
 		scope:title = title:k_papal_state
 	}
 	effect = {
-		add_trait = pope_trait
 		if = { limit = { is_lowborn = yes } set_house = house:house_SanctiPetriFiliis }
 		remove_cardinal = yes
 		if = { limit = { has_trait = TCT_antipope } TCT_remove_antipope = yes }

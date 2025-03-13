@@ -96,11 +96,11 @@ beatified = {
 	ai_zeal = 20
 }
 
-pope_trait = {
-	monthly_piety_gain_mult = 0.2
+# pope_trait = {
+# 	monthly_piety_gain_mult = 0.2
 
-	shown_in_ruler_designer = no
-}
+# 	shown_in_ruler_designer = no
+# }
 
 TCT_antipope = {	
 	same_faith_opinion = 10
