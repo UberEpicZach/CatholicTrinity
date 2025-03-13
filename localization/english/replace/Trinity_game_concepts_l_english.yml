@@ -7,17 +7,16 @@
  message_filter_tct_lots_of_gold_desc: "Money given away to same faith Ask For Gold requests"
  
  game_concept_investiture: "Investiture"
- game_concept_investiture_desc: "Investiture, #italic 'in#! #italic Vestire' #! meaning in dress or robe is the formal installation which a person is given the authority and regalia of a high office, in the case of a Bishop's Investiture has brought upon differing views throughout the church and europe, The Pope had declared himself the sole appointer, while the european nobility, many of which who had donated lands and territory to the church themselves, wish to retain the legal authority to pick and choose the successors to these bishoprics.\n\nThere are two levels of Investiture: [papal_investitures|E] and [free_investitures|E].\n\nThese decide among other things, the election of Bishops, the firing and electing of [realm_priest|E], Divorce, Excommunications, and other related powers of the [head_of_faith|E]."
+ game_concept_investiture_desc: "Investiture, #italic 'in#! #italic Vestire' #! meaning in dress or robe is the formal installation which a person is given the authority and regalia of a high office, in the case of a Bishop's Investiture has brought upon differing views throughout the church and europe, The Pope had declared himself the sole appointer, while the european nobility, many of which who had donated lands and territory to the church themselves, wish to retain the legal authority to pick and choose the successors to these bishoprics.\n\nThere are two levels of Investiture: [papal_investiture|E] and [free_investiture|E].\n\nThese decide among other things, the election of Bishops, the firing and electing of [realm_priest|E], Divorce, Excommunications, and other related powers of the [head_of_faith|E]."
  game_concept_free_investiture: "Free Investiture"
- game_concept_free_investitures: "Free Investiture"
  game_concept_free_investiture_desc: "$game_concept_free_investiture$ is a higher tier of [investiture|E]. Bishops within the kingdom can be appointed by their secular lieges, including the realm preist and will be more loyal to their liege. The Pope and his followers may not be pleased, and may try to take to arms to prevent it."
  game_concept_papal_investiture: "Papal Investiture"
- game_concept_papal_investitures: "Papal Investiture"
  game_concept_papal_investiture_desc: "$game_concept_papal_investiture$ is the standard for Catholic [investiture|E]. Only the Pope may appoint Bishops within the Realm. This will give the Crown a Piety cost discount when requesting special papal actions, like Divorce and Excommunication."
 
+ game_concept_antipopes:0 "Anti-Popes"
  game_concept_antipope:0 "Anti-Pope"
  game_concept_anti_pope:0 "Anti-Pope"
- game_concept_anti_pope_desc:0 "An $game_concept_anti_pope$ is a rival claimant to the role of [head_of_faith|E] within the Catholic Church, established in opposition to the reigning Pope. Often backed by secular rulers or factions, an $game_concept_anti_pope$ serves to challenge the authority of the official Papacy.\n\nAnti-Popes are typically [head_of_faith_spiritual|E] #weak (e.g. contested Popes appointed by emperors)# but lack universal recognition and often lead to deep divisions within the Church."
+ game_concept_anti_pope_desc:0 "An $game_concept_anti_pope$ is a rival claimant to the role of [head_of_faith|E] within the Catholic Church, established in opposition to the reigning Pope.\n\nBacked by secular rulers or factions, an $game_concept_anti_pope$ lacks universal recognition and often leads to deep divisions within the Church."
 
 
  game_concept_title_recognition: "$trinity_hre_confirmation_decision$"
@@ -82,16 +81,14 @@
  COUNCILLOR_ALREADY_CHANGED: "@warning_icon!#X The [councillor|E] has already been fired or assigned once#!\nInvestiture does not apply to this."
 
  collegeofcardinals: "Sacred College of Cardinals"
- game_concept_praedictuss_desc: "The Praedictus is a term used to describe the next predicted appointed Cardinal from the larger body of holy bishops."
- game_concept_praedictuss: "Praedictus"
+ game_concept_praedictus_desc: "The Praedictus is a term used to describe the next predicted appointed Cardinal from the larger body of holy bishops."
+ game_concept_praedictus: "Praedictus"
  game_concept_praedictus: "Praedictus"
  game_concept_papabile_desc: "Papabile; pop(e)able or \"able to be pope\", is a term to describe a Roman Catholic man or Cardinal who is thought a extremely likely or possible candidate to be elected pope. In the case of the passing of a holy pope, the Papabile Cardinal will succeed, and another Cardinal will be appointed in his stead."
- game_concept_papabiles: "Papabile"
  game_concept_papabile: "Papabile"
- game_concept_cardinals_desc: "Cardinals are appointed by the Pope from among the clergy of Catholic Europe. Candidates with greater piety, greater age, greater learning, virtuous traits, secular power, favourable relations with the Pope, and the current culture of Rome/The Pope are preferred."
+ game_concept_cardinal_desc: "A cardinal is appointed by the Pope from among the clergy of Catholic Europe. Candidates with greater piety, greater age, greater learning, virtuous traits, secular power, favourable relations with the Pope, and the same culture of the the Pope or the county of Rome are preferred."
  game_concept_cardinal: "Cardinal"
  game_concept_cardinals: "Cardinals"
- game_concept_cardinal_desc: "Cardinal"
 
  add_pope_to_name: "Pope [ROOT.GetCharacter.GetFirstNameNoTooltip]"
 
@@ -103,24 +100,23 @@
 
  papacy_succession_law: "Cardinal Elective"
  papacy_succession_law_effects: "Upon the death or abdication of the Pope, the College of Cardinals will convene to elect a successor. The laws of the Papacy, guided by the doctrines of the Catholic faith, determine the process by which the next Pope is chosen."
- game_concept_collegeofcardinal: "College of Cardinals"
  game_concept_collegeofcardinals: "College of Cardinals"
- game_concept_collegeofcardinal_desc: "There exists a college which comprises 21 cardinals. \n\nCardinals are appointed by the Pope from among the clergy of Catholic Europe. Candidates with greater piety, greater age, greater learning, virtuous traits, secular power, favourable relations with the Pope, and the current culture of Rome/The Pope are preferred. \n\nCandidates are immediately appointed upon the death of a cardinal or upon the accession of one of the nine to the Papacy. \n\nSecular rulers can assign money to the campaign fund of the most promising cardinal candidate in their realm, thus making this vassal bishop more likely to be made into a cardinal."
+ game_concept_collegeofcardinals_desc: "There exists a college which comprises 21 [cardinals|E]. \n\nCardinals are appointed by the Pope from among the clergy of Catholic Europe. Candidates with greater piety, greater age, greater learning, virtuous traits, secular power, favourable relations with the Pope, and the current culture of Rome/The Pope are preferred. \n\nCandidates are immediately appointed when a cardinal dies or accessions to the Papacy. \n\nSecular rulers can assign money to the campaign fund of the most promising cardinal candidate in their realm, thus making this vassal bishop more likely to be made into a cardinal."
 
  knights_of_jerusalem:0 "Royal Knights of Jerusalem"
  feudal_government_raid:0 "Feudal"
  
 
- doctrine_parameter_TCT_clerical_appointment_investiture:0 "Appointments to the positions "[realm_priest|E]" and "[court_chaplain|E]" are determined through the laws of investiture "
+ doctrine_parameter_tct_clerical_appointment_investiture:0 "Appointments to the positions "[realm_priest|E]" and "[court_chaplain|E]" are determined through the laws of investiture "
  doctrine_clerical_succession_investiture_law_appointment_name:0 "Investiture"
  doctrine_clerical_succession_investiture_law_appointment_desc:0 "Until the dispute over the supremacy of power between secular rulers and the Holy See is resolved, the appointment of bishops will be decided by each ruler independently. The appointment itself will ultimately be final and absolute."
  CANNOT_HAVE_TEMPORAL_HEAD_AND_INVESTITURE_LAW:0 "A Faith cannot have both [GetFaithDoctrine('doctrine_clerical_succession_investiture_law_appointment').GetBaseName] Clerical Abilities and a [GetFaithDoctrine('doctrine_temporal_head').GetBaseName] Head of Faith"
  REQUIRES_SPIRITUAL_FIXED:0 "Requires the [doctrine|E] [GetFaithDoctrine('doctrine_clerical_succession_spiritual_fixed_appointment').GetBaseName] Clerical Appointment"
  REQUIRES_PAPACY_HEAD:0 "Requires the [doctrine|E] [GetFaithDoctrine('doctrine_independent_papacy_head').GetBaseName] $TCT_doctrine_head_of_faith_name$"
  investiture_is_on_cooldown:0 "The investiture law has changed not so long ago. It will not be possible to change it until [GetCurrentDateWithDiff(GetVarTimeRemaining(CHARACTER.MakeScope, 'investiture_cooldown'))]"
- court_chaplain_cant_reassign_investiture:0 "Your realm has NOT passed the [free_investiture|E] [law|E]\nWithout it, [court_chaplains|E] and [realm_priests|E] cannot be assigned." 
+ court_chaplain_cant_reassign_investiture:0 "Your realm has NOT passed the [free_investiture|E] law|E\nWithout it, [court_chaplains|E] and [realm_priests|E] cannot be assigned." 
  INVESTITURE_BUTTON:0 "Appoint Successor"
- INVESTITURE_DESC:0 "[investiture|E] is the authority of appointing Bishopric Successors, all realms are by default [papal_investiture|E] and such the ability is left to the Pope and unknown until the current bishop dies, with [free_investiture|E], you'll be able to determine the successor in advance. All [county|E] tier and higher bishopric [vassals|E], will appear here" 
+ INVESTITURE_DESC:0 "[investiture|E] is the authority of appointing Bishopric Successors, all realms are by default under [papal_investiture|E] and such ability is left to the Pope. Under [free_investiture|E], a ruler is able to determine the successor in advance. All [county|E] tier and higher bishopric [vassals|E], will be listed here" 
  INVESTITURE_APPOINT:0 "Appoint a successor to the [GetPlayer.GetPrimaryTitle.MakeScope.Var('selected_title_for_investiture').Title.GetNameNoTooltip]."
  INVESTITURE_APPOINT_REQUIREMENTS:0 "#Bold Requirements:#! A children or sibling who is not in any line of succession that either has education in Learning or is a Monk, or any courtier or guest with a Learning skill of 8 or higher."
  INVESTITURE_TITLE:0 "[Title.GetNameNoTierNoTooltip]"
@@ -131,7 +127,7 @@
  CUSTOM_FREE_INVESTITURE: "Free Investiture"
  
  ### ANTIPOPES
- TCT_antipopes_title:0 "Antipopes:"
+ TCT_antipopes_title:0 "Anti-Popes:"
  TCT_antipopes_name:0 "[Scope.GetCharacter.GetFirstNameNicknamed] #medium ([Scope.GetCharacter.GetLiege.GetPrimaryTitle.GetName]) #!"
  TCT_no_antipopes:0 "Absent"
  TCT_ANTIPAPCY:0 "The [liege_culture.GetNameNoTooltip] Antipapal States"
@@ -158,7 +154,7 @@
  doctrine_independent_papacy_head_name:0 "Papal"
  doctrine_independent_papacy_head:0 "Papal"
  doctrine_independent_papacy_head_desc:0 "The physical world and the spiritual world are not alike. We must know for sure that the spiritual world has its own ruler, which guides us and protects our faith from bodily contamination."
- doctrine_parameter_TCT_antipopes:0 "Rulers with [free_investiture|E], can appoint [antipope|E], contenders to the Papacy" 
+ doctrine_parameter_tct_antipopes:0 "Rulers with [free_investiture|E] law can appoint [antipopes|E]." 
 
   # "Investiture, #italic 'in#! #italic Vestire' #! meaning in dress or robe is the formal installationn which a person is given the authority and regalia of a high office, in the case of a Bishop's Investiture has brought upon differing views throughout the church and europe, The Pope had declared himself the sole appointer, while the european nobility, many of which who had donated lands and territory to the church themselves, wish to retain the legal authority to pick and choose the successors to these bishoprics." [selected_title_for_investiture.GetNameNoTier]
   ErlembaldoCotta:0 "Erlembaldo Cotta"

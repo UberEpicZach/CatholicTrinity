@@ -5,45 +5,40 @@
 }
 
 free_investiture = {
-	alias = { free_investitures }
 	texture = "gfx/interface/icons/message_feed/law.dds"
 	#texture = "gfx/interface/icons/laws/crown_authority_0.dds"
 	parent = law
 } 
  
 papal_investiture = {
-	alias = { papal_investitures }
 	texture = "gfx/interface/icons/message_feed/law.dds"
 	#texture = "gfx/interface/icons/laws/crown_authority_1.dds"
 	parent = law
 }
 
-collegeofcardinal = {
+collegeofcardinals = {
 	texture = "gfx/interface/CollegeCardinals/HouseofCardinalsButton.png"
 	#texture = "gfx/interface/icons/laws/crown_authority_0.dds"
 	parent = religion
-	alias = { collegeofcardinals }
 }
 
-praedictuss = {
+praedictus = {
 	texture = "gfx/interface/CollegeCardinals/HouseofCardinalsButton.png"
 	#texture = "gfx/interface/icons/laws/crown_authority_0.dds"
 	parent = religion
-	alias = { praedictus }
 }
 
 papabile = {
 	texture = "gfx/interface/CollegeCardinals/HouseofCardinalsButton.png"
 	#texture = "gfx/interface/icons/laws/crown_authority_0.dds"
 	parent = religion
-	alias = { papabiles }
 }
 
-cardinals = {
+cardinal = {
 	texture = "gfx/interface/CollegeCardinals/HouseofCardinalsButton.png"
 	#texture = "gfx/interface/icons/laws/crown_authority_0.dds"
 	parent = religion
-	alias = { cardinal }
+	alias = { cardinals }
 }
 
 
@@ -69,7 +64,7 @@ cardinal_archbishop = {
 }
 
 anti_pope = {
-	alias = { antipope }
+	alias = { antipope antipopes }
 	parent = head_of_faith
 }
 
