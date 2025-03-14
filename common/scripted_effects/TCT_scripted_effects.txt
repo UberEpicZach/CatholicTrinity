@@ -65,14 +65,30 @@ remove_cardinal = {
 		limit = {
 			story_type = cardinal_story
 		}
-		end_story = yes
+		save_scope_as = cardinal_story
+		story_owner = {
+			if = {
+				limit = { 
+					has_trait = cardinal
+				}
+				change_trait_rank = {
+					trait = cardinal
+					rank = -3
+				}
+			}
+		}
+		promote_new_cardinal = yes
 	}
 }
-# 
-become_initial_cardinal = {
-	create_story = cardinal_story
-	set_variable = was_once_cardinal
+#
+add_cardinal_trait = {
 	if = {
+		limit = {
+			highest_held_title_tier >= tier_duchy
+		}
+		add_trait = cardinal_archbishop
+	}
+	else_if = {
 		limit = {
 			is_landed = no
 		}
@@ -80,17 +96,25 @@ become_initial_cardinal = {
 		if = {
 			limit = {
 				is_theocratic_lessee = no
-				NOT = { any_council_position = { is_councillor = yes } }
+				is_councillor = no
 			}
 			give_nickname = nick_cardinal
 		}
+	}
+	else_if = {
+		limit = {
+			is_landed = yes
+		}
+		add_trait = cardinal_bishop
 	}
 }
 # Updates Preferatus
 update_preferatus = {
 	# Who's the most likely next pope? (Preferatus)
 	ordered_in_global_list = {
-		limit = {exists = this }
+		limit = {
+			story_owner = { exists = this }
+		}
 		variable = cardinals
 		order_by = story_owner.cardinal_to_pope_score
 		position = 0
@@ -164,7 +188,6 @@ select_highest_scoring_character_cardinal_candidate = {
 			order_by = bishop_to_cardinal_score
 			position = 0
 			save_scope_as = highest_scoring_character_cardinal_candidate_selected
-			add_gold = 10
 		}
 		if = {
 			limit = {
@@ -178,44 +201,23 @@ select_highest_scoring_character_cardinal_candidate = {
 	}
 }
 
-update_delete_dead = {
-	every_in_global_list = {
-		variable = cardinals # List of cardinal stories
-		limit = { story_owner = { is_alive = no } } # Make sure the owner is dead before replacing them
-		make_story_owner = prev
-		prev = {
-			set_global_variable = {
-				name = death_cardinal
-				value = prev
-			}
-		}
-	}
-	global_var:gui_storage = {
-		set_variable = {
-			name = death_cardinal
-			value = prev
-		}
-	}
-	save_scope_as = death_cardinal
-}
-
-#scope:cardinal_story is the story to replace the owner of. It won't exist if remove_cardinal was called, so a new one is created instead.
+#scope:story is the story to replace the owner of
 promote_new_cardinal = {
-	# Promote the best candidate
-	select_highest_scoring_cardinal_candidate = yes
+	if = {
+		limit = {
+			global_var:gui_storage.var:predicted_cardinal = { is_alive = no }
+		}
+		# Promote the best candidate
+		select_highest_scoring_cardinal_candidate = yes
+	}
+	global_var:gui_storage.var:predicted_cardinal = {
+		save_scope_as = highest_scoring_cardinal_candidate
+	}
 
 	# Reward beneficiary if it exists.
 	scope:highest_scoring_cardinal_candidate = {
-		if = {
-			limit = {
-				exists = scope:cardinal_story
-			}
-			scope:story = {
-				make_story_owner = scope:cardinal_story
-			}
-		}
-		else = {
-			create_story = cardinal_story
+		scope:cardinal_story = {
+			make_story_owner = prev
 		}
 		if = {
 			limit = {
@@ -247,31 +249,7 @@ promote_new_cardinal = {
 				remove_variable = has_set_cardinal_player_candidate
 			}
 		}
-		if = {
-			limit = {
-				highest_held_title_tier >= tier_duchy
-			}
-			add_trait = cardinal_archbishop
-		}
-		else_if = {
-			limit = {
-				is_landed = no
-			}
-			add_trait = cardinal_priest
-			if = {
-				limit = {
-					is_theocratic_lessee = no
-				}
-				give_nickname = nick_cardinal
-			}
-		}
-		else_if = {
-			limit = {
-				is_landed = yes
-			}
-			add_trait = cardinal_bishop
-		}
-		set_variable = was_once_cardinal
+		add_cardinal_trait = yes
 	}
 	title:k_papal_state.holder = {
 		send_interface_message = {
@@ -282,6 +260,7 @@ promote_new_cardinal = {
 			left_icon = scope:highest_scoring_cardinal_candidate
 		}
 	}
+	update_cardinal_window = yes
 }
 predict_new_cardinal = {
 	# Who's the most likely next elector?
@@ -301,39 +280,21 @@ initialize_random_cardinal = {
 			NOT = { has_title = title:k_papal_state }
 		}
 		position = 0
-		become_initial_cardinal = yes 
-		add_piety = 100
-		if = {
-			limit = {
-				highest_held_title_tier >= tier_duchy
-			}
-			add_trait = cardinal_archbishop
-		}
-		else_if = {
-			limit = {
-				is_landed = no
-			}
-			add_trait = cardinal_priest
-		}
-		else_if = {
-			limit = {
-				is_landed = yes
-			}
-			add_trait = cardinal_bishop
-		}
+		create_story = cardinal_story
+		add_cardinal_trait = yes
 	}
 }
 initialize_random_cardinals = {
 	# Can easily split up the number of realm priest and ruler characters if you run out of one type.
 	while = {
-		count = initial_cardinal_number
+		count = initial_cardinal_number 
 		initialize_random_cardinal = yes
 	}
+	update_cardinal_window = yes
 }
 # Updates the variables that are accessed by the cardinal window from the gui storage unit.
 update_cardinal_window = {
 	global_var:gui_storage = {
-		update_delete_dead = yes
 		update_preferatus = yes
 		predict_new_cardinal = yes
 		# Fetch the preferatus character into gui_storage
@@ -356,10 +317,6 @@ update_cardinal_window = {
 					}
 				}
 			}
-		}
-		remove_list_variable = {
-			name = cardinal_characters
-			target = scope:death_cardinal.story_owner
 		}
 		# The preferatus gets their own icon slot, so let's remove them from the list.
 		remove_list_variable = {
@@ -442,47 +399,6 @@ deinvest_in_cardinal_effect = {
 				var:cardinal_campaign_contribution <= cardinal_campaign_contribution_invest_cost
 			} 
 			remove_variable = beneficiary
-		}
-	}
-}
-
-CardinalsAreCardinals = {
-	every_living_cardinal = {
-		add_prestige = 1
-		if = {
-			limit = {
-				is_landed = no
-				highest_held_title_tier >= tier_duchy
-			}
-			add_trait = cardinal_archbishop
-		}
-		else_if = {
-			limit = {
-				is_landed = no
-			}
-			add_trait = cardinal_priest
-			if = {
-				limit = {
-					is_theocratic_lessee = no
-					NOT = { any_council_position = { is_councillor = yes } }
-				}
-				give_nickname = nick_cardinal
-			}
-		}
-		else_if = {
-			limit = {
-				is_landed = yes
-				highest_held_title_tier >= tier_duchy
-				NOT = { this = character:7853 }
-			}
-			add_trait = cardinal_archbishop
-		}
-		else_if = {
-			limit = {
-				is_landed = yes
-				NOT = { this = character:7853 }
-			}
-			add_trait = cardinal_bishop
 		}
 	}
 }
@@ -912,19 +828,7 @@ TCT_create_antipope = {
 		save_scope_as = liege_culture
 	}
 	$ANTIPOPE$ = {
-		if = {
-			limit = { 
-				has_trait = cardinal
-			}
-			change_trait_rank = {
-				trait = cardinal
-				rank = -3
-			}
-			remove_cardinal = yes
-			promote_new_cardinal = yes
-			update_cardinal_window = yes
-			update_preferatus = yes
-		}
+		remove_cardinal = yes
 		create_character = {
 			location = $ANTIPOPE$.capital_province
 			faith = $ANTIPOPE$.faith

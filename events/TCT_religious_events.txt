@@ -1254,36 +1254,7 @@ TCT_religious_events.16 = {
 }
 
 #cardinal names
-TCT_religious_events.22 = {
-	hidden = yes
-
-	immediate = {
-		every_living_cardinal = {
-			add_prestige = 1
-			if = {
-				limit = {
-					is_landed = no
-				}
-				add_trait = cardinal_priest
-			}
-			else_if = {
-				limit = {
-					is_landed = yes
-					highest_held_title_tier >= tier_duchy
-					NOT = { this = character:7853 }
-				}
-				add_trait = cardinal_archbishop
-			}
-			else_if = {
-				limit = {
-					is_landed = yes
-					NOT = { this = character:7853 }
-				}
-				add_trait = cardinal_bishop
-			}
-		}
-	}
-}
+# TCT_religious_events.22
 
 #cardinal election won
 TCT_religious_events.23 = {
@@ -4766,6 +4737,7 @@ TCT_religious_events.4001 = {
 
 		random_living_cardinal = {
 			save_scope_as = cardinal1
+			court_event_character_flag_effect = yes
 		}
 
 		random_living_cardinal = {
@@ -5552,15 +5524,9 @@ TCT_religious_events.800 = {
 	}
 }
 
+# TCT_religious_events.801
+
 # TCT_religious_events.802
-
-TCT_religious_events.801 = {
-	hidden = yes
-
-	immediate = {
-		faith:catholic = { update_cardinal_window = yes }
-	}
-}
 
 #
 #Launching a Crusade
@@ -5615,6 +5581,13 @@ TCT_religious_events.805 = {
 			trait = cardinal
 			rank = -1
 			max = 1
+		}
+		if = {
+			limit = {
+				has_trait = cardinal_priest
+				is_theocratic_lessee = no
+			}
+			give_nickname = nick_cardinal
 		}
 	}
 
@@ -6004,7 +5977,6 @@ TCT_religious_events.813 = {
 TCT_religious_events.814 = {
 	hidden = yes
 	immediate = {
-		remove_variable = current_papacy_successor
 		if = {
 			limit = {
 				NOT = { exists = cp:councillor_marshal }
@@ -6062,44 +6034,4 @@ TCT_religious_events.814 = {
 }
 
 # Keeping the College of Cardinals full
-TCT_religious_events.9999 = { # Unused
-    type = character_event
-    hidden = yes
-
-    trigger = {
-		any_living_character = {
-			count < num_initial_cardinals
-			has_trait = cardinal
-		}
-    }
-
-    immediate = {
-        faith:catholic = {
-            promote_new_cardinal = yes
-            update_cardinal_window = yes
-            update_preferatus = yes
-        }
-		scope:preferatus = {
-			set_variable = current_papacy_successor
-		}	
-        if = {
-			limit = {
-				any_living_character = {
-					count < num_initial_cardinals
-					has_trait = cardinal
-				}
-			}
-            trigger_event = {
-                id = TCT_religious_events.9999
-                days = 15
-            }
-        }
-    }
-
-    option = {
-        name = "OK"
-    }
-}
-
-
-
+# TCT_religious_events.9999

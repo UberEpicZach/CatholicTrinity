@@ -109,8 +109,15 @@ cardinal_to_pope_base_score = {
 	}
 }
 bishop_to_cardinal_score = {
-	value = bishop_to_cardinal_base_score
-	add = cardinal_money_bonus
+	value = 0
+	if = {
+		limit = { # For some reason it is possible for Cardinals to be calculated
+			exists = this
+			is_cardinal = no
+		} 
+		add = bishop_to_cardinal_base_score
+		add = cardinal_money_bonus
+	}
 }
 cardinal_to_pope_score = {
 	value = 0

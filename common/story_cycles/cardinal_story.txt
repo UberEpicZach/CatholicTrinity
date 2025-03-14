@@ -22,10 +22,17 @@ cardinal_story = {
 	on_owner_death = {
 		save_scope_as = cardinal_story
 		story_owner = {
-			save_scope_as = dead_cardinal
-			trigger_event = {
-				on_action = on_cardinal_death
+			save_scope_as = dyingcardinal
+			title:k_papal_state.holder = {
+				send_interface_message = {
+					type = event_generic_bad_text
+					title = cardinaldied
+					desc = cardinaldied_desc
+			
+					left_icon = root.story_owner
+				}
 			}
 		}
+		promote_new_cardinal = yes
 	}
 }
