@@ -3,9 +3,10 @@ mercenary_government_mod = {
 	government_rules = {
 		court_generate_spouses = no
 		council = yes
+		inherit_from_dynastic_government = no
 	}
 
-	court_generate_commanders = 30
+	court_generate_commanders = 5
 
 	primary_holding = castle_holding
 	required_county_holdings = { castle_holding city_holding church_holding }
@@ -17,11 +18,12 @@ mercenary_government_mod = {
 	ai = {
 		arrange_marriage = no
 		use_goals = no
-		use_scripted_guis = yes
+		use_scripted_guis = no
 		perform_religious_reformation = no
+		use_legends = no
 	}
 
-	valid_holdings = { castle_holding city_holding church_holding }
+	valid_holdings = { castle_holding church_holding }
 	flag = government_is_mercenary
 	color = hsv{ 0.00 0.00 0.66 }
 }
@@ -34,7 +36,7 @@ theocracy_government = {
 	}
 
 	primary_holding = church_holding
-	valid_holdings = { castle_holding }
+	valid_holdings = { castle_holding tribal_holding }
 	required_county_holdings = { church_holding castle_holding city_holding }
 
 	ai = {
