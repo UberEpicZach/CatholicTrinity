@@ -491,7 +491,7 @@ create_the_papal_states_effect_867 = {
 	}
 	if = {
 		limit = {
-			NOT = { has_game_rule = setting_tct_papacy_867_start_donation }
+			NOT = { has_game_rule = tct_papacy_867_start_donation }
 		}
 		title:k_papal_state.holder = {
 			designate_diarch = title:c_orvieto.holder
