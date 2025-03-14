@@ -17,7 +17,10 @@ invest_in_cardinal_Ai = {
 		is_landed = yes
 		is_cardinal = no
 		is_pope = no
-		NOR = { has_government = mercenary_government has_government = theocracy_government }
+		NOR = { 
+			government_has_flag = government_is_mercenary
+			government_has_flag = government_is_theocracy
+		}
 		primary_title.title_held_years > 1
 		is_at_war = no
 		is_alive = yes

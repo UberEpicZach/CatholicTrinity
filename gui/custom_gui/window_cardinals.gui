@@ -733,7 +733,7 @@ types Cardinals {
 									fontsize = 20
 									text = "[Scope.GetCharacter.Custom('TCT_get_patriarchate_of_pentarch')]"
 									layoutpolicy_horizontal = expanding
-									max_width = 90
+									max_width = 150
 									size = { 150 100 }
 								}
 								spacer = { 

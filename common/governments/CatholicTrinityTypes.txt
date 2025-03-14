@@ -22,6 +22,7 @@ mercenary_government_mod = {
 	}
 
 	valid_holdings = { castle_holding city_holding church_holding }
+	flag = government_is_mercenary
 	color = hsv{ 0.00 0.00 0.66 }
 }
 

@@ -67,7 +67,8 @@ investiture_law = {
 		}
 
 		should_start_with = {
-			game_start_date = 1066.9.15
+			game_start_date >= 1061.1.1
+			game_start_date <= 1122.9.23
 			has_title = title:e_hre
 		}
 		

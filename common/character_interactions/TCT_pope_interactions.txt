@@ -5025,12 +5025,15 @@ select_cardinal_candidate_interaction = {
 						if = {
 							limit = {
 								has_government = theocracy_government
+								is_cardinal = no
+								is_pope = no
 							}
 							add_to_list = characters
 						}
 						every_courtier = {
 							limit = {
 								has_council_position = councillor_court_chaplain
+								is_cardinal = no
 							}
 							add_to_list = characters
 						} 
@@ -5055,6 +5058,7 @@ select_cardinal_candidate_interaction = {
 						is_ruler = no
 						is_clergy = yes
 						is_cardinal = no
+						is_pope = no
 						# In minimum good standing with faith
 						NOT = { has_trait = excommunicated }
 					}
@@ -5074,6 +5078,7 @@ select_cardinal_candidate_interaction = {
 					is_ruler = no
 					is_clergy = yes
 					is_cardinal = no
+					is_pope = no
 					# In minimum good standing with faith
 					NOT = { has_trait = excommunicated }
 				}
@@ -5093,6 +5098,7 @@ select_cardinal_candidate_interaction = {
 						is_ruler = no
 						is_married = no
 						is_cardinal = no
+						is_pope = no
 					}
 					add_to_list = characters
 				}
@@ -5112,6 +5118,7 @@ select_cardinal_candidate_interaction = {
 						is_ruler = no
 						is_married = no
 						is_cardinal = no
+						is_pope = no
 					}
 					#always = yes
 				}
@@ -5124,6 +5131,7 @@ select_cardinal_candidate_interaction = {
 						has_education_learning_trigger = yes
 						is_married = no
 						is_cardinal = no
+						is_pope = no
 					}
 				}
 				add_to_list = characters

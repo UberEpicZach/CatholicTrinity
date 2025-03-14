@@ -391,19 +391,13 @@ on_cardinal_preinitialize = {
 			every_ruler = { 
 				limit = { 
 					has_faith = faith:catholic 
-					NOT = { 
+					NOR = { 
 						exists = var:cardinal_player_candidate 
-						has_government = mercenary_government 
-						has_government = theocracy_government 
+						government_has_flag = government_is_mercenary
+						government_has_flag = government_is_theocracy
 					}
-					primary_title.title_held_years > 1
-					is_at_war = no
 					is_ruler = yes
 					is_landed = yes
-					is_cardinal = no
-					is_pope = no
-					is_alive = yes
-					exists = this
 				} 
 				select_highest_scoring_character_cardinal_candidate = yes 
 			}
