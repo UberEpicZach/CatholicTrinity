@@ -79,19 +79,15 @@
 
 papacy_succession = {
     valid_character = {
-        valid = {
-            exists = global_var:preferatus.story_owner
-            scope:actor = global_var:preferatus.story_owner
-            actor = { has_variable = current_papacy_successor }
-        }
-        fail_if_no_valid = yes
+		exists = global_var:preferatus.story_owner
+		this = global_var:preferatus.story_owner
     }
 
     character_score = {
         base = 0
         modifier = {
             add = 15000
-            has_variable = current_papacy_successor
+            this = global_var:preferatus.story_owner
         }
     }
 
