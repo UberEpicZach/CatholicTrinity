@@ -4802,6 +4802,7 @@ TCT_religious_events.4001 = {
 			limit = {
 				NOT = { exists = cp:councillor_marshal }
 				exists = scope:marshal
+				NOT = { this = scope:marshal }
 			}
 			assign_councillor_type = {
 				type = councillor_marshal
@@ -4812,6 +4813,7 @@ TCT_religious_events.4001 = {
 			limit = {
 				NOT = { exists = cp:councillor_steward }
 				exists = scope:steward
+				NOT = { this = scope:steward }
 			}
 			assign_councillor_type = {
 				type = councillor_steward
@@ -4822,6 +4824,7 @@ TCT_religious_events.4001 = {
 			limit = {
 				NOT = { exists = cp:councillor_chancellor }
 				exists = scope:chancellor
+				NOT = { this = scope:chancellor }
 			}
 			assign_councillor_type = {
 				type = councillor_chancellor
@@ -4832,6 +4835,7 @@ TCT_religious_events.4001 = {
 			limit = {
 				NOT = { exists = cp:councillor_spymaster }
 				exists = scope:spymaster
+				NOT = { this = scope:spymaster }
 			}
 			assign_councillor_type = {
 				type = councillor_spymaster
