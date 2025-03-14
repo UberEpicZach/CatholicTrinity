@@ -326,24 +326,22 @@ tct_possible_antipope_vassal_trigger = {
 }
 
 suitable_faith_for_undirected_ghw_trigger = {
-	OR = {
-		AND = {
+	trigger_if = {
+		limit = {
 			this = faith:catholic
 			exists = title:k_papal_state.holder
+		}
+		OR = {
 			title:k_papal_state.holder = {
-				NOT = { is_ai = yes }
+				is_ai = no
 				has_character_flag = PlayerDecisionForCrusade
 			}
-		}
-		AND = {
-			this = faith:catholic
-			exists = title:k_papal_state.holder
 			title:k_papal_state.holder = {
 				is_ai = yes
 				NOT = { has_character_flag = PlayerDecisionForCrusade }
 			}
 		}
-	}	
+	}
 	OR = {
 		has_doctrine_parameter = great_holy_wars_active
 		AND = {
@@ -354,7 +352,7 @@ suitable_faith_for_undirected_ghw_trigger = {
 	}
 	has_doctrine = doctrine_spiritual_head
 	NOR = {
-		has_doctrine = unreformed_faith_doctrine
+		has_doctrine_parameter = unreformed
 		AND = {
 			has_doctrine = tenet_dharmic_pacifism
 			NOT = { has_doctrine = divine_destiny_doctrine }
@@ -367,10 +365,6 @@ suitable_faith_for_undirected_ghw_trigger = {
 		value = faith_military_strength
 	}
 	save_temporary_scope_as = faith
-	suitable_location_for_undirected_ghw_trigger = yes
-}
-
-suitable_location_for_undirected_ghw_trigger = {
 	any_kingdom = {
 		valid_ghw_target_trigger = { FAITH = scope:faith }
 	}
@@ -378,63 +372,6 @@ suitable_location_for_undirected_ghw_trigger = {
 
 conclave_influence_variable_effect_trigger = {
 	has_variable = TCT_conclave_influence
-}
-
-can_be_knight_trigger = {
-	is_alive = yes
-	is_adult = yes
-	can_be_warrior_trigger = { ARMY_OWNER = $ARMY_OWNER$ }
-	NOR = {
-		has_trait = incapable
-		has_trait = blind
-		AND = {
-			has_trait = devoted
-			OR = {
-				faith = {
-					NOT = {
-						has_doctrine_parameter = clergy_can_fight
-					}
-				}
-				culture = {
-					NOT = {
-						has_cultural_parameter = culture_clergy_can_fight
-					}
-				}
-			}
-		}
-		AND = {
-			is_clergy = yes
-			OR = {
-				faith = {
-					NOT = {
-						has_doctrine_parameter = clergy_can_fight
-					}
-				}
-			}
-		}
-	}
-
-	trigger_if = {
-		limit = {
-			$ARMY_OWNER$ = {
-				is_pope = yes
-			}
-			NOR = {
-				has_trait = incapable
-				has_trait = blind
-			}
-		}
-		prowess >= 5
-	}
-	
-	trigger_if = {
-		limit = {
-			$ARMY_OWNER$.culture = {
-				has_cultural_parameter = minimum_prowess_for_knights
-			}
-		}
-		prowess >= 12
-	}
 }
 
 tct_investiture_struggle_switch_sides_decision_liege_requirements_trigger = {
