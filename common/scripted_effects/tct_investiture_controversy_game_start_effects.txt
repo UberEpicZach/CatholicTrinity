@@ -248,14 +248,4 @@ Investiture_Controversy_Game_Start_After_Lobby_1066 = {
 			trigger_event = tct_neutral_struggle.0005 
 		}
 	}
-
-	title:e_hre.holder = {
-		every_character_artifact = { 
-			limit = { 
-				has_variable = reichskrone	
-			}
-			equip_artifact_to_owner_replace = yes
-			add_artifact_modifier = artifact_domain_limit_1_modifier 
-		}
-	}
 }
