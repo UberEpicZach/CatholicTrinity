@@ -4798,54 +4798,62 @@ TCT_religious_events.4001 = {
 			name = event_chain_progress
 			value = 1
 		}
-		if = {
-			limit = { is_ai = no }
+		hidden_effect = {
 			if = {
-				limit = {
-					NOT = { exists = cp:councillor_marshal }
-					exists = scope:marshal
-					NOT = { this = scope:marshal }
+				limit = { is_ai = no }
+				if = {
+					limit = {
+						NOT = { exists = cp:councillor_marshal }
+						exists = scope:marshal
+						NOT = { this = scope:marshal }
+					}
+					assign_councillor_type = {
+						type = councillor_marshal
+						target = scope:marshal
+					}
 				}
-				assign_councillor_type = {
-					type = councillor_marshal
-					target = scope:marshal
+				if = {
+					limit = {
+						NOT = { exists = cp:councillor_steward }
+						exists = scope:steward
+						NOT = { this = scope:steward }
+					}
+					assign_councillor_type = {
+						type = councillor_steward
+						target = scope:steward
+					}
+				}
+				if = {
+					limit = {
+						NOT = { exists = cp:councillor_chancellor }
+						exists = scope:chancellor
+						NOT = { this = scope:chancellor }
+					}
+					assign_councillor_type = {
+						type = councillor_chancellor
+						target = scope:chancellor
+					}
+				}
+				if = {
+					limit = {
+						NOT = { exists = cp:councillor_spymaster }
+						exists = scope:spymaster
+						NOT = { this = scope:spymaster }
+					}
+					assign_councillor_type = {
+						type = councillor_spymaster
+						target = scope:spymaster
+					}
 				}
 			}
 			if = {
 				limit = {
-					NOT = { exists = cp:councillor_steward }
-					exists = scope:steward
-					NOT = { this = scope:steward }
+					is_ai = yes
+					has_title = title:c_roma
 				}
-				assign_councillor_type = {
-					type = councillor_steward
-					target = scope:steward
-				}
-			}
-			if = {
-				limit = {
-					NOT = { exists = cp:councillor_chancellor }
-					exists = scope:chancellor
-					NOT = { this = scope:chancellor }
-				}
-				assign_councillor_type = {
-					type = councillor_chancellor
-					target = scope:chancellor
-				}
-			}
-			if = {
-				limit = {
-					NOT = { exists = cp:councillor_spymaster }
-					exists = scope:spymaster
-					NOT = { this = scope:spymaster }
-				}
-				assign_councillor_type = {
-					type = councillor_spymaster
-					target = scope:spymaster
-				}
+				set_realm_capital = title:c_roma
 			}
 		}
-		set_realm_capital = title:c_roma
 	}
 
 
@@ -4888,6 +4896,13 @@ TCT_religious_events.4001 = {
 		}
 		scope:cardinal7 = {
 			clear_court_event_participation = yes
+		}
+		hidden_effect = {
+			scope:duplicatename = { # Let's get rid of this character though it may be cool to make this a papal squire or the sort
+				death = {
+					death_reason = death_vanished
+				}
+			}
 		}
 	}
 }
@@ -6004,64 +6019,7 @@ TCT_religious_events.813 = {
 }
 
 # Pope Election Cleanu
-TCT_religious_events.814 = {
-	hidden = yes
-	immediate = {
-		if = {
-			limit = {
-				NOT = { exists = cp:councillor_marshal }
-				exists = scope:marshal
-			}
-			assign_councillor_type = {
-				type = councillor_marshal
-				target = scope:marshal
-			}
-		}
-		if = {
-			limit = {
-				NOT = { exists = cp:councillor_steward }
-				exists = scope:steward
-			}
-			assign_councillor_type = {
-				type = councillor_steward
-				target = scope:steward
-			}
-		}
-		if = {
-			limit = {
-				NOT = { exists = cp:councillor_chancellor }
-				exists = scope:chancellor
-			}
-			assign_councillor_type = {
-				type = councillor_chancellor
-				target = scope:chancellor
-			}
-		}
-		if = {
-			limit = {
-				NOT = { exists = cp:councillor_spymaster }
-				exists = scope:spymaster
-			}
-			assign_councillor_type = {
-				type = councillor_spymaster
-				target = scope:spymaster
-			}
-		}
-		if = {
-			limit = {
-				is_ai = yes
-				has_title = title:c_roma
-			}
-			set_realm_capital = title:c_roma
-		}
-	
-		scope:duplicatename = { # Let's get rid of this character though it may be cool to make this a papal squire or the sort
-			death = {
-				death_reason = death_vanished
-			}
-		}
-	}
-}
+# TCT_religious_events.814
 
 # Keeping the College of Cardinals full
 # TCT_religious_events.9999

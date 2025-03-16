@@ -753,10 +753,6 @@ on_pope_death = {
 					value = scope:duplicatename
 				}
 				trigger_event = TCT_religious_events.400
-				trigger_event = {
-					id = TCT_religious_events.814
-					days = 1
-				}
 			}
 		}
 	}
