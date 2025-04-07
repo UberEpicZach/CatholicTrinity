@@ -441,7 +441,10 @@ tct_neutral_struggle.1002 = {
 
 	option = {
 		trigger = {
-			this = scope:otto
+			OR = {
+				this = scope:otto
+				this = character:112600
+			}
 		}
 		name = tct_neutral_struggle.1002.a
 		show_as_tooltip = {
@@ -478,6 +481,10 @@ tct_neutral_struggle.1002 = {
 				}
 			}
 		}
+		hidden_effect = {
+			depose_effect = { DEPOSER = scope:emperor }
+			character:112600 = { trigger_event = { id = tct_neutral_struggle.1004 days = 150 } }
+		}
 
 		ai_chance = {
 			base = 100
@@ -489,9 +496,8 @@ tct_neutral_struggle.1002 = {
 			this = scope:otto
 		}
 		name = tct_neutral_struggle.1002.b
-		hidden_effect = {
-			trigger_event = { id = tct_neutral_struggle.1004 days = 150 }
-		}
+		depose_effect = { DEPOSER = scope:emperor }
+		trigger_event = { id = tct_neutral_struggle.1004 days = 150 }
 	}
 
 	option = {
@@ -703,8 +709,8 @@ tct_neutral_struggle.1004 = {
 			size = 5
 		}
 		
-		scope:otto = { trigger_event = { days = 149 id = tct_neutral_struggle.1005 } }
-		title:e_hre.holder = { trigger_event = { days = 150 id = tct_neutral_struggle.1005 } }
+		scope:otto = { trigger_event = { id = tct_neutral_struggle.1005 days = 149 } }
+		title:e_hre.holder = { trigger_event = { id = tct_neutral_struggle.1005 days = 150  } }
 		scope:magnus = { 
 			scope:magnus = {
 				create_title_and_vassal_change = {
@@ -721,7 +727,7 @@ tct_neutral_struggle.1004 = {
 				resolve_title_and_vassal_change = scope:change
 			}
 			trigger_event = { 
-				days = 150 id = tct_neutral_struggle.1005 
+				id = tct_neutral_struggle.1005 days = 150 
 			}	 
 		}
 		
@@ -962,6 +968,14 @@ tct_neutral_struggle.1006 = {
 			}
 			set_global_variable = sack_of_harzburg
 			scope:magnus = {
+				random_character_war = {
+					limit = {
+						using_cb = first_saxon_revolt_faction_war
+						primary_defender = scope:emperor
+					}
+					save_scope_as = faction_war
+				}
+				
 				spawn_army = {
 					levies = 3000
 					men_at_arms = {
@@ -972,6 +986,7 @@ tct_neutral_struggle.1006 = {
 					war = scope:faction_war
 					name = populist_faction_event_troops
 				}
+
 			}
 	
 			title:b_goslar = {
@@ -1029,8 +1044,9 @@ tct_neutral_struggle.1006 = {
 							value >= 20
 						}
 					}
+					save_scope_as = joining_war_vassal
 					scope:faction_war = {
-						add_defender = prev
+						add_defender = scope:joining_war_vassal
 					}
 				}
 			}
