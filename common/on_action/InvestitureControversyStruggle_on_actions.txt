@@ -199,6 +199,12 @@ tct_on_war_won_attacker = {
 				faith:catholic = {
 					exists = great_holy_war
 				}
+				scope:war ?= {
+					OR = {
+						using_cb = undirected_great_holy_war
+						using_cb = directed_great_holy_war
+					}
+				}
 			}
 			scope:attacker.faith.great_holy_war.ghw_target_title = {
 				set_variable = { name = crusader_state value = yes }
