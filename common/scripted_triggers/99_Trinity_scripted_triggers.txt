@@ -521,6 +521,22 @@ TCT_investiture_candidates_courtier_trigger = {
 }
 
 
+tct_crusader_state_trigger = {
+	has_variable = crusader_state
+	holder = {
+		faith = faith:catholic
+		is_independent_ruler = yes
+		any_de_jure_county = {
+			count < 1
+			OR = {
+				holder = prev
+				holder = { is_vassal_or_below_of = prev }
+			}
+		}
+	}
+}
+
+
 # Can the AI create a new laamp without threatening performance?
 ## Beware of expanding this past the soft-cap figure of around ~200: code estimations were made with this number in mind, so the more we let slip the net, the more they'll start to degrade performance.
 ### YOU HAVE BEEN WARNED.
@@ -613,33 +629,54 @@ testing_fellow_vassal_opinion = {
 }
 
 testingTct = {
-	# any_in_de_jure_hierarchy = {
-	# 	tier = tier_barony
-	# 	OR = {
-	# 		county.development_level < 10
-	# 		# If the province has been looted recently.
-	# 		has_province_modifier = recently_looted_modifier
-	# 		has_province_modifier = fp3_plundered_county_modifier
-	# 		has_province_modifier = village_destroyed_modifier
-	# 		# If the province has is suffering from a thieves guild.
-	# 		has_province_modifier = county_corruption_thieves_guild_modifier
-	# 		# Realm has any nearby epidemic.
-	# 		realm_has_any_nearby_epidemic = { SIZE = 4 INTENSITY = minor }
-	# 		has_province_modifier = disease_spreading_modifier
-	# 		has_province_modifier = shattered_by_plague
-	# 		has_province_modifier = ravaged_by_plague
-	# 		has_province_modifier = blighted_by_plague
-	# 		has_province_modifier = struck_by_plague
-	# 		has_province_modifier = plague_cult
-	# 		# Harsh Winter 
-	# 		has_province_modifier = winter_harsh_modifier
-	# 		# Disgruntled Church
-	# 		has_province_modifier = modifier_dusgruntled_church
-	# 		has_province_modifier = depopulated_countryside
-	# 		county.development_rate < 0
-	# 	}
-	# 	percent >= 0.5
-	# }
+	title:e_hre = {
+		any_in_de_jure_hierarchy = {
+			percent >= 0.5
+			tier = tier_barony
+	
+			OR = {
+				# Looted and burned counties
+				has_province_modifier = recently_looted_modifier
+				has_province_modifier = fp3_plundered_county_modifier
+				has_province_modifier = village_destroyed_modifier
+				has_province_modifier = depopulated_countryside
+	
+				# Disease-ravaged counties
+				AND = {
+					OR = {
+						has_province_modifier = disease_spreading_modifier
+						has_province_modifier = shattered_by_plague
+						has_province_modifier = ravaged_by_plague
+						has_province_modifier = blighted_by_plague
+						has_province_modifier = struck_by_plague
+						has_province_modifier = plague_cult
+						realm_has_any_nearby_epidemic = { SIZE = 4 INTENSITY = minor }
+					}
+				}
+	
+				# Severely underdeveloped AND suffering
+				AND = {
+					county.development_level < 10
+					OR = {
+						county.development_rate < 0
+						has_province_modifier = county_corruption_thieves_guild_modifier
+						has_province_modifier = modifier_dusgruntled_church
+						has_province_modifier = winter_harsh_modifier
+					}
+				}
+
+				# Long War AND in Debt
+				AND = {
+					holder = { 
+						any_character_war = { war_days >= 360 } #
+						debt_level >= 1.5 # A year and a half in debt
+					}
+				}
+			}
+		}
+		
+	}
+	
 	# top_liege ?= { primary_title ?= title:e_hre }
 	# is_playable_character = yes
 	# highest_held_title_tier = tier_duchy
@@ -651,23 +688,4 @@ testingTct = {
 	# 	top_liege ?= { government_has_flag = government_is_tribal }
 	# 	top_liege ?= { government_has_flag = government_is_theocracy }
 	# }
-	title:e_hre.holder = {
-		OR = {
-			any_vassal_or_below = {
-				tct_possible_antipope_vassal_trigger = yes
-				save_temporary_scope_as = antipope_vassal_temp
-			}
-			AND = {
-				exists = character:73530
-				character:73530 = { save_temporary_scope_as = antipope_vassal_temp }
-			}
-		}
-		is_character_interaction_potentially_accepted = {
-			recipient = scope:antipope_vassal_temp
-			interaction = TCT_make_antipope_interaction
-		}
-		any_character_struggle = {
-			is_struggle_type = investiture_controversy_struggle
-		}
-	}
 }

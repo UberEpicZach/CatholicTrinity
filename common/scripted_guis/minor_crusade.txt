@@ -2,7 +2,7 @@
 
 minor_crusades_selection_setup = { # Decision widget
 	effect = {
-		clear_variable_list = minor_cruades_possible_titles
+		clear_variable_list = minor_crusades_possible_titles
 		title:k_jerusalem.holder = {
 			#Find a county we hold which borders a valid event target county.
 			every_sub_realm_county = {
@@ -31,7 +31,7 @@ minor_crusades_selection_setup = { # Decision widget
 
 					#Save that county's scope.
 					save_scope_as = target_county
-					add_to_list = minor_cruades_possible_titles
+					add_to_list = minor_crusades_possible_titles
 
 					#Also save the county's holder.
 					holder = {
@@ -42,11 +42,11 @@ minor_crusades_selection_setup = { # Decision widget
 		}
 
 		every_in_list = {
-			list = minor_cruades_possible_titles
+			list = minor_crusades_possible_titles
 			# order_by = development_level
 			# max = 15
 			# check_range_bounds = no
-			add_to_prev_list = {NAME = minor_cruades_possible_titles}
+			add_to_prev_list = {NAME = minor_crusades_possible_titles}
 		}
 	}
 }

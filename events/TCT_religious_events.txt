@@ -5399,6 +5399,9 @@ TCT_religious_events.600 = {
 					this = character:2010
 				}
 				change_first_name = Gregorius
+				# Giving him a boost in currency.
+				add_prestige = 1000
+				add_piety = 1000
 			}
 		}
 	}
@@ -5695,51 +5698,67 @@ TCT_religious_events.807 = {
 
 
 scripted_effect nearby_crusader_state_targets = {
-	clear_variable_list = minor_cruades_possible_titles
-	title:k_jerusalem.holder = {
-		#Find a county we hold which borders a valid event target county.
-		every_sub_realm_county = {
+	clear_variable_list = minor_crusades_possible_titles
+
+	if = {
+		limit = {
+			any_kingdom = {
+				tct_crusader_state_trigger = yes
+			}
+		}
+		every_kingdom = {
 			limit = {
-				any_neighboring_county = {
-					holder = {
-						NOT = {
-							faith = root.faith
-							top_liege = title:k_jerusalem.holder.top_liege
+				tct_crusader_state_trigger = yes
+			}
+			add_to_list = minor_crusades_kingdoms
+		}
+	}
+
+	every_in_list = {
+		list = minor_crusades_kingdoms
+		save_scope_as = crusader_kingdom
+		#Find a county we hold which borders a valid event target county.
+		holder = {
+			every_sub_realm_county = {
+				limit = {
+					any_neighboring_county = {
+						holder = {
+							NOT = {
+								faith = root.faith
+								top_liege = scope:crusader_kingdom.holder.top_liege
+							}
 						}
 					}
 				}
-			}
-			save_scope_as = my_county
+				save_scope_as = my_county
 
-			#Find a valid event target county.
-			random_neighboring_county = {
-				limit = {
-					holder = {
-						NOT = {
-							faith = root.faith
-							top_liege = title:k_jerusalem.holder.top_liege
+				#Find a valid event target county.
+				random_neighboring_county = {
+					limit = {
+						holder = {
+							NOT = {
+								faith = root.faith
+								top_liege = scope:crusader_kingdom.holder.top_liege
+							}
 						}
+					}		
+
+					#Save that county's scope.
+					save_scope_as = target_county
+					add_to_list = minor_crusades_possible_titles
+
+					#Also save the county's holder.
+					holder = {
+						save_scope_as = heretic_ruler
 					}
-				}		
-
-				#Save that county's scope.
-				save_scope_as = target_county
-				add_to_list = minor_cruades_possible_titles
-
-				#Also save the county's holder.
-				holder = {
-					save_scope_as = heretic_ruler
 				}
 			}
 		}
 	}
 
 	every_in_list = {
-		list = minor_cruades_possible_titles
-		# order_by = development_level
-		# max = 15
-		# check_range_bounds = no
-		add_to_prev_list = {NAME = minor_cruades_possible_titles}
+		list = minor_crusades_possible_titles
+		add_to_prev_list = { NAME = minor_crusades_possible_titles }
 	}
 }
 
@@ -5755,11 +5774,12 @@ TCT_religious_events.810 = {
 		gui = "minor_crusade_title_selection"
 		container = "custom_widgets_container"
 	}
+
 	theme = diplomacy_foreign_affairs_focus
 
 	immediate = {
 		remove_variable = selected_title
-		clear_variable_list = minor_cruades_possible_titles
+		clear_variable_list = minor_crusades_possible_titles
 		nearby_crusader_state_targets = yes
 	}
 
@@ -5767,10 +5787,6 @@ TCT_religious_events.810 = {
 		name = TCT_religious_events.810.a
 		if = {
 			limit = { has_variable = selected_title }
-			#create_cultural_specialist_effect = yes
-			#scope:cultural_specialist = { apply_cultural_traits_effect = yes } 
-			#recruit_courtier = scope:cultural_specialist
-			#custom_tooltip = newline.desc
 			var:selected_title = {
 				save_scope_as = selected_title
 			}
@@ -5782,7 +5798,7 @@ TCT_religious_events.810 = {
 				casus_belli = minor_crusade_religious_war
 				target = var:selected_title.holder
 				target_title = var:selected_title
-				claimant = title:k_jerusalem.holder
+				claimant = scope:crusader_kingdom.holder
 			}
 			every_character_war = {
 				limit = {
@@ -5790,10 +5806,10 @@ TCT_religious_events.810 = {
 					using_cb = minor_crusade_religious_war
 				}
 				save_scope_as = war
-				add_attacker = title:k_jerusalem.holder
+				add_attacker = scope:crusader_kingdom.holder
 				set_variable = {
 					name = crusader_state_holder
-					value = title:k_jerusalem.holder
+					value = scope:crusader_kingdom.holder
 				}
 			}
 		}

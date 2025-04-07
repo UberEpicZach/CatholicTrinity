@@ -38,51 +38,64 @@ testing_shit_2 = {
 	}
 }
 
-# nearby_crusader_state_targets = {
-# 	clear_variable_list = minor_cruades_possible_titles
-# 	title:k_jerusalem.holder = {
-# 		#Find a county we hold which borders a valid event target county.
-# 		every_sub_realm_county = {
-# 			limit = {
-# 				any_neighboring_county = {
-# 					holder = {
-# 						NOT = {
-# 							faith = root.faith
-# 							top_liege = title:k_jerusalem.holder.top_liege
-# 						}
-# 					}
-# 				}
-# 			}
-# 			save_scope_as = my_county
+nearby_crusader_state_targets = {
+	clear_variable_list = minor_crusades_possible_titles
+	title:k_jerusalem.holder = {
+		#Find a county we hold which borders a valid event target county.
+		every_sub_realm_county = {
+			limit = {
+				any_neighboring_county = {
+					holder = {
+						NOT = {
+							faith = root.faith
+							top_liege = title:k_jerusalem.holder.top_liege
+						}
+					}
+				}
+			}
+			save_scope_as = my_county
 
-# 			#Find a valid event target county.
-# 			random_neighboring_county = {
-# 				limit = {
-# 					holder = {
-# 						NOT = {
-# 							faith = root.faith
-# 							top_liege = title:k_jerusalem.holder.top_liege
-# 						}
-# 					}
-# 				}		
+			#Find a valid event target county.
+			random_neighboring_county = {
+				limit = {
+					holder = {
+						NOT = {
+							faith = root.faith
+							top_liege = title:k_jerusalem.holder.top_liege
+						}
+					}
+				}		
 
-# 				#Save that county's scope.
-# 				save_scope_as = target_county
-# 				add_to_list = minor_cruades_possible_titles
+				#Save that county's scope.
+				save_scope_as = target_county
+				add_to_list = minor_crusades_possible_titles
 
-# 				#Also save the county's holder.
-# 				holder = {
-# 					save_scope_as = heretic_ruler
-# 				}
-# 			}
-# 		}
-# 	}
+				#Also save the county's holder.
+				holder = {
+					save_scope_as = heretic_ruler
+				}
+			}
+		}
+	}
+
+	add_gold = 10
+	scope:heretic_ruler = {
+		add_gold = 10
+	}
+	every_in_list = {
+		list = minor_crusades_possible_titles
+		# order_by = development_level
+		# max = 15
+		# check_range_bounds = no
+		add_to_prev_list = {NAME = minor_crusades_possible_titles}
+	}
+}
 
 # 	every_in_list = {
-# 		list = minor_cruades_possible_titles
+# 		list = minor_crusades_possible_titles
 # 		# order_by = development_level
 # 		# max = 15
 # 		# check_range_bounds = no
-# 		add_to_prev_list = {NAME = minor_cruades_possible_titles}
+# 		add_to_prev_list = {NAME = minor_crusades_possible_titles}
 # 	}
 # }
