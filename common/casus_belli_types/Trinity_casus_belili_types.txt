@@ -1912,6 +1912,9 @@ first_saxon_revolt_faction_war = {
 
 		# EP3: note gold gained from military assistance/join war contracts and their war contribution threshold
 		laamp_as_mercenary_payout_tooltip_effect = yes
+
+		# TCT on defeeat
+		scope:attacker = { tct_bavarian_chain_defeat_effect = yes }
 	}
 
 	on_invalidated_desc = msg_invalidate_war_title

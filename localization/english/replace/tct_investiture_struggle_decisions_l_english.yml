@@ -251,8 +251,12 @@
  tct_neutral_struggle.1002.a: "I will face the court."
  tct_neutral_struggle.1002.a.success: "Your speech convinces the jury of your innocence"
  tct_neutral_struggle.1002.a.failure: "Your speech fails to convince anyone"
- tct_neutral_struggle.1002.b: "I must #italic flee#!"
- tct_neutral_struggle.1002.c: "Down falls the Saxon..."
+ tct_neutral_struggle.1002.a.tt: "@warning_icon! You will face the court in [province.GetNameNoTier], you may have a chance to convince the jury of your innocence, otherwise justice will be served."
+ tct_neutral_struggle.1002.b: "I must #italic flee#! elsewhere"
+ tct_neutral_struggle.1002.b.tt: "@warning_icon! If I am to be found guiltiy of treason, I must flee, I will find no justice here. \n\nI will become an adventurer, and I will take my chances elsewhere."
+ tct_neutral_struggle.1002.c: "I must #italic flee#! this court, and #BOL FIGHT#! with the armies of #BOL [GetTitleByKey('d_bavaria').GetNameNoTier]!#!"
+ tct_neutral_struggle.1002.d: "Down falls the Saxon..."
+
 # New Opportunities # Event for Welf IV
 # Offer from Emperor, for Welf to Divorce Wife / Split from Nordheim's, In exchange, get the Duchy of Bavaria
  tct_neutral_struggle.1003.t: "New Opportunities"

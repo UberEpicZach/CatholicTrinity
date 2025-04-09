@@ -1275,3 +1275,62 @@ TCT_investiture_add_to_gui = {
 		}
 	}
 }
+
+tct_bavarian_chain_defeat_effect = {
+	if = {
+		limit = {
+			scope:attacker = character:112600
+			character:1530 = {
+				is_alive = yes
+				has_character_flag = promised_bavaria
+			}
+		}
+		character:1530 = {
+			create_title_and_vassal_change = {
+				type = granted
+				save_scope_as = change
+				add_claim_on_loss = yes
+			}
+
+			character:112600 = {
+				every_held_title = {
+					change_title_holder = {
+						holder = character:1530
+						change = scope:change
+					}
+				}
+				every_vassal = {
+					change_liege = {
+						liege = character:1530
+						change = scope:change
+					}
+				}
+			}
+			resolve_title_and_vassal_change = scope:change
+
+			character:112600 = { 
+				add_character_flag = force_ai_created_laamp 
+				#depose_effect = { DEPOSER = scope:emperor } 
+				create_landless_adventurer_title_effect = { REASON = flag:deposition FLAVOR_CHAR = title:e_hre.holder }
+				hidden_effect = {
+					add_pressed_claim = title:k_bavaria
+					add_realm_law_skip_effects = camp_purpose_legitimists
+				}
+			}
+
+			add_opinion = {
+				target = title:e_hre.holder
+				modifier = received_title_duchy
+				opinion = 80
+			}
+
+			scope:emperor = {
+				add_opinion = {
+					target = root
+					modifier = loyal_servant
+					opinion = 50
+				}
+			}
+		}
+	}
+}

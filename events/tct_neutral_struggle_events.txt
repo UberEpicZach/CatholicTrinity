@@ -432,11 +432,6 @@ tct_neutral_struggle.1002 = {
 				trigger_event = { id = tct_neutral_struggle.1002 }
 			}
 		}
-
-		character:1530 = {
-			save_scope_as = welf
-			trigger_event = { days = 1 id = tct_neutral_struggle.1003 }
-		}
 	}
 
 	option = {
@@ -447,6 +442,8 @@ tct_neutral_struggle.1002 = {
 			}
 		}
 		name = tct_neutral_struggle.1002.a
+		flavor = tct_neutral_struggle.1002.a.tt
+		add_internal_flag = dangerous
 		show_as_tooltip = {
 			duel = {
 				skills = { diplomacy intrigue }
@@ -482,8 +479,20 @@ tct_neutral_struggle.1002 = {
 			}
 		}
 		hidden_effect = {
-			depose_effect = { DEPOSER = scope:emperor }
+			save_scope_as = defender
+			scope:emperor = {
+				save_scope_as = attacker
+				save_scope_as = winner
+			}
+			set_variable = {
+				name = deposed_primary_title
+				value = primary_title
+				months = 1
+			}
+			create_landless_adventurer_title_effect = { REASON = flag:deposition FLAVOR_CHAR = title:e_hre.holder }
+			trigger_event = tct_neutral_struggle.9999
 			character:112600 = { trigger_event = { id = tct_neutral_struggle.1004 days = 150 } }
+		
 		}
 
 		ai_chance = {
@@ -496,15 +505,124 @@ tct_neutral_struggle.1002 = {
 			this = scope:otto
 		}
 		name = tct_neutral_struggle.1002.b
-		depose_effect = { DEPOSER = scope:emperor }
+		add_internal_flag = dangerous
+		hidden_effect = { 
+			save_scope_as = defender
+			scope:emperor = {
+				save_scope_as = attacker
+				save_scope_as = winner
+			}
+			scope:welf = {
+				save_scope_as = heir
+			}
+			set_variable = {
+				name = deposed_primary_title
+				value = title:k_bavaria
+				months = 1
+			}
+			create_landless_adventurer_title_effect = { REASON = flag:deposition FLAVOR_CHAR = title:e_hre.holder }
+		}
+		trigger_event = tct_neutral_struggle.9999
+		show_as_tooltip = {
+			depose_effect = { DEPOSER = scope:emperor }
+		}
 		trigger_event = { id = tct_neutral_struggle.1004 days = 150 }
+	}
+
+	option = {
+		trigger = {
+			this = scope:otto
+		}
+		name = tct_neutral_struggle.1002.c
+		add_internal_flag = dangerous
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = {
+						OR = {
+							has_realm_law = crown_authority_1
+							has_realm_law = crown_authority_2
+							has_realm_law = crown_authority_3
+						}
+					}
+				}
+				add_realm_law = crown_authority_1
+			}
+		}
+
+		scope:otto = { 
+			create_faction = {
+				type = liberty_faction
+				target = title:e_hre.holder
+			}
+			joined_faction = {
+				save_scope_as = faction
+			}
+		}
+		scope:emperor = {
+			every_vassal_or_below = {
+				limit = { 
+					culture = scope:otto.culture 
+					NOT = { this = scope:otto }
+					exists = scope:otto.joined_faction
+					can_join_faction = scope:otto.joined_faction
+				}
+				#custom = every_saxon_vassal
+				random = {
+					chance = 20
+					if = {
+						limit = {
+							exists = scope:otto.joined_faction
+						}
+						join_faction = scope:otto.joined_faction
+					}
+				}
+			}
+		}
+		scope:otto.joined_faction = {
+			faction_start_war = { title = title:e_hre }
+			faction_war = {
+				save_scope_as = faction_war
+				hidden_effect = { set_casus_belli = first_saxon_revolt_faction_war }
+			}
+			faction_spawn_member_county_armies_effect = {
+				FACTION = scope:faction
+				ARMY_OWNER = scope:otto
+				PEASANT_ARMY_NAME = populist_faction_event_troops
+			}
+		}
+		scope:otto = {
+			random_character_war = {
+				limit = {
+					using_cb = liberty_faction_war
+					primary_defender = scope:emperor
+				}
+				save_scope_as = faction_war
+			}
+			hidden_effect = {
+				scope:faction_war = {
+				set_casus_belli = first_saxon_revolt_faction_war
+				}
+			}
+			if = {
+				limit = {
+					exists = scope:faction_war
+				}
+				spawn_army = {
+					levies = 2000
+					location = scope:otto.capital_county.title_province
+					war = scope:faction_war
+					name = populist_faction_event_troops
+				}
+			}
+		}
 	}
 
 	option = {
 		trigger = {
 			this = title:e_hre.holder
 		}
-		name = tct_neutral_struggle.1002.c
+		name = tct_neutral_struggle.1002.d
 	}
 
 	after = {
@@ -514,6 +632,10 @@ tct_neutral_struggle.1002 = {
 					death_reason = death_disappearance
 				}
 			}
+		}
+		character:1530 = {
+			save_scope_as = welf
+			trigger_event = { days = 2 id = tct_neutral_struggle.1003 }
 		}
 	}
 }
@@ -563,51 +685,82 @@ tct_neutral_struggle.1003 = {
 			DIVORCEE = scope:spouse
 		}
 
-		create_title_and_vassal_change = {
-			type = granted
-			save_scope_as = change
-			add_claim_on_loss = yes
-		}
-
-		scope:otto = {
-			every_held_title = {
-				change_title_holder = {
-					holder = root
-					change = scope:change
+		if = {
+			limit = {
+				NOT = {
+					scope:otto = {
+						is_at_war_with = title:e_hre.holder
+					}
 				}
 			}
-			every_vassal = {
-				change_liege = {
-					liege = root
-					change = scope:change
+			create_title_and_vassal_change = {
+				type = granted
+				save_scope_as = change
+				add_claim_on_loss = yes
+			}
+	
+			scope:otto = {
+				every_held_title = {
+					change_title_holder = {
+						holder = root
+						change = scope:change
+					}
+				}
+				every_vassal = {
+					change_liege = {
+						liege = root
+						change = scope:change
+					}
 				}
 			}
-		}
-		resolve_title_and_vassal_change = scope:change
-
-		scope:otto = { 
-			add_character_flag = force_ai_created_laamp 
-			#depose_effect = { DEPOSER = scope:emperor } 
-			create_landless_adventurer_title_effect = { REASON = flag:deposition FLAVOR_CHAR = title:e_hre.holder }
-			hidden_effect = {
-				add_pressed_claim = title:k_bavaria
-				add_realm_law_skip_effects = camp_purpose_legitimists
+			resolve_title_and_vassal_change = scope:change
+	
+			scope:otto = { 
+				add_character_flag = force_ai_created_laamp 
+				#depose_effect = { DEPOSER = scope:emperor } 
+				create_landless_adventurer_title_effect = { REASON = flag:deposition FLAVOR_CHAR = title:e_hre.holder }
+				hidden_effect = {
+					add_pressed_claim = title:k_bavaria
+					add_realm_law_skip_effects = camp_purpose_legitimists
+				}
 			}
-		}
-
-		add_opinion = {
-			target = title:e_hre.holder
-			modifier = received_title_duchy
-			opinion = 80
-		}
-
-		scope:emperor = {
+	
 			add_opinion = {
-				target = root
-				modifier = loyal_servant
-				opinion = 50
+				target = title:e_hre.holder
+				modifier = received_title_duchy
+				opinion = 80
+			}
+	
+			scope:emperor = {
+				add_opinion = {
+					target = root
+					modifier = loyal_servant
+					opinion = 50
+				}
 			}
 		}
+		else = {
+			if = {
+				limit = {
+					scope:otto = {
+						is_at_war_with = title:e_hre.holder
+					}
+				}
+				scope:emperor = {
+					every_character_war = {
+						limit = {
+							OR = {
+								primary_attacker = scope:otto
+								primary_defender = scope:emperor
+							}
+						}
+						add_defender = scope:welf
+					}
+				}
+				add_character_flag = promised_bavaria
+			}
+		}
+
 
 		ai_chance = {
 			base = 100
@@ -831,7 +984,7 @@ tct_neutral_struggle.1005 = {
 					}
 					custom = every_culture_vassal
 					random = {
-						chance = 40
+						chance = 50
 						if = {
 							limit = {
 								exists = scope:magnus.joined_faction
@@ -844,7 +997,8 @@ tct_neutral_struggle.1005 = {
 			scope:magnus.joined_faction = {
 				faction_start_war = { title = title:e_hre }
 				faction_war = {
-					set_casus_belli = first_saxon_revolt_faction_war
+					save_scope_as = faction_war
+					hidden_effect =  { set_casus_belli = first_saxon_revolt_faction_war }
 				}
 				faction_spawn_member_county_armies_effect = {
 					FACTION = scope:faction
@@ -861,7 +1015,7 @@ tct_neutral_struggle.1005 = {
 					save_scope_as = faction_war
 				}
 				scope:faction_war = {
-					set_casus_belli = first_saxon_revolt_faction_war
+					hidden_effect = { set_casus_belli = first_saxon_revolt_faction_war} 
 				}
 				if = {
 					limit = {
@@ -876,7 +1030,7 @@ tct_neutral_struggle.1005 = {
 				}
 			}
 			scope:faction_war ?= {
-				add_attacker = root
+				add_attacker = scope:otto
 			}
 		}
 
@@ -912,7 +1066,7 @@ tct_neutral_struggle.1005 = {
 					}
 					custom = every_culture_vassal
 					random = {
-						chance = 30 
+						chance = 40 
 						scope:faction_war ?= {
 							add_attacker = prev
 						}
@@ -1521,9 +1675,84 @@ tct_neutral_struggle.2003 = {
 
 
 
-
-
-
-
-
 # The Second Rebellion # Event for Otto of Bavaria and Heinrich 
+
+
+### Debug ###
+tct_neutral_struggle.9999 = {
+	type = character_event
+	window = fullscreen_event
+	title = {
+		desc = {
+			first_valid = {
+				triggered_desc = {
+					trigger = { is_female = yes }
+					desc = ep3_laamps.0001.t.female
+				}
+				desc = ep3_laamps.0001.t.male
+			}
+		}
+	}
+	desc = ep3_laamps.0004.desc
+	theme = realm
+	left_portrait = {
+		character = root
+		animation = stress
+	}
+	lower_left_portrait = scope:alt_1
+	lower_center_portrait = scope:alt_2
+	lower_right_portrait = scope:alt_3
+	override_background = { reference = ep3_fullscreen_adventurer_negative }
+	
+	trigger = {
+		is_ai = no
+		exists = var:deposed_primary_title
+		NOT = { has_character_flag = become_laamp_event_cooldown }
+	}
+
+	immediate = {
+		character:1530 = {
+			save_scope_as = heir
+		}
+
+		add_character_flag = {
+			flag = become_laamp_event_cooldown
+			days = 5
+		}
+		var:deposed_primary_title ?= {
+			# Save highest lost title for loc
+			save_scope_as = conquered
+			# And for memory variables.
+			save_scope_as = lost_primary_title
+		}
+		# Portrait scopes
+		if = {
+			limit = {
+				NOT = { exists = scope:alt_3 }
+			}
+			if = {
+				limit = { exists = scope:conquered.holder }
+				scope:conquered.holder = { save_scope_as = alt_3 }
+			}
+			else_if = {
+				limit = {
+					NOR = {
+						scope:alt_1 ?= scope:winner
+						scope:alt_2 ?= scope:winner
+					}
+				}
+				scope:winner ?= { save_scope_as = alt_3 }
+			}
+		}
+	}
+
+	option = {
+		name = ep3_laamps.0001.a
+		add_internal_flag = special
+	}
+	option = {
+		name = ep3_laamps.0001.e
+		laamp_game_over_option_effect = yes
+		hidden_effect = { move_to_pool = yes }
+	}
+}
