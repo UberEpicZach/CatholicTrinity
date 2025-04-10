@@ -15,7 +15,7 @@
  building_tct_leisure_palace_01:0 "Chateau"
  building_tct_leisure_palace_01_desc:0 "When the burdens of responsibility become too much (or an angry mob of peasants is storming the gates), there's no place like the rural, far-away chateau for some impromptu relaxation!"
  building_tct_leisure_palace_02:0 "Imperial Palace"
- building_tct_leisure_palace_02_desc:0 "The Imperial Palace of Goslar is located at the foot of the Harz Mountains, far away from the menial lives of our toiling subjects. There's truly no better way to display royal power and prestige, and the simple fact that we are #emphasis better#! than everyone else."
+ building_tct_leisure_palace_02_desc:0 "The Imperial Palace of [GetTitleByKey('b_goslar').GetNameNoTier] is located at the foot of the Harz Mountains, far away from the menial lives of our toiling subjects. There's truly no better way to display royal power and prestige, and the simple fact that we are #emphasis better#! than everyone else."
  building_tct_leisure_palace_03:0 "Winter Palace"
  building_tct_leisure_palace_03_desc:0 "The winter palace is designed to house the royal family during the harsher months of the year. With a well-stocked larder and a defensible position, it towers over any shivering subjects that have the privilege to work nearby."
  
@@ -208,14 +208,13 @@
 
  character_cannot_be_targetted:0 "This target can't be targetted"
 
-
  #EVENT LOC
- tct_neutral_struggle.0002.t: "Goslar, Silver Mines and the Saxons"
- tct_neutral_struggle.0002.desc: "I stand within the Imperial Palace of Goslar looking out to the fields below...the Saxons—a thorn in the flesh, a thorn that dates back to the reign of my late father. Goslar, this palace which is supposed to signify unity, has instead become a chokehold upon their livelihoods. It's a bitter draught to swallow, but who am I to deny the burdens of lineage? \n\nYet, I stand resolute in my intentions. The silver mines of Rammelsberg, the fortresses that rise like dragons along the Harz mountains—these are not mere whims of a tyrant. They are bastions of imperial strength, my strength as emperor, My ministeriales, their Swabian roots notwithstanding, are the sinew and bone of this vision. If the Saxons see this as a threat, it is only because they are blinded by their own insecurities. They'll soon come to understand, either willingly or through the firm hand of my governance."
+ tct_neutral_struggle.0002.t: "[GetTitleByKey('b_goslar').GetNameNoTier], Silver Mines and the Saxons"
+ tct_neutral_struggle.0002.desc: "I stand within the Imperial Palace of [GetTitleByKey('b_goslar').GetNameNoTier] looking out to the fields below...the Saxons—a thorn in the flesh, a thorn that dates back to the reign of my late father. [GetTitleByKey('b_goslar').GetNameNoTier], this palace which is supposed to signify unity, has instead become a chokehold upon their livelihoods. It's a bitter draught to swallow, but who am I to deny the burdens of lineage? \n\nYet, I stand resolute in my intentions. The silver mines of Rammelsberg, the fortresses that rise like dragons along the Harz mountains—these are not mere whims of a tyrant. They are bastions of imperial strength, my strength as emperor, My ministeriales, their Swabian roots notwithstanding, are the sinew and bone of this vision. If the Saxons see this as a threat, it is only because they are blinded by their own insecurities. They'll soon come to understand, either willingly or through the firm hand of my governance."
  tct_neutral_struggle.0002.a: "All in good time.."
 
- tct_neutral_struggle.0003.t: "Goslar, Silver Mines and the Salians"
- tct_neutral_struggle.0003.desc: "Dark are the days since Henry IV ascended the throne, casting his shadow over Saxon lands like a hawk circling its prey. My heart beats with indignation as I hear of the Emperor's deeds, his Rhenish Franconian heritage betraying no love for us. Goslar, that accursed palace, has not only consumed our wealth but has become a symbol of subjugation. I can feel the resentment simmering among my countrymen, a cauldron set to boil over. \n\nIn the heart of the Harz mountains, he plunders our silver and erects fortresses as if adorning his realm with trophies of conquest. The Harzburg castle and its ilk serve as reminders of his authority. But the true insult lies in the Swabian ministeriales he has unleashed upon us, men who raid our villages and tarnish our honor. Henry might see this as an assertion of royal power, but we see it for what it is—an invasion, a threat to our existence. This unrest finds echoes even among the Empire's great princes. If Henry believes that castles and ministeriales can quash the Saxon spirit, he is gravely mistaken. The time for passive support is dwindling; the moment for action draws near."
+ tct_neutral_struggle.0003.t: "[GetTitleByKey('b_goslar').GetNameNoTier], Silver Mines and the Salians"
+ tct_neutral_struggle.0003.desc: "Dark are the days since Henry IV ascended the throne, casting his shadow over Saxon lands like a hawk circling its prey. My heart beats with indignation as I hear of the Emperor's deeds, his Rhenish Franconian heritage betraying no love for us. [GetTitleByKey('b_goslar').GetNameNoTier], that accursed palace, has not only consumed our wealth but has become a symbol of subjugation. I can feel the resentment simmering among my countrymen, a cauldron set to boil over. \n\nIn the heart of the Harz mountains, he plunders our silver and erects fortresses as if adorning his realm with trophies of conquest. The Harzburg castle and its ilk serve as reminders of his authority. But the true insult lies in the Swabian ministeriales he has unleashed upon us, men who raid our villages and tarnish our honor. Henry might see this as an assertion of royal power, but we see it for what it is—an invasion, a threat to our existence. This unrest finds echoes even among the Empire's great princes. If Henry believes that castles and ministeriales can quash the Saxon spirit, he is gravely mistaken. The time for passive support is dwindling; the moment for action draws near."
  tct_neutral_struggle.0003.a: "All in good time.."
 
 
@@ -277,22 +276,27 @@
 # "The Saxon Revolt" # Event for Otto of Bavaria and Heinrich IV, maybe everyone in the struggle region?
  FIRST_SAXON_REVOLT_WAR_NAME: "The Saxon Uprising"
  tct_neutral_struggle.1005.t: "The Saxon Uprising"
- tct_neutral_struggle.1005.desc: "The Saxons have risen in defiance, their long-simmering anger now bursting into open rebellion. \n\nThe emperor’s trial of [otto.GetFirstName] [otto.GetDynastyName] has been the catalyst, igniting years of frustration into a full-scale revolt. Led by [magnus.GetFullName], the Saxon lords have united under a single banner, and the people, emboldened, have taken up arms to throw off the weight of imperial oppression. Rebel forces now march toward Goslar, their resolve clear: to bring the emperor to account for his tyranny."
+ tct_neutral_struggle.1005.desc: "The Saxons have risen in defiance, their long-simmering anger now bursting into open rebellion. \n\nThe emperor’s trial of [otto.GetFirstName] [otto.GetDynastyName] has been the catalyst, igniting years of frustration into a full-scale revolt. Led by [magnus.GetFullName], the Saxon lords have united under a single banner, and the people, emboldened, have taken up arms to throw off the weight of imperial oppression. Rebel forces now march toward [GetTitleByKey('b_goslar').GetNameNoTier], their resolve clear: to bring the emperor to account for his tyranny."
  tct_neutral_struggle.1005.a: "Let the best one win."
  tct_neutral_struggle.1005.b: "Let the best one win." 
- every_saxon_vassal: "Every vassal of your [culture.GetNameNoTooltip]" 
+ every_saxon_vassal: "Every [attacker.GetCulture.GetName] Direct Vassal" 
+ first_saxon_revolt_faction_war: "The Saxon Uprising"
 
  every_tct_faith_vassal: "Every [GetFaithByKey('catholic').GetAdjective] Vassal"
 
 # "The Sack of Harzburg" # Event for Otto of Bavaria and Heinrich IV
 
- tct_neutral_struggle.1006.t: "The Sack of Goslar-Harzburg"
+ tct_neutral_struggle.1006.t: "The Sack of [GetTitleByKey('b_goslar').GetNameNoTier]-Harzburg"
  tct_neutral_struggle.1006.desc: "The once-proud Palace of Harzburg lies in ruin, its sacred grounds desecrated. A group of [magnus.GetFirstName]'s Rebel forces, have turned to unrestrained barbarism. Graves have been ripped open, the remains of princes and bishops discarded like refuse, their sanctity mocked by jeering looters. The chapel, once a place of reverence, is now rubble, its relics stolen or destroyed, and its altars smeared with blood and ash. \n\nThe monks who tried to shield the graves lie among the ruins, their lifeless bodies scattered where they made their final stand. Some rebels laugh at the carnage, their cruelty unchecked, while others falter, horror etched into their faces as the scale of their comrades' savagery became clear. \n\nThis is no longer rebellion—it is sacrilege. Whispers of unease spread through the empire itself: ‘This was not justice.’ This has not broken the emperor’s resolve but strengthened his claim to vengeance, what was once a rebellion for justice is now condemned as a campaign of heresy and barbarism."
  tct_neutral_struggle.1006.a: ""This... this is unthinkable."
 
- tct_neutral_struggle.1007.t: "PLACEHOLDER"
- tct_neutral_struggle.1007.desc: "PLACEHOLDER"
- tct_neutral_struggle.1007.a: "PLACEHOLDER."
+ # End of the Saxon Revolt # Event for Otto, giving option to attack Bavaria for his land back, OR choose to chill in Saxony as a 'Agent' of the crown 
+ tct_neutral_struggle.1007.t: "The Aftermath"
+ tct_neutral_struggle.1007.desc: "The Saxon Rebellion has ended, but the scars it left behind are deep. [emperor.GetTitledFirstName]'s forces have been humbled, and in a rare display of submission, he has granted sweeping concessions to the rebels. He may no longer freely [revoke|E] [saxon.GetName] [titles|E], and the burdens of [vassal_taxes|E] and [levies|E] have been eased. Even the lands of Harzberg and [GetTitleByKey('b_goslar').GetNameNoTier] have been returned to Saxon hands. \n\nAmong these terms, the [GetTitleByKey('e_hre').GetHolder.GetTitleAsNameNoTooltip] has recognized my claim to the [GetTitleByKey('d_bavaria').GetName], only if I can seize it by my own strength from [welf.GetFullName].\n\nShould I choose otherwise, I have been granted the title of [Glossary( 'Reichsverweser', 'Reichsverweser_gloss' )], as an official mediator between the Crown and the [saxon.GetName] people."
+ tct_neutral_struggle.1007.a: "Bavaria shall be mine."
+ tct_neutral_struggle.1007.b: "A #italic #B [Glossary( 'Reichsverweser', 'Reichsverweser_gloss' )]#!#! of [GetTitleByKey('d_ostfalen').GetNameNoTier]? I like the sound of that."
+ Reichsverweser_gloss: "The #bold Reichsverweser#! — a German position who is a 'appointed representative of the [GetTitleByKey('e_hre').GetHolder.GetTitleAsNameNoTooltip]', entrusted to act on his behalf within a specific region. \n\nWhile traditionally a title reserved for those governing in the absence of a monarch, it has also been used for trusted intermediaries—part regent, part overseer—tasked with managing relations between the Crown and regional powers."
+ claim_cb_non_target_top_liege: "Claim"
 
  tct_neutral_struggle.2001.t: "A Hunchback's Dread"
  tct_neutral_struggle.2001.desc: "Fear grips my every waking moment. The lords beneath me plot, their whispers growing louder with each passing day. They see my frailty, my lack of an heir, as an opportunity to divide my lands and erase my legacy. I cannot allow that. \n\nMy [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('nephew'))], [nephew.GetFullName], is the answer—a strong, capable [nephew.Custom('WomanManGirlBoy')] who could defend what I cannot."

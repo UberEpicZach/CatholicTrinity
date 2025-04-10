@@ -5,11 +5,11 @@
 		target_title = title:d_bavaria
 		claimant = character:112600
 	}
-	random_character_war = {
+	random_character_war ?= {
 		limit = { using_cb = claim_cb_non_target_top_liege }
 		save_scope_as = bavarian_reconquest
 	} 
-	scope:bavarian_reconquest = {
+	scope:bavarian_reconquest ?= {
 		add_attacker = title:d_ostfalen.holder
 	}
 }

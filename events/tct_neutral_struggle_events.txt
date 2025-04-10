@@ -1116,6 +1116,86 @@ tct_neutral_struggle.1006 = {
 	immediate = {
 		if = {
 			limit = {
+				exists = global_var:sack_of_harzburg
+			}
+			show_as_tooltip = {
+				scope:magnus = {
+					spawn_army = {
+						levies = 3000
+						men_at_arms = {
+							type = mangonel
+							stacks = 6
+						}
+						location = title:c_gottingen.title_province
+						war = scope:faction_war
+						name = populist_faction_event_troops
+					}
+				}
+		
+				title:b_goslar = {
+					destroy_random_building_variable_effect = yes
+					destroy_random_building_effect = yes
+		
+					destroy_random_building_variable_effect = yes
+					destroy_random_building_effect = yes
+				}
+		
+				scope:faction_war = {
+					every_war_attacker = {
+						add_piety = medium_piety_loss
+						add_to_list = attacker_characters
+					}
+				}
+				scope:otto = {
+					faith = { save_scope_as = faith }
+				}
+				title:e_hre.holder = {
+					every_vassal = {
+						limit = {
+							faith = root.faith
+							NOR = { this = scope:otto this = scope:magnus }
+						}
+						custom = every_tct_faith_vassal
+						every_in_list = {
+							list = attacker_characters
+							reverse_add_opinion = {
+								target = prev
+								modifier = shrine_desecrater_opinion
+							}
+						}
+					}
+					every_in_list = {
+						list = attacker_characters
+						reverse_add_opinion = {
+							target = prev
+							modifier = shrine_desecrater_opinion
+							opinion = -75
+						}
+						reverse_add_opinion = {
+							target = prev
+							modifier = graverobber_opinion
+							opinion = -50
+						}
+					}
+					random_vassal = {
+						limit = {
+							NOR = { this = scope:otto this = scope:magnus }
+							highest_held_title_tier >= tier_duchy
+							opinion = {
+								target = title:e_hre.holder
+								value >= 20
+							}
+						}
+						save_scope_as = joining_war_vassal
+						scope:faction_war = {
+							add_defender = scope:joining_war_vassal
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
 				NOT = {
 					exists = global_var:sack_of_harzburg
 				}
@@ -1211,85 +1291,6 @@ tct_neutral_struggle.1006 = {
 				trigger_event = tct_neutral_struggle.1006 
 			}
 		}
-		if = {
-			limit = {
-				exists = global_var:sack_of_harzburg
-			}
-			show_as_tooltip = {
-				scope:magnus = {
-					spawn_army = {
-						levies = 3000
-						men_at_arms = {
-							type = mangonel
-							stacks = 6
-						}
-						location = title:c_gottingen.title_province
-						war = scope:faction_war
-						name = populist_faction_event_troops
-					}
-				}
-		
-				title:b_goslar = {
-					destroy_random_building_variable_effect = yes
-					destroy_random_building_effect = yes
-		
-					destroy_random_building_variable_effect = yes
-					destroy_random_building_effect = yes
-				}
-		
-				scope:faction_war = {
-					every_war_attacker = {
-						add_piety = medium_piety_loss
-						add_to_list = attacker_characters
-					}
-				}
-				scope:otto = {
-					faith = { save_scope_as = faith }
-				}
-				title:e_hre.holder = {
-					every_vassal = {
-						limit = {
-							faith = root.faith
-							NOR = { this = scope:otto this = scope:magnus }
-						}
-						custom = every_tct_faith_vassal
-						every_in_list = {
-							list = attacker_characters
-							reverse_add_opinion = {
-								target = prev
-								modifier = shrine_desecrater_opinion
-							}
-						}
-					}
-					every_in_list = {
-						list = attacker_characters
-						reverse_add_opinion = {
-							target = prev
-							modifier = shrine_desecrater_opinion
-							opinion = -75
-						}
-						reverse_add_opinion = {
-							target = prev
-							modifier = graverobber_opinion
-							opinion = -50
-						}
-					}
-					random_vassal = {
-						limit = {
-							NOR = { this = scope:otto this = scope:magnus }
-							highest_held_title_tier >= tier_duchy
-							opinion = {
-								target = title:e_hre.holder
-								value >= 20
-							}
-						}
-						scope:faction_war = {
-							add_defender = prev
-						}
-					}
-				}
-			}
-		}
 	}
 
 	option = {
@@ -1297,41 +1298,69 @@ tct_neutral_struggle.1006 = {
 	}
 }
 
+# End of the Saxon Revolt # Event for Otto, giving option to attack Bavaria for his land back, OR choose to chill in Saxony as a 'Agent' of the crown
 tct_neutral_struggle.1007 = {
 	type = character_event
 	title = tct_neutral_struggle.1007.t
 	desc = tct_neutral_struggle.1007.desc
-
-	theme = war
-	override_background = {
-		reference = burning_building
+	theme = realm
+	left_portrait = {
+		character = root
+		animation = personality_bold
 	}
 	right_portrait = {
-		character = scope:otto
-		animation = shock
+		character = scope:welf
+		animation = personality_rational
 	}
-
-	widget = {
-		gui = "event_window_widget_vfx_conclusion_smoke"
-		container = "background_shader_vfx_container"
+	lower_right_portrait = {
+		character = scope:emperor
 	}
 
 	immediate = {
-		if = {
-			limit = {
-				this = scope:otto
-			}
-			tct_neutral_struggle_1006_start_war = yes
+		title:e_hre.holder = {
+			save_scope_as = emperor
 		}
-		else = {
-			show_as_tooltip = {
-				tct_neutral_struggle_1006_start_war = yes
-			}
+		title:d_bavaria.holder = {
+			save_scope_as = welf
+		}
+		character:112600 = {
+			save_scope_as = otto
+		}
+		culture:saxon = {
+			save_scope_as = saxon
 		}
 	}
 
 	option = {
 		name = tct_neutral_struggle.1007.a
+		if = {
+			limit = {
+				this = scope:otto
+			}
+			scope:otto = { tct_neutral_struggle_1006_start_war = yes }
+		}
+		else = {
+			show_as_tooltip = {
+				scope:otto = { tct_neutral_struggle_1006_start_war = yes }
+			}
+		}
+	}
+	option = {
+		name = tct_neutral_struggle.1007.b
+
+		title:e_hre.holder = {
+			every_vassal_or_below = {
+				limit = {
+					culture = scope:saxon
+					NOT = { this = scope:otto }
+					hightest_held_title_tier >= tier_county
+				}
+				custom = every_saxon_vassal
+				scope:otto = {
+					add_contact = prev
+				}
+			}
+		}
 	}
 }
 
