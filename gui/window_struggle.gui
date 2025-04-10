@@ -13,6 +13,7 @@ window = {
 	allow_outside = yes
 
 	using = Window_Background
+	using = sound_struggle_panel
 	size = { 687 100% }
 
 	state = {
@@ -244,7 +245,6 @@ window = {
 						blockoverride "button_close"
 						{
 							onclick = "[StruggleWindow.Close]"
-							clicksound = "event:/DLC/FP2/SFX/UI/fp2_struggle_view_close"
 						}
 					}
 					vbox = {
@@ -1211,6 +1211,7 @@ types Struggle
 			position = { 0 26 }
 
 			onclick = "[StruggleWindow.SetSelectedPhase(StrugglePhase.Self)]"
+			onclick = "[DefaultOnStrugglePhaseClick(Struggle.GetID, StrugglePhase.Self)]"
 			onclick = "[PdxGuiTriggerAllAnimations('catalyst_refresh')]"
 
 			enabled = "[Or( Not( Struggle.IsInTransitionPhase ), ObjectsEqual( StrugglePhase.Self, Struggle.GetNextPhase ) )]"
@@ -1610,24 +1611,55 @@ types Struggle
 	}
 
 	#TCT Changed
-	type struggle_mini_map_mode = flowcontainer {
-		position = { -200 -25 }
+	type struggle_mini_map_mode = mini_map_mode {
 		parentanchor = bottom|left
 		widgetanchor = bottom|right
-		spacing = 20
+		position = { -350 -25 }
 
-		mini_map_mode = {}
-
-		flowcontainer = {
-			minimumsize = { 0 60 }
-
-			background = {
-				using = Background_Area_Dark
-				margin = { 10 0 }
-				color = { 0.15 0.15 0.15 0.75 }
+		blockoverride "map_mode_buttons"
+		{
+			icon_button_mapmode = {
+				blockoverride = "mm_datacontext"
+				{
+					datacontext = "[GetMapMode( 'struggle' )]"
+				}
 			}
-			spacing = 5
 
+			icon_button_mapmode = {
+				blockoverride = "mm_datacontext"
+				{
+					datacontext = "[GetMapMode( 'realms' )]"
+				}
+
+				blockoverride "mm_button"
+				{
+					shortcut = "map_mode_1"
+				}
+			}
+
+			icon_button_mapmode = {
+				blockoverride = "mm_datacontext"
+				{
+					datacontext = "[GetMapMode( 'religions' )]"
+				}
+
+				blockoverride "mm_button"
+				{
+					shortcut = "map_mode_3"
+				}
+			}
+
+			icon_button_mapmode = {
+				blockoverride = "mm_datacontext"
+				{
+					datacontext = "[GetMapMode( 'cultures' )]"
+				}
+
+				blockoverride "mm_button"
+				{
+					shortcut = "map_mode_2"
+				}
+			}
 			flowcontainer = {
 				ignoreinvisible = yes
 				parentanchor = vcenter
@@ -1648,6 +1680,7 @@ types Struggle
 				}
 			}
 		}
+	}
 	}
 
 	type window_ending_phase_effects = window {
