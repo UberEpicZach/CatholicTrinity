@@ -1660,27 +1660,20 @@ types Struggle
 					shortcut = "map_mode_2"
 				}
 			}
-			flowcontainer = {
-				ignoreinvisible = yes
-				parentanchor = vcenter
+			icon_button_mapmode = {
 				visible = "[GetScriptedGui('tct_investiture_controversy_check').IsShown(GuiScope.SetRoot(StruggleWindow.GetStruggle.MakeScope).End)]"
-
-				icon_button_mapmode = {
-					blockoverride "mm_button" {
-						onclick = "[GetScriptedGui('struggle_supporter_mapmode').Execute( GuiScope.End )]"
-					}
-					blockoverride "mm_icon" {
-						texture = "gfx/interface/icons/laws/papal_investiture.dds"
-					}
-
-					blockoverride 'mm_datacontext'
-					{
-						datacontext = "[GetMapMode( 'tct_struggle_supporter' )]"
-					}
+				blockoverride = "mm_datacontext"
+				{
+					datacontext = "[GetMapMode( 'tct_struggle_supporter' )]"
+				}
+				blockoverride "mm_button" {
+					onclick = "[GetScriptedGui('struggle_supporter_mapmode').Execute( GuiScope.End )]"
+				}
+				blockoverride "mm_icon" {
+					texture = "gfx/interface/icons/laws/papal_investiture.dds"
 				}
 			}
 		}
-	}
 	}
 
 	type window_ending_phase_effects = window {
