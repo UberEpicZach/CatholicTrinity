@@ -18,7 +18,7 @@
 		culture = franconian
 		religion = catholic
 		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_MEDIUM"
-		position = { 950 300 }
+		position = { 450 250 }
 		
 		animation = worry
 
@@ -36,7 +36,8 @@
 		religion = catholic
 		culture = italian
 		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_MEDIUM"
-		position = { 950 800 }
+		#position = { 950 800 }
+		position = { 550 900 }
 		
 		animation = disapproval
 	}
@@ -44,7 +45,7 @@
 	character = {
 		name = "bookmark_ordulf" # ordulf
 		dynasty = 656
-		dynasty_splendor_level = 1
+		dynasty_splendor_level = 2
 		type = male
 		history_id = 1416
 		birth = 1021.1.2
@@ -53,7 +54,7 @@
 		religion = catholic
 		culture = saxon
 		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_MEDIUM"
-		position = { 500 150 }
+		position = { 800 90 }
 		
 		animation = thinking
 	}
@@ -62,7 +63,7 @@
 	character = {
 		name = "bookmark_matilda" #ID:7757
 		dynasty = 101556
-		dynasty_splendor_level = 1
+		dynasty_splendor_level = 2
 		type = female
 		history_id = 7757
 		birth = 1046.1.1
@@ -71,7 +72,8 @@
 		culture = italian
 		religion = catholic
 		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_MEDIUM"
-		position = { 500 750 }
+		#position = { 500 750 }
+		position = { 820 720 }
 		
 		animation = survey
 	}
@@ -89,7 +91,7 @@
 		culture = bavarian
 		religion = catholic
 		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_HARD"
-		position = { 600 500 }
+		position = { 460 520 }
 		animation = chess_cocky
 
 		character = {
@@ -114,5 +116,34 @@
 			history_id = 112600
 			animation = personality_bold
 		}
+	}
+
+	# Otto of Nordheim ID: 112600
+	character = {
+		name = "bookmark_otto"
+		dynasty = 766
+		dynasty_splendor_level = 2
+		type = male
+		history_id = 112600
+		birth = 1020.1.2
+		title = d_bavaria
+		government = feudal_government
+		culture = saxon
+		religion = catholic
+		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_HARD"
+		position = { 920 390 }
+	
+		character = {
+			name = "bookmark_welf"
+			relation = "BOOKMARK_RELATION_SON_IN_LAW"
+			dynasty_house = house_welf
+			type = male
+			birth = 1035.1.1
+			culture = bavarian
+			religion = catholic
+			history_id = 112600
+			animation = personality_bold
+		}
+		
 	}
 }
