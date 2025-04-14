@@ -1279,9 +1279,54 @@ lyon_archbishop_20 = {
 		death = yes
 	}
 }
+# Sons of Gero Wettin- 33370 
+# The opening hostilities in this new phase of the Saxon rebellion were the work of the Wettin princes Theoderic and William"
 
+additional_wettin_1 = {
+	name = "Theoderic" # Theoderic Wettin, Saxon rebel prince
+	dynasty_house = house_wettin # Wettin dynasty
+	father = 33370 # Gero Wettin
+	martial = 9
+	diplomacy = 6
+	intrigue = 7
+	stewardship = 5
+	learning = 4
+	religion = "catholic"
+	culture = "saxon"
+	trait = brave
+	trait = education_martial_3
+	
+	1055.1.1 = {
+		birth = yes
+	}
+	
+	1110.5.2 = {
+		death = yes
+	}
+}
 
-
+additional_wettin_2 = {
+	name = "Wilhelm" # William Wettin, Saxon rebel prince
+	dynasty_house = house_wettin # Wettin dynasty
+	father = 33370 # Gero Wettin
+	martial = 8
+	diplomacy = 4
+	intrigue = 8
+	stewardship = 3
+	learning = 5
+	religion = "catholic"
+	culture = "saxon"
+	trait = vengeful
+	trait = education_martial_2
+	
+	1057.3.12 = {
+		birth = yes
+	}
+	
+	1108.9.18 = {
+		death = yes
+	}
+}
 
 
 

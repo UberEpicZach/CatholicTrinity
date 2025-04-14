@@ -940,6 +940,12 @@ tct_neutral_struggle.1005 = {
 				days = 130
 				flag = wear_armor
 			}
+			if = {
+				limit = {
+					NOT = { has_character_flag = is_in_task_contract_event_chain }
+				}
+				add_character_flag = is_in_task_contract_event_chain
+			}
 		}
 
 		if = {
@@ -1325,6 +1331,12 @@ tct_neutral_struggle.1007 = {
 		}
 		character:112600 = {
 			save_scope_as = otto
+			if = {
+				limit = {
+					has_character_flag = is_in_task_contract_event_chain
+				}
+				remove_character_flag = is_in_task_contract_event_chain
+			}
 		}
 		culture:saxon = {
 			save_scope_as = saxon
@@ -1362,9 +1374,130 @@ tct_neutral_struggle.1007 = {
 			}
 		}
 	}
+
+	after = {
+		hidden_effect = {
+			set_global_variable = end_of_saxon_chain_one
+		}
+	}
 }
 
-# 
+# Second Saxon Chain Begining: First we need to see if Otto is still alive; he's no longer the most relevant character in the chain, but need to confirm.
+# "The opening hostilities in this new phase of the Saxon rebellion were the work of the Wettin princes Theoderic and William" 
+# Otto offers to mediate between the Empire and the Saxons, but Heinrich disregards him, invading Meissen with the Bohemians, in order to hunt the Wettin princes.
+tct_neutral_struggle.1050 = {
+	type = character_event
+	title = tct_neutral_struggle.1050.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					this = title:e_hre.holder
+				}
+				desc = tct_neutral_struggle.1050.desc.emperor
+			}
+			triggered_desc = {
+				trigger = {
+					this = scope:otto
+				}
+				desc = tct_neutral_struggle.1050.desc.otto
+			}
+			triggered_desc = {
+				trigger = { always = yes }
+				desc = tct_neutral_struggle.1050.desc
+			}
+		}
+	}
+
+	theme = war
+	override_background = {
+		reference = forest
+	}
+	left_portrait = {
+		character = scope:theoderic
+		animation = marshal
+	}
+	right_portrait = {
+		character = scope:william
+		animation = personality_bold
+	}
+	lower_right_portrait = {
+		character = title:e_hre.holder
+	}
+	lower_left_portrait = {
+		character = scope:otto
+		animation = thinking
+	}
+
+	immediate = {
+		character:additional_wettin_1 = {
+			save_scope_as = theoderic
+		}
+		character:additional_wettin_2 = {
+			save_scope_as = william
+		}
+
+		title:e_hre.holder = {
+			save_scope_as = emperor
+		}
+		
+		if = {
+			limit = {
+				exists = character:112600
+				character:112600 = { is_alive = yes }
+			}
+			character:112600 = {
+				save_scope_as = otto
+			}
+		}
+		
+		# Save Bohemian ruler
+		if = {
+			limit = {
+				exists = title:d_bohemia.holder
+			}
+			title:d_bohemia.holder = {
+				save_scope_as = bohemian_king
+			}
+		}
+	}
+
+	option = {
+		name = tct_neutral_struggle.1050.a
+		trigger = {
+			this = title:e_hre.holder
+		}
+		custom_tooltip = tct_neutral_struggle.1050.a.tt
+		# hidden_effect = {
+		# 	scope:otto ?= {
+		# 		trigger_event = { id = tct_neutral_struggle.1051 days = 5 }
+		# 	}
+		# 	trigger_event = { id = tct_neutral_struggle.1052 days = 14 }
+		# }
+	}
+
+	option = {
+		name = tct_neutral_struggle.1050.b
+		trigger = {
+			this = scope:otto
+		}
+		custom_tooltip = tct_neutral_struggle.1050.b.tt
+		# hidden_effect = {
+		# 	title:e_hre.holder = {
+		# 		trigger_event = { id = tct_neutral_struggle.1051 days = 5 }
+		# 	}
+		# }
+	}
+
+	option = {
+		name = tct_neutral_struggle.1050.c
+		trigger = {
+			NOT = { this = title:e_hre.holder }
+			NOT = { this = scope:otto }
+		}
+	}
+}
+
 
 scripted_effect tct_neutral_struggle_2001_title_claims_effect = {
 	every_held_title = {

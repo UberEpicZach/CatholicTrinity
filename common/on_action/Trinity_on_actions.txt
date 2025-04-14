@@ -190,13 +190,13 @@ random_yearly_playable_pulse = {
 		TCT_historical_deaths
 
 		# Bavarian Chain
-		TCT_1066_Bavarian_Chain
+		TCT_1066_First_Saxon_Chain
 	}
 }
 
-TCT_1066_Bavarian_Chain = {
+TCT_1066_First_Saxon_Chain = {
 	trigger = {
-		tct_neutral_struggle_bavarian_chain_trigger = yes
+		tct_neutral_struggle_first_saxon_chain_trigger = yes
 	}
 	effect = {
 		random = {
@@ -213,9 +213,36 @@ TCT_1066_Bavarian_Chain = {
 				add = 40
 				current_date > 1070.1.1
 			}
-			set_global_variable = TCT_1066_Bavarian_Chain_Fired
+			set_global_variable = TCT_1066_First_Saxon_Chain
 			character:1316 = {
 				trigger_event = tct_neutral_struggle.1001
+			}
+		}
+	}
+}
+TCT_1066_Second_Saxon_Chain = {
+	trigger = {
+		tct_neutral_struggle_second_saxon_chain_trigger = yes
+		exists = global_var:end_of_saxon_chain_one
+	}
+	effect = {
+		random = {
+			chance = 0
+			modifier = {
+				add = 20
+				current_date > 1075.1.1
+			}
+			modifier = {
+				add = 40
+				current_date > 1079.1.1
+			}
+			modifier = {
+				add = 40
+				current_date > 1080.1.1
+			}
+			set_global_variable = TCT_1066_Second_Saxon_Chain
+			character:1316 = {
+				trigger_event = tct_neutral_struggle.1050
 			}
 		}
 	}

@@ -1,8 +1,38 @@
-﻿tct_neutral_struggle_bavarian_chain_trigger = {
+﻿tct_neutral_struggle_first_saxon_chain_trigger = {
 	this = character:1316
 	title:d_bavaria.holder = character:112600
 	title:e_hre.holder = character:1316
 	NOT = {
-		exists = global_var:TCT_1066_Bavarian_Chain_Fired
+		exists = global_var:TCT_1066_First_Saxon_Chain
 	}
 }
+
+tct_neutral_struggle_second_saxon_chain_trigger = {
+	title:e_hre.holder = character:1316
+	
+	title:d_ostfalen ?= { add_to_temporary_list = saxon_titles }
+	title:d_meissen ?= { add_to_temporary_list = saxon_titles }
+	title:d_lausitz ?= { add_to_temporary_list = saxon_titles }
+	title:d_thuringia ?= { add_to_temporary_list = saxon_titles }
+	title:d_anhalt ?= { add_to_temporary_list = saxon_titles }
+	title:d_bavaria ?= { add_to_temporary_list = saxon_titles }
+	
+	any_in_list = {
+		list = saxon_titles
+		count >= 2
+
+		holder = { 
+			has_culture = culture:saxon 
+			opinion = {
+				target = title:e_hre.holder
+				value <= -30
+			}
+		}
+	}
+
+	NOT = {
+		exists = global_var:TCT_1066_Second_Saxon_Chain
+	}
+	exists = global_var:end_of_saxon_chain_one
+}
+

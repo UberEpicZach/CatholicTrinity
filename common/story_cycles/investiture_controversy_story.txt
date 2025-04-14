@@ -78,7 +78,7 @@
 
 	# Emperor's Appointment of an Anti-Pope
 	effect_group = { # 
-		days = 180
+		days = { 360 3652 }
 
 		trigger = {
 			title:e_hre.holder = {
