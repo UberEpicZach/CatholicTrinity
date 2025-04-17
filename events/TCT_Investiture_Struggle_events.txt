@@ -207,7 +207,6 @@ tct_investiture_struggle.0051 = { # BOOKMARK EVENT
 	}
 	theme = realm
 	trigger = { # we need to prevent this from firing for all players when a new player joins in MP
-		is_ai = no
 		NOT = { has_character_flag = tct_investiture_struggle_intro_event_flag }
 		any_character_struggle = { is_struggle_type = investiture_controversy_struggle }
  	}
@@ -236,27 +235,548 @@ tct_investiture_struggle.0051 = { # BOOKMARK EVENT
 			value = yes
 		}
 	}
+	# For the Emperor!
+
 	option = {
-		name = {
-			text = {
-				first_valid = {
-					triggered_desc = {
-						trigger = {
-							any_character_struggle = { is_struggle_type = investiture_controversy_struggle }
-							OR = {
-								tct_investiture_struggle_is_the_emperor = yes
-								is_pope = yes
-								has_trait = tct_papal_supporter
-								has_trait = tct_imperial_supporter
-							}
-						}
-						desc = tct_investiture_struggle.0051.b
-					}
-					desc = tct_investiture_struggle.0051.a
-				}
+		name = tct_investiture_struggle.0051.a
+		clicksound = "event:/DLC/FP2/SFX/UI/fp2_struggle_start_select"
+		trigger = {
+			any_character_struggle = { is_struggle_type = investiture_controversy_struggle }
+			has_faith = faith:catholic
+			NOT = {
+				this = title:k_papal_state.holder
 			}
 		}
+		add_trait = tct_imperial_supporter
+		add_character_flag = tct_investiture_struggle_intro_event_flag
+
+		ai_chance = {
+			base = 0
+
+			# High Opinion
+			modifier = {
+				add = 15
+				opinion = {
+					target = title:e_hre.holder
+					value >= 40
+				}
+			}
+			
+			# Relationships
+			# Good
+			modifier = {
+				add = 70
+				is_allied_to = title:e_hre.holder
+			}
+			modifier = {
+				add = 20
+				has_relation_friend = title:e_hre.holder
+			}
+			modifier = {
+				add = 30
+				has_relation_best_friend = title:e_hre.holder
+			}
+			modifier = {
+				add = 30
+				has_relation_lover = title:e_hre.holder
+			}
+			# Bad
+			modifier = {
+				add = -50
+				has_relation_rival = title:e_hre.holder
+			}
+			modifier = {
+				add = -100
+				has_relation_nemesis = title:e_hre.holder
+			}
+			modifier = {
+				add = -70
+				is_allied_to = title:k_papal_state.holder
+			}
+			modifier = {
+				add = -50
+				OR = {
+					has_relation_friend = title:k_papal_state.holder
+					has_relation_best_friend = title:k_papal_state.holder
+				}
+			}
+			modifier = {
+				add = -15
+				opinion = {
+					target = title:k_papal_state.holder
+					value >= 20
+				}
+			}
+			modifier = {
+				add = 20
+				house = title:e_hre.holder.house
+			}
+
+			# Vassal Loyalty
+			modifier = {
+				add = 20
+				AND = {
+					is_vassal_or_below_of = title:e_hre.holder
+					OR = {
+						AND = {
+							has_trait = loyal # Loyal but still must like him
+							opinion = {
+								target = title:e_hre.holder
+								value >= 25
+							}
+						}
+						AND = {
+							has_vassal_stance = courtly # Courtly, but still must like him
+							opinion = {
+								target = title:e_hre.holder
+								value >= 25
+							}
+						}
+					}
+				}
+			}
+
+			# Honor
+			modifier = {
+				add = 20
+				AND = {
+					ai_honor >= 60
+					opinion = {
+						target = title:e_hre.holder
+						value >= 25
+					}
+				}
+			}
+
+			# Others in Same County
+			modifier = {
+				add = 15
+				AND = {
+					highest_held_title_tier >= tier_county
+					exists = liege
+					liege = {
+						any_vassal = {
+							percent >= 0.3
+							opinion = {
+								target = title:e_hre.holder
+								value >= 15
+							}
+						}
+					}
+				}
+			}
+
+			# Cultural factors
+			modifier = {
+				add = 15
+				has_culture = title:e_hre.holder.culture
+			}
+			modifier = {
+				add = -55
+				has_culture = culture:saxon
+			}
+
+			# Titles and Claims			
+			modifier = {
+				add = 15
+				title:k_papal_state.holder = {
+					any_held_title = {
+						root = {
+							has_claim_on = prev
+						}
+					}
+				}
+			}
+			modifier ={
+				add = 40
+				any_involved_ruler = {
+					has_trait = tct_papal_supporter
+					any_held_title = {
+						root = {
+							has_claim_on = prev
+						}
+					}
+				}
+			}
+			modifier = {
+				add = -30
+				title:e_hre.holder = {
+					any_held_title = {
+						root = {
+							has_claim_on = prev
+						}
+					}
+				}
+			}
+			modifier = {
+				add = 40
+				any_involved_ruler = {
+					has_trait = tct_imperial_supporter
+					any_held_title = {
+						root = {
+							has_claim_on = prev
+						}
+					}
+				}
+			}
+
+			# Vassal Stances
+			modifier = {
+				add = 25
+				has_vassal_stance = glory_hound 
+			}
+			modifier = {
+				add = 20
+				has_vassal_stance = courtly
+			}
+			modifier = {
+				add = -15
+				has_vassal_stance = zealot
+			}
+			modifier = {
+				add = -10
+				has_vassal_stance = parochial
+			}
+			modifier = {
+				add = -10
+				has_vassal_stance = minority
+			}
+			modifier = {
+				add = -5
+				has_vassal_stance = barons_and_minor_landholders
+			}
+			
+			### AI Personality
+			ai_value_modifier = {
+				ai_greed        = 0.6    # Patronage, land, and titles are often awarded by the Emperor.
+				ai_boldness     = 0.5    # Backing the secular ruler is a high-risk, high-reward play.
+				ai_energy       = 0.4    # Proactive in advancing their own status.
+				ai_honor        = 0.5    # Loyalists who see the Emperor as the legitimate temporal leader.
+				ai_vengefulness = 0.3    # May support the Emperor to punish rivals or rebellious vassals.
+			}
+		}
+	}
+
+	# For the Papacy!
+	option = {
+		name = tct_investiture_struggle.0051.b
 		clicksound = "event:/DLC/FP2/SFX/UI/fp2_struggle_start_select"
+		trigger = {
+			any_character_struggle = { is_struggle_type = investiture_controversy_struggle }
+			has_faith = faith:catholic
+			NOT = {
+				this = title:e_hre.holder
+			}
+		}
+		add_trait = tct_papal_supporter
+		add_character_flag = tct_investiture_struggle_intro_event_flag
+	
+
+		ai_chance = {
+			base = 0
+		
+			# High Opinion of the Pope
+			modifier = {
+				add = 15
+				opinion = {
+					target = title:k_papal_state.holder
+					value >= 40
+				}
+			}
+		
+			# Relationships
+			# Good ties to Papacy
+			modifier = {
+				add = 70
+				is_allied_to = title:k_papal_state.holder
+			}
+			modifier = {
+				add = 20
+				has_relation_friend = title:k_papal_state.holder
+			}
+			modifier = {
+				add = 30
+				has_relation_best_friend = title:k_papal_state.holder
+			}
+			modifier = {
+				add = 30
+				has_relation_lover = title:k_papal_state.holder
+			}
+			# Bad ties to Papacy
+			modifier = {
+				add = -50
+				has_relation_rival = title:k_papal_state.holder
+			}
+			modifier = {
+				add = -100
+				has_relation_nemesis = title:k_papal_state.holder
+			}
+			# Ties to the HRE
+			modifier = {
+				add = -70
+				is_allied_to = title:e_hre.holder
+			}
+			modifier = {
+				add = -50
+				OR = {
+					has_relation_friend = title:e_hre.holder
+					has_relation_best_friend = title:e_hre.holder
+				}
+			}
+			modifier = {
+				add = -15
+				opinion = {
+					target = title:e_hre.holder
+					value >= 20
+				}
+			}
+			modifier = {
+				add = -20
+				house = title:e_hre.holder.house
+			}
+			modifier = {
+				add = 20
+				house = title:k_papal_state.holder.house
+			}
+		
+			# Vassal Loyalty to the Papacy
+			modifier = {
+				add = 20
+				AND = {
+					is_vassal_or_below_of = title:k_papal_state.holder
+					OR = {
+						AND = {
+							has_trait = loyal
+							opinion = {
+								target = title:k_papal_state.holder
+								value >= 25
+							}
+						}
+						AND = {
+							has_vassal_stance = courtly
+							opinion = {
+								target = title:k_papal_state.holder
+								value >= 25
+							}
+						}
+					}
+				}
+			}
+		
+			# Honor aligned with the Pope
+			modifier = {
+				add = 20
+				AND = {
+					ai_honor >= 60
+					opinion = {
+						target = title:k_papal_state.holder
+						value >= 25
+					}
+				}
+			}
+		
+			# Others in Same County supporting Papacy
+			modifier = {
+				add = 15
+				AND = {
+					highest_held_title_tier >= tier_county
+					exists = liege
+					liege = {
+						any_vassal = {
+							percent >= 0.3
+							opinion = {
+								target = title:k_papal_state.holder
+								value >= 15
+							}
+						}
+					}
+				}
+			}
+		
+			# Cultural factors
+			modifier = {
+				add = 15
+				has_culture = title:k_papal_state.holder.culture
+			}
+			modifier = {
+				add = 40
+				has_culture = culture:saxon
+			}
+		
+			# Titles and Claims
+			modifier = {
+				add = 15
+				title:e_hre.holder = {
+					any_held_title = {
+						root = {
+							has_claim_on = prev
+						}
+					}
+				}
+			}
+			modifier = {
+				add = 40
+				any_involved_ruler = {
+					has_trait = tct_imperial_supporter
+					any_held_title = {
+						root = {
+							has_claim_on = prev
+						}
+					}
+				}
+			}
+			modifier = {
+				add = -30
+				title:k_papal_state.holder = {
+					any_held_title = {
+						root = {
+							has_claim_on = prev
+						}
+					}
+				}
+			}
+			modifier = {
+				add = 40
+				any_involved_ruler = {
+					has_trait = tct_papal_supporter
+					any_held_title = {
+						root = {
+							has_claim_on = prev
+						}
+					}
+				}
+			}
+
+			modifier = {
+				add = 25
+				has_vassal_stance = zealot
+			}
+			modifier = {
+				add = 20
+				has_vassal_stance = parochial
+			}
+			modifier = {
+				add = -15
+				has_vassal_stance = glory_hound
+			}
+			modifier = {
+				add = -10
+				has_vassal_stance = courtly
+			}
+			modifier = {
+				add = 10
+				has_vassal_stance = minority 
+			}
+			modifier = {
+				add = 5
+				has_vassal_stance = barons_and_minor_landholders
+			}
+			
+
+			ai_value_modifier = {
+				ai_compassion   = 0.8
+				ai_zeal         = 0.7
+				ai_rationality  = 0.2
+				ai_sociability  = 0.4
+				ai_honor        = 0.3
+			}
+		}
+	}
+
+	# Ima Stay Neutral!
+
+	option = {
+		name = tct_investiture_struggle.0051.c
+		clicksound = "event:/DLC/FP2/SFX/UI/fp2_struggle_start_select"
+		trigger = {
+			any_character_struggle = { is_struggle_type = investiture_controversy_struggle }
+			has_faith = faith:catholic
+			NOT = {
+				this = title:k_papal_state.holder
+				this = title:e_hre.holder
+			}
+		}
+		add_character_flag = tct_investiture_struggle_intro_event_flag
+
+
+		ai_chance = {
+			base = 0
+		
+			# 1. Mutual Aversion – hates both claimants too much
+			modifier = {
+				add = 20
+				AND = {
+					opinion = { target = title:e_hre.holder   value <= -20 }
+					opinion = { target = title:k_papal_state.holder value <= -20 }
+				}
+			}
+		
+			# 2. Too Poor to Fight – empty treasury
+			modifier = {
+				add = 20
+				gold <= major_gold_value
+			}
+			modifier = {
+				add = 15
+				gold <= massive_gold_value
+			}
+			modifier = {
+				add = 30
+				ai_zeal <= 30
+				ai_greed <= 30
+			}
+
+			modifier = {
+				add = 25
+				has_vassal_stance = barons_and_minor_landholders
+			}
+			modifier = {
+				add = 15
+				has_vassal_stance = minority
+			}
+			modifier = {
+				add = -10
+				has_vassal_stance = zealot
+			}
+			modifier = {
+				add = -10
+				has_vassal_stance = glory_hound
+			}
+			modifier = {
+				add = 5
+				has_vassal_stance = parochial
+			}
+			
+			modifier = {
+				add = 20
+				has_trait = content
+			}
+
+			modifier = {
+				add = 20
+				has_trait = craven
+			}
+
+			modifier = {
+				add = 15
+				has_trait = cynical
+			}
+
+			modifier = {
+				add = 20
+				ai_compassion >= 70
+			}
+
+			ai_value_modifier = {
+				ai_rationality  = 0.6 
+				ai_cynical      = 0.5 
+				ai_energy       = -0.2
+				ai_boldness     = -0.3
+				ai_zeal         = -0.3
+				ai_sociability  = 0.2 
+				ai_vengefulness = -0.1
+			}
+		}
 	}
 }
 

@@ -375,6 +375,7 @@
 
  tct_investiture_struggle.0051.a: "May [ROOT.Char.GetFaith.HighGodName] be with me!"
  tct_investiture_struggle.0051.b: "These foolish ambitions must be put to rest!"
+ tct_investiture_struggle.0051.c: "I will not be a pawn in this game!"
 
 
  less_then_20_percent_powerful_vassals_papal_supporter_tt: "Less than #Z 20%#! of the [GetTitleByKey('e_hre').GetBaseNameNoTooltip]'s [powerful_vassals|E] are Papal Supporters. #weak Currently [SCOPE.ScriptValue('tct_investiture_papal_supporters_percent')]% ([SCOPE.ScriptValue('tct_papal_supporters')|0]/[SCOPE.ScriptValue('tct_total_powerful_vassals')|0])#!"

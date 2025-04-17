@@ -302,6 +302,10 @@ tct_neutral_struggle.1001 = {
 			capital_county = { save_scope_as = province }
 		}
 
+		character:1530 = {
+			save_scope_as = welf
+		}
+
 		culture:saxon = {
 			save_scope_as = saxons
 		}
@@ -431,6 +435,9 @@ tct_neutral_struggle.1002 = {
 				add_character_flag = fired_tct_neutral_struggle_1002
 				trigger_event = { id = tct_neutral_struggle.1002 }
 			}
+		}
+		character:1530 = {
+			save_scope_as = welf
 		}
 	}
 

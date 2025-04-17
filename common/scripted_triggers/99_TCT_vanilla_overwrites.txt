@@ -40,3 +40,10 @@ can_marry_common_trigger = {
 		exists = scope:contest_winner
 	}
 }
+
+is_location_valid_for_travel_event_on_land = {
+	location = {
+		exists = county #This will exclude sea provinces, impassable provinces, river provinces, etc
+	}
+	is_available_allow_travelling = yes
+}
