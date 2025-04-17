@@ -244,24 +244,22 @@ window = {
 								vbox = {
 									layoutpolicy_horizontal = expanding
 									spacing = 5
-
-									hbox = {
+									
+									text_single = {
+										layoutpolicy_horizontal = growing
+										text = "[Character.GetNameNoTooltip]"
+										default_format = "#high"
+										using = Font_Size_Medium
+										max_width = 420
+									}
+									text_single = {
+										name = "character_relation"
 										layoutpolicy_horizontal = expanding
-										text_single = {
-											layoutpolicy_horizontal = growing
-											text = "[Character.GetNameNoTooltip]"
-											default_format = "#high"
-											using = Font_Size_Medium
-										}
-
-										text_single = {
-											name = "character_relation"
-											layoutpolicy_horizontal = expanding
-											raw_text = "  |  [Character.GetRelationToString( GetPlayer )]"
-											tooltip = "EXTENDED_RELATIONS_TOOLTIP"
-											default_format = "#low"
-											visible = "[Not(StringIsEmpty(Character.GetRelationToString( GetPlayer )))]"
-										}
+										raw_text = "[Character.GetRelationToString( GetPlayer )]"
+										tooltip = "EXTENDED_RELATIONS_TOOLTIP"
+										default_format = "#low"
+										visible = "[Not(StringIsEmpty(Character.GetRelationToString( GetPlayer )))]"
+										max_width = 420
 									}
 
 									text_single = {

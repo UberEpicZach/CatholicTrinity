@@ -212,7 +212,9 @@ travel_completion_event.1000 = {
 			craven = miniscule_stress_impact_gain
 		    paranoid = miniscule_stress_impact_gain
 		}
-		return_home = yes
+		current_travel_plan = {
+			reroute_to_home = yes
+		}
 		ai_chance = {
 			base = 100
 		}
