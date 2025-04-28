@@ -506,33 +506,85 @@ create_the_papal_states_effect_867 = {
 }
 
 tct_test = {
+	# if = {
+	# 	limit = {
+	# 		any_vassal = {
+	# 			max_military_strength >= liege.fifty_percent_of_max_military_strength
+	# 			opinion = {
+	# 				target = root
+	# 				value <= -10
+	# 			}
+	# 			opinion = {
+	# 				target = root.faith.religious_head
+	# 				value >= 10
+	# 			}
+	# 		}
+	# 	}
+	# 	random_vassal = {
+	# 		limit = {
+	# 			max_military_strength >= liege.fifty_percent_of_max_military_strength
+	# 			opinion = {
+	# 				target = root
+	# 				value <= -10
+	# 			}
+	# 			opinion = {
+	# 				target = root.faith.religious_head
+	# 				value >= 10
+	# 			}
+	# 		}
+	# 		add_gold = 10
+	# 	}
+	# }
+
+	# if = {
+	# 	limit = {
+	# 		character:additional_wettin_1.house = {
+	# 			any_house_member = {
+	# 				limit = {
+	# 					is_ruler = yes
+	# 					highest_held_title_tier >= tier_duchy
+	# 				}
+	# 			}
+	# 		}
+	# 		character:additional_wettin_1.house = {
+	# 			every_house_member = {
+	# 				limit = {
+	# 					is_ruler = yes
+	# 					highest_held_title_tier >= tier_duchy
+	# 				}
+	# 				save_scope_as = wettin_duke
+	# 				add_gold = 100 
+	# 			}
+	# 		}
+	# 	}
+	# }
 	if = {
 		limit = {
-			any_vassal = {
-				max_military_strength >= liege.fifty_percent_of_max_military_strength
-				opinion = {
-					target = root
-					value <= -10
-				}
-				opinion = {
-					target = root.faith.religious_head
-					value >= 10
+			title:e_hre.holder = {
+				any_vassal = {
+					filter = {
+						culture = culture:saxon
+					}
+					culture = culture:saxon
+					opinion = {
+						target = title:e_hre.holder
+						value <= -30
+					}
+					percent > 0.2
 				}
 			}
 		}
-		random_vassal = {
-			limit = {
-				max_military_strength >= liege.fifty_percent_of_max_military_strength
-				opinion = {
-					target = root
-					value <= -10
+		title:e_hre.holder = {
+			every_vassal = {
+				limit = {
+					culture = culture:saxon
+					opinion = {
+						target = title:e_hre.holder
+						value <= -30
+					}
 				}
-				opinion = {
-					target = root.faith.religious_head
-					value >= 10
-				}
+				add_gold = 100
 			}
-			add_gold = 10
 		}
 	}
 }

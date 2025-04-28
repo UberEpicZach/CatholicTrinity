@@ -1381,17 +1381,74 @@ tct_neutral_struggle.1007 = {
 			}
 		}
 	}
-
-	after = {
-		hidden_effect = {
-			set_global_variable = end_of_saxon_chain_one
-		}
-	}
 }
 
 # Second Saxon Chain Begining: First we need to see if Otto is still alive; he's no longer the most relevant character in the chain, but need to confirm.
 # "The opening hostilities in this new phase of the Saxon rebellion were the work of the Wettin princes Theoderic and William" 
 # Otto offers to mediate between the Empire and the Saxons, but Heinrich disregards him, invading Meissen with the Bohemians, in order to hunt the Wettin princes.
+scripted_effect tct_neutral_struggle_1050_designate_targets_effect = {
+	if = {
+		limit = {
+			NOT = { exists = scope:target_1 }
+		}
+		save_scope_as = target_1
+	}
+	else_if = {
+		limit = {
+			NOT = { exists = scope:target_2 }
+		}
+		save_scope_as = target_2
+	}
+	else_if = {
+		limit = {
+			NOT = { exists = scope:target_3 }
+		}
+		save_scope_as = target_3
+	}
+	else_if = {
+		limit = {
+			NOT = { exists = scope:target_4 }
+		}
+		save_scope_as = target_4
+	}
+	else_if = {
+		limit = {
+			NOT = { exists = scope:target_5 }
+		}
+		save_scope_as = target_5
+	}
+	else_if = {
+		limit = {
+			NOT = { exists = scope:target_6 }
+		}
+		save_scope_as = target_6
+	}
+	else_if = {
+		limit = {
+			NOT = { exists = scope:target_7 }
+		}
+		save_scope_as = target_7
+	}
+	else_if = {
+		limit = {
+			NOT = { exists = scope:target_8 }
+		}
+		save_scope_as = target_8
+	}
+	else_if = {
+		limit = {
+			NOT = { exists = scope:target_9 }
+		}
+		save_scope_as = target_9
+	}
+	else_if = {
+		limit = {
+			NOT = { exists = scope:target_10 }
+		}
+		save_scope_as = target_10
+	}
+}
+
 tct_neutral_struggle.1050 = {
 	type = character_event
 	title = tct_neutral_struggle.1050.t
@@ -1416,9 +1473,10 @@ tct_neutral_struggle.1050 = {
 		}
 	}
 
-	theme = war
-	override_background = {
-		reference = forest
+	theme = raid
+	override_background = { reference = bp1_bonfire }
+	override_effect_2d = {
+		reference = rain
 	}
 	left_portrait = {
 		character = scope:theoderic
@@ -1436,14 +1494,22 @@ tct_neutral_struggle.1050 = {
 		animation = thinking
 	}
 
+	trigger = {
+		NOT = {
+			has_character_flag = had_tct_neutral_struggle_1050
+		}
+	}
+
 	immediate = {
+		add_character_flag = had_tct_neutral_struggle_1050
 		character:additional_wettin_1 = {
 			save_scope_as = theoderic
+			add_character_flag = { flag = wear_armor days = 130 }
 		}
 		character:additional_wettin_2 = {
 			save_scope_as = william
+			add_character_flag = { flag = wear_armor days = 130 }
 		}
-
 		title:e_hre.holder = {
 			save_scope_as = emperor
 		}
@@ -1455,6 +1521,7 @@ tct_neutral_struggle.1050 = {
 			}
 			character:112600 = {
 				save_scope_as = otto
+				trigger_event = { id = tct_neutral_struggle.1050 days = 1 }
 			}
 		}
 		
@@ -1467,6 +1534,45 @@ tct_neutral_struggle.1050 = {
 				save_scope_as = bohemian_king
 			}
 		}
+
+		if = {
+			limit = {
+				character:additional_wettin_1.house = {
+					any_house_member = {
+						limit = {
+							is_ruler = yes
+							highest_held_title_tier >= tier_duchy
+						}
+					}
+				}
+			}
+			character:additional_wettin_1.house = {
+				every_house_member = {
+					limit = {
+						is_ruler = yes
+						highest_held_title_tier >= tier_duchy
+					}
+					save_scope_as = wettin_duke
+				}
+			}
+		}
+		else = {
+			character:additional_wettin_1.house = {
+				every_house_member = {
+					limit = {
+						is_ruler = yes
+						highest_held_title_tier >= tier_county
+					}
+					save_scope_as = wettin_duke 
+				}
+			}
+		}
+
+		scope:wettin_duke ?= {
+			every_held_title = {
+				tct_neutral_struggle_1050_designate_targets_effect = yes
+			}
+		}
 	}
 
 	option = {
@@ -1474,13 +1580,157 @@ tct_neutral_struggle.1050 = {
 		trigger = {
 			this = title:e_hre.holder
 		}
-		custom_tooltip = tct_neutral_struggle.1050.a.tt
-		# hidden_effect = {
-		# 	scope:otto ?= {
-		# 		trigger_event = { id = tct_neutral_struggle.1051 days = 5 }
-		# 	}
-		# 	trigger_event = { id = tct_neutral_struggle.1052 days = 14 }
-		# }
+		flavor = tct_neutral_struggle.1050.a.tt
+		add_character_flag = enable_saxon_peasants
+		# Ugly war targeting Start.
+		## 10 targets.
+		if = {
+			limit = { exists = scope:target_10 }
+			start_war = {
+				casus_belli = claim_cb
+				target = scope:wettin_duke
+				claimant = root
+				target_title = scope:target_1
+				target_title = scope:target_2
+				target_title = scope:target_3
+				target_title = scope:target_4
+				target_title = scope:target_5
+				target_title = scope:target_6
+				target_title = scope:target_7
+				target_title = scope:target_8
+				target_title = scope:target_9
+				target_title = scope:target_10
+			}
+		}
+		## 09 targets.
+		else_if = {
+			limit = { exists = scope:target_9 }
+			start_war = {
+				casus_belli = claim_cb
+				target = scope:wettin_duke
+				claimant = root
+				target_title = scope:target_1
+				target_title = scope:target_2
+				target_title = scope:target_3
+				target_title = scope:target_4
+				target_title = scope:target_5
+				target_title = scope:target_6
+				target_title = scope:target_7
+				target_title = scope:target_8
+				target_title = scope:target_9
+			}
+		}
+		## 08 targets.
+		else_if = {
+			limit = { exists = scope:target_8 }
+			start_war = {
+				casus_belli = claim_cb
+				target = scope:wettin_duke
+				claimant = root
+				target_title = scope:target_1
+				target_title = scope:target_2
+				target_title = scope:target_3
+				target_title = scope:target_4
+				target_title = scope:target_5
+				target_title = scope:target_6
+				target_title = scope:target_7
+				target_title = scope:target_8
+			}
+		}
+		## 07 targets.
+		else_if = {
+			limit = { exists = scope:target_7 }
+			start_war = {
+				casus_belli = claim_cb
+				target = scope:wettin_duke
+				claimant = root
+				target_title = scope:target_1
+				target_title = scope:target_2
+				target_title = scope:target_3
+				target_title = scope:target_4
+				target_title = scope:target_5
+				target_title = scope:target_6
+				target_title = scope:target_7
+			}
+		}
+		## 06 targets.
+		else_if = {
+			limit = { exists = scope:target_6 }
+			start_war = {
+				casus_belli = claim_cb
+				target = scope:wettin_duke
+				claimant = root
+				target_title = scope:target_1
+				target_title = scope:target_2
+				target_title = scope:target_3
+				target_title = scope:target_4
+				target_title = scope:target_5
+				target_title = scope:target_6
+			}
+		}
+		## 05 targets.
+		else_if = {
+			limit = { exists = scope:target_5 }
+			start_war = {
+				casus_belli = claim_cb
+				target = scope:wettin_duke
+				claimant = root
+				target_title = scope:target_1
+				target_title = scope:target_2
+				target_title = scope:target_3
+				target_title = scope:target_4
+				target_title = scope:target_5
+			}
+		}
+		## 04 targets.
+		else_if = {
+			limit = { exists = scope:target_4 }
+			start_war = {
+				casus_belli = claim_cb
+				target = scope:wettin_duke
+				claimant = root
+				target_title = scope:target_1
+				target_title = scope:target_2
+				target_title = scope:target_3
+				target_title = scope:target_4
+			}
+		}
+		## 03 targets.
+		else_if = {
+			limit = { exists = scope:target_3 }
+			start_war = {
+				casus_belli = claim_cb
+				target = scope:wettin_duke
+				claimant = root
+				target_title = scope:target_1
+				target_title = scope:target_2
+				target_title = scope:target_3
+			}
+		}
+		## 02 targets.
+		else_if = {
+			limit = { exists = scope:target_2 }
+			start_war = {
+				casus_belli = claim_cb
+				target = scope:wettin_duke
+				claimant = root
+				target_title = scope:target_1
+				target_title = scope:target_2
+			}
+		}
+		## 01 targets.
+		else_if = {
+			limit = { exists = scope:target_1 }
+			start_war = {
+				casus_belli = claim_cb
+				target = scope:wettin_duke
+				claimant = root
+				target_title = scope:target_1
+			}
+		}
+		# War Targeting end.
+
+		trigger_event = { id = tct_neutral_struggle.1052 days = { 360 730 } }
 	}
 
 	option = {
@@ -1488,12 +1738,17 @@ tct_neutral_struggle.1050 = {
 		trigger = {
 			this = scope:otto
 		}
-		custom_tooltip = tct_neutral_struggle.1050.b.tt
-		# hidden_effect = {
-		# 	title:e_hre.holder = {
-		# 		trigger_event = { id = tct_neutral_struggle.1051 days = 5 }
-		# 	}
-		# }
+		flavor = tct_neutral_struggle.1050.b.tt
+		show_as_tooltip = {
+			random_list = {
+				50 = {
+					custom_tooltip = tct_neutral_struggle.1050.b.tt.a
+				}
+				50 = {
+					custom_tooltip = tct_neutral_struggle.1050.b.tt.b
+				}
+			}
+		}
 	}
 
 	option = {
@@ -1502,6 +1757,111 @@ tct_neutral_struggle.1050 = {
 			NOT = { this = title:e_hre.holder }
 			NOT = { this = scope:otto }
 		}
+	}
+}
+
+# Ambush Events for Saxon Peasants; just to cause havoc during the war
+tct_neutral_struggle.1051 = {
+	title = tct_neutral_struggle.1051.t
+	type = character_event
+	desc = tct_neutral_struggle.1051.desc
+	theme = war
+	override_background = {
+		reference = wilderness_scope
+	}
+
+	left_portrait = {
+		character = root
+		animation = fear
+	}
+
+	trigger = {
+		has_character_flag = enable_saxon_peasants
+		scope:old_location.county ?= {
+			NOT = { culture = culture:saxon }
+		}
+		scope:new_location.county ?= {
+			culture = culture:saxon
+		}
+		NOT = { has_character_flag = on_goining_ambush }
+	}
+
+	#Continue
+	immediate = {
+		add_character_flag = {
+			days = 100 flag = on_goining_ambush
+		}
+		hidden_effect = {
+			scope:army = { 
+				location = { 
+					save_scope_as = target_location 
+					save_scope_as = background_wilderness_scope
+				} 
+			}
+			#location = { save_scope_as = target_location }
+			create_saxon_ambush = yes
+		}
+	}
+	option = {
+		name = tct_neutral_struggle.1051.a
+		stress_impact = {
+			craven = major_stress_impact_gain
+		}
+		spawn_saxon_army = { TARGET = root }
+	}
+
+	after = {
+		scope:saxon_char = {
+			assign_commander_trait_effect = yes
+			ordered_army = {
+				order_by = army_size
+				assign_commander = scope:saxon_char
+			}
+		}
+	}
+}
+
+# Emperor has a chance to flee to Bohemia, leaving his invasion behind
+tct_neutral_struggle.1052 = {
+	type = character_event
+	title = tct_neutral_struggle.1052.t
+	desc = tct_neutral_struggle.1052.desc
+
+	theme = war
+	override_background = {
+		reference = wilderness_forest_pine
+	}
+	override_effect_2d = {
+		reference = rain	
+	}
+	widget = {
+		gui = "event_window_widget_vfx_rainy_fog"
+		container = "foreground_shader_vfx_container"
+	}
+
+	left_portrait = {
+		character = root
+		animation = loss_1
+	}
+
+	option = { # Fuck it, do I have any other choice?
+		name = tct_neutral_struggle.1052.a
+	
+		every_character_war = {
+			limit = {
+				using_cb = claim_cb
+				primary_defender = {
+					has_culture = culture:saxon
+				}
+			}
+			end_war = defender
+		}
+		add_prestige = massive_prestige_loss
+		remove_character_flag = enable_saxon_peasants
+	}
+
+	option = { # They will die!
+		name = tct_neutral_struggle.1052.b
 	}
 }
 

@@ -172,7 +172,11 @@ tct_on_start_1066 = {
 on_army_enter_province = {
 	events = {
 		TCT_religious_events.811 #Give Crusaders their trait upon reaching the holy land.
+		tct_neutral_struggle.1051
 	}
+	#on_actions = {
+	#	saxon_peasants_ambush
+	#}
 }
 
 yearly_global_pulse = {
@@ -191,6 +195,9 @@ random_yearly_playable_pulse = {
 
 		# Bavarian Chain
 		TCT_1066_First_Saxon_Chain
+
+		# Second Saxon Chain
+		TCT_1066_Second_Saxon_Chain
 	}
 }
 
@@ -222,7 +229,10 @@ TCT_1066_First_Saxon_Chain = {
 }
 TCT_1066_Second_Saxon_Chain = {
 	trigger = {
-		tct_neutral_struggle_second_saxon_chain_trigger = yes
+		tct_neutral_struggle_second_saxon_chain_trigger = yes	
+		NOT = {
+			exists = global_var:TCT_1066_Second_Saxon_Chain
+		}
 		exists = global_var:end_of_saxon_chain_one
 	}
 	effect = {
@@ -241,7 +251,7 @@ TCT_1066_Second_Saxon_Chain = {
 				current_date > 1080.1.1
 			}
 			set_global_variable = TCT_1066_Second_Saxon_Chain
-			character:1316 = {
+			title:e_hre.holder = {
 				trigger_event = tct_neutral_struggle.1050
 			}
 		}
@@ -843,6 +853,52 @@ Trinity_on_war_started = {
 				}
 			}
 		}
+
+		# # If you are a Papal Supporter and you have attacked the Pope or another Papal Supporter, event to switch sides.
+		# if = {
+		# 	limit = {
+		# 		scope:attacker = {
+		# 			any_character_struggle = {
+		# 				involvement = involved
+		# 				is_struggle_type = investiture_controversy_struggle
+		# 			}
+		# 			has_trait = tct_papal_supporter
+		# 		}
+		# 		scope:defender = {
+		# 			any_character_struggle = {
+		# 				involvement = involved
+		# 				is_struggle_type = investiture_controversy_struggle
+		# 			}
+		# 			has_trait = tct_papal_supporter
+		# 		}
+		# 	}
+		# 	scope:attacker = {
+		# 		save_scope_as = faction_backstabber
+		# 	}
+			
+		# }
+		# # if you are a Imperial Supporter and you have attacked the Emperor or another Imperial Supporter, event to switch sides.
+		# if = {
+		# 	limit = {
+		# 		scope:attacker = {
+		# 			any_character_struggle = {
+		# 				involvement = involved
+		# 				is_struggle_type = investiture_controversy_struggle
+		# 			}
+		# 			has_trait = tct_imperial_supporter
+		# 		}
+		# 		scope:defender = {
+		# 			any_character_struggle = {
+		# 				involvement = involved
+		# 				is_struggle_type = investiture_controversy_struggle
+		# 			}
+		# 			has_trait = tct_imperial_supporter
+		# 		}
+		# 	}
+		# 	scope:attacker = {
+		# 		save_scope_as = faction_backstabber
+		# 	}
+		# }
 	}
 }
 

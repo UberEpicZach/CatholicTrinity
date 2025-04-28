@@ -1,4 +1,4 @@
-﻿# TCT_papacy_story_setup_effect = {
+# TCT_papacy_story_setup_effect = {
 # 	set_variable = {
 # 		name = TCT_papal_authority
 # 		value = 0
@@ -1330,6 +1330,80 @@ tct_bavarian_chain_defeat_effect = {
 					modifier = loyal_servant
 					opinion = 50
 				}
+			}
+		}
+	}
+}
+
+create_saxon_ambush = {
+	scope:army.location = { save_scope_as = target_location }
+	create_character = {
+		gender = male
+		template = knight
+		save_scope_as = saxon_char
+		location = scope:target_location
+		culture = culture:saxon
+		faith = faith:catholic
+	}
+	hidden_effect = {
+		scope:saxon_char ?= { 
+			add_character_flag = force_ai_created_laamp 
+			create_landless_adventurer_title_effect = {
+				REASON = flag:voluntary
+				FLAVOR_CHAR = scope:saxon_char
+			}
+		}
+	} 
+}
+spawn_saxon_army = { # TARGET
+	#Set up title so that war can be declared
+	title:e_hre.holder = {
+		random_character_war = {
+			limit = {
+				using_cb = claim_cb
+				primary_defender = {
+					has_culture = culture:saxon
+				}
+			}
+			save_scope_as = war
+		}
+	}
+	scope:saxon_char = {
+		hidden_effect = { add_gold = 100 }
+		scope:war = {
+			add_defender = scope:saxon_char
+		}
+		if = {
+			limit = {exists = scope:target_location }
+			spawn_army = {
+				name = event_troop_default_name
+				levies = 500
+				men_at_arms = {
+					type = pikemen_unit
+					stacks = 30
+				}
+				men_at_arms = {
+					type = bowmen
+					men = 200
+				}
+				location = scope:target_location
+				save_scope_as = new_army
+			}
+		}
+		else = {
+			spawn_army = {
+				name = event_troop_default_name
+				levies = 500
+				men_at_arms = {
+					type = pikemen_unit
+					stacks = 20
+				}
+				men_at_arms = {
+					type = bowmen
+					men = 200
+				}
+				location = $TARGET$.location
+				save_scope_as = new_army
 			}
 		}
 	}
