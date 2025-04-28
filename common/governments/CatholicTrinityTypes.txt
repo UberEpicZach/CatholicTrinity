@@ -51,7 +51,7 @@ theocracy_government = {
 		}
 	}
 
-	vassal_contract = { theocracy_government_obligations }
+	vassal_contract_group = theocracy_vassal
 
 	# Use flags instead of has_government for moddability if possible (i.e., wherever not visible to the player).
 	flag = government_is_theocracy

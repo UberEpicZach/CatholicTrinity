@@ -526,11 +526,13 @@ tct_crusader_state_trigger = {
 	holder = {
 		faith = faith:catholic
 		is_independent_ruler = yes
-		any_de_jure_county = {
-			count < 1
-			OR = {
-				holder = prev
-				holder = { is_vassal_or_below_of = prev }
+		primary_title = {
+			any_de_jure_county = {
+				count < 1
+				OR = {
+					holder = prev
+					holder = { is_vassal_or_below_of = prev }
+				}
 			}
 		}
 	}

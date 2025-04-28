@@ -495,7 +495,7 @@ create_the_papal_states_effect_867 = {
 		}
 		title:k_papal_state.holder = {
 			designate_diarch = title:c_orvieto.holder
-			start_diarchy = regency
+			try_start_diarchy = regency
 			set_diarchy_swing = 100
 		}
 		remove_generated_diarch_consequences_effect = {

@@ -111,6 +111,7 @@ autoerrorfixer.1 = {
         fix_variable_error = {ERROR = saint_days_procession }
         fix_variable_error = {ERROR = seat_of_christendom } 
         fix_variable_error = {ERROR = tct_unconfirmed_title_holder }
+        fix_variable_error = {ERROR = wearing_cardinal }
 	}
 }
 autoerrorfixer.2 = {
