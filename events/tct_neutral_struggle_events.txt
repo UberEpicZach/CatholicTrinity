@@ -1372,7 +1372,7 @@ tct_neutral_struggle.1007 = {
 				limit = {
 					culture = scope:saxon
 					NOT = { this = scope:otto }
-					hightest_held_title_tier >= tier_county
+					highest_held_title_tier >= tier_county
 				}
 				custom = every_saxon_vassal
 				scope:otto = {
@@ -1539,10 +1539,8 @@ tct_neutral_struggle.1050 = {
 			limit = {
 				character:additional_wettin_1.house = {
 					any_house_member = {
-						limit = {
-							is_ruler = yes
-							highest_held_title_tier >= tier_duchy
-						}
+						is_ruler = yes
+						highest_held_title_tier >= tier_duchy
 					}
 				}
 			}

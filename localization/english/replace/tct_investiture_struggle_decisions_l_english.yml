@@ -288,7 +288,7 @@
 
  tct_neutral_struggle.1006.t: "The Sack of [GetTitleByKey('b_goslar').GetNameNoTier]-Harzburg"
  tct_neutral_struggle.1006.desc: "The once-proud Palace of Harzburg lies in ruin, its sacred grounds desecrated. A group of [magnus.GetFirstName]'s Rebel forces, have turned to unrestrained barbarism. Graves have been ripped open, the remains of princes and bishops discarded like refuse, their sanctity mocked by jeering looters. The chapel, once a place of reverence, is now rubble, its relics stolen or destroyed, and its altars smeared with blood and ash. \n\nThe monks who tried to shield the graves lie among the ruins, their lifeless bodies scattered where they made their final stand. Some rebels laugh at the carnage, their cruelty unchecked, while others falter, horror etched into their faces as the scale of their comrades' savagery became clear. \n\nThis is no longer rebellion—it is sacrilege. Whispers of unease spread through the empire itself: ‘This was not justice.’ This has not broken the emperor’s resolve but strengthened his claim to vengeance, what was once a rebellion for justice is now condemned as a campaign of heresy and barbarism."
- tct_neutral_struggle.1006.a: ""This... this is unthinkable."
+ tct_neutral_struggle.1006.a: "This... this is unthinkable."
 
  # End of the Saxon Revolt # Event for Otto, giving option to attack Bavaria for his land back, OR choose to chill in Saxony as a 'Agent' of the crown 
  tct_neutral_struggle.1007.t: "The Aftermath"
