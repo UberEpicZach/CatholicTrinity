@@ -166,10 +166,10 @@ types CardinalsGridStuff { #Reusable templates for showing characters
 	type window_cardinal_fixedgrid = fixedgridbox{ # Not currently used. Can be used in place of the Dynamicgridbox
 		name = "cardinal_grid"
 		datamodel = "[Religion.MakeScope.GetList('cardinal_characters')]"
-		datamodel_wrap = 4
-		addcolumn = 300
-		addrow = 245
-		flipdirection = yes
+		datamodel_wrap = 5
+		addcolumn = 200
+		addrow = 230
+		#flipdirection = yes
 		item = {
 			window_cardinal_griditem = {}
 		}
@@ -705,69 +705,49 @@ types Cardinals {
 					# margin_top = 12
 				}
 				
-				dynamicgridbox = { # Pentarchs
+				window_cardinal_fixedgrid = { # Pentarchs
 					name = "Pentarchs"
 					datamodel = "[GetPlayer.MakeScope.GetList('TCT_pentarchs_list')]"
-					#layoutpolicy_horizontal = expanding
-					#layoutpolicy_vertical = expanding
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
 					datamodel_wrap = 1
-					#flipdirection = yes
 					item = {
 						flowcontainer = {
-							margin_top = 5
-							margin_bottom = 2
-							margin_left = 12
-							margin_right = 12
-			
-							vbox = {
-								
-								layoutpolicy_horizontal = expanding
-								layoutpolicy_vertical = expanding
-								datacontext = "[Scope.GetCharacter]"
-								spacer = { 
-									size = { 5 50 }
-								}
-								text_label_center = {
-									margin_top = 5
-									parentanchor = left
-									fontsize = 20
-									text = "[Scope.GetCharacter.Custom('TCT_get_patriarchate_of_pentarch')]"
-									layoutpolicy_horizontal = expanding
-									max_width = 150
-									size = { 150 100 }
-								}
-								spacer = { 
-									size = { 0 5 }
-								}
-								portrait_head = {
-									#size = { 150 200 }
-									parentanchor = left
-									#datacontext = "[Character]"
-								}
-								text_single = {
-									parentanchor = left
-									text = "[Scope.GetCharacter.GetFirstNameNoTooltip]" 
-									max_width = 100
-									fontsize = 16
-									size = { 150 100 }
+							scale = 1.2
+							margin_top = 10
+							widget = {
+								size = { 125 200 }
+								vbox = {
+									datacontext = "[Scope.GetCharacter]"
+									text_label_center = {
+										margin_top = 5
+										parentanchor = left
+										fontsize = 20
+										text = "[Scope.GetCharacter.Custom('TCT_get_patriarchate_of_pentarch')]"
+										layoutpolicy_horizontal = expanding
+									}
+									portrait_head = {
+										parentanchor = left
+									}
+									text_single = {
+										parentanchor = left
+										text = "[Scope.GetCharacter.GetFirstNameNoTooltip]" 
+										max_width = 100
+										fontsize = 16
+										size = { 150 100 }
+									}
 								}
 							}
 						}
 					}
 				}
-				spacer = { 
-					size = { 20 0 }
-				}
-			}
-			spacer = { 
-				size = { 20 25 }
 			}
 			vbox = {
 				name = "autocephalies"
 				layoutpolicy_horizontal = expanding
 				layoutpolicy_vertical = expanding
 				size = { 100% 100% }
-				margin_top = 50
+				margin_top = 25
 
 				text_label_center = {
 					layoutpolicy_horizontal = expanding
