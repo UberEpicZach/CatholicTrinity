@@ -12,6 +12,7 @@
 			}
 		}
 	}
+	fill_from_pool = yes
 
 	can_fire = {
 		trigger_if = {
@@ -69,7 +70,6 @@
 	}
 	
 	inherit = no
-	fill_from_pool = yes
 	
 	name = {
 		first_valid = {
@@ -182,7 +182,10 @@
 	}
 
 	valid_position = {
-		NOT = { government_has_flag = government_is_landless_adventurer }
+		NOR = { 
+			government_has_flag = government_is_landless_adventurer 
+			government_has_flag = government_is_nomadic
+		}
 	}
 
 	on_get_position = {
