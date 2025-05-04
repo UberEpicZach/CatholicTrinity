@@ -4,7 +4,7 @@
 
 d_captain_general_church = {
 	color = { 255 249 198 }
-	landless = yes
+	
 	definite_form = yes
 	
 	capital = c_roma
@@ -14,6 +14,7 @@ d_captain_general_church = {
 	}
 	ruler_uses_title_name = no
 	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
 	no_automatic_claims = yes
 	always_follows_primary_heir = yes
 	de_jure_drift_disabled = yes
@@ -23,7 +24,7 @@ d_rome_patriarchate = {
 	color = { 140 20 20 }
 	
 	ruler_uses_title_name = no
-	landless = yes
+	
 	definite_form = yes
 
 	capital = c_roma
@@ -35,12 +36,13 @@ d_rome_patriarchate = {
 	no_automatic_claims = yes
 	always_follows_primary_heir = yes
 	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
 }
 d_constantinople_patriarchate = {
 	color = hsv{ 0.9 1 0.3 }
 	
 	ruler_uses_title_name = no
-	landless = yes
+	
 	definite_form = yes
 
 	capital = c_byzantion
@@ -52,12 +54,13 @@ d_constantinople_patriarchate = {
 	no_automatic_claims = yes
 	always_follows_primary_heir = yes
 	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
 }
 d_alexandria_patriarchate = {
 	color = { 100 220 135 }
 	
 	ruler_uses_title_name = no
-	landless = yes
+	
 	definite_form = yes
 
 	capital = c_alexandria
@@ -69,12 +72,13 @@ d_alexandria_patriarchate = {
 	no_automatic_claims = yes
 	always_follows_primary_heir = yes
 	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
 }
 d_antioch_patriarchate = {
 	color = { 180 110 45 }
 	
 	ruler_uses_title_name = no
-	landless = yes
+	
 	definite_form = yes
 
 	capital = c_antiocheia	#Etchmiadzin
@@ -86,12 +90,13 @@ d_antioch_patriarchate = {
 	no_automatic_claims = yes
 	always_follows_primary_heir = yes
 	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
 }
 d_jerusalem_patriarchate = {
 	color = { 180 180 180 }
 	
 	ruler_uses_title_name = yes
-	landless = yes
+	
 	definite_form = yes
 
 	capital = c_jerusalem	#Etchmiadzin
@@ -103,66 +108,17 @@ d_jerusalem_patriarchate = {
 	no_automatic_claims = yes
 	always_follows_primary_heir = yes
 	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
 }
 
 # ARCHBISHOPS TIME
 
-# 867
-d_archbishop_auch = {
-	color = { 255 249 198 }
-	
-	ruler_uses_title_name = no
-	landless = yes
-
-	capital = c_armagnac
-
-	ai_primary_priority = {
-		add = @always_primary_score
-	}
-
-	no_automatic_claims = yes
-	always_follows_primary_heir = yes
-	destroy_if_invalid_heir = yes
-}
-
-d_archbishop_narbonne = {
-	color = { 255 249 198 }
-	ruler_uses_title_name = no
-	landless = yes
-
-	capital = c_carcassonne
-
-	ai_primary_priority = {
-		add = @always_primary_score
-	}
-
-	no_automatic_claims = yes
-	always_follows_primary_heir = yes
-	destroy_if_invalid_heir = yes
-}
-
-d_archbishop_bordeaux = {
-	color = { 255 249 198 }
-	
-	ruler_uses_title_name = no
-	landless = yes
-
-	capital = c_bordeaux
-
-	ai_primary_priority = {
-		add = @always_primary_score
-	}
-
-	no_automatic_claims = yes
-	always_follows_primary_heir = yes
-	destroy_if_invalid_heir = yes
-}
 
 d_archbishop_marseille = {
 	color = { 255 249 198 }
 	
 	ruler_uses_title_name = no
-	landless = yes
+	
 
 	capital = c_provence
 
@@ -173,149 +129,15 @@ d_archbishop_marseille = {
 	no_automatic_claims = yes
 	always_follows_primary_heir = yes
 	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
 }
 
-d_archbishop_lyon = {
-	color = { 255 249 198 }
-	
-	ruler_uses_title_name = no
-	landless = yes
-
-	capital = c_lyon
-
-	ai_primary_priority = {
-		add = @always_primary_score
-	}
-
-	no_automatic_claims = yes
-	always_follows_primary_heir = yes
-	destroy_if_invalid_heir = yes
-}
-
-d_archbishop_tours = {
-	color = { 255 249 198 }
-	
-	ruler_uses_title_name = no
-	landless = yes
-
-	capital = c_tourraine
-
-	ai_primary_priority = {
-		add = @always_primary_score
-	}
-
-	no_automatic_claims = yes
-	always_follows_primary_heir = yes
-	destroy_if_invalid_heir = yes
-}
-
-d_archbishop_bourges = {
-	color = { 255 249 198 }
-	
-	ruler_uses_title_name = no
-	landless = yes
-
-	capital = c_issoudun
-
-	ai_primary_priority = {
-		add = @always_primary_score
-	}
-
-	no_automatic_claims = yes
-	always_follows_primary_heir = yes
-	destroy_if_invalid_heir = yes
-}
-
-d_archbishop_sens = {
-	color = { 255 249 198 }
-	
-	ruler_uses_title_name = no
-	landless = yes
-
-	capital = c_sens
-
-	ai_primary_priority = {
-		add = @always_primary_score
-	}
-
-	no_automatic_claims = yes
-	always_follows_primary_heir = yes
-	destroy_if_invalid_heir = yes
-}
-
-d_archbishop_reims = { # | ALREADY LANDED IN GAME
-	color = { 255 249 198 }
-	
-	ruler_uses_title_name = no
-	landless = yes
-
-	capital = c_reims
-
-	ai_primary_priority = {
-		add = @always_primary_score
-	}
-
-	no_automatic_claims = yes
-	always_follows_primary_heir = yes
-	destroy_if_invalid_heir = yes
-}
-
-d_archbishop_rouen = {
-	color = { 255 249 198 }
-	
-	ruler_uses_title_name = no
-	landless = yes
-
-	capital = c_rouen
-
-	ai_primary_priority = {
-		add = @always_primary_score
-	}
-
-	no_automatic_claims = yes
-	always_follows_primary_heir = yes
-	destroy_if_invalid_heir = yes
-}
-
-d_archbishop_canterbury = {
-	color = { 255 249 198 }
-	
-	ruler_uses_title_name = no
-	landless = yes
-
-	capital = c_kent
-
-	ai_primary_priority = {
-		add = @always_primary_score
-	}
-
-	no_automatic_claims = yes
-	always_follows_primary_heir = yes
-	destroy_if_invalid_heir = yes
-}
-
-d_archbishop_york = {# | ALREADY LANDED IN GAME
-	color = { 255 249 198 }
-	
-	ruler_uses_title_name = no
-	landless = yes
-
-	capital = c_north_riding
-
-	ai_primary_priority = {
-		add = @always_primary_score
-	}
-
-	no_automatic_claims = yes
-	always_follows_primary_heir = yes
-	destroy_if_invalid_heir = yes
-}
 
 d_archbishop_milano = {
 	color = { 255 249 198 }
 	
 	ruler_uses_title_name = no
-	landless = yes
+	
 
 	capital = c_lombardia
 
@@ -326,13 +148,14 @@ d_archbishop_milano = {
 	no_automatic_claims = yes
 	always_follows_primary_heir = yes
 	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
 }
 
 d_archbishop_aquileia = { # ALREADY LANDED IN GAME
 	color = { 255 249 198 }
 	
 	ruler_uses_title_name = no
-	landless = yes
+	
 
 	capital = c_aquileia
 
@@ -343,40 +166,7 @@ d_archbishop_aquileia = { # ALREADY LANDED IN GAME
 	no_automatic_claims = yes
 	always_follows_primary_heir = yes
 	destroy_if_invalid_heir = yes
-}
-
-d_archbishop_ravenna = {# ALREADY LANDED IN GAME
-	color = { 255 249 198 }
-	
-	ruler_uses_title_name = no
-	landless = yes
-
-	capital = c_ravenna
-
-	ai_primary_priority = {
-		add = @always_primary_score
-	}
-
-	no_automatic_claims = yes
-	always_follows_primary_heir = yes
-	destroy_if_invalid_heir = yes
-
-}
-d_archbishop_bari = { # Not in 867
-	color = { 255 249 198 }
-	
-	ruler_uses_title_name = no
-	landless = yes
-
-	capital = c_bari
-
-	ai_primary_priority = {
-		add = @always_primary_score
-	}
-
-	no_automatic_claims = yes
-	always_follows_primary_heir = yes
-	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
 }
 
 # d_archbishop_salzburg - Just give them Salzburg
@@ -385,7 +175,7 @@ d_archbishop_trier = { # Already Landed,
 	color = { 255 249 198 }
 	
 	ruler_uses_title_name = no
-	landless = yes
+	
 
 	capital = c_trier
 
@@ -396,16 +186,150 @@ d_archbishop_trier = { # Already Landed,
 	no_automatic_claims = yes
 	always_follows_primary_heir = yes
 	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
 }
 
-d_archbishop_cologne = { # Already Landed
-	color = { 255 249 198 }
+d_archbishop_canterbury = {
+	color = { 127 186 126 }
 	
 	ruler_uses_title_name = no
-	landless = yes
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_kent
+
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}
+
+d_archbishop_york = {
+	color = { 127 186 126 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_north_riding
+
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}
+
+d_archbishop_bremen = {
+	color = { 157 186 26 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_bremen
+
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}
+
+d_archbishop_magdeburg = {
+	color = { 127 186 66 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_magdeburg
+
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}
+
+d_archbishop_cologne = {
+	color = { 127 186 26 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
 
 	capital = c_cologne
 
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}
+
+d_archbishop_treveris = {
+	color = { 127 186 66 }
+	
+	ruler_uses_title_name = no
+	
+
 	ai_primary_priority = {
 		add = @always_primary_score
 	}
@@ -413,16 +337,80 @@ d_archbishop_cologne = { # Already Landed
 	no_automatic_claims = yes
 	always_follows_primary_heir = yes
 	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_trier
+
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
 }
 
-d_archbishop_mainz = { # Already Landed
-	color = { 255 249 198 }
+# d_archbishop_salzburg = {
+# 	color = { 147 186 26 }
+	
+# 	ruler_uses_title_name = no
+	
+
+# 	ai_primary_priority = {
+# 		add = @always_primary_score
+# 	}
+
+# 	no_automatic_claims = yes
+# 	always_follows_primary_heir = yes
+# 	destroy_if_invalid_heir = yes
+# 	can_use_nomadic_naming = no
+
+# 	capital = c_salzburg
+
+# 	can_create = {
+# 		trigger_if = {
+# 			limit = {
+# 				is_ai = yes
+# 			}	
+# 			faith = { religion_tag = christianity_religion }
+# 		}
+# 	}
+# }
+
+d_archbishop_mainz = {
+	color = { 127 146 26 }
 	
 	ruler_uses_title_name = no
-	landless = yes
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
 
 	capital = c_mainz
 
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}
+
+d_archbishop_spalato = {
+	color = { 210 110 100 }
+	
+	ruler_uses_title_name = no
+	
+
 	ai_primary_priority = {
 		add = @always_primary_score
 	}
@@ -430,8 +418,1266 @@ d_archbishop_mainz = { # Already Landed
 	no_automatic_claims = yes
 	always_follows_primary_heir = yes
 	destroy_if_invalid_heir = yes
-}
-# 1066 - 1100s additions
+	can_use_nomadic_naming = no
 
+	capital = c_cetina
+
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}
+
+d_archbishop_zara = {
+	color = { 200 100 100 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_zadar
+
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}
+
+d_archbishop_ragusa = {
+	color = { 210 100 100 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_ragusa
+
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}
+
+d_archbishop_durazzo = {
+	color = { 210 100 100 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_dyrrachion
+
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}
+
+d_archbishop_naples = {
+	color = { 255 246 200 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_napoli
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}
+
+d_archbishop_capua = {
+	color = { 240 230 180 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_capua
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}	
+
+d_archbishop_benevento = {
+	color = { 230 220 170 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_benevento
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}	
+
+d_archbishop_siponto = {
+	color = { 215 205 160 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_apulia
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}	
+
+d_archbishop_bari = {
+	color = { 200 190 150 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_bari
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}	
+
+d_archbishop_amalfi = {
+	color = { 190 180 145 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_napoli
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}	
+
+d_archbishop_salerno = {
+	color = { 175 170 140 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_salerno
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}	
+
+d_archbishop_brindisi = {
+	color = { 160 160 160 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_lecce
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}	
+
+d_archbishop_taranto = {
+	color = { 145 145 145 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_bari 
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}	
+
+d_archbishop_cossenza = {
+	color = { 130 130 130 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_cosenza
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}	
+
+d_archbishop_santa_severina = {
+	color = { 150 120 120 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_rossano
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}	
+
+d_archbishop_reggio = {
+	color = { 170 100 100 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_reggio_calabria
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}	
+
+d_archbishop_palermo = {
+	color = { 190 90 90 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_palermo
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}	
+
+d_archbishop_messina = {
+	color = { 200 80 80 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_messina
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}
+
+d_archbishop_milan = {
+	color = { 127 136 96 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_lombardia
+
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}
+
+d_archbishop_pisa = {
+	color = { 127 186 86 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_pisa
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}
+
+d_archbishop_florence = {
+	color = { 127 216 66 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_firenze
+
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}
+
+d_archbishop_genoa = {
+	color = { 117 216 66 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_genoa
+
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}
+
+d_archbishop_ravenna = {
+	color = { 117 216 166 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_ravenna
+
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}
+
+d_archbishop_aquilea = {
+	color = { 210 100 100 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_aquileia
+
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}
+
+d_archbishop_cagliari = {
+	color = { 185 185 185 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_cagliari
+
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}
+
+d_archbishop_gnesen = {
+	color = { 187 96 26 }
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_gnieznienska
+
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}
+
+d_archbishop_prague = {
+	color = { 127 126 26 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_praha
+
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}
+
+d_archbishop_gran = {
+	color = { 210 80 100 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_esztergom
+
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}
+
+d_archbishop_kalocsa = {
+	color = { 180 80 90 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_szekesfehervar
+
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}
+
+d_archbishop_tours = {
+	color = { 80 105 150 }
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_tourraine
+
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}
+
+d_archbishop_rouen = {
+	color = { 100 130 180 }
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_rouen
+
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}
+
+d_archbishop_sens = {
+	color = { 120 160 210 } 
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_sens
+
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}
+
+d_archbishop_reims = {
+	color = { 150 190 230 }
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_reims
+
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}
+
+d_archbishop_bourges = {
+	color = { 180 220 250 }
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_issoudun
+
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}
+
+d_archbishop_narbonne = {
+	color = { 227 186 26 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_carcassonne
+
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}
+
+d_archbishop_auch = {
+	color = { 227 86 26 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_armagnac
+
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}
+
+d_archbishop_bordeaux = {
+	color = { 187 56 46 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_bordeaux
+
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}
+
+d_archbishop_lyon = {
+	color = { 227 86 26 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_lyon
+
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}
+
+d_archbishop_arles = {
+	color = { 227 86 26 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_venaissin
+
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}
+
+d_archbishop_vienne = {
+	color = { 227 86 26 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_viennois
+
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}
+
+d_archbishop_besancon = {
+	color = { 227 76 26 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_besancon
+
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}
+
+d_archbishop_embrun = {
+	color = { 217 86 26 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_forcalquier
+
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}
+
+d_archbishop_toledo = {
+	color = { 227 86 26 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_toledo
+
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}
+
+d_archbishop_burgos = {
+	color = { 227 206 26 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_burgos
+
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}
+
+d_archbishop_tarragona = {
+	color = { 127 86 26 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_tarragona  # optional
+
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}
+
+d_archbishop_zaragoza = {
+	color = { 157 66 26 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_zaragoza  # optional
+
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}
+
+d_archbishop_santiago = {
+	color = { 227 206 126 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_santiago
+
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}
+
+d_archbishop_braga = {
+	color = { 177 86 76 }
+	
+	ruler_uses_title_name = no
+	
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_use_nomadic_naming = no
+
+	capital = c_porto
+
+	can_create = {
+		trigger_if = {
+			limit = {
+				is_ai = yes
+			}	
+			faith = { religion_tag = christianity_religion }
+		}
+	}
+}
 
 

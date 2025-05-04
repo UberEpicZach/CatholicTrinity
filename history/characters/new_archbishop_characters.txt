@@ -1,0 +1,8103 @@
+bishop_julian_burgos = {
+    name = "Julián"
+    religion = "catholic"
+    culture = "castilian"
+    trait = devoted
+    trait = education_learning_2  # moderate learning
+    995.1.1 = {
+        birth = "995.1.1"
+    }
+    1041.1.1 = {
+        death = "1041.1.1"
+    }
+}
+
+bishop_gomez1_burgos = {
+    name = "Gómez"
+    religion = "catholic"
+    culture = "castilian"
+    trait = devoted
+    trait = education_learning_3  # stronger learning
+    1010.1.1 = {
+        birth = "1010.1.1"
+    }
+    1064.1.1 = {
+        death = "1064.1.1"
+    }
+}
+
+bishop_jimeno1_burgos = {
+    name = "Jimeno"
+    religion = "catholic"
+    culture = "castilian"
+    trait = devoted
+    trait = education_learning_2
+    1020.1.1 = {
+        birth = "1020.1.1"
+    }
+    1068.1.1 = {
+        death = "1068.1.1"
+    }
+}
+
+bishop_jimeno2_burgos = {
+    # Also known as Simón
+    name = "Jimeno"
+    religion = "catholic"
+    culture = "castilian"
+    trait = devoted
+    trait = education_learning_3
+    1035.1.1 = {
+        birth = "1035.1.1"
+    }
+    1082.1.1 = {
+        death = "1082.1.1"
+    }
+}
+
+bishop_gomez2_burgos = {
+    name = "Gómez"
+    religion = "catholic"
+    culture = "castilian"
+    trait = devoted
+    trait = education_learning_2
+    1045.1.1 = {
+        birth = "1045.1.1"
+    }
+    1097.1.1 = {
+        death = "1097.1.1"
+    }
+}
+
+bishop_garcia_aznarez_burgos = {
+    name = "García Aznárez"
+    religion = "catholic"
+    culture = "castilian"
+    trait = devoted
+    trait = education_learning_2
+    1060.1.1 = {
+        birth = "1060.1.1"
+    }
+    1114.1.1 = {
+        death = "1114.1.1"
+    }
+}
+
+bishop_ramiro_burgos = {
+    name = "Ramiro"
+    religion = "catholic"
+    culture = "castilian"
+    trait = devoted
+    trait = education_learning_2
+    1075.1.1 = {
+        birth = "1075.1.1"
+    }
+    1116.1.1 = {
+        death = "1116.1.1"
+    }
+}
+
+bishop_jimeno3_burgos = {
+    name = "Jimeno"
+    religion = "catholic"
+    culture = "castilian"
+    trait = devoted
+    trait = education_learning_3
+    1080.1.1 = {
+        birth = "1080.1.1"
+    }
+    1139.1.1 = {
+        death = "1139.1.1"
+    }
+}
+
+bishop_pedrodominguez_burgos = {
+    name = "Pedro"
+    religion = "catholic"
+    culture = "castilian"
+    trait = devoted
+    trait = education_learning_3
+    1095.1.1 = {
+        birth = "1095.1.1"
+    }
+    1146.1.1 = {
+        death = "1146.1.1"
+    }
+}
+
+bishop_victor_burgos = {
+    name = "Víctor"
+    religion = "catholic"
+    culture = "castilian"
+    trait = devoted
+    trait = education_learning_2
+    1100.1.1 = {
+        birth = "1100.1.1"
+    }
+    1156.1.1 = {
+        death = "1156.1.1"
+    }
+}
+
+bishop_pedroperez_burgos = {
+    name = "Pedro"
+    religion = "catholic"
+    culture = "castilian"
+    trait = devoted
+    trait = education_learning_4  # exceptionally learned
+    1115.1.1 = {
+        birth = "1115.1.1"
+    }
+    1181.1.1 = {
+        death = "1181.1.1"
+    }
+}
+
+bishop_ataulfo1_santiago = {
+    name = "Ataúlfo"
+    religion = "catholic"
+    culture = "asturleonese"  # or "asturleonese", "castilian", etc.
+    trait = devoted
+    trait = education_learning_2
+
+    790.1.1 = { birth = "790.1.1" }
+    851.1.2 = { death = "851.1.2" }
+}
+
+bishop_ataulfo2_santiago = {
+    name = "Ataúlfo"
+    religion = "catholic"
+    culture = "asturleonese"
+    trait = devoted
+    trait = education_learning_2
+
+    800.1.1 = { birth = "800.1.1" }
+    877.1.2 = { death = "877.1.2" }
+}
+
+bishop_sisnando1_santiago = {
+    name = "Sisnando"
+    religion = "catholic"
+    culture = "asturleonese"
+    trait = devoted
+    trait = education_learning_3
+
+    855.1.1 = { birth = "855.1.1" }
+    920.1.2 = { death = "920.1.2" }
+}
+
+bishop_gundesindo_aloitez = {
+    name = "Gundesindo Aloitez"
+    religion = "catholic"
+    culture = "asturleonese"
+    trait = devoted
+    trait = education_learning_2
+
+    870.1.1 = { birth = "870.1.1" }
+    924.1.1 = { death = "924.1.1" }
+}
+
+bishop_hermenegildo_santiago = {
+    name = "Hermenegildo"
+    religion = "catholic"
+    culture = "asturleonese"
+    trait = devoted
+    trait = education_learning_2
+
+    880.1.1 = { birth = "880.1.1" }
+    951.3.19 = { death = "951.3.19" } # after March 19, 951
+}
+
+bishop_sisnando2_santiago = {
+    name = "Sisnando"
+    religion = "catholic"
+    culture = "asturleonese"
+    trait = devoted
+    trait = education_learning_2
+
+    900.1.1 = { birth = "900.1.1" }
+    970.3.2 = { death = "970.3.2" }
+}
+
+bishop_rosendo_santiago = {
+    # Known as San Rosendo
+    name = "Rosendo"
+    religion = "catholic"
+    culture = "asturleonese"
+    trait = devoted
+    trait = education_learning_3
+	trait = saint
+
+    905.1.1 = { birth = "905.1.1" }
+    977.3.1 = { death = "977.3.1" }
+}
+
+bishop_payo_rodriguez_santiago = {
+    name = "Payo Rodríguez"
+    religion = "catholic"
+    culture = "asturleonese"
+    trait = devoted
+    trait = education_learning_2
+
+    915.1.1 = { birth = "915.1.1" }
+    985.1.1 = { death = "985.1.1" }
+}
+
+bishop_pedro_mezonzo_santiago = {
+    # Known as San Pedro de Mezonzo
+    name = "Pedro"
+    religion = "catholic"
+    culture = "asturleonese"
+    trait = devoted
+    trait = education_learning_3
+
+    925.1.1 = { birth = "925.1.1" }
+    1000.1.1 = { death = "1000.1.1" }
+}
+
+bishop_pelayo_diaz_santiago = {
+    name = "Pelayo Díaz"
+    religion = "catholic"
+    culture = "asturleonese"
+    trait = devoted
+    trait = education_learning_2
+
+    950.1.1 = { birth = "950.1.1" }
+    1007.1.1 = { death = "1007.1.1" }
+}
+
+bishop_vimara_diaz_santiago = {
+    name = "Vimara Díaz"
+    religion = "catholic"
+    culture = "asturleonese"
+    trait = devoted
+    trait = education_learning_2
+
+    955.1.1 = {
+        birth = "955.1.1"
+    }
+    1011.1.1 = {
+        death = "1011.1.1"
+    }
+}
+
+bishop_vistruario_santiago = {
+    name = "Vistruario"
+    religion = "catholic"
+    culture = "asturleonese"
+    trait = devoted
+    trait = education_learning_2
+
+    960.1.1 = {
+        birth = "960.1.1"
+    }
+    1036.1.1 = {
+        death = "1036.1.1"
+    }
+}
+
+bishop_cresconio2_santiago = {
+    name = "Cresconio"
+    religion = "catholic"
+    culture = "asturleonese"
+    trait = devoted
+    trait = education_learning_3
+
+    990.1.1 = {
+        birth = "990.1.1"
+    }
+    1066.1.1 = {
+        death = "1066.1.1"
+    }
+}
+
+bishop_gudesteo_santiago = {
+    name = "Gudesteo"
+    religion = "catholic"
+    culture = "asturleonese"
+    trait = devoted
+    trait = education_learning_2
+
+    995.1.1 = {
+        birth = "995.1.1"
+    }
+    1069.1.1 = {
+        death = "1069.1.1"
+    }
+}
+
+bishop_diego_pelaez_santiago = {
+    name = "Diego Peláez"
+    religion = "catholic"
+    culture = "asturleonese"
+    trait = devoted
+    trait = education_learning_3
+
+    1025.1.1 = {
+        birth = "1025.1.1"
+    }
+    1095.1.1 = {
+        death = "1095.1.1"
+    }
+}
+
+bishop_pedro2_santiago = {
+    name = "Pedro"
+    religion = "catholic"
+    culture = "asturleonese"
+    trait = devoted
+    trait = education_learning_2
+
+    1030.1.1 = {
+        birth = "1030.1.1"
+    }
+    1090.1.1 = {
+        death = "1090.1.1"
+    }
+}
+
+bishop_dalmacio_santiago = {
+    name = "Dalmacio"
+    religion = "catholic"
+    culture = "asturleonese"
+    trait = devoted
+    trait = education_learning_2
+
+    1040.1.1 = {
+        birth = "1040.1.1"
+    }
+    1095.1.1 = {
+        death = "1095.1.1"
+    }
+}
+
+bishop_rusticus_narbonne = {
+    name = "Rusticus"
+    religion = "catholic"
+    culture = "occitan"
+    trait = devoted
+    trait = saint
+    trait = education_learning_4
+
+    377.1.1 = { birth = "377.1.1" }  # Accedes at age 50 in 427
+    461.1.1 = { death = "461.1.1" }
+}
+
+bishop_nimfridius_narbonne = {
+    name = "Nimfridius"
+    religion = "catholic"
+    culture = "occitan"
+    trait = devoted
+    trait = education_learning_3
+
+    740.1.1 = { birth = "740.1.1" }  # Accedes at age 50 in 790
+    825.1.2 = { death = "825.1.2" }
+}
+
+archbishop_barthelemy_narbonne = {
+    name = "Barthelemy"
+    religion = "catholic"
+    culture = "occitan"
+    trait = devoted
+    trait = saint
+    trait = education_learning_2
+
+    777.1.1 = { birth = "777.1.1" }  # Accedes at age 50 in 827
+    840.1.1 = { death = "840.1.1" }
+}
+
+archbishop_sigebode_narbonne = {
+    name = "Sigebod"
+    religion = "catholic"
+    culture = "occitan"
+    trait = devoted
+    trait = education_learning_2
+
+    823.1.1 = { birth = "823.1.1" }
+    885.1.1 = { death = "885.1.1" }
+}
+
+archbishop_theodard_narbonne = {
+    name = "Theodard"
+    religion = "catholic"
+    culture = "occitan"
+    trait = devoted
+    trait = education_learning_2
+    trait = saint
+
+    830.1.1 = { birth = "830.1.1" }
+    893.1.1 = { death = "893.1.1" }
+}
+
+archbishop_arnuste_narbonne = {
+    name = "Arnust"
+    religion = "catholic"
+    culture = "occitan"
+    trait = devoted
+    trait = education_learning_2
+
+    845.1.1 = { birth = "845.1.1" }
+    912.1.1 = { death = "912.1.1" }
+}
+bishop_berarius_narbonne = {
+    name = "Berà"
+    dynasty = 100204
+    religion = "catholic"
+    culture = "occitan"   # Using Occitan for his ecclesiastical role in Narbonne
+    trait = devoted
+    trait = education_learning_3
+    father = visigothic0006   # Borrell de Osona (Barcelona Dynasty)
+    795.1.1 = { birth = "795.1.1" }
+    850.1.1 = { death = "850.1.1" }
+}
+
+bishop_fredold_narbonne = {
+    name = "Fredold"
+    dynasty = 9571
+    religion = "catholic"
+    culture = "occitan"   # Reflecting his origin as a son of Isembard, though note 200144 switched to occitan later; you may choose "occitan" if desired.
+    trait = devoted
+    trait = education_learning_2
+    father = 200144  # Isembard d'Autun
+    820.1.1 = { birth = "820.1.1" }
+    872.1.1 = { death = "872.1.1" }
+}
+bishop_ermengaud_narbonne = {
+    name = "Ermengaud"
+    dynasty = 280
+    religion = "catholic"
+    culture = "occitan"
+    trait = devoted
+    trait = education_learning_3
+    father = 138218
+
+    945.1.1 = { birth = "945.1.1" }
+    1018.1.1 = { death = "1018.1.1" }
+}
+pierre_berengier_narbonne = {
+    name = "Pèire Berenguer"
+    dynasty = 280
+    religion = "catholic"
+    culture = "occitan"
+    trait = devoted
+    trait = education_learning_3
+    father = 40212
+
+    1010.1.1 = { birth = "1010.1.1" }
+    1086.1.1 = { death = "1086.1.1" }
+}
+bishop_dalmas_narbonne = {
+    name = "Dalmas"
+    religion = "catholic"
+    culture = "occitan"
+    trait = devoted
+    trait = education_learning_3
+
+    1027.1.1 = { birth = "1027.1.1" }
+    1097.1.17 = { death = "1097.1.17" }
+}
+archbishop_bertrand_montredon_narbonne = {
+    name = "Bertrand"
+    dynasty = 2000026
+    religion = "catholic"
+    culture = "occitan"
+    trait = devoted
+    trait = education_learning_3
+	father = grandfathermontredon
+
+    1060.1.1 = { birth = "1060.1.1" }
+    1106.1.1 = { death = "1106.1.1" }
+}
+
+grandfathermontredon = {
+    name = "Bernats"
+    dynasty = 2000026
+    religion = "catholic"
+    culture = "occitan"
+
+    1030.1.1 = { birth = yes }
+    1096.1.1 = { death = yes }
+}
+
+fathermontredon = {
+    name = "Bernats"
+    dynasty = 2000026
+    religion = "catholic"
+    culture = "occitan"
+	father = grandfathermontredon
+
+    1052.1.1 = { birth = yes }
+    1116.1.1 = { death = yes }
+}
+
+richard_millau = {
+    name = "Richard"
+    dynasty = 22005
+    religion = "catholic"
+    culture = "occitan"
+    trait = devoted
+    trait = education_learning_3
+    father = 10034
+    1065.1.1 = {
+        birth = "1065.1.1"
+    }
+    1125.1.1 = {
+        death = "1125.1.1"
+    }
+}
+acfred_belcastel = {
+    name = "Acfred"
+    dynasty = dynn_Levezou    # New dynasty for the Levezou line
+    religion = "catholic"
+    culture = "occitan"
+
+
+    1040.1.1 = { birth = "1040.1.1" }
+    1100.1.1 = { death = "1100.1.1" }
+}
+
+arsenda_levezou = {
+    name = "Arsenda"
+    female = yes
+    dynasty = 22005           # Inherited from her father, Richard II de Millau
+    religion = "catholic"
+    culture = "occitan"
+
+    father = 10032            # Richard II de Millau
+    mother = 10033            # RichE_nda, de Narbonne
+
+    1040.1.1 = { birth = "1040.1.1" }
+    1110.1.1 = { death = "1110.1.1" }
+}
+
+arnaud_de_levezou = {
+    name = "Arnauz"
+    dynasty = dynn_Levezou    # Inherited from his father Acfred
+    religion = "catholic"
+    culture = "occitan"
+
+    father = acfred_belcastel
+    mother = arsenda_levezou
+
+    1065.1.1 = { birth = "1065.1.1" }
+    1130.1.1 = { death = "1130.1.1" }
+}
+
+#Maison d'Anduze
+
+raynaud_andouze = {
+    name = "Rainelm"
+    dynasty = 5103
+    religion = catholic
+    culture = occitan
+
+    750.1.1 = { birth = yes }
+    815.1.1 = { death = yes }
+    # Raynaud (Rainelmis) d'Anduze (fl. 815), earliest known patriarch
+}
+
+garnier_andouze = {
+    name = "Gariner"
+    dynasty = 5103
+    religion = catholic
+    culture = occitan
+    father = raynaud_andouze
+
+    780.1.1 = { birth = yes }
+    865.1.1 = { death = yes }
+    # Raynaud (Rainelmis) d'Anduze (fl. 815), earliest known patriarch
+}
+
+senegonda_andouze = {
+    name = "Senegonda"
+	female = yes
+    dynasty = 5103
+    religion = catholic
+    culture = occitan
+    father = garnier_andouze
+
+    850.1.1 = { birth = yes }
+	880.1.1 = { add_spouse = bertrangavalda }
+    924.1.1 = { death = yes }
+    # Married Amblard of Gevaudan
+} 
+
+fredelon_i_andouze = {
+    name = "Fredelon"
+    dynasty = 5103
+    religion = catholic
+    culture = occitan
+    father = garnier_andouze
+
+    840.1.1 = { birth = yes }
+    927.1.1 = { death = yes }
+    # Frédelon I d'Anduze (ca 840–927), seigneur d'Anduze, married Oda
+}
+
+raimond_andouze = {
+    name = "Raimon"
+    dynasty = 5103
+    religion = catholic
+    culture = occitan
+    father = fredelon_i_andouze
+
+    870.1.1 = { birth = yes }
+    943.1.1 = { death = yes }
+    # Raimond d'Anduze (ca 870–943), seigneur d'Anduze
+}
+
+fredelon_ii_andouze = {
+    name = "Fredelon"
+    dynasty = 5103
+    religion = catholic
+    culture = occitan
+    father = raimond_andouze
+
+    895.1.1 = { birth = yes }
+    957.1.1 = { death = yes }
+    # Frédelon II d'Anduze (ca 895–957), seigneur d'Anduze, married Guitberge de Carlat
+}
+
+almeradus_andouze = {
+    name = "Almerad"
+    dynasty = 5103
+    religion = catholic
+    culture = occitan
+    father = fredelon_ii_andouze
+
+    920.1.1 = { birth = yes }
+    990.1.1 = { death = yes }
+    # Almeradus d'Anduze (ca 920–?), Marquis de Gothie, married Blitgarde
+}
+
+bernard_pelet_andouze = {
+    name = "Bernard Pelet"
+    dynasty = 5103
+    religion = "catholic"
+    culture = "occitan"
+	father = almeradus_andouze
+
+    960.1.1 = { birth = "960.1.1" }
+    1053.1.1 = { death = "1053.1.1" }
+}
+
+velay_bishop_fredol_danduze = {
+    name = "Fredolon"
+    dynasty = 5103
+    religion = "catholic"
+    culture = "occitan"
+	father = almeradus_andouze
+
+    961.1.1 = { birth = yes }
+    1016.1.1 = { death = yes }
+}
+
+almirade_andouze = {
+    name = "Almirade"
+	female = yes
+    dynasty = 5103
+    religion = "catholic"
+    culture = "occitan"
+
+    father = bernard_pelet_andouze
+    990.1.1 = { birth = "990.1.1" }
+    1083.1.1 = { death = "1083.1.1" }
+}
+
+bermonde_andouze = {
+    name = "Bermond"
+    dynasty = 5103
+    religion = "catholic"
+    culture = "occitan"
+
+    father = bernard_pelet_andouze
+    991.1.1 = { birth = "991.1.1" }
+    1073.1.1 = { death = "1073.1.1" }
+}
+
+pierre_andouze = {
+    name = "Peire"
+    dynasty = 5103
+    religion = "catholic"
+    culture = "occitan"
+
+    father = bermonde_andouze
+    1020.1.1 = { birth = "1020.1.1" }
+    1097.1.1 = { death = "1097.1.1" }
+}
+
+bermond_sauve_andouze = {
+    name = "Bermond"
+    dynasty = 5103
+    religion = "catholic"
+    culture = "occitan"
+	father = bernard_pelet_andouze
+
+    # This branch (from the first marriage of Bernard Pelet) is treated as a cousin branch.
+    1025.1.1 = { birth = "1025.1.1" }
+    1110.1.1 = { death = "1110.1.1" }
+}
+
+pierreii_andouze = {
+	name = "Bertrand"
+	religion = "catholic"
+	culture = "occitan"
+	dynasty = 5103
+	father = pierre_andouze
+	1050.1.1 = {
+		birth = yes
+	}
+	1130.1.1 = {
+		death = yes
+	}
+}
+
+pierreiii_andouze = {
+	name = "Pèire" #Peire III
+	religion = "catholic"
+	culture = "occitan"
+	dynasty = 5103
+	father = pierreii_andouze
+	1090.1.1 = {
+		birth = yes
+	}
+	1170.1.1 = {
+		death = yes
+	}
+}
+
+bertrand_andouze = {
+    name = "Bertrand"
+    dynasty = 5103
+    religion = "catholic"
+    culture = "occitan"
+
+    father = 138376         # Bernard VI d'Anduze (ID 138376)
+    1171.1.1 = { birth = yes }
+    1220.1.1 = { death = yes }
+}
+
+pierre_bermond6_andouze = {
+    name = "Peire Bermond"
+    dynasty = 5103
+    religion = "catholic"
+    culture = "occitan"
+    trait = devoted
+    trait = education_learning_3
+    father = bertrand_andouze
+    1200.1.1 = { birth = yes }
+    1260.1.1 = { death = yes }
+}
+
+archbishop_pierre2_situlvero_narbonne = {
+    name = "Pèire"
+    dynasty = 5103                # House of Anduze
+    religion = "catholic"
+    culture = "occitan"
+    trait = devoted
+    trait = education_learning_3
+    father = pierreiii_andouze     # (son of Bernard VI d’Anduze)
+    
+    # His tenure is traditionally brief; we set his birth and death accordingly.
+    1119.1.1 = { birth = "1119.1.1" }
+    1155.1.1 = { death = "1155.1.1" }
+}
+
+bernard_raimond_narbonne = {
+    name = "Bernard Raimond"
+    dynasty = 280
+    religion = "catholic"
+    culture = "occitan"
+
+    father = 40218
+    mother = 1121
+    1085.1.1 = { birth = "1085.1.1" }   # Born two years after 1083
+    1150.1.1 = { death = "1150.1.1" }    # Dies at about age 65
+}
+
+guiscard_narbonne = {
+    name = "Guiscard"
+    dynasty = 280
+    religion = "catholic"
+    culture = "occitan"
+    trait = devoted
+    trait = education_learning_2
+    father = 40218
+    mother = 1121
+    1087.1.1 = { birth = "1087.1.1" }   # Born around 1087
+    1152.1.1 = { death = "1152.1.1" }    # Dies at about age 65
+}
+
+
+archbishop_berenger_narbonne = {
+    name = "Berenguer"
+    dynasty = 280
+    religion = "catholic"
+    culture = "occitan"
+    trait = devoted
+    trait = education_learning_3
+    father = 40218
+    mother = 1121
+    1090.1.1 = { birth = yes }   # Born around 1090
+    1162.5.1 = { death = yes }    # Dies around age 72
+}
+archbishop_pons_darsac_narbonne = {
+    name = "Pons"
+    dynasty = dyn_arsac
+    religion = "catholic"
+    culture = "occitan"
+    trait = zealous
+    trait = diligent
+    trait = callous
+	trait = devoted
+	trait = education_learning_2
+
+    1112.1.1 = {
+        birth = "1112.1.1"
+    }
+    1181.2.15 = {
+        death = "1181.2.15"
+    }
+}
+
+toledo_archbishop_eulogius = {
+    name = "Eulogius"
+    religion = "catholic"
+    culture = "castilian"
+    trait = devoted
+	trait = saint
+    trait = education_learning_4
+    820.1.1 = { birth = "820.1.1" }
+    890.1.1 = { death = "890.1.1" }
+}
+
+toledo_archbishop_pascual = {
+    name = "Pascual"
+    religion = "catholic"
+    culture = "castilian"
+    trait = devoted
+    trait = education_learning_3
+    1010.1.1 = { birth = "1010.1.1" }
+    1076.1.1 = { death = "1076.1.1" }
+}
+toledo_archbishop_pere_de_cardona = {
+    name = "Pere"
+    dynasty_house = house_cardona
+    religion = "catholic"
+    culture = "catalan"
+    trait = devoted
+    trait = education_learning_3
+
+    father = 71599
+    mother = 72308
+
+    1130.1.1 = { birth = yes }
+    1199.1.1 = { death = yes }
+}
+
+########
+##+VIENNE+
+########
+
+vienne_archbishop_verus_i = {
+    name = "Verus"
+    religion = catholic
+    culture = "roman"
+    trait = devoted
+    trait = education_learning_2
+
+    30.1.1 = { birth = yes }
+    130.1.1 = { death = yes }
+}
+
+vienne_archbishop_zacharias = {
+    name = "Zacharias"
+    religion = catholic
+    culture = "roman"
+    trait = devoted
+    trait = education_learning_3
+
+    60.1.1 = { birth = yes }
+    160.1.1 = { death = yes }
+}
+
+vienne_archbishop_verus_ii = {
+    name = "Verus"
+    religion = catholic
+    culture = "roman"
+    trait = devoted
+    trait = education_learning_2
+
+    90.1.1 = { birth = yes }
+    190.1.1 = { death = yes }
+}
+
+vienne_archbishop_paschasius = {
+    name = "Paschasius"
+    religion = catholic
+    culture = "roman"
+    trait = devoted
+    trait = education_learning_3
+
+    120.1.1 = { birth = yes }
+    220.1.1 = { death = yes }
+}
+
+vienne_archbishop_aemilianus = {
+    name = "Aemilianus"
+    religion = catholic
+    culture = "roman"
+    trait = devoted
+    trait = education_learning_2
+
+    150.1.1 = { birth = yes }
+    250.1.1 = { death = yes }
+}
+
+vienne_archbishop_pantagathus = {
+    name = "Pantagathus"
+    religion = catholic
+    culture = "roman"
+    trait = devoted
+    trait = education_learning_3
+
+    180.1.1 = { birth = yes }
+    280.1.1 = { death = yes }
+}
+
+vienne_archbishop_nectarius = {
+    name = "Nectarius"
+    religion = catholic
+    culture = "roman"
+    trait = devoted
+    trait = education_learning_2
+
+    210.1.1 = { birth = yes }
+    310.1.1 = { death = yes }
+}
+
+vienne_archbishop_florentius = {
+    name = "Florentius"
+    religion = catholic
+    culture = "roman"
+    trait = devoted
+    trait = education_learning_3
+
+    240.1.1 = { birth = yes }
+    340.1.1 = { death = yes }
+}
+
+vienne_archbishop_verus_iii = {
+    name = "Verus"
+    religion = catholic
+    culture = "roman"
+    trait = devoted
+    trait = education_learning_2
+
+    270.1.1 = { birth = yes }
+    370.1.1 = { death = yes }
+}
+
+vienne_archbishop_justus = {
+    name = "Justus"
+    religion = catholic
+    culture = "roman"
+    trait = devoted
+    trait = education_learning_3
+
+    300.1.1 = { birth = yes }
+    400.1.1 = { death = yes }
+}
+
+vienne_archbishop_domninus = {
+    name = "Domninus"
+    religion = catholic
+    culture = "roman"
+    trait = devoted
+    trait = education_learning_2
+
+    330.1.1 = { birth = yes }
+    419.1.1 = { death = yes }
+}
+
+vienne_archbishop_martin_i = {
+    name = "Martin"
+    religion = catholic
+    culture = "roman"
+    trait = devoted
+    trait = education_learning_3
+
+    360.1.1 = { birth = yes }
+    430.1.1 = { death = yes }
+}
+
+vienne_archbishop_claudius = {
+    name = "Claudius"
+    religion = catholic
+    culture = "roman"
+    trait = devoted
+    trait = education_learning_2
+
+    390.1.1 = { birth = yes }
+    450.1.1 = { death = yes }
+}
+
+vienne_archbishop_avitus_i = {
+    name = "Avitus"
+    religion = catholic
+    culture = "roman"
+    trait = devoted
+    trait = education_learning_3
+
+    410.1.1 = { birth = yes }
+    470.1.1 = { death = yes }
+}
+
+vienne_archbishop_mamertus = {
+    name = "Mamertus"
+    religion = catholic
+    culture = "roman"
+    trait = devoted
+    trait = education_learning_4
+
+    430.1.1 = { birth = yes }
+    475.1.1 = { death = yes }
+}
+
+vienne_archbishop_isicius = {
+    name = "Isicius"
+    religion = catholic
+    culture = "roman"
+    trait = devoted
+    trait = education_learning_3
+
+    450.1.1 = { birth = yes }
+    494.1.1 = { death = yes }
+}
+
+vienne_archbishop_avitus_ii = {
+    name = "Avitus"
+    religion = catholic
+    culture = "roman"
+    trait = devoted
+    trait = education_learning_4
+
+    470.1.1 = { birth = yes }
+    518.1.1 = { death = yes }
+}
+
+vienne_archbishop_julianus = {
+    name = "Julianus"
+    religion = catholic
+    culture = "roman"
+    trait = devoted
+    trait = education_learning_2
+
+    490.1.1 = { birth = yes }
+    538.1.1 = { death = yes }
+}
+
+vienne_archbishop_domnolus = {
+    name = "Domnolus"
+    religion = catholic
+    culture = "roman"
+    trait = devoted
+    trait = education_learning_3
+
+    510.1.1 = { birth = yes }
+    552.1.1 = { death = yes }
+}
+
+vienne_archbishop_euphronius = {
+    name = "Euphronius"
+    religion = catholic
+    culture = "roman"
+    trait = devoted
+    trait = education_learning_3
+
+    530.1.1 = { birth = yes }
+    570.1.1 = { death = yes }
+}
+
+vienne_archbishop_desiderius = {
+    name = "Desiderius"
+    religion = "catholic"
+    culture = "roman"
+    trait = devoted
+    trait = education_learning_3
+
+    550.1.1 = { birth = yes }
+    590.1.1 = { death = yes }
+}
+
+vienne_archbishop_veranus = {
+    name = "Veranus"
+    religion = "catholic"
+    culture = "roman"
+    trait = devoted
+    trait = education_learning_2
+
+    570.1.1 = { birth = yes }
+    610.1.1 = { death = yes }
+}
+
+vienne_archbishop_sextilius = {
+    name = "Sextilius"
+    religion = "catholic"
+    culture = "roman"
+    trait = devoted
+    trait = education_learning_2
+
+    590.1.1 = { birth = yes }
+    640.1.1 = { death = yes }
+}
+
+vienne_archbishop_aetherius = {
+    name = "Aetherius"
+    religion = "catholic"
+    culture = "roman"
+    trait = devoted
+    trait = education_learning_3
+
+    610.1.1 = { birth = yes }
+    680.1.1 = { death = yes }
+}
+
+vienne_archbishop_bobolinus = {
+    name = "Bobolinus"
+    religion = "catholic"
+    culture = "roman"
+    trait = devoted
+    trait = education_learning_2
+
+    660.1.1 = { birth = yes }
+    710.1.1 = { death = yes }
+}
+
+vienne_archbishop_wilicarius = {
+    name = "Wilicarius"
+    religion = "catholic"
+    culture = "frankish"
+    trait = devoted
+	trait = saint
+    trait = education_learning_3
+
+    700.1.1 = { birth = yes }
+    765.1.1 = { death = yes }
+}
+
+vienne_archbishop_etherius = {
+    name = "Etherius"
+    religion = "catholic"
+    culture = "frankish"
+    trait = devoted
+    trait = education_learning_2
+
+    700.1.1 = { birth = yes }
+    790.1.1 = { death = yes }
+}
+
+vienne_archbishop_bernoin = {
+    name = "Bernoin"
+    religion = "catholic"
+    culture = "frankish"
+    trait = devoted
+    trait = education_learning_3
+
+    740.1.1 = { birth = yes }
+    820.1.1 = { death = yes }
+}
+
+vienne_archbishop_agilmar = {
+    name = "Agilmar"
+    religion = "catholic"
+    culture = "occitan"
+    trait = devoted
+    trait = education_learning_3
+
+    800.1.1 = { birth = yes }
+    859.1.1 = { death = yes }
+}
+
+vienne_archbishop_remigius_i = {
+    name = "Remigius"
+    religion = "catholic"
+    culture = "occitan"
+    trait = devoted
+    trait = education_learning_2
+
+    800.1.1 = { birth = yes }
+    870.1.1 = { death = yes }
+}
+
+vienne_archbishop_adon = {
+    name = "Atton"
+    religion = "catholic"
+    culture = "occitan"
+    trait = devoted
+    trait = education_learning_4
+
+    800.1.1 = { birth = yes }
+    875.1.1 = { death = yes }
+}
+vienne_archbishop_sobon = {
+    name = "Sobon"
+    religion = "catholic"
+    culture = "occitan"
+    trait = devoted
+    trait = education_learning_2
+
+    805.1.1 = { birth = yes }
+    875.1.1 = { death = yes }
+}
+
+vienne_archbishop_arnulf = {
+    name = "Arnulf"
+    religion = "catholic"
+    culture = "occitan"
+    trait = devoted
+    trait = education_learning_3
+
+    850.1.1 = { birth = yes }
+    920.1.1 = { death = yes }
+}
+
+vienne_archbishop_thibert = {
+    name = "Theubert"
+    religion = "catholic"
+    culture = "occitan"
+    trait = devoted
+    trait = education_learning_2
+
+    880.1.1 = { birth = yes }
+    955.1.1 = { death = yes }
+}
+
+vienne_archbishop_geilo = {
+    name = "Geilo"
+    religion = "catholic"
+    culture = "occitan"
+    trait = devoted
+    trait = education_learning_3
+
+    915.1.1 = { birth = yes }
+    985.1.1 = { death = yes }
+}
+
+vienne_archbishop_burchard = {
+    name = "Burcarts"
+    religion = "catholic"
+    culture = "occitan"
+    trait = devoted
+    trait = education_learning_2
+
+    950.1.1 = { birth = yes }
+    1020.1.1 = { death = yes }
+}
+
+vienne_archbishop_leodegar = {
+    name = "Leodegar"
+    religion = "catholic"
+    culture = "occitan"
+    trait = devoted
+    trait = education_learning_3
+
+    990.1.1 = { birth = yes }
+    1065.1.1 = { death = yes }
+}
+
+vienne_archbishop_armand = {
+    name = "Armans"
+    religion = "catholic"
+    culture = "occitan"
+    trait = devoted
+    trait = education_learning_3
+
+    1005.1.1 = { birth = yes }
+    1086.1.1 = { death = yes }
+}
+
+vienne_archbishop_warmund = {
+    name = "Warmund"
+    religion = "catholic"
+    culture = "french"
+    trait = devoted
+    trait = education_learning_2
+
+    1015.1.1 = { birth = yes }
+    1083.1.1 = { death = yes }
+}
+
+vienne_archbishop_gontard = {
+    name = "Gontard"
+    religion = "catholic"
+    culture = "french"
+    trait = devoted
+    trait = education_learning_2
+
+    1025.1.1 = { birth = yes }
+    1119.1.1 = { death = yes }
+}
+
+vienne_archbishop_pierre_i = {
+    name = "Peire"
+    religion = "catholic"
+    culture = "occitan"
+    trait = devoted
+    trait = education_learning_3
+
+    1070.1.1 = { birth = yes }
+    1125.1.1 = { death = yes }
+}
+
+vienne_archbishop_stephen_i = {
+    name = "Estieve"
+    religion = "catholic"
+    culture = "occitan"
+    trait = devoted
+    trait = education_learning_2
+
+    1080.1.1 = { birth = yes }
+    1145.1.1 = { death = yes }
+}
+
+vienne_archbishop_humbert_i = {
+    name = "Humbert"
+    religion = "catholic"
+    culture = "occitan"
+    trait = devoted
+    trait = education_learning_3
+
+    1095.1.1 = { birth = yes }
+    1147.1.1 = { death = yes }
+}
+
+vienne_archbishop_hugh_i = {
+    name = "Ucs"
+    religion = "catholic"
+    culture = "occitan"
+    trait = devoted
+    trait = education_learning_2
+
+    1090.1.1 = { birth = yes }
+    1155.1.1 = { death = yes }
+}
+
+vienne_archbishop_stephen_ii = {
+    name = "Estieve"
+    religion = "catholic"
+    culture = "occitan"
+    trait = devoted
+    trait = education_learning_3
+
+    1100.1.1 = { birth = yes }
+    1163.1.1 = { death = yes }
+}
+
+vienne_archbishop_william_i = {
+    name = "GuilhE_m"
+    religion = "catholic"
+    culture = occitan
+    trait = devoted
+    trait = education_learning_3
+
+    1105.1.1 = { birth = yes }
+    1166.1.1 = { death = yes }
+}
+
+vienne_archbishop_robert = {
+    name = "Robert"
+    religion = "catholic"
+    culture = "occitan"
+    trait = devoted
+    trait = education_learning_3
+
+    1110.1.1 = { birth = yes }
+    1195.1.1 = { death = yes }
+}
+
+vienne_archbishop_aynard = {
+    name = "Aynard"
+    religion = "catholic"
+    culture = "occitan"
+    trait = devoted
+    trait = education_learning_2
+
+    1130.1.1 = { birth = yes }
+    1205.1.1 = { death = yes }
+}
+
+########
+## BESANÇON
+########
+
+besancon_archbishop_arducius = {
+    name = "Arducius"
+    religion = "catholic"
+    culture = "frankish"
+    trait = devoted
+    trait = education_learning_3
+
+    790.1.1 = { birth = yes }
+    872.1.1 = { death = yes }
+}
+
+besancon_archbishop_theoderic_i = {
+    name = "Theoderic"
+    religion = "catholic"
+    culture = "frankish"
+    trait = devoted
+    trait = education_learning_2
+
+    830.1.1 = { birth = yes }
+    895.1.1 = { death = yes }
+}
+
+besancon_archbishop_berengarius = {
+    name = "Berengarius"
+    religion = "catholic"
+    culture = "frankish"
+    trait = devoted
+    trait = education_learning_3
+
+    860.1.1 = { birth = yes }
+    930.1.1 = { death = yes }
+}
+
+besancon_archbishop_aymin = {
+    name = "Aymin"
+    religion = "catholic"
+    culture = "frankish"
+    trait = devoted
+    trait = education_learning_2
+
+    875.1.1 = { birth = yes }
+    940.1.1 = { death = yes }
+}
+
+besancon_archbishop_guntherius = {
+    name = "Guntherius"
+    religion = "catholic"
+    culture = "frankish"
+    trait = devoted
+    trait = education_learning_3
+
+    880.1.1 = { birth = yes }
+    950.1.1 = { death = yes }
+}
+
+besancon_archbishop_gottfried_i = {
+    name = "Godafred"
+    religion = "catholic"
+    culture = "frankish"
+    trait = devoted
+    trait = education_learning_2
+
+    900.1.1 = { birth = yes }
+    953.1.1 = { death = yes }
+}
+
+besancon_archbishop_guy = {
+    name = "Guy"
+    religion = "catholic"
+    culture = "frankish"
+    trait = devoted
+    trait = education_learning_2
+
+    900.1.1 = { birth = yes }
+    970.1.1 = { death = yes }
+}
+
+besancon_archbishop_guichard = {
+    name = "Guichard"
+    religion = "catholic"
+    culture = "frankish"
+    trait = devoted
+    trait = education_learning_3
+
+    920.1.1 = { birth = yes }
+    990.1.1 = { death = yes }
+}
+
+besancon_archbishop_leutald = {
+    name = "Leutald"
+    religion = "catholic"
+    culture = "frankish"
+    trait = devoted
+    trait = education_learning_2
+
+    940.1.1 = { birth = yes }
+    994.1.1 = { death = yes }
+}
+
+besancon_archbishop_hektor = {
+    name = "Hector"
+    religion = "catholic"
+    culture = "frankish"
+    trait = devoted
+    trait = education_learning_3
+
+    955.1.1 = { birth = yes }
+    1015.1.1 = { death = yes }
+}
+
+besancon_archbishop_waltherius = {
+    name = "Walthar"
+    religion = "catholic"
+    culture = "french"
+    trait = devoted
+    trait = education_learning_2
+
+    970.1.1 = { birth = yes }
+    1031.1.1 = { death = yes }
+}
+
+besancon_archbishop_hugues_i = {
+    name = "Hugues"
+    religion = "catholic"
+    culture = "french"
+    trait = devoted
+    trait = education_learning_4
+
+    990.1.1 = { birth = yes }
+    1065.1.1 = { death = yes }
+}
+
+besancon_archbishop_hugo_de_montfaucon = {
+    name = "Hugues"
+	dynasty = 7287
+    religion = catholic
+    culture = french
+	father = cononmontfaucon
+    trait = devoted
+    trait = education_learning_3
+
+    1025.1.1 = { birth = yes }
+    1102.1.1 = { death = yes }
+}
+
+cononmontfaucon = {
+    name = "Hugues"
+	dynasty = 7287
+    religion = catholic
+    culture = french
+    trait = education_martial_2
+
+    990.1.1 = { birth = yes }
+    1055.1.1 = { death = yes }
+}
+
+richardmontfaucon = {
+    name = "Richard"
+	dynasty = 7287
+    religion = catholic
+    culture = french
+	father = cononmontfaucon
+    trait = education_martial_2
+
+    1023.1.1 = { birth = yes }
+    1085.1.1 = { death = yes }
+}
+# Amédée Ier, seigneur de Montfaucon
+amedeemontfaucon_i = {
+    name = "Amédée"
+    dynasty = 7287
+    religion = catholic
+    culture = french
+    father = richardmontfaucon
+    trait = education_martial_3
+
+    1055.1.1 = { birth = yes }
+    1115.1.1 = { death = yes }
+}
+
+# Richard II de Montfaucon
+richardmontfaucon_ii = {
+    name = "Richard"
+    dynasty = 7287
+    religion = catholic
+    culture = french
+    father = amedeemontfaucon_i
+    trait = education_martial_3
+
+    1080.1.1 = { birth = yes }
+    1162.1.1 = { death = yes }
+}
+
+# Sophie/Agnès, wife of Richard II (unnamed ID, for marriage purposes)
+agnesmontbeliard = {
+    name = "Agnès"
+    religion = catholic
+    culture = french
+    trait = education_learning_2
+
+    1085.1.1 = { birth = yes }
+    1148.4.1 = { death = yes }
+}
+
+# Amédée II
+amedeemontfaucon_ii = {
+    name = "Amédée"
+    dynasty = 7287
+    religion = catholic
+    culture = french
+    father = richardmontfaucon_ii
+    mother = agnesmontbeliard
+    trait = education_martial_4
+
+    1110.1.1 = { birth = yes }
+    1180.1.1 = { death = yes }
+}
+
+# Stéphanie/Étiennette
+stephaniemontfaucon = {
+    name = "Stéphanie"
+    dynasty = 7287
+    religion = catholic
+    culture = french
+    father = richardmontfaucon_ii
+    mother = agnesmontbeliard
+    trait = education_learning_3
+    trait = devoted
+
+    1115.1.1 = { birth = yes }
+    1190.1.1 = { death = yes }
+}
+
+# Thierry II, Archbishop of Besançon
+thierrymontfaucon_ii = {
+    name = "Thierry"
+    dynasty = 7287
+    religion = catholic
+    culture = french
+    father = richardmontfaucon_ii
+    mother = agnesmontbeliard
+    trait = education_learning_3
+    trait = devoted
+
+    1120.1.1 = { birth = yes }
+    1190.11.15 = { death = yes }
+}
+
+# Clémence
+clemencemontfaucon = {
+    name = "Clémence"
+    dynasty = 7287
+    religion = catholic
+    culture = french
+    father = richardmontfaucon_ii
+    mother = agnesmontbeliard
+    trait = education_diplomacy_2
+
+    1125.1.1 = { birth = yes }
+    1185.1.1 = { death = yes }
+}
+
+# Welf "le Bourguignon"
+welfmontfaucon = {
+    name = "Welf"
+    dynasty = 7287
+    religion = catholic
+    culture = french
+    father = richardmontfaucon
+    trait = education_martial_3
+
+    1040.1.1 = { birth = yes }
+    1098.1.1 = { death = yes }
+}
+
+# Hugues "de Charmoille"
+huguesdecharmoille = {
+    name = "Hugues"
+    dynasty = 7287
+    religion = catholic
+    culture = french
+    father = welfmontfaucon
+    trait = education_martial_3
+
+    1087.1.1 = { birth = yes }
+    1180.1.1 = { death = yes }
+}
+
+#Henri Ier d'Asuel
+henri_de_asuel = {
+    name = "Henri"
+    dynasty = 7287
+    religion = catholic
+    culture = french
+    father = huguesdecharmoille
+    trait = education_stewardship_2
+
+    1112.1.1 = { birth = yes }
+    1180.1.1 = { death = yes }
+}
+
+# Amédée "de Neuchâtel"
+amedeeneuchatel = {
+    name = "Amédée"
+    dynasty = 7287
+    religion = catholic
+    culture = french
+    father = welfmontfaucon
+    trait = education_diplomacy_2
+
+    1080.1.1 = { birth = yes }
+    1182.1.1 = { death = yes }
+}
+
+# Daughter of Amédée "de Neuchâtel"
+lady_neuchatel = {
+    name = "Alix"
+    dynasty = 7287
+    religion = catholic
+    culture = french
+    father = amedeeneuchatel
+    trait = education_intrigue_2
+
+    1140.1.1 = { birth = yes }
+    1195.1.1 = { death = yes }
+}
+
+besancon_archbishop_hugo_iii = {
+    name = "Hugues"
+    religion = "catholic"
+    culture = "french"
+    trait = devoted
+    trait = education_learning_3
+
+    1025.1.1 = { birth = yes }
+    1101.1.1 = { death = yes }
+}
+
+besancon_archbishop_hugo_iv = {
+    name = "Hugues"
+    religion = "catholic"
+    culture = "french"
+    trait = devoted
+    trait = education_learning_2
+
+    1045.1.1 = { birth = yes }
+    1107.1.1 = { death = yes }
+}
+
+besancon_archbishop_guillaume_i = {
+    name = "Guillaume"
+    religion = "catholic"
+    culture = "french"
+    trait = devoted
+    trait = education_learning_2
+
+    1065.1.1 = { birth = yes }
+    1117.1.1 = { death = yes }
+}
+
+besancon_archbishop_anseric = {
+    name = "Anseric"
+    religion = "catholic"
+    culture = "french"
+    trait = devoted
+    trait = education_learning_3
+
+    1070.1.1 = { birth = yes }
+    1134.1.1 = { death = yes }
+}
+
+besancon_archbishop_humbert = {
+    name = "Humbert"
+    religion = "catholic"
+    culture = "french"
+    trait = devoted
+    trait = education_learning_3
+
+    1080.1.1 = { birth = yes }
+    1162.1.1 = { death = yes }
+}
+
+besancon_archbishop_gauthier = {
+    name = "Gauthier"
+    religion = "catholic"
+    culture = "french"
+    trait = devoted
+    trait = education_learning_2
+
+    1100.1.1 = { birth = yes }
+    1163.1.1 = { death = yes }
+}
+
+besancon_archbishop_herbert = {
+    name = "Herbert"
+    religion = "catholic"
+    culture = "french"
+    trait = devoted
+    trait = education_learning_3
+
+    1105.1.1 = { birth = yes }
+    1172.1.1 = { death = yes }
+}
+#besancon_archbishop_etienne
+
+#besancon_archbishop_amadeus
+
+########
+##COUNTS of VALENCE +given c_diois and c_montauban to compensate that d_archbishop_vienne owns valentinois+
+########
+
+valence_odilon = {
+    name = "Odilon"
+    dynasty = dyn_valence
+    religion = catholic
+    culture = occitan
+
+    850.1.1 = { birth = yes }
+    869.1.1 = { add_spouse = valence_rotrude }
+    887.1.1 = { death = yes }
+}
+
+valence_rotrude = {
+	female = yes
+    name = "Romelha"
+    religion = catholic
+    culture = occitan
+
+    855.1.1 = { birth = yes }
+    887.1.1 = { death = yes }
+}
+
+valence_adalelm = {
+    name = "Adalelm"
+    dynasty = dyn_valence
+    religion = catholic
+    culture = occitan
+    father = valence_odilon
+    mother = valence_rotrude
+
+    870.1.1 = { birth = yes }
+    895.1.1 = { add_spouse = valence_rotlinde }
+    912.1.1 = { death = yes }
+}
+
+valence_rotlinde = {
+	female = yes
+    name = "Rotlinda"
+    religion = catholic
+    culture = occitan
+
+    875.1.1 = { birth = yes }
+    930.1.1 = { death = yes }
+}
+
+valence_geilin_i = {
+    name = "Geilin"
+    dynasty = dyn_valence
+    religion = catholic
+    culture = occitan
+    father = valence_adalelm
+    mother = valence_rotlinde
+
+    900.1.1 = { birth = yes }
+    925.1.1 = { add_spouse = valence_gotheling }
+    960.1.1 = { death = yes }
+}
+
+valence_gotheling = {
+	female = yes
+    name = "Gothelinga"
+    religion = catholic
+    culture = occitan
+
+    905.1.1 = { birth = yes }
+    965.1.1 = { death = yes }
+}
+
+valence_lambert = {
+    name = "Lambert"
+    dynasty = dyn_valence
+    religion = catholic
+    culture = occitan
+    father = valence_geilin_i
+    mother = valence_gotheling
+
+    935.1.1 = { birth = yes }
+    960.1.1 = { add_spouse = valence_falectrude }
+    1015.1.1 = { death = yes }
+}
+
+valence_falectrude = {
+	female = yes
+    name = "Falectruda"
+    religion = catholic
+    culture = occitan
+
+    940.1.1 = { birth = yes }
+    1015.1.1 = { death = yes }
+}
+
+valence_ademar = {
+    name = "Audemars"
+    dynasty = dyn_valence
+    religion = catholic
+    culture = occitan
+    father = valence_lambert
+    mother = valence_falectrude
+
+    970.1.1 = { birth = yes }
+    995.1.1 = { add_spouse = valence_roteldis }
+    1037.1.1 = { death = yes }
+}
+
+valence_roteldis = {
+	female = yes
+    name = "Roteldis"
+    religion = catholic
+    culture = occitan
+
+    975.1.1 = { birth = yes }
+    1040.1.1 = { death = yes }
+}
+
+valence_geilin_ii = {
+    name = "Geilin"
+    dynasty = dyn_valence
+    religion = catholic
+    culture = occitan
+    father = valence_lambert
+    mother = valence_falectrude
+
+    975.1.1 = { birth = yes }
+    1005.1.1 = { add_spouse = valence_ava }
+    1069.1.1 = { death = yes }
+}
+
+valence_ava = {
+	female = yes
+    name = "Ava"
+    religion = catholic
+    culture = french
+
+    980.1.1 = { birth = yes }
+    1069.1.1 = { death = yes }
+}
+
+valence_eustache = {
+    name = "Eustache"
+    dynasty = dyn_poitiers_valence
+    religion = catholic
+    culture = occitan
+
+    1080.1.1 = { birth = yes }
+    1148.1.1 = { death = yes }
+}
+
+valence_aymar_i = {
+    name = "Aymar"
+    dynasty = dyn_poitiers_valence
+    religion = catholic
+    culture = occitan
+    father = valence_guillaume
+    mother = unknown_mother_poitiers
+    1105.1.1 = { birth = yes }
+    1158.1.1 = { add_spouse = veronique_marsanne }
+    1188.1.1 = { death = yes }
+}
+
+veronique_marsanne = {
+	female = yes
+    name = "Veronica"
+	dynasty = dyn_marsan
+    religion = catholic
+    culture = occitan
+    1130.1.1 = { birth = yes }
+    1230.1.1 = { death = yes }
+}
+
+valence_guillaume_i = {
+    name = "GuilhE_m"
+    dynasty = dyn_poitiers_valence
+    religion = catholic
+    culture = occitan
+    father = valence_aymar_i
+    mother = veronique_marsanne
+    1130.1.1 = { birth = yes }
+    1150.1.1 = { add_spouse = beatrix_albon }
+    1189.1.1 = { death = yes }
+}
+
+beatrix_albon = {
+	female = yes
+    name = "Beatrix"
+    religion = catholic
+    culture = french
+    1135.1.1 = { birth = yes }
+    1190.1.1 = { death = yes }
+}
+
+valence_aymar_ii = {
+    name = "Aymar"
+    dynasty = dyn_poitiers_valence
+    religion = catholic
+    culture = occitan
+    father = valence_guillaume_i
+    mother = beatrix_albon
+    1160.1.1 = { birth = yes }
+    1185.1.1 = { add_spouse = philippa_fay }
+    1250.1.1 = { death = yes }
+}
+
+philippa_fay = {
+	female = yes
+    name = "Philippa"
+	dynasty = dyn_defay
+    religion = catholic
+    culture = french
+    1165.1.1 = { birth = yes }
+    1230.1.1 = { death = yes }
+}
+
+########
+##ARLES
+########
+
+arles_archbishop_rostang = {
+    name = "Rostang"
+	dynasty = 7052 #Bosonid
+    religion = catholic
+    culture = occitan
+    trait = devoted
+    trait = education_diplomacy_3
+	trait = devious
+	trait = callous
+	trait = temperate
+	father = 7976 #Boso the Old, Count of Provence
+
+    830.1.1 = { birth = yes }
+    913.1.1 = { death = yes }
+    # Archbishop of Arles (870–913), key supporter of the Bosonids and influential political player in Provence. Made him a Bosonid so that he likes his family a bit more.
+}
+
+arles_archbishop_manasses = {
+    name = "Manassès"
+	dynasty = 9306 #Bivinids/Nithard-Richard from Middle Rhine
+    religion = catholic
+    culture = occitan
+    trait = devoted
+    trait = education_learning_4
+	father = 7981
+
+    880.1.1 = { birth = yes }
+    962.1.1 = { death = yes }
+    # Archbishop of Arles (914–962), nephew of Rostaign of Arles, also held Milan. Strong figure in church politics.
+}
+
+arles_archbishop_ithier = {
+    name = "Ithier"
+	dynasty = dyn_leibulfing
+    religion = catholic
+    culture = occitan
+    trait = devoted
+    trait = education_learning_2
+	
+    father = ison_arles
+	mother = ursa_benevento
+
+    910.1.1 = { birth = yes }
+    981.1.1 = { death = yes }
+    # Archbishop of Arles (963–981), tenure is not well-documented but part of a stable succession.
+}
+
+arles_archbishop_anno = {
+    name = "Anno"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+    trait = education_learning_3
+    dynasty = dyn_leibulfing
+
+    father = pons_arles
+    mother = blismodis_narbo
+
+    920.1.1 = { birth = yes }
+    994.1.1 = { death = yes }
+    # Archbishop of Arles (981–994), later retired to Cluny, a major reformist center.
+}
+
+arles_archbishop_pons = {
+    name = "Pons"
+	dynasty = dyn_marignan
+    religion = catholic
+    culture = occitan
+    trait = devoted
+    trait = education_learning_3
+
+    950.1.1 = { birth = yes }
+    1029.1.1 = { death = yes }
+    # Archbishop Pons de Marignane (1005–1029), retired to Saint-Victor in Marseille; church reformer.
+}
+
+arles_archbishop_raimbaud = {
+    name = "Riambau"
+	dynasty = dyn_reillanne
+    religion = catholic
+    culture = occitan
+    trait = devoted
+    trait = education_learning_3
+	trait = diligent
+	trait = brave
+	
+    father = reillanne_boniface_i
+    mother = reillanne_constance_provence
+
+    985.1.1 = { birth = yes }
+    1069.1.1 = { death = yes }
+    # Raimbaud de Reillanne (1030–1069), reform-minded, oversaw monastic and diocesan revival.
+}
+
+arles_archbishop_aicard = {
+    name = "Aicard"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+    trait = education_learning_3
+
+    1040.1.1 = { birth = yes }
+    1098.1.1 = { death = yes }
+    # Archbishop Aicard (1070–1080 deposed), contested the papal appointment and held out until his death.
+}
+
+arles_archbishop_gibelin = {
+    name = "Gibelin"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+    trait = education_learning_3
+
+    1050.1.1 = { birth = yes }
+    1107.1.1 = { death = yes }
+    # Archbishop of Arles (1080–1107), appointed after Aicard, later Patriarch of Jerusalem during the First Crusade.
+}
+
+arles_archbishop_atton = {
+    name = "Attó"
+	dynasty = dyn_bruniquel
+    religion = catholic
+    culture = occitan
+    trait = devoted
+    trait = education_learning_2
+
+    1070.1.1 = { birth = yes }
+    1129.1.1 = { death = yes }
+    # Archbishop Atton de Bruniquel (1115–1129), known for administrative reform and stability in the diocese.
+}
+
+arles_archbishop_bernard_garin = {
+    name = "Bernats"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+    trait = education_learning_2
+
+    1085.1.1 = { birth = yes }
+    1138.1.1 = { death = yes }
+    # Bernard Garin (1129–1138), Archbishop of Arles during a relatively quiet and stable period in the region.
+}
+arles_archbishop_guillaume_monge = {
+    name = "GuilhE_m"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+    trait = education_learning_2
+
+    1090.1.1 = { birth = yes }
+    1142.1.1 = { death = yes }
+    # Guillaume Monge (1139–1142), had a short tenure before his death.
+}
+
+arles_archbishop_raimon_montredon = {
+    name = "Raimon"
+    dynasty = 2000026
+    religion = catholic
+    culture = occitan
+    trait = devoted
+    trait = education_learning_3
+	father = fathermontredon
+
+    1095.1.1 = { birth = yes }
+    1160.1.1 = { death = yes }
+    # Raimon de Montredon (1142–1160), oversaw reform and consolidation in the archdiocese.
+}
+
+arles_archbishop_raimon_bollene = {
+    name = "Raimon"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+    trait = education_learning_3
+
+    1110.1.1 = { birth = yes }
+    1182.1.1 = { death = yes }
+    # Raimon de Bollène (1163–1182), strengthened ecclesiastical authority in Provence.
+}
+
+arles_archbishop_pierre_isnard = {
+    name = "Peire"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+    trait = education_learning_3
+
+    1120.1.1 = { birth = yes }
+    1190.1.1 = { death = yes }
+    # Pierre Isnard (1183–1190), formerly Bishop of Toulon; presided during growing Capetian influence.
+}
+
+arles_archbishop_imbert_eyguieres = {
+    name = "Imbert"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+    trait = education_learning_3
+
+    1140.1.1 = { birth = yes }
+    1202.1.1 = { death = yes }
+    # Imbert d’Eyguières (1191–1202), the last archbishop of the 12th century, died just after 1200.
+}
+
+#House of Narbonne
+
+cixilane_de_narbonne = {
+    name = "Cixilan"
+    dynasty = 280
+    religion = catholic
+    culture = visigothic
+    trait = diligent
+	father = estormionarbo
+
+    780.1.1 = { birth = yes }
+    821.1.1 = { death = yes }
+    # Cixilane de Narbonne (†821), son of Stormion
+}
+
+narbo_agilbert = {
+    name = "Agilbert"
+    dynasty = 280
+    religion = catholic
+    culture = visigothic
+    father = estormionarbo
+
+    779.1.1 = { birth = yes }
+    795.1.1 = { add_spouse = narbo_cunedgonde }
+    849.1.1 = { death = yes }
+    # Viscount of Narbonne
+}
+
+narbo_cunedgonde = {
+    name = "Cunegonde" #Wife of William de Gelona
+	dynasty = 25061
+    religion = catholic
+    culture = frankish
+    trait = chaste
+    female = yes
+	father = 131722 #Carloman, brother of Charlemagne
+	mother = 194173
+
+    771.1.1 = { birth = yes }
+    795.1.1 = { add_spouse = 168130 } #William de Gellona
+    817.1.1 = { add_spouse = narbo_agilbert }
+    835.1.1 = { death = yes }
+    # Wife of William of Gellone and Agilbert de Narbonne
+}
+
+narbo_francon = {
+    name = "Francon"
+    dynasty = 280
+    religion = catholic
+    culture = occitan
+    father = narbo_agilbert
+    mother = narbo_cunedgonde
+
+    818.1.1 = { birth = yes }
+    835.1.1 = { add_spouse = narbo_arsinde_urgel }
+    851.1.1 = { death = yes }
+    # Son of Agilbert; Viscount of Narbonne
+}
+
+narbo_arsinde_urgel = {
+    name = "Arsenda"
+	dynasty = 100213 # Carcassone/Bellonid Dynasty
+    religion = catholic
+    culture = visigothic
+    female = yes
+	father = visigothic0018 #Bello de Carcassona
+
+    770.1.1 = { birth = yes }
+    810.1.1 = { add_spouse = narbo_francon }
+    830.1.1 = { death = yes }
+    # Wife of Francon de Narbonne
+}
+
+narbo_aubry = {
+    name = "Alberic"
+    dynasty = 280
+    religion = catholic
+    culture = occitan
+    father = narbo_francon
+    mother = narbo_arsinde_urgel
+
+    815.1.1 = { birth = yes }
+    835.1.1 = { add_spouse = narbo_engeltrude_orleans }
+    886.1.1 = { death = yes }
+    # Son of Francon; Viscount of Narbonne
+}
+
+narbo_engeltrude_orleans = {
+    name = "Engeltrude"
+    dynasty = 280
+    religion = catholic
+    culture = occitan
+    female = yes
+
+    832.1.1 = { birth = yes }
+    835.1.1 = { add_spouse = narbo_aubry }
+    880.1.1 = { death = yes }
+    # Wife of Aubry de Narbonne
+}
+
+narbo_maieul = {
+    name = "Maïeul"
+    dynasty = 280
+    religion = catholic
+    culture = occitan
+    father = narbo_aubry
+    mother = narbo_engeltrude_orleans
+
+    845.1.1 = { birth = yes }
+    911.1.1 = { death = yes }
+    # Son of Aubry; Viscount of Narbonne
+}
+
+narbo_mayeul = {
+    name = "Mayeul"
+    dynasty = 280
+    religion = catholic
+    culture = occitan
+    father = narbo_maieul
+
+    870.1.1 = { birth = yes }
+    950.1.1 = { death = yes }
+    # Son of Maïeul de Narbonne
+}
+
+narbo_gauthier = {
+    name = "Gauthier"
+    dynasty = 280
+    religion = catholic
+    culture = occitan
+    father = narbo_maieul
+
+    875.1.1 = { birth = yes }
+    916.1.1 = { death = yes }
+    # Son of Maïeul de Narbonne
+}
+
+narbo_arsinde_ii = {
+    name = "Arsinde"
+    dynasty = 280
+    religion = catholic
+    culture = occitan
+    female = yes
+    father = narbo_maieul
+
+    875.1.1 = { birth = yes }
+    930.1.1 = { death = yes }
+    # Daughter of Maïeul de Narbonne
+}
+
+narbo_francon_ii = {
+    name = "Francon"
+    dynasty = 280
+    religion = catholic
+    culture = occitan
+    father = narbo_maieul
+
+    880.1.1 = { birth = yes }
+    900.1.1 = { add_spouse = narbo_richilde }
+    910.1.1 = { add_spouse = narbo_arsende_ampurias }
+    920.1.1 = { death = yes }
+    # Son of Maïeul; twice married Viscount
+}
+
+narbo_richilde = {
+    name = "Richilde"
+    dynasty = 280
+    religion = catholic
+    culture = occitan
+    female = yes
+
+    885.1.1 = { birth = yes }
+    900.1.1 = { add_spouse = narbo_francon_ii }
+    935.1.1 = { death = yes }
+    # First wife of Francon II de Narbonne
+}
+
+narbo_arsende_ampurias = {
+    name = "Arsende"
+    dynasty = 280
+    religion = catholic
+    culture = occitan
+    female = yes
+
+    880.1.1 = { birth = yes }
+    910.1.1 = { add_spouse = narbo_francon_ii }
+    931.1.1 = { death = yes }
+    # Second wife of Francon II de Narbonne
+}
+
+narbo_trudegarda = {
+    name = "Trudegarda"
+    dynasty = 280
+    religion = catholic
+    culture = occitan
+    trait = chaste
+    female = yes
+    father = narbo_francon_ii
+    mother = narbo_arsende_ampurias
+
+    900.1.1 = { birth = yes }
+    922.1.1 = { death = yes }
+    # Daughter of Francon II and Arsende
+}
+
+narbo_odon = {
+    name = "Odon"
+    dynasty = 280
+    religion = catholic
+    culture = occitan
+    trait = valiant
+    father = narbo_francon_ii
+    mother = narbo_arsende_ampurias
+
+    895.1.1 = { birth = yes }
+    936.1.1 = { death = yes }
+    920.1.1 = { add_spouse = narbo_riquilda_barcelona }
+    # Eudes I de Narbonne; married Riquilda de Barcelona
+}
+
+narbo_riquilda_barcelona = {
+    name = "Riquilda"
+    dynasty = 280
+    religion = catholic
+    culture = catalan
+    trait = chaste
+    female = yes
+
+    910.1.1 = { birth = yes }
+    920.1.1 = { add_spouse = narbo_odon }
+    970.1.1 = { death = yes }
+    # Wife of Odon de Narbonne, from Barcelona
+}
+
+
+#House of Orange
+
+blismodis_narbo = {
+    name = "Blismodis"
+	dynasty = 280	
+    religion = catholic
+    culture = occitan
+    female = yes
+
+    855.1.1 = { birth = yes }
+    910.1.1 = { death = yes }
+}
+
+pons_orangemevouillon = {
+    name = "Pons"
+    dynasty = 7248
+    religion = catholic
+    culture = occitan
+
+    father = pons_arles
+    mother = blismodis_narbo
+    920.1.1 = { birth = yes }
+    986.1.1 = { death = yes }
+}
+
+orange_laugernice = {
+    father = pons_orangemevouillon
+    name = "Lauger"
+    dynasty = 7248
+    religion = catholic
+    culture = occitan
+
+    945.1.1 = { birth = yes }
+    980.1.1 = { add_spouse = reillanne_odila }
+    1010.1.1 = { death = yes }
+}
+
+#House of Baux (remaining characters not in the main files, bridge between the Arles dynasty and them)
+
+ursa_benevento = {
+    name = "Ursa"
+	dynasty = 804
+    religion = catholic
+    culture = italian
+    female = yes
+	father = 145221 #Ursus of Benevento
+
+    885.1.1 = { birth = yes }
+    950.1.1 = { death = yes }
+}
+
+pons_lancien_baux = {
+    name = "Pons"
+    dynasty = 5117
+    religion = catholic
+    culture = occitan
+    father = ison_arles
+
+    900.1.1 = { birth = yes }
+	901.1.1 = { give_nickname = nick_the_old }
+	935.1.1 = { add_spouse = blismodis_mercoeur }
+    950.1.1 = { death = yes }
+}
+
+blismodis_mercoeur = {
+    name = "Blismodis"
+    dynasty = dynn_mercoeur
+    religion = catholic
+    culture = occitan
+    female = yes
+
+    890.1.1 = { birth = yes }
+}
+
+lejeune_baux = {
+    name = "Pons"
+    dynasty = 5117
+    religion = catholic
+    culture = occitan
+
+    father = pons_lancien_baux
+    mother = blismodis_mercoeur
+    940.1.1 = { birth = yes }
+	941.1.1 = { give_nickname = nick_the_young }
+    1030.1.1 = { death = yes }
+}
+
+inauris_agoult = {
+    name = "Inauris"
+    dynasty = dyn_agoult
+    religion = catholic
+    culture = occitan
+    female = yes
+    father = agoult_guillaume1
+    mother = reillanne_azalais
+
+    1030.1.1 = { birth = yes }
+    1048.1.1 = { add_spouse = 20283 }
+    1070.1.1 = { death = yes }
+}
+
+
+#House of Reillanne, Viscounts in Aix
+
+ison_arles = {
+    name = "Issó"
+    dynasty = dyn_leibulfing
+    religion = catholic
+    culture = occitan
+
+    father = pons_arles
+    mother = blimodis_macon
+    880.1.1 = { birth = yes }
+    910.1.1 = { add_spouse = ursa_benevento }
+    942.1.1 = { death = yes }
+}
+
+ursus_arles = {
+    name = "Ursus"
+    dynasty = dyn_leibulfing
+    religion = catholic
+    culture = occitan
+    father = ison_arles
+
+    900.1.1 = { birth = yes }
+    952.1.1 = { death = yes }
+}
+
+pons_arles = {
+    name = "Pons"
+    dynasty = dyn_leibulfing
+    religion = catholic
+    culture = occitan
+
+    father = leibulf_baux
+    850.1.1 = { birth = yes }
+	870.1.1 = { add_spouse = blismodis_narbo }
+    942.1.1 = { death = yes }
+}
+
+blimodis_macon = {
+    name = "Blimodis"
+    dynasty = dynn_macon
+    religion = catholic
+    culture = occitan
+    female = yes
+
+    860.1.1 = { birth = yes }
+    942.1.1 = { death = yes }
+}
+
+reillanne_lambert_ursus = {
+    name = "Lambert"
+    dynasty = dyn_reillanne
+    religion = catholic
+    culture = occitan
+	father = ison_arles
+
+    920.1.1 = { birth = yes }
+    1004.1.1 = { death = yes }
+    # Viguier d'Arles, patriarch of the House of Reillanne
+}
+
+reillanne_odila = {
+    name = "Odila"
+	female = yes
+    dynasty = dyn_reillanne
+    religion = catholic
+    culture = occitan
+	father = reillanne_lambert_ursus
+
+    955.1.1 = { birth = yes }
+    1035.1.1 = { death = yes }
+    # Lady of Vence, Nimes and Reillanne, marries and passes lands to the Orange family.
+}
+
+reillanne_galburge = {
+    name = "Galburga"
+	female = yes
+    religion = catholic
+    culture = occitan
+    trait = chaste
+
+    930.1.1 = { birth = yes }
+    980.1.1 = { death = yes }
+    # Wife of Lambert Ursus
+}
+
+reillanne_boniface_i = {
+    name = "Bonifaci"
+    dynasty = dyn_reillanne
+    religion = catholic
+    culture = occitan
+
+    father = reillanne_lambert_ursus
+    mother = reillanne_galburge
+
+    950.1.1 = { birth = yes }
+	1018.1.1 = { add_spouse = reillanne_constance_agoult }
+	1033.1.1 = { add_spouse = reillanne_constance_provence }
+    1029.1.1 = { death = yes }
+    # Boniface I de Reillane, lord of Reillane, vassal to the Viscounts of Marseille
+}
+
+reillanne_constance_agoult = {
+    name = "ConstAAncia"
+	female = yes
+	dynasty = dyn_agoult
+    religion = catholic
+    culture = occitan
+    trait = content
+	father = agoult_fulcher
+
+    970.1.1 = { birth = yes }
+    1030.1.1 = { death = yes }
+    # Daughter of Guillaume d'Agoult, wife of Boniface I
+}
+
+reillanne_constance_provence = {
+    name = "ConstAAncia"
+	female = yes
+	dynasty = 7052
+    religion = catholic
+    culture = occitan
+    trait = ambitious
+	father = 40803
+
+    980.1.1 = { birth = yes }
+    1045.1.1 = { death = yes }
+    # Constance de Provence, second wife of Boniface I
+}
+
+reillanne_boniface_iii = {
+    name = "Bonifaci"
+    dynasty = dyn_reillanne
+    religion = catholic
+    culture = occitan
+
+    father = reillanne_boniface_i
+    mother = reillanne_constance_agoult
+
+    1000.1.1 = { birth = yes }
+	1018.1.1 = { add_spouse = reillanne_mafalda }
+    1035.1.1 = { death = yes }
+    # Boniface III, briefly Lord of Reillane, husband of Mahaut de Marseille
+}
+
+reillanne_mafalda = {
+    name = "Mafalda" #de Marsella
+	female = yes
+	dynasty = 13104
+    religion = catholic
+    culture = occitan
+
+    father = marseille_guillaume_ii
+
+    1000.1.1 = { birth = yes }
+    1085.1.1 = { death = yes }
+}
+
+reillanne_laugier = {
+    name = "Lauger"
+    dynasty = dyn_reillanne
+    religion = catholic
+    culture = occitan
+    trait = temperate
+
+    father = reillanne_boniface_i
+    mother = reillanne_constance_agoult
+
+    1005.1.1 = { birth = yes }
+    1050.1.1 = { death = yes }
+    # Laugier de Reillane, son of Boniface I
+}
+
+reillanne_azalais = {
+    name = "Azalais"
+	female = yes
+    dynasty = dyn_reillanne
+    religion = catholic
+    culture = occitan
+    trait = beauty_good_2
+
+    father = reillanne_boniface_i
+    mother = reillanne_constance_provence
+
+    1000.1.1 = { birth = yes }
+	1037.1.1 = { add_spouse = raimbaudorange }
+    1050.1.1 = { death = yes }
+    # Azalais (Adélaïde), married to Guillem d'Agoult and Raimbaud d'Orange
+}
+
+reillanne_atenulphe_i = {
+    name = "Atenulf"
+    dynasty = dyn_reillanne
+    religion = catholic
+    culture = occitan
+    trait = just
+    father = reillanne_boniface_i
+
+    1010.1.1 = { birth = yes }
+    1090.1.1 = { death = yes }
+    # Aténulphe I, Viguier d'Arles, son of Boniface I
+}
+
+#House of Marseille
+
+marseille_arlulf = {
+    name = "Arlulf"
+    dynasty = 13104 #de Marseille/Marselha
+    religion = catholic
+    culture = occitan
+
+    920.1.1 = { birth = yes }
+    965.1.1 = { death = yes }
+    # Arleus de Marselha, first known Viscount of Marseille
+}
+
+marseille_guillaume_i = {
+    name = "GuilhE_m"
+    dynasty = 13104
+    religion = catholic
+    culture = occitan
+
+    father = marseille_arlulf
+
+    945.1.1 = { birth = yes }
+    1004.10.15 = { death = yes }
+    # GuilhE_m I de Marselha, son of Arleus
+}
+
+marseille_guillaume_ii = {
+    name = "GuilhE_m"
+    dynasty = 13104
+    religion = catholic
+    culture = occitan
+
+    father = marseille_guillaume_i
+
+    980.1.1 = { birth = yes }
+    1047.1.1 = { death = yes }
+    # GuilhE_m II de Marselha, known as "lo Gros"
+}
+
+marseille_pierre = {
+    name = "Peire"
+    dynasty = 13104
+    religion = catholic
+    culture = occitan
+
+    father = marseille_guillaume_ii
+
+    1015.1.1 = { birth = yes }
+    1080.1.1 = { death = yes }
+    # Peire de Marselha, successor of GuilhE_m II, continued family influence in Provence.
+}
+
+marseille_geoffroi = {
+    name = "Jaufre"
+    dynasty = 13104
+    religion = catholic
+    culture = occitan
+
+    father = marseille_pierre
+
+    1040.1.1 = { birth = yes }
+    1100.1.1 = { death = yes }
+    # Jaufre de Marselha, noted for donations to religious institutions.
+}
+
+marseille_etiennette = {
+    name = "Etienneta"
+    dynasty = 13104
+    religion = catholic
+    culture = occitan
+    female = yes
+
+    father = marseille_geoffroi
+
+    1070.1.1 = { birth = yes }
+    1130.1.1 = { death = yes }
+    # Etienneta de Marselha, daughter of Jaufre, involved in family patronage.
+}
+
+marseille_pierre_ii = {
+    name = "Peire"
+    dynasty = 13104
+    religion = catholic
+    culture = occitan
+
+    father = marseille_geoffroi
+
+    1070.1.1 = { birth = yes }
+    1135.1.1 = { death = yes }
+    # Peire II de Marselha, son of Jaufre, continued line of viscounts.
+}
+
+marseille_gerberge = {
+    name = "Gerberga"
+    religion = catholic
+    culture = occitan
+    female = yes
+
+    1075.1.1 = { birth = yes }
+    1140.1.1 = { death = yes }
+    # Gerberga, wife of Peire II de Marselha (historically attested)
+}
+
+marseille_roncelin = {
+    name = "Roncelin"
+    dynasty = 13104
+    religion = catholic
+    culture = occitan
+
+    father = marseille_pierre_ii
+    mother = marseille_gerberge
+
+    1100.1.1 = { birth = yes }
+    1160.1.1 = { death = yes }
+    # Ronselin de Marselha, succeeded his father as viscount
+}
+
+marseille_arsenda = {
+    name = "Arsenda"
+    religion = catholic
+    culture = occitan
+    female = yes
+
+    1105.1.1 = { birth = yes }
+    1170.1.1 = { death = yes }
+    # Arsenda, wife of Ronselin (recorded in regional charters)
+}
+
+marseille_roncelin_ii = { #This guy is fun. Enters a convent to escape debt but flees to marry his niece, who he later abandons, re-enters the convent and is forced out of it and into ruling again by his creditors and Pope Innocent, who excommunicates him.
+    name = "Roncelin"
+    dynasty = 13104
+    religion = catholic
+    culture = occitan
+	trait = deceitful
+	trait = intellect_bad_1
+	trait = lazy
+	trait = arbitrary
+
+    father = marseille_roncelin
+    mother = marseille_arsenda
+
+    1130.1.1 = { birth = yes }
+    1190.1.1 = { death = yes }
+    # Ronselin II de Marselha, son of Ronselin and Arsenda
+}
+
+marseille_sibylle = {
+    name = "Sibilla"
+    religion = catholic
+    culture = occitan
+    female = yes
+
+    1135.1.1 = { birth = yes }
+    1200.1.1 = { death = yes }
+    # Sibilla, wife of Ronselin II de Marselha
+}
+
+marseille_guillaume_iii = {
+    name = "GuilhE_m"
+    dynasty = 13104
+    religion = catholic
+    culture = occitan
+
+    father = marseille_roncelin_ii
+    mother = marseille_sibylle
+
+    1160.1.1 = { birth = yes }
+    1215.1.1 = { death = yes }
+    # GuilhE_m III de Marselha, continuing the line of viscounts into the 13th century
+}
+
+
+########
+##CLERMONT
+########
+
+clermont_bishop_stabilis = {
+    name = "Stabilis"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+    trait = education_learning_2
+
+    780.1.1 = { birth = yes }
+    860.1.1 = { death = yes }
+    # Bishop of Clermont from c. 823–860, served during the Carolingian decline.
+}
+
+clermont_bishop_sigo = {
+    name = "Sigo"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+    trait = education_learning_3
+
+    825.1.1 = { birth = yes }
+    870.1.1 = { death = yes }
+    # Bishop of Clermont around 863; little is recorded about his episcopate.
+}
+
+clermont_bishop_egilmar = {
+    name = "Egilmar"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+    trait = education_learning_2
+
+    845.1.1 = { birth = yes }
+    890.1.1 = { death = yes }
+    # Active around 878; likely involved in regional church administration.
+}
+
+clermont_bishop_adalard = {
+    name = "Adalard"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+    trait = education_learning_3
+
+    860.1.1 = { birth = yes }
+    912.1.1 = { death = yes }
+    # Bishop around 910; a transitional figure into early 10th century structures.
+}
+
+clermont_bishop_arnold = {
+    name = "Arnauz"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+    trait = education_learning_2
+
+    875.1.1 = { birth = yes }
+    930.1.1 = { death = yes }
+    # Bishop ca. 912; one of several Arnolds in Frankish clerical lines.
+}
+
+clermont_bishop_bernard = {
+    name = "Bernart"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+    trait = education_learning_3
+
+    890.1.1 = { birth = yes }
+    962.1.1 = { death = yes }
+    # Likely a stabilizing figure in a turbulent early feudal Auvergne.
+}
+
+clermont_bishop_stephan_ii = {
+    name = "Estienne"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+    trait = education_learning_2
+
+    925.1.1 = { birth = yes }
+    980.1.1 = { death = yes }
+    # Held the bishopric from 962; first in a long line of Stephans in Clermont.
+}
+
+clermont_bishop_begon = {
+    name = "Begon"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+    trait = education_learning_3
+
+    950.1.1 = { birth = yes }
+    1010.1.1 = { death = yes }
+    # Bishop c. 980–1010, likely presided during increasing Capetian influence.
+}
+
+clermont_bishop_stephan_iii = {
+    name = "Estienne"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+    trait = education_learning_3
+
+    970.1.1 = { birth = yes }
+    1014.1.1 = { death = yes }
+    # Stephan III (c. 1010–1014), followed Begon and began an era of rapid succession.
+}
+
+clermont_bishop_stephan_iv = {
+    name = "Estienne"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+    trait = education_learning_2
+
+    980.1.1 = { birth = yes }
+    1030.1.1 = { death = yes }
+    # Stephan IV, succeeded Stephan III; served through early 11th century reforms.
+}
+clermont_bishop_rencon = {
+    name = "Rencon"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+    trait = education_learning_3
+
+    980.1.1 = { birth = yes }
+    1053.1.1 = { death = yes }
+    # Bishop of Clermont from 1030–1053, likely involved in early Gregorian reforms.
+}
+
+clermont_bishop_stephan_v = {
+    name = "Estienne"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+    trait = education_learning_3
+
+    1000.1.1 = { birth = yes }
+    1073.1.1 = { death = yes }
+    # Stephan V de Polignac, bishop c. 1053–1073, associated with major church reform movements.
+}
+
+clermont_bishop_guillaume_chamalieres = {
+    name = "GuilhE_m"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+    trait = education_learning_2
+
+    1025.1.1 = { birth = yes }
+    1076.1.1 = { death = yes }
+    # Bishop 1073–1076, formerly Abbot of Saint-Alyre; short episcopate.
+}
+
+clermont_bishop_durand = {
+    name = "Duran"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+    trait = education_learning_3
+
+    1035.1.1 = { birth = yes }
+    1095.1.1 = { death = yes }
+    # Bishop 1077–1095; contemporary of Pope Urban II and early Crusades.
+}
+
+clermont_bishop_guillaume_baffie = {
+    name = "GuilhE_m"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+    trait = education_learning_2
+
+    1050.1.1 = { birth = yes }
+    1105.1.1 = { death = yes }
+    # Bishop briefly in 1096; limited records on his activities.
+}
+
+clermont_bishop_pierre_roux = {
+    name = "Peires"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+    trait = education_learning_2
+
+    1060.1.1 = { birth = yes }
+    1111.1.1 = { death = yes }
+    # Bishop of Clermont from 1105–1111.
+}
+
+clermont_bishop_aimeri = {
+    name = "Aimerics"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+    trait = education_learning_3
+
+    1070.1.1 = { birth = yes }
+    1150.1.1 = { death = yes }
+    # Aimeri served a long episcopate (1111–1150), part of a stable reform period.
+}
+
+clermont_bishop_stephan_vi = {
+    name = "Estienne"
+	dynasty = dyn_mercoeur
+    religion = catholic
+    culture = occitan
+    trait = devoted
+    trait = education_learning_2
+
+    1100.1.1 = { birth = yes }
+    1169.1.1 = { death = yes }
+    # Stephan VI de mercoeur (1151–1169), tied to the powerful mercoeur family.
+}
+
+clermont_bishop_pons = {
+    name = "Pons"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+    trait = education_learning_2
+
+    1115.1.1 = { birth = yes }
+    1189.1.1 = { death = yes }
+    # Bishop from 1170–1189; served at the end of the 12th-century church growth.
+}
+
+clermont_bishop_robert_auvergne = {
+    name = "Robert"
+    dynasty = 733 #Auvergne
+    religion = catholic
+    culture = occitan
+    trait = devoted
+    trait = education_learning_3
+	father = 206033
+
+    1140.1.1 = { birth = yes }
+    1227.1.1 = { death = yes }
+    # Robert d’Auvergne (1195–1227), member of the ruling dynasty, notable for his political ties.
+}
+
+########
+##LYON
+########
+
+lyon_archbishop_amulo = {
+    name = "Amulo"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+    trait = education_learning_3
+
+    800.1.1 = { birth = yes }
+    852.1.1 = { death = yes }
+    # Archbishop of Lyon (840–852), successor to Agobard, known for defending ecclesiastical rights.
+}
+
+lyon_archbishop_remigius = {
+    name = "Remigius"
+    religion = catholic
+    culture = french
+    trait = devoted
+    trait = education_learning_2
+
+    810.1.1 = { birth = yes }
+    875.1.1 = { death = yes }
+    # Archbishop of Lyon (852–875)
+}
+
+lyon_archbishop_aurelianus = {
+    name = "Aurelianus"
+    religion = catholic
+    culture = french
+    trait = devoted
+    trait = education_learning_2
+
+    830.1.1 = { birth = yes }
+    895.1.1 = { death = yes }
+    # Archbishop of Lyon (875–895)
+}
+
+lyon_archbishop_alwala = {
+    name = "Alwala"
+    religion = catholic
+    culture = french
+    trait = devoted
+    trait = education_learning_2
+
+    850.1.1 = { birth = yes }
+    905.1.1 = { death = yes }
+    # Archbishop of Lyon (895–905)
+}
+
+lyon_archbishop_bernardus = {
+    name = "Bernardus"
+    religion = catholic
+    culture = french
+    trait = devoted
+    trait = education_learning_2
+
+    870.1.1 = { birth = yes }
+    907.1.1 = { death = yes }
+    # Brief tenure in 906–907
+}
+
+lyon_archbishop_austerius = {
+    name = "Austerius"
+    religion = catholic
+    culture = french
+    trait = devoted
+    trait = education_learning_3
+
+    860.1.1 = { birth = yes }
+    919.1.1 = { death = yes }
+    # Archbishop c. 906–919
+}
+
+lyon_archbishop_remi = {
+    name = "Remi"
+    religion = catholic
+    culture = french
+    trait = devoted
+    trait = education_learning_2
+
+    880.1.1 = { birth = yes }
+    922.1.1 = { death = yes }
+    # Bishop c. 916–922
+}
+
+lyon_archbishop_anscheric = {
+    name = "Anscheric"
+    religion = catholic
+    culture = french
+    trait = devoted
+    trait = education_learning_2
+
+    885.1.1 = { birth = yes }
+    927.1.1 = { death = yes }
+    # Archbishop before 926–927
+}
+
+lyon_archbishop_guy = {
+    name = "Guy"
+    religion = catholic
+    culture = french
+    trait = devoted
+    trait = education_learning_3
+
+    890.1.1 = { birth = yes }
+    949.1.1 = { death = yes }
+    # Archbishop of Lyon (928–949)
+}
+
+lyon_archbishop_burchard_ii = {
+    name = "Burchard"
+    religion = catholic
+    culture = french
+    trait = devoted
+    trait = education_learning_2
+
+    900.1.1 = { birth = yes }
+    957.1.1 = { death = yes }
+    # Likely served during the mid-10th century, before Amblard.
+}
+
+lyon_archbishop_amblard = {
+    name = "Amblard"
+    religion = catholic
+    culture = french
+    trait = devoted
+    trait = education_learning_2
+
+    920.1.1 = { birth = yes }
+    978.1.1 = { death = yes }
+    # Archbishop c. 957–978
+}
+
+lyon_archbishop_burchard_iii = {
+    name = "Burchard"
+    religion = catholic
+    culture = french
+    trait = devoted
+    trait = education_learning_3
+
+    940.1.1 = { birth = yes }
+    1032.1.1 = { death = yes }
+    # Archbishop of Lyon (978–1032)
+}
+
+lyon_archbishop_odolric = {
+    name = "Odolric"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+    trait = education_learning_2
+
+    1000.1.1 = { birth = yes }
+    1046.1.1 = { death = yes }
+    # Archbishop (1041–1046)
+}
+
+lyon_archbishop_halinard = {
+    name = "Halinard"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+    trait = education_learning_3
+
+    1010.1.1 = { birth = yes }
+    1052.1.1 = { death = yes }
+    # Archbishop of Lyon (1046–1052), later Cardinal and Papal Legate.
+}
+
+lyon_archbishop_geoffroy_vergy = {
+    name = "Geoffroy"
+    religion = catholic
+    culture = french
+    trait = devoted
+    trait = education_learning_2
+
+    1015.1.1 = { birth = yes }
+    1064.1.1 = { death = yes }
+    # Archbishop (1054–1064), from the noble house of Vergy.
+}
+
+lyon_archbishop_humbert = {
+    name = "Humbert" #de Semur
+	dynasty = 40022
+    religion = catholic
+    culture = french
+    trait = devoted
+    trait = education_learning_2
+	father = 40362
+	mother = 40333
+
+    1025.1.1 = { birth = yes }
+    1076.1.1 = { death = yes }
+    # Archbishop of Lyon (1064–1076)
+}
+
+lyon_archbishop_gebuin = {
+    name = "Gebuin"
+    dynasty = dyn_mercoeur
+    father = mercœur_beraud_v
+    religion = catholic
+    culture = french
+    trait = devoted
+    trait = education_learning_3
+
+    1030.1.1 = { birth = yes }
+    1082.1.1 = { death = yes }
+    # Archbishop of Lyon (1077–1082), start of "Primates of the Gauls" title.
+}
+
+lyon_archbishop_hugh_die = {
+    name = "Hugh"
+	dyn = dyn_valence
+    religion = catholic
+    culture = french
+    trait = devoted
+    trait = education_learning_3
+	father = valence_aymar_i
+
+    1040.1.1 = { birth = yes }
+    1106.1.1 = { death = yes }
+    # Hugh of Die, Archbishop (1081–1106), major reformer and papal ally.
+}
+lyon_archbishop_jauceran = {
+    name = "Jauceran"
+    religion = catholic
+    culture = french
+    trait = devoted
+    trait = education_learning_2
+
+    1060.1.1 = { birth = yes }
+    1118.1.1 = { death = yes }
+    # Archbishop of Lyon (1107–1118)
+}
+
+lyon_archbishop_humbaud = {
+    name = "Humbaud"
+    religion = catholic
+    culture = french
+    trait = devoted
+    trait = education_learning_2
+
+    1075.1.1 = { birth = yes }
+    1128.1.1 = { death = yes }
+    # Archbishop of Lyon (1118–1128)
+}
+
+lyon_archbishop_renaud_semur = {
+    name = "Renaud"
+	dynasty = 40022
+    religion = catholic
+    culture = french
+    trait = devoted
+    trait = education_learning_3
+	father = dalmas_semur
+
+    1080.1.1 = { birth = yes }
+    1129.1.1 = { death = yes }
+    # Renaud of Semur, Archbishop (1128–1129), brief tenure from noble house.
+}
+
+lyon_archbishop_peter = {
+    name = "Peter"
+    religion = catholic
+    culture = french
+    trait = devoted
+    trait = education_learning_2
+
+    1085.1.1 = { birth = yes }
+    1139.1.1 = { death = yes }
+    # Archbishop of Lyon (1131–1139)
+}
+
+lyon_archbishop_faucon_botheon = {
+    name = "Faucon"
+    religion = catholic
+    culture = french
+    trait = devoted
+    trait = education_learning_2
+
+    1090.1.1 = { birth = yes }
+    1142.1.1 = { death = yes }
+    # Archbishop (1139–1142), limited records survive.
+}
+
+lyon_archbishop_amadeus = {
+    name = "Amadeus"
+    religion = catholic
+    culture = french
+    trait = devoted
+    trait = education_learning_3
+
+    1095.1.1 = { birth = yes }
+    1153.1.1 = { death = yes }
+    # Amadeus (1142–1148), continued ecclesiastical reform.
+}
+
+lyon_archbishop_humbertus_bage = {
+    name = "Humbert"
+    religion = catholic
+    culture = french
+    trait = devoted
+    trait = education_learning_2
+
+    1100.1.1 = { birth = yes }
+    1153.1.1 = { death = yes }
+    # Humbertus de Bagé (1148–1153)
+}
+
+lyon_archbishop_hercules_montboissier = {
+    name = "Hercules"
+    dynasty = dyn_montboissier
+    religion = catholic
+    culture = french
+    trait = devoted
+    trait = education_learning_3
+    father = pierre_maurice_de_montboissier
+    mother = raingarde_de_semur
+
+    1105.1.1 = { birth = yes }
+    1163.1.1 = { death = yes }
+    # Archbishop (1153–1163), from the powerful Montboissier family.
+}
+
+lyon_archbishop_dreux = {
+    name = "Dreux"
+    religion = catholic
+    culture = french
+    trait = devoted
+    trait = education_learning_2
+
+    1110.1.1 = { birth = yes }
+    1164.1.1 = { death = yes }
+    # Dreux (Drogon), Archbishop for one year (1163–1164)
+}
+
+lyon_archbishop_guichard_pontigny = {
+    name = "Guichard"
+    religion = catholic
+    culture = french
+    trait = devoted
+    trait = education_learning_3
+
+    1115.1.1 = { birth = yes }
+    1180.1.1 = { death = yes }
+    # Archbishop of Lyon (1164–1180), former abbot of Pontigny.
+}
+
+lyon_archbishop_jean_bellesmains = {
+    name = "Jean"
+    religion = catholic
+    culture = french
+    trait = devoted
+    trait = education_learning_2
+
+    1140.1.1 = { birth = yes }
+    1193.1.1 = { death = yes }
+    # Jean de Belles-mains (Bellème), Archbishop (1182–1193)
+}
+
+lyon_archbishop_renaud_forez = {
+    name = "Renaud"
+    religion = catholic
+    culture = french
+    trait = devoted
+    trait = education_learning_3
+
+    1160.1.1 = { birth = yes }
+    1226.1.1 = { death = yes }
+    # Renaud de Forez, Archbishop of Lyon (1193–1226)
+}
+
+########
+#REIMS
+########
+
+#Family of Gervais of Reims
+
+aimon_loir = {
+    name = "Haimon"
+    dynasty = dyn_loir
+    religion = catholic
+    culture = french
+
+    980.1.1  = { birth = yes
+		give_nickname = nick_the_bearded }
+    1030.1.1 = { death = yes }
+    # Haïmon de Château-du-Loir “le Barbu”, seigneur de Château-du-Loir 
+}
+
+hildeburge_de_bellesmains = {
+    name = "Hildeburge"
+    dynasty = dyn_belles_mains
+    religion = catholic
+    culture = french
+    father = yves_de_belleme
+    mother = godehilde_de_belleme
+	female = yes
+
+    975.1.1  = { birth = yes }
+    1035.1.1 = { death = yes }
+    # Hildeburge de Bellême, dame de Château-du-Loir, sœur de l’évêque Avesgaud
+}
+
+yves_de_belleme = {
+    name = "Yves"
+    dynasty = dyn_belles_mains
+    religion = catholic
+    culture = french
+
+    945.1.1  = { birth = yes }
+    1005.1.1 = { death = yes }
+    # Yves I de Bellême, seigneur fondateur de Bellême 
+}
+
+godehilde_de_belleme = {
+    name = "Godehilde"
+    religion = catholic
+    culture = french
+	female = yes
+
+    950.1.1  = { birth = yes }
+    1035.1.1 = { death = yes }
+    # Godehilde de Bellême, épouse d’Yves I de Bellême 
+}
+
+robert_brochard_de_loir = {
+    name = "Robert Brochard"
+    dynasty = dyn_belles_mains
+    religion = catholic
+    culture = french
+    father = aimon_loir
+    mother = hildeburge_de_bellesmains
+
+    1010.1.1 = { birth = yes }
+    1095.1.1 = { death = yes }
+    # Robert Brochard de Château-du-Loir, frère de Gervais :contentReference[oaicite:4]{index=4}
+}
+
+mathilde_de_chateau_du_loir = {
+    name = "Mathilde"
+    dynasty = dyn_belles_mains
+    religion = catholic
+    culture = french
+    father = robert_brochard_de_loir
+	female = yes
+
+    1080.1.1 = { birth = yes }
+	1100.1.1 = { add_spouse = helie_de_la_fleche }
+    1110.1.1 = { death = yes }
+    # Mathilde de Château-du-Loir, dame de Château-du-Loir 
+}
+
+helie_de_la_fleche = {
+    name = "Hélie"
+    dynasty = dyn_la_fleche
+    religion = catholic
+    culture = french
+
+    1085.1.1  = { birth = yes }
+    1151.1.1  = { death = yes }
+    # Hélie de La Flèche, comte du Maine par mariage
+}
+
+########
+#BOURGES
+########
+
+bourges_archbishop_agilulfus = {
+    name = "Agilulfus"
+    religion = catholic
+    culture = french
+    trait = devoted
+
+    770.1.1 = { birth = yes }
+    841.1.1 = { death = yes }
+}
+
+bourges_archbishop_rostagnius = {
+    name = "Rostagnius"
+    religion = catholic
+    culture = french
+    trait = devoted
+
+    800.1.1 = { birth = yes }
+    857.1.1 = { death = yes }
+}
+
+bourges_archbishop_rodulfus = {
+    name = "Rodulfus"
+    religion = catholic
+    culture = french
+    trait = devoted
+
+    810.1.1 = { birth = yes }
+    870.1.1 = { death = yes }
+}
+
+bourges_archbishop_wenilo = {
+    name = "Wenilo"
+    religion = catholic
+    culture = french
+    trait = devoted
+
+    820.1.1 = { birth = yes }
+    886.1.1 = { death = yes }
+}
+
+bourges_archbishop_frotarius = {
+    name = "Frotarius"
+    religion = catholic
+    culture = french
+    trait = devoted
+
+    840.1.1 = { birth = yes }
+    919.1.1 = { death = yes }
+}
+
+bourges_archbishop_gauzlin = {
+    name = "Gauzlin"
+    religion = catholic
+    culture = french
+    trait = devoted
+
+    870.1.1 = { birth = yes }
+    979.1.1 = { death = yes }
+}
+
+bourges_archbishop_adelbert = {
+    name = "Adelbert"
+    religion = catholic
+    culture = french
+    trait = devoted
+
+    910.1.1 = { birth = yes }
+    997.1.1 = { death = yes }
+}
+
+bourges_archbishop_dagbert = {
+    name = "Dagbert"
+    religion = catholic
+    culture = french
+    trait = devoted
+
+    940.1.1 = { birth = yes }
+    1013.1.1 = { death = yes }
+}
+
+bourges_archbishop_gauzlin_ii = {
+    name = "Gauzlin"
+    religion = catholic
+    culture = french
+    trait = devoted
+
+    960.1.1 = { birth = yes }
+    1023.1.1 = { death = yes }
+}
+
+bourges_archbishop_amon = {
+    name = "Amon"
+    religion = catholic
+    culture = french
+    trait = devoted
+
+    970.1.1 = { birth = yes }
+    1030.1.1 = { death = yes }
+}
+
+bourges_archbishop_girard = {
+    name = "Girard"
+    religion = catholic
+    culture = french
+    trait = devoted
+
+    980.1.1 = { birth = yes }
+    1038.1.1 = { death = yes }
+}
+
+bourges_archbishop_aganon = {
+    name = "Aganon"
+    religion = catholic
+    culture = french
+    trait = devoted
+
+    990.1.1 = { birth = yes }
+    1064.1.1 = { death = yes }
+}
+
+bourges_archbishop_gauthier = {
+    name = "Gauthier"
+    religion = catholic
+    culture = french
+    trait = devoted
+
+    1005.1.1 = { birth = yes }
+    1071.1.1 = { death = yes }
+}
+
+bourges_archbishop_ricuin = {
+    name = "Ricuin"
+    religion = catholic
+    culture = french
+    trait = devoted
+
+    1015.1.1 = { birth = yes }
+    1078.1.1 = { death = yes }
+}
+
+bourges_archbishop_daimbert = {
+    name = "Daimbert"
+    religion = catholic
+    culture = french
+    trait = devoted
+
+    1025.1.1 = { birth = yes }
+    1098.1.1 = { death = yes }
+}
+
+bourges_archbishop_legeard = {
+    name = "Legeard"
+    religion = catholic
+    culture = french
+    trait = devoted
+
+    1040.1.1 = { birth = yes }
+    1113.1.1 = { death = yes }
+}
+
+bourges_archbishop_guy = {
+    name = "Guy"
+    religion = catholic
+    culture = french
+    trait = devoted
+
+    1060.1.1 = { birth = yes }
+    1123.1.1 = { death = yes }
+}
+
+bourges_archbishop_henri_de_labrugere = {
+    name = "Henri"
+    religion = catholic
+    culture = french
+    trait = devoted
+
+    1080.1.1 = { birth = yes }
+    1141.1.1 = { death = yes }
+}
+
+bourges_archbishop_pierre_de_la_chatre = {
+    name = "Pierre"
+    religion = catholic
+    culture = french
+    trait = devoted
+
+    1090.1.1 = { birth = yes }
+    1171.1.1 = { death = yes }
+}
+
+bourges_archbishop_guillaume_de_dompierre = {
+    name = "Guillaume"
+    religion = catholic
+    culture = french
+    trait = devoted
+
+    1110.1.1 = { birth = yes }
+    1199.1.1 = { death = yes }
+}
+
+########
+#+R+O+U+E+N+
+########
+
+rouen_archbishop_victricius = {
+	name = "Victricius"
+	religion = catholic
+	culture = roman
+    trait = devoted
+	330.1.1 = { birth = yes }
+	407.1.1 = { death = yes }
+}
+
+rouen_archbishop_injuriosus = {
+	name = "Injuriosus"
+	religion = catholic
+	culture = roman
+    trait = devoted
+	360.1.1 = { birth = yes }
+	432.1.1 = { death = yes }
+}
+
+rouen_archbishop_romain = {
+	name = "Romain"
+	religion = catholic
+	culture = frankish
+    trait = devoted
+	590.1.1 = { birth = yes }
+	641.1.1 = { death = yes }
+}
+
+rouen_archbishop_ouen = {
+	name = "Ouen"
+	religion = catholic
+	culture = frankish
+    trait = devoted
+	610.1.1 = { birth = yes }
+	684.1.1 = { death = yes }
+}
+
+rouen_archbishop_ansbertus = {
+	name = "Ansbertus"
+	religion = catholic
+	culture = frankish
+    trait = devoted
+	640.1.1 = { birth = yes }
+	690.1.1 = { death = yes }
+}
+
+rouen_archbishop_hugh_i = {
+	name = "Hugh"
+	religion = catholic
+	culture = frankish
+    trait = devoted
+	700.1.1 = { birth = yes }
+	730.1.1 = { death = yes }
+}
+
+rouen_archbishop_remigius = {
+	name = "Remigius"
+	religion = catholic
+	culture = frankish
+    trait = devoted
+	730.1.1 = { birth = yes }
+	772.1.1 = { death = yes }
+}
+
+rouen_archbishop_hugh_ii = {
+	name = "Hugh"
+	religion = catholic
+	culture = frankish
+	trait = devoted
+	760.1.1 = { birth = yes }
+	800.1.1 = { death = yes }
+}
+
+rouen_archbishop_warin = {
+	name = "Warin"
+	religion = catholic
+	culture = frankish
+	trait = devoted
+	770.1.1 = { birth = yes }
+	828.1.1 = { death = yes }
+}
+
+rouen_archbishop_ragenar = {
+	name = "Ragenar"
+	religion = catholic
+	culture = frankish
+	trait = devoted
+	800.1.1 = { birth = yes }
+	835.1.1 = { death = yes }
+}
+
+rouen_archbishop_gislard = {
+	name = "Gislard"
+	religion = catholic
+	culture = frankish
+	trait = devoted
+	810.1.1 = { birth = yes }
+	840.1.1 = { death = yes }
+}
+
+rouen_archbishop_wenilo = {
+	name = "Wenilo"
+	religion = catholic
+	culture = frankish
+	trait = devoted
+	820.1.1 = { birth = yes }
+	849.1.1 = { death = yes }
+}
+
+rouen_archbishop_paul = {
+	name = "Paul"
+	religion = catholic
+	culture = frankish
+	trait = devoted
+	830.1.1 = { birth = yes }
+	858.1.1 = { death = yes }
+}
+
+rouen_archbishop_ralph = {
+	name = "Ralph"
+	religion = catholic
+	culture = frankish
+	trait = devoted
+	840.1.1 = { birth = yes }
+	872.1.1 = { death = yes }
+}
+
+rouen_archbishop_gombert = {
+	name = "Gombert"
+	religion = catholic
+	culture = frankish
+	trait = devoted
+	850.1.1 = { birth = yes }
+	886.1.1 = { death = yes }
+}
+
+rouen_archbishop_adalgaire = {
+	name = "Adalgaire"
+	religion = catholic
+	culture = frankish
+	trait = devoted
+	860.1.1 = { birth = yes }
+	909.1.1 = { death = yes }
+}
+
+rouen_archbishop_john_i = {
+	name = "John"
+	religion = catholic
+	culture = norman
+	trait = devoted
+	880.1.1 = { birth = yes }
+	922.1.1 = { death = yes }
+}
+
+rouen_archbishop_hugh_calvacamp = {
+	name = "Hugh"
+	religion = catholic
+	culture = norman
+	trait = devoted
+	910.1.1 = { birth = yes }
+	989.1.1 = { death = yes }
+}
+
+rouen_archbishop_robert_ii = {
+	name = "Robert"
+	religion = catholic
+	culture = norman
+	trait = devoted
+	960.1.1 = { birth = yes }
+	1037.1.1 = { death = yes }
+}
+
+rouen_archbishop_mauger = {
+	name = "Mauger"
+	religion = catholic
+	culture = norman
+	trait = devoted
+	1010.1.1 = { birth = yes }
+	1055.1.1 = { death = yes }
+}
+
+rouen_archbishop_maurilius = {
+	name = "Maurilius"
+	religion = catholic
+	culture = norman
+	trait = devoted
+	1000.1.1 = { birth = yes }
+	1067.1.1 = { death = yes }
+}
+
+rouen_archbishop_john_ii = {
+	name = "John"
+	religion = catholic
+	culture = norman
+	trait = devoted
+	1025.1.1 = { birth = yes }
+	1079.1.1 = { death = yes }
+}
+
+rouen_archbishop_william_bonne_ame = {
+	name = "William"
+	religion = catholic
+	culture = norman
+	trait = devoted
+	1035.1.1 = { birth = yes }
+	1110.1.1 = { death = yes }
+}
+
+rouen_archbishop_geoffrey_brito = {
+	name = "Geoffrey"
+	religion = catholic
+	culture = norman
+	trait = devoted
+	1070.1.1 = { birth = yes }
+	1128.1.1 = { death = yes }
+}
+
+rouen_archbishop_hugh_amiens = {
+	name = "Hugh"
+	religion = catholic
+	culture = french
+	trait = devoted
+	1090.1.1 = { birth = yes }
+	1164.1.1 = { death = yes }
+}
+
+rouen_archbishop_rotrou_warwick = {
+	name = "Rotrou"
+	religion = catholic
+	culture = norman
+	trait = devoted
+	1110.1.1 = { birth = yes }
+	1183.1.1 = { death = yes }
+}
+
+rouen_archbishop_gautier_coutances = {
+	name = "Gautier"
+	religion = catholic
+	culture = norman
+	trait = devoted
+	1145.1.1 = { birth = yes }
+	1207.1.1 = { death = yes }
+}
+
+########
+##TOURS
+########
+
+tours_archbishop_gatianus = {
+	name = "Gatianus"
+	religion = catholic
+	culture = roman
+	trait = devoted
+	220.1.1 = { birth = yes }
+	300.1.1 = { death = yes }
+}
+
+tours_archbishop_lidoire = {
+	name = "Lidoire"
+	religion = catholic
+	culture = roman
+	trait = devoted
+	260.1.1 = { birth = yes }
+	320.1.1 = { death = yes }
+}
+
+tours_archbishop_dropicius = {
+	name = "Dropicius"
+	religion = catholic
+	culture = roman
+	trait = devoted
+	280.1.1 = { birth = yes }
+	340.1.1 = { death = yes }
+}
+
+tours_archbishop_eustochius = {
+	name = "Eustochius"
+	religion = catholic
+	culture = roman
+	trait = devoted
+	310.1.1 = { birth = yes }
+	371.1.1 = { death = yes }
+}
+
+tours_archbishop_martin = {
+	name = "Martin"
+	dynasty = dyn_detours
+	religion = catholic
+	culture = roman
+	trait = devoted
+	trait = saint
+	316.1.1 = { birth = yes }
+	397.1.1 = { death = yes }
+}
+
+tours_archbishop_briccius = {
+	name = "Briccius"
+	religion = catholic
+	culture = roman
+	trait = devoted
+	370.1.1 = { birth = yes }
+	444.1.1 = { death = yes }
+}
+
+tours_archbishop_perpetuus = {
+	name = "Perpetuus"
+	religion = catholic
+	culture = roman
+	trait = devoted
+	410.1.1 = { birth = yes }
+	490.1.1 = { death = yes }
+}
+
+tours_archbishop_volusianus = {
+	name = "Volusianus"
+	religion = catholic
+	culture = roman
+	trait = devoted
+	430.1.1 = { birth = yes }
+	496.1.1 = { death = yes }
+}
+
+tours_archbishop_verus = {
+	name = "Verus"
+	religion = catholic
+	culture = roman
+	trait = devoted
+	440.1.1 = { birth = yes }
+	507.1.1 = { death = yes }
+}
+
+tours_archbishop_francilio = {
+	name = "Francilio"
+	religion = catholic
+	culture = frankish
+	trait = devoted
+	450.1.1 = { birth = yes }
+	522.1.1 = { death = yes }
+}
+tours_archbishop_gallus = {
+	name = "Gallus"
+	religion = catholic
+	culture = roman
+	trait = devoted
+	460.1.1 = { birth = yes }
+	538.1.1 = { death = yes }
+}
+
+tours_archbishop_injuriosus = {
+	name = "Injuriosus"
+	religion = catholic
+	culture = roman
+	trait = devoted
+	500.1.1 = { birth = yes }
+	549.1.1 = { death = yes }
+}
+
+tours_archbishop_baudinus = {
+	name = "Baudinus"
+	religion = catholic
+	culture = roman
+	trait = devoted
+	500.1.1 = { birth = yes }
+	573.1.1 = { death = yes }
+}
+
+tours_archbishop_gregory = {
+	name = "Gregory"
+	dynasty = dyn_detours
+	religion = catholic
+	culture = roman
+	trait = devoted
+	trait = saint
+	trait = scholar
+
+	518.1.1 = { birth = yes }
+	594.1.1 = { death = yes }
+}
+
+tours_archbishop_pelagius = {
+	name = "Pelagius"
+	religion = catholic
+	culture = frankish
+	trait = devoted
+	530.1.1 = { birth = yes }
+	600.1.1 = { death = yes }
+}
+
+tours_archbishop_licinius = {
+	name = "Licinius"
+	religion = catholic
+	culture = frankish
+	trait = devoted
+	550.1.1 = { birth = yes }
+	615.1.1 = { death = yes }
+}
+
+tours_archbishop_leobardus = {
+	name = "Leobardus"
+	religion = catholic
+	culture = frankish
+	trait = devoted
+	560.1.1 = { birth = yes }
+	625.1.1 = { death = yes }
+}
+
+tours_archbishop_aegidius = {
+	name = "Aegidius"
+	religion = catholic
+	culture = frankish
+	trait = devoted
+	570.1.1 = { birth = yes }
+	650.1.1 = { death = yes }
+}
+
+tours_archbishop_ursus = {
+	name = "Ursus"
+	religion = catholic
+	culture = frankish
+	trait = devoted
+	620.1.1 = { birth = yes }
+	675.1.1 = { death = yes }
+}
+
+tours_archbishop_rigobertus = {
+	name = "Rigobertus"
+	religion = catholic
+	culture = frankish
+	trait = devoted
+	640.1.1 = { birth = yes }
+	700.1.1 = { death = yes }
+}
+
+tours_archbishop_winibaldus = {
+	name = "Winibaldus"
+	religion = catholic
+	culture = frankish
+	trait = devoted
+	660.1.1 = { birth = yes }
+	725.1.1 = { death = yes }
+}
+
+tours_archbishop_chramlinus = {
+	name = "Chramlinus"
+	religion = catholic
+	culture = frankish
+	trait = devoted
+	680.1.1 = { birth = yes }
+	750.1.1 = { death = yes }
+}
+
+tours_archbishop_abbo = {
+	name = "Abbo"
+	religion = catholic
+	culture = frankish
+	trait = devoted
+	710.1.1 = { birth = yes }
+	775.1.1 = { death = yes }
+}
+
+tours_archbishop_johannes_i = {
+	name = "Johannes"
+	religion = catholic
+	culture = frankish
+	trait = devoted
+	730.1.1 = { birth = yes }
+	800.1.1 = { death = yes }
+}
+
+tours_archbishop_ebenus = {
+	name = "Ebenus"
+	religion = catholic
+	culture = french
+	trait = devoted
+	760.1.1 = { birth = yes }
+	825.1.1 = { death = yes }
+}
+
+tours_archbishop_adalardus = {
+	name = "Adalardus"
+	religion = catholic
+	culture = french
+	trait = devoted
+	780.1.1 = { birth = yes }
+	850.1.1 = { death = yes }
+}
+
+tours_archbishop_johannes_ii = {
+	name = "Johannes"
+	religion = catholic
+	culture = french
+	trait = devoted
+	800.1.1 = { birth = yes }
+	870.1.1 = { death = yes }
+}
+
+tours_archbishop_actardus = {
+	name = "Actardus"
+	religion = catholic
+	culture = french
+	trait = devoted
+	820.1.1 = { birth = yes }
+	900.1.1 = { death = yes }
+}
+
+tours_archbishop_formenus = {
+	name = "Formenus"
+	religion = catholic
+	culture = french
+	trait = devoted
+	850.1.1 = { birth = yes }
+	930.1.1 = { death = yes }
+}
+
+tours_archbishop_hildebrandus = {
+	name = "Hildebrandus"
+	religion = catholic
+	culture = french
+	trait = devoted
+	880.1.1 = { birth = yes }
+	960.1.1 = { death = yes }
+}
+tours_archbishop_frotarius = {
+	name = "Frotarius"
+	religion = catholic
+	culture = french
+	trait = devoted
+	910.1.1 = { birth = yes }
+	980.1.1 = { death = yes }
+}
+
+tours_archbishop_arnulfus = {
+	name = "Arnulfus"
+	religion = catholic
+	culture = french
+	trait = devoted
+	940.1.1 = { birth = yes }
+	995.1.1 = { death = yes }
+}
+
+tours_archbishop_sigebertus = {
+	name = "Sigebertus"
+	religion = catholic
+	culture = french
+	trait = devoted
+	960.1.1 = { birth = yes }
+	1025.1.1 = { death = yes }
+}
+
+tours_archbishop_herveus = {
+	name = "Herveus"
+	religion = catholic
+	culture = french
+	trait = devoted
+	990.1.1 = { birth = yes }
+	1040.1.1 = { death = yes }
+}
+
+tours_archbishop_galterius_i = {
+	name = "Galterius"
+	religion = catholic
+	culture = french
+	trait = devoted
+	1010.1.1 = { birth = yes }
+	1060.1.1 = { death = yes }
+}
+
+tours_archbishop_boson = {
+	name = "Boson"
+	religion = catholic
+	culture = french
+	trait = devoted
+	1030.1.1 = { birth = yes }
+	1080.1.1 = { death = yes }
+}
+
+tours_archbishop_baldricus = {
+	name = "Baldricus"
+	religion = catholic
+	culture = french
+	trait = devoted
+	1045.1.1 = { birth = yes }
+	1107.1.1 = { death = yes }
+}
+
+tours_archbishop_hildebert = {
+	name = "Hildebert"
+	religion = catholic
+	culture = french
+	trait = devoted
+	1055.1.1 = { birth = yes }
+	1134.1.1 = { death = yes }
+}
+
+tours_archbishop_galterius_ii = {
+	name = "Galterius"
+	religion = catholic
+	culture = french
+	trait = devoted
+	1090.1.1 = { birth = yes }
+	1149.1.1 = { death = yes }
+}
+
+tours_archbishop_benedictus = {
+	name = "Benedictus"
+	religion = catholic
+	culture = french
+	trait = devoted
+	1110.1.1 = { birth = yes }
+	1165.1.1 = { death = yes }
+}
+
+tours_archbishop_jean_i = {
+	name = "Jean"
+	religion = catholic
+	culture = french
+	trait = devoted
+	1130.1.1 = { birth = yes }
+	1185.1.1 = { death = yes }
+}
+
+tours_archbishop_bartholomaeus = {
+	name = "Bartholomaeus"
+	religion = catholic
+	culture = french
+	trait = devoted
+	1155.1.1 = { birth = yes }
+	1197.1.1 = { death = yes }
+}
+
+tours_archbishop_jean_ii = {
+	name = "Jean"
+	religion = catholic
+	culture = french
+	trait = devoted
+	1175.1.1 = { birth = yes }
+	1220.1.1 = { death = yes }
+}
+
+
+########
+##EMBRUN
+########
+
+########
+##COLOGNE
+########
+
+########
+##MAYENCE
+########
+
+########
+##TREVERIS
+########
+
+########
+##AQUILEA
+########
+
+########
+##BREMEN
+########
+
+########
+##MAGDEBURG
+########
+
+########
+##MILAN
+########
+
+milan_archbishop_barnabas = {
+    name = "Barnabas"
+    religion = catholic
+    culture = radhanite
+    trait = devoted
+    trait = saint
+	trait = disciple_of_christ
+
+    10.1.1 = { birth = yes }
+    61.1.1 = { death = yes }
+    # Legendary first bishop of Milan, apostolic figure
+}
+
+milan_archbishop_mirocles = {
+    name = "Mirocles"
+    religion = catholic
+    culture = roman
+    trait = devoted
+
+    280.1.1 = { birth = yes }
+    316.1.1 = { death = yes }
+    # Post-Edict of Milan builder, c. 313–316
+}
+
+milan_archbishop_eustorgius_i = {
+    name = "Eustorgius"
+    religion = catholic
+    culture = roman
+    trait = devoted
+    trait = saint
+
+    310.1.1 = { birth = yes }
+    349.1.1 = { death = yes }
+    # Brought relics of the Magi to Milan, venerated saint
+}
+
+milan_archbishop_dionysius = {
+    name = "Dionysius"
+    religion = catholic
+    culture = roman
+    trait = devoted
+    trait = zealous
+
+    320.1.1 = { birth = yes }
+    355.1.1 = { death = yes }
+    # Defender of Nicene faith, exiled by Arian authorities
+}
+
+milan_archbishop_auxentius = {
+    name = "Auxentius"
+    religion = catholic #Arian
+    culture = roman
+    trait = zealous
+
+    310.1.1 = { birth = yes }
+    374.1.1 = { death = yes }
+    # Arian bishop, opposed by Ambrose and Nicenes
+}
+
+milan_archbishop_ambrose = {
+    name = "Ambrose"
+	dynasty = dyn_milanensis
+    religion = catholic
+    culture = roman
+    trait = devoted
+    trait = saint
+    trait = theologian
+
+    340.1.1 = { birth = yes }
+    397.1.1 = { death = yes }
+    # Church Father, spiritual leader, Doctor of the Church
+}
+
+milan_archbishop_simplician = {
+    name = "Simplician"
+    religion = catholic
+    culture = roman
+    trait = devoted
+
+    360.1.1 = { birth = yes }
+    400.1.1 = { death = yes }
+    # Disciple and successor of Ambrose
+}
+
+milan_archbishop_eusebius = {
+    name = "Eusebius"
+    religion = catholic
+    culture = roman
+    trait = devoted
+    trait = saint
+
+    410.1.1 = { birth = yes }
+    462.1.1 = { death = yes }
+    # Guided Milan through post-Hunnic crisis, venerated saint
+}
+
+milan_archbishop_dacius = {
+    name = "Dacius"
+    religion = catholic
+    culture = roman
+    trait = devoted
+
+    500.1.1 = { birth = yes }
+    552.1.1 = { death = yes }
+    # Prominent Church diplomat, exiled during Gothic War
+}
+
+milan_archbishop_laurentius_ii = {
+    name = "Laurentius"
+    religion = catholic
+    culture = roman
+    trait = devoted
+
+    560.1.1 = { birth = yes }
+    601.1.1 = { death = yes }
+    # Restorer of Milanese church after Lombard disruptions
+}
+
+milan_archbishop_constantius = {
+    name = "Constantius"
+    religion = catholic
+    culture = cisalpine
+    trait = devoted
+
+    580.1.1 = { birth = yes }
+    629.1.1 = { death = yes }
+    # Stabilized the diocese in early 7th century
+}
+
+milan_archbishop_angilbert_ii = {
+    name = "Angilbert"
+    religion = catholic
+    culture = cisalpine
+    trait = devoted
+
+    780.1.1 = { birth = yes }
+    859.1.1 = { death = yes }
+    # Influential Carolingian archbishop, imperial advisor
+}
+
+milan_archbishop_tadone = {
+    name = "Tadone"
+    religion = catholic
+    culture = cisalpine
+    trait = devoted
+
+    820.1.1 = { birth = yes }
+    868.1.1 = { death = yes }
+    # Archbishop of Milan from 860 to 868
+}
+
+milan_archbishop_ansperto = {
+    name = "Ansperto"
+    religion = catholic
+    culture = cisalpine
+    trait = devoted
+
+    830.1.1 = { birth = yes }
+    881.1.1 = { death = yes }
+    # Asserted Milan's autonomy, supporter of Carolingian rule
+}
+
+milan_archbishop_anselmo_ii = {
+    name = "Anselmo"
+	dynasty = dyn_capra
+    religion = catholic
+    culture = cisalpine
+    trait = devoted
+
+    850.1.1 = { birth = yes }
+    896.1.1 = { death = yes }
+    # Anselmo II Capra, bishop of Milan until 896
+}
+
+milan_archbishop_landulfo_i = {
+    name = "Landulfo"
+    religion = catholic
+    culture = cisalpine
+    trait = devoted
+
+    870.1.1 = { birth = yes }
+    899.1.1 = { death = yes }
+    # Held the see for a brief time at the end of the 9th century
+}
+
+milan_archbishop_andrea = {
+    name = "Andrea"
+    religion = catholic
+    culture = cisalpine
+    trait = devoted
+
+    875.1.1 = { birth = yes }
+    906.1.1 = { death = yes }
+    # Bishop from the powerful Canciano family
+}
+
+milan_archbishop_aicone = {
+    name = "Aicone"
+    religion = catholic
+    culture = cisalpine
+    trait = devoted
+
+    880.1.1 = { birth = yes }
+    918.1.1 = { death = yes }
+    # Oversaw Milan during early 10th-century turbulence
+}
+
+milan_archbishop_gariberto = {
+    name = "Gariberto"
+    religion = catholic
+    culture = cisalpine
+    trait = devoted
+
+    890.1.1 = { birth = yes }
+    921.1.1 = { death = yes }
+    # Gariberto of Besana
+}
+
+milan_archbishop_lambert = {
+    name = "Lambert"
+    religion = catholic
+    culture = cisalpine
+    trait = devoted
+
+    895.1.1 = { birth = yes }
+    931.1.1 = { death = yes }
+    # Archbishop from 921 to 931
+}
+
+milan_archbishop_elduin = {
+    name = "Elduin"
+    religion = catholic
+    culture = cisalpine
+    trait = devoted
+
+    900.1.1 = { birth = yes }
+    936.1.1 = { death = yes }
+    # Transitional figure between Lambert and Arderico
+}
+
+milan_archbishop_arderico = {
+    name = "Arderico"
+    religion = catholic
+    culture = cisalpine
+    trait = devoted
+
+    905.1.1 = { birth = yes }
+    948.1.1 = { death = yes }
+    # Archbishop during rising Ottonian influence
+}
+
+milan_archbishop_adelman = {
+    name = "Adelman"
+    religion = catholic
+    culture = cisalpine
+    trait = devoted
+
+    910.1.1 = { birth = yes }
+    953.1.1 = { death = yes }
+    # Succeeded Arderico in late 10th century
+}
+
+milan_archbishop_walpert = {
+    name = "Walpert"
+    religion = catholic
+    culture = cisalpine
+    trait = devoted
+
+    920.1.1 = { birth = yes }
+    970.1.1 = { death = yes }
+    # Archbishop of Milan from 953–970
+}
+
+milan_archbishop_arnulf_i = {
+    name = "Arnulf"
+    religion = catholic
+    culture = cisalpine
+    trait = devoted
+
+    930.1.1 = { birth = yes }
+    974.1.1 = { death = yes }
+    # Archbishop preceding Gotofredo I
+}
+
+milan_archbishop_gotofredo_i = {
+    name = "Gotofredo"
+    religion = catholic
+    culture = cisalpine
+    trait = devoted
+
+    935.1.1 = { birth = yes }
+    979.1.1 = { death = yes }
+    # Short tenure, transitional figure
+}
+
+milan_archbishop_landulf_ii = {
+    name = "Landulf"
+    religion = catholic
+    culture = cisalpine
+    trait = devoted
+
+    940.1.1 = { birth = yes }
+    998.1.1 = { death = yes }
+    # Second Landulf to serve as Archbishop of Milan
+}
+milan_archbishop_arnolfo_ii = {
+    name = "Arnolfo"
+	dynasty = dyn_darsago
+    religion = catholic
+    culture = cisalpine
+    trait = devoted
+
+    960.1.1 = { birth = yes }
+    1018.1.1 = { death = yes }
+    # Arnolfo II da Arsago (998–1018), prelate before the Gregorian reforms
+}
+
+milan_archbishop_ariberto = {
+    name = "Ariberto"
+	dynasty = dyn_daintimiano
+    religion = catholic
+    culture = cisalpine
+    trait = devoted
+    trait = zealous
+
+    980.1.1 = { birth = yes }
+    1045.1.1 = { death = yes }
+    # Ariberto da Intimiano (1018–1045), major political and ecclesiastical figure
+}
+
+milan_archbishop_guido = {
+    name = "Guido"
+	dynasty = dyn_davelate
+    religion = catholic
+    culture = cisalpine
+    trait = devoted
+
+    1000.1.1 = { birth = yes }
+    1069.1.1 = { death = yes }
+    # Guido da Velate (1045–1069), involved in early Investiture Controversy
+}
+
+milan_archbishop_attone = {
+    name = "Attone"
+    religion = catholic
+    culture = cisalpine
+    trait = devoted
+
+    1015.1.1 = { birth = yes }
+    1075.1.1 = { death = yes }
+    # Attone (1070–1075), short but notable tenure
+}
+
+milan_archbishop_tedald = {
+    name = "Tedald"
+    religion = catholic
+    culture = cisalpine
+    trait = devoted
+
+    1020.1.1 = { birth = yes }
+    1080.1.1 = { death = yes }
+    # Tedald (1075–1080), served in the height of the Investiture Crisis
+}
+
+milan_archbishop_anselmo_iii = {
+    name = "Anselmo"
+	dynasty = dyn_darho
+    religion = catholic
+    culture = cisalpine
+    trait = devoted
+
+    1040.1.1 = { birth = yes }
+    1093.1.1 = { death = yes }
+    # Anselmo III da Rho (1086–1093), Gregorian reformer
+}
+
+milan_archbishop_arnolfo_iii = {
+    name = "Arnolfo"
+    religion = catholic
+    culture = cisalpine
+    trait = devoted
+
+    1060.1.1 = { birth = yes }
+    1097.1.1 = { death = yes }
+    # Arnolfo III (1093–1097), successor to Anselmo III
+}
+
+milan_archbishop_anselmo_iv = {
+    name = "Anselmo"
+	dynasty = dyn_dabovisio
+    religion = catholic
+    culture = cisalpine
+    trait = devoted
+
+    1065.1.1 = { birth = yes }
+    1101.1.1 = { death = yes }
+    # Anselmo IV da Bovisio (1097–1101), brief tenure
+}
+
+milan_archbishop_grossolano = {
+    name = "Grossolano"
+    religion = catholic
+    culture = cisalpine
+    trait = devoted
+
+    1070.1.1 = { birth = yes }
+    1112.1.1 = { death = yes }
+    # Grossolano (1102–1112), deposed in a canonical dispute
+}
+
+milan_archbishop_giordano = {
+    name = "Giordano"
+	dynasty = dyn_daclivio
+    religion = catholic
+    culture = cisalpine
+    trait = devoted
+
+    1075.1.1 = { birth = yes }
+    1120.1.1 = { death = yes }
+    # Giordano da Clivio (1112–1120)
+}
+
+milan_archbishop_olrico = {
+    name = "Olrico"
+	dynasty = dyn_dacorte
+    religion = catholic
+    culture = cisalpine
+    trait = devoted
+
+    1080.1.1 = { birth = yes }
+    1126.1.1 = { death = yes }
+    # Olrico da Corte (1120–1126), continued Church reform
+}
+
+milan_archbishop_anselmo_v = {
+    name = "Anselmo"
+	dynasty = dyn_dellapusterla
+    religion = catholic
+    culture = cisalpine
+    trait = devoted
+
+    1085.1.1 = { birth = yes }
+    1135.1.1 = { death = yes }
+    # Anselmo V della Pusterla (1126–1135), conflict with Papacy
+}
+
+milan_archbishop_robaldo = {
+    name = "Robaldo"
+    religion = catholic
+    culture = cisalpine
+    trait = devoted
+
+    1090.1.1 = { birth = yes }
+    1145.1.1 = { death = yes }
+    # Robaldo (1135–1145), presided during a politically turbulent time
+}
+
+milan_archbishop_umberto_i = {
+    name = "Umberto"
+	dynasty = dyn_dapirovano
+    religion = catholic
+    culture = cisalpine
+    trait = devoted
+
+    1100.1.1 = { birth = yes }
+    1166.1.1 = { death = yes }
+    # Umberto I da Pirovano (1146–1166), prelate during Barbarossa’s conflicts
+}
+
+milan_archbishop_galdino = {
+    name = "Galdino"
+	dynasty = dyn_dellasala
+    religion = catholic
+    culture = cisalpine
+    trait = devoted
+    trait = saint
+
+    1110.1.1 = { birth = yes }
+    1176.1.1 = { death = yes }
+    # Galdino della Sala (1166–1176), strong supporter of Alexander III
+}
+
+milan_archbishop_algisio = {
+    name = "Algisio"
+	dynasty = dyn_dapirovano
+    religion = catholic
+    culture = cisalpine
+    trait = devoted
+
+    1125.1.1 = { birth = yes }
+    1185.1.1 = { death = yes }
+    # Algisio da Pirovano (1176–1185), nephew of Umberto I
+}
+
+milan_archbishop_umberto_ii = {
+    name = "Umberto"
+	dynasty = dyn_crivelli
+    religion = catholic
+    culture = cisalpine
+    trait = devoted
+
+    1135.1.1 = { birth = yes }
+    1187.1.1 = { death = yes }
+    # Umberto II Crivelli (1185–1187), became Pope Urban III
+}
+
+milan_archbishop_milone = {
+    name = "Milone"
+	dynasty = dyn_dacardano
+    religion = catholic
+    culture = cisalpine
+    trait = devoted
+
+    1140.1.1 = { birth = yes }
+    1195.1.1 = { death = yes }
+    # Milone da Cardano (1187–1195)
+}
+
+milan_archbishop_umberto_iii = {
+    name = "Umberto"
+	dynasty = dyn_daterzago
+    religion = catholic
+    culture = cisalpine
+    trait = devoted
+
+    1150.1.1 = { birth = yes }
+    1196.1.1 = { death = yes }
+    # Umberto III da Terzago (1195–1196)
+}
+
+milan_archbishop_filippo_i = {
+    name = "Filippo"
+	dynasty = dyn_lampugnano
+    religion = catholic
+    culture = cisalpine
+    trait = devoted
+
+    1160.1.1 = { birth = yes }
+    1206.1.1 = { death = yes }
+    # Filippo I da Lampugnano (1196–1206)
+}
+
+### Barons of Castellane
+
+decalian_arbald_i = {
+    name = "Arbald"
+    dynasty = dyn_castellane
+    religion = catholic
+    culture = occitan
+
+    850.1.1 = { birth = yes }
+    870.1.1 = { add_spouse = decalain_blismodis }
+    890.1.1 = { death = yes }
+    # Arbald I de Calian, earliest recorded ancestor
+}
+
+decalain_blismodis = {
+    name = "Blismodis"
+    female = yes
+    religion = catholic
+    culture = occitan
+
+    855.1.1 = { birth = yes }
+    895.1.1 = { death = yes }
+    # Spouse of Arbald I
+}
+
+decalian_arbald_ii = {
+    name = "Arbald"
+    dynasty = dyn_castellane
+    religion = catholic
+    culture = occitan
+
+    father = decalain_arbald_i
+    mother = decalain_blismodis
+
+    880.1.1 = { birth = yes }
+    905.1.1 = { add_spouse = decalain_arsinde }
+    930.1.1 = { death = yes }
+    # Arbald II de Calian
+}
+
+decalain_arsinde = {
+    name = "Arsinde"
+    female = yes
+    religion = catholic
+    culture = occitan
+
+    885.1.1 = { birth = yes }
+    920.1.1 = { death = yes }
+    # Wife of Arbald II
+}
+
+decalian_arbald_iii = {
+    name = "Arbald"
+    dynasty = dyn_castellane
+    religion = catholic
+    culture = occitan
+
+    father = decalian_arbald_ii
+    mother = decalain_arsinde
+
+    910.1.1 = { birth = yes }
+    930.1.1 = { add_spouse = decalain_alindrade }
+    971.1.1 = { death = yes }
+    # Arbald III de Calian
+}
+
+decalain_alindrade = {
+    name = "Alindrada"
+    female = yes
+#    dynasty = dynn_macon
+    religion = catholic
+    culture = frankish
+
+    915.1.1 = { birth = yes }
+    943.1.1 = { death = yes }
+    # Alindrade of Mâcon, wife of Arbald III
+}
+
+decalian_engelbert = {
+    name = "Engelbert"
+    dynasty = dyn_castellane
+    religion = catholic
+    culture = occitan
+
+    father = decalian_arbald_iii
+    mother = decalain_alindrade
+
+    940.1.1 = { birth = yes }
+    1000.1.1 = { death = yes }
+    # Engelbert de Calian, presumed link to later Castellane line
+}
+
+castellane_engelbert = {
+    name = "Engelbert"
+    dynasty = dyn_castellane
+    religion = catholic
+    culture = occitan
+
+    900.1.1 = { birth = yes }
+    930.1.1 = { add_spouse = ema_dapt }
+    965.1.1 = { death = yes }
+}
+
+ema_dapt = {
+    name = "Ema"
+	dynasty = dyn_salagriffon
+    female = yes
+    religion = catholic
+    culture = occitan
+	father = bermonduzes
+	mother = apt_ermengarde
+
+    905.1.1 = { birth = yes }
+    970.1.1 = { death = yes }
+}
+
+apt_robert = {
+    name = "Grifon"
+    dynasty = dyn_salagriffon
+    religion = catholic
+    culture = occitan
+
+    820.1.1 = { birth = yes }
+    840.1.1 = { add_spouse = ferrassiere_renaude }
+    871.1.1 = { death = yes }
+}
+
+ferrassiere_renaude = {
+    name = "Renauda"
+	dynasty = dyn_ferrassera
+    female = yes
+    religion = catholic
+    culture = occitan
+
+    821.1.1 = { birth = yes }
+    880.1.1 = { death = yes }
+}
+
+apt_foucher = {
+    name = "Folch"
+    dynasty = dyn_salagriffon
+    religion = catholic
+    culture = occitan
+
+    father = apt_robert
+    mother = ferrassiere_renaude
+
+    850.1.1 = { birth = yes }
+    860.1.1 = { add_spouse = narbonne_raymonde }
+    915.1.1 = { death = yes }
+}
+
+apt_griffon = {
+    name = "Grifon"
+    dynasty = dyn_salagriffon
+    religion = catholic
+    culture = occitan
+
+    father = apt_foucher
+
+    870.1.1 = { birth = yes }
+    895.1.1 = { add_spouse = chenes_theviarde }
+    935.1.1 = { death = yes }
+}
+
+chenes_theviarde = {
+    name = "Teviarda"
+	dynasty = dyn_deschenes
+    female = yes
+    religion = catholic
+    culture = occitan
+	father = fatherchenes
+	mother = raymondeautun
+
+    875.1.1 = { birth = yes }
+    940.1.1 = { death = yes }
+}
+
+fatherchenes = {
+    name = "Enguelran"
+	dynasty = dyn_deschenes
+    religion = catholic
+    culture = occitan
+
+    855.1.1 = { birth = yes }
+	870.1.1 = { add_spouse = raymondeautun }
+    930.1.1 = { death = yes }
+}
+
+raymondeautun = {
+    name = "Raimonda"
+    female = yes
+	dynasty = 100217 #Gellones
+    religion = catholic
+    culture = occitan
+	father = 127019 #Bernat Plantapilosa
+	mother = 127020 #Ermengarda d'Alvernia
+
+    855.1.1 = { birth = yes }
+    930.1.1 = { death = yes }
+}
+
+apt_ermengarde = {
+    name = "Ermengarda"
+    female = yes
+    religion = catholic
+    culture = occitan
+    dynasty = dyn_salagriffon
+
+    father = apt_griffon
+    mother = chenes_theviarde
+
+    900.1.1 = { birth = yes }
+	920.1.1 = { add_spouse = bermonduzes }
+    950.1.1 = { death = yes }
+}
+
+bermonduzes = {
+    name = "Bermon"
+	dynasty = dyn_uzes
+    religion = catholic
+    culture = occitan
+
+    900.1.1 = { birth = yes }
+    930.1.1 = { death = yes }
+}
+
+narbonne_raymonde = {
+    name = "Raimonda"
+    female = yes
+    religion = catholic
+    culture = occitan
+
+    857.1.1 = { birth = yes }
+    920.1.1 = { death = yes }
+}
+
+
+castellane_pons_arbald = {
+    name = "Pons"
+    dynasty = dyn_castellane
+    religion = catholic
+    culture = occitan
+
+    father = castellane_engelbert
+    mother = ema_dapt
+
+    930.1.1 = { birth = yes }
+    950.1.1 = { add_spouse = hermengarde_albion }
+    995.1.1 = { death = yes }
+}
+
+hermengarde_albion = {
+    name = "Hermengarda"
+    female = yes
+    religion = catholic
+    culture = occitan
+
+    929.1.1 = { birth = yes }
+    1000.1.1 = { death = yes }
+}
+
+castellane_dodon = {
+    name = "Dodon"
+    dynasty = dyn_castellane
+    religion = catholic
+    culture = occitan
+
+    father = castellane_pons_arbald
+    mother = hermengarde_albion
+
+    970.1.1 = { birth = yes }
+    995.1.1 = { add_spouse = galburge_reillane }
+    1053.1.1 = { death = yes }
+}
+
+galburge_reillane = {
+    name = "Galburga"
+    female = yes
+	dynasty = dyn_reillanne
+    religion = catholic
+    culture = occitan
+	father = reillanne_lambert_ursus
+
+    975.1.1 = { birth = yes }
+    1040.1.1 = { death = yes }
+}
+
+castellane_pons_pulverel = {
+    name = "Pons"
+    dynasty = dyn_castellane
+    religion = catholic
+    culture = occitan
+
+    father = castellane_dodon
+    mother = galburge_reillane
+
+    1000.1.1 = { birth = yes }
+    1025.1.1 = { add_spouse = domma_dias }
+    1065.1.1 = { death = yes }
+}
+
+domma_dias = {
+    name = "Domma"
+    female = yes
+    religion = catholic
+    culture = occitan
+
+    1005.1.1 = { birth = yes }
+    1070.1.1 = { death = yes }
+}
+
+castellane_boniface = {
+    name = "Bonifaci"
+    dynasty = dyn_castellane
+    religion = catholic
+    culture = occitan
+
+    father = castellane_pons_pulverel
+    mother = domma_dias
+
+    1036.1.1 = { birth = yes }
+    1060.1.1 = { add_spouse = stephanie_puimoisson }
+    1100.1.1 = { death = yes }
+}
+
+stephanie_puimoisson = {
+    name = "Estefania"
+    female = yes
+    religion = catholic
+    culture = occitan
+
+    1040.1.1 = { birth = yes }
+    1105.1.1 = { death = yes }
+}
+
+castellane_laugier = {
+    name = "Lauger"
+    dynasty = dyn_castellane
+    religion = catholic
+    culture = occitan
+
+    father = castellane_boniface
+    mother = stephanie_puimoisson
+
+    1066.1.1 = { birth = yes }
+    1085.1.1 = { add_spouse = louise_cotignac }
+    1115.1.1 = { death = yes }
+}
+
+louise_cotignac = {
+    name = "Loisa"
+    female = yes
+    religion = catholic
+    culture = occitan
+
+    1080.1.1 = { birth = yes }
+    1135.1.1 = { death = yes }
+}
+
+
+
+castellane_boniface_i = {
+    name = "Bonifaci"
+    dynasty = dyn_castellane
+    religion = catholic
+    culture = occitan
+	father = castellane_boniface
+
+    1055.1.1 = { birth = yes }
+    1080.1.1 = { add_spouse = castellane_ermengarda }
+    1115.1.1 = { death = yes }
+    # Boniface I, earliest known lord; spouse speculative
+}
+
+castellane_ermengarda = {
+    name = "Laura"
+	female = yes
+    dynasty = 5117
+    religion = catholic
+    culture = occitan
+
+    1060.1.1 = { birth = yes }
+    1110.1.1 = { death = yes }
+    # Hypothetical spouse of Boniface I; possibly of noble Occitan lineage
+}
+
+castellane_boniface_ii = {
+    name = "Bonifaci"
+    dynasty = dyn_castellane
+    religion = catholic
+    culture = occitan
+
+    father = castellane_boniface_i
+    mother = castellane_ermengarda
+
+    1085.1.1 = { birth = yes }
+    1108.1.1 = { add_spouse = castellane_douce }
+    1155.1.1 = { death = yes }
+    # Paid homage in 1146; marriage speculative
+}
+
+castellane_douce = {
+    name = "DolC_a"
+	female = yes
+    dynasty = 7052
+    religion = catholic
+    culture = occitan
+
+    1090.1.1 = { birth = yes }
+    1160.1.1 = { death = yes }
+    # Possibly from House of Provence or related noble family
+}
+
+castellane_boniface_iii = {
+    name = "Bonifaci"
+    dynasty = dyn_castellane
+    religion = catholic
+    culture = occitan
+
+    father = castellane_boniface_ii
+    mother = castellane_douce
+
+    1115.1.1 = { birth = yes }
+    1140.1.1 = { add_spouse = castellane_adelasia }
+    1195.1.1 = { death = yes }
+    # Resisted homage to Alfonso II in 1189
+}
+
+castellane_adelasia = {
+    name = "Adelasia"
+	female = yes
+    religion = catholic
+    culture = occitan
+
+    1120.1.1 = { birth = yes }
+    1205.1.1 = { death = yes }
+    # Possibly from House of Savoy or Lombard connection
+}
+
+castellane_roux = {
+    name = "Rufus"
+    dynasty = dyn_castellane
+    religion = catholic
+    culture = occitan
+
+    father = castellane_boniface_iii
+    mother = castellane_adelasia
+
+    1157.1.1 = { birth = yes }
+    1180.1.1 = { add_spouse = castellane_isabelle }
+    1215.1.1 = { death = yes }
+    # Father of Boniface IV
+}
+
+castellane_guillaumette = {
+    name = "Guilhemeta"
+	female = yes
+    dynasty = dyn_castellane
+    religion = catholic
+    culture = occitan
+
+    father = castellane_boniface_iii
+    mother = castellane_adelasia
+
+    1160.1.1 = { birth = yes }
+    1230.1.1 = { death = yes }
+    # Sister of Roux de Castellane, attested in genealogies
+}
+
+
+castellane_isabelle = {
+    name = "Isabel"
+	female = yes
+    dynasty = 727
+    religion = catholic
+    culture = occitan
+
+    1160.1.1 = { birth = yes }
+    1220.1.1 = { death = yes }
+    # Proposed link to House of Toulouse; speculative
+}
+
+castellane_boniface_iv = {
+    name = "Bonifaci"
+    dynasty = dyn_castellane
+    religion = catholic
+    culture = occitan
+
+    father = castellane_roux
+    mother = castellane_isabelle
+
+    1179.1.1 = { birth = yes }
+    1203.1.1 = { add_spouse = castellane_agnes }
+    1252.1.1 = { death = yes }
+    # Held large domains, submitted to Provence counts
+}
+
+castellane_agnes = {
+    name = "AgnEEs"
+	female = yes
+    dynasty = dynn_riez
+    religion = catholic
+    culture = occitan
+
+    1185.1.1 = { birth = yes }
+    1245.1.1 = { death = yes }
+    # Daughter of the Lords of Riez
+}
+
+castellane_boniface_v = {
+    name = "Bonifaci"
+    dynasty = dyn_castellane
+    religion = catholic
+    culture = occitan
+
+    father = castellane_boniface_iv
+    mother = castellane_agnes
+
+    1210.1.1 = { birth = yes }
+    1235.1.1 = { add_spouse = castellane_alix }
+    1247.1.1 = { death = yes }
+    # Married into House of Baux
+}
+
+castellane_alix = {
+    name = "Alix"
+	female = yes
+    dynasty = 5117
+    religion = catholic
+    culture = occitan
+
+    1215.1.1 = { birth = yes }
+    1275.1.1 = { death = yes }
+    # Alix de Baux
+}
+
+castellane_boniface_vi = {
+    name = "Bonifaci"
+    dynasty = dyn_castellane
+    religion = catholic
+    culture = occitan
+
+    father = castellane_boniface_v
+    mother = castellane_alix
+
+    1244.1.1 = { birth = yes }
+    1265.1.1 = { death = yes }
+    # Troubadour and Ghibelline; rebelled against Charles of Anjou
+}
+
+#Lords of Fos
+
+fos_pons = {
+    name = "Pons"
+    dynasty = dyn_fos
+    religion = catholic
+    culture = occitan
+
+    930.1.1 = { birth = yes }
+    970.1.1 = { add_spouse = fos_spouse_pons }
+    1025.1.1 = { death = yes }
+}
+
+fos_spouse_pons = {
+    name = "Ermenerda"
+    religion = catholic
+    culture = occitan
+    female = yes
+
+    940.1.1 = { birth = yes }
+    1010.1.1 = { death = yes }
+}
+
+fos_guy = {
+    name = "Guiu"
+    dynasty = dyn_fos
+    religion = catholic
+    culture = occitan
+
+    father = fos_pons
+	mother = fos_spouse_pons
+
+    980.1.1 = { birth = yes }
+    1010.1.1 = { add_spouse = fos_spouse_guy }
+    1058.1.1 = { death = yes }
+}
+
+fos_spouse_guy = {
+    name = "Serena"
+    religion = catholic
+    culture = occitan
+    female = yes
+
+    985.1.1 = { birth = yes }
+    1040.1.1 = { death = yes }
+}
+
+fos_bertrand = {
+    name = "Bertran"
+    dynasty = dyn_fos
+    religion = catholic
+    culture = occitan
+
+    father = fos_guy
+	mother = fos_spouse_guy
+
+    1020.1.1 = { birth = yes }
+    1075.1.1 = { death = yes }
+}
+
+fos_amiel1 = {
+    name = "Amiel"
+    dynasty = dyn_fos
+    religion = catholic
+    culture = occitan
+
+    father = fos_bertrand
+
+    1045.1.1 = { birth = yes }
+    1110.1.1 = { death = yes }
+}
+
+fos_raymond = {
+    name = "Raimon"
+    dynasty = dyn_fos
+    religion = catholic
+    culture = occitan
+
+    father = fos_amiel1
+
+    1070.1.1 = { birth = yes }
+    1135.1.1 = { death = yes }
+}
+
+fos_amiel2 = {
+    name = "Amiel"
+    dynasty = dyn_fos
+    religion = catholic
+    culture = occitan
+
+    father = fos_raymond
+
+    1100.1.1 = { birth = yes }
+    1125.1.1 = { add_spouse = fos_alasie }
+    1190.1.1 = { death = yes }
+}
+
+fos_alasie = {
+    name = "Alaïs"
+    dynasty = dynn_laydet
+    religion = catholic
+    culture = occitan
+    female = yes
+
+    1105.1.1 = { birth = yes }
+    1170.1.1 = { death = yes }
+}
+
+fos_roger1 = {
+    name = "Roger"
+    dynasty = dyn_fos
+    religion = catholic
+    culture = occitan
+
+    father = fos_amiel2
+    mother = fos_alasie
+
+    1138.1.1 = { birth = yes }
+    1160.1.1 = { add_spouse = fos_tiburgette }
+    1257.1.1 = { death = yes }
+}
+
+fos_tiburgette = {
+    name = "Tiburgueta"
+    dynasty = dynn_baux #Need to connect her to the House of Baux
+    religion = catholic
+    culture = occitan
+    female = yes
+
+    1140.1.1 = { birth = yes }
+    1210.1.1 = { death = yes }
+}
+
+fos_guillaume = {
+    name = "GuilhE_m"
+    dynasty = dyn_fos
+    religion = catholic
+    culture = occitan
+
+    father = fos_roger1
+    mother = fos_tiburgette
+
+    1165.1.1 = { birth = yes }
+    1235.1.1 = { death = yes }
+}
+
+fos_philippe = {
+    name = "Felip"
+    dynasty = dyn_fos
+    religion = catholic
+    culture = occitan
+
+    father = fos_roger1
+    mother = fos_tiburgette
+
+    1170.1.1 = { birth = yes }
+    1240.1.1 = { death = yes }
+}
+
+#House of Agoult, viscounts of Apt
+
+fulcher_ancien = {
+    name = "Fulcher"
+    dynasty = dyn_agoult
+    religion = catholic
+    culture = occitan
+
+    790.1.1 = { birth = yes	give_nickname = nick_the_old }
+    875.1.1 = { death = yes }
+}
+
+eric_agoult = {
+    name = "Éric"
+    dynasty = dyn_agoult
+    religion = catholic
+    culture = occitan
+
+    father = fulcher_ancien
+    820.1.1 = { birth = yes }
+    890.1.1 = { death = yes }
+}
+
+agoult_fulcher = {
+    name = "GuilhE_m"
+    dynasty = dyn_agoult
+    religion = catholic
+    culture = occitan
+
+    father = agoult_anselm
+    900.1.1 = { birth = yes }
+    985.1.1 = { death = yes }
+}
+
+agoult_imbert1 = {
+    name = "Imbert"
+    dynasty = dyn_agoult
+    religion = catholic
+    culture = occitan
+
+    father = agoult_fulcher
+    960.1.1 = { birth = yes }
+    992.11.14 = { add_spouse = agoult_spouse_imbert1 }
+    1015.1.1 = { death = yes }
+}
+
+mayeul_cluny = {
+    name = "Maiol"
+    dynasty = dyn_agoult
+    religion = catholic
+    culture = occitan
+	trait = devoted
+	trait = saint
+	trait = just
+	trait = temperate
+
+    father = fulcher_ancien
+    825.1.1 = { birth = yes }
+    914.1.1 = { death = yes }
+}
+
+agoult_anselm = {
+    name = "Anselm"
+    dynasty = dyn_agoult
+    religion = catholic
+    culture = occitan
+
+    father = eric_agoult
+    850.1.1 = { birth = yes }
+    930.1.1 = { death = yes }
+}
+
+agoult_spouse_imbert1 = {
+    name = "Ermengardeta"
+    dynasty = dyn_salagriffon
+    religion = catholic
+    culture = occitan
+    female = yes
+
+    father = bermonduzes
+    mother = apt_ermengarde
+
+    970.1.1 = { birth = yes }
+    1040.1.1 = { death = yes }
+}
+
+agoult_guillaume1 = {
+    name = "GuilhE_m"
+    dynasty = dyn_agoult
+    religion = catholic
+    culture = occitan
+
+    father = agoult_imbert1
+    990.1.1 = { birth = yes }
+    1010.1.1 = { add_spouse = reillanne_azalais }
+    1035.1.1 = { death = yes }
+}
+
+agoult_alfant = {
+    name = "Alfant"
+    dynasty = dyn_agoult
+    religion = catholic
+    culture = occitan
+
+    father = agoult_guillaume1
+    mother = reillanne_azalais
+    1015.1.1 = { birth = yes }
+    1048.1.1 = { add_trait = devoted }
+    1069.1.1 = { death = yes }
+}
+
+agoult_rostaing = {
+    name = "Rostanh"
+    dynasty = dyn_agoult
+    religion = catholic
+    culture = occitan
+
+    father = agoult_guillaume1
+    mother = reillanne_azalais
+    1031.1.1 = { birth = yes }
+    1056.1.1 = { add_spouse = agoult_gisla }
+    1090.1.1 = { death = yes }
+}
+
+agoult_gisla = {
+    name = "Guisla"
+    dynasty = 280 #de Narbonne
+    religion = catholic
+    culture = occitan
+    female = yes
+	father = 40212
+
+    1035.1.1 = { birth = yes }
+    1100.1.1 = { death = yes }
+}
+
+agoult_laugier = {
+    name = "Lauger"
+    dynasty = dyn_agoult
+    religion = catholic
+    culture = occitan
+
+    father = agoult_rostaing
+    mother = agoult_gisla
+    1057.1.1 = { birth = yes }
+    1085.1.1 = { add_trait = bishop }
+    1105.1.1 = { death = yes }
+}
+
+agoult_raimbaud1 = {
+    name = "Riambau"
+    dynasty = dyn_agoult
+    religion = catholic
+    culture = occitan
+
+    father = agoult_rostaing
+    mother = agoult_gisla
+    1055.1.1 = { birth = yes }
+    1075.1.1 = { add_spouse = agoult_sancia }
+    1120.1.1 = { death = yes }
+}
+
+agoult_sancia = {
+    name = "Sancia"
+    dynasty = dyn_agoult
+    religion = catholic
+    culture = occitan
+    female = yes
+
+    1060.1.1 = { birth = yes }
+    1130.1.1 = { death = yes }
+}
+
+simiane_guiran = {
+    name = "Guiran"
+    dynasty = dyn_agoult
+    religion = catholic
+    culture = occitan
+
+    father = agoult_raimbaud1
+    mother = agoult_sancia
+    1080.1.1 = { birth = yes }
+    1150.1.1 = { death = yes }
+}
+
+agoult_bertrand = {
+    name = "Bertran"
+    dynasty = dyn_agoult
+    religion = catholic
+    culture = occitan
+
+    father = agoult_raimbaud1
+    mother = agoult_sancia
+    1085.1.1 = { birth = yes }
+    1140.1.1 = { death = yes }
+}
+
+agoult_raymond1 = {
+    name = "Raimon"
+    dynasty = dyn_agoult
+    religion = catholic
+    culture = occitan
+
+    father = agoult_bertrand
+    1110.1.1 = { birth = yes }
+    1130.1.1 = { add_spouse = agoult_isoarde }
+    1180.1.1 = { death = yes }
+}
+
+agoult_isoarde = {
+    name = "Isoarda"
+    dynasty = dynn_die
+    religion = catholic
+    culture = occitan
+    female = yes
+
+    1115.1.1 = { birth = yes }
+    1190.1.1 = { death = yes }
+}
+agoult_foulques1 = {
+    name = "Folquet"
+    dynasty = dyn_agoult
+    religion = catholic
+    culture = occitan
+
+    father = agoult_raymond1
+    mother = agoult_isoarde
+    1145.1.1 = { birth = yes }
+    1215.1.1 = { death = yes }
+}
+
+
+
+#Bishops of Basel
+
+bishop_baldeberthus = {
+    name = "Baldeberthus"
+    religion = catholic
+    culture = swabian
+    trait = devoted
+
+    710.1.1 = { birth = yes }
+    770.1.1 = { death = yes }
+    # Bishop of Basel attested in 762
+}
+
+bishop_haito = {
+    name = "Haito"
+	dynasty = dyn_reichenau
+    religion = catholic
+    culture = swabian
+    trait = devoted
+
+    790.1.1 = { birth = yes }
+    885.1.1 = { death = yes }
+    # Bishop Haito, formerly Abbot of Reichenau, bishop of Basel c. 805–823
+}
+
+bishop_berengar = {
+    name = "Berengar"
+    religion = catholic
+    culture = swabian
+    trait = devoted
+
+    1010.1.1 = { birth = yes }
+    1072.1.1 = { death = yes }
+    # Bishop of Basel from 1055–1072, involved during the Investiture Controversy
+}
+
+bishop_ludwig_ii_von_frohburg = {
+    name = "Ludwig"
+    dynasty = dyn_frohburg
+    religion = catholic
+    culture = swabian
+    trait = devoted
+
+    1125.1.1 = { birth = yes }
+    1179.1.1 = { death = yes }
+    # Ludwig II von Frohburg (1164–1179), bishop during imperial-papal tension
+}
+
+#Lords of Gruyere
+
+gruyere_turimbert = {
+    name = "Turimbert"
+    dynasty = dyn_gruyere
+    religion = catholic
+    culture = french
+
+    860.1.1 = { birth = yes }
+    920.1.1 = { death = yes }
+    # Mentioned as count in the pagus Ausicensis (Gruyère) around 900
+}
+
+gruyere_amon = {
+    name = "Aymon"
+    dynasty = dyn_gruyere
+    religion = catholic
+    culture = french
+    father = gruyere_turimbert
+
+    890.1.1 = { birth = yes }
+    955.1.1 = { death = yes }
+    # Hypothetical son of Turimbert
+}
+
+gruyere_robert = {
+    name = "Robert"
+    dynasty = dyn_gruyere
+    religion = catholic
+    culture = french
+    father = gruyere_amon
+
+    920.1.1 = { birth = yes }
+    990.1.1 = { death = yes }
+    # Hypothetical son of Amon
+}
+
+gruyere_humbert = {
+    name = "Humbert"
+    dynasty = dyn_gruyere
+    religion = catholic
+    culture = french
+    father = gruyere_robert
+
+    960.1.1 = { birth = yes }
+    1030.1.1 = { death = yes }
+    # Hypothetical son of Robert, bridging to Wilerius
+}
+
+gruyere_wilerius = {
+    name = "Wilerius"
+    dynasty = dyn_gruyere
+    religion = catholic
+    culture = french
+    father = gruyere_humbert
+
+    1025.1.1 = { birth = yes }
+    1090.1.1 = { death = yes }
+    # Mentioned in 1073 and 1085, father of Guillaume I
+}
+
+gruyere_guillaume_i = {
+    name = "Guillaume"
+    dynasty = dyn_gruyere
+    religion = catholic
+    culture = french
+    father = gruyere_wilerius
+
+    1055.1.1 = { birth = yes }
+    1130.1.1 = { death = yes }
+    # First to be documented in 1115 as son of Wilerius
+}
+
+gruyere_guillaume_ii = {
+    name = "Guillaume"
+    dynasty = dyn_gruyere
+    religion = catholic
+    culture = french
+    father = gruyere_guillaume_i
+
+    1090.1.1 = { birth = yes }
+    1157.1.1 = { death = yes }
+    # First to use title "comes de Grueria"
+}
+
+gruyere_rodolphe_i = {
+    name = "Rodolphe"
+    dynasty = dyn_gruyere
+    religion = catholic
+    culture = french
+    father = gruyere_guillaume_ii
+
+    1120.1.1 = { birth = yes }
+    1196.1.1 = { death = yes }
+    # Held title comes de Ogo, son of Guillaume II
+}
+
+gruyere_pierre_i = {
+    name = "Pierre"
+    dynasty = dyn_gruyere
+    religion = catholic
+    culture = french
+    father = gruyere_rodolphe_i
+
+    1165.1.1 = { birth = yes }
+    1220.1.1 = { death = yes }
+    # Son of Rodolphe I, mentioned in 1197 and after 1200
+}
+
+#Lords of Grasse
+
+rodoard_grasse = {
+    name = "Rodoard"
+    dynasty = dyn_grasse
+    religion = catholic
+    culture = occitan
+    trait = brave
+
+    890.1.1 = { birth = yes }
+    950.1.1 = { death = yes }
+    # Rewarded for helping expel Saracens from Provence
+}
+
+gauceran_grasse = {
+    name = "Gauceran"
+    dynasty = dyn_grasse
+    religion = catholic
+    culture = occitan
+    trait = ambitious
+    father = rodoard_grasse
+
+    915.1.1 = { birth = yes }
+    975.1.1 = { death = yes }
+    # Son of Rodoard
+}
+
+guillaume_gauceran_grasse = {
+    name = "Guillaume"
+    dynasty = dyn_grasse
+    religion = catholic
+    culture = occitan
+    trait = just
+    father = gauceran_grasse
+
+    970.1.1 = { birth = yes }
+    1045.1.1 = { death = yes }
+    # First to use the name "de Grasse"
+}
+
+raimbaud_i_grasse = {
+    name = "Raimbaud"
+    dynasty = dyn_grasse
+    religion = catholic
+    culture = occitan
+    trait = administrator
+    father = guillaume_gauceran_grasse
+
+    1005.1.1 = { birth = yes }
+    1113.1.1 = { death = yes }
+    # Involved in disputes with abbeys
+}
+
+bertrand_grasse = {
+    name = "Bertrand"
+    dynasty = dyn_grasse
+    religion = catholic
+    culture = occitan
+    trait = temperate
+    father = raimbaud_i_grasse
+
+    1080.1.1 = { birth = yes }
+    1170.1.1 = { death = yes }
+    # Shared domains with brothers
+}
+
+raimbaud_ii_grasse = {
+    name = "Raimbaud"
+    dynasty = dyn_grasse
+    religion = catholic
+    culture = occitan
+    father = bertrand_grasse
+
+    1110.1.1 = { birth = yes }
+    1190.1.1 = { death = yes }
+    # Knight banneret, active in regional politics
+}
+
+bishop_bertrand_i_frejus = {
+    name = "Bertrand"
+    religion = catholic
+    culture = occitan
+	trait = devoted
+
+    1005.1.1 = { birth = yes }
+    1091.1.1 = { death = yes }
+    # Bishop of Fréjus, founded collegiate church of Barjols
+}
+
+bishop_fredol_anduze = {
+    name = "Frédol"
+    dynasty = dyn_anduze
+    religion = catholic
+    culture = occitan
+    trait = devoted
+    father = bernard_pelet
+
+    1120.1.1 = { birth = yes }
+    1197.1.1 = { death = yes }
+    # From the House of Anduze, Bishop of Fréjus
+}
+
+#Bishops of Lausanne
+
+lausanne_hartmannus = {
+    name = "Hartmannus"
+    religion = catholic
+    culture = swabian
+    trait = devoted
+
+    800.1.1 = { birth = yes }
+    878.1.1 = { death = yes }
+    # Bishop of Lausanne (852–878)
+}
+
+lausanne_henri_bourgogne = {
+    name = "Henri"
+    dynasty = 9306
+    religion = catholic
+    culture = french
+    trait = devoted
+    father = 168167 #Richard the Justiciar or his son Hughes could be his father
+
+    945.1.1 = { birth = yes }
+    1018.1.1 = { death = yes }
+    # Henri de Bourgogne (985–1018), likely son of Richard the Justiciar
+}
+
+lausanne_hugues_bourgogne = {
+    name = "Hugues"
+    dynasty = 9306
+    religion = catholic
+    culture = french
+    trait = devoted
+    father = lausanne_henri_bourgogne
+
+    970.1.1 = { birth = yes }
+    1037.1.1 = { death = yes }
+    # Hugues de Bourgogne (c. 1018–1037), son of Henri
+}
+
+lausanne_henri_lenzbourg = {
+    name = "Heinrich"
+    dynasty = 672
+    religion = catholic
+    culture = swabian
+    trait = devoted
+	father = lenzburg_arnold1
+
+    990.1.1 = { birth = yes }
+    1056.1.1 = { death = yes }
+    # Henri de Lenzbourg (1039–1056), member of the House of Lenzburg
+}
+
+lenzburg_ulric0 = {
+    name = "Ulrich"
+    dynasty = 672
+    religion = "catholic"
+    culture = swabian
+
+    925.1.1 = { birth = "925.1.1" }
+    971.12.31 = { death = "971.12.31" }
+}
+
+lenzburg_arnold1 = {
+    name = "Arnold"
+    dynasty = 672
+    religion = "catholic"
+    culture = swabian
+	father = lenzburg_ulric0
+
+    952.1.1 = { birth = "952.1.1" }
+    1019.1.1 = { death = "1019.1.1" }
+}
+
+lenzburg_ulric1 = {
+    name = "Ulrich"
+    dynasty = 672
+    religion = "catholic"
+    culture = swabian
+    trait = education_martial_2
+	father = lenzburg_arnold1
+
+    995.1.1 = { birth = "995.1.1" }
+    1050.1.1 = { death = "1050.1.1" }
+}
+
+lenzburg_arnold2 = {
+    name = "Arnold"
+    dynasty = 672
+    martial = 6
+    diplomacy = 4
+    intrigue = 7
+    stewardship = 5
+    religion = "catholic"
+    culture = swabian
+    trait = education_intrigue_2
+	father = lenzburg_ulric1
+
+    1021.1.1 = { birth = "1021.1.1" }
+    1069.1.1 = { death = "1060.1.1" }
+}
+
+
+lausanne_burcard_oltigen = {
+    name = "Burcard"
+    dynasty = dyn_oltigen
+    religion = catholic
+    culture = swabian
+    trait = devoted
+
+    1000.1.1 = { birth = yes }
+    1089.1.1 = { death = yes }
+    # Burcard d'Oltigen (1056–1089), member of a noble Bernese family
+}
+
+lausanne_lambert_grandson = {
+    name = "Lambert"
+    dynasty = 1029990
+    religion = catholic
+    culture = french
+    trait = devoted
+	father = grandson_adalbert_iii
+
+    1055.1.1 = { birth = yes }
+    1090.1.1 = { death = yes }
+    # Lambert de Grandson (1089–1090)
+}
+
+lausanne_conon_fenis = {
+    name = "Conon"
+    dynasty = dyn_fenis
+    religion = catholic
+    culture = french
+    trait = devoted
+
+    1060.1.1 = { birth = yes }
+    1107.1.1 = { death = yes }
+    # Conon de Fenis (1090–1103/07)
+}
+
+lausanne_gerold_faucigny = {
+    name = "Gérold"
+    dynasty = dyn_faucigny
+    religion = catholic
+    culture = french
+    trait = devoted
+
+    1075.1.1 = { birth = yes }
+    1134.1.1 = { death = yes }
+    # Gérold de Faucigny (1105–1134)
+}
+
+lausanne_guy_maligny = {
+    name = "Guy"
+    dynasty = dyn_maligny
+    religion = catholic
+    culture = french
+    trait = devoted
+	father = malignyfather
+
+    1095.1.1 = { birth = yes }
+    1143.1.1 = { death = yes }
+    # Guy de Maligny (1134–1143)
+}
+
+guillaume_deblonay = {
+    name = "Guillaume"
+    dynasty = dyn_maligny
+    religion = catholic
+    culture = french
+    father = hugues_de_maligny
+	trait = devoted
+
+    1135.1.1 = { birth = yes }
+    1179.1.1 = { death = yes }
+    # Guillaume de Blonay, elected Bishop of Sion (1176–1177), son of Hugues de Maligny
+}
+
+malignyfather = {
+    name = "Thibaud"
+    dynasty = dyn_maligny
+    religion = catholic
+    culture = french
+
+    1060.1.1 = { birth = yes }
+    1130.1.1 = { death = yes }
+    # Thibaud de Maligny, father of Guy de Maligny and Hugues de Maligny
+}
+
+hugues_de_maligny = {
+    name = "Hugues"
+    dynasty = dyn_maligny
+    religion = catholic
+    culture = french
+    father = malignyfather
+
+    1065.1.1 = { birth = yes }
+    1140.1.1 = { death = yes }
+    # Hugues de Maligny, brother of Guy de Maligny, founder of the Molesme Abbey
+}
+
+sion_amedee_delatour = {
+    name = "Amédée"
+    dynasty = 733 #Auvergne
+    religion = catholic
+    culture = french
+    trait = devoted
+	father = 206033
+
+    1130.1.1 = { birth = yes }
+    1190.1.1 = { death = yes }
+    # Amédée de la Tour, Bishop of Sion 
+}
+
+
+
+lausanne_amedee_clermont = {
+    name = "Amédée" #Saint Amadeus of Lausanne
+	dynasty = 89
+    religion = catholic
+    culture = french
+    trait = devoted
+	trait = saint
+	father = clermont_1
+
+    1105.1.1 = { birth = yes give_nickname = "nick_the_saint" }
+    1159.1.1 = { death = yes }
+}
+
+lausanne_landri_durnes = {
+    name = "Landri"
+    dynasty = dyn_durnes
+    religion = catholic
+    culture = french
+    trait = devoted
+
+    1115.1.1 = { birth = yes }
+    1174.1.1 = { death = yes }
+    # Landri de Durnes (1160–1174)
+}
+
+lausanne_roger_vico_pisano = {
+    name = "Roger"
+    dynasty = dyn_vico_pisano
+    religion = catholic
+    culture = italian
+    trait = devoted
+
+    1135.1.1 = { birth = yes }
+    1212.1.1 = { death = yes }
+    # Roger de Vico Pisano (1178–1212), born to a prominent Tuscan family
+}
+
+grandson_lambert_i = {
+    name = "Lambert"
+    dynasty = 1029990
+    religion = catholic
+    culture = french
+
+    950.1.1 = { birth = yes }
+    1026.1.1 = { death = yes }
+    # Lambert Ier de Grandson, cited in 994, ancestor of the House of Grandson
+}
+
+grandson_adalbert_ii = {
+    name = "Adalbert"
+    dynasty = 1029990
+    religion = catholic
+    culture = french
+    father = grandson_lambert_i
+
+    980.1.1 = { birth = yes }
+    1060.1.1 = { death = yes }
+    # Adalbert II de Grandson, primat du château de Grandson
+}
+
+grandson_lambert_ii = {
+    name = "Lambert"
+    dynasty = 1029990
+    religion = catholic
+    culture = french
+    father = grandson_lambert_i
+
+    985.1.1 = { birth = yes }
+    1065.1.1 = { death = yes }
+    # Lambert II, author of the cadet branch
+}
+
+grandson_adalbert_iii = {
+    name = "Adalbert"
+    dynasty = 1029990
+    religion = catholic
+    culture = french
+    father = grandson_adalbert_ii
+
+    1025.1.1 = { birth = yes }
+    1069.1.1 = { death = yes }
+    # Adalbert III, said "Adalgold", de la Sarraz
+}
+
+grandson_rigaud = {
+    name = "Rigaud"
+    dynasty = 1029990
+    religion = catholic
+    culture = french
+    father = grandson_adalbert_iii
+
+    1050.1.1 = { birth = yes }
+    1115.1.1 = { death = yes }
+    # Rigaud, avoué of Rodolphe II of Montricher
+}
+
+
+########
+##PISA
+########
+
+########
+##FLORENCE
+########
+
+########
+##GENOA
+########
+
+########
+##RAVENNA
+########
+
+########
+##PALERMO
+########
+
+########
+##SALERNO
+########
+
+########
+##NAPLES
+########
+
+########
+##TARANTO
+########
+
+########
+##BARI
+########
+
+########
+##CAPUA
+########
+
+########
+##GNIEZNO
+########
+
+########
+##RIGA
+########
+
+########
+##KALOCSA
+########
+
+########
+##GRAN
+########
+
+########
+##UPPSALA
+########
+
+########
+##LUND
+########
+
+########
+##NIDAROS
+########
+
+########
+##SALZBURG
+########
+
+########
+##PRAGUE
+########
+
+#Lords of Kyburg
+
+winterthur_liutfried_ii = {
+    name = "Liutfried"
+	dynasty = 101726
+    religion = catholic
+    culture = swabian
+
+    940.1.1 = { birth = yes }
+    980.1.1 = { death = yes }
+    # Liutfried II, first Count of Winterthur and builder of Kyburg castle
+}
+
+winterthur_adalbert_i = {
+    name = "Adalbert"
+	dynasty = 101726
+    religion = catholic
+    culture = swabian
+    father = winterthur_liutfried_ii
+
+    970.1.1 = { birth = yes }
+    1030.9.8 = { death = yes }
+    # Adalbert I, succeeded his father as Count of Winterthur
+}
+
+winterthur_werner_i = {
+    name = "Werner"
+	dynasty = 101726
+    religion = catholic
+    culture = swabian
+    father = winterthur_adalbert_i
+
+    990.1.1 = { birth = yes }
+    1040.1.1 = { death = yes }
+    # Werner I, Landgrave of Hessengau and Count of Winterthur
+}
+
+winterthur_adalbert_ii = {
+    name = "Adalbert"
+	dynasty = 101726
+    religion = catholic
+    culture = swabian
+    father = winterthur_werner_i
+
+    1025.1.1 = { birth = yes }
+    1053.1.1 = { death = yes }
+    # Adalbert II, last male heir of Winterthur
+}
+
+#Abbots of Sankt Gallen
+
+abbot_stgallen_grimald = {
+    name = "Grimald"
+    religion = catholic
+    culture = swabian
+    trait = devoted
+
+    810.1.1 = { birth = yes }
+    872.1.1 = { death = yes }
+    # Abbot of St. Gallen, presided at the monastery during Carolingian reforms
+}
+
+abbot_stgallen_nortpert = {
+    name = "Nortpert"
+    religion = catholic
+    culture = swabian
+    trait = devoted
+
+    1000.1.1 = { birth = yes }
+    1072.1.1 = { death = yes }
+    # Abbot of St. Gallen, oversaw Romanesque expansion and scriptorial revival
+}
+
+abbot_stgallen_ulrich_tegerfelden = {
+    name = "Ulrich"
+    religion = catholic
+    culture = swabian
+    trait = devoted
+
+    1130.1.1 = { birth = yes }
+    1199.1.1 = { death = yes }
+    # Ulrich von Tegerfelden, Abbot of St. Gallen, notable for his diplomatic acumen with the empire
+}
+
+#Bishops of Konstanz
+
+konstanz_otto_habsburg = {
+    name = "Otto"
+    dynasty_house = house_habsburg
+    father = 11010
+    religion = catholic
+    culture = swabian
+    trait = education_learning_3
+	trait = devoted
+
+    1120.1.1 = { birth = yes }
+    1180.1.1 = { death = yes }
+    # Otto von Habsburg, Prince-Bishop of Konstanz 
+}
+
+#Counts of Bregenz
+
+bregenz_ulrich_i = {
+    name = "Ulrich"
+    dynasty = dyn_bregenz
+    religion = catholic
+    culture = swabian
+
+    820.1.1 = { birth = yes }
+    870.1.1 = { death = yes }
+    # Ulrich I, earliest recorded Count of Bregenz
+}
+
+bregenz_ulrich_ii = {
+    name = "Ulrich"
+    dynasty = dyn_bregenz
+    religion = catholic
+    culture = swabian
+    father = bregenz_ulrich_i
+
+    850.1.1 = { birth = yes }
+    880.1.1 = { death = yes }
+    # Ulrich II, Count of Bregenz
+}
+
+bregenz_ulrich_iii = {
+    name = "Ulrich"
+    dynasty = dyn_bregenz
+    religion = catholic
+    culture = swabian
+    father = bregenz_ulrich_ii
+
+    880.1.1 = { birth = yes }
+    910.1.1 = { death = yes }
+    # Ulrich III, Count of Bregenz
+}
+
+bregenz_ulrich_iv = {
+    name = "Ulrich"
+    dynasty = dyn_bregenz
+    religion = catholic
+    culture = swabian
+    father = bregenz_ulrich_iii
+
+    905.1.1 = { birth = yes }
+    935.1.1 = { death = yes }
+    # Ulrich IV, Count of Bregenz
+}
+
+bregenz_ulrich_v = {
+    name = "Ulrich"
+    dynasty = dyn_bregenz
+    religion = catholic
+    culture = swabian
+    father = bregenz_ulrich_iv
+
+    925.1.1 = { birth = yes }
+    950.1.1 = { death = yes }
+    # Ulrich V, Count of Bregenz
+}
+
+bregenz_ulrich_vi = {
+    name = "Ulrich"
+    dynasty = dyn_bregenz
+    religion = catholic
+    culture = swabian
+    father = bregenz_ulrich_v
+
+    925.1.1 = { birth = yes }
+    957.1.1 = { death = yes }
+    # Ulrich VI, Count in Bregenz and Raetia
+}
+
+bregenz_ulrich_vii = {
+    name = "Ulrich"
+    dynasty = dyn_bregenz
+    religion = catholic
+    culture = swabian
+    father = bregenz_ulrich_vi
+
+    990.1.1 = { birth = yes }
+    1020.1.1 = { death = yes }
+    # Ulrich VII, Count of Bregenz
+}
+
+bregenz_ulrich_viii = {
+    name = "Ulrich"
+    dynasty = dyn_bregenz
+    religion = catholic
+    culture = swabian
+    father = bregenz_ulrich_vii
+
+    1010.1.1 = { birth = yes }
+    1040.1.1 = { death = yes }
+    # Ulrich VIII, Count of Bregenz
+}
+
+bregenz_ulrich_ix = {
+    name = "Ulrich"
+    dynasty = dyn_bregenz
+    religion = catholic
+    culture = swabian
+    father = bregenz_ulrich_viii
+
+    1030.1.1 = { birth = yes }
+    1078.1.1 = { death = yes }
+    # Ulrich IX, Count of Bregenz, Argengau, Nibelgau
+}
+
+bregenz_ulrich_x = {
+    name = "Ulrich"
+    dynasty = dyn_bregenz
+    religion = catholic
+    culture = swabian
+    father = bregenz_ulrich_ix
+
+    1050.1.1 = { birth = yes }
+    1097.1.1 = { death = yes }
+    # Ulrich X, Count of Bregenz
+}
+
+bregenz_rudolf_i = {
+    name = "Rudolf"
+    dynasty = dyn_bregenz
+    religion = catholic
+    culture = swabian
+    father = bregenz_ulrich_x
+
+    1110.1.1 = { birth = yes }
+    1160.1.1 = { death = yes }
+    # Rudolf I, Count of Bregenz, Lower Raetia, Count of Chur
+}
+
+#Prince-Bishops of Velay
+
+velay_bishop_guido_i = {
+    name = "Guido"
+    dynasty = 9571
+    religion = catholic
+    culture = occitan
+    father = gerardauv
+	trait = devoted
+
+    840.1.1 = { birth = yes }
+    875.1.1 = { death = yes }
+    # Guido I, Bishop of Velay , son of Gérard of Auvergne
+}
+
+velay_bishop_norbert_poitiers = {
+    name = "Norbert"
+    dynasty = 413
+    religion = catholic
+    culture = occitan
+    father = 40128
+	trait = devoted
+
+    850.1.1 = { birth = yes }
+    903.1.1 = { death = yes }
+    # Norbert de Poitiers, Bishop of Velay
+}
+
+velay_bishop_guido_ii_anjou = {
+    name = "Guido"
+    dynasty = 723
+    religion = catholic
+    culture = french
+    father = 370
+	trait = devoted
+
+    940.1.1 = { birth = yes }
+    993.1.1 = { death = yes }
+    # Guido II, Bishop of Velay, son of the Count of Anjou
+}
+
+velay_bishop_stephan_gevaudan = {
+    name = "Esteve"
+    dynasty = 100219
+    religion = catholic
+    culture = occitan
+    father = 40260
+	trait = devoted
+
+    945.1.1 = { birth = yes }
+    998.1.1 = { death = yes }
+    # Stephan de Gévaudan, Bishop of Velay 
+}
+
+velay_bishop_stephan_mercoeur = {
+    name = "Esteve"
+    dynasty = dyn_mercoeur
+    religion = catholic
+    culture = occitan
+    trait = devoted
+    father = mercoeur_beraud_ii
+
+    1000.1.1 = { birth = yes }
+    1052.1.1 = { death = yes }
+    # Stephan de mercoeur, Bishop of Velay, son of Béraud II de mercoeur
+}
+
+velay_bishop_pierre_ii_mercoeur = {
+    name = "Peire"
+    dynasty = dyn_mercoeur
+    religion = catholic
+    culture = occitan
+    trait = devoted
+    father = mercoeur_beraud_ii
+
+    1005.1.1 = { birth = yes }
+    1073.1.1 = { death = yes }
+    # Pierre II de mercoeur, Bishop of Velay, son of Béraud II de mercoeur
+}
+
+velay_bishop_odilon_mercoeur = {
+    name = "Odilon"
+    dynasty = dyn_mercoeur
+    religion = catholic
+    culture = occitan
+    trait = devoted
+    father = mercoeur_beraud_v
+
+    1150.1.1 = { birth = yes }
+    1202.1.1 = { death = yes }
+
+    # Odilon de mercoeur, Bishop of Velay, brother of Béraud VI de mercoeur
+}
+
+velay_bishop_stephan_dauvergne = {
+    name = "Estieve"
+    dynasty = 733 #Auvergne
+    religion = catholic
+    culture = occitan
+    father = 40130
+	trait = deceitful
+	trait = ambitious
+	trait = devoted
+
+    1035.1.1 = { birth = yes }
+    1073.1.1 = { death = yes }
+    # Stephan d'Auvergne, Bishop of Velay, son of Count Guillaume d'Auvergne
+}
+
+polignac_armand_i = {
+    name = "Armand"
+    dynasty = dyn_polignac
+    religion = catholic
+    culture = occitan
+
+    860.1.1 = { birth = yes }
+    913.1.1 = { death = yes }
+    # Armand I, first recorded Vicomte of Polignac
+}
+
+polignac_armand_ii = {
+    name = "Armand"
+    dynasty = dyn_polignac
+    religion = catholic
+    culture = occitan
+    father = polignac_armand_i
+
+    880.1.1 = { birth = yes }
+    909.1.1 = { death = yes }
+    # Armand II, son of Armand I, Vicomte of Polignac
+}
+
+polignac_dalmas_i = {
+    name = "Dalmas"
+    dynasty = dyn_polignac
+    religion = catholic
+    culture = occitan
+    father = polignac_armand_ii
+
+    910.1.1 = { birth = yes }
+    954.1.1 = { death = yes }
+    # Dalmas I, Vicomte of Polignac and lay abbot of St-Julien de Brioude
+}
+
+polignac_etienne_ii = {
+    name = "Estieve"
+    dynasty = dyn_polignac
+    religion = catholic
+    culture = occitan
+    father = polignac_dalmas_i
+
+    925.1.1 = { birth = yes }
+    995.1.1 = { death = yes }
+    # Étienne II, Vicomte of Polignac
+}
+
+polignac_agne = {
+    name = "Agne"
+    dynasty = dyn_polignac
+    religion = catholic
+    culture = occitan
+    father = polignac_etienne_ii
+    female = yes
+
+    970.1.1 = { birth = yes }
+    1010.1.1 = { death = yes }
+    # Agne, daughter of Étienne II, Vicomtesse of Polignac
+}
+
+polignac_agne = {
+    name = "Agnes"
+    dynasty = dyn_polignac
+    religion = catholic
+    culture = occitan
+    father = polignac_etienne_ii
+    female = yes
+
+    970.1.1 = { birth = yes }
+    1010.1.1 = { death = yes }
+    # Agne, daughter of Étienne II, Vicomtesse of Polignac
+}
+
+polignac_armand_iii = {
+    name = "Armand"
+    dynasty = dyn_polignac
+    religion = catholic
+    culture = occitan
+    mother = polignac_agne
+
+    1000.1.1 = { birth = yes }
+    1070.1.1 = { death = yes }
+    # Armand III, Vicomte of Polignac, son of Agne
+}
+
+velay_bishop_stephan_polignac = {
+    name = "Esteve"
+    dynasty = dyn_polignac
+    religion = catholic
+    culture = occitan
+	trait = devoted
+    father = polignac_armand_iii
+
+    1025.1.1 = { birth = yes }
+    1077.1.1 = { death = yes }
+    # Guillaume I, Vicomte of Polignac
+}
+
+polignac_guillaume_i = {
+    name = "Guilhèm"
+    dynasty = dyn_polignac
+    religion = catholic
+    culture = occitan
+    father = polignac_armand_iii
+
+    1020.1.1 = { birth = yes }
+    1050.1.1 = { add_spouse = polignac_auxilende }
+    1076.1.1 = { death = yes }
+    # Guillaume I, Vicomte of Polignac
+}
+
+polignac_heracle_i = {
+    name = "Heracles"
+    dynasty = dyn_polignac
+    religion = catholic
+    culture = occitan
+    father = polignac_guillaume_i
+
+    1045.1.1 = { birth = yes }
+    1098.1.1 = { death = yes } #Dies in the Crusades
+    # Héracle I, brother of Pons II, Vicomte of Polignac
+}
+
+polignac_pons_ii = {
+    name = "Pons"
+    dynasty = dyn_polignac
+    religion = catholic
+    culture = occitan
+    father = polignac_guillaume_i
+
+    1050.1.1 = { birth = yes }
+    1112.1.1 = { death = yes }
+    # Pons II, Vicomte of Polignac
+}
+
+polignac_armand_iv = {
+    name = "Armand"
+    dynasty = dyn_polignac
+    religion = catholic
+    culture = occitan
+    father = polignac_pons_ii
+
+    1090.1.1 = { birth = yes }
+    1169.1.1 = { death = yes }
+    # Armand IV, "le Grand", Vicomte of Polignac
+}
+
+polignac_pons_iii = {
+    name = "Pons"
+    dynasty = dyn_polignac
+    religion = catholic
+    culture = occitan
+    father = polignac_armand_iv
+
+    1130.1.1 = { birth = yes }
+	1140.1.1 = { add_spouse = polignac_guillemette } 
+    1190.1.1 = { death = yes }
+    # Pons III, Vicomte of Polignac, crusader under Louis VII
+}
+
+polignac_heracle_iii = {
+    name = "Heracles"
+    dynasty = dyn_polignac
+    religion = catholic
+    culture = occitan
+    father = polignac_pons_iii
+
+    1160.1.1 = { birth = yes }
+	1177.1.1 = { add_spouse = polignac_marqueze } 
+    1200.1.1 = { death = yes }
+    # Héracle III, Vicomte of Polignac, husband of Marquèze d'Auvergne
+}
+
+polignac_pons_iv = {
+    name = "Pons"
+    dynasty = dyn_polignac
+    religion = catholic
+    culture = occitan
+    father = polignac_heracle_iii
+
+    1185.1.1 = { birth = yes }
+    1223.1.1 = { death = yes }
+    # Pons IV (d. <1223), Vicomte of Polignac, last of the line
+}
+
+polignac_auxilende = {
+    name = "Auxilende"
+    dynasty = dyn_tournon
+    religion = catholic
+    culture = occitan
+    female = yes
+
+    1020.1.1 = { birth = yes }
+    1120.1.1 = { death = yes }
+    # Auxilende, sister of Pons de Tournon, wife of Guillaume I & Armand IV
+}
+
+polignac_guillemette = {
+    name = "Guillemette"
+    dynasty = dyn_ceissac
+    religion = catholic
+    culture = occitan
+    female = yes
+
+    1130.1.1 = { birth = yes }
+    1190.1.1 = { death = yes }
+    # Guillemette de Ceissac, wife of Pons III
+}
+
+polignac_marqueze = {
+    name = "Marquesa"
+    dynasty = 733 #Auvergne
+    religion = catholic
+    culture = occitan
+    female = yes
+	father = 206030
+
+    1160.1.1 = { birth = yes }
+    1199.1.1 = { death = yes }
+    # Marquèze d'Auvergne, wife of Héracle III
+}
+
+velay_bishop_adhemar_monteil = {
+    name = "Audemars" #Adhémar du Puy, Papal Legate and leader in the First Crusade
+    dynasty = 7229
+    religion = catholic
+    culture = occitan
+    trait = education_learning_2
+	trait = zealous
+	trait = devoted
+
+    1040.1.1 = { birth = yes }
+    1098.1.1 = { death = yes }
+    # Adhémar de Monteil, Bishop of Velay
+}
+
+velay_bishop_pons_tournon = {
+    name = "Pons"
+    dynasty = dyn_tournon
+    religion = catholic
+    culture = occitan
+    trait = devoted
+
+    1070.1.1 = { birth = yes }
+    1112.1.1 = { death = yes }
+    # Pons de Tournon, Bishop of Velay
+}
+
+velay_bishop_pons_maurice_montboissier = {
+    name = "Pons"
+    dynasty = dyn_montboissier
+    religion = catholic
+    culture = occitan
+    trait = education_learning_1
+	trait = devoted
+
+    1090.1.1 = { birth = yes }
+    1128.1.1 = { death = yes }
+    # Pons Maurice de Montboissier, Bishop of Velay
+}
+
+velay_bishop_humbert_albon = {
+    name = "Humbert"
+    dynasty = 232
+    religion = catholic
+    culture = occitan
+	trait = devoted
+
+    1100.1.1 = { birth = yes }
+    1144.1.1 = { death = yes }
+    # Humbert d'Albon, Bishop of Velay
+}
+
+velay_bishop_peter_iii = {
+    name = "Peire"
+    dynasty = dyn_velay
+    religion = catholic
+    culture = occitan
+	trait = devoted
+
+    1120.1.1 = { birth = yes }
+    1156.1.1 = { death = yes }
+    # Peter III, Bishop of Velay
+}
+
+#Bishops of Mende
+mende_bishop_juan_albertinez = {
+    name = "Guilhèm"
+    dynasty = dyn_randon
+    religion = catholic
+    culture = occitan
+
+    1105.1.1 = { birth = yes }
+    1141.1.1 = { death = yes }
+    # Juan Albertinez, Bishop-Elect of Mende
+}
+
+mende_bishop_aldebert_iii = {
+    name = "Aldebert"
+    dynasty = dyn_tournel
+    religion = catholic
+    culture = occitan
+
+    1120.1.1 = { birth = yes }
+    1187.12.31 = { death = yes }
+    # Aldebert III du Tournel, Bishop of Mende
+}
+
+#Bishops of Albi, counts in Castres
+
+bishop_albi_froterius = {
+    name = "Frotari"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+
+    900.1.1 = { birth = yes }
+    972.1.1 = { death = yes }
+    # Frotaire 
+}
+
+bishop_albi_honorat_i = {
+    name = "Honorat"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+
+    905.1.1 = { birth = yes }
+    980.1.1 = { death = yes }
+    # Honorat I
+}
+
+bishop_albi_ameil_i = {
+    name = "Amel"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+
+    910.1.1 = { birth = yes }
+    990.1.1 = { death = yes }
+    # Amelius I 
+}
+
+bishop_albi_ingelbinus = {
+    name = "Ingelbin"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+
+    920.1.1 = { birth = yes }
+    1000.1.1 = { death = yes }
+    # Ingelbinus
+}
+
+bishop_albi_honorat_ii = {
+    name = "Honorat"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+
+    925.1.1 = { birth = yes }
+    1005.1.1 = { death = yes }
+    # Honorat II 
+}
+
+bishop_albi_amblardus = {
+    name = "Amblard"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+
+    930.1.1 = { birth = yes }
+    1008.1.1 = { death = yes }
+    # Amblardus 
+}
+
+bishop_albi_ameil_ii = {
+    name = "Amel"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+
+    950.1.1 = { birth = yes }
+    1040.1.1 = { death = yes }
+    # Amelius II 
+}
+
+bishop_albi_guilielmus_ii = {
+    name = "GuilhE_m"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+
+    970.1.1 = { birth = yes }
+    1054.8.5 = { death = yes }
+    # Guilielmus II 
+}
+
+bishop_albi_aldegarius = {
+    name = "Aldegar"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+
+    980.1.1 = { birth = yes }
+    1060.1.1 = { death = yes }
+    # Aldegarius 
+}
+
+bishop_albi_frotardus = {
+    name = "Frotari"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+
+    990.1.1 = { birth = yes }
+    1079.1.1 = { death = yes }
+    # Frotardus 
+}
+
+bishop_albi_guilielmus_iii = {
+    name = "GuilhE_m"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+
+    1000.1.1 = { birth = yes }
+    1090.1.1 = { death = yes }
+    # Guilielmus III de Poitiers v,1079–1090
+}
+
+bishop_albi_gualterius = {
+    name = "Gauter"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+
+    1010.1.1 = { birth = yes }
+    1100.1.1 = { death = yes }
+}
+
+bishop_albi_hugo_ii = {
+    name = "Hucs"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+
+    1020.1.1 = { birth = yes }
+    1099.1.1 = { death = yes }
+    # Hugo II 
+}
+
+bishop_albi_rigaldus_i = {
+    name = "Rigau"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+
+    1030.1.1 = { birth = yes }
+    1102.1.1 = { death = yes }
+    # Rigaldus I 
+}
+
+bishop_albi_adelgarius_i = {
+    name = "Adelgar"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+
+    1030.1.1 = { birth = yes }
+    1103.1.1 = { death = yes }
+    # Adelgarius I 
+}
+
+bishop_albi_arnoldus_i = {
+    name = "Arnauz"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+
+    1040.1.1 = { birth = yes }
+    1105.1.1 = { death = yes }
+    # Arnoldus I de Cessenon 
+}
+
+bishop_albi_adelgarius_ii = {
+    name = "Adelgar"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+
+    1040.1.1 = { birth = yes }
+    1110.1.1 = { death = yes }
+    # Adelgarius II de Penne
+}
+
+bishop_albi_sicardus = {
+    name = "Sicard"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+
+    1050.1.1 = { birth = yes }
+    1115.1.1 = { death = yes }
+    # Sicardus 
+}
+
+bishop_albi_bertrandus_i = {
+    name = "Bertran"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+
+    1050.1.1 = { birth = yes }
+    1125.1.1 = { death = yes }
+    # Bertrandus I 
+}
+
+bishop_albi_humbertus_geraldi = {
+    name = "Humbert"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+
+    1060.1.1 = { birth = yes }
+    1132.1.1 = { death = yes }
+    # Humbertus de Géraud 
+}
+bishop_albi_hugo_iii = {
+    name = "Hucs"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+
+    1100.1.1 = { birth = yes }
+    1143.1.1 = { death = yes }
+    # Hugo III 
+}
+
+bishop_albi_rigaldus_ii = {
+    name = "Rigau"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+
+    1110.1.1 = { birth = yes }
+    1155.1.1 = { death = yes }
+    # Rigaldus II
+}
+
+bishop_albi_guilielmus_iv = {
+    name = "GuilhE_m"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+
+    1120.1.1 = { birth = yes }
+    1174.1.1 = { death = yes }
+    # Guilielmus IV de Pierre
+}
+
+bishop_albi_gerardus_i = {
+    name = "Gerard"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+
+    1130.1.1 = { birth = yes }
+    1176.1.1 = { death = yes }
+    # Gerardus I 
+}
+
+bishop_albi_claudius_i = {
+    name = "Claudi"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+
+    1140.1.1 = { birth = yes }
+    1183.1.1 = { death = yes }
+    # Claudius I d'Andria 
+}
+
+bishop_albi_guilielmus_v = {
+    name = "GuilhE_m"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+
+    1150.1.1 = { birth = yes }
+    1227.1.1 = { death = yes }
+    # Guilielmus V de Pierre de Brens 
+}
+
+#Abbots of Cluny
+
+cluny_berno = {
+    name = "Berno"
+    religion = catholic
+    culture = french
+    trait = devoted
+
+    840.1.1  = { birth = yes }
+    927.1.1  = { death = yes }
+    # Berno, Abbot of Cluny, 919–927
+}
+
+cluny_odo = {
+    name = "Odo"
+    religion = catholic
+    culture = occitan
+    trait = devoted
+
+    892.1.1  = { birth = yes }
+    942.1.1  = { death = yes }
+    # Odo, Abbot of Cluny, 927–942, son of Abbo and Avigerna from an Aquitain family
+}
+
+cluny_aymard = {
+    name = "Aymard"
+    religion = catholic
+    culture = french
+    trait = devoted
+
+    910.1.1  = { birth = yes }
+    964.1.1  = { death = yes }
+    # Aymard of Cluny (co-abbot from 954), 942–964
+}
+
+cluny_maiolus = {
+    name = "Maiol"
+    dynasty = dyn_agoult
+    religion = catholic
+    culture = occitan
+    trait = devoted
+	trait = just
+	trait = humble
+	trait = intellect_good_1
+	father = agoult_anselm
+	trait = saint
+
+    910.1.1  = { birth = yes }
+    994.1.1  = { death = yes }
+    # Saint Maiol d'Agout, Abbot of Cluny, 964–994
+}
+
+cluny_odilo = {
+    name = "Odilo"
+    dynasty = dyn_mercoeur
+    religion = catholic
+    culture = occitan
+    trait = devoted
+	father = mercœur_beraud_i
+	mother = gerberge_autun
+
+    962.1.1   = { birth = yes }
+    1049.1.1  = { death = yes }
+    # Odilo de Mercoeur, Abbot of Cluny, 994–1049
+}
+
+cluny_hugh_i = {
+    name = "Hugues"
+	dynasty = 40022
+    religion = catholic
+    culture = french
+    trait = devoted
+	trait = education_learning_3
+	father = 40362
+	mother = 40333
+
+    1020.1.1  = { birth = yes }
+    1109.1.1  = { death = yes }
+    # Hugh de Semur, Abbot of Cluny, 1049–1109
+}
+
+cluny_pontius = {	
+    name = "Pons"
+	dynasty = 8760
+    religion = catholic
+    culture = occitan
+    trait = devoted
+	father = 138262 #Pierre I de Melgueil
+	mother = 127015 #Almodis de Tolosa
+
+    1070.1.1  = { birth = yes }
+    1122.1.1  = { death = yes }
+    # Pontius of Melgueil, Abbot of Cluny, 1109–1122
+}
+
+cluny_peter = {
+    name = "Pierre"
+	dynasty = dyn_montboissier
+    religion = catholic
+    culture = french
+    trait = devoted
+	father = pierre_maurice_de_montboissier
+	mother = raingarde_de_semur
+
+    1092.1.1  = { birth = yes give_nickname = nick_the_venerable }
+    1156.1.1  = { death = yes }
+    # Peter the Venerable, Abbot of Cluny, 1122–1156
+}
+
+pierre_maurice_de_montboissier = {
+    name = "Pierre-Maurice"
+    dynasty = dyn_montboissier
+    religion = catholic
+    culture = french
+
+    1060.1.1 = { birth = yes }
+	1090.1.1 = { add_spouse = raingarde_de_semur }
+    1130.1.1 = { death = yes }
+    # Pierre-Maurice de Montboissier, father of Pierre the Venerable
+}
+
+raingarde_de_semur = {
+    name = "Raingarde"
+    dynasty = 40022
+    religion = catholic
+    culture = french
+	father = dalmas_semur
+
+    1068.1.1 = { birth = yes }
+    1140.1.1 = { death = yes }
+    # Raingarde de Semur, mother of Pierre the Venerable
+}
+
+dalmas_semur = {
+	name = "Dalmace"
+	dynasty = 40022
+	religion = "catholic"
+	culture = french
+	father = 40364
+	1050.1.1 = {
+		birth = "1050.1.1"
+	}
+	1129.12.1 = {
+		death = "1129.12.1"
+	}
+}
+
+montboissier_heraclius = {
+    name = "Héracle"
+    dynasty = dyn_montboissier
+    religion = catholic
+    culture = french
+    trait = devoted
+    father = pierre_maurice_de_montboissier
+    mother = raingarde_de_semur
+
+    1095.1.1 = { birth = yes }
+    1150.1.1 = { death = yes }
+    # Héraclius de Montboissier, Archbishop of Lyon
+}
+
+montboissier_ponce = {
+    name = "Ponce"
+    dynasty = dyn_montboissier
+    religion = catholic
+    culture = french
+    trait = devoted
+    father = pierre_maurice_de_montboissier
+    mother = raingarde_de_semur
+
+    1097.1.1 = { birth = yes }
+    1160.1.1 = { death = yes }
+    # Ponce de Montboissier, Abbot of Sainte-Marie-Madeleine de Vézelay
+}
+
+montboissier_jordan = {
+    name = "Jordan"
+    dynasty = dyn_montboissier
+    religion = catholic
+    culture = french
+    trait = devoted
+    father = pierre_maurice_de_montboissier
+    mother = raingarde_de_semur
+
+    1099.1.1 = { birth = yes }
+    1170.1.1 = { death = yes }
+    # Jordan de Montboissier, Abbot of La Chaise-Dieu
+}
+
+montboissier_armand = {
+    name = "Armand"
+    dynasty = dyn_montboissier
+    religion = catholic
+    culture = french
+    trait = devoted
+    father = pierre_maurice_de_montboissier
+    mother = raingarde_de_semur
+
+    1101.1.1 = { birth = yes }
+    1175.1.1 = { death = yes }
+    # Armand de Montboissier, Abbot of Manglieu
+}
+
+montboissier_eustache = {
+    name = "Eustache"
+    dynasty = dyn_montboissier
+    religion = catholic
+    culture = french
+    trait = devoted
+    father = pierre_maurice_de_montboissier
+    mother = raingarde_de_semur
+
+    1103.1.1 = { birth = yes }
+    1180.1.1 = { death = yes }
+    # Eustache de Montboissier, Abbot of Mozac
+}
+
+cluny_hugh_iii = {
+    name = "Hugues"
+    religion = catholic
+    culture = french
+    trait = devoted
+
+    1125.1.1  = { birth = yes }
+    1163.1.1  = { death = yes }
+    # Hugh III, Abbot of Cluny, 1157–1163
+}
+
+cluny_stephan_i = {
+    name = "Étienne"
+    religion = catholic
+    culture = french
+    trait = devoted
+
+    1130.1.1  = { birth = yes }
+    1176.1.1  = { death = yes }
+    # Stephan I, Abbot of Cluny, 1163–1176
+}
+
+cluny_gauthier = {
+    name = "Gauthier"
+    religion = catholic
+    culture = french
+    trait = devoted
+
+    1150.1.1  = { birth = yes }
+    1177.1.1  = { death = yes }
+    # Gauthier de Châtillon, Abbot of Cluny, 1176–1177
+}
+
+cluny_thibaud = {
+    name = "Thibaud"
+    religion = catholic
+    culture = french
+    trait = devoted
+
+    1155.1.1  = { birth = yes }
+    1183.1.1  = { death = yes }
+    # Thibaud de Vermandois, Abbot of Cluny, 1177–1183
+}
+
+#Bishops of Verdun
+
+bishop_verdun_haimont = {
+    name = "Haimont"
+    religion = catholic
+    culture = franconian
+    trait = devoted
+
+    960.1.1 = { birth = yes }
+    1024.1.1 = { death = yes }
+    # Haimont, Bishop of Verdun
+}
+
+bishop_verdun_reginbert = {
+    name = "Reginbert"
+    religion = catholic
+    culture = franconian
+    trait = devoted
+
+    979.1.1 = { birth = yes }
+    1039.1.1 = { death = yes }
+    # Reginbert, Bishop of Verdun
+}
+
+bishop_verdun_richard_i = {
+    name = "Richard"
+    religion = catholic
+    culture = franconian
+    trait = devoted
+
+    986.1.1 = { birth = yes }
+    1046.1.1 = { death = yes }
+    # Richard I, Bishop of Verdun
+}
+
+bishop_verdun_theoderic = {
+    name = "Theoderic"
+    religion = catholic
+    culture = franconian
+    trait = devoted
+	trait = callous
+	trait = ambitious
+	trait = education_learning_3
+
+    1029.1.1 = { birth = yes }
+    1089.1.1 = { death = yes }
+    # Theoderic, Bishop of Verdun
+}
+
+bishop_verdun_richer = {
+    name = "Richer"
+    religion = catholic
+    culture = franconian
+    trait = devoted
+
+    1047.1.1 = { birth = yes }
+    1107.1.1 = { death = yes }
+    # Richer, Bishop of Verdun 
+}
+
+bishop_verdun_richard_ii_grandpre = {
+    name = "Richard"
+    religion = catholic
+    culture = franconian
+    trait = devoted
+
+    1054.1.1 = { birth = yes }
+    1114.1.1 = { death = yes }
+    # Richard II of Grandpré, Bishop of Verdun
+}
+
+bishop_verdun_mazo_administrator = {
+    name = "Mazo"
+    religion = catholic
+    culture = franconian
+    trait = devoted
+
+    1057.1.1 = { birth = yes }
+    1117.1.1 = { death = yes }
+    # Mazo, Administrator of Verdun
+}
+
+bishop_verdun_henry = {
+    name = "Henry"
+    religion = catholic
+    culture = franconian
+    trait = devoted
+
+    1069.1.1 = { birth = yes }
+    1129.1.1 = { death = yes }
+    # Henry, Bishop of Verdun 
+}
+
+bishop_verdun_ursion_de_watronville = {
+    name = "Ursion"
+    religion = catholic
+    culture = franconian
+    trait = devoted
+
+    1071.1.1 = { birth = yes }
+    1131.1.1 = { death = yes }
+    # Ursion de Watronville, Bishop of Verdun
+}
+
+bishop_verdun_adalbero_of_chiny = {
+    name = "Adalbero"
+    religion = catholic
+    culture = franconian
+    trait = devoted
+
+    1096.1.1 = { birth = yes }
+    1156.1.1 = { death = yes }
+    # Adalbero of Chiny, Bishop of Verdun 
+}
+
+bishop_verdun_albert_i_marcey = {
+    name = "Albert"
+    religion = catholic
+    culture = franconian
+    trait = devoted
+
+    1102.1.1 = { birth = yes }
+    1162.1.1 = { death = yes }
+    # Albert I of Marcey, Bishop of Verdun 
+}
+
+bishop_verdun_richard_iii_crisse = {
+    name = "Richard"
+    religion = catholic
+    culture = franconian
+    trait = devoted
+
+    1111.1.1 = { birth = yes }
+    1171.1.1 = { death = yes }
+    # Richard III of Crisse, Bishop of Verdun
+}
+
+bishop_verdun_arnulf_of_chiny_verdun = {
+    name = "Arnulf"
+    religion = catholic
+    culture = franconian
+    trait = devoted
+
+    1121.1.1 = { birth = yes }
+    1181.1.1 = { death = yes }
+    # Arnulf of Chiny-Verdun, Bishop of Verdun
+}
+
+bishop_toul_odo = {
+    name = "Odo"
+    dynasty = dyn_toul
+    religion = catholic
+    culture = franconian
+    trait = devoted
+
+    1005.1.1 = { birth = yes }
+    1069.1.1 = { death = yes }
+    # Odo, Bishop of Toul (1054–1069)
+}
+
+bishop_toul_pippo = {
+    name = "Pippo"
+    dynasty = dyn_toul
+    religion = catholic
+    culture = franconian
+    trait = devoted
+
+    1025.1.1 = { birth = yes }
+    1107.1.1 = { death = yes }
+    # Pippo, Bishop of Toul (1070–1107)
+}
+
+bishop_toul_richwin_commercy = {
+    name = "Richwin"
+    dynasty = dyn_commercy
+    religion = catholic
+    culture = franconian
+    trait = devoted
+
+    1055.1.1 = { birth = yes }
+    1126.1.1 = { death = yes }
+    # Richwin of Commercy, Bishop of Toul (1108–1126)
+}
+
+bishop_toul_henry_i_lorraine = {
+    name = "Henry"
+    dynasty = dyn_lorraine
+    religion = catholic
+    culture = franconian
+    trait = devoted
+
+    1100.1.1 = { birth = yes }
+    1167.1.1 = { death = yes }
+    # Henry I of Lorraine, Bishop of Toul (1127–1167)
+}
+
+bishop_toul_peter_of_brixey = {
+    name = "Peter"
+    dynasty = dyn_brixey
+    religion = catholic
+    culture = franconian
+    trait = devoted
+
+    1130.1.1 = { birth = yes }
+    1192.1.1 = { death = yes }
+    # Peter of Brixey, Bishop of Toul (1168–1192)
+}

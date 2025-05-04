@@ -465,29 +465,53 @@ tct_investiture_struggle_is_valid_loyal_puppet_of_papal = {
 
 tct_archbishop_trigger = {
 	primary_title = {
-		OR ={
+		OR = {
 			has_variable = TCT_archbishop
-			this = title:d_archbishop_auch
-			this = title:d_archbishop_narbonne
 			this = title:d_archbishop_bordeaux
 			this = title:d_archbishop_marseille
-			this = title:d_archbishop_lyon
-			this = title:d_archbishop_tours
-			this = title:d_archbishop_bourges
 			this = title:d_archbishop_sens
-			this = title:d_archbishop_reims
-			this = title:d_archbishop_rouen
 			this = title:d_archbishop_canterbury
 			this = title:d_archbishop_york
 			this = title:d_archbishop_milano
 			this = title:d_archbishop_aquileia
-			this = title:d_archbishop_ravenna
 			this = title:d_archbishop_bari
 			this = title:d_archbishop_trier
+			this = title:d_archbishop_burgos
+			this = title:d_archbishop_santiago
+			this = title:d_archbishop_auch
+			this = title:d_archbishop_narbonne
+			this = title:d_archbishop_tarragona
+			this = title:d_archbishop_zaragoza
+			this = title:d_archbishop_vienne
+			this = title:d_archbishop_besancon
+			this = title:d_archbishop_arles
+			this = title:#d_archbishop_braga
+			this = title:d_archbishop_lyon
+			this = title:d_archbishop_reims
+			this = title:d_archbishop_tours
+			this = title:d_archbishop_rouen
+			this = title:d_archbishop_bourges
 			this = title:d_archbishop_cologne
 			this = title:d_archbishop_mainz
+			this = title:d_archbishop_treveris
+			this = title:d_archbishop_salzburg
+			this = title:d_archbishop_bremen
+			this = title:d_archbishop_magdeburg
+			this = title:d_archbishop_ravenna
+			this = title:d_archbishop_aquilea
+			this = title:c_besancon_bishop
+			this = title:d_archbishop_milan
+			this = title:d_archbishop_gnesen
+			this = title:d_archbishop_lund
+			this = title:c_verdun
+			this = title:c_toul
+			this = title:c_cambray
+			this = title:c_metz
+			this = title:d_abbot_cluny
+			this = title:c_cluny
 		}
 	}
+
 	government_has_flag = government_is_theocracy
 }
 
