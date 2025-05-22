@@ -948,7 +948,7 @@ tct_investiture_struggle.0015 = {
 		## If we don't, it's the Emperor.
 		else = {
 			title:e_hre.holder = { save_scope_as = right_portrait }
-			# If we still have a liege, we put them in the bottom slot as they're mentioned in the copy — even though it's for not much caring.
+			# If we still have a liege, we put them in the bottom slot as they're mentioned in the copy - even though it's for not much caring.
 			if = {
 				limit = { is_independent_ruler = no }
 				liege = { save_scope_as = lower_centre_portrait }
@@ -969,7 +969,7 @@ tct_investiture_struggle.0015 = {
 				value = flag:flipflop
 			}
 		}
-		## If we're neutral, we only flag that — we'll make our actual choice in the options.
+		## If we're neutral, we only flag that - we'll make our actual choice in the options.
 		else = {
 			save_scope_value_as = {
 				name = change_type

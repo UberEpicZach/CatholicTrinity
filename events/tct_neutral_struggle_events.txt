@@ -166,6 +166,9 @@ tct_neutral_struggle.0004 = {
 		primary_spouse = {
 			save_scope_as = spouse
 		}
+		real_mother = {
+			save_scope_as = real_mother
+		}
 		father = {
 			save_scope_as = father
 		}
@@ -2157,7 +2160,7 @@ tct_neutral_struggle.2002 = {
 			recipient = scope:husband
 			execute_threshold = decline
 		}
-		tct_neutral_struggle_2001_title_claims_effect = { SCOPED = root }
+		scope:husband = { tct_neutral_struggle_2001_title_claims_effect = { SCOPED = root } }
 		stress_impact = {
 			ambitious = medium_stress_impact_loss
 			forgiving = medium_stress_impact_gain

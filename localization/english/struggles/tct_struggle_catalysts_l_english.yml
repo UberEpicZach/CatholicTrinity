@@ -101,7 +101,7 @@
  tct_catalyst_gain_claim_on_title: "$catalyst_gain_claim_on_title_fp2$"
  tct_catalyst_gain_claim_on_title_desc: "Acquire a [claim|E] on a [title|E] held by a $supporter_and_detractor$"
  tct_papal_hre_opinions_bad: "Papal-Imperial Relations"
- tct_papal_hre_opinions_bad_desc: "The $k_papal_state$ and the $e_hre$ are continually fallen"
+ tct_papal_hre_opinions_bad_desc: "Relations between the $k_papal_state$ and the $e_hre$ have decreased considsiderably"
  
  tct_papal_hre_opinions_good: "Papal-Imperial Relations"
  tct_papal_hre_opinions_good_desc: "Relations between the $k_papal_state$ and the $e_hre$ have increased considsiderably"
@@ -114,6 +114,15 @@
 
  tct_catalyst_prolonged_years_of_fighting: "Prolonged Regional Devastation"
  tct_catalyst_prolonged_years_of_fighting_desc: "The [struggle|E] has ravaged the region's resources and morale, stirring desires for less costly conflict."  
+
+ catalyst_new_building_in_temple: "built in a [temple|E] [struggle_catalyst_catalyst|E]"
+ catalyst_new_building_in_temple_desc: "Construct a [building|E] in a [temple|E] [holding|E]"
+
+ tct_catalyst_hre_switched_papal_investiture: Imperial Switched to Papal"
+ tct_catalyst_hre_switched_papal_investiture_desc: "An [GetTrait('tct_imperial_supporter').GetName( GetNullCharacter )] [ruler|E] switches to [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )]"
+
+ tct_catalyst_hre_emperor_is_a_papal_supporter: "Papal-Aligned Emperor"
+ tct_catalyst_hre_emperor_is_a_papal_supporter_desc: "Holy Roman Empire is held by a [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )]"
 
  #The [struggle|E] has exhausted the region of resources, manpower, and morale; while the "
 

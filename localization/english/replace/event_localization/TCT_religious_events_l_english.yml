@@ -69,7 +69,7 @@
   TCT_religious_events.15.b: "..Let the clergy decide..."
 
   TCT_religious_events.16.t: "Investiture: A New Bishop"
-  TCT_religious_events.16.desc: "I deliberate over the candidates for the vacant bishopric—family, distant kin, loyal servants, and devout clergy. Each has their own strengths, yet more is at stake than their merits.\n\nA courtier brings word that Rome favors [papal_appointed_bishop.GetFirstName], and if I delay, the Pope may appoint him himself. The choice before me is not merely about filling a seat, but about ensuring the power of that choice remains within my grasp."
+  TCT_religious_events.16.desc: "I deliberate over the candidates for the vacant bishopric-family, distant kin, loyal servants, and devout clergy. Each has their own strengths, yet more is at stake than their merits.\n\nA courtier brings word that Rome favors [papal_appointed_bishop.GetFirstName], and if I delay, the Pope may appoint him himself. The choice before me is not merely about filling a seat, but about ensuring the power of that choice remains within my grasp."
   TCT_religious_events.16.a: "My choice shall make a fine bishop."
   TCT_religious_events.16.b: "Let the Pope have his way."
 
@@ -496,7 +496,7 @@
   TCT_religious_events.800.c: "I shall accept his request"
 
   TCT_religious_events.803.t: "Crusader Kings"
-  TCT_religious_events.803.desc: "Further and further do the heathens encroach upon Christendom, bound by their evil custom to pummel the longsuffering believers lower and lower into the dirt.\n\nThe leader of the Eastern schismatics, [eastern_patriarch.GetTitledFirstName] of Constantinople, is the only other ecclesiastical leader with the prestige and influence to rally common will for a solution. But he is said to be ironbound to the will of the Eastern Emperor — I, on the other hand, am in effect bound to none.\n\nI steel my nerve by uttering to myself from the 59th Psalm:\n#bold “Scatter them by Your power, and bring them down, O Lord, our shield.” #! \n\nTaking up my quill and sending word for a host of messengers, I try not to consider the first sentence of the verse. This not a time for contemplation and tolerance, but for action."
+  TCT_religious_events.803.desc: "Further and further do the heathens encroach upon Christendom, bound by their evil custom to pummel the longsuffering believers lower and lower into the dirt.\n\nThe leader of the Eastern schismatics, [eastern_patriarch.GetTitledFirstName] of Constantinople, is the only other ecclesiastical leader with the prestige and influence to rally common will for a solution. But he is said to be ironbound to the will of the Eastern Emperor - I, on the other hand, am in effect bound to none.\n\nI steel my nerve by uttering to myself from the 59th Psalm:\n#bold “Scatter them by Your power, and bring them down, O Lord, our shield.” #! \n\nTaking up my quill and sending word for a host of messengers, I try not to consider the first sentence of the verse. This not a time for contemplation and tolerance, but for action."
   TCT_religious_events.803.a: "Deus Vult!"
 
   Declare_Minor_Crusade:0 "Declare a Minor Crusade"
