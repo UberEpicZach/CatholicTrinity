@@ -33,31 +33,6 @@
         }
     }
 
-    TCTcardinalsCFP = {
-		dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = cfp_religious_catholic_cardinal_clothes
-                range = { 0 1 }
-            }
-            accessory = {
-                mode = add
-                gene = headgear
-                template = cfp_religious_catholic_cardinal
-                range = { 0 1 }
-            }
-        }
-        weight = {
-            base = 0
-            modifier = {
-                add = 200
-				exists = global_var:cfp_is_loaded
-				has_trait = cardinal
-            }
-        }
-    }
-
 	TCTpope = {
         dna_modifiers = {
             accessory = {
@@ -87,43 +62,6 @@
 					exists = global_var:cfp_is_loaded
 				}
 				has_title = title:k_papal_state
-            }
-        }
-    }
-
-    TCTpopeCFP = {
-        dna_modifiers = {
-            accessory = {
-                mode = add
-                gene = clothes
-                template = cfp_religious_catholic_head_early_clothes
-                range = { 0 1 }
-            }
-            accessory = {
-                mode = add
-                gene = headgear
-                template = cfp_religious_catholic_head_early
-                range = { 0 1 }
-            }
-            accessory = {
-                mode = add
-                gene = cloaks
-                template = cfp_religious_catholic_head
-                range = { 0 1 }
-            }
-            accessory = {
-                mode = add
-                gene = special_accessories_hands
-                template = cfp_western_high_nobility_gloves
-                range = { 0 1 }
-            }
-        }
-        weight = {
-            base = 0
-            modifier = {
-                add = 200
-                exists = global_var:cfp_is_loaded
-                has_title = title:k_papal_state
             }
         }
     }

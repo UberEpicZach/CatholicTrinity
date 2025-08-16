@@ -118,7 +118,7 @@
  catalyst_new_building_in_temple: "built in a [temple|E] [struggle_catalyst_catalyst|E]"
  catalyst_new_building_in_temple_desc: "Construct a [building|E] in a [temple|E] [holding|E]"
 
- tct_catalyst_hre_switched_papal_investiture: Imperial Switched to Papal"
+ tct_catalyst_hre_switched_papal_investiture: "Imperial Switched to Papal"
  tct_catalyst_hre_switched_papal_investiture_desc: "An [GetTrait('tct_imperial_supporter').GetName( GetNullCharacter )] [ruler|E] switches to [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )]"
 
  tct_catalyst_hre_emperor_is_a_papal_supporter: "Papal-Aligned Emperor"

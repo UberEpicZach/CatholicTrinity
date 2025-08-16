@@ -1,4 +1,4 @@
-# TCT_papacy_story_setup_effect = {
+﻿# TCT_papacy_story_setup_effect = {
 # 	set_variable = {
 # 		name = TCT_papal_authority
 # 		value = 0

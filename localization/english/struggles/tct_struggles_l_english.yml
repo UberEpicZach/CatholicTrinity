@@ -26,7 +26,7 @@
  tct_investiture_controversy_change_allegiance.desc.actor_is_detractor: "Convince [recipient.GetShortUIName] to become a [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )]"
  tct_investiture_controversy_change_allegiance.desc.fallback: "Convince [recipient.GetShortUIName] to join your ranks"
  tct_investiture_controversy_change_allegiance_extra_icon: "$arrange_marriage_interaction_extra_icon$"
- recipient_refused_to_join_your_side_title: "[recipient.GetShortUIName] refused to join your ranks"
+
  tct_investiture_controversy_change_allegiance.tt.recently_voluntarily_became_supporter: "[recipient.GetShortUIName] recently announced [recipient.GetHerHis] public support for the [GetTitleByKey('e_hre').GetHolder.GetTitleAsNameNoTooltip]"
  tct_investiture_controversy_change_allegiance.tt.recently_voluntarily_became_detractor: "[recipient.GetShortUIName] recently announced [recipient.GetHerHis] public support for the [GetTitleByKey('k_papal_state').GetHolder.GetTitleAsNameNoTooltip]"
  tct_investiture_controversy_change_allegiance.tt.recently_forced_to_detractor: "[recipient.GetShortUIName] was recently forced to become a [GetTrait('tct_papal_supporter').GetName( GetNullCharacter )] by the actions of [GetTitleByKey('e_hre').GetHolder.GetTitleAsNameNoTooltip]"
