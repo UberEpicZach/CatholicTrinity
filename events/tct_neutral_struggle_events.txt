@@ -1369,7 +1369,15 @@ tct_neutral_struggle.1007 = {
 	}
 	option = {
 		name = tct_neutral_struggle.1007.b
-
+		set_location = title:c_gottingen.title_province
+		if = {
+			limit = {
+				exists = domicile
+			}
+			domicile ?= {
+				move_domicile = title:c_gottingen.title_province
+			}
+		}
 		title:e_hre.holder = {
 			every_vassal_or_below = {
 				limit = {
@@ -1451,6 +1459,8 @@ scripted_effect tct_neutral_struggle_1050_designate_targets_effect = {
 		save_scope_as = target_10
 	}
 }
+
+# Further Saxon Unrest: Chain 2
 
 tct_neutral_struggle.1050 = {
 	type = character_event
@@ -1548,22 +1558,24 @@ tct_neutral_struggle.1050 = {
 				}
 			}
 			character:additional_wettin_1.house = {
-				every_house_member = {
+				ordered_house_member = {
 					limit = {
 						is_ruler = yes
 						highest_held_title_tier >= tier_duchy
 					}
-					save_scope_as = wettin_duke
+					order_by = military_power
+					save_scope_as = wettin_duke 
 				}
 			}
 		}
 		else = {
 			character:additional_wettin_1.house = {
-				every_house_member = {
+				ordered_house_member = {
 					limit = {
 						is_ruler = yes
 						highest_held_title_tier >= tier_county
 					}
+					order_by = military_power
 					save_scope_as = wettin_duke 
 				}
 			}
@@ -1573,6 +1585,18 @@ tct_neutral_struggle.1050 = {
 			every_held_title = {
 				tct_neutral_struggle_1050_designate_targets_effect = yes
 			}
+		}
+
+		character:additional_wettin_1 = {
+			set_location = scope:wettin_duke.capital_county.title_province
+			create_landless_adventurer_title_effect = {
+				REASON = flag:voluntary
+				FLAVOR_CHAR = scope:saxon_char
+			}
+			add_courtier = character:additional_wettin_2
+		}
+		character:additional_wettin_2 = {
+			set_location = scope:wettin_duke.capital_county.title_province
 		}
 	}
 
@@ -1730,6 +1754,34 @@ tct_neutral_struggle.1050 = {
 			}
 		}
 		# War Targeting end.
+
+		hidden_effect = {
+			character:additional_wettin_1 = {
+				spawn_army = {
+					name = event_troop_default_name
+					location = scope:wettin_duke.capital_county.title_province
+					levies = 1000
+					men_at_arms = {
+						type = hussar
+						stacks = 25
+					}
+					men_at_arms = {
+						type = hussar
+						stacks = 25
+					}
+				}
+			}
+		}
+		title:e_hre.holder = {
+			every_character_war = {
+				limit = {
+					primary_attacker = { this = title:e_hre.holder}
+					primary_defender = { this = scope:wettin_duke }
+				}
+				add_defender = character:additional_wettin_1
+				add_attacker = scope:bohemian_king
+			}
+		}
 
 		trigger_event = { id = tct_neutral_struggle.1052 days = { 360 730 } }
 	}

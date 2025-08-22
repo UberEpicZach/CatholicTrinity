@@ -1,5 +1,5 @@
 ﻿Investiture_Controversy_Game_Start_1066 = {
-	#1066 Improved some historical traits of people important to the Investiture Controversy Struggle
+	#Improved some historical traits of people important to the Investiture Controversy Struggle
 
 	character:1316 = {
 		HEE_remove_personality_traits_effect = yes

@@ -355,7 +355,6 @@
 						# Prolonged Years fighting / something to check on how devesated the region is
 						tct_catalyst_prolonged_years_of_fighting = medium_struggle_catalyst_gain
 
-
 						# Indepedence 
 						catalyst_independence_from_non_dejure_vassal = {}
 
@@ -364,6 +363,52 @@
 
 						# Truce was enforced
 						catalyst_truce_was_enforced = minor_struggle_catalyst_gain 
+
+						catalyst_passing_of_time = minimal_struggle_catalyst_over_time_gain
+						# Win/Start a War against another involved ruler of the same tier or higher who has an opposing trait faction.(tct_papal_supporter vs tct_imperial_supporter)
+						tct_catalyst_supporter_win_unfair_war_within_the_region = major_struggle_catalyst_gain
+						tct_catalyst_supporter_win_fair_war_within_the_region = massive_struggle_catalyst_gain
+						tct_catalyst_detractor_win_unfair_war_within_the_region = major_struggle_catalyst_gain
+						tct_catalyst_detractor_win_fair_war_within_the_region = massive_struggle_catalyst_gain
+						
+						# Successfully use the Install a Supporter Caus Belli
+						tct_catalyst_install_loyalist_cb = major_struggle_catalyst_gain
+
+						# Yearly drift every year that the Pope and Emperor dislike eachother.
+						tct_papal_hre_opinions_bad = minor_struggle_catalyst_gain
+
+						# Supporter is Murdered / Killed (by scheme or otherwise)
+						tct_catalyst_unnatural_death_supporter = major_struggle_catalyst_gain
+
+						# Convert a Ruler (Convert to side scheme.)
+						tct_catalyst_turn_imperial_supporter_into_papal_supporter = medium_struggle_catalyst_gain
+						tct_catalyst_turn_papal_supporter_into_imperial_supporter = medium_struggle_catalyst_gain
+
+						# Obtain a Title within the Struggle Region from an Interloper or Uninvolved Ruler
+
+						# Imprison any member of the opposing side.
+						tct_catalyst_imprison_important = medium_struggle_catalyst_gain
+						tct_catalyst_imprison_papal_supporter = medium_struggle_catalyst_gain
+						tct_catalyst_imprison_imperial_supporter = medium_struggle_catalyst_gain
+						
+						# Reveal a secret of the opposing side.
+
+						# Break a truce of the opposing side.
+						catalyst_broke_truce_against_important_character = medium_struggle_catalyst_gain
+
+						# A Papal Supporter and Imperial Supporter become Rivals or Nemeses 
+						tct_catalyst_becomes_rival_supporter_detractor = medium_struggle_catalyst_gain
+						
+						# Use a Hook of the opposing side. 
+
+						# Gain a claim on a member of the opposing side
+						tct_catalyst_gain_claim_on_title = minor_struggle_catalyst_gain
+
+						# Create an Anti-Pope
+						tct_create_antipope = 150
+
+						# Use Free Investiture Rights to Appoint a Bishop
+						tct_appointed_bishop_investiture = minor_struggle_catalyst_gain
 					}
 				}
  

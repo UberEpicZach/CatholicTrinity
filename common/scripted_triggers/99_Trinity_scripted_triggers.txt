@@ -630,21 +630,21 @@ testing_fellow_vassal_opinion = {
 	}
 }
 
-testingTct = {
-	title:e_hre = {
-		any_in_de_jure_hierarchy = {
+tct_hre_devastation_check = {
+    title:e_hre = {
+       any_in_de_jure_hierarchy = {
+			tier = tier_county
 			percent >= 0.5
-			tier = tier_barony
-	
-			OR = {
-				# Looted and burned counties
-				has_province_modifier = recently_looted_modifier
-				has_province_modifier = fp3_plundered_county_modifier
-				has_province_modifier = village_destroyed_modifier
-				has_province_modifier = depopulated_countryside
-	
-				# Disease-ravaged counties
-				AND = {
+			# For each de jure county in the HRE, check its capital province once
+			province = {
+				OR = {
+					# Looted / burned / depopulated
+					has_province_modifier = recently_looted_modifier
+					has_province_modifier = fp3_plundered_county_modifier
+					has_province_modifier = village_destroyed_modifier
+					has_province_modifier = depopulated_countryside
+
+					# Disease / epidemic pressure
 					OR = {
 						has_province_modifier = disease_spreading_modifier
 						has_province_modifier = shattered_by_plague
@@ -654,40 +654,79 @@ testingTct = {
 						has_province_modifier = plague_cult
 						realm_has_any_nearby_epidemic = { SIZE = 4 INTENSITY = minor }
 					}
-				}
-	
-				# Severely underdeveloped AND suffering
-				AND = {
-					county.development_level < 10
-					OR = {
-						county.development_rate < 0
-						has_province_modifier = county_corruption_thieves_guild_modifier
-						has_province_modifier = modifier_dusgruntled_church
-						has_province_modifier = winter_harsh_modifier
-					}
-				}
 
-				# Long War AND in Debt
-				AND = {
-					holder = { 
-						any_character_war = { war_days >= 360 } #
-						debt_level >= 1.5 # A year and a half in debt
+					# Underdeveloped AND suffering
+					AND = {
+						county = { development_level < 10 }
+						OR = {
+							county = { development_rate < 0 }
+							has_province_modifier = county_corruption_thieves_guild_modifier
+							has_province_modifier = modifier_dusgruntled_church # check spelling in your db
+							has_province_modifier = winter_harsh_modifier
+						}
+					}
+
+					# Long war AND debt on the county holder (not the baron)
+					AND = {
+						county = {
+							holder = {
+								any_character_war = { war_days >= 360 }
+								debt_level >= 1.5
+							}
+						}
 					}
 				}
 			}
 		}
-		
+    }
+}
+
+launch_crusade_decision_trigger = {
+	has_faith = faith:catholic
+	is_pope = yes
+	has_government = theocracy_government
+	is_at_war = no
+	religion = { exists = var:variable_ghw_unlocked }
+	faith = {
+		NOT = { 
+			custom_description = {
+				text = IS_IN_ONGOING_GREAT_HOLY_WAR
+				exists = great_holy_war
+			}			
+			custom_description = {
+				text = great_holy_war_cooldown_tct
+				exists = var:variable_ghw_cooldown
+			}		
+			custom_description = {
+				text = great_holy_war_delayed
+				religion = { exists = var:variable_first_ghw_cooldown }
+			}	
+		}
+		custom_description = {
+			text = great_holy_wars_active_or_has_divine_destiny
+			OR = {
+				has_doctrine_parameter = great_holy_wars_active
+				AND = {
+					has_doctrine_parameter = great_holy_wars_active_if_reformed
+					NOT = { has_doctrine_parameter = unreformed }
+				}
+				has_doctrine = divine_destiny_doctrine #SPECIAL: Has become the Chakravarti
+			}
+		}
+		has_doctrine = doctrine_spiritual_head
+		custom_description = {
+			text = great_holy_wars_not_unreformed_or_pacifist
+			NOR = {
+				has_doctrine = unreformed_faith_doctrine
+				AND = {
+					has_doctrine = tenet_dharmic_pacifism
+					NOT = { has_doctrine = divine_destiny_doctrine }
+				}
+				has_doctrine = tenet_pacifism
+			}
+		}
+		fervor >= 75
 	}
-	
-	# top_liege ?= { primary_title ?= title:e_hre }
-	# is_playable_character = yes
-	# highest_held_title_tier = tier_duchy
-	# primary_title.tier >= tier_duchy 
-	# liege ?= top_liege
-	# NOR = {
-	# 	government_has_flag = government_is_tribal
-	# 	government_has_flag = government_is_theocracy
-	# 	top_liege ?= { government_has_flag = government_is_tribal }
-	# 	top_liege ?= { government_has_flag = government_is_theocracy }
-	# }
+	prestige_level >= very_high_prestige_level
+	piety_level >= high_piety_level
 }

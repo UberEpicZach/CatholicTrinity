@@ -1,6 +1,6 @@
 ﻿Launch_Crusade = {
 	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+		reference = "gfx/interface/illustrations/decisions/decision_ck2_western_knights_constantinople.dds"
 	}
 
 	desc = Launch_Crusade_decision_desc
@@ -46,41 +46,7 @@
 	}
 
 	is_valid = {
-		has_faith = faith:catholic
-		is_ruler = yes
-		is_landed = yes
-		is_pope = yes
-		has_government = theocracy_government
-		is_at_war = no
-		is_alive = yes
-		religion = { exists = var:variable_ghw_unlocked }
-		faith = {
-			NOT = { 
-				exists = great_holy_war
-				exists = var:variable_ghw_cooldown
-				religion = { exists = var:variable_first_ghw_cooldown }
-			}
-			OR = {
-				has_doctrine_parameter = great_holy_wars_active
-				AND = {
-					has_doctrine_parameter = great_holy_wars_active_if_reformed
-					NOT = { has_doctrine_parameter = unreformed }
-				}
-				has_doctrine = divine_destiny_doctrine #SPECIAL: Has become the Chakravarti
-			}
-			has_doctrine = doctrine_spiritual_head
-			NOR = {
-				has_doctrine = unreformed_faith_doctrine
-				AND = {
-					has_doctrine = tenet_dharmic_pacifism
-					NOT = { has_doctrine = divine_destiny_doctrine }
-				}
-				has_doctrine = tenet_pacifism
-			}
-			fervor >= 75
-		}
-		prestige_level >= very_high_prestige_level
-		piety_level >= high_piety_level
+		launch_crusade_decision_trigger = yes
 	}
 
 	cost = {

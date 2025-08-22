@@ -35,59 +35,19 @@
 		}
 	}
 
-	is_valid = { # If the FACTION itself is valid
-		# see also invalidate_claimant_factions_on_death_effect for what happens when the claimant dies
-		
-		exists = special_character
-		special_title.holder = faction_target
-		
-		OR = {
+	is_valid = {
+		trigger_if = {
+			limit = {
+				exists = special_character
+			}
 			special_character = {
 				is_alive = yes
-				#has_claim_on = root.special_title
-				NOR = { 
-					has_trait = incapable
-					this = root.faction_target
-				}
-				any_character_struggle = {
-					involvement = involved
-					is_struggle_type = investiture_controversy_struggle
-					is_struggle_phase = investiture_controversy_phase_hostility
-				}
-				scope:faction_target = {
-					any_character_struggle = {
-						involvement = involved
-						is_struggle_type = investiture_controversy_struggle
-						is_struggle_phase = investiture_controversy_phase_hostility
-					}
-				}
-				# Byzantium does not brook
-				trigger_if = {
-					limit = {
-						root.special_title = {
-							OR = {
-								has_title_law = acclamation_succession_law
-								holder ?= { has_realm_law = acclamation_succession_law }
-							}
-						}
-					}
-					NOR = {
-						is_eunuch_trigger = yes
-						has_trait = blind
-					}
-				}
-				trigger_if = { #If they're imprisoned by the faction target they can only be so for five years before invalidating
-					limit = {
-						is_imprisoned_by = root.faction_target
-					}
-					time_in_prison_type = {
-						years < 5
-					}
-				}
 			}
-			exists = faction_war
 		}
 	}
+
+
+
 
 	demand = { # The effect of pressing demand
 		save_scope_as = faction
@@ -204,59 +164,64 @@
 		}
 	}
 
-	is_character_valid = { # Is the character valid to stay in the faction? This is also checked when creating it...
-		common_character_validity_trigger = {
-			FACTION_TARGET = scope:faction.faction_target
-		}
-		
-		trigger_if = {
-			limit = {
-				government_allows = administrative
-			}
-			scope:faction.faction_target ?= {
-				is_independent_ruler = yes
-			}
-		}
-	} 
-
 	can_character_create_ui = {
-		top_liege = {
-			has_title = title:e_hre
-			#has_variable = TCT_antipope_of_ruler
-			has_realm_law = free_investiture
-			has_faith = faith:catholic
-		}
-
-		NOT = { exists = global_var:existing_antiking_faction }
-
-		common_can_character_create_trigger = {
-			FACTION_TARGET = scope:target
-		}
-
 		is_character_interaction_valid = {
 			recipient = scope:target
 			interaction = create_antiking_faction_against_interaction
 		}
+
+		# Hostility lock: actor and target must be involved in Hostility
+		any_character_struggle = {
+			involvement = involved
+			is_struggle_type = investiture_controversy_struggle
+			is_struggle_phase = investiture_controversy_phase_hostility
+		}
+		scope:target ?= {
+			any_character_struggle = {
+				involvement = involved
+				is_struggle_type = investiture_controversy_struggle
+				is_struggle_phase = investiture_controversy_phase_hostility
+			}
+		}
 	}
 
-	can_character_create = { # If a character is allowed to create the faction. The 'is_character_valid' block is also checked in conjunction with this when creating a faction.
-		top_liege = {
-			has_title = title:e_hre
-			#has_variable = TCT_antipope_of_ruler
-			has_realm_law = free_investiture
-			has_faith = faith:catholic
-		}
-
-		NOT = { exists = global_var:existing_antiking_faction }
-
+	can_character_create = {
 		common_can_character_create_trigger = {
 			FACTION_TARGET = scope:target
 		}
+
+		# Hostility lock: actor and target
+		any_character_struggle = {
+			involvement = involved
+			is_struggle_type = investiture_controversy_struggle
+			is_struggle_phase = investiture_controversy_phase_hostility
+		}
+		scope:target ?= {
+			any_character_struggle = {
+				involvement = involved
+				is_struggle_type = investiture_controversy_struggle
+				is_struggle_phase = investiture_controversy_phase_hostility
+			}
+		}
 	}
 
-	can_character_join = { # Can a character join an existing faction?
+	can_character_join = {
 		common_can_character_join_trigger = {
 			FACTION_TARGET = scope:faction.faction_target
+		}
+
+		# Hostility lock: joiner and target
+		any_character_struggle = {
+			involvement = involved
+			is_struggle_type = investiture_controversy_struggle
+			is_struggle_phase = investiture_controversy_phase_hostility
+		}
+		scope:faction.faction_target ?= {
+			any_character_struggle = {
+				involvement = involved
+				is_struggle_type = investiture_controversy_struggle
+				is_struggle_phase = investiture_controversy_phase_hostility
+			}
 		}
 	}
 
@@ -270,10 +235,10 @@
 		# ####
 		# # BLOCKERS
 		# ####
-		# common_create_faction_blockers = {
-		# 	FACTION_TARGET = scope:target
-		# 	FLAG = none
-		# }
+		common_create_faction_blockers = {
+			FACTION_TARGET = scope:target
+			FLAG = none
+		}
 
 		# claimant_faction_blockers = {
 		# 	FACTION_TARGET = scope:target
@@ -283,29 +248,19 @@
 		# ####
 		# # AI modifiers
 		# ####
-		# common_faction_modifiers = {
-		# 	FACTION_TARGET = scope:target
-		# 	OPINION_MULTIPLIER = -1.5
-		# 	MAX_OPINION = 150
-		# 	POWER = 0
-		# 	THRESHOLD = 80
-		# }
+		common_faction_modifiers = {
+			FACTION_TARGET = scope:target
+			OPINION_MULTIPLIER = -1.5
+			MAX_OPINION = 150
+			POWER = 0
+			THRESHOLD = 80
+		}
 
-		# claimant_faction_modifiers = {
-		# 	FACTION_TARGET = scope:target
-		# 	FACTION_CLAIMANT = scope:actor
-		# 	FACTION_TITLE = scope:title
-		# }
-
-		# admin_faction_modifiers = {
-		# 	FACTION_TARGET = scope:target
-		# 	FACTION_TYPE = claimant_faction
-		# }
-
-		# admin_claimant_faction_modifiers = {
-		# 	FACTION_TARGET = scope:target
-		# 	FACTION_CLAIMANT = scope:claimant
-		# }
+		claimant_faction_modifiers = {
+			FACTION_TARGET = scope:target
+			FACTION_CLAIMANT = scope:actor
+			FACTION_TITLE = scope:title
+		}
 	}
 
 	ai_join_score = { # How likely is an AI to join an existing faction?
@@ -551,3 +506,20 @@
 
 	ignore_soft_block = yes
 }
+
+# religious_faction = {
+#     type = faction
+#     icon = "gfx/interface/icons/factions/faction_icon_religious.dds"
+
+#     potential = {
+#         always = yes
+#     }
+
+#     allow_join = {
+#         always = yes
+#     }
+
+#     is_valid_target_trigger = {
+#         always = yes
+#     }
+# }

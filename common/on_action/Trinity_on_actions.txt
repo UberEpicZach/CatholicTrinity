@@ -234,6 +234,9 @@ TCT_1066_Second_Saxon_Chain = {
 			exists = global_var:TCT_1066_Second_Saxon_Chain
 		}
 		exists = global_var:end_of_saxon_chain_one
+		title:d_ostfalen = {
+			NOT = { has_variable = saxon_chain_cooldown }
+		}
 	}
 	effect = {
 		random = {
@@ -507,33 +510,33 @@ on_game_start_after_lobby = {
 	}
 }
 
-on_great_holy_war_countdown_end = {
-	effect = {
-		faith = {
-			if = {
-				limit = {
-					exists = religious_head
-					religious_head = {
-						has_title = title:k_papal_state
-					}
-					exists = title:d_captain_general_church.holder
-				}
-				title:d_captain_general_church.holder = {
-					save_scope_as = ghw_sponsor
-				}
-				great_holy_war = {
-					set_war_declarer = scope:ghw_sponsor
-					if = {
-						limit = {
-							NOT = { has_pledged_attacker = scope:ghw_sponsor }
-						}
-						pledge_attacker = scope:ghw_sponsor
-					}
-				}
-			}
-		}
-	}
-}
+# on_great_holy_war_countdown_end = {
+# 	effect = {
+# 		faith = {
+# 			if = {
+# 				limit = {
+# 					exists = religious_head
+# 					religious_head = {
+# 						has_title = title:k_papal_state
+# 					}
+# 					exists = title:d_captain_general_church.holder
+# 				}
+# 				title:d_captain_general_church.holder = {
+# 					save_scope_as = ghw_sponsor
+# 				}
+# 				great_holy_war = {
+# 					set_war_declarer = scope:ghw_sponsor
+# 					if = {
+# 						limit = {
+# 							NOT = { has_pledged_attacker = scope:ghw_sponsor }
+# 						}
+# 						pledge_attacker = scope:ghw_sponsor
+# 					}
+# 				}
+# 			}
+# 		}
+# 	}
+# }
 
 on_title_gain = {
 	on_actions = {
@@ -764,15 +767,35 @@ on_pope_death = {
 			}
 		}
 		save_scope_as = deadpope
+		
+		if = {
+			limit = {
+				game_start_date = 1066.9.15
+				exists = character:2010
+				character:2010 = {
+					is_alive = yes
+				}
+				NOT = { 
+					character:2010 = title:k_papal_state.holder
+					exists = global_var:TCT_Pope_Gregory_VII 
+				}
+			}
+			set_global_variable = TCT_Pope_Gregory_VII
+			global_var:preferatus = {
+				make_story_owner = character:2010
+			}
+		}
+			
 		global_var:preferatus.story_owner = {
 			if = { limit = { any_held_title = { count >= 1 } } depose = yes }
 			move_to_pool_at = title:k_papal_state.holder.capital_province
+			save_scope_as = preferatus
 		}
+
 		if = { limit = { is_ai = no } set_player_character = global_var:preferatus.story_owner }
 
 		global_var:preferatus = {
 			story_owner = {
-				#ZGC remove this as here this is based on their original name not their papal name
 				create_character = {
 					gender = male
 					location = scope:deadpope.capital_province

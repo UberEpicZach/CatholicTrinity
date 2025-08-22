@@ -437,43 +437,12 @@ investiture_hre_papal_opinion_effect = {
 investiture_region_devestated_check = {
 	if = {
 		limit = {
-			any_in_de_jure_hierarchy = {
-				OR = {
-					development_level < 10
-					# If the province has been looted recently.
-					has_province_modifier = recently_looted_modifier
-					has_province_modifier = fp3_plundered_county_modifier
-					has_province_modifier = village_destroyed_modifier
-					# If the province has is suffering from a thieves guild.
-					has_province_modifier = county_corruption_thieves_guild_modifier
-					# Realm has any nearby epidemic.
-					realm_has_any_nearby_epidemic = { SIZE = 4 INTENSITY = minor }
-					has_province_modifier = disease_spreading_modifier
-					has_province_modifier = shattered_by_plague
-					has_province_modifier = ravaged_by_plague
-					has_province_modifier = blighted_by_plague
-					has_province_modifier = struck_by_plague
-					has_province_modifier = plague_cult
-					# Harsh Winter 
-					has_province_modifier = winter_harsh_modifier
-					# Disgruntled Church
-					has_province_modifier = modifier_dusgruntled_church
-					has_province_modifier = depopulated_countryside
-					development_rate < 0
-				}
-				percent >= 0.5
-			}
-			#any_character_struggle = { phase_has_catalyst = tct_catalyst_region_devastated }
+			tct_hre_devastation_check = yes
 		}
 		add_gold = 10
-		# every_character_struggle = {
-		# 	activate_struggle_catalyst = {
-		# 		catalyst = tct_catalyst_region_devastated 
-		# 		character = title:e_hre.holder
-		# 	}
-		# }
 	}
 }
+
 
 title_recognition_vassal_reward_guts_effect = {
 	dynasty ?= { add_dynasty_prestige = minor_dynasty_prestige_gain }

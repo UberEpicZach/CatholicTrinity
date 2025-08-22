@@ -1319,7 +1319,7 @@ additional_wettin_2 = {
 	trait = vengeful
 	trait = education_martial_2
 	
-	1057.3.12 = {
+	1055.1.1 = {
 		birth = yes
 	}
 	

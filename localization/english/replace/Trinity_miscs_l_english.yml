@@ -26,12 +26,11 @@
  deinvest_in_cardinal_AI: "AI DeInvest in College"
  deinvest_in_cardinal_AI_confirm: "AI DeInvest in College"
  
- Launch_Crusade: "Declare a Crusade."
- Launch_Crusade_decision_effect_tooltip: "You will start the countdown for a Crusade\n\nDue to limitations, the game will choose a  Target for you initially, you must use the redirect crusade option to chose a target yourself."
- Launch_Crusade_decision_tooltip: ""You will start the countdown for a Crusade\n\nDue to limitations, the game will choose a Target for  you initially, you must use the redirect crusade option to chose a target yourself.""
- Launch_Crusade_decision_desc: "The armies of the infidels inch ever closer. As the Vicar of Christ and holder of the Keys to the  Kingdom, it is my sacred duty to rally all Christendom to the banner of the Lord."
- Launch_Crusade: "Declare a Crusade."
- Launch_Crusade_confirm: "By grace of god...."
+ Launch_Crusade: "Declare a Crusade"
+ Launch_Crusade_decision_effect_tooltip: "Begins the Crusade countdown. For now, a target will be chosen automatically — use the Redirect Crusade option to rally forces against your chosen foe."
+ Launch_Crusade_decision_tooltip: "$Launch_Crusade_decision_effect_tooltip$"
+ Launch_Crusade_decision_desc: "The shadow of the infidels stretches ever closer. As Vicar of Christ and keeper of the Keys to the Kingdom, I call upon all Christendom to bear the banner of the Lord and march for His glory."
+ Launch_Crusade_confirm: "By the grace of God, let the holy banners fly."
  
  InstallAntipope_decision_desc: "For too long we have allowed the false pretender to rest on the Throne of St. Peter. It is now time to  stand up and restore the true Vicar of Christ to his rightful position within the Holy See."
  InstallAntipope_decision_tooltip: "Install [antipope|E]"
@@ -80,4 +79,13 @@
  TCT_appointed_bishop_investiture_good_desc: "Appointed Bishop Using Investiture Rights"
 
  tct_marriage_norms_modifier: "Marriage Scandal"
- tct_marriage_norms_modifier_desc: "Your controversial marriage arrangements have scandalized the realm, undermining their trust in your rule.."
+ tct_marriage_norms_modifier_desc: "Your controversial marriage arrangements have scandalized the realm, undermining their trust in your rule."
+
+ great_holy_war_delayed_not: "The Era of Crusades has Started, but the [faith|E] is not yet prepared to wage a [great_holy_war|E]"
+ great_holy_war_delayed: "The Era of Crusades has Started, and your [faith|E] is ready to wage a [great_holy_war|E]"
+
+ great_holy_war_cooldown_tct: "Your [faith|E] #Bold has#! waged a [great_holy_war|E] within the past #Bold 30#! years"
+ great_holy_war_cooldown_tct_not: "On cooldown: Your [faith|E] fought a Great Holy War in the last 30 years" 
+
+ great_holy_wars_active_or_has_divine_destiny: "Your [faith|E] has either Great Holy Wars active or has the Divine Destiny doctrine, allowing you to declare a Great Holy War."
+ great_holy_wars_not_unreformed_or_pacifist: "Your [faith|E] is not unreformed or pacifist focused, preventing you from declaring a Great Holy War." 

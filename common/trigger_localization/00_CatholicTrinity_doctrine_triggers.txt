@@ -40,3 +40,21 @@ must_select_spiritual_fixed_appointment = {
 must_select_independent_papacy_head = {
 	global_not = REQUIRES_PAPACY_HEAD
 }
+
+great_holy_war_cooldown_tct = {
+	global = great_holy_war_cooldown_tct
+	global_not = great_holy_war_cooldown_tct_not
+	first = great_holy_war_cooldown_tct
+	first_not = great_holy_war_cooldown_tct_not
+	third = great_holy_war_cooldown_tct
+	third_not = great_holy_war_cooldown_tct_not
+}
+
+great_holy_war_delayed = {
+	global = great_holy_war_delayed
+	global_not = great_holy_war_delayed
+	first = great_holy_war_delayed
+	first_not = great_holy_war_delayed
+	third = great_holy_war_delayed
+	third_not = great_holy_war_delayed
+}

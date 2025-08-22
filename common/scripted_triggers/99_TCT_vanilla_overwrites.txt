@@ -47,3 +47,29 @@ is_location_valid_for_travel_event_on_land = {
 	}
 	is_available_allow_travelling = yes
 }
+
+# I simply want to hijack the existing trigger for my own purposes
+disable_interaction_for_hereward_trigger = {
+	# Original Hereward rule
+	trigger_if = {
+		limit = { scope:recipient = character:90028 }
+		custom_tooltip = {
+			text = owns_a_story_trigger
+			scope:actor = {
+				NOR = {
+					owns_story_of_type = story_cycle_harrying_of_the_north
+					any_liege_or_above = { owns_story_of_type = story_cycle_harrying_of_the_north }
+				}
+			}
+		}
+	}
+
+	trigger_if = {
+		limit = { scope:recipient = character:112600 }
+		custom_tooltip = {
+			text = owns_a_story_trigger
+			always = no
+		}
+	}
+}
+

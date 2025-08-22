@@ -1669,6 +1669,15 @@ first_saxon_revolt_faction_war = {
 		scope:attacker = { show_pow_release_message_effect = yes }
 
 		set_global_variable = end_of_saxon_chain_one
+		title:d_ostfalen = {
+			set_variable = {
+				name = saxon_chain_cooldown # Wait at least a couple of months before firing the next event chain
+				value = yes
+				days = 365
+			}
+		}
+
+
 		set_global_variable = saxon_revolt_one_won
 
 		#EP2 Accolade glory gain from winning against higher ranked enemy
@@ -1916,6 +1925,13 @@ first_saxon_revolt_faction_war = {
 		scope:attacker = { tct_bavarian_chain_defeat_effect = yes }
 
 		set_global_variable = end_of_saxon_chain_one
+		title:d_ostfalen = {
+			set_variable = {
+				name = saxon_chain_cooldown # Wait at least a couple of months before firing the next event chain
+				value = yes
+				days = 365
+			}
+		}
 		set_global_variable = saxon_revolt_one_lost
 	}
 
