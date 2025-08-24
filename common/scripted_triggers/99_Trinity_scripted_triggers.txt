@@ -629,7 +629,7 @@ testing_fellow_vassal_opinion = {
 		}
 	}
 }
-
+# tct_catalyst_prolonged_years_of_fighting
 tct_hre_devastation_check = {
     title:e_hre = {
        any_in_de_jure_hierarchy = {

@@ -19,15 +19,27 @@ tct_neutral_struggle.0001 = {
 	scope = struggle
 
 	immediate = {
-		# title:e_hre.holder = {
-		# 	send_interface_toast = {
-		# 		type = event_toast_effect_bad
-		# 		title = tct_neutral_struggle.0001
-		# 		left_icon = ROOT
-		# 	}
-		# }
 		## # Yearly drift every year that the Pope and Emperor dislike or like eachother
 		investiture_hre_papal_opinion_effect = yes
+
+		# tct_catalyst_hre_emperor_is_a_papal_supporter
+		if = {
+			limit = {
+				title:e_hre.holder = {
+					any_character_struggle = { phase_has_catalyst = tct_catalyst_hre_emperor_is_a_papal_supporter }
+					has_trait = tct_papal_supporter
+				}
+				
+			}
+			title:e_hre.holder = {
+				every_character_struggle = {
+					activate_struggle_catalyst = {
+						catalyst = tct_catalyst_hre_emperor_is_a_papal_supporter
+						character = title:e_hre.holder
+					}
+				}
+			}
+		}
 
 		# Finally, queue the event up again for a year hence.
 		trigger_event = {

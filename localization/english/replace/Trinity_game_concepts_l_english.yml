@@ -1,8 +1,8 @@
 ﻿l_english:
 
  message_group_type_tct_messages: "Catholic Trinity"
- message_filter_tct_paid_indulgence: "@religious_icon! Paid Indulgences"
- message_filter_tct_paid_indulgence_desc: "You received a Indulgence"
+#  message_filter_tct_paid_indulgence: "@religious_icon! Paid Indulgences"
+#  message_filter_tct_paid_indulgence_desc: "You received a Indulgence"
  message_filter_tct_lots_of_gold: "@religious_icon! Automatic Ruler's Ask for Gold Requests"
  message_filter_tct_lots_of_gold_desc: "Money given away to same faith Ask For Gold requests"
  

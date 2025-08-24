@@ -153,7 +153,7 @@
 						tct_catalyst_hre_switched_papal_investiture = major_struggle_catalyst_gain
 
 						# HRE Emperor is a Papal Supporter (On Going)
-						tct_catalyst_hre_emperor_is_a_papal_supporter = minor_struggle_catalyst_gain
+						tct_catalyst_hre_emperor_is_a_papal_supporter = massive_struggle_catalyst_gain
 					
 						# New Building in Temple
 						catalyst_new_building_in_temple = minor_struggle_catalyst_gain
@@ -352,9 +352,6 @@
 						# White Peaces
 						catalyst_war_ends_in_white_peace_between_supporter_detractor = minor_struggle_catalyst_gain
 
-						# Prolonged Years fighting / something to check on how devesated the region is
-						tct_catalyst_prolonged_years_of_fighting = medium_struggle_catalyst_gain
-
 						# Indepedence 
 						catalyst_independence_from_non_dejure_vassal = {}
 
@@ -405,7 +402,7 @@
 						tct_catalyst_gain_claim_on_title = minor_struggle_catalyst_gain
 
 						# Create an Anti-Pope
-						tct_create_antipope = 150
+						tct_create_antipope = 250
 
 						# Use Free Investiture Rights to Appoint a Bishop
 						tct_appointed_bishop_investiture = minor_struggle_catalyst_gain
@@ -413,25 +410,51 @@
 				}
  
 				investiture_controversy_phase_conciliation = {
-					# Catalyst values are low here because we track this stuff across every phase, so they need to take _roughly_ ~100-120 years to build up, all else being equal.
 					catalysts = {
+						# Prolonged Years fighting / something to check on how devesated the region is
+						tct_catalyst_prolonged_years_of_fighting = medium_struggle_catalyst_gain
+
 						# Emperor loses a revolt war
 						tct_catalyst_pope_or_emperor_loses_revolt_war = major_struggle_catalyst_gain
 
 						tct_catalyst_became_friend_lover_papal_supporter_imperial_supporter = minor_struggle_catalyst_gain
 						catalyst_forming_alliance_between_supporter_detractor_rulers = catalyst_forming_alliance_between_supporter_detractor_rulers_value
 
-						# Yearly drift every year that the Pope and Emperor like eachother.
+						# Yearly drift every year that the Pope and Emperor like each other
 						tct_papal_hre_opinions_good = massive_struggle_catalyst_gain
 
 						# Release a prisoner of the opposing side without demands
 						catalyst_release_supporter_detractor = minor_struggle_catalyst_gain
 
-						# HRE Emperor switches to Papal Investiture
-						tct_catalyst_hre_switched_papal_investiture = {}
+						# HRE Emperor switches to Papal Investiture (One Time)
+						tct_catalyst_hre_switched_papal_investiture = major_struggle_catalyst_gain
 
-						# HRE Emperor is a Papal Supporter
-						tct_catalyst_hre_emperor_is_a_papal_supporter = {}
+						# HRE Emperor is a Papal Supporter (On Going)
+						tct_catalyst_hre_emperor_is_a_papal_supporter = massive_struggle_catalyst_gain
+
+						# New Building in Temple
+						catalyst_new_building_in_temple = minor_struggle_catalyst_gain
+
+						# Truce was enforced
+						catalyst_truce_was_enforced = minor_struggle_catalyst_gain 
+
+						# Gift to a ruler of the opposing side
+						catalyst_gift_supporter_detractor_ruler = minor_struggle_catalyst_gain
+
+						# War ends in White Peace between Papal and Emperor supporters
+						catalyst_war_ends_in_white_peace_between_supporter_detractor = minor_struggle_catalyst_gain
+
+						# Ransom a prisoner of the opposing side
+						catalyst_ransom_supporter_detractor = minor_struggle_catalyst_gain
+
+						# Abandon a Hook on a ruler of the opposing side
+						catalyst_abandon_hook_on_supporter_detractor = minor_struggle_catalyst_gain
+
+						# Grant pardon to a ruler of the opposing side
+						catalyst_grants_pardon_supporter_detractor = minor_struggle_catalyst_gain
+
+						# Grant vassal to de jure liege of opposing side
+						catalyst_grants_vassal_to_de_jure_liege_supporter_detractor = minor_struggle_catalyst_gain
 					}
 				}
 			}
@@ -639,10 +662,10 @@
 						catalyst_release_supporter_detractor = minor_struggle_catalyst_gain
 
 						# HRE Emperor switches to Papal Investiture
-						tct_catalyst_hre_switched_papal_investiture = {}
+						tct_catalyst_hre_switched_papal_investiture = major_struggle_catalyst_gain
 
 						# HRE Emperor is a Papal Supporter
-						tct_catalyst_hre_emperor_is_a_papal_supporter = {}
+						tct_catalyst_hre_emperor_is_a_papal_supporter = massive_struggle_catalyst_gain
 					}
 				}
 			}

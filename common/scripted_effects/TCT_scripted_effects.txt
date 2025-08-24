@@ -1408,3 +1408,98 @@ spawn_saxon_army = { # TARGET
 		}
 	}
 }
+
+track_indulgence_gold_and_count = {
+    title:k_papal_state = {
+        # Track gold
+        if = {
+            limit = { has_variable = indulgence_gold_this_year }
+            change_variable = { name = indulgence_gold_this_year add = scope:actor.var:temp_indulgence_gold }
+        }
+        else = { set_variable = { name = indulgence_gold_this_year value = scope:actor.var:temp_indulgence_gold } }
+
+        # Track number of indulgences
+        if = {
+            limit = { has_variable = indulgence_count_this_year }
+            change_variable = { name = indulgence_count_this_year add = 1 }
+        }
+        else = { set_variable = { name = indulgence_count_this_year value = 1 } }
+    }
+}
+
+
+tct_indulgences_gold_tracker = {
+	scope:actor = {
+		if = {
+			limit = {
+				AND = {
+					has_trait = kinslayer_3
+					trait_is_shunned_or_criminal_in_faith_trigger = { FAITH = faith TRAIT = kinslayer_3 GENDER_CHARACTER = scope:actor }
+				}
+			}
+			set_variable = { name = temp_indulgence_gold value = seek_indulgences_major_criminal_trait_value }
+			track_indulgence_gold_and_count = yes
+		}
+		else_if = {
+			limit = {
+				AND = {
+					has_trait = kinslayer_2
+					trait_is_shunned_or_criminal_in_faith_trigger = { FAITH = faith TRAIT = kinslayer_2 GENDER_CHARACTER = scope:actor }
+				}
+			}
+			set_variable = { name = temp_indulgence_gold value = seek_indulgences_medium_criminal_trait_value }
+			track_indulgence_gold_and_count = yes
+		}
+		else_if = {
+			limit = {
+				AND = { has_trait = witch trait_is_shunned_or_criminal_in_faith_trigger = { FAITH = faith TRAIT = witch GENDER_CHARACTER = scope:actor } }
+			}
+			set_variable = { name = temp_indulgence_gold value = seek_indulgences_medium_criminal_trait_value }
+			track_indulgence_gold_and_count = yes
+		}
+		else_if = {
+			limit = {
+				AND = { has_trait = deviant trait_is_shunned_or_criminal_in_faith_trigger = { FAITH = faith TRAIT = deviant GENDER_CHARACTER = scope:actor } }
+			}
+			set_variable = { name = temp_indulgence_gold value = seek_indulgences_medium_criminal_trait_value }
+			track_indulgence_gold_and_count = yes
+		}
+		else_if = {
+			limit = {
+				AND = { has_trait = sodomite trait_is_shunned_or_criminal_in_faith_trigger = { FAITH = faith TRAIT = sodomite GENDER_CHARACTER = scope:actor } }
+			}
+			set_variable = { name = temp_indulgence_gold value = seek_indulgences_medium_criminal_trait_value }
+			track_indulgence_gold_and_count = yes
+		}
+		else_if = {
+			limit = {
+				AND = { has_trait = kinslayer_1 trait_is_shunned_or_criminal_in_faith_trigger = { FAITH = faith TRAIT = kinslayer_1 GENDER_CHARACTER = scope:actor } }
+			}
+			set_variable = { name = temp_indulgence_gold value = seek_indulgences_minor_criminal_trait_value }
+			track_indulgence_gold_and_count = yes
+		}
+		else_if = {
+			limit = {
+				AND = { has_trait = adulterer trait_is_shunned_or_criminal_in_faith_trigger = { FAITH = faith TRAIT = adulterer GENDER_CHARACTER = scope:actor } }
+			}
+			set_variable = { name = temp_indulgence_gold value = seek_indulgences_minor_criminal_trait_value }
+			track_indulgence_gold_and_count = yes
+		}
+		else_if = {
+			limit = {
+				AND = { has_trait = fornicator trait_is_shunned_or_criminal_in_faith_trigger = { FAITH = faith TRAIT = fornicator GENDER_CHARACTER = scope:actor } }
+			}
+			set_variable = { name = temp_indulgence_gold value = seek_indulgences_minor_criminal_trait_value }
+			track_indulgence_gold_and_count = yes
+		}
+		else_if = {
+			limit = { has_trait = gallowsbait }
+			set_variable = { name = temp_indulgence_gold value = seek_indulgences_minor_criminal_trait_value }
+			track_indulgence_gold_and_count = yes
+		}
+		else = {
+			set_variable = { name = temp_indulgence_gold value = seek_indulgences_buy_piety_value }
+			track_indulgence_gold_and_count = yes
+		}
+	}
+}
