@@ -6039,3 +6039,66 @@ TCT_religious_events.813 = {
 
 # Keeping the College of Cardinals full
 # TCT_religious_events.9999
+
+
+# Papal Affair Decision Events
+
+# Divorce Choices
+TCT_religious_events.850 = {
+	type = character_event
+	title = TCT_religious_events.850.a
+	desc = TCT_religious_events.850.a
+
+	theme = realm
+	left_portrait = root
+
+	option = {
+		name = TCT_religious_events.850.a
+	}
+	option = {
+		name = TCT_religious_events.850.a
+	}
+	option = {
+		name = TCT_religious_events.850.a
+	}
+}
+
+# Gold Choices
+TCT_religious_events.851 = {
+	type = character_event
+	title = TCT_religious_events.851.a
+	desc = TCT_religious_events.851.a
+
+	theme = realm
+	left_portrait = root
+
+	option = {
+		name = TCT_religious_events.851.a
+	}
+	option = {
+		name = TCT_religious_events.851.a
+	} 
+	option = {
+		name = TCT_religious_events.851.a
+	}
+}
+
+# Excommunication Choices
+TCT_religious_events.852 = {
+	type = character_event
+	title = TCT_religious_events.852.a
+	desc = TCT_religious_events.852.a
+
+	theme = realm
+	left_portrait = root
+
+	option = {
+		name = TCT_religious_events.852.a
+	}
+	option = {
+		name = TCT_religious_events.852.a
+	}
+	option = {
+		name = TCT_religious_events.852.a
+	}
+}
