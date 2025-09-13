@@ -1,0 +1,36 @@
+﻿#TCT
+
+Cardinals = {
+	music = "file:/music/in_game/tct_soundtrack/religionview.wav"
+	can_be_interrupted = yes
+}
+
+Trinity_1 = {
+	music = "file:/music/in_game/tct_soundtrack/1 - Trinity.wav"
+	can_be_interrupted = yes
+}
+
+Trinity_2 = {
+	music = "file:/music/in_game/tct_soundtrack/2 - Trinity.wav"
+	can_be_interrupted = yes
+}
+
+Trinity_3 = {
+	music = "file:/music/in_game/tct_soundtrack/3 - Trinity.wav"
+	can_be_interrupted = yes
+}
+
+Trinity_4 = {
+	music = "file:/music/in_game/tct_soundtrack/3 - Trinity.wav"
+	can_be_interrupted = yes
+}
+
+CK2_songs_of_yuletide = {
+	music = "file:/music/in_game/tct_soundtrack/pdxmascarol.ogg"
+	can_be_interrupted = yes
+}
+
+CK2JerusalemRemaster = {
+	music = "file:/music/in_game/tct_soundtrack/jerusalem.wav"
+	can_be_interrupted = no
+}

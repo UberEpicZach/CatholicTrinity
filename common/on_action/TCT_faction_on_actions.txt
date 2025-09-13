@@ -3,12 +3,12 @@
 ## Root is the faction target.
 ## Scope:faction is the attacking faction.
 ## Scope:faction_leader is the leader of the attacking faction.
-on_TCT_faction_demand_accepted = {
+on_tct_faction_demand_accepted = {
 	effect = {
 		if = {
 			limit = {
 				scope:faction ?= {
-					faction_is_type = TCT_antiking_faction
+					faction_is_type = tct_antiking_faction
 				}
 			}
 			if = {
@@ -77,4 +77,4 @@ on_TCT_faction_demand_accepted = {
 ## Root is the faction target.
 ## Scope:faction is the attacking faction.
 ## Scope:faction_leader is the leader of the attacking faction.
-on_TCT_faction_demand_rejected = {}
+on_tct_faction_demand_rejected = {}

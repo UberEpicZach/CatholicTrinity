@@ -1,4 +1,4 @@
-﻿activity_TCT_saint_days = {
+﻿activity_tct_saint_days = {
 	is_shown = {
 		NOT = { has_character_flag = hosted_saint_day }
 		exists = capital_county
@@ -101,7 +101,7 @@
 			trigger = {
 				has_holding_type = church_holding
 			}
-			desc = activity_TCT_saint_days_temple_holding_desc
+			desc = activity_tct_saint_days_temple_holding_desc
 		}
 	}
 
@@ -116,7 +116,7 @@
 		# TYPE OF VISIT
 		#########
 		special_type = {
-			TCT_saint_days_type_reverence = {
+			tct_saint_days_type_reverence = {
 				default = yes	
 				ai_will_do = {
 					value = 10
@@ -140,7 +140,7 @@
 					}
 				}
 			}
-			TCT_saint_days_type_tradition = {		
+			tct_saint_days_type_tradition = {		
 				ai_will_do = {
 					value = 10
 					if = {
@@ -157,7 +157,7 @@
 					}
 				}
 			}
-			TCT_saint_days_type_festivity = {		
+			tct_saint_days_type_festivity = {		
 				ai_will_do = {
 					value = 10
 					if = {
@@ -185,14 +185,14 @@
 		#########
 		# SIZE OF DONATION OPTION
 		#########
-		TCT_saint_days_cost_type = {
-			TCT_saint_days_cost_type_small = {
+		tct_saint_days_cost_type = {
+			tct_saint_days_cost_type_small = {
 				default = yes
 				cost = {
 					gold = {
 						add = {
 							value = tiny_gold_value
-							desc = TCT_saint_days_cost_type_small
+							desc = tct_saint_days_cost_type_small
 						}
 					}
 				}
@@ -200,13 +200,13 @@
 					value = 15
 				}
 			}
-			TCT_saint_days_cost_type_large = {
+			tct_saint_days_cost_type_large = {
 				cost = {
 					gold = {
-						desc = TCT_saint_days_cost_type_large
+						desc = tct_saint_days_cost_type_large
 						add = {
 							value = medium_gold_value
-							desc = TCT_saint_days_cost_type_large
+							desc = tct_saint_days_cost_type_large
 						}
 					}
 				}				
@@ -226,8 +226,8 @@
 		#########
 		# PROCESSION OPTION
 		#########
-		TCT_saint_days_procession_type = {
-			TCT_saint_days_procession_type_modest = {
+		tct_saint_days_procession_type = {
+			tct_saint_days_procession_type_modest = {
 				default = yes			
 
 				# Entourage option grabbing suitable bodyguards & maybe someone from court who really likes you, + randos.
@@ -241,13 +241,13 @@
 					value = 15
 				}
 			}
-			TCT_saint_days_procession_type_sizeable = {
+			tct_saint_days_procession_type_sizeable = {
 				cost = {
 					gold = {
 						add = {
 							add = {
 								value = 50
-								desc = TCT_saint_days_procession_cost_sizeable
+								desc = tct_saint_days_procession_cost_sizeable
 							}
 							add = {
 								value = 50 
@@ -298,13 +298,13 @@
 					}
 				}
 			}
-			TCT_saint_days_procession_type_grand = {
+			tct_saint_days_procession_type_grand = {
 				cost = {
 					gold = {
 						add = {
 							add = {
 								value = 100
-								desc = TCT_saint_days_procession_cost_grand
+								desc = tct_saint_days_procession_cost_grand
 							}
 							add = {
 								value = 100 
@@ -364,7 +364,7 @@
 	###################
 
 	phases = {
-		TCT_saint_days_devotion_phase = {
+		tct_saint_days_devotion_phase = {
 			is_predefined = yes
 			
 			on_phase_active = {
@@ -372,7 +372,7 @@
 					limit = {
 						this = scope:host
 					}
-					trigger_event = TCT_saint_days.0004
+					trigger_event = tct_saint_days.0004
 				}
 			}
 
@@ -561,13 +561,13 @@
 	}
 
 	host_intents = {
-		intents = { TCT_saint_days_reverence_intent TCT_saint_days_gratitude_intent TCT_saint_days_atonement_intent }
-		default = TCT_saint_days_reverence_intent
+		intents = { tct_saint_days_reverence_intent tct_saint_days_gratitude_intent tct_saint_days_atonement_intent }
+		default = tct_saint_days_reverence_intent
 	}
 
 	guest_intents = {
-		intents = { TCT_saint_days_reverence_intent TCT_saint_days_gratitude_intent TCT_saint_days_atonement_intent }
-		default = TCT_saint_days_reverence_intent
+		intents = { tct_saint_days_reverence_intent tct_saint_days_gratitude_intent tct_saint_days_atonement_intent }
+		default = tct_saint_days_reverence_intent
 	}
 
 	guest_join_chance = {
@@ -582,15 +582,15 @@
 		if = {
 			limit = { this = scope:host }
 			create_character_memory = {
-				type = TCT_saint_days_host_memory
+				type = tct_saint_days_host_memory
 			}
 			scope:host = {
-				TCT_saint_days_completed_log_entry_effect = yes
+				tct_saint_days_completed_log_entry_effect = yes
 			}
 		}
 		else = {			
 			create_character_memory = {
-				type = TCT_saint_days_guest_memory
+				type = tct_saint_days_guest_memory
 				participants = {
 					host = scope:host
 				}
@@ -881,7 +881,7 @@
 				triggered_animation = {
 					trigger = {
 						scope:character = {
-							has_activity_intent = TCT_saint_days_reverence_intent
+							has_activity_intent = tct_saint_days_reverence_intent
 						}
 					}
 					animation = { personality_zealous personality_honorable toast_goblet thinking }
@@ -889,7 +889,7 @@
 				triggered_animation = {
 					trigger = {
 						scope:character = {
-							has_activity_intent = TCT_saint_days_gratitude_intent
+							has_activity_intent = tct_saint_days_gratitude_intent
 						
 						}
 					}
@@ -898,7 +898,7 @@
 				triggered_animation = {
 					trigger = {
 						scope:character = {
-							has_activity_intent = TCT_saint_days_atonement_intent
+							has_activity_intent = tct_saint_days_atonement_intent
 						}
 					}
 					animation = { throne_room_bow_1 throne_room_bow_2 }
@@ -922,7 +922,7 @@
 				triggered_animation = {
 					trigger = {
 						scope:character = {
-							has_activity_intent = TCT_saint_days_reverence_intent
+							has_activity_intent = tct_saint_days_reverence_intent
 						}
 					}
 					animation = { personality_zealous personality_honorable toast_goblet thinking }
@@ -930,7 +930,7 @@
 				triggered_animation = {
 					trigger = {
 						scope:character = {
-							has_activity_intent = TCT_saint_days_gratitude_intent
+							has_activity_intent = tct_saint_days_gratitude_intent
 						
 						}
 					}
@@ -939,7 +939,7 @@
 				triggered_animation = {
 					trigger = {
 						scope:character = {
-							has_activity_intent = TCT_saint_days_atonement_intent
+							has_activity_intent = tct_saint_days_atonement_intent
 						}
 					}
 					animation = { throne_room_bow_1 throne_room_bow_2 }
@@ -965,7 +965,7 @@
 				triggered_animation = {
 					trigger = {
 						scope:character = {
-							has_activity_intent = TCT_saint_days_reverence_intent
+							has_activity_intent = tct_saint_days_reverence_intent
 						}
 					}
 					animation = { personality_zealous personality_honorable toast_goblet thinking }
@@ -973,7 +973,7 @@
 				triggered_animation = {
 					trigger = {
 						scope:character = {
-							has_activity_intent = TCT_saint_days_gratitude_intent
+							has_activity_intent = tct_saint_days_gratitude_intent
 						
 						}
 					}
@@ -982,7 +982,7 @@
 				triggered_animation = {
 					trigger = {
 						scope:character = {
-							has_activity_intent = TCT_saint_days_atonement_intent
+							has_activity_intent = tct_saint_days_atonement_intent
 						}
 					}
 					animation = { throne_room_bow_1 throne_room_bow_2 }

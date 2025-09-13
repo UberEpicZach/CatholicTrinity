@@ -1,8 +1,8 @@
 ﻿### EVENT BACKGROUNDS LIST:
 
-TCT_christmas = {
+tct_christmas = {
 	background = {
-		reference = "gfx/interface/illustrations/event_screens/TCT_christmas.dds"
+		reference = "gfx/interface/illustrations/event_screens/tct_christmas.dds"
 		environment = "environment_event_market_west"
 		ambience = "event:/SFX/Events/Backgrounds/townmarket_western_day"
 	}
@@ -10,7 +10,7 @@ TCT_christmas = {
 
 tct_investiture_struggle = {
 	background = {	# Intro
-		reference = "gfx/interface/illustrations/event_screens/TCT_investiture_controversy.dds"
+		reference = "gfx/interface/illustrations/event_screens/tct_investiture_controversy.dds"
 		environment = "environment_event_steppe"
 		ambience = "event:/DLC/FP2/SFX/UI/fp2_struggle_start_loop"
 	}

@@ -4,17 +4,17 @@
 #								#
 #################################
 
-namespace = TCT_saint_days
+namespace = tct_saint_days
 
-TCT_saint_days.0001 = {
+tct_saint_days.0001 = {
 	type = character_event
-	title = TCT_saint_days.0001.t
+	title = tct_saint_days.0001.t
 	desc = {
 		random_valid = {
-			desc = TCT_saint_days.0001.desc.a
-			desc = TCT_saint_days.0001.desc.b
-			desc = TCT_saint_days.0001.desc.c
-			desc = TCT_saint_days.0001.desc.d
+			desc = tct_saint_days.0001.desc.a
+			desc = tct_saint_days.0001.desc.b
+			desc = tct_saint_days.0001.desc.c
+			desc = tct_saint_days.0001.desc.d
 		}
 	}
 	theme = family
@@ -110,21 +110,21 @@ TCT_saint_days.0001 = {
 	}
 
 	option = { #ok
-		name = TCT_saint_days.0001.b
+		name = tct_saint_days.0001.b
 	}
 
 	option = { #Bah, humbug!
-		name = TCT_saint_days.0001.d
-		add_character_flag = TCT_humbug
-		custom_tooltip = TCT_saint_days.0001.d.tooltip
+		name = tct_saint_days.0001.d
+		add_character_flag = tct_humbug
+		custom_tooltip = tct_saint_days.0001.d.tooltip
 	}
 }
 
 #travel start
-TCT_saint_days.0003 = {
+tct_saint_days.0003 = {
 	type = character_event
-	title = TCT_saint_days.0003.t
-	desc = TCT_saint_days.0003.desc
+	title = tct_saint_days.0003.t
+	desc = tct_saint_days.0003.desc
 	theme = travel
 
 	left_portrait = root
@@ -135,7 +135,7 @@ TCT_saint_days.0003 = {
 		is_landed = yes
 		exists = involved_activity
 		involved_activity = {
-			has_activity_type = activity_TCT_saint_days
+			has_activity_type = activity_tct_saint_days
 		}
 	}
 
@@ -145,14 +145,14 @@ TCT_saint_days.0003 = {
 
 	# Ok
 	option = { 
-		name = TCT_saint_days.0003.a
+		name = tct_saint_days.0003.a
 	}
 }
 
 # Arrival
-TCT_saint_days.0004 = {
+tct_saint_days.0004 = {
 	type = activity_event
-	title = TCT_saint_days.0004.t
+	title = tct_saint_days.0004.t
 	desc = {
 		first_valid = {
 			triggered_desc = {
@@ -160,102 +160,102 @@ TCT_saint_days.0004 = {
 					scope:activity = {
                         AND = {
 						    has_activity_option = {
-						    	category = TCT_saint_days_cost_type
-						    	option = TCT_saint_days_cost_type_small
+						    	category = tct_saint_days_cost_type
+						    	option = tct_saint_days_cost_type_small
 						    }
                             has_activity_option = {
-						        category = TCT_saint_days_procession_type
-						        option = TCT_saint_days_procession_type_modest
+						        category = tct_saint_days_procession_type
+						        option = tct_saint_days_procession_type_modest
 						    }
                         }
 					}
 				}
-				desc = TCT_saint_days.0004.desc.a
+				desc = tct_saint_days.0004.desc.a
 			}
 			triggered_desc = {
 				trigger = {
 					scope:activity = {
                         AND = {
 						    has_activity_option = {
-						    	category = TCT_saint_days_cost_type
-						    	option = TCT_saint_days_cost_type_small
+						    	category = tct_saint_days_cost_type
+						    	option = tct_saint_days_cost_type_small
 						    }
                             has_activity_option = {
-						        category = TCT_saint_days_procession_type
-						        option = TCT_saint_days_procession_type_sizeable
+						        category = tct_saint_days_procession_type
+						        option = tct_saint_days_procession_type_sizeable
 						    }
                         }
 					}
 				}
-				desc = TCT_saint_days.0004.desc.b
+				desc = tct_saint_days.0004.desc.b
 			}
             triggered_desc = {
 				trigger = {
 					scope:activity = {
                         AND = {
 						    has_activity_option = {
-						    	category = TCT_saint_days_cost_type
-						    	option = TCT_saint_days_cost_type_small
+						    	category = tct_saint_days_cost_type
+						    	option = tct_saint_days_cost_type_small
 						    }
                             has_activity_option = {
-						        category = TCT_saint_days_procession_type
-						        option = TCT_saint_days_procession_type_grand
+						        category = tct_saint_days_procession_type
+						        option = tct_saint_days_procession_type_grand
 						    }
                         }
 					}
 				}
-				desc = TCT_saint_days.0004.desc.c
+				desc = tct_saint_days.0004.desc.c
 			}
             triggered_desc = {
 				trigger = {
 					scope:activity = {
                         AND = {
 						    has_activity_option = {
-						    	category = TCT_saint_days_cost_type
-						    	option = TCT_saint_days_cost_type_large
+						    	category = tct_saint_days_cost_type
+						    	option = tct_saint_days_cost_type_large
 						    }
                             has_activity_option = {
-						        category = TCT_saint_days_procession_type
-						        option = TCT_saint_days_procession_type_modest
+						        category = tct_saint_days_procession_type
+						        option = tct_saint_days_procession_type_modest
 						    }
                         }
 					}
 				}
-				desc = TCT_saint_days.0004.desc.d
+				desc = tct_saint_days.0004.desc.d
 			}
             triggered_desc = {
 				trigger = {
 					scope:activity = {
                         AND = {
 						    has_activity_option = {
-						    	category = TCT_saint_days_cost_type
-						    	option = TCT_saint_days_cost_type_large
+						    	category = tct_saint_days_cost_type
+						    	option = tct_saint_days_cost_type_large
 						    }
                             has_activity_option = {
-						        category = TCT_saint_days_procession_type
-						        option = TCT_saint_days_procession_type_sizeable
+						        category = tct_saint_days_procession_type
+						        option = tct_saint_days_procession_type_sizeable
 						    }
                         }
 					}
 				}
-				desc = TCT_saint_days.0004.desc.e
+				desc = tct_saint_days.0004.desc.e
 			}
             triggered_desc = {
 				trigger = {
 					scope:activity = {
                         AND = {
 						    has_activity_option = {
-						    	category = TCT_saint_days_cost_type
-						    	option = TCT_saint_days_cost_type_large
+						    	category = tct_saint_days_cost_type
+						    	option = tct_saint_days_cost_type_large
 						    }
                             has_activity_option = {
-						        category = TCT_saint_days_procession_type
-						        option = TCT_saint_days_procession_type_grand
+						        category = tct_saint_days_procession_type
+						        option = tct_saint_days_procession_type_grand
 						    }
                         }
 					}
 				}
-				desc = TCT_saint_days.0004.desc.f
+				desc = tct_saint_days.0004.desc.f
 			}
 		}
 	}
@@ -289,15 +289,15 @@ TCT_saint_days.0004 = {
 	}
 	
 	option = { # Ok
-		name = TCT_saint_days.0004.a
+		name = tct_saint_days.0004.a
 		add_piety = saint_day_arrival_piety_gain
 		if = { # Procession: Sizeable
 			limit = {
 				scope:activity = {
 					NOT = {
 						has_activity_option = {
-							category = TCT_saint_days_procession_type
-							option = TCT_saint_days_procession_type_modest
+							category = tct_saint_days_procession_type
+							option = tct_saint_days_procession_type_modest
 						}
 					}
 				}
@@ -308,8 +308,8 @@ TCT_saint_days.0004 = {
 			limit = {
 				scope:activity = {
 					has_activity_option = {
-						category = TCT_saint_days_procession_type
-						option = TCT_saint_days_procession_type_modest
+						category = tct_saint_days_procession_type
+						option = tct_saint_days_procession_type_modest
 					}
 				}
 			}
@@ -318,7 +318,7 @@ TCT_saint_days.0004 = {
 					limit = { NOT = { this = root } }
 					custom = every_saint_days_celebration_participant
 					add_opinion = {
-						modifier = TCT_saint_days_procession_opinion
+						modifier = tct_saint_days_procession_opinion
 						target = root
 						opinion = 5
 					}
@@ -329,8 +329,8 @@ TCT_saint_days.0004 = {
 			limit = {
 				scope:activity = {
 					has_activity_option = {
-						category = TCT_saint_days_procession_type
-						option = TCT_saint_days_procession_type_sizeable
+						category = tct_saint_days_procession_type
+						option = tct_saint_days_procession_type_sizeable
 					}
 				}
 			}
@@ -339,7 +339,7 @@ TCT_saint_days.0004 = {
 					limit = { NOT = { this = root } }
 					custom = every_saint_days_celebration_participant
 					add_opinion = {
-						modifier = TCT_saint_days_procession_opinion
+						modifier = tct_saint_days_procession_opinion
 						target = root
 						opinion = 10
 					}
@@ -352,7 +352,7 @@ TCT_saint_days.0004 = {
 					limit = { NOT = { this = root } }
 					custom = every_saint_days_celebration_participant
 					add_opinion = {
-						modifier = TCT_saint_days_procession_opinion
+						modifier = tct_saint_days_procession_opinion
 						target = root
 						opinion = 10
 					}
@@ -360,143 +360,143 @@ TCT_saint_days.0004 = {
 			}
 		}
         trigger_event = {
-			id = TCT_saint_days.0005
+			id = tct_saint_days.0005
 			days = { 4 12 }
 		}
 	}
 }
 
 # Saint's Day Celebration
-TCT_saint_days.0005 = {
+tct_saint_days.0005 = {
 	type = activity_event
-	title = TCT_saint_days.0005.t
+	title = tct_saint_days.0005.t
 	desc = {
 		first_valid = {
 			triggered_desc = {
 				trigger = {
 					AND = {
-						has_activity_intent = TCT_saint_days_reverence_intent
+						has_activity_intent = tct_saint_days_reverence_intent
 						scope:activity = {
 							has_activity_option = {
 								category = special_type
-								option = TCT_saint_days_type_reverence
+								option = tct_saint_days_type_reverence
 							}
 						}
 					}
 				}
-				desc = TCT_saint_days.0005.desc.reverence_reverence
+				desc = tct_saint_days.0005.desc.reverence_reverence
 			}
 			triggered_desc = {
 				trigger = {
 					AND = {
-						has_activity_intent = TCT_saint_days_reverence_intent
+						has_activity_intent = tct_saint_days_reverence_intent
 						scope:activity = {
 							has_activity_option = {
 								category = special_type
-								option = TCT_saint_days_type_tradition
+								option = tct_saint_days_type_tradition
 							}
 						}
 					}
 				}
-				desc = TCT_saint_days.0005.desc.tradition_reverence
+				desc = tct_saint_days.0005.desc.tradition_reverence
 			}
 			triggered_desc = {
 				trigger = {
 					AND = {
-						has_activity_intent = TCT_saint_days_reverence_intent
+						has_activity_intent = tct_saint_days_reverence_intent
 						scope:activity = {
 							has_activity_option = {
 								category = special_type
-								option = TCT_saint_days_type_festivity
+								option = tct_saint_days_type_festivity
 							}
 						}
 					}
 				}
-				desc = TCT_saint_days.0005.desc.festivity_reverence
+				desc = tct_saint_days.0005.desc.festivity_reverence
 			}
 			triggered_desc = {
 				trigger = {
 					AND = {
-						has_activity_intent = TCT_saint_days_gratitude_intent
+						has_activity_intent = tct_saint_days_gratitude_intent
 						scope:activity = {
 							has_activity_option = {
 								category = special_type
-								option = TCT_saint_days_type_reverence
+								option = tct_saint_days_type_reverence
 							}
 						}
 					}
 				}
-				desc = TCT_saint_days.0005.desc.reverence_gratitude
+				desc = tct_saint_days.0005.desc.reverence_gratitude
 			}
 			triggered_desc = {
 				trigger = {
 					AND = {
-						has_activity_intent = TCT_saint_days_gratitude_intent
+						has_activity_intent = tct_saint_days_gratitude_intent
 						scope:activity = {
 							has_activity_option = {
 								category = special_type
-								option = TCT_saint_days_type_tradition
+								option = tct_saint_days_type_tradition
 							}
 						}
 					}
 				}
-				desc = TCT_saint_days.0005.desc.tradition_gratitude
+				desc = tct_saint_days.0005.desc.tradition_gratitude
 			}
 			triggered_desc = {
 				trigger = {
 					AND = {
-						has_activity_intent = TCT_saint_days_gratitude_intent
+						has_activity_intent = tct_saint_days_gratitude_intent
 						scope:activity = {
 							has_activity_option = {
 								category = special_type
-								option = TCT_saint_days_type_festivity
+								option = tct_saint_days_type_festivity
 							}
 						}
 					}
 				}
-				desc = TCT_saint_days.0005.desc.festivity_gratitude
+				desc = tct_saint_days.0005.desc.festivity_gratitude
 			}
 			triggered_desc = {
 				trigger = {
 					AND = {
-						has_activity_intent = TCT_saint_days_atonement_intent
+						has_activity_intent = tct_saint_days_atonement_intent
 						scope:activity = {
 							has_activity_option = {
 								category = special_type
-								option = TCT_saint_days_type_reverence
+								option = tct_saint_days_type_reverence
 							}
 						}
 					}
 				}
-				desc = TCT_saint_days.0005.desc.reverence_atonement
+				desc = tct_saint_days.0005.desc.reverence_atonement
 			}
 			triggered_desc = {
 				trigger = {
 					AND = {
-						has_activity_intent = TCT_saint_days_atonement_intent
+						has_activity_intent = tct_saint_days_atonement_intent
 						scope:activity = {
 							has_activity_option = {
 								category = special_type
-								option = TCT_saint_days_type_tradition
+								option = tct_saint_days_type_tradition
 							}
 						}
 					}
 				}
-				desc = TCT_saint_days.0005.desc.tradition_atonement
+				desc = tct_saint_days.0005.desc.tradition_atonement
 			}
 			triggered_desc = {
 				trigger = {
 					AND = {
-						has_activity_intent = TCT_saint_days_atonement_intent
+						has_activity_intent = tct_saint_days_atonement_intent
 						scope:activity = {
 							has_activity_option = {
 								category = special_type
-								option = TCT_saint_days_type_festivity
+								option = tct_saint_days_type_festivity
 							}
 						}
 					}
 				}
-				desc = TCT_saint_days.0005.desc.festivity_atonement
+				desc = tct_saint_days.0005.desc.festivity_atonement
 			}
 		}
 	}
@@ -509,7 +509,7 @@ TCT_saint_days.0005 = {
 				scope:activity = {
 					has_activity_option = {
 						category = special_type
-						option = TCT_saint_days_type_reverence
+						option = tct_saint_days_type_reverence
 					}
 				}
 			}
@@ -520,7 +520,7 @@ TCT_saint_days.0005 = {
 				scope:activity = {
 					has_activity_option = {
 						category = special_type
-						option = TCT_saint_days_type_tradition
+						option = tct_saint_days_type_tradition
 					}
 				}
 			}
@@ -531,7 +531,7 @@ TCT_saint_days.0005 = {
 				scope:activity = {
 					has_activity_option = {
 						category = special_type
-						option = TCT_saint_days_type_festivity
+						option = tct_saint_days_type_festivity
 					}
 				}
 			}
@@ -548,7 +548,7 @@ TCT_saint_days.0005 = {
 				scope:activity = {
 					has_activity_option = {
 						category = special_type
-						option = TCT_saint_days_type_reverence
+						option = tct_saint_days_type_reverence
 					}
 				}
 			}
@@ -559,7 +559,7 @@ TCT_saint_days.0005 = {
 				scope:activity = {
 					has_activity_option = {
 						category = special_type
-						option = TCT_saint_days_type_tradition
+						option = tct_saint_days_type_tradition
 					}
 				}
 			}
@@ -570,7 +570,7 @@ TCT_saint_days.0005 = {
 				scope:activity = {
 					has_activity_option = {
 						category = special_type
-						option = TCT_saint_days_type_festivity
+						option = tct_saint_days_type_festivity
 					}
 				}
 			}
@@ -594,17 +594,17 @@ TCT_saint_days.0005 = {
 	}
 	
 	option = { # Ok
-		name = TCT_saint_days.0005.a
+		name = tct_saint_days.0005.a
 		dynasty = {
 			add_dynasty_prestige = saint_day_end_renown_gain
 		}
         if = {
 			limit = {
-				has_activity_intent = TCT_saint_days_reverence_intent
+				has_activity_intent = tct_saint_days_reverence_intent
 				scope:activity = {
 					has_activity_option = {
 						category = special_type
-						option = TCT_saint_days_type_reverence
+						option = tct_saint_days_type_reverence
 					}
 				}
 			}
@@ -620,11 +620,11 @@ TCT_saint_days.0005 = {
 		}
 		else_if = {
 			limit = {
-				has_activity_intent = TCT_saint_days_reverence_intent
+				has_activity_intent = tct_saint_days_reverence_intent
 				scope:activity = {
 					has_activity_option = {
 						category = special_type
-						option = TCT_saint_days_type_tradition
+						option = tct_saint_days_type_tradition
 					}
 				}
 			}
@@ -640,11 +640,11 @@ TCT_saint_days.0005 = {
 		}
 		else_if = {
 			limit = {
-				has_activity_intent = TCT_saint_days_reverence_intent
+				has_activity_intent = tct_saint_days_reverence_intent
 				scope:activity = {
 					has_activity_option = {
 						category = special_type
-						option = TCT_saint_days_type_festivity
+						option = tct_saint_days_type_festivity
 					}
 				}
 			}
@@ -664,11 +664,11 @@ TCT_saint_days.0005 = {
 		else_if = {
 			limit = {
 				AND = {
-					has_activity_intent = TCT_saint_days_gratitude_intent
+					has_activity_intent = tct_saint_days_gratitude_intent
 					scope:activity = {
 						has_activity_option = {
 							category = special_type
-							option = TCT_saint_days_type_reverence
+							option = tct_saint_days_type_reverence
 						}
 					}
 				}
@@ -686,11 +686,11 @@ TCT_saint_days.0005 = {
 		else_if = {
 			limit = {
 				AND = {
-					has_activity_intent = TCT_saint_days_gratitude_intent
+					has_activity_intent = tct_saint_days_gratitude_intent
 					scope:activity = {
 						has_activity_option = {
 							category = special_type
-							option = TCT_saint_days_type_tradition
+							option = tct_saint_days_type_tradition
 						}
 					}
 				}
@@ -708,11 +708,11 @@ TCT_saint_days.0005 = {
 		else_if = {
 			limit = {
 				AND = {
-					has_activity_intent = TCT_saint_days_gratitude_intent
+					has_activity_intent = tct_saint_days_gratitude_intent
 					scope:activity = {
 						has_activity_option = {
 							category = special_type
-							option = TCT_saint_days_type_festivity
+							option = tct_saint_days_type_festivity
 						}
 					}
 				}
@@ -735,11 +735,11 @@ TCT_saint_days.0005 = {
 		else_if = {
 			limit = {
 				AND = {
-					has_activity_intent = TCT_saint_days_atonement_intent
+					has_activity_intent = tct_saint_days_atonement_intent
 					scope:activity = {
 						has_activity_option = {
 							category = special_type
-							option = TCT_saint_days_type_reverence
+							option = tct_saint_days_type_reverence
 						}
 					}
 				}
@@ -757,11 +757,11 @@ TCT_saint_days.0005 = {
 		else_if = {
 			limit = {
 				AND = {
-					has_activity_intent = TCT_saint_days_atonement_intent
+					has_activity_intent = tct_saint_days_atonement_intent
 					scope:activity = {
 						has_activity_option = {
 							category = special_type
-							option = TCT_saint_days_type_tradition
+							option = tct_saint_days_type_tradition
 						}
 					}
 				}
@@ -779,11 +779,11 @@ TCT_saint_days.0005 = {
 		else_if = {
 			limit = {
 				AND = {
-					has_activity_intent = TCT_saint_days_atonement_intent
+					has_activity_intent = tct_saint_days_atonement_intent
 					scope:activity = {
 						has_activity_option = {
 							category = special_type
-							option = TCT_saint_days_type_festivity
+							option = tct_saint_days_type_festivity
 						}
 					}
 				}

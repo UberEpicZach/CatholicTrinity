@@ -1,4 +1,4 @@
-﻿TCT_antiking_faction_setup = {
+﻿tct_antiking_faction_setup = {
 	scope = character
 	effect = {
 		save_scope_as = actor

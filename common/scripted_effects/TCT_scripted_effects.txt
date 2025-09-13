@@ -1,30 +1,30 @@
-﻿# TCT_papacy_story_setup_effect = {
+﻿# tct_papacy_story_setup_effect = {
 # 	set_variable = {
-# 		name = TCT_papal_authority
+# 		name = tct_papal_authority
 # 		value = 0
 # 	}
 # 	# set_variable = {
-# 	# 	name = TCT_papal_authority_years_reigned
+# 	# 	name = tct_papal_authority_years_reigned
 # 	# 	value = 0
 # 	# }
 # 	# set_variable = {
-# 	# 	name = TCT_papal_authority_vassals_var
+# 	# 	name = tct_papal_authority_vassals_var
 # 	# 	value = 0
 # 	# }
 # 	# set_variable = {
-# 	# 	name = TCT_papal_authority_vassals_bonus_var
+# 	# 	name = tct_papal_authority_vassals_bonus_var
 # 	# 	value = 0
 # 	# }
 # 	# set_variable = {
-# 	# 	name = TCT_papal_authority_vassals_war_var
+# 	# 	name = tct_papal_authority_vassals_war_var
 # 	# 	value = 0
 # 	# }
 # 	# set_variable = {
-# 	# 	name = TCT_papal_authority_infidels_var
+# 	# 	name = tct_papal_authority_infidels_var
 # 	# 	value = 0
 # 	# }
 # 	# set_variable = {
-# 	# 	name = TCT_papal_authority_unheld_heartlands
+# 	# 	name = tct_papal_authority_unheld_heartlands
 # 	# 	value = 0
 # 	# }
 
@@ -426,16 +426,16 @@ scripted_effect_popethingevent = {
 
 # ROT
 
-TCT_get_pope_of_target = {
+tct_get_pope_of_target = {
 	$TARGET$ = {
 		if = {
-			limit = { exists = var:TCT_antipope_of_ruler }
-			var:TCT_antipope_of_ruler = { save_scope_as = pope_of_target }
+			limit = { exists = var:tct_antipope_of_ruler }
+			var:tct_antipope_of_ruler = { save_scope_as = pope_of_target }
 		}
 		else = {
 			every_liege_or_above = {
-				limit = { exists = var:TCT_antipope_of_ruler }
-				var:TCT_antipope_of_ruler = { save_scope_as = pope_of_target }
+				limit = { exists = var:tct_antipope_of_ruler }
+				var:tct_antipope_of_ruler = { save_scope_as = pope_of_target }
 			}
 		}
 		if = {
@@ -457,16 +457,20 @@ TCT_get_pope_of_target = {
 	}
 }
 
-TCT_is_pope_test = {
+tct_get_local_church_authority = {
+	
+}
+
+tct_is_pope_test = {
 	if = {
 		limit = { 
-			TCT_is_pope_of_target_trigger = { TARGET = scope:actor POPE = root } 
+			tct_is_pope_of_target_trigger = { TARGET = scope:actor POPE = root } 
 		}
 		root = { add_gold = 1000 }
 	}
 }
 
-TCT_random_pope_name = {
+tct_random_pope_name = {
 	random_list = {
 		25 = {
 			modifier = {
@@ -823,7 +827,7 @@ TCT_random_pope_name = {
 }
 
 
-TCT_create_antipope = {
+tct_create_antipope = {
 	$CREATOR$.culture = {
 		save_scope_as = liege_culture
 	}
@@ -847,7 +851,7 @@ TCT_create_antipope = {
 			change_first_name = Clemens
 		}
 		else = {
-			TCT_random_pope_name = yes
+			tct_random_pope_name = yes
 		}
 
 		set_variable = {
@@ -855,26 +859,26 @@ TCT_create_antipope = {
 			value = scope:duplicatename
 		}
 
-		save_scope_as = TCT_antipope
-		add_trait = TCT_antipope
+		save_scope_as = tct_antipope
+		add_trait = tct_antipope
 		add_opinion = {
-			modifier = TCT_created_antipope
+			modifier = tct_created_antipope
 			target = $CREATOR$
 		}
 		faith = {
 			add_to_variable_list = {
-				name = TCT_antipopes
+				name = tct_antipopes
 				target = prev
 			}
 		}
 		set_variable = {
-			name = TCT_ruler_of_antipope
+			name = tct_ruler_of_antipope
 			value = $CREATOR$
 		}
 	}
 	create_dynamic_title = {
 		tier = duchy
-		name = TCT_ANTIPAPCY
+		name = tct_ANTIPAPCY
 	}
 	create_title_and_vassal_change = {
 		type = created
@@ -914,12 +918,12 @@ TCT_create_antipope = {
 		add_piety = massive_piety_loss
 		faith.religious_head = {
 			add_opinion = {
-				modifier = TCT_creator_of_antipope
+				modifier = tct_creator_of_antipope
 				target = title:e_hre.holder
 			}
 		}
 		set_variable = {
-			name = TCT_antipope_of_ruler
+			name = tct_antipope_of_ruler
 			value = $ANTIPOPE$
 		}
 		if = {
@@ -940,33 +944,33 @@ TCT_create_antipope = {
 	}
 }
 
-TCT_remove_antipope = {
-	remove_trait = TCT_antipope
+tct_remove_antipope = {
+	remove_trait = tct_antipope
 	faith = {
 		if = {
 			limit = { 
-				has_variable_list = TCT_antipopes
+				has_variable_list = tct_antipopes
 				is_target_in_variable_list = {
-					name = TCT_antipopes
+					name = tct_antipopes
 					target = prev
 				}
 			}
 			remove_list_variable = {
-				name = TCT_antipopes
+				name = tct_antipopes
 				target = prev
 			}
 		}
 	}
 	every_living_character = {
-		limit = { exists = var:TCT_antipope_of_ruler }
+		limit = { exists = var:tct_antipope_of_ruler }
 		if = {
-			limit = { var:TCT_antipope_of_ruler = prev }
-			remove_variable = TCT_antipope_of_ruler
+			limit = { var:tct_antipope_of_ruler = prev }
+			remove_variable = tct_antipope_of_ruler
 		}
 	}
 	if = {
-		limit = { exists = var:TCT_ruler_of_antipope }
-		remove_variable = TCT_ruler_of_antipope
+		limit = { exists = var:tct_ruler_of_antipope }
+		remove_variable = tct_ruler_of_antipope
 	}
 }
 
@@ -1017,19 +1021,19 @@ send_child_to_clergy_effect_for_events = {
 }
 
 conclave_influence_variable_removing_effect = {
-	remove_variable = TCT_conclave_influence
+	remove_variable = tct_conclave_influence
 }
 
 conclave_influence_variable_initializing_effect = {
 	set_variable = {
-		name = TCT_conclave_influence
+		name = tct_conclave_influence
 		value = 1
 	}
 }
 
 conclave_influence_variable_change_effect = {
 	change_variable = {
-		name = TCT_conclave_influence
+		name = tct_conclave_influence
 		add = 1
 	}
 }
@@ -1210,7 +1214,7 @@ hof_ask_for_claim_interaction_effect = {
 }
 
 
-TCT_theocrat_investiture_opinion = {
+tct_theocrat_investiture_opinion = {
 	if = {
 		limit = {
 			any_held_title = {
@@ -1260,7 +1264,7 @@ TCT_theocrat_investiture_opinion = {
 	}
 }
 
-TCT_investiture_add_to_gui = {
+tct_investiture_add_to_gui = {
 	ordered_vassal = {
 		limit = { has_government = theocracy_government }
 		order_by = highest_held_title_tier

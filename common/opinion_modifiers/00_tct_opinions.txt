@@ -1,9 +1,9 @@
-﻿TCT_free_investiture = {
+﻿tct_free_investiture = {
 	monthly_change = 0.5
 	decaying = yes
 }
 
-TCT_papal_investiture = {
+tct_papal_investiture = {
 	monthly_change = 0.5
 	decaying = yes
 }
@@ -23,11 +23,11 @@ bishop_bribed_by_pope = {
 	decaying = yes
 }
 
-TCT_created_antipope = {
+tct_created_antipope = {
 	opinion = 30
 	years = 20
 }
-TCT_creator_of_antipope = {
+tct_creator_of_antipope = {
 	opinion = -300
 	years = 50
 }
@@ -47,7 +47,7 @@ veterancrusaderrefuted = {
 	decaying = yes
 }
 
-TCT_christmas_opinion = {
+tct_christmas_opinion = {
 	opinion = 30
 	decaying = yes
 	years = 3
@@ -60,36 +60,36 @@ holidays_bouquet = {
 }
 
 #Sainthood
-TCT_opinion_supported_priest = {
+tct_opinion_supported_priest = {
 	opinion = 5
 	years = 5
 }
 
-TCT_opinion_annoyed_priest = {
+tct_opinion_annoyed_priest = {
 	opinion = -20
 	years = 5
 }
 #Saint's Day
-TCT_saintdaysaint_opinion = {
+tct_saintdaysaint_opinion = {
 	decaying = yes
 	years = 3
 }
-TCT_saint_days_procession_opinion = {
+tct_saint_days_procession_opinion = {
 	decaying = yes
 	years = 5
 }
 
-TCT_helped_in_religious_war = {
+tct_helped_in_religious_war = {
 	decaying = yes
 	years = 15
 }
 
-TCT_appointed_bishop_investiture_bad = {
+tct_appointed_bishop_investiture_bad = {
 	decaying = yes
 	years = 10
 }
 
-TCT_appointed_bishop_investiture_good = {
+tct_appointed_bishop_investiture_good = {
 	decaying = yes
 	years = 10
 }

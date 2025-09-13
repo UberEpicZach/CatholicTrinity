@@ -1,0 +1,159 @@
+﻿namespace = 
+
+
+.1 = { #A Pope and His Estates
+	title = .1.t
+	desc = .1.desc
+	theme = unfriendly
+	left_portrait = {
+		character = root
+	}
+
+	trigger = {		
+		root.faith = faith:catholic
+		exists = faith:catholic.religious_head
+		faith:catholic.religious_head = {
+			has_title = title:k_papal_state
+			dynasty = root.dynasty 
+		}
+		title:k_papal_state.holder = { 
+			NOT = { 
+				OR = { 
+					has_trait = greedy 
+					has_trait = zealous 
+				} 
+			} 
+		}
+
+		OR = {
+			any_sibling = {
+				is_male = yes
+				is_ruler = no
+				root.primary_title = {
+					place_in_line_of_succession = {
+					  target = PREV
+					  value > 2
+					}
+				}
+			}
+			any_child = {
+				is_male = yes
+				is_ruler = no
+				root.primary_title = {
+					place_in_line_of_succession = {
+					  target = PREV
+					  value > 2
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		title:k_papal_state.holder = {
+			save_scope_as = scoped_pope
+		}
+		scripted_effect_popethingevent = yes
+	}
+
+	option = { 
+		name = .1.a
+			scope:player_one = {
+				add_opinion = {
+					target = title:k_papal_state.holder 
+					opinion = 100
+					modifier = grateful_opinion
+				} 
+				add_opinion = {
+					target = ROOT
+					opinion = 100
+					modifier = grateful_opinion
+				} 
+
+				set_employer = title:k_papal_state.holder 
+				add_character_modifier = {
+					modifier = tct_governs_vast_estates
+					years = 5
+				}
+			}
+
+			scope:player_two = { 
+				add_opinion = {
+					target = title:k_papal_state.holder 
+					opinion = 100
+					modifier = grateful_opinion
+				} 
+
+				reverse_add_opinion = {
+					target = ROOT
+					opinion = 100
+					modifier = grateful_opinion
+				} 
+				set_employer = title:k_papal_state.holder 
+				add_character_modifier = {
+					modifier = tct_governs_vast_estates
+					years = 5
+				}
+			}
+			
+			title:k_papal_state.holder = {
+				add_opinion = {
+					target = scope:player_one
+					opinion = 20
+					modifier = grateful_opinion
+				} 
+
+				add_opinion = {
+					target = scope:player_two
+					opinion = 20
+					modifier = grateful_opinion
+				} 
+
+				add_opinion = {
+					target = ROOT
+					opinion = 15
+					modifier = grateful_opinion
+				}
+			}
+		
+		ai_chance = {
+			base = 100
+		}
+	}
+
+	# option = {
+	# 	name = .1.b
+
+	# 	add_piety = 50
+
+	# 	title:k_papal_state.holder = {
+	# 		add_opinion = {
+	# 			target = ROOT
+	# 			opinion = -15
+	# 			modifier = disappointed_opinion
+	# 		}
+	# 	}
+	# }
+
+	# option = {
+	# 	name = .1.c
+	# 	trigger = {
+	# 		OR = {
+	# 			has_trait = zealous
+	# 			learning <= 10
+	# 		}
+	# 	add_piety = 50
+
+	# 	title:k_papal_state.holder = {
+	# 		add_opinion = {
+	# 			target = ROOT
+	# 			opinion = -15
+	# 			modifier = disappointed_opinion
+	# 		}
+	# 		add_piety = -100
+	# 	}
+	# 	add_piety = 200
+	# 	add_learning_skill = 1
+	# 	}
+	# }
+}

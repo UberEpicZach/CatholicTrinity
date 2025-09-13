@@ -263,12 +263,12 @@ types Cardinals {
 
 		# # Testing?
 		# onclick = "[GetVariableSystem.Set( 'church_view_tabs', 'holychurch' )]"
-		# datacontext = "[GetScriptedGui( 'TCT_update_archbishoric' )]"
-		# #datacontext = "[GetScriptedGui( 'TCT_update_pentarchy' )]"
+		# datacontext = "[GetScriptedGui( 'tct_update_archbishoric' )]"
+		# #datacontext = "[GetScriptedGui( 'tct_update_pentarchy' )]"
 		# onclick = "[GetVariableSystem.Toggle( 'pentarchy_open' )]"
 		# onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'faith', Faith.MakeScope ).End ) ]"
-		# onclick = "[GetScriptedGui( 'TCT_pentarchy_map' ).Execute(GuiScope.End)]"
-		# onclick = "[SetMapMode( 'TCT_pentarchy' )]"
+		# onclick = "[GetScriptedGui( 'tct_pentarchy_map' ).Execute(GuiScope.End)]"
+		# onclick = "[SetMapMode( 'tct_pentarchy' )]"
 		# down = "[GetVariableSystem.HasValue( 'church_view_tabs', 'holychurch' )]"
 
 		alwaystransparent = no
@@ -340,12 +340,12 @@ types Cardinals {
 				button_tab = {
                     layoutpolicy_horizontal = expanding
                     onclick = "[GetVariableSystem.Set( 'church_view_tabs', 'holychurch' )]"
-                    datacontext = "[GetScriptedGui( 'TCT_update_archbishoric' )]"
-					#datacontext = "[GetScriptedGui( 'TCT_update_pentarchy' )]"
+                    datacontext = "[GetScriptedGui( 'tct_update_archbishoric' )]"
+					#datacontext = "[GetScriptedGui( 'tct_update_pentarchy' )]"
 					onclick = "[GetVariableSystem.Toggle( 'pentarchy_open' )]"
 					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'faith', Faith.MakeScope ).End ) ]"
-					onclick = "[GetScriptedGui( 'TCT_pentarchy_map' ).Execute(GuiScope.End)]"
-					onclick = "[SetMapMode( 'TCT_pentarchy' )]"
+					onclick = "[GetScriptedGui( 'tct_pentarchy_map' ).Execute(GuiScope.End)]"
+					onclick = "[SetMapMode( 'tct_pentarchy' )]"
 					down = "[GetVariableSystem.HasValue( 'church_view_tabs', 'holychurch' )]"
                     text = HOLY_CHURCH
 					fontsize = 30
@@ -624,7 +624,7 @@ types Cardinals {
 				hbox = {
 					layoutpolicy_horizontal = expanding
 					layoutpolicy_vertical = expanding
-					datamodel = "[GetPlayer.MakeScope.GetList('TCT_ecumenical_patriarch_list')]"
+					datamodel = "[GetPlayer.MakeScope.GetList('tct_ecumenical_patriarch_list')]"
 					margin_right = 25
 					item = {
 						flowcontainer = {
@@ -635,7 +635,7 @@ types Cardinals {
 							vbox = {
 								text_label_center = {
 									parentanchor = top|left
-									text = "[Scope.GetCharacter.Custom('TCT_get_patriarchate_of_pentarch')]"
+									text = "[Scope.GetCharacter.Custom('tct_get_patriarchate_of_pentarch')]"
 									fontsize = 25
 									default_format = "#high"
 									#layoutpolicy_horizontal = expanding
@@ -691,7 +691,7 @@ types Cardinals {
 									}
 								}
 								text_label_center = {
-									text = "TCT_ecumenical_patriarch_name"
+									text = "tct_ecumenical_patriarch_name"
 									#layoutpolicy_horizontal = expanding
 									max_width = 200
 									fontsize = 18
@@ -707,7 +707,7 @@ types Cardinals {
 				
 				window_cardinal_fixedgrid = { # Pentarchs
 					name = "Pentarchs"
-					datamodel = "[GetPlayer.MakeScope.GetList('TCT_pentarchs_list')]"
+					datamodel = "[GetPlayer.MakeScope.GetList('tct_pentarchs_list')]"
 					layoutpolicy_horizontal = expanding
 					layoutpolicy_vertical = expanding
 					datamodel_wrap = 1
@@ -723,7 +723,7 @@ types Cardinals {
 										margin_top = 5
 										parentanchor = left
 										fontsize = 20
-										text = "[Scope.GetCharacter.Custom('TCT_get_patriarchate_of_pentarch')]"
+										text = "[Scope.GetCharacter.Custom('tct_get_patriarchate_of_pentarch')]"
 										layoutpolicy_horizontal = expanding
 									}
 									portrait_head = {
@@ -751,7 +751,7 @@ types Cardinals {
 
 				text_label_center = {
 					layoutpolicy_horizontal = expanding
-					text = "TCT_archbishoprics"
+					text = "tct_archbishoprics"
 					default_format = "#medium"
 					fontsize = 25
 				
@@ -777,7 +777,7 @@ types Cardinals {
 						# }
 						vbox = {
 							layoutpolicy_horizontal = expanding
-							datamodel = "[GetPlayer.MakeScope.GetList('TCT_archbishops_list')]"
+							datamodel = "[GetPlayer.MakeScope.GetList('tct_archbishops_list')]"
 							item = {
 								hbox = {
 									layoutpolicy_horizontal = expanding
@@ -810,13 +810,13 @@ types Cardinals {
 										text_single = {
 											parentanchor = left
 											layoutpolicy_horizontal = expanding
-											text = "TCT_patriarch_name"
+											text = "tct_patriarch_name"
 											#size = { 150 100 }
 										}
 										text_single = {
 											parentanchor = left
 											layoutpolicy_horizontal = expanding
-											text = "TCT_archbishop_territory"
+											text = "tct_archbishop_territory"
 											#size = { 150 100 }
 										}
 									}

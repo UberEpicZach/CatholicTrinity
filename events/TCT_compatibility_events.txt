@@ -1,6 +1,6 @@
-﻿namespace = TCT_compatibility
+﻿namespace = tct_compatibility
 
-# TCT_compatibility.1 = { # Community Flavor Pack compatibility
+# tct_compatibility.1 = { # Community Flavor Pack compatibility
 #     hidden = yes
 # 	orphan = yes 
 # 	trigger = {
@@ -11,7 +11,7 @@
 # 	}
 # }
 
-TCT_compatibility.2 = { # The Catholic Trinity compatibility
+tct_compatibility.2 = { # The Catholic Trinity compatibility
     hidden = yes
 	orphan = yes 
 	immediate = {
@@ -20,13 +20,13 @@ TCT_compatibility.2 = { # The Catholic Trinity compatibility
 			value = yes
 		}
 		set_global_variable = {
-			name = TCT_commissioned_sisitine_chapel
+			name = tct_commissioned_sisitine_chapel
 			value = yes
 		}
 	}
 }
 
-TCT_compatibility.3 = { # Kingdom of Heaven compatibility
+tct_compatibility.3 = { # Kingdom of Heaven compatibility
     hidden = yes
 	orphan = yes 
 	immediate = {

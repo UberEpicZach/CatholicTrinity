@@ -1,8 +1,8 @@
-﻿namespace = TCT_faction_demand
+﻿namespace = tct_faction_demand
 
-scripted_effect TCT_faction_demand_ANTIKING_rejected_effect = {
+scripted_effect tct_faction_demand_ANTIKING_rejected_effect = {
 	# This effect should always be placed here, _before_ all the other effects in the block.
-	trigger_event = { on_action = on_TCT_faction_demand_rejected }
+	trigger_event = { on_action = on_tct_faction_demand_rejected }
 	
 	show_as_tooltip = {
 		scope:faction = {
@@ -18,19 +18,19 @@ scripted_effect TCT_faction_demand_ANTIKING_rejected_effect = {
 
 # Claimant Faction Demand
 # by Ismael Serrano
-TCT_faction_demand.2001 = {
+tct_faction_demand.2001 = {
 	type = letter_event
 	sender = scope:faction_leader
 	opening = {
-		desc = "TCT_FACTION_DEMAND_ANTIKING"
+		desc = "tct_FACTION_DEMAND_ANTIKING"
 	}
 	desc = {
 		first_valid = {
 			triggered_desc = {
 				trigger = { scope:faction_claimant = scope:faction_leader }
-				desc = "TCT_FACTION_DEMAND_ANTIKING_DESC_ME"
+				desc = "tct_FACTION_DEMAND_ANTIKING_DESC_ME"
 			}
-			desc = "TCT_FACTION_DEMAND_ANTIKING_DESC"
+			desc = "tct_FACTION_DEMAND_ANTIKING_DESC"
 		}
 	}
 	
@@ -49,10 +49,10 @@ TCT_faction_demand.2001 = {
 	}
 
 	option = {
-		name = "TCT_FACTION_DEMAND_ACCEPT"
+		name = "tct_FACTION_DEMAND_ACCEPT"
 
 		# This effect should always be placed here, _before_ all the other effects in the block.
-		trigger_event = { on_action = on_TCT_faction_demand_accepted }
+		trigger_event = { on_action = on_tct_faction_demand_accepted }
 
 		add_dread = medium_dread_loss
 
@@ -61,7 +61,7 @@ TCT_faction_demand.2001 = {
 
 		scope:faction = {
 			every_faction_member = {
-				trigger_event = TCT_faction_demand.2002
+				trigger_event = tct_faction_demand.2002
 			}
 
 			special_title = {
@@ -144,7 +144,7 @@ TCT_faction_demand.2001 = {
 	}
 
 	# option = {
-	# 	name = "TCT_FACTION_DEMAND_BRIBE_CO_EMPEROR"
+	# 	name = "tct_FACTION_DEMAND_BRIBE_CO_EMPEROR"
 	# 	show_as_unavailable = {
 	# 		OR = {
 	# 			has_active_diarchy = yes
@@ -154,7 +154,7 @@ TCT_faction_demand.2001 = {
 	# 	trigger = {
 	# 		faction_target_can_attempt_to_bribe_with_co_emperorship_trigger = yes
 	# 		custom_tooltip = {
-	# 			text = TCT_FACTION_DEMAND_BRIBE_CO_EMPEROR_REASON
+	# 			text = tct_FACTION_DEMAND_BRIBE_CO_EMPEROR_REASON
 	# 			scope:faction_leader = scope:faction.special_character
 	# 		}
 	# 	}
@@ -165,31 +165,31 @@ TCT_faction_demand.2001 = {
 	# 		random_list = {
 	# 			# They accept!
 	# 			100 = {
-	# 				desc = TCT_faction_demand.0000.faction_leader_accepts
+	# 				desc = tct_faction_demand.0000.faction_leader_accepts
 	# 				show_chance = no
-	# 				TCT_faction_demand_counter_offer_co_rule_start_diarchy_effect = yes
-	# 				TCT_faction_demand_ANTIKING_counter_offer_corule_accepted_effect = yes
+	# 				tct_faction_demand_counter_offer_co_rule_start_diarchy_effect = yes
+	# 				tct_faction_demand_ANTIKING_counter_offer_corule_accepted_effect = yes
 	# 			}
 	# 			# They decline.
 	# 			100 = {
-	# 				desc = TCT_faction_demand.0000.faction_leader_rejects
+	# 				desc = tct_faction_demand.0000.faction_leader_rejects
 	# 				show_chance = no
-	# 				TCT_faction_demand_ANTIKING_rejected_effect = yes
+	# 				tct_faction_demand_ANTIKING_rejected_effect = yes
 	# 			}
 	# 		}
 	# 	}
 	# 	## And sorting the actual flow.
-	# 	scope:faction_leader = { trigger_event = TCT_faction_demand.2006 }
+	# 	scope:faction_leader = { trigger_event = tct_faction_demand.2006 }
 
 	# 	ai_chance = { liege_offer_co_emperorship_to_faction_leader_modifier = yes }
 	# }
 
 	option = {
-		name = "TCT_FACTION_DEMAND_REFUSE"
+		name = "tct_FACTION_DEMAND_REFUSE"
 
-		TCT_faction_demand_ANTIKING_rejected_effect = yes
+		tct_faction_demand_ANTIKING_rejected_effect = yes
 		
-		scope:faction_leader = { trigger_event = TCT_faction_demand.2003 }
+		scope:faction_leader = { trigger_event = tct_faction_demand.2003 }
 
 		ai_chance = {
 			base = 100
@@ -244,13 +244,13 @@ TCT_faction_demand.2001 = {
 
 # Claimant Faction Demand Accepted
 # by Ismael Serrano
-TCT_faction_demand.2002 = {
+tct_faction_demand.2002 = {
 	type = letter_event
 	sender = scope:faction_target
 	opening = {
-		desc = "TCT_FACTION_DEMAND_ANTIKING_ACCEPTED"
+		desc = "tct_FACTION_DEMAND_ANTIKING_ACCEPTED"
 	}
-	desc = "TCT_FACTION_DEMAND_ANTIKING_ACCEPTED_DESC"
+	desc = "tct_FACTION_DEMAND_ANTIKING_ACCEPTED_DESC"
 
 	option = {
 		name = "FACTION_DEMAND_ACCEPTED_OPT"
@@ -259,13 +259,13 @@ TCT_faction_demand.2002 = {
 
 # Claimant Faction Demand Refused
 # by Ismael Serrano
-TCT_faction_demand.2003 = {
+tct_faction_demand.2003 = {
 	type = letter_event
 	sender = scope:faction_target
 	opening = {
-		desc = "TCT_FACTION_DEMAND_ANTIKING_REFUSED"
+		desc = "tct_FACTION_DEMAND_ANTIKING_REFUSED"
 	}
-	desc = "TCT_FACTION_DEMAND_ANTIKING_REFUSED_DESC"
+	desc = "tct_FACTION_DEMAND_ANTIKING_REFUSED_DESC"
 
 	option = {
 		name = "FACTION_DEMAND_REFUSED_OPT"
@@ -274,7 +274,7 @@ TCT_faction_demand.2003 = {
 				limit = {
 					NOT = { this = root } # i.e. not faction leader, even when the war disbands the faction
 				}
-				trigger_event = TCT_faction_demand.2004
+				trigger_event = tct_faction_demand.2004
 			}
 			
 			faction_start_war = {
@@ -293,29 +293,29 @@ TCT_faction_demand.2003 = {
 
 # Claimant Faction Demand Refused Member Notice
 # by Ismael Serrano
-TCT_faction_demand.2004 = {
+tct_faction_demand.2004 = {
 	type = letter_event
 	sender = scope:faction_target
 	opening = {
-		desc = "TCT_FACTION_DEMAND_ANTIKING_REFUSED"
+		desc = "tct_FACTION_DEMAND_ANTIKING_REFUSED"
 	}
-	desc = "TCT_FACTION_DEMAND_ANTIKING_REFUSED_DESC"
+	desc = "tct_FACTION_DEMAND_ANTIKING_REFUSED_DESC"
 
 	option = {
 		name = "FACTION_DEMAND_REFUSED_OPT"	
-		custom_tooltip = TCT_faction_demand.2004.opt_tt
+		custom_tooltip = tct_faction_demand.2004.opt_tt
 	}
 }
 
 # Claimant Faction Demand Send Notice
 # by Ismael Serrano
-TCT_faction_demand.2005 = {
+tct_faction_demand.2005 = {
 	type = letter_event
 	sender = scope:faction_leader
 	opening = {
-		desc = "TCT_FACTION_DEMAND_ANTIKING_SEND_DEMAND_NOTIFICATION"
+		desc = "tct_FACTION_DEMAND_ANTIKING_SEND_DEMAND_NOTIFICATION"
 	}
-	desc = "TCT_FACTION_DEMAND_ANTIKING_SEND_DEMAND_NOTIFICATION_DESC"
+	desc = "tct_FACTION_DEMAND_ANTIKING_SEND_DEMAND_NOTIFICATION_DESC"
 
 	option = {
 		name = "FACTION_DEMAND_SEND_DEMAND_NOTIFICATION_OPT"	

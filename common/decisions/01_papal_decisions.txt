@@ -74,7 +74,7 @@
 			}
 			trigger_event = great_holy_war.0001
 			religious_head = {
-				trigger_event = TCT_religious_events.803
+				trigger_event = tct_religious_events.803
 			}
 		}
 	}
@@ -117,7 +117,7 @@ ProclaimDictatusPapae = {
 
 	effect = {
 		custom_tooltip = DictatusPapaeIncreaseCosts
-		trigger_event = TCT_religious_events.799
+		trigger_event = tct_religious_events.799
 	}
 	ai_will_do = {
 		base = 1000
@@ -140,7 +140,7 @@ InstallAntipope = {
 	ai_check_interval = 6
 
 	is_shown = {
-		has_variable = TCT_antipope_of_ruler
+		has_variable = tct_antipope_of_ruler
 		has_faith = faith:catholic
 		is_ruler = yes
 		is_landed = yes
@@ -151,7 +151,7 @@ InstallAntipope = {
 	}
 
 	is_valid = {
-		has_variable = TCT_antipope_of_ruler
+		has_variable = tct_antipope_of_ruler
 		has_faith = faith:catholic
 		is_ruler = yes
 		is_landed = yes
@@ -178,7 +178,7 @@ InstallAntipope = {
 	}
 
 	effect = {
-		TCT_get_pope_of_target = {
+		tct_get_pope_of_target = {
 			TARGET = root
 		}
 
@@ -230,7 +230,7 @@ DonationCountyClergy = {
 	effect = {
 		debug_log = "Granted a County to the Clergy"
 		trigger_event = {
-			id = TCT_religious_events.500
+			id = tct_religious_events.500
 		}
 	}
 
@@ -476,11 +476,15 @@ Declare_Minor_Crusade = {
 
 	effect = {
 		custom_tooltip = Launch_Minor_Crusade_decision_effect_tooltip
-		trigger_event = TCT_religious_events.810
+		trigger_event = tct_religious_events.810
 	}
 }
 
-manage_papal_affairs = {	
+manage_papal_affairs = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_legitimacy.dds"
+	}
+	
 	is_shown = {
 		has_title = title:k_papal_state
 		is_ai = no
@@ -494,39 +498,39 @@ manage_papal_affairs = {
 
 		item = { # Divorce
 			value = papal_divorce_request
-			current_description = manage_papal_affairs_divorce_desc
+			current_description = papal_affairs_divorce_tooltip
 			localization = manage_papal_affairs_divorce
 			icon = "gfx/interface/icons/character_interactions/icon_marriage.dds"
 		} 
 		item = { #Requests for Gold
 			value = papal_gold_request
-			current_description = manage_papal_affairs_gold_desc
+			current_description = papal_affairs_gold_tooltip
 			localization = manage_papal_affairs_gold
 			icon = "gfx/interface/icons/character_interactions/request_funding_interaction.dds"
 		}
 		item = { #Excomunication requests
 			value = papal_excomunication_request
-			current_description = manage_papal_affairs_excommunication_desc
+			current_description = papal_affairs_excommunication_tooltip
 			localization = manage_papal_affairs_excommunication
 			icon = "gfx/interface/icons/character_interactions/excommunication.dds"
 		}
 	}
 
 	effect = {
-		custom_tooltip = recruit_court_position_decision_tt
+		custom_tooltip = choose_papal_affair_decision_tooltip
 		hidden_effect = {
-			custom_tooltip = recruit_court_position_decision_tooltip
+			custom_tooltip = choose_papal_affair_decision_tooltip
 			if = { # Divorce
 				limit = { scope:papal_divorce_request = yes }
-				trigger_event = TCT_religious_events.850
+				trigger_event = tct_religious_events.850
 			}
 			else_if = { # Request for Gold
 				limit = { scope:papal_gold_request = yes }
-				trigger_event = TCT_religious_events.851
+				trigger_event = tct_religious_events.851
 			}
 			else_if = { # Excommunication Request
 				limit = { scope:papal_excomunication_request = yes }
-				trigger_event = TCT_religious_events.852
+				trigger_event = tct_religious_events.852
 			}
 		}
 	}

@@ -1,4 +1,4 @@
-﻿TCT_region_pentarchy_rome = {
+﻿tct_region_pentarchy_rome = {
 	duchies = {
 		# Britania
 		d_bedford d_norfolk d_hereford d_gloucester d_canterbury d_somerset d_gwynedd d_powys d_deheubarth d_cornwall
@@ -87,7 +87,7 @@
 		d_tunis d_kroumerie d_kairouan d_jerid d_gabes d_tripolitania d_syrte
 	}
 }
-TCT_region_pentarchy_constantinople = {
+tct_region_pentarchy_constantinople = {
 	duchies = {
 		#Anatolia
 		d_ephese d_opsikion d_cilicia d_cibyrrhaeot d_anatolia d_thracesia d_bucellaria d_paphlagonia d_armeniac d_sebasteia d_charsianon d_cappadocia d_chaldia
@@ -125,7 +125,7 @@ TCT_region_pentarchy_constantinople = {
 	
 	}
 }
-TCT_region_pentarchy_alexandria = {
+tct_region_pentarchy_alexandria = {
 	duchies = {
 		# Egypt
 		d_cyrenaica d_alexandria d_delta d_cairo d_al-said  d_al-wahat d_eastern_desert 
@@ -142,7 +142,7 @@ TCT_region_pentarchy_alexandria = {
 		d_dawaro d_adal d_mora d_danakil d_zaila d_sanaag
 	}
 }
-TCT_region_pentarchy_antiochia = {
+tct_region_pentarchy_antiochia = {
 	duchies = {
 		#Syria
 		d_damascus d_aleppo d_antioch d_edessa d_homs d_lebanon d_palmyra d_cyprus
@@ -188,7 +188,7 @@ TCT_region_pentarchy_antiochia = {
 	# 	dlc_ep1_mongol_trade_region
 	# }
 }
-TCT_region_pentarchy_jerusalem = {
+tct_region_pentarchy_jerusalem = {
 	duchies = {
 		# Judea
 		d_sinai d_palestine d_urdunn d_amman

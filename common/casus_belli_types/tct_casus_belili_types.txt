@@ -297,7 +297,7 @@
 
 			add_opinion = {
 				target = scope:attacker
-				modifier = TCT_helped_in_religious_war
+				modifier = tct_helped_in_religious_war
 				opinion = 30
 			}
 		}
@@ -500,7 +500,7 @@ AntipopeCB = {
 	}
 
 	allowed_for_character = { 
-		has_variable = TCT_antipope_of_ruler
+		has_variable = tct_antipope_of_ruler
 		highest_held_title_tier >= tier_duchy
 	}
 
@@ -509,7 +509,7 @@ AntipopeCB = {
 		is_pope = yes
 		has_title = title:k_papal_state
 		faith = {
-			has_variable_list = TCT_antipopes
+			has_variable_list = tct_antipopes
 		}
 
 	}
@@ -523,7 +523,7 @@ AntipopeCB = {
 			NOT = { has_trait = incapable }
 			is_imprisoned = no
 			OR = {
-				has_trait = TCT_antipope
+				has_trait = tct_antipope
 			}
 		}
 	}

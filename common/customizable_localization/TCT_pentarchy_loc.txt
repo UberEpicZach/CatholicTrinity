@@ -1,4 +1,4 @@
-﻿TCT_get_patriarchate_of_barony = {
+﻿tct_get_patriarchate_of_barony = {
 	type = province
 	text = {
 		trigger = {
@@ -11,17 +11,17 @@
 				}
 			}
 		}
-		localization_key = TCT_NO_PATRIARCHATE_TITLE
+		localization_key = tct_NO_PATRIARCHATE_TITLE
 		#fallback = yes
 	}
 	text = {
-		localization_key = TCT_PATRIARCHATE_TITLE
+		localization_key = tct_PATRIARCHATE_TITLE
 		#fallback = yes
 	}
 }
 
 
-TCT_get_InvestitureLaw_of_barony = {
+tct_get_InvestitureLaw_of_barony = {
 	type = province
 	text = {
 		trigger = {
@@ -29,7 +29,7 @@ TCT_get_InvestitureLaw_of_barony = {
 				has_realm_law = free_investiture
 			}
 		}
-		localization_key = TCT_FreeInvestitureMapMode
+		localization_key = tct_FreeInvestitureMapMode
 		#fallback = yes
 	}
 	text = {
@@ -38,12 +38,12 @@ TCT_get_InvestitureLaw_of_barony = {
 				has_realm_law = papal_investiture
 			}
 		}
-		localization_key = TCT_PapalInvestitureMapMode
+		localization_key = tct_PapalInvestitureMapMode
 		#fallback = yes
 	}
 }
 
-TCT_get_patriarchate_of_pentarch = {
+tct_get_patriarchate_of_pentarch = {
 	type = character
 	text = {
 		trigger = {
@@ -52,30 +52,30 @@ TCT_get_patriarchate_of_pentarch = {
 				has_title = title:d_rome_patriarchate
 			}
 		}
-		localization_key = TCT_rom_title
+		localization_key = tct_rom_title
 	}
 	text = {
 		trigger = {
 			has_title = title:k_orthodox
 		}
-		localization_key = TCT_con_title
+		localization_key = tct_con_title
 	}
 	text = {
 		trigger = {
 			has_title = title:d_coptic_papacy
 		}
-		localization_key = TCT_ale_title
+		localization_key = tct_ale_title
 	}
 	text = {
 		trigger = {
 			has_title = title:d_antioch_patriarchate
 		}
-		localization_key = TCT_ant_title
+		localization_key = tct_ant_title
 	}
 	text = {
 		trigger = {
 			has_title = title:d_jerusalem_patriarchate
 		}
-		localization_key = TCT_jer_title
+		localization_key = tct_jer_title
 	}
 }

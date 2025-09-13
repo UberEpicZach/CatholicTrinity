@@ -1,9 +1,9 @@
-﻿namespace = TCT_religious_events
+﻿namespace = tct_religious_events
 
 
-TCT_religious_events.1 = { #A Pope and His Estates
-	title = TCT_religious_events.1.t
-	desc = TCT_religious_events.1.desc
+tct_religious_events.1 = { #A Pope and His Estates
+	title = tct_religious_events.1.t
+	desc = tct_religious_events.1.desc
 	theme = unfriendly
 	left_portrait = {
 		character = root
@@ -57,7 +57,7 @@ TCT_religious_events.1 = { #A Pope and His Estates
 	}
 
 	option = { 
-		name = TCT_religious_events.1.a
+		name = tct_religious_events.1.a
 			scope:player_one = {
 				add_opinion = {
 					target = title:k_papal_state.holder 
@@ -72,7 +72,7 @@ TCT_religious_events.1 = { #A Pope and His Estates
 
 				set_employer = title:k_papal_state.holder 
 				add_character_modifier = {
-					modifier = TCT_governs_vast_estates
+					modifier = tct_governs_vast_estates
 					years = 5
 				}
 			}
@@ -91,7 +91,7 @@ TCT_religious_events.1 = { #A Pope and His Estates
 				} 
 				set_employer = title:k_papal_state.holder 
 				add_character_modifier = {
-					modifier = TCT_governs_vast_estates
+					modifier = tct_governs_vast_estates
 					years = 5
 				}
 			}
@@ -122,7 +122,7 @@ TCT_religious_events.1 = { #A Pope and His Estates
 	}
 
 	# option = {
-	# 	name = TCT_religious_events.1.b
+	# 	name = tct_religious_events.1.b
 
 	# 	add_piety = 50
 
@@ -136,7 +136,7 @@ TCT_religious_events.1 = { #A Pope and His Estates
 	# }
 
 	# option = {
-	# 	name = TCT_religious_events.1.c
+	# 	name = tct_religious_events.1.c
 	# 	trigger = {
 	# 		OR = {
 	# 			has_trait = zealous
@@ -158,9 +158,9 @@ TCT_religious_events.1 = { #A Pope and His Estates
 	# }
 }
 
-TCT_religious_events.2 = { #Monks Make Good Beer
-	title = TCT_religious_events.2.t
-	desc = TCT_religious_events.2.desc
+tct_religious_events.2 = { #Monks Make Good Beer
+	title = tct_religious_events.2.t
+	desc = tct_religious_events.2.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = root
@@ -199,7 +199,7 @@ TCT_religious_events.2 = { #Monks Make Good Beer
 	}
 
 	option = { 
-		name = TCT_religious_events.2.a
+		name = tct_religious_events.2.a
 
 		if = {
 			limit = { NOT = { has_trait = drunkard } }
@@ -208,7 +208,7 @@ TCT_religious_events.2 = { #Monks Make Good Beer
 				add_trait = drunkard
 				send_interface_toast = {
 					type = event_toast_effect_bad
-					title =  TCT_religious_events.2.a.drunkard # TCT_religious_events.2.a.drunkard
+					title =  tct_religious_events.2.a.drunkard # tct_religious_events.2.a.drunkard
 					left_icon = root
 				}
 			}
@@ -220,7 +220,7 @@ TCT_religious_events.2 = { #Monks Make Good Beer
 	}
 
 	option = { 
-		name = TCT_religious_events.2.b
+		name = tct_religious_events.2.b
 
 		if = {
 			limit = { NOT = { has_trait = temperate } }
@@ -229,7 +229,7 @@ TCT_religious_events.2 = { #Monks Make Good Beer
 				add_trait = temperate
 				send_interface_toast = {
 					type = event_toast_effect_good
-					title =  TCT_religious_events.2.b.temperate
+					title =  tct_religious_events.2.b.temperate
 					left_icon = root
 				}
 			}
@@ -250,9 +250,9 @@ TCT_religious_events.2 = { #Monks Make Good Beer
 	}
 }
 
-TCT_religious_events.3 = { #Monks Make Good Wine
-	title = TCT_religious_events.3.t
-	desc = TCT_religious_events.3.desc
+tct_religious_events.3 = { #Monks Make Good Wine
+	title = tct_religious_events.3.t
+	desc = tct_religious_events.3.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = root
@@ -292,7 +292,7 @@ TCT_religious_events.3 = { #Monks Make Good Wine
 	}
 
 	option = { 
-		name = TCT_religious_events.3.a
+		name = tct_religious_events.3.a
 
 		random = {
 			chance = 50
@@ -305,7 +305,7 @@ TCT_religious_events.3 = { #Monks Make Good Wine
 				add_trait = drunkard
 				send_interface_toast = {
 					type = event_toast_effect_bad
-					title = TCT_religious_events.2.a.drunkard
+					title = tct_religious_events.2.a.drunkard
 					left_icon = root
 				}
 			}
@@ -317,7 +317,7 @@ TCT_religious_events.3 = { #Monks Make Good Wine
 	}
 
 	option = { 
-		name = TCT_religious_events.3.b
+		name = tct_religious_events.3.b
 
 		if = {
 			limit = { NOT = { has_trait = temperate } }
@@ -326,7 +326,7 @@ TCT_religious_events.3 = { #Monks Make Good Wine
 				add_trait = temperate
 				send_interface_toast = {
 					type = event_toast_effect_good
-					title = TCT_religious_events.2.b.temperate
+					title = tct_religious_events.2.b.temperate
 					left_icon = root
 				}
 			}
@@ -347,9 +347,9 @@ TCT_religious_events.3 = { #Monks Make Good Wine
 	}
 }
 
-TCT_religious_events.4 = { #Monks have healing herbs
-	title = TCT_religious_events.4.t
-	desc = TCT_religious_events.4.desc
+tct_religious_events.4 = { #Monks have healing herbs
+	title = tct_religious_events.4.t
+	desc = tct_religious_events.4.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = root
@@ -393,7 +393,7 @@ TCT_religious_events.4 = { #Monks have healing herbs
 	}
 
 	option = { 
-		name = TCT_religious_events.4.a
+		name = tct_religious_events.4.a
 
 		random = {
 			chance = 30
@@ -406,7 +406,7 @@ TCT_religious_events.4 = { #Monks have healing herbs
 	}
 
 	option = { 
-		name = TCT_religious_events.4.b
+		name = tct_religious_events.4.b
 
 		if = {
 			limit = { NOT = { has_trait = paranoid } }
@@ -424,9 +424,9 @@ TCT_religious_events.4 = { #Monks have healing herbs
 	}
 }
 
-TCT_religious_events.5 = { #Monks is fantastic painter
-	title = TCT_religious_events.5.t
-	desc = TCT_religious_events.5.desc
+tct_religious_events.5 = { #Monks is fantastic painter
+	title = tct_religious_events.5.t
+	desc = tct_religious_events.5.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = root
@@ -469,14 +469,14 @@ TCT_religious_events.5 = { #Monks is fantastic painter
 	}
 
 	option = { 
-		name = TCT_religious_events.5.a
+		name = tct_religious_events.5.a
 
 		remove_short_term_gold = 10
 		add_prestige = 30
 	}
 
 	option = { 
-		name = TCT_religious_events.5.b
+		name = tct_religious_events.5.b
 
 	}
 	after = {
@@ -490,9 +490,9 @@ TCT_religious_events.5 = { #Monks is fantastic painter
 	}
 }
 
-TCT_religious_events.6 = { #Monks is fantastic painter
-	title = TCT_religious_events.6.t
-	desc = TCT_religious_events.6.desc
+tct_religious_events.6 = { #Monks is fantastic painter
+	title = tct_religious_events.6.t
+	desc = tct_religious_events.6.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = root
@@ -532,14 +532,14 @@ TCT_religious_events.6 = { #Monks is fantastic painter
 	}
 
 	option = { 
-		name = TCT_religious_events.6.a
+		name = tct_religious_events.6.a
 
 		remove_short_term_gold = 10
 		add_prestige = 30
 	}
 
 	option = { 
-		name = TCT_religious_events.6.b
+		name = tct_religious_events.6.b
 
 	}
 	after = {
@@ -553,9 +553,9 @@ TCT_religious_events.6 = { #Monks is fantastic painter
 	}
 }
 
-TCT_religious_events.7 = { #Monks is fantastic painter
-	title = TCT_religious_events.7.t
-	desc = TCT_religious_events.7.desc
+tct_religious_events.7 = { #Monks is fantastic painter
+	title = tct_religious_events.7.t
+	desc = tct_religious_events.7.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = root
@@ -594,7 +594,7 @@ TCT_religious_events.7 = { #Monks is fantastic painter
 	}
 
 	option = { 
-		name = TCT_religious_events.7.a
+		name = tct_religious_events.7.a
 
 		remove_short_term_gold = 30
 		add_prestige = 30
@@ -604,7 +604,7 @@ TCT_religious_events.7 = { #Monks is fantastic painter
 		}
 	}
 	option = { 
-		name = TCT_religious_events.7.b
+		name = tct_religious_events.7.b
 
 	}
 	after = {
@@ -618,9 +618,9 @@ TCT_religious_events.7 = { #Monks is fantastic painter
 	}
 }
 
-TCT_religious_events.8 = { #Monastery Monks"
-	title = TCT_religious_events.8.t
-	desc = TCT_religious_events.8.desc
+tct_religious_events.8 = { #Monastery Monks"
+	title = tct_religious_events.8.t
+	desc = tct_religious_events.8.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = root
@@ -659,7 +659,7 @@ TCT_religious_events.8 = { #Monastery Monks"
 	}
 
 	option = { 
-		name = TCT_religious_events.8.a
+		name = tct_religious_events.8.a
 
 		add_piety = 20
 
@@ -669,7 +669,7 @@ TCT_religious_events.8 = { #Monastery Monks"
 		}
 	}
 	option = { 
-		name = TCT_religious_events.8.b
+		name = tct_religious_events.8.b
 		random_list = {
 			30 = {
 				if = {
@@ -694,9 +694,9 @@ TCT_religious_events.8 = { #Monastery Monks"
 	}
 }
 
-TCT_religious_events.12 = { #Donate to local monastery
-	title = TCT_religious_events.12.t
-	desc = TCT_religious_events.12.desc
+tct_religious_events.12 = { #Donate to local monastery
+	title = tct_religious_events.12.t
+	desc = tct_religious_events.12.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = root
@@ -726,13 +726,13 @@ TCT_religious_events.12 = { #Donate to local monastery
 	}
 
 	option = { 
-		name = TCT_religious_events.12.a
+		name = tct_religious_events.12.a
 		remove_short_term_gold = 30
 		add_piety = 30
 	}
 	
 	option = { 
-		name = TCT_religious_events.12.b
+		name = tct_religious_events.12.b
 		add_piety = -30
 	}
 	after = {
@@ -746,9 +746,9 @@ TCT_religious_events.12 = { #Donate to local monastery
 	}
 }
 
-TCT_religious_events.13 = { #Duty-Bound
-	title = TCT_religious_events.13.t
-	desc = TCT_religious_events.13.desc
+tct_religious_events.13 = { #Duty-Bound
+	title = tct_religious_events.13.t
+	desc = tct_religious_events.13.desc
 	theme = learning_scholarship_focus
 	right_portrait = {
 		character = scope:Priest
@@ -804,7 +804,7 @@ TCT_religious_events.13 = { #Duty-Bound
 	}
 
 	option = { 
-		name = TCT_religious_events.13.a
+		name = tct_religious_events.13.a
 		
 		scope:Priest = {
 			give_deviant_secret_or_trait_effect = yes
@@ -821,9 +821,9 @@ TCT_religious_events.13 = { #Duty-Bound
 	}
 }
 
-TCT_religious_events.14 = { #Duty-Bound - Varaint
-	title = TCT_religious_events.14.t
-	desc = TCT_religious_events.14.desc
+tct_religious_events.14 = { #Duty-Bound - Varaint
+	title = tct_religious_events.14.t
+	desc = tct_religious_events.14.desc
 	theme = learning_scholarship_focus
 	right_portrait = {
 		character = scope:Priest
@@ -889,7 +889,7 @@ TCT_religious_events.14 = { #Duty-Bound - Varaint
 	}
 
 	option = { 
-		name = TCT_religious_events.14.a
+		name = tct_religious_events.14.a
 		
 		scope:Priest = {
 			give_deviant_secret_or_trait_effect = yes
@@ -907,9 +907,9 @@ TCT_religious_events.14 = { #Duty-Bound - Varaint
 }
 
 #The Death of A Bishop: Appoint Investiture 
-TCT_religious_events.15 = {
-	title = TCT_religious_events.15.t
-	desc = TCT_religious_events.15.desc
+tct_religious_events.15 = {
+	title = tct_religious_events.15.t
+	desc = tct_religious_events.15.desc
 	theme = faith
 
 	left_portrait = {
@@ -939,10 +939,10 @@ TCT_religious_events.15 = {
 
 	# I care, let me choose!
 	option = {
-		name = TCT_religious_events.15.a
+		name = tct_religious_events.15.a
 
 		trigger_event = {
-			id = TCT_religious_events.16
+			id = tct_religious_events.16
 		}
 
 		ai_chance = {
@@ -952,7 +952,7 @@ TCT_religious_events.15 = {
 
 	# Let the Pope decide
 	option = {
-		name = TCT_religious_events.15.b
+		name = tct_religious_events.15.b
 
 		ai_chance = {
 			base = 0
@@ -1117,9 +1117,9 @@ scripted_effect get_investiture_characters = {
 }
 
 #The Death of A Bishop: Appoint Investiture
-TCT_religious_events.16 = {
-	title = TCT_religious_events.16.t
-	desc = TCT_religious_events.16.desc
+tct_religious_events.16 = {
+	title = tct_religious_events.16.t
+	desc = tct_religious_events.16.desc
 	theme = faith
 
 	left_portrait = {
@@ -1151,7 +1151,7 @@ TCT_religious_events.16 = {
 	
 	# Let Me Decide!
 	option = {
-		name = TCT_religious_events.16.a
+		name = tct_religious_events.16.a
         if = {
             limit = {
                 exists = var:si_selected_character
@@ -1164,7 +1164,7 @@ TCT_religious_events.16 = {
 			
 			scope:bishop_title.holder = {
 				save_scope_as = papal_appointed_bishop
-				TCT_theocrat_investiture_opinion = {
+				tct_theocrat_investiture_opinion = {
 					SUCCESSOR = scope:new_bishop
 				}
 			}
@@ -1211,7 +1211,7 @@ TCT_religious_events.16 = {
 			add_opinion = {
 				target = ROOT
 				opinion = -20
-				modifier = TCT_appointed_bishop_investiture_bad
+				modifier = tct_appointed_bishop_investiture_bad
 			}
 		}
 
@@ -1219,7 +1219,7 @@ TCT_religious_events.16 = {
 			add_opinion = {
 				target = ROOT
 				opinion = -20
-				modifier = TCT_appointed_bishop_investiture_bad
+				modifier = tct_appointed_bishop_investiture_bad
 			}
 		}
 
@@ -1227,7 +1227,7 @@ TCT_religious_events.16 = {
 			add_opinion = {
 				target = ROOT
 				opinion = 40
-				modifier = TCT_appointed_bishop_investiture_good
+				modifier = tct_appointed_bishop_investiture_good
 			}
 		}
 
@@ -1238,7 +1238,7 @@ TCT_religious_events.16 = {
 
 	# Let the Pope decide
 	option = {
-		name = TCT_religious_events.16.b
+		name = tct_religious_events.16.b
 
 		random = {
 			chance = 60
@@ -1254,10 +1254,10 @@ TCT_religious_events.16 = {
 }
 
 #cardinal names
-# TCT_religious_events.22
+# tct_religious_events.22
 
 #cardinal election won
-TCT_religious_events.23 = {
+tct_religious_events.23 = {
 	hidden = yes
 	orphan = yes
 	immediate = {
@@ -1273,9 +1273,9 @@ TCT_religious_events.23 = {
 #The Pope and an Investiture Free Realm
 # The Pope singles out a Kingdom with Free Investiture (unless he has already targetted one)
 #Event 1
-TCT_religious_events.24 = { 
-	title = TCT_religious_events.24.t
-	desc = TCT_religious_events.24.desc
+tct_religious_events.24 = { 
+	title = tct_religious_events.24.t
+	desc = tct_religious_events.24.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = root
@@ -1326,7 +1326,7 @@ TCT_religious_events.24 = {
 	}
 
 	option = { 
-		name = TCT_religious_events.24.a
+		name = tct_religious_events.24.a
 		add_character_flag = pope_currently_demanding
 
 		if = {
@@ -1347,12 +1347,12 @@ TCT_religious_events.24 = {
 				add_character_flag = pope_wants_our_law_changed
 
 				trigger_event = {
-					id = TCT_religious_events.25
+					id = tct_religious_events.25
 					days = 14
 				}
 			}
 		}
-		flavor = TCT_religious_events.24.a.tt
+		flavor = tct_religious_events.24.a.tt
 
 		ai_chance = {	
 			base = 100
@@ -1361,8 +1361,8 @@ TCT_religious_events.24 = {
 	}
 	
 	option = { 
-		name = TCT_religious_events.24.b
-		flavor = TCT_religious_events.24.b.tt
+		name = tct_religious_events.24.b
+		flavor = tct_religious_events.24.b.tt
 
 		ai_chance = { 
 			base = 0 
@@ -1372,9 +1372,9 @@ TCT_religious_events.24 = {
 
 #King/Emperor gets the papal emissary asking them to change laws!
 #Event 2
-TCT_religious_events.25 = { 
-	title = TCT_religious_events.25.t
-	desc = TCT_religious_events.25.desc
+tct_religious_events.25 = { 
+	title = tct_religious_events.25.t
+	desc = tct_religious_events.25.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = scope:ruler_who_refused
@@ -1409,7 +1409,7 @@ TCT_religious_events.25 = {
 	}
 
 	option = { 
-		name = TCT_religious_events.25.a # Fold to demand
+		name = tct_religious_events.25.a # Fold to demand
 		
 		trigger = {
 			OR = {
@@ -1449,7 +1449,7 @@ TCT_religious_events.25 = {
 			}
 			
 			trigger_event = {
-				id = TCT_religious_events.26
+				id = tct_religious_events.26
 				days = 1
 			}
 		}
@@ -1472,7 +1472,7 @@ TCT_religious_events.25 = {
 	}
 
 	option = { 
-		name = TCT_religious_events.25.b # Refuse
+		name = tct_religious_events.25.b # Refuse
 		
 		add_piety = -25
 		faith = {
@@ -1491,7 +1491,7 @@ TCT_religious_events.25 = {
 				modifier = refused_changed_investiture_law
 			}
 			trigger_event = {
-				id = TCT_religious_events.27
+				id = tct_religious_events.27
 				days = 1
 			}
 		}
@@ -1517,7 +1517,7 @@ TCT_religious_events.25 = {
 	}
 
 	option = { 
-		name = TCT_religious_events.25.c ## Give gold to Pope / Bribe Pope
+		name = tct_religious_events.25.c ## Give gold to Pope / Bribe Pope
 		trigger = { 
 			gold >= 200
 
@@ -1538,7 +1538,7 @@ TCT_religious_events.25 = {
 			faith.religious_head = {
 				remove_character_flag = pope_currently_demanding
 				trigger_event = {
-					id = TCT_religious_events.28
+					id = tct_religious_events.28
 					days = 1
 				}
 			}
@@ -1560,7 +1560,7 @@ TCT_religious_events.25 = {
 	}
 
 	option = { 
-		name = TCT_religious_events.25.d ## Impress with Learning
+		name = tct_religious_events.25.d ## Impress with Learning
 		
 		duel = {
 			skill = learning
@@ -1568,23 +1568,23 @@ TCT_religious_events.25 = {
 			# value = medium_skill_rating
 			# desc = outcome_in_a_few_days
 			60 = {		
-				desc = TCT_religious_events.29.d.success
+				desc = tct_religious_events.29.d.success
 				compare_modifier = {
 					value = scope:duel_value
 					multiplier = 5
 				}
-				custom_tooltip = TCT_religious_events.29.d.success.tt
-				scope:popeman = { trigger_event = { id = TCT_religious_events.29 days = 5 } } #You outwit the pope!
+				custom_tooltip = tct_religious_events.29.d.success.tt
+				scope:popeman = { trigger_event = { id = tct_religious_events.29 days = 5 } } #You outwit the pope!
 				
 			}
 			40 = {		
-				desc = TCT_religious_events.29.d.failure
+				desc = tct_religious_events.29.d.failure
 				compare_modifier = {
 					value = scope:duel_value
 					multiplier = -5
 				}
-				custom_tooltip = TCT_religious_events.29.d.failure.tt
-				scope:popeman = { trigger_event = { id = TCT_religious_events.30 days = 5 } } #You fail to outwit the pope!
+				custom_tooltip = tct_religious_events.29.d.failure.tt
+				scope:popeman = { trigger_event = { id = tct_religious_events.30 days = 5 } } #You fail to outwit the pope!
 			}
 		}
 
@@ -1596,9 +1596,9 @@ TCT_religious_events.25 = {
 
 ## King accepts
 #Event 3
-TCT_religious_events.26 = { 
-	title = TCT_religious_events.26.t
-	desc = TCT_religious_events.26.desc
+tct_religious_events.26 = { 
+	title = tct_religious_events.26.t
+	desc = tct_religious_events.26.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = scope:ruler_who_refused
@@ -1609,7 +1609,7 @@ TCT_religious_events.26 = {
 	}
 
 	option = { 
-		name = TCT_religious_events.26.a
+		name = tct_religious_events.26.a
 		
 		add_prestige = 100
 
@@ -1622,9 +1622,9 @@ TCT_religious_events.26 = {
 
 ## King refuses us
 #Event 4
-TCT_religious_events.27 = { 
-	title = TCT_religious_events.27.t
-	desc = TCT_religious_events.27.desc
+tct_religious_events.27 = { 
+	title = tct_religious_events.27.t
+	desc = tct_religious_events.27.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = scope:ruler_who_refused
@@ -1635,21 +1635,21 @@ TCT_religious_events.27 = {
 	}
 
 	option = { 
-		name = TCT_religious_events.27.a
+		name = tct_religious_events.27.a
 		
 		add_prestige = 100
 		random_list = {
 			50 = {
-				custom_tooltip = TCT_religious_events.influence_bishop
+				custom_tooltip = tct_religious_events.influence_bishop
 				trigger_event = {
-					id = TCT_religious_events.31
+					id = tct_religious_events.31
 					days = 5
 				}
 			}
 			50 = {
-				custom_tooltip = TCT_religious_events.influence_vassal
+				custom_tooltip = tct_religious_events.influence_vassal
 				trigger_event = {
-					id = TCT_religious_events.34
+					id = tct_religious_events.34
 					days = 5
 				}
 			}
@@ -1663,9 +1663,9 @@ TCT_religious_events.27 = {
 
 ## King bribes us
 #Event 5
-TCT_religious_events.28 = { 
-	title = TCT_religious_events.28.t
-	desc = TCT_religious_events.28.desc
+tct_religious_events.28 = { 
+	title = tct_religious_events.28.t
+	desc = tct_religious_events.28.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = scope:ruler_who_refused
@@ -1676,9 +1676,9 @@ TCT_religious_events.28 = {
 	}
 
 	option = { #accept bribe
-		name = TCT_religious_events.28.a
+		name = tct_religious_events.28.a
 		
-		custom_tooltip = TCT_religious_events.28.a.tt
+		custom_tooltip = tct_religious_events.28.a.tt
 
 		scope:ruler_who_refused = {
 			pay_short_term_gold = {
@@ -1693,7 +1693,7 @@ TCT_religious_events.28 = {
 		scope:ruler_who_refused = {
 			send_interface_toast = {
 				type = event_toast_effect_good
-				title = TCT_religious_events.28.a.toast
+				title = tct_religious_events.28.a.toast
 				left_icon = faith.religious_head
 				
 			}
@@ -1759,8 +1759,8 @@ TCT_religious_events.28 = {
 	}
 
 	option = { #decline bribe
-		name = TCT_religious_events.28.b
-		custom_tooltip = TCT_religious_events.28.b.tt
+		name = tct_religious_events.28.b
+		custom_tooltip = tct_religious_events.28.b.tt
 		add_opinion = {
 			target = scope:ruler_who_refused
 			opinion = -20
@@ -1770,23 +1770,23 @@ TCT_religious_events.28 = {
 		scope:ruler_who_refused = {
 			send_interface_toast = {
 				type = event_toast_effect_bad
-				title = TCT_religious_events.28.b.toast
+				title = tct_religious_events.28.b.toast
 				left_icon = faith.religious_head
 			}
 		}
 
 		random_list = {
 			50 = {
-				custom_tooltip = TCT_religious_events.influence_bishop
+				custom_tooltip = tct_religious_events.influence_bishop
 				trigger_event = {
-					id = TCT_religious_events.31
+					id = tct_religious_events.31
 					days = 5
 				}
 			}
 			50 = {
-				custom_tooltip = TCT_religious_events.influence_vassal
+				custom_tooltip = tct_religious_events.influence_vassal
 				trigger_event = {
-					id = TCT_religious_events.34
+					id = tct_religious_events.34
 					days = 5
 				}
 			}
@@ -1853,9 +1853,9 @@ TCT_religious_events.28 = {
 
 # King outwits us
 #Event 6
-TCT_religious_events.29 = { 
-	title = TCT_religious_events.29.t
-	desc = TCT_religious_events.29.desc
+tct_religious_events.29 = { 
+	title = tct_religious_events.29.t
+	desc = tct_religious_events.29.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = scope:ruler_who_refused
@@ -1866,7 +1866,7 @@ TCT_religious_events.29 = {
 	}
 
 	option = { 
-		name = TCT_religious_events.29.a
+		name = tct_religious_events.29.a
 		
 		add_piety = -5
 
@@ -1887,7 +1887,7 @@ TCT_religious_events.29 = {
 		scope:ruler_who_refused = {
 			send_interface_toast = {
 				type = event_toast_effect_good
-				title = TCT_religious_events.29.b.toast
+				title = tct_religious_events.29.b.toast
 				left_icon = faith.religious_head
 			}
 		}
@@ -1901,9 +1901,9 @@ TCT_religious_events.29 = {
 
 # King failed to outwit us
 #Event 6
-TCT_religious_events.30 = { 
-	title = TCT_religious_events.30.t
-	desc = TCT_religious_events.30.desc
+tct_religious_events.30 = { 
+	title = tct_religious_events.30.t
+	desc = tct_religious_events.30.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = scope:ruler_who_refused
@@ -1914,8 +1914,8 @@ TCT_religious_events.30 = {
 	}
 
 	option = { 
-		name = TCT_religious_events.30.a
-		custom_tooltip = TCT_religious_events.30.a.tt
+		name = tct_religious_events.30.a
+		custom_tooltip = tct_religious_events.30.a.tt
 		add_piety = 100
 
 		add_opinion = {
@@ -1941,23 +1941,23 @@ TCT_religious_events.30 = {
 		scope:ruler_who_refused = {
 			send_interface_toast = {
 				type = event_toast_effect_bad
-				title = TCT_religious_events.30.a.toast
+				title = tct_religious_events.30.a.toast
 				left_icon = faith.religious_head
 			}
 		}
 
 		random_list = {
 			50 = {
-				custom_tooltip = TCT_religious_events.influence_bishop
+				custom_tooltip = tct_religious_events.influence_bishop
 				trigger_event = {
-					id = TCT_religious_events.31
+					id = tct_religious_events.31
 					days = 5
 				}
 			}
 			50 = {
-				custom_tooltip = TCT_religious_events.influence_vassal
+				custom_tooltip = tct_religious_events.influence_vassal
 				trigger_event = {
-					id = TCT_religious_events.34
+					id = tct_religious_events.34
 					days = 5
 				}
 			}
@@ -1971,9 +1971,9 @@ TCT_religious_events.30 = {
 
 ## The Pope sends a delegate to a Bishop whose top liege has refused to change investiture Law
 #Event 7
-TCT_religious_events.31 = { 
-	title = TCT_religious_events.31.t
-	desc = TCT_religious_events.31.desc
+tct_religious_events.31 = { 
+	title = tct_religious_events.31.t
+	desc = tct_religious_events.31.desc
 	theme = learning_scholarship_focus
 	right_portrait = {
 		character = faith.religious_head
@@ -2054,9 +2054,9 @@ TCT_religious_events.31 = {
 		
 
 	option = { 
-		name = TCT_religious_events.31.a
-		custom_tooltip = TCT_religious_events.31a.tta
-		custom_tooltip = TCT_religious_events.31a.ttb
+		name = tct_religious_events.31.a
+		custom_tooltip = tct_religious_events.31a.tta
+		custom_tooltip = tct_religious_events.31a.ttb
 		show_as_tooltip = {
 			pay_short_term_gold = {
 				target = scope:bishop
@@ -2067,7 +2067,7 @@ TCT_religious_events.31 = {
 			add_character_flag = pope_bribing
 
 			trigger_event = {
-				id = TCT_religious_events.32
+				id = tct_religious_events.32
 				days = 15
 			}
 		}
@@ -2082,7 +2082,7 @@ TCT_religious_events.31 = {
 		}
 	}
 	option = { 
-		name = TCT_religious_events.31.b
+		name = tct_religious_events.31.b
 	
 		remove_character_flag = pope_currently_demanding
 
@@ -2103,9 +2103,9 @@ TCT_religious_events.31 = {
 
 ## The Bishop receives the Papal emissary
 #Event 8
-TCT_religious_events.32 = { 
-	title = TCT_religious_events.32.t
-	desc = TCT_religious_events.32.desc
+tct_religious_events.32 = { 
+	title = tct_religious_events.32.t
+	desc = tct_religious_events.32.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = scope:bishop
@@ -2116,7 +2116,7 @@ TCT_religious_events.32 = {
 	}
 
 	option = { 
-		name = TCT_religious_events.32.a
+		name = tct_religious_events.32.a
 		
 		faith.religious_head = {
 			pay_short_term_gold = {
@@ -2136,24 +2136,24 @@ TCT_religious_events.32 = {
 			66 = { # Suceed
 				send_interface_toast = {
 					type = event_toast_effect_good
-					title = TCT_religious_events.32.a.toast # TCT_religious_events.2.a.drunkard
+					title = tct_religious_events.32.a.toast # tct_religious_events.2.a.drunkard
 					left_icon = root
 				}
 			}
 		
 		
 			33 = { # Emperror finds out
-				custom_tooltip = TCT_religious_events.32.a.tt
+				custom_tooltip = tct_religious_events.32.a.tt
 
 				scope:ruler_who_refused = {
 					trigger_event = {
-						id = TCT_religious_events.33
+						id = tct_religious_events.33
 						days = { 14 16 }
 					}
 				}
 				send_interface_toast = {
 					type = event_toast_effect_bad
-					title = TCT_religious_events.32.b.toast # TCT_religious_events.2.a.drunkard
+					title = tct_religious_events.32.b.toast # tct_religious_events.2.a.drunkard
 					left_icon = root
 				}
 			}
@@ -2165,7 +2165,7 @@ TCT_religious_events.32 = {
 		}
 	}
 	option = { 
-		name = TCT_religious_events.32.b
+		name = tct_religious_events.32.b
 
 		add_prestige = 10
 	}
@@ -2173,9 +2173,9 @@ TCT_religious_events.32 = {
 
 ## King knows of bishop getting bribed
 #Event 9
-TCT_religious_events.33 = { 
-	title = TCT_religious_events.33.t
-	desc = TCT_religious_events.33.desc
+tct_religious_events.33 = { 
+	title = tct_religious_events.33.t
+	desc = tct_religious_events.33.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = scope:bishop
@@ -2186,7 +2186,7 @@ TCT_religious_events.33 = {
 	}
 
 	option = { 
-		name = TCT_religious_events.33.a
+		name = tct_religious_events.33.a
 		
 		random_list = {
 			30 = {
@@ -2218,7 +2218,7 @@ TCT_religious_events.33 = {
 		}
 	}
 	option = { 
-		name = TCT_religious_events.33.b
+		name = tct_religious_events.33.b
 
 		trigger = {
 			has_trait = paranoid
@@ -2244,9 +2244,9 @@ TCT_religious_events.33 = {
 
 ## The Pope contacts a powerful (preferably rebellious) vassal of a liege who has refused to change investiture Law
 #Event 10
-TCT_religious_events.34 = { 
-	title = TCT_religious_events.34.t
-	desc = TCT_religious_events.34.desc
+tct_religious_events.34 = { 
+	title = tct_religious_events.34.t
+	desc = tct_religious_events.34.desc
 	theme = learning_scholarship_focus
 	right_portrait = {
 		character = faith.religious_head
@@ -2332,9 +2332,9 @@ TCT_religious_events.34 = {
 		
 
 	option = { 
-		name = TCT_religious_events.34.a
-		custom_tooltip = TCT_religious_events.34.a.tt
-		custom_tooltip = TCT_religious_events.34a.ttb
+		name = tct_religious_events.34.a
+		custom_tooltip = tct_religious_events.34.a.tt
+		custom_tooltip = tct_religious_events.34a.ttb
 		show_as_tooltip = {
 			pay_short_term_gold = {
 				target = scope:powerful_vassal
@@ -2345,7 +2345,7 @@ TCT_religious_events.34 = {
 			add_character_flag = pope_bribing
 
 			trigger_event = {
-				id = TCT_religious_events.35
+				id = tct_religious_events.35
 				days = 15
 			}
 		}
@@ -2360,7 +2360,7 @@ TCT_religious_events.34 = {
 		}
 	}
 	option = { 
-		name = TCT_religious_events.34.b
+		name = tct_religious_events.34.b
 	
 		remove_character_flag = pope_currently_demanding
 
@@ -2381,9 +2381,9 @@ TCT_religious_events.34 = {
 
 ## The vassal receives the claim
 #Event 11
-TCT_religious_events.35 = { 
-	title = TCT_religious_events.35.t
-	desc = TCT_religious_events.35.desc
+tct_religious_events.35 = { 
+	title = tct_religious_events.35.t
+	desc = tct_religious_events.35.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = scope:powerful_vassal
@@ -2400,8 +2400,8 @@ TCT_religious_events.35 = {
 	}
 	
 	option = { 
-		name = TCT_religious_events.35.a
-		custom_tooltip = "TCT_religious_events.35.a.tt"
+		name = tct_religious_events.35.a
+		custom_tooltip = "tct_religious_events.35.a.tt"
 		add_pressed_claim = liege.primary_title
 		scope:powerful_vassal = {
 			add_opinion = {
@@ -2435,7 +2435,7 @@ TCT_religious_events.35 = {
 					is_ai = yes
 				}
 				trigger_event = {
-					id = TCT_religious_events.37
+					id = tct_religious_events.37
 					days = { 100 365 }
 				}
 			}
@@ -2443,7 +2443,7 @@ TCT_religious_events.35 = {
 
 		every_ruler = {
 			trigger_event = {
-				id = TCT_religious_events.36
+				id = tct_religious_events.36
 				days = 2
 			}
 		}
@@ -2454,16 +2454,16 @@ TCT_religious_events.35 = {
 		}
 	}
 	option = { 
-		name = TCT_religious_events.35.b
+		name = tct_religious_events.35.b
 
 		add_prestige = 10
 	}
 }
 
 #Inform everyone!
-TCT_religious_events.36 = { 
-	title = TCT_religious_events.36.t
-	desc = TCT_religious_events.36.desc
+tct_religious_events.36 = { 
+	title = tct_religious_events.36.t
+	desc = tct_religious_events.36.desc
 	theme = faith
 
 	right_portrait = {
@@ -2479,7 +2479,7 @@ TCT_religious_events.36 = {
 	}
 
 	option = { 
-		name = TCT_religious_events.36.a
+		name = tct_religious_events.36.a
 
 		if = {
 			limit = {
@@ -2512,13 +2512,13 @@ TCT_religious_events.36 = {
 		}
 	}
 	after = {
-		trigger_event = TCT_religious_events.367
+		trigger_event = tct_religious_events.367
 	}
 }
 
-TCT_religious_events.367 = { 
-	title = TCT_religious_events.367.t
-	desc = TCT_religious_events.367.desc
+tct_religious_events.367 = { 
+	title = tct_religious_events.367.t
+	desc = tct_religious_events.367.desc
 	theme = faith
 
 	right_portrait = {
@@ -2530,7 +2530,7 @@ TCT_religious_events.367 = {
 	}
 
 	option = { 
-		name = TCT_religious_events.367.a
+		name = tct_religious_events.367.a
 
 
 		ai_chance = {	
@@ -2540,9 +2540,9 @@ TCT_religious_events.367 = {
 }
 
 #Start the war
-TCT_religious_events.37 = { 
-	title = TCT_religious_events.37.t
-	desc = TCT_religious_events.37.desc
+tct_religious_events.37 = { 
+	title = tct_religious_events.37.t
+	desc = tct_religious_events.37.desc
 	theme = faith
 	left_portrait = {
 		character = scope:powerful_vassal
@@ -2557,7 +2557,7 @@ TCT_religious_events.37 = {
 	}
 
 	option = { 
-		name = TCT_religious_events.37.a
+		name = tct_religious_events.37.a
 
 		start_war = {
 			cb = claim_cb
@@ -2581,7 +2581,7 @@ TCT_religious_events.37 = {
 
 ## Pope learns that a catholic ruler has a heretic advisor
 
-scripted_trigger TCT_religious_events_41_valid_councillor = {
+scripted_trigger tct_religious_events_41_valid_councillor = {
 	is_available_ai_adult = yes
 	NOR = {
 		has_trait = chaste
@@ -2592,9 +2592,9 @@ scripted_trigger TCT_religious_events_41_valid_councillor = {
 	save_temporary_scope_as = councillor
 }
 
-TCT_religious_events.41 = { 
-	title = TCT_religious_events.41.t
-	desc = TCT_religious_events.41.desc
+tct_religious_events.41 = { 
+	title = tct_religious_events.41.t
+	desc = tct_religious_events.41.desc
 	theme = learning_scholarship_focus
 	right_portrait = {
 		character = faith.religious_head
@@ -2617,7 +2617,7 @@ TCT_religious_events.41 = {
 			has_faith = faith:catholic
 			title:k_papal_state.holder = faith.religious_head
 			any_councillor = {
-				NOT = { has_faith = faith:catholic } TCT_religious_events_41_valid_councillor = yes
+				NOT = { has_faith = faith:catholic } tct_religious_events_41_valid_councillor = yes
 			}
 		}
 	}
@@ -2629,7 +2629,7 @@ TCT_religious_events.41 = {
 				has_faith = faith:catholic
 				title:k_papal_state.holder = faith.religious_head
 				any_councillor = {
-					NOT = { has_faith = faith:catholic } TCT_religious_events_41_valid_councillor = yes
+					NOT = { has_faith = faith:catholic } tct_religious_events_41_valid_councillor = yes
 				}
 			}
 			save_scope_as = rulerwithheretic
@@ -2638,14 +2638,14 @@ TCT_religious_events.41 = {
 			limit = {
 				scope:rulerwithheretic = {
 					any_councillor = {
-						NOT = { has_faith = faith:catholic } TCT_religious_events_41_valid_councillor = yes
+						NOT = { has_faith = faith:catholic } tct_religious_events_41_valid_councillor = yes
 					}
 				}
 			}
 			scope:rulerwithheretic = {
 				random_councillor = {
 					limit = {
-						NOT = { has_faith = faith:catholic } TCT_religious_events_41_valid_councillor = yes
+						NOT = { has_faith = faith:catholic } tct_religious_events_41_valid_councillor = yes
 					}
 					save_scope_as = heretic_councillor
 				}
@@ -2655,10 +2655,10 @@ TCT_religious_events.41 = {
 		
 
 	option = { 
-		name = TCT_religious_events.41.a
+		name = tct_religious_events.41.a
 		scope:rulerwithheretic = {
 			trigger_event = {
-				id = TCT_religious_events.42
+				id = tct_religious_events.42
 				days = {15 30}
 			}
 		}
@@ -2673,7 +2673,7 @@ TCT_religious_events.41 = {
 		}
 	}
 	option = { 
-		name = TCT_religious_events.41.b
+		name = tct_religious_events.41.b
 
 		ai_chance = {	
 			base = 75
@@ -2686,11 +2686,11 @@ TCT_religious_events.41 = {
 	}
 }
 
-TCT_religious_events.42 = { 
+tct_religious_events.42 = { 
 	type = letter_event
-	title = TCT_religious_events.42.t
-	opening = TCT_religious_events.42.opening
-	desc = TCT_religious_events.42.desc
+	title = tct_religious_events.42.t
+	opening = tct_religious_events.42.opening
+	desc = tct_religious_events.42.desc
 	sender = {
 		character = faith.religious_head
 	}
@@ -2705,7 +2705,7 @@ TCT_religious_events.42 = {
 	}
 
 	option = { 
-		name = TCT_religious_events.42.a
+		name = tct_religious_events.42.a
 		if = { #Can I fire them?
 			limit = {
 				scope:heretic_councillor = { can_be_fired_from_council_trigger = { COURT_OWNER = scope:rulerwithheretic } }
@@ -2730,7 +2730,7 @@ TCT_religious_events.42 = {
 		}
 	}
 	option = { 
-		name = TCT_religious_events.42.b
+		name = tct_religious_events.42.b
 	
 		faith.religious_head = {
 			add_opinion = {
@@ -2757,9 +2757,9 @@ TCT_religious_events.42 = {
 
 ## Vassal disappointed in liege having heretic advisor
 
-TCT_religious_events.43 = { 
-	title = TCT_religious_events.43.t
-	desc = TCT_religious_events.43.desc
+tct_religious_events.43 = { 
+	title = tct_religious_events.43.t
+	desc = tct_religious_events.43.desc
 	theme = learning_scholarship_focus
 	right_portrait = {
 		character = scope:vassal
@@ -2813,11 +2813,11 @@ TCT_religious_events.43 = {
 		
 
 	option = { 
-		name = TCT_religious_events.43.a
-		custom_tooltip = TCT_religious_events.43a.tta
+		name = tct_religious_events.43.a
+		custom_tooltip = tct_religious_events.43a.tta
 		scope:hereticadvisorruler = {
 			trigger_event = {
-				id = TCT_religious_events.44
+				id = tct_religious_events.44
 				days = {15 30}
 			}
 		}
@@ -2833,17 +2833,17 @@ TCT_religious_events.43 = {
 	}
 }
 
-TCT_religious_events.44 = { 
+tct_religious_events.44 = { 
 	type = letter_event
-	title = TCT_religious_events.42.t
-	desc = TCT_religious_events.42.desc
-	opening = TCT_religious_events.42.opening
+	title = tct_religious_events.42.t
+	desc = tct_religious_events.42.desc
+	opening = tct_religious_events.42.opening
 	sender = {
 		character = scope:vassal
 	}
 
 	option = { 
-		name = TCT_religious_events.42.a
+		name = tct_religious_events.42.a
 		if = { #Can I fire them?
 			limit = {
 				scope:heretic_councillor = { can_be_fired_from_council_trigger = { COURT_OWNER = scope:rulerwithheretic } }
@@ -2868,7 +2868,7 @@ TCT_religious_events.44 = {
 		}
 	}
 	option = { 
-		name = TCT_religious_events.42.b
+		name = tct_religious_events.42.b
 		scope:vassal = {
 			add_opinion = {
 				target = scope:hereticadvisorruler
@@ -2894,14 +2894,14 @@ TCT_religious_events.44 = {
 
 ## Realm Priest disappointed in liege having heretic advisor
 
-TCT_religious_events.45 = { 
+tct_religious_events.45 = { 
 	type = letter_event
-	title = TCT_religious_events.42.t
-	desc = TCT_religious_events.42.desc
+	title = tct_religious_events.42.t
+	desc = tct_religious_events.42.desc
 	sender = {
 		character = scope:vassal
 	}
-	opening = TCT_religious_events.42.opening
+	opening = tct_religious_events.42.opening
 
 	trigger = {		
 		is_available_adult = yes
@@ -2952,7 +2952,7 @@ TCT_religious_events.45 = {
 		
 
 	option = { 
-		name = TCT_religious_events.42.a
+		name = tct_religious_events.42.a
 		if = { #Can I fire them?
 			limit = {
 				scope:heretic_councillor = { can_be_fired_from_council_trigger = { COURT_OWNER = scope:rulerwithheretic } }
@@ -2977,7 +2977,7 @@ TCT_religious_events.45 = {
 		}
 	}
 	option = { 
-		name = TCT_religious_events.42.b
+		name = tct_religious_events.42.b
 	
 		scope:vassal = {
 			add_opinion = {
@@ -3004,9 +3004,9 @@ TCT_religious_events.45 = {
 
 # # The Pope gives money to someone fighting the Infidel
 
-TCT_religious_events.46 = { 
-	title = TCT_religious_events.46.t
-	desc = TCT_religious_events.46.desc
+tct_religious_events.46 = { 
+	title = tct_religious_events.46.t
+	desc = tct_religious_events.46.desc
 	theme = war
 	lower_center_portrait = {
 		character = scope:holywarleader
@@ -3068,7 +3068,7 @@ TCT_religious_events.46 = {
 	}
 
 	option = { 
-		name = TCT_religious_events.46.a
+		name = tct_religious_events.46.a
 		show_as_tooltip = {
 			faith.religious_head = {
 				pay_short_term_gold = {
@@ -3085,7 +3085,7 @@ TCT_religious_events.46 = {
 				modifier = bishop_bribed_by_pope
 			}
 			trigger_event = {
-				id = TCT_religious_events.467
+				id = tct_religious_events.467
 				days = 3
 			}
 		}
@@ -3100,7 +3100,7 @@ TCT_religious_events.46 = {
 		}
 	}
 	option = { 
-		name = TCT_religious_events.46.b
+		name = tct_religious_events.46.b
 	
 
 	
@@ -3115,18 +3115,18 @@ TCT_religious_events.46 = {
 	}
 } 
 
-TCT_religious_events.467 = { 
+tct_religious_events.467 = { 
 	type = letter_event
-	title = TCT_religious_events.467.t
-	desc = TCT_religious_events.467.desc
+	title = tct_religious_events.467.t
+	desc = tct_religious_events.467.desc
 
 	sender = {
 		character = faith.religious_head
 	}
-	opening = TCT_religious_events.42.opening
+	opening = tct_religious_events.42.opening
 
 	option = {
-		name = TCT_religious_events.467.a
+		name = tct_religious_events.467.a
 		faith.religious_head = {
 			pay_short_term_gold = {
 				target = scope:holywarleader
@@ -3138,9 +3138,9 @@ TCT_religious_events.467 = {
 
 # # Leprous Courtier Departs to Join Order of Lazarus
 
-TCT_religious_events.47 = { 
-	title = TCT_religious_events.47.t
-	desc = TCT_religious_events.47.desc
+tct_religious_events.47 = { 
+	title = tct_religious_events.47.t
+	desc = tct_religious_events.47.desc
 	theme = faith
 	right_portrait = {
 		character = scope:leper
@@ -3171,7 +3171,7 @@ TCT_religious_events.47 = {
 	}
 
 	option = { 
-		name = TCT_religious_events.47.a
+		name = tct_religious_events.47.a
 		
 		scope:leper = {
 			add_opinion = {
@@ -3216,7 +3216,7 @@ TCT_religious_events.47 = {
 		}
 	}
 	option = { 
-		name = TCT_religious_events.47.b
+		name = tct_religious_events.47.b
 	
 		ai_chance = {	
 			base = 10
@@ -3229,7 +3229,7 @@ TCT_religious_events.47 = {
 	}
 } 
 
-scripted_trigger TCT_religious_events_48_province_trigger = {
+scripted_trigger tct_religious_events_48_province_trigger = {
 	NOT = { religion = root.religion }
 	faith = {
 		faith_hostility_level = {
@@ -3240,9 +3240,9 @@ scripted_trigger TCT_religious_events_48_province_trigger = {
 }
 
 #Pope Complains of Heresy Run Rampant in Ruler's Lands #1
-TCT_religious_events.48 = { 
-	title = TCT_religious_events.48.t
-	desc = TCT_religious_events.48.desc
+tct_religious_events.48 = { 
+	title = tct_religious_events.48.t
+	desc = tct_religious_events.48.desc
 	theme = faith
 	lower_center_portrait = {
 		character = scope:targetedruler
@@ -3268,7 +3268,7 @@ TCT_religious_events.48 = {
 			has_faith = faith:catholic
 			title:k_papal_state.holder = faith.religious_head
 			any_sub_realm_county = {
-				TCT_religious_events_48_province_trigger = yes
+				tct_religious_events_48_province_trigger = yes
 			}
 			exists = cp:councillor_court_chaplain
 			NOT = {
@@ -3286,7 +3286,7 @@ TCT_religious_events.48 = {
 				has_faith = faith:catholic
 				title:k_papal_state.holder = faith.religious_head
 				any_sub_realm_county = {
-					TCT_religious_events_48_province_trigger = yes
+					tct_religious_events_48_province_trigger = yes
 				}
 				exists = cp:councillor_court_chaplain
 				NOT = { 
@@ -3297,7 +3297,7 @@ TCT_religious_events.48 = {
 			}
 			random_sub_realm_county = {
 				limit = {
-					TCT_religious_events_48_province_trigger = yes
+					tct_religious_events_48_province_trigger = yes
 				}
 				save_scope_as = county
 			}
@@ -3307,11 +3307,11 @@ TCT_religious_events.48 = {
 	}
 
 	option = { 
-		name = TCT_religious_events.48.a
+		name = tct_religious_events.48.a
 		
 		scope:targetedruler = {
 			trigger_event = {
-				id = TCT_religious_events.49
+				id = tct_religious_events.49
 				days = 3
 			}
 		}
@@ -3326,7 +3326,7 @@ TCT_religious_events.48 = {
 		}
 	}
 	option = { 
-		name = TCT_religious_events.48.b
+		name = tct_religious_events.48.b
 	
 		ai_chance = {	
 			base = 10
@@ -3340,9 +3340,9 @@ TCT_religious_events.48 = {
 } 
 
 #Pope Complains of Heresy Run Rampant in Ruler's Lands  #2
-TCT_religious_events.49 = { 
-	title = TCT_religious_events.49.t
-	desc = TCT_religious_events.49.desc
+tct_religious_events.49 = { 
+	title = tct_religious_events.49.t
+	desc = tct_religious_events.49.desc
 	theme = faith
 	right_portrait = {
 		character = scope:targetedruler
@@ -3352,7 +3352,7 @@ TCT_religious_events.49 = {
 	}
 
 	option = { 
-		name = TCT_religious_events.49.a
+		name = tct_religious_events.49.a
 		
 		cp:councillor_court_chaplain = {
 			set_council_task = {
@@ -3371,10 +3371,10 @@ TCT_religious_events.49 = {
 		}
 	}
 	option = { 
-		name = TCT_religious_events.49.b
+		name = tct_religious_events.49.b
 	
 		trigger_event = {
-			id = TCT_religious_events.50
+			id = tct_religious_events.50
 			months = 6
 		}
 		
@@ -3395,9 +3395,9 @@ TCT_religious_events.49 = {
 } 
 
 #Pope Complains of Heresy Run Rampant in Ruler's Lands  #3
-TCT_religious_events.50 = { 
-	title = TCT_religious_events.50.t
-	desc = TCT_religious_events.50.desc
+tct_religious_events.50 = { 
+	title = tct_religious_events.50.t
+	desc = tct_religious_events.50.desc
 	theme = faith
 	right_portrait = {
 		character = scope:targetedruler
@@ -3426,7 +3426,7 @@ TCT_religious_events.50 = {
 	}
 
 	option = { 
-		name = TCT_religious_events.50.a
+		name = tct_religious_events.50.a
 		
 		scope:targetedruler = {
 			add_excommunication_actual_effect = yes
@@ -3444,9 +3444,9 @@ TCT_religious_events.50 = {
 }
 
 #Pope Demands Ruler Free Imprisoned Prince-Bishop #1
-TCT_religious_events.51 = { 
-	title = TCT_religious_events.51.t
-	desc = TCT_religious_events.51.desc
+tct_religious_events.51 = { 
+	title = tct_religious_events.51.t
+	desc = tct_religious_events.51.desc
 	theme = faith
 	left_portrait = {
 		character = scope:targetedruler
@@ -3523,11 +3523,11 @@ TCT_religious_events.51 = {
 	}
 
 	option = { 
-		name = TCT_religious_events.51.a
+		name = tct_religious_events.51.a
 		
 		scope:targetedruler = {
 			trigger_event = {
-				id = TCT_religious_events.52
+				id = tct_religious_events.52
 				days = 3
 			}
 		}
@@ -3542,7 +3542,7 @@ TCT_religious_events.51 = {
 		}
 	}
 	option = { 
-		name = TCT_religious_events.51.b
+		name = tct_religious_events.51.b
 	
 		scope:imprisonedbishop = {
 			add_opinion = {
@@ -3564,9 +3564,9 @@ TCT_religious_events.51 = {
 } 
 
 #Pope Demands Ruler Free Imprisoned Prince-Bishop  #2
-TCT_religious_events.52 = { 
-	title = TCT_religious_events.52.t
-	desc = TCT_religious_events.52.desc
+tct_religious_events.52 = { 
+	title = tct_religious_events.52.t
+	desc = tct_religious_events.52.desc
 	theme = faith
 	right_portrait = {
 		character = scope:imprisonedbishop
@@ -3576,7 +3576,7 @@ TCT_religious_events.52 = {
 	}
 
 	option = { 
-		name = TCT_religious_events.52.a
+		name = tct_religious_events.52.a
 		
 		scope:imprisonedbishop = {
 			release_from_prison = yes
@@ -3592,12 +3592,12 @@ TCT_religious_events.52 = {
 		}
 	}
 	option = { 
-		name = TCT_religious_events.52.b
+		name = tct_religious_events.52.b
 	
 
 		faith.religious_head = {
 			trigger_event = {
-				id = TCT_religious_events.53
+				id = tct_religious_events.53
 				months = 1
 			}
 		}
@@ -3618,7 +3618,7 @@ TCT_religious_events.52 = {
 } 
 
 #Pope Demands Ruler Free Imprisoned Prince-Bishop  #3
-TCT_religious_events.53 = { 
+tct_religious_events.53 = { 
 	hidden = yes
 
 	immediate = {
@@ -3630,15 +3630,15 @@ TCT_religious_events.53 = {
 				}
 			}
 			faith.religious_head = {
-				trigger_event = TCT_religious_events.54
+				trigger_event = tct_religious_events.54
 			}
 		}
 	}
 }
 
-TCT_religious_events.54 = {
-	title = TCT_religious_events.54.t
-	desc = TCT_religious_events.54.desc
+tct_religious_events.54 = {
+	title = tct_religious_events.54.t
+	desc = tct_religious_events.54.desc
 	theme = faith
 	left_portrait = {
 		character = scope:targetedruler
@@ -3648,14 +3648,14 @@ TCT_religious_events.54 = {
 	}
 
 	option = { 
-		name = TCT_religious_events.54.a
+		name = tct_religious_events.54.a
 		
 		scope:targetedruler = {
 			add_excommunication_actual_effect = yes
 			hidden_effect = {
 				send_interface_toast = {
 					type = event_toast_effect_good
-					title =  TCT_religious_events.54.a.toast
+					title =  tct_religious_events.54.a.toast
 					left_icon = faith.religious_head
 					show_as_tooltip = {
 						add_excommunication_actual_effect = yes
@@ -3676,9 +3676,9 @@ TCT_religious_events.54 = {
 }
 
 #Murdered a Bishop
-TCT_religious_events.55 = {
-	title = TCT_religious_events.55.t
-	desc = TCT_religious_events.55.desc
+tct_religious_events.55 = {
+	title = tct_religious_events.55.t
+	desc = tct_religious_events.55.desc
 	theme = faith
 	left_portrait = {
 		character = scope:murderer
@@ -3696,14 +3696,14 @@ TCT_religious_events.55 = {
 	}
 
 	option = { 
-		name = TCT_religious_events.55.a
+		name = tct_religious_events.55.a
 		
 		scope:murderer = {
 			add_excommunication_actual_effect = yes
 			hidden_effect = {
 				send_interface_toast = {
 					type = event_toast_effect_good
-					title =  TCT_religious_events.54.a.toast
+					title =  tct_religious_events.54.a.toast
 					left_icon = faith.religious_head
 					show_as_tooltip = {
 						add_excommunication_actual_effect = yes
@@ -3724,17 +3724,17 @@ TCT_religious_events.55 = {
 }
 
 #Pope Excommunicates Ruler for Declaring War Against Prince-Bishop
-TCT_religious_events.56 = {
-	title = TCT_religious_events.56.t
+tct_religious_events.56 = {
+	title = tct_religious_events.56.t
 	desc = {
 		first_valid = {
 			triggered_desc = {
 				trigger = {
 					scope:BishopyDefender = { is_cardinal = yes }
 				}
-				desc = TCT_religious_events.56.desc.cardinal
+				desc = tct_religious_events.56.desc.cardinal
 			}
-			desc = TCT_religious_events.56.desc
+			desc = tct_religious_events.56.desc
 		}
 	}
 	theme = faith
@@ -3778,11 +3778,11 @@ TCT_religious_events.56 = {
 	}
 
 	option = { 
-		name = TCT_religious_events.56.a
+		name = tct_religious_events.56.a
 		
 		scope:BishopAttacker = {
 			trigger_event = {
-				id = TCT_religious_events.57
+				id = tct_religious_events.57
 				days = 3
 			}
 		}
@@ -3791,7 +3791,7 @@ TCT_religious_events.56 = {
 			random_list = {
 				50 = {
 					show_chance = no
-					desc = TCT_religious_events.56.accept
+					desc = tct_religious_events.56.accept
 
 					scope:BishopAttacker = {
 						every_character_war = {
@@ -3805,7 +3805,7 @@ TCT_religious_events.56 = {
 				}
 				50 = {
 					show_chance = no
-					desc = TCT_religious_events.56.reject
+					desc = tct_religious_events.56.reject
 					scope:BishopAttacker = {
 						add_excommunication_actual_effect = yes
 					}
@@ -3819,7 +3819,7 @@ TCT_religious_events.56 = {
 								}
 							}
 						}
-						custom_tooltip = TCT_religious_events.56.tt
+						custom_tooltip = tct_religious_events.56.tt
 					}
 				}
 			}
@@ -3856,7 +3856,7 @@ TCT_religious_events.56 = {
 	}
 
 	option = { 
-		name = TCT_religious_events.56.b
+		name = tct_religious_events.56.b
 
 		ai_chance = {	
 			base = 10
@@ -3869,17 +3869,17 @@ TCT_religious_events.56 = {
 	}
 }
 
-TCT_religious_events.57 = {
-	title = TCT_religious_events.57.t
+tct_religious_events.57 = {
+	title = tct_religious_events.57.t
 	desc = {
 		first_valid = {
 			triggered_desc = {
 				trigger = {
 					scope:BishopAttacker = root
 				}
-				desc = TCT_religious_events.57.desc.attacker
+				desc = tct_religious_events.57.desc.attacker
 			}
-			desc = TCT_religious_events.57.desc
+			desc = tct_religious_events.57.desc
 		}
 	}
 	theme = faith
@@ -3906,7 +3906,7 @@ TCT_religious_events.57 = {
 	}
 
 	option = { 
-		name = TCT_religious_events.57.a
+		name = tct_religious_events.57.a
 		
 		add_excommunication_actual_effect = yes
 		if = {
@@ -3920,7 +3920,7 @@ TCT_religious_events.57 = {
 					}
 				}
 			}
-			custom_tooltip = TCT_religious_events.56.tt
+			custom_tooltip = tct_religious_events.56.tt
 			scope:war = {
 				every_war_attacker = {
 					limit = {
@@ -3928,7 +3928,7 @@ TCT_religious_events.57 = {
 						faith = faith:catholic
 					}
 					trigger_event = {
-						id = TCT_religious_events.57
+						id = tct_religious_events.57
 						days = { 1 3 }
 					}
 				}
@@ -3946,7 +3946,7 @@ TCT_religious_events.57 = {
 	}
 
 	option = {
-		name = TCT_religious_events.57.b
+		name = tct_religious_events.57.b
 		scope:war = {
 			if = {
 				limit = {
@@ -3977,7 +3977,7 @@ TCT_religious_events.57 = {
 	}
 
 	option = {
-		name = TCT_religious_events.57.c
+		name = tct_religious_events.57.c
 		trigger = {
 			has_hook = scope:Pope
 		}
@@ -3986,12 +3986,12 @@ TCT_religious_events.57 = {
 }
 
 #Christmas! 
-TCT_religious_events.58 = {#christmas
+tct_religious_events.58 = {#christmas
 	type = character_event
-	title = TCT_religious_events.58.t
-	desc = TCT_religious_events.58.desc
+	title = tct_religious_events.58.t
+	desc = tct_religious_events.58.desc
 	theme = family
-	override_background = { reference = TCT_christmas }
+	override_background = { reference = tct_christmas }
 	left_portrait = {
 		character = scope:family
 		animation = happiness
@@ -4022,11 +4022,11 @@ TCT_religious_events.58 = {#christmas
 	}
 
 	option = { #wassailing
-		name = TCT_religious_events.58.a
+		name = tct_religious_events.58.a
 		add_stress = medium_stress_loss
 	}
 	option = { #feast
-		name = TCT_religious_events.58.b
+		name = tct_religious_events.58.b
 		open_view_data = {
 			view = activity_list_detail_host_window
 			data = activity_type:activity_feast
@@ -4036,17 +4036,17 @@ TCT_religious_events.58 = {#christmas
 			flag = hosting_christmas_or_saint_day
 			days = 10
 		}
-		custom_tooltip = TCT_religious_events_58_b_tt
+		custom_tooltip = tct_religious_events_58_b_tt
 	}	
 
 	option = { #family
-		name = TCT_religious_events.58.c
+		name = tct_religious_events.58.c
 		every_close_or_extended_family_member = {
 			limit = {
 				NOT = { this = root }
 			}
 			add_opinion = {
-				modifier = TCT_christmas_opinion
+				modifier = tct_christmas_opinion
 				target = root
 			}
 		}
@@ -4054,9 +4054,9 @@ TCT_religious_events.58 = {#christmas
 }
 
 # #Event: Baptism of my Heir / Quick and Dirty Baptism's
-# TCT_religious_events.70 = {
-# 	title = TCT_religious_events.70.t
-# 	desc = TCT_religious_events.70.t
+# tct_religious_events.70 = {
+# 	title = tct_religious_events.70.t
+# 	desc = tct_religious_events.70.t
 # 	# Use appropriate localization for the event title and description
 # 	orphan = yes
 # 	# Set the portraits of the characters involved
@@ -4089,7 +4089,7 @@ TCT_religious_events.58 = {#christmas
 # 	}
 
 # 	option = {
-# 		name = TCT_religious_events.70.a
+# 		name = tct_religious_events.70.a
 
 # 		trigger = {
 # 			gold = 100 # Adjust the gold cost as desired
@@ -4104,7 +4104,7 @@ TCT_religious_events.58 = {#christmas
 # 	}
 
 # 	option = {
-# 		name = TCT_religious_events.70.b
+# 		name = tct_religious_events.70.b
 
 # 		trigger = {
 # 			gold = 50 # Adjust the gold cost as desired
@@ -4118,7 +4118,7 @@ TCT_religious_events.58 = {#christmas
 # 	}
 
 # 	option = {
-# 		name = TCT_religious_events.70.c
+# 		name = tct_religious_events.70.c
 
 # 		trigger = {
 # 			gold = 25 # Adjust the gold cost as desired
@@ -4135,9 +4135,9 @@ TCT_religious_events.58 = {#christmas
 
 
 # #Event: Baptism of my Heir / Quick and Dirty Baptism's
-# TCT_religious_events.70 = {
-# 	title = TCT_religious_events.70.t
-# 	desc = TCT_religious_events.70.t
+# tct_religious_events.70 = {
+# 	title = tct_religious_events.70.t
+# 	desc = tct_religious_events.70.t
 # 	# Use appropriate localization for the event title and description
 # 	orphan = yes
 # 	# Set the portraits of the characters involved
@@ -4170,7 +4170,7 @@ TCT_religious_events.58 = {#christmas
 # 	}
 
 # 	option = {
-# 		name = TCT_religious_events.70.a
+# 		name = tct_religious_events.70.a
 
 # 		trigger = {
 # 			has_gold = 100 # Adjust the gold cost as desired
@@ -4185,7 +4185,7 @@ TCT_religious_events.58 = {#christmas
 # 	}
 
 # 	option = {
-# 		name = TCT_religious_events.70.b
+# 		name = tct_religious_events.70.b
 
 # 		trigger = {
 # 			has_gold = 50 # Adjust the gold cost as desired
@@ -4199,7 +4199,7 @@ TCT_religious_events.58 = {#christmas
 # 	}
 
 # 	option = {
-# 		name = TCT_religious_events.70.c
+# 		name = tct_religious_events.70.c
 
 # 		trigger = {
 # 			has_gold = 25 # Adjust the gold cost as desired
@@ -4264,9 +4264,9 @@ TCT_religious_events.58 = {#christmas
 
 
 # Event: Veteran of the First Crusade
-# TCT_religious_events.80 = {
-# 	title = TCT_religious_events.80.t
-# 	desc = TCT_religious_events.80.desc
+# tct_religious_events.80 = {
+# 	title = tct_religious_events.80.t
+# 	desc = tct_religious_events.80.desc
 # 	# Use appropriate localization for the event title and description
 
 # 	# Set the portraits of the characters involved
@@ -4303,7 +4303,7 @@ TCT_religious_events.58 = {#christmas
 # 	}
 
 # 	option = {
-# 		name = TCT_religious_events.80.a
+# 		name = tct_religious_events.80.a
 # 		# Use appropriate localization for the option name
 
 # 		trigger = {
@@ -4325,13 +4325,13 @@ TCT_religious_events.58 = {#christmas
 
 
 # 		trigger_event = {
-# 			id = TCT_religious_events.81
+# 			id = tct_religious_events.81
 # 			days = 1
 # 		}
 # 	}
 
 # 	option = {
-# 		name = TCT_religious_events.80.b
+# 		name = tct_religious_events.80.b
 # 		# Use appropriate localization for the option name
 
 # 		trigger = {
@@ -4344,7 +4344,7 @@ TCT_religious_events.58 = {#christmas
 # 	}
 
 # 	option = {
-# 		name = TCT_religious_events.80.c
+# 		name = tct_religious_events.80.c
 # 		# Use appropriate localization for the option name
 
 # 		trigger = {
@@ -4367,7 +4367,7 @@ TCT_religious_events.58 = {#christmas
 # 	}
 
 # 	option = {
-# 		name = TCT_religious_events.80.d
+# 		name = tct_religious_events.80.d
 # 		# Use appropriate localization for the option name
 
 # 		trigger = {
@@ -4421,7 +4421,7 @@ TCT_religious_events.58 = {#christmas
 
 
 
-# TCT_religious_events.200 = {
+# tct_religious_events.200 = {
 # 	hidden = yes
 # 	immediate = {
 # 		pay_short_term_gold = {
@@ -4433,10 +4433,10 @@ TCT_religious_events.58 = {#christmas
 
 
 # # Autocephaly created!
-# TCT_religious_events.210 = {
+# tct_religious_events.210 = {
 # 	type = character_event
-# 	title = TCT_religious_events.210.t
-# 	desc = TCT_religious_events.210.d
+# 	title = tct_religious_events.210.t
+# 	desc = tct_religious_events.210.d
 # 	theme = faith
 	
 # 	left_portrait = {
@@ -4449,17 +4449,17 @@ TCT_religious_events.58 = {#christmas
 # 	}
 
 # 	option = {
-# 		name = TCT_religious_events.210.a
+# 		name = tct_religious_events.210.a
 # 	}
 # }
 
 # # Interdicted Requester informed the Pope denied their request.
-# TCT_religious_events.211 = {
+# tct_religious_events.211 = {
 # 	type = letter_event
 # 	opening = {
-# 		desc = TCT_religious_events.211.o
+# 		desc = tct_religious_events.211.o
 # 	}
-# 	desc = TCT_religious_events.211
+# 	desc = tct_religious_events.211
 # 	sender = {
 # 		character = scope:recipient
 # 		animation = dismissal
@@ -4471,9 +4471,9 @@ TCT_religious_events.58 = {#christmas
 # }
 
 # #Ending a Pilgrimage to a Saintly Tomb
-# TCT_religious_events.250 = { 
-# 	title = TCT_religious_events.250.t
-# 	desc = TCT_religious_events.250.desc
+# tct_religious_events.250 = { 
+# 	title = tct_religious_events.250.t
+# 	desc = tct_religious_events.250.desc
 # 	theme = learning_scholarship_focus
 # 	orphan = yes 
 # 	left_portrait = {
@@ -4503,15 +4503,15 @@ TCT_religious_events.58 = {#christmas
 # 	}
 
 # 	option = { 
-# 		name = TCT_religious_events.300.a
+# 		name = tct_religious_events.300.a
 
 # 	}
 # }
 
 # #Saint related - finds nearby saint
-# TCT_religious_events.300 = { 
-# 	title = TCT_religious_events.300.t
-# 	desc = TCT_religious_events.300.desc
+# tct_religious_events.300 = { 
+# 	title = tct_religious_events.300.t
+# 	desc = tct_religious_events.300.desc
 # 	theme = learning_scholarship_focus
 # 	orphan = yes 
 # 	left_portrait = {
@@ -4549,15 +4549,15 @@ TCT_religious_events.58 = {#christmas
 # 	}
 
 # 	option = { 
-# 		name = TCT_religious_events.300.a
+# 		name = tct_religious_events.300.a
 
 # 	}
 # }
 
 # Death of a Pope, Election of a New Pope
-TCT_religious_events.400 = {
-	title = TCT_religious_events.400.t
-	desc = TCT_religious_events.400.desc
+tct_religious_events.400 = {
+	title = tct_religious_events.400.t
+	desc = tct_religious_events.400.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = scope:deadpope
@@ -4631,14 +4631,14 @@ TCT_religious_events.400 = {
 	}
 
 	option = { 
-		name = TCT_religious_events.400.a
+		name = tct_religious_events.400.a
 		open_view_data = {
 			view = royal_court
 			player = root
 		}
 		custom_tooltip = court_maintenance.0010.a.tooltip
 		trigger_event = {
-			id = TCT_religious_events.4001
+			id = tct_religious_events.4001
 		}
 
 		ai_chance = {
@@ -4647,10 +4647,10 @@ TCT_religious_events.400 = {
 	}
 }
 # The Papal Conclave
-TCT_religious_events.4001 = {
+tct_religious_events.4001 = {
 	type = court_event
-	title = TCT_religious_events.4001.t
-	desc = TCT_religious_events.4001.desc
+	title = tct_religious_events.4001.t
+	desc = tct_religious_events.4001.desc
 	theme = court
 	override_background = { reference = throne_room }
 
@@ -4858,17 +4858,17 @@ TCT_religious_events.4001 = {
 
 
 	option = { 
-		name = TCT_religious_events.4001.a
+		name = tct_religious_events.4001.a
 		
 		if = {
 			limit = {
 				this = character:2010
 			}
-			trigger_event = TCT_religious_events.600
+			trigger_event = tct_religious_events.600
 		}
 		else = {
-			hidden_effect = { TCT_random_pope_name = yes } 	
-			trigger_event = TCT_religious_events.5725
+			hidden_effect = { tct_random_pope_name = yes } 	
+			trigger_event = tct_religious_events.5725
 		}	
 
 		ai_chance = {
@@ -4909,9 +4909,9 @@ TCT_religious_events.4001 = {
 
 #SELECT A NAME 
 #Papal Naming!
-TCT_religious_events.5725 = {
+tct_religious_events.5725 = {
 	type = character_event
-	title = TCT_religious_events.5725.t
+	title = tct_religious_events.5725.t
 	desc = {
 		first_valid = {
 			#If we're renaming ourself
@@ -4919,7 +4919,7 @@ TCT_religious_events.5725 = {
 				trigger = {
 					root = scope:child
 				}
-				desc = TCT_religious_events.5725.desc.me
+				desc = tct_religious_events.5725.desc.me
 			}
 			#If we're renaming someone else
 			triggered_desc = {
@@ -5012,7 +5012,7 @@ TCT_religious_events.5725 = {
 					is_ai = yes
 				}
 			}
-			TCT_random_pope_name = yes
+			tct_random_pope_name = yes
 		}	
 
 		# Tracking for how many petitioners have come through.
@@ -5041,14 +5041,14 @@ TCT_religious_events.5725 = {
 	#Go ahead
 	option = {
 		name = birth.9004.a
-		trigger_event = TCT_religious_events.401
+		trigger_event = tct_religious_events.401
 	}
 }
 # The Papal Conclave
-TCT_religious_events.401 = {
+tct_religious_events.401 = {
 	type = court_event
-	title = TCT_religious_events.401.t
-	desc = TCT_religious_events.401.desc
+	title = tct_religious_events.401.t
+	desc = tct_religious_events.401.desc
 	theme = court
 	override_background = { reference = throne_room }
 
@@ -5126,7 +5126,7 @@ TCT_religious_events.401 = {
 	}
 
 	option = { 
-		name = TCT_religious_events.401.a
+		name = tct_religious_events.401.a
 
 		ai_chance = {
 			base = 50
@@ -5143,16 +5143,16 @@ TCT_religious_events.401 = {
 				}
 			}
 			trigger_event = {
-				id = TCT_religious_events.402
+				id = tct_religious_events.402
 				days = {5 15}
 			}
 		}
 	}
 }
 # The Papal Conclave
-TCT_religious_events.402 = {
-	title = TCT_religious_events.402.t
-	desc = TCT_religious_events.402.desc
+tct_religious_events.402 = {
+	title = tct_religious_events.402.t
+	desc = tct_religious_events.402.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = scope:newpope
@@ -5164,7 +5164,7 @@ TCT_religious_events.402 = {
 	}
 
 	option = { 
-		name = TCT_religious_events.402.a
+		name = tct_religious_events.402.a
 
 		ai_chance = {
 			base = 50
@@ -5172,12 +5172,12 @@ TCT_religious_events.402 = {
 	}
 }
 # Antipope Spawned
-TCT_religious_events.403 = {
-	title = TCT_religious_events.403.t
-	desc = TCT_religious_events.403.desc
+tct_religious_events.403 = {
+	title = tct_religious_events.403.t
+	desc = tct_religious_events.403.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
-		character = title:e_hre.holder.var:TCT_antipope_of_ruler
+		character = title:e_hre.holder.var:tct_antipope_of_ruler
 		animation = personality_honorable
 	}
 	right_portrait = {
@@ -5193,7 +5193,7 @@ TCT_religious_events.403 = {
 		title:e_hre.holder = {
 			save_scope_as = emperor
 		}
-		title:e_hre.holder.var:TCT_antipope_of_ruler = {
+		title:e_hre.holder.var:tct_antipope_of_ruler = {
 			if = {
 				limit = {
 					exists = var:duplicatenameexists
@@ -5215,14 +5215,14 @@ TCT_religious_events.403 = {
 
 
 	option = { 
-		name = TCT_religious_events.403.a
+		name = tct_religious_events.403.a
 		trigger = {
 			NOT = { has_trait = tct_imperial_supporter }
 		}
 	}
 
 	option = { 
-		name = TCT_religious_events.403.b
+		name = tct_religious_events.403.b
 		trigger = {
 			has_trait = tct_imperial_supporter
 		}
@@ -5244,21 +5244,21 @@ scripted_effect get_held_title_to_donate = {
 	}
 }
 
-TCT_religious_events.500 = { 
-	title = TCT_religious_events.500.t
+tct_religious_events.500 = { 
+	title = tct_religious_events.500.t
 	desc = {
 		first_valid = {
 			triggered_desc = {
 				trigger = {
 					has_trait = cynical
 				}
-				desc = TCT_religious_events.500.desc.cynical
+				desc = tct_religious_events.500.desc.cynical
 			}
 			triggered_desc = {
 				trigger = {
 					NOT = { has_trait = cynical }
 				}
-				desc = TCT_religious_events.500.desc
+				desc = tct_religious_events.500.desc
 			}
 		}
 	}
@@ -5280,13 +5280,13 @@ TCT_religious_events.500 = {
 	}
 
 	option = {
-		name = TCT_religious_events.500.a
+		name = tct_religious_events.500.a
 		if = {
 			limit = { has_variable = selected_title }
 			var:selected_title = {
 				save_scope_as = selected_title
 			}
-			custom_tooltip = TCT_religious_events.500.a.tt
+			custom_tooltip = tct_religious_events.500.a.tt
 			hidden_effect = {
 				create_character = {
 					template = priest_character_template
@@ -5311,7 +5311,7 @@ TCT_religious_events.500 = {
 				}
 			}
 			add_piety = 500
-			TCT_get_pope_of_target = {
+			tct_get_pope_of_target = {
 				TARGET = root
 			}
 			scope:pope_of_target = {
@@ -5335,15 +5335,15 @@ TCT_religious_events.500 = {
 		}
 	}
 	option = {
-		name = TCT_religious_events.500.b
+		name = tct_religious_events.500.b
 		remove_decision_cooldown = DonationCountyClergy
 	}
 }
 
 #Election of Pope Gregory VII
-TCT_religious_events.600 = {
-	title = TCT_religious_events.600.t
-	desc = TCT_religious_events.600.desc
+tct_religious_events.600 = {
+	title = tct_religious_events.600.t
+	desc = tct_religious_events.600.desc
 	theme = faith
 	right_portrait = {
 		character = title:k_papal_state.holder
@@ -5390,8 +5390,8 @@ TCT_religious_events.600 = {
 	}
 
 	option = {
-		name = TCT_religious_events.600.a
-		trigger_event = TCT_religious_events.401
+		name = tct_religious_events.600.a
+		trigger_event = tct_religious_events.401
 		hidden_effect = {
 			if = {
 				limit = {
@@ -5409,9 +5409,9 @@ TCT_religious_events.600 = {
 
 #Non_events
 
-TCT_religious_events.799 = { 
-	title = TCT_religious_events.799.t
-	desc = TCT_religious_events.799.desc
+tct_religious_events.799 = { 
+	title = tct_religious_events.799.t
+	desc = tct_religious_events.799.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = scope:cardinal
@@ -5432,7 +5432,7 @@ TCT_religious_events.799 = {
 	}
 
 	option = { 
-		name = TCT_religious_events.799.a
+		name = tct_religious_events.799.a
 		set_global_variable = dictatuspapae
 
 		every_ruler = {
@@ -5442,7 +5442,7 @@ TCT_religious_events.799 = {
 				NOT = { this = faith.religious_head }
 			}
 			trigger_event = {
-				id = TCT_religious_events.800
+				id = tct_religious_events.800
 				days = {5 15}
 			}
 		}
@@ -5453,9 +5453,9 @@ TCT_religious_events.799 = {
 	}
 }
 
-TCT_religious_events.800 = { 
-	title = TCT_religious_events.800.t
-	desc = TCT_religious_events.800.desc
+tct_religious_events.800 = { 
+	title = tct_religious_events.800.t
+	desc = tct_religious_events.800.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = scope:ruler_who_refused
@@ -5474,7 +5474,7 @@ TCT_religious_events.800 = {
 	}
 
 	option = { 
-		name = TCT_religious_events.800.a
+		name = tct_religious_events.800.a
 		trigger = {
 			NOT = { has_realm_law = free_investiture }
 		}
@@ -5494,9 +5494,9 @@ TCT_religious_events.800 = {
 						trigger = {
 							title:e_hre.holder = this
 						}
-						desc = TCT_religious_events.800.b.emperor
+						desc = tct_religious_events.800.b.emperor
 					}
-					desc = TCT_religious_events.800.b
+					desc = tct_religious_events.800.b
 				}
 			}
 		}
@@ -5521,7 +5521,7 @@ TCT_religious_events.800 = {
 				this = title:e_hre.holder
 			}
 			add_internal_flag = dangerous
-			custom_tooltip = TCT_religious_events.800.b.imperial_refusal
+			custom_tooltip = tct_religious_events.800.b.imperial_refusal
 			start_struggle = {
 				struggle_type = investiture_controversy_struggle
 				start_phase = investiture_controversy_phase_unrest
@@ -5544,7 +5544,7 @@ TCT_religious_events.800 = {
 
 	# We submit
 	option = {
-		name = TCT_religious_events.800.c
+		name = tct_religious_events.800.c
 		trigger = {
 			has_realm_law = free_investiture
 		}
@@ -5566,22 +5566,22 @@ TCT_religious_events.800 = {
 			base = 100
 			modifier = {
 				factor = 0
-				has_character_flag = TCT_start_investiture_controversy
+				has_character_flag = tct_start_investiture_controversy
 			}
 		}
 	}
 }
 
-# TCT_religious_events.801
+# tct_religious_events.801
 
-# TCT_religious_events.802
+# tct_religious_events.802
 
 #
 #Launching a Crusade
 
-TCT_religious_events.803 = {
-	title = TCT_religious_events.803.t
-	desc = TCT_religious_events.803.desc
+tct_religious_events.803 = {
+	title = tct_religious_events.803.t
+	desc = tct_religious_events.803.desc
 	theme = learning_scholarship_focus
 	left_portrait = {
 		character = scope:pope
@@ -5602,12 +5602,12 @@ TCT_religious_events.803 = {
 	}
 
 	option = {
-		name = TCT_religious_events.803.a
+		name = tct_religious_events.803.a
 		
 	}
 }
 
-TCT_religious_events.805 = {
+tct_religious_events.805 = {
 	hidden = yes
 
 	trigger = {
@@ -5640,12 +5640,12 @@ TCT_religious_events.805 = {
 	}
 
 	option = {
-		name = TCT_religious_events.803.a
+		name = tct_religious_events.803.a
 		
 	}
 }
 
-TCT_religious_events.806 = {
+tct_religious_events.806 = {
 	hidden = yes
 
 	trigger = {
@@ -5671,7 +5671,7 @@ TCT_religious_events.806 = {
 }
 
 
-TCT_religious_events.807 = {
+tct_religious_events.807 = {
 	hidden = yes
 
 	immediate = {
@@ -5762,9 +5762,9 @@ scripted_effect nearby_crusader_state_targets = {
 	}
 }
 
-TCT_religious_events.810 = {
-	title = TCT_religious_events.810.t
-	desc = TCT_religious_events.810.desc
+tct_religious_events.810 = {
+	title = tct_religious_events.810.t
+	desc = tct_religious_events.810.desc
 
 	right_portrait = {
 		character = root
@@ -5784,7 +5784,7 @@ TCT_religious_events.810 = {
 	}
 
 	option = {
-		name = TCT_religious_events.810.a
+		name = tct_religious_events.810.a
 		if = {
 			limit = { has_variable = selected_title }
 			var:selected_title = {
@@ -5814,7 +5814,7 @@ TCT_religious_events.810 = {
 			}
 		}
 		else = {
-			custom_tooltip = TCT_religious_events.810.a.cancel
+			custom_tooltip = tct_religious_events.810.a.cancel
 			remove_decision_cooldown = Declare_Minor_Crusade
 		}
 	}
@@ -5825,7 +5825,7 @@ TCT_religious_events.810 = {
 #Hidden first event fires for the owner of the army.
 #root = owner of the army
 #scope:army = the army itself.
-TCT_religious_events.811 = {
+tct_religious_events.811 = {
 	hidden = yes
 	
 	trigger = {
@@ -5904,26 +5904,26 @@ TCT_religious_events.811 = {
 		var:selected_title = { save_scope_as = selected_title }
 		var:selected_title_kingdom = { save_scope_as = target_kingdom }
 		scope:army = {
-			army_commander = { trigger_event = TCT_religious_events.812 }
+			army_commander = { trigger_event = tct_religious_events.812 }
 			army_owner = {
 				every_knight = {
 					limit = {
 						location = scope:current_location
 					}
-					trigger_event = TCT_religious_events.812
+					trigger_event = tct_religious_events.812
 				}
 			}
 		}
 	}
 }
 
-TCT_religious_events.812 = {
-	title = TCT_religious_events.812.title
+tct_religious_events.812 = {
+	title = tct_religious_events.812.title
 	desc = {
 		first_valid = {
 			triggered_desc = { #Crusaders
 				trigger = { faith.religion = religion:christianity_religion }
-				desc = TCT_religious_events.812.crusader.desc
+				desc = tct_religious_events.812.crusader.desc
 			}
 			triggered_desc = { #Muslims
 				trigger = { faith.religion = religion:islam_religion }
@@ -5970,11 +5970,11 @@ TCT_religious_events.812 = {
 	}
 	
 	option = {
-		name = TCT_religious_events.812.a
+		name = tct_religious_events.812.a
 		add_trait = faith_warrior
 		hidden_effect = { #Punish player sneakery.
 			trigger_event = {
-				id = TCT_religious_events.813
+				id = tct_religious_events.813
 				days = { 15 60 }
 			}
 		}
@@ -5982,9 +5982,9 @@ TCT_religious_events.812 = {
 }
 
 #Character is no longer in the Holy Land fighting infidels, not even a few weeks after getting the trait!
-TCT_religious_events.813 = {
-	title = TCT_religious_events.813.title
-	desc = TCT_religious_events.813.base.desc
+tct_religious_events.813 = {
+	title = tct_religious_events.813.title
+	desc = tct_religious_events.813.base.desc
 	theme = faith
 	left_portrait = {
 		character = root
@@ -6035,70 +6035,70 @@ TCT_religious_events.813 = {
 }
 
 # Pope Election Cleanu
-# TCT_religious_events.814
+# tct_religious_events.814
 
 # Keeping the College of Cardinals full
-# TCT_religious_events.9999
+# tct_religious_events.9999
 
 
 # Papal Affair Decision Events
 
 # Divorce Choices
-TCT_religious_events.850 = {
+tct_religious_events.850 = {
 	type = character_event
-	title = TCT_religious_events.850.a
-	desc = TCT_religious_events.850.a
+	title = tct_religious_events.850.t
+	desc = tct_religious_events.850.d
 
 	theme = realm
 	left_portrait = root
 
 	option = {
-		name = TCT_religious_events.850.a
+		name = tct_religious_events.850.a
 	}
 	option = {
-		name = TCT_religious_events.850.a
+		name = tct_religious_events.850.b
 	}
 	option = {
-		name = TCT_religious_events.850.a
+		name = tct_religious_events.850.c
 	}
 }
 
 # Gold Choices
-TCT_religious_events.851 = {
+tct_religious_events.851 = {
 	type = character_event
-	title = TCT_religious_events.851.a
-	desc = TCT_religious_events.851.a
+	title = tct_religious_events.851.t
+	desc = tct_religious_events.851.d
 
 	theme = realm
 	left_portrait = root
 
 	option = {
-		name = TCT_religious_events.851.a
+		name = tct_religious_events.851.a
 	}
 	option = {
-		name = TCT_religious_events.851.a
+		name = tct_religious_events.851.b
 	} 
 	option = {
-		name = TCT_religious_events.851.a
+		name = tct_religious_events.851.c
 	}
 }
 
 # Excommunication Choices
-TCT_religious_events.852 = {
+tct_religious_events.852 = {
 	type = character_event
-	title = TCT_religious_events.852.a
-	desc = TCT_religious_events.852.a
+	title = tct_religious_events.852.t
+	desc = tct_religious_events.852.d
 
 	theme = realm
 	left_portrait = root
 
 	option = {
-		name = TCT_religious_events.852.a
+		name = tct_religious_events.852.a
 	}
 	option = {
-		name = TCT_religious_events.852.a
+		name = tct_religious_events.852.b
 	}
 	option = {
-		name = TCT_religious_events.852.a
+		name = tct_religious_events.852.c
 	}
 }

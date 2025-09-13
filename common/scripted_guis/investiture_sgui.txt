@@ -20,13 +20,13 @@ get_all_realm_theocracies = {
 			save_scope_as = your_primary_title
 			clear_variable_list = theocracy_vassals_for_investiture
 		}
-		TCT_investiture_add_to_gui = yes
+		tct_investiture_add_to_gui = yes
 		every_vassal = {
 			limit = {
 				NOT = { has_government = theocracy_government }
 				highest_held_title_tier > tier_barony
 			}
-			TCT_investiture_add_to_gui = yes
+			tct_investiture_add_to_gui = yes
 		}
     }
 }
@@ -53,7 +53,7 @@ get_all_investiture_candidates = {
 						has_trait = devoted
 						has_education_learning_trigger = yes
 					}
-					TCT_investiture_candidates_common_trigger = yes
+					tct_investiture_candidates_common_trigger = yes
 				}
 				save_scope_as = person_thing
 				scope:title_thing = {
@@ -70,7 +70,7 @@ get_all_investiture_candidates = {
 					has_trait = devoted
 					has_education_learning_trigger = yes
 				}
-				TCT_investiture_candidates_common_trigger = yes
+				tct_investiture_candidates_common_trigger = yes
 			}
 			save_scope_as = person_thing
 			scope:title_thing = {
@@ -86,7 +86,7 @@ get_all_investiture_candidates = {
 					has_trait = devoted
 					has_education_learning_trigger = yes
 				}
-				TCT_investiture_candidates_common_trigger = yes
+				tct_investiture_candidates_common_trigger = yes
 			}
 			save_scope_as = person_thing
 			scope:title_thing = {
@@ -100,7 +100,7 @@ get_all_investiture_candidates = {
 		every_vassal = {
 			every_courtier_or_guest = {
 				limit = {
-					TCT_investiture_candidates_courtier_trigger = yes
+					tct_investiture_candidates_courtier_trigger = yes
 				}
 				save_scope_as = person_thing
 				scope:title_thing = {
@@ -114,7 +114,7 @@ get_all_investiture_candidates = {
 
 		every_courtier_or_guest = {
 			limit = {
-				TCT_investiture_candidates_courtier_trigger = yes
+				tct_investiture_candidates_courtier_trigger = yes
 			}
 			save_scope_as = person_thing
 			scope:title_thing = {

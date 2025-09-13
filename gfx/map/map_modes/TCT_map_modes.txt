@@ -104,13 +104,13 @@
 @data_after_lighting_blend = 				0.5
 
 
-TCT_pentarchy = {
+tct_pentarchy = {
 	color_mode = baronies
 	small_map_names = baronies
 	selection = counties
 	fill_in_impassable = no
 	
-	barony_description = TCT_PENTARCHY_MAP_MODE_TOOLTIP
+	barony_description = tct_PENTARCHY_MAP_MODE_TOOLTIP
 	gradient_parameters = {
 		gradient_alpha_inside = 	@filled_near_gradient_alpha_inside
 		gradient_alpha_outside = 	@filled_near_gradient_alpha_outside
@@ -125,13 +125,13 @@ TCT_pentarchy = {
 	}
 }
 
-TCT_investiture = {
+tct_investiture = {
 	color_mode = baronies
 	small_map_names = baronies
 	selection = counties
 	fill_in_impassable = no
 	
-	barony_description = TCT_Investiture_MapMode
+	barony_description = tct_Investiture_MapMode
 	gradient_parameters = {
 		gradient_alpha_inside = 	@filled_near_gradient_alpha_inside
 		gradient_alpha_outside = 	@filled_near_gradient_alpha_outside

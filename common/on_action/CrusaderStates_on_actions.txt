@@ -1,12 +1,12 @@
 ﻿on_siege_completion = {
 	on_actions = {
-		TCT_SIEGE1
+		tct_SIEGE1
 	}
 }
 
 #WHY WAS I NOT USING on_county_occupied???????
 
-TCT_SIEGE1 = {
+tct_SIEGE1 = {
 	trigger = {
 		scope:war = {
 			using_holy_war_cb_trigger = yes
@@ -40,7 +40,7 @@ TCT_SIEGE1 = {
 					value = PREV
 				}
 			}
-			debug_log = "TCT_SIEGE1"
+			debug_log = "tct_SIEGE1"
 			debug_log_scopes = no
 			scope:war_attacker ?= {
 				WarDuchyEffect_trigger = yes

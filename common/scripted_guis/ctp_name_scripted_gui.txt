@@ -15,7 +15,7 @@
 random_pope_male_name = {
 	scope = character
 	effect = {
-		TCT_random_pope_name = yes
+		tct_random_pope_name = yes
 	}
 }
 

@@ -1,4 +1,4 @@
-﻿TCT_doctrine_head_of_faith = {
+﻿tct_doctrine_head_of_faith = {
 	group = "main_group"
 
 	is_available_on_create = {
@@ -8,7 +8,7 @@
 	doctrine_independent_papacy_head = {
 		visible = no
 		parameters = {
-			TCT_antipopes = yes
+			tct_antipopes = yes
 			clergy_can_fight = yes
 			# disable_theocracy_lease = yes
 		}
@@ -36,11 +36,11 @@
 	# 		spiritual_head_of_faith = yes
 	# 		spiritual_head_of_faith_claims = yes
 	# 		spiritual_head_of_faith_gold = yes
-	# 		TCT_autocephaly_head = yes
+	# 		tct_autocephaly_head = yes
 	# 	}
 	# }
 
-	doctrine_TCT_blank = {
+	doctrine_tct_blank = {
 		visible = no
 		is_shown = { religion_tag = christianity_religion }
 		can_pick = {
@@ -55,12 +55,12 @@
 	}
 }
 
-TCT_doctrine_clerical_succession = {
+tct_doctrine_clerical_succession = {
 	group = "clergy"
 	#number_of_picks = 1
 	
 
-	doctrine_clerical_TCT_blank = {
+	doctrine_clerical_tct_blank = {
 		visible = no
 		is_shown = { religion_tag = christianity_religion }
 		can_pick = {
@@ -124,7 +124,7 @@ TCT_doctrine_clerical_succession = {
 
 		parameters = {
 			# clerical_appointment_fixed = yes
-			TCT_clerical_appointment_investiture = yes
+			tct_clerical_appointment_investiture = yes
 		}
 	}
 }

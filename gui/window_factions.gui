@@ -327,7 +327,7 @@ window = {
 											button_standard = {
 												layoutpolicy_horizontal = growing
 												name = "create_faction"
-												visible = "[Not(EqualTo_string(CreateFactionItem.GetCreateFactionText, Localize('TCT_antiking_ui_trigger')))]"
+												visible = "[Not(EqualTo_string(CreateFactionItem.GetCreateFactionText, Localize('tct_antiking_ui_trigger')))]"
 												enabled = "[CreateFactionItem.CanPlayerCreateFaction]"
 												text = "[CreateFactionItem.GetCreateFactionText]"
 												tooltip = "[CreateFactionItem.BuildCreateFactionTooltip]"
@@ -335,11 +335,11 @@ window = {
 											}
 											button_standard = {
 												layoutpolicy_horizontal = growing
-												visible = "[EqualTo_string(CreateFactionItem.GetCreateFactionText, Localize('TCT_antiking_ui_trigger'))]"
+												visible = "[EqualTo_string(CreateFactionItem.GetCreateFactionText, Localize('tct_antiking_ui_trigger'))]"
 												enabled = "[CreateFactionItem.CanPlayerCreateFaction]"
 												text = "[CreateFactionItem.GetCreateFactionText]"
 												tooltip = "[CreateFactionItem.BuildCreateFactionTooltip]"
-												onclick = "[GetScriptedGui('TCT_antiking_faction_setup').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+												onclick = "[GetScriptedGui('tct_antiking_faction_setup').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 											}
 										}
 									}

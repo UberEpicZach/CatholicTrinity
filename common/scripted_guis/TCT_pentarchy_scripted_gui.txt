@@ -4,24 +4,24 @@
 			name = custom_map_mode
 			value = flag:none
 		}
-		TCT_map_clear_baronies = yes
+		tct_map_clear_baronies = yes
 	}
 	is_valid = {
 		NOT = { global_var:custom_map_mode = flag:none	}
 	}
 }
-TCT_pentarchy_map = {
+tct_pentarchy_map = {
 	effect = {
-		TCT_pentarchy_map = yes
+		tct_pentarchy_map = yes
 	}
 	is_shown = {
-		global_var:custom_map_mode = flag:TCT_pentarchy_map
+		global_var:custom_map_mode = flag:tct_pentarchy_map
 	}
 	is_valid = {
 		NOT = { exists = global_var:custom_map_mode_changing }
 	}
 }
-TCT_update_pentarchy = {
+tct_update_pentarchy = {
 	scope = character
 
 	is_valid = {
@@ -29,9 +29,9 @@ TCT_update_pentarchy = {
 	}
 
 	effect = {
-		clear_variable_list = TCT_pentarchs_list
-		clear_variable_list = TCT_patriarchs_list
-		clear_variable_list = TCT_ecumenical_patriarch_list
+		clear_variable_list = tct_pentarchs_list
+		clear_variable_list = tct_patriarchs_list
+		clear_variable_list = tct_ecumenical_patriarch_list
 		
 		every_living_character = {
 			limit = { 
@@ -50,7 +50,7 @@ TCT_update_pentarchy = {
 			# Adds to a pentarchs list
 			root = {
 				add_to_variable_list = {
-					name = TCT_pentarchs_list
+					name = tct_pentarchs_list
 					target = prev
 				}
 			}
@@ -58,20 +58,20 @@ TCT_update_pentarchy = {
 		every_living_character = {
 			limit = {
 				is_ruler = yes
-				any_held_title = { has_variable = TCT_autocephaly }
+				any_held_title = { has_variable = tct_autocephaly }
 			}
 			random_held_title = {
-				limit = { has_variable = TCT_autocephaly }
+				limit = { has_variable = tct_autocephaly }
 				prev = {
 					set_variable = {
-						name = TCT_canonical_territory
-						value = prev.var:TCT_autocephaly
+						name = tct_canonical_territory
+						value = prev.var:tct_autocephaly
 					}
 				}
 			}
 			root = {
 				add_to_variable_list = {
-					name = TCT_patriarchs_list
+					name = tct_patriarchs_list
 					target = prev
 				}
 			}
@@ -83,7 +83,7 @@ TCT_update_pentarchy = {
 			}
 			root = {
 				add_to_variable_list = {
-					name = TCT_ecumenical_patriarch_list
+					name = tct_ecumenical_patriarch_list
 					target = prev
 				}
 			}
@@ -92,7 +92,7 @@ TCT_update_pentarchy = {
 	}
 }
 
-TCT_update_archbishoric = {
+tct_update_archbishoric = {
 	scope = character
 
 	is_valid = {
@@ -100,10 +100,10 @@ TCT_update_archbishoric = {
 	}
 
 	effect = {
-		clear_variable_list = TCT_pentarchs_list
-		clear_variable_list = TCT_patriarchs_list
-		clear_variable_list = TCT_archbishops_list
-		clear_variable_list = TCT_ecumenical_patriarch_list
+		clear_variable_list = tct_pentarchs_list
+		clear_variable_list = tct_patriarchs_list
+		clear_variable_list = tct_archbishops_list
+		clear_variable_list = tct_ecumenical_patriarch_list
 		
 		every_living_character = {
 			limit = { 
@@ -122,7 +122,7 @@ TCT_update_archbishoric = {
 			# Adds to a pentarchs list
 			root = {
 				add_to_variable_list = {
-					name = TCT_pentarchs_list
+					name = tct_pentarchs_list
 					target = prev
 				}
 			}
@@ -130,20 +130,20 @@ TCT_update_archbishoric = {
 		every_living_character = {
 			limit = {
 				is_ruler = yes
-				any_held_title = { has_variable = TCT_autocephaly }
+				any_held_title = { has_variable = tct_autocephaly }
 			}
 			random_held_title = {
-				limit = { has_variable = TCT_autocephaly }
+				limit = { has_variable = tct_autocephaly }
 				prev = {
 					set_variable = {
-						name = TCT_canonical_territory
-						value = prev.var:TCT_autocephaly
+						name = tct_canonical_territory
+						value = prev.var:tct_autocephaly
 					}
 				}
 			}
 			root = {
 				add_to_variable_list = {
-					name = TCT_patriarchs_list
+					name = tct_patriarchs_list
 					target = prev
 				}
 			}
@@ -155,13 +155,13 @@ TCT_update_archbishoric = {
 			}
 			root = {
 				add_to_variable_list = {
-					name = TCT_ecumenical_patriarch_list
+					name = tct_ecumenical_patriarch_list
 					target = prev
 				}
 			}
 		}
 
-		clear_variable_list = TCT_archbishops_list
+		clear_variable_list = tct_archbishops_list
 		
 		faith:catholic = {
 			every_faith_ruler = {
@@ -174,7 +174,7 @@ TCT_update_archbishoric = {
 				# Adds to a pentarchs list
 				root = {
 					add_to_variable_list = {
-						name = TCT_archbishops_list
+						name = tct_archbishops_list
 						target = prev
 					}
 				}

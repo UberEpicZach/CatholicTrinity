@@ -399,12 +399,12 @@ investiture_struggle_papal_supremacy_decision = {
 		trigger_if = {
 			limit = {
 				title:k_papal_state.holder.faith = {
-					has_variable_list = TCT_antipopes
+					has_variable_list = tct_antipopes
 				}
 			}
 			custom_tooltip = {
 				text = investiture_struggle_papal_supremacy_decision_antipope_tt
-				title:k_papal_state.holder.faith = { variable_list_size = { name = TCT_antipopes value = 0 } }
+				title:k_papal_state.holder.faith = { variable_list_size = { name = tct_antipopes value = 0 } }
 			}
 		}	
 
@@ -645,9 +645,9 @@ investiture_struggle_imperial_supremacy_decision = {
 
 		if = {
 			limit = {
-				has_variable = TCT_antipope_of_ruler
+				has_variable = tct_antipope_of_ruler
 			}
-			TCT_get_pope_of_target = {
+			tct_get_pope_of_target = {
 				TARGET = root
 			}
 			scope:pope_of_target = {

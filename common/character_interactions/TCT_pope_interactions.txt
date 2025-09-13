@@ -1,10 +1,10 @@
 ﻿#Updated to 1.7
-TCT_make_antipope_interaction = {
+tct_make_antipope_interaction = {
 	category = interaction_category_religion
 
 	common_interaction = yes
 
-	desc = TCT_make_antipope_interaction_desc
+	desc = tct_make_antipope_interaction_desc
 
 	is_shown = {
 		scope:actor = {
@@ -17,7 +17,7 @@ TCT_make_antipope_interaction = {
 				}
 			}
 			highest_held_title_tier >= tier_duchy
-			NOT = { has_variable = TCT_antipope_of_ruler }
+			NOT = { has_variable = tct_antipope_of_ruler }
 			is_independent_ruler = yes
 		}
 		scope:recipient = {
@@ -66,7 +66,7 @@ TCT_make_antipope_interaction = {
 		}
 			
 		modifier = {
-			desc = TCT_MAKE_ANTIPOPE_IS_DUKE
+			desc = tct_MAKE_ANTIPOPE_IS_DUKE
 			add = -25
 			scope:actor = {
 				highest_held_title_tier = tier_duchy
@@ -74,11 +74,11 @@ TCT_make_antipope_interaction = {
 		}
 
 		modifier = {
-			desc = TCT_MAKE_ANTIPOPE_ANTIPOPE_IS_EXISTS
+			desc = tct_MAKE_ANTIPOPE_ANTIPOPE_IS_EXISTS
 			add = -50
 			scope:actor.faith = {
-				has_variable_list = TCT_antipopes
-				variable_list_size = { name = TCT_antipopes value > 0 } 
+				has_variable_list = tct_antipopes
+				variable_list_size = { name = tct_antipopes value > 0 } 
 			}
 		}
 
@@ -101,7 +101,7 @@ TCT_make_antipope_interaction = {
 					target = scope:actor #Excommunication target
 				}
 			}
-			desc = TCT_MAKE_ANTIPOPE_NEGATIVE_OPINION
+			desc = tct_MAKE_ANTIPOPE_NEGATIVE_OPINION
 		}
 		modifier = {
 			add = {
@@ -109,7 +109,7 @@ TCT_make_antipope_interaction = {
 				multiply = scope:actor.faith.religious_head.num_virtuous_traits
 			}
 			scope:actor.faith.religious_head.num_virtuous_traits > 0
-			desc = TCT_MAKE_ANTIPOPE_VIRTUES
+			desc = tct_MAKE_ANTIPOPE_VIRTUES
 		}
 		modifier = {
 			add = {
@@ -117,7 +117,7 @@ TCT_make_antipope_interaction = {
 				multiply = scope:actor.faith.religious_head.num_sinful_traits
 			}
 			scope:actor.faith.religious_head.num_sinful_traits > 0
-			desc = TCT_MAKE_ANTIPOPE_SINS
+			desc = tct_MAKE_ANTIPOPE_SINS
 		}
 		modifier = {
 			desc = RELIGIOUS_HEAD_INTERACTION_PARAGON
@@ -134,56 +134,56 @@ TCT_make_antipope_interaction = {
 			}
 		}
 		modifier = {
-			desc = TCT_MAKE_ANTIPOPE_IS_AMBITIOUS
+			desc = tct_MAKE_ANTIPOPE_IS_AMBITIOUS
 			add = 50
 			scope:recipient = {
 				has_trait = ambitious
 			}
 		}
 		modifier = {
-			desc = TCT_MAKE_ANTIPOPE_IS_SUPPORTER
+			desc = tct_MAKE_ANTIPOPE_IS_SUPPORTER
 			add = 190
 			scope:recipient = {
 				has_trait = tct_imperial_supporter
 			}
 		}
 		modifier = {
-			desc = TCT_MAKE_ANTIPOPE_IS_CONTENT
+			desc = tct_MAKE_ANTIPOPE_IS_CONTENT
 			add = -50
 			scope:recipient = {
 				has_trait = content
 			}
 		}
 		modifier = {
-			desc = TCT_MAKE_ANTIPOPE_IS_CARDINAL
+			desc = tct_MAKE_ANTIPOPE_IS_CARDINAL
 			add = -10
 			scope:recipient = {
 				has_trait = cardinal
 			}
 		}
 		modifier = {
-			desc = TCT_MAKE_ANTIPOPE_IS_HUMBLE #ADD LOC
+			desc = tct_MAKE_ANTIPOPE_IS_HUMBLE #ADD LOC
 			add = -25
 			scope:recipient = {
 				has_trait = humble
 			}
 		}
 		modifier = {
-			desc = TCT_MAKE_ANTIPOPE_IS_ARROGANT #ADD LOC
+			desc = tct_MAKE_ANTIPOPE_IS_ARROGANT #ADD LOC
 			add = 25
 			scope:recipient = {
 				has_trait = arrogant
 			}
 		}
 		modifier = {
-			desc = TCT_MAKE_ANTIPOPE_IS_BRAVE #ADD LOC
+			desc = tct_MAKE_ANTIPOPE_IS_BRAVE #ADD LOC
 			add = 10
 			scope:recipient = {
 				has_trait = brave
 			}
 		}
 		modifier = {
-			desc = TCT_MAKE_ANTIPOPE_IS_CRAVEN #ADD LOC
+			desc = tct_MAKE_ANTIPOPE_IS_CRAVEN #ADD LOC
 			add = -10
 			scope:recipient = {
 				has_trait = craven
@@ -211,7 +211,7 @@ TCT_make_antipope_interaction = {
 				}
 			}
 		}
-		TCT_create_antipope = {
+		tct_create_antipope = {
 			ANTIPOPE = scope:recipient
 			CREATOR = scope:actor
 		}
@@ -223,22 +223,22 @@ TCT_make_antipope_interaction = {
 				every_involved_ruler = {
 					limit = {
 						NOT = {
-							has_character_flag = had_TCT_religious_events_0409
+							has_character_flag = had_tct_religious_events_0409
 						}
 					}
-					trigger_event = { days = 1 id = TCT_religious_events.403 }
-					add_character_flag = had_TCT_religious_events_0409
+					trigger_event = { days = 1 id = tct_religious_events.403 }
+					add_character_flag = had_tct_religious_events_0409
 				}
 			}
 		}
 		every_faith_ruler = {
 			limit = {
 				NOT = {
-					has_character_flag = had_TCT_religious_events_0409
+					has_character_flag = had_tct_religious_events_0409
 				}
 			}
-			trigger_event = { days = 1 id = TCT_religious_events.403 }
-			add_character_flag = had_TCT_religious_events_0409
+			trigger_event = { days = 1 id = tct_religious_events.403 }
+			add_character_flag = had_tct_religious_events_0409
 		}
 	}
 
@@ -327,10 +327,10 @@ excommunicate_interaction = { # TCT
 
 		trigger_else_if = {
 			limit = {
-				scope:actor.faith = { AND = { has_doctrine = doctrine_independent_papacy_head has_variable_list = TCT_antipopes } }
+				scope:actor.faith = { AND = { has_doctrine = doctrine_independent_papacy_head has_variable_list = tct_antipopes } }
 			}
 			scope:actor.faith = scope:recipient.faith
-			TCT_is_pope_of_target_trigger = { 
+			tct_is_pope_of_target_trigger = { 
 				TARGET = scope:recipient
 				POPE = scope:actor 
 			}
@@ -485,9 +485,9 @@ request_excommunication_interaction = {
 	redirect = {
 		if = {
 			limit = {
-				scope:actor.faith = { AND = { has_doctrine = doctrine_independent_papacy_head has_variable_list = TCT_antipopes } }	
+				scope:actor.faith = { AND = { has_doctrine = doctrine_independent_papacy_head has_variable_list = tct_antipopes } }	
 			}
-			TCT_get_pope_of_target = {
+			tct_get_pope_of_target = {
 				TARGET = scope:recipient
 			}
 			if = {
@@ -612,7 +612,7 @@ request_excommunication_interaction = {
 				scope:actor.faith = { has_doctrine = doctrine_independent_papacy_head }
 			}
 			scope:secondary_recipient = {
-				NOT = { has_trait = TCT_antipope }
+				NOT = { has_trait = tct_antipope }
 			}
 		}
 	}
@@ -740,20 +740,20 @@ request_excommunication_interaction = {
 			desc = RELIGIOUS_HEAD_INTERACTION_CONCLAVE_INFLUENCE_ACTOR
 			add = {
 				add = 10
-				multiply = scope:actor.var:TCT_conclave_influence
+				multiply = scope:actor.var:tct_conclave_influence
 			}
 			scope:actor = {
-				has_variable = TCT_conclave_influence
+				has_variable = tct_conclave_influence
 			}
 		}
 		modifier = {
 			desc = RELIGIOUS_HEAD_INTERACTION_CONCLAVE_INFLUENCE_RECIPIENT
 			add = {
 				add = -10
-				multiply = scope:secondary_recipient.var:TCT_conclave_influence
+				multiply = scope:secondary_recipient.var:tct_conclave_influence
 			}
 			scope:secondary_recipient = {
-				has_variable = TCT_conclave_influence
+				has_variable = tct_conclave_influence
 			}
 		}
 	}
@@ -883,9 +883,9 @@ hof_ask_for_claim_interaction = { #TCT
 	redirect = {
 		if = {
 			limit = {
-				scope:actor.faith = { AND = { has_doctrine = doctrine_independent_papacy_head has_variable_list = TCT_antipopes } }	
+				scope:actor.faith = { AND = { has_doctrine = doctrine_independent_papacy_head has_variable_list = tct_antipopes } }	
 			}
-			TCT_get_pope_of_target = {
+			tct_get_pope_of_target = {
 				TARGET = scope:recipient
 			}
 			scope:recipient = {
@@ -1710,20 +1710,20 @@ hof_ask_for_claim_interaction = { #TCT
 			desc = RELIGIOUS_HEAD_INTERACTION_CONCLAVE_INFLUENCE_ACTOR
 			add = {
 				add = 30
-				multiply = scope:actor.var:TCT_conclave_influence
+				multiply = scope:actor.var:tct_conclave_influence
 			}
 			scope:actor = {
-				has_variable = TCT_conclave_influence
+				has_variable = tct_conclave_influence
 			}
 		}
 		modifier = {
 			desc = RELIGIOUS_HEAD_INTERACTION_CONCLAVE_INFLUENCE_RECIPIENT
 			add = {
 				add = -30
-				multiply = scope:secondary_recipient.var:TCT_conclave_influence
+				multiply = scope:secondary_recipient.var:tct_conclave_influence
 			}
 			scope:secondary_recipient = {
-				has_variable = TCT_conclave_influence
+				has_variable = tct_conclave_influence
 			}
 		}
 		modifier = {
@@ -1894,12 +1894,12 @@ hof_ask_for_gold_interaction = { # TCT
 					faith = {
 						AND = {
 							has_doctrine = doctrine_independent_papacy_head 
-							has_variable_list = TCT_antipopes
+							has_variable_list = tct_antipopes
 						}
 					}
 				}	
 			}
-			TCT_is_pope_of_target_trigger = { 
+			tct_is_pope_of_target_trigger = { 
 				TARGET = scope:actor 
 				POPE = scope:recipient 
 			}
@@ -2318,10 +2318,10 @@ hof_ask_for_gold_interaction = { # TCT
 			desc = RELIGIOUS_HEAD_INTERACTION_CONCLAVE_INFLUENCE_ACTOR
 			add = {
 				add = 10
-				multiply = scope:actor.var:TCT_conclave_influence
+				multiply = scope:actor.var:tct_conclave_influence
 			}
 			scope:actor = {
-				has_variable = TCT_conclave_influence
+				has_variable = tct_conclave_influence
 			}
 		}
 	}
@@ -2358,8 +2358,8 @@ hof_ask_for_gold_interaction = { # TCT
 		scope:recipient = {
 			send_interface_message = {
 				type = msg_lots_of_gold_effect
-				title = TCT_lots_of_gold_pope_paid
-				desc = TCT_lots_of_gold_pope_paid_desc
+				title = tct_lots_of_gold_pope_paid
+				desc = tct_lots_of_gold_pope_paid_desc
 
 				left_icon = scope:recipient
 				right_icon = scope:actor
@@ -2532,9 +2532,9 @@ seek_indulgences_interaction = {
 		}
 		trigger_if = {
 			limit = {
-				scope:actor.faith = { AND = { has_doctrine = doctrine_independent_papacy_head has_variable_list = TCT_antipopes } }
+				scope:actor.faith = { AND = { has_doctrine = doctrine_independent_papacy_head has_variable_list = tct_antipopes } }
 			}
-			TCT_is_pope_of_target_trigger = { 
+			tct_is_pope_of_target_trigger = { 
 				TARGET = scope:actor 
 				POPE = scope:recipient 
 			}
@@ -2774,11 +2774,11 @@ declaration_of_repentance_interaction = {
 				trigger_if = {
 					limit = {
 						AND = {
-							has_variable_list = TCT_antipopes
+							has_variable_list = tct_antipopes
 							has_doctrine = doctrine_independent_papacy_head
 						}
 					}
-					TCT_is_pope_of_target_trigger = { 
+					tct_is_pope_of_target_trigger = { 
 						TARGET = scope:actor 
 						POPE = scope:recipient 
 					}
@@ -2977,12 +2977,12 @@ lift_excommunication_interaction = {
 				scope:actor.faith = {
 					AND = {
 						has_doctrine = doctrine_independent_papacy_head
-						has_variable_list = TCT_antipopes
+						has_variable_list = tct_antipopes
 					}
 				}
 			}
 			scope:actor.faith = scope:recipient.faith
-			TCT_is_pope_of_target_trigger = { 
+			tct_is_pope_of_target_trigger = { 
 				TARGET = scope:recipient 
 				POPE = scope:actor  
 			}
@@ -3223,9 +3223,9 @@ divorce_character_rel_head_interaction = {
 
 		if = {
 			limit = {
-				scope:actor.faith = { AND = { has_doctrine = doctrine_independent_papacy_head has_variable_list = TCT_antipopes } }	
+				scope:actor.faith = { AND = { has_doctrine = doctrine_independent_papacy_head has_variable_list = tct_antipopes } }	
 			}
-			TCT_get_pope_of_target = {
+			tct_get_pope_of_target = {
 				TARGET = scope:recipient
 			}
 			scope:recipient = {
@@ -5846,14 +5846,14 @@ tct_investiture_controversy_change_allegiance = {
 # 				}
 # 				every_ruler = {
 # 					limit = { faith.religious_head = scope:recipient }
-# 					trigger_event = TCT_religious_events.210
+# 					trigger_event = tct_religious_events.210
 # 				}
 # 			}
 # 		}
 # 	}
 # 	on_decline = {
 # 		scope:actor = {
-# 			hidden_effect = { trigger_event = TCT_religious_events.211 }
+# 			hidden_effect = { trigger_event = tct_religious_events.211 }
 # 		}
 # 	}
 	

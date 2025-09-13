@@ -271,21 +271,21 @@ window = {
 			# 	onclick = "[GetVariableSystem.Set( 'faith_view_tabs', 'pentarchy' )]"
 			# 	down = "[GetVariableSystem.HasValue( 'faith_view_tabs', 'pentarchy' )]"
 			# 	visible = "[Faith.HasDoctrineByKey( 'doctrine_autocephaly_head' )]"
-			# 	datacontext = "[GetScriptedGui( 'TCT_update_pentarchy' )]"
+			# 	datacontext = "[GetScriptedGui( 'tct_update_pentarchy' )]"
 			# 	enabled = "[Not(IsObserver)]"
 			# 	onclick = "[GetVariableSystem.Toggle( 'pentarchy_open' )]"
 			# 	onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'faith', Faith.MakeScope ).End ) ]"
-			# 	onclick = "[GetScriptedGui( 'TCT_pentarchy_map' ).Execute(GuiScope.End)]"
-			# 	onclick = "[SetMapMode( 'TCT_pentarchy' )]"
+			# 	onclick = "[GetScriptedGui( 'tct_pentarchy_map' ).Execute(GuiScope.End)]"
+			# 	onclick = "[SetMapMode( 'tct_pentarchy' )]"
 				
 				
-			# 	text = "TCT_open_pentarchy_window_button"
+			# 	text = "tct_open_pentarchy_window_button"
 			# 	default_format = "#low"
 
 			# 	using = tooltip_below
 
 			# 	flowcontainer = {
-			# 		visible = "[And( GetScriptedGui('TCT_update_pentarchy').IsShown(GuiScope.End), IsMapMode('TCT_pentarchy') ), IsDefaultGUIMode ) )]"
+			# 		visible = "[And( GetScriptedGui('tct_update_pentarchy').IsShown(GuiScope.End), IsMapMode('tct_pentarchy') ), IsDefaultGUIMode ) )]"
 			# 		parentanchor = bottom|right
 			# 		position = { 1325 760 }
 			# 		direction = vertical
@@ -368,7 +368,7 @@ window = {
 				visible = "[Faith.HasDoctrineByKey( 'doctrine_clerical_succession_investiture_law_appointment' )]"
 				onclick = "[GetVariableSystem.Set( 'faith_view_tabs', 'investiture' )]"
 				onclick = "[GetScriptedGui( 'line_investiture_map' ).Execute(GuiScope.End)]"
-				onclick = "[SetMapMode( 'TCT_investiture' )]"
+				onclick = "[SetMapMode( 'tct_investiture' )]"
 				onclick = "[GetScriptedGui('get_all_realm_theocracies').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 				down = "[GetVariableSystem.HasValue( 'faith_view_tabs', 'investiture' )]"
 				raw_text = "Investiture" # Should typically call a loc key but you can put the text right in if you are lazy
@@ -377,7 +377,7 @@ window = {
 				using = tooltip_below
 
 				flowcontainer = {
-					visible = "[And(And( GetScriptedGui('line_investiture_map').IsShown(GuiScope.End), IsMapMode('TCT_investiture')), IsDefaultGUIMode )]"
+					visible = "[And(And( GetScriptedGui('line_investiture_map').IsShown(GuiScope.End), IsMapMode('tct_investiture')), IsDefaultGUIMode )]"
 					parentanchor = bottom|right
 					position = { 1325 760 }
 					direction = vertical
@@ -957,20 +957,20 @@ window = {
 									layoutpolicy_horizontal = expanding
 									margin = { 5 0 }
 									
-									visible = "[And(Faith.HasDoctrineByKey('doctrine_independent_papacy_head'), Not(GetScriptedGui( 'TCT_no_antipopes' ).IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'faith', Faith.MakeScope ).End )))]"
+									visible = "[And(Faith.HasDoctrineByKey('doctrine_independent_papacy_head'), Not(GetScriptedGui( 'tct_no_antipopes' ).IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'faith', Faith.MakeScope ).End )))]"
 									text_single = {
 										visible = "[Faith.GetReligiousHead.IsValid]"
-										text = "TCT_antipopes_title"
+										text = "tct_antipopes_title"
 										default_format = "#medium"
 										layoutpolicy_horizontal = expanding
 										fontsize_min = 10
 									}
 									
-									datamodel = "[Faith.MakeScope.GetList('TCT_antipopes')]"
+									datamodel = "[Faith.MakeScope.GetList('tct_antipopes')]"
 									item = {
 										text_single = {
 											visible = "[Faith.GetReligiousHead.IsValid]"
-											text = "TCT_antipopes_name"
+											text = "tct_antipopes_name"
 											default_format = "#high"
 											layoutpolicy_horizontal = expanding
 											fontsize_min = 14
@@ -1113,12 +1113,12 @@ window = {
 
 					# Testing?
 					onclick = "[GetVariableSystem.Set( 'church_view_tabs', 'holychurch' )]"
-					datacontext = "[GetScriptedGui( 'TCT_update_archbishoric' )]"
-					#datacontext = "[GetScriptedGui( 'TCT_update_pentarchy' )]"
+					datacontext = "[GetScriptedGui( 'tct_update_archbishoric' )]"
+					#datacontext = "[GetScriptedGui( 'tct_update_pentarchy' )]"
 					onclick = "[GetVariableSystem.Toggle( 'pentarchy_open' )]"
 					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'faith', Faith.MakeScope ).End ) ]"
-					onclick = "[GetScriptedGui( 'TCT_pentarchy_map' ).Execute(GuiScope.End)]"
-					onclick = "[SetMapMode( 'TCT_pentarchy' )]"
+					onclick = "[GetScriptedGui( 'tct_pentarchy_map' ).Execute(GuiScope.End)]"
+					onclick = "[SetMapMode( 'tct_pentarchy' )]"
 
 					using = tooltip_nw
 				}

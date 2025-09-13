@@ -15,7 +15,7 @@
 					faith = faith:orthodox
 					faith = faith:coptic
 				}
-				NOT = { has_character_flag = TCT_humbug }
+				NOT = { has_character_flag = tct_humbug }
 				any_sub_realm_county = {
 					saintdays_province = yes
 				}
@@ -37,7 +37,7 @@
 	effect = {
 		open_view_data = {
 			view = activity_list_detail_host_window
-			data = activity_type:activity_TCT_saint_days
+			data = activity_type:activity_tct_saint_days
 		}
 	}
 }

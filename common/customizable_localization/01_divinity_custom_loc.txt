@@ -575,7 +575,7 @@ GetActualBishopTitle = {
 	# 'Early Out' keys for Head of Faith/Landed Rulers.
 	text = {
 		trigger = {
-			has_trait = TCT_antipope
+			has_trait = tct_antipope
 		}
 		localization_key = popebishop
 	}

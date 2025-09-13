@@ -17,7 +17,7 @@
 }
 
 
-TCT_patriarch_template = {
+tct_patriarch_template = {
 	age = { 30 50 }
 	#Education
 	random_traits_list = {

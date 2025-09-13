@@ -1,7 +1,7 @@
 ﻿l_english:
 
- TCT_archbishoprics: "Archbishoprics"
- TCT_archbishop_territory: "Archbishopric Territory"
+ tct_archbishoprics: "Archbishoprics"
+ tct_archbishop_territory: "Archbishopric Territory"
  pentarchy_LEGEND: "The Pentarchy"
  CUSTOM_pentarchy_INVESTITURE: "Pentarchy Investiture"
  

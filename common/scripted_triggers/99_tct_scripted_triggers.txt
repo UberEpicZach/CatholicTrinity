@@ -94,7 +94,7 @@ sainthood_event1trigger = {
 		has_faith = faith:waldensian
 		has_trait = kinslayer
 		has_trait = murderer
-		has_trait = TCT_antipope
+		has_trait = tct_antipope
 		has_impious_trait_trigger = yes
 		has_criminal_trait_trigger = yes
 	}
@@ -147,7 +147,7 @@ saintdays_province = {
 }
 
 saintdays_event1trigger = {
-	NOT = { has_character_flag = TCT_humbug }
+	NOT = { has_character_flag = tct_humbug }
 	is_available_adult = yes
 	exists = capital_county
 	OR = {
@@ -179,7 +179,7 @@ sainthood_pious_bishop = {
 		has_impious_trait_trigger = yes
 	}
 
-	NOT =  { has_trait = TCT_antipope } # Antipopes
+	NOT =  { has_trait = tct_antipope } # Antipopes
 
 	piety_level >= 1
 	num_sinful_traits < 1
@@ -238,13 +238,13 @@ has_nearby_saint_site = {
 	}
 }
 
-TCT_is_pope_of_target_trigger = {
+tct_is_pope_of_target_trigger = {
 	#save_temporary_scope_as = cardinal_check
 	trigger_if = {
 		limit = {
 			scope:actor.faith = {
 				NOT = { 
-					has_variable_list = TCT_antipopes 
+					has_variable_list = tct_antipopes 
 				}
 			} 
 		}
@@ -254,11 +254,11 @@ TCT_is_pope_of_target_trigger = {
 		limit = {
 			$TARGET$ = { 
 				OR = {
-					has_variable = TCT_antipope_of_ruler
+					has_variable = tct_antipope_of_ruler
 					AND = {
 						exists = liege
 						any_liege_or_above = {
-							has_variable = TCT_antipope_of_ruler
+							has_variable = tct_antipope_of_ruler
 						}
 					}
 				}
@@ -267,14 +267,14 @@ TCT_is_pope_of_target_trigger = {
 		OR = {
 			AND = {
 				$TARGET$ = {
-					has_variable = TCT_antipope_of_ruler
-					var:TCT_antipope_of_ruler = $POPE$
+					has_variable = tct_antipope_of_ruler
+					var:tct_antipope_of_ruler = $POPE$
 				}
 			}
 			$TARGET$ = {
 				any_liege_or_above = {
-					has_variable = TCT_antipope_of_ruler
-					var:TCT_antipope_of_ruler = $POPE$
+					has_variable = tct_antipope_of_ruler
+					var:tct_antipope_of_ruler = $POPE$
 				}
 			}
 		}
@@ -371,7 +371,7 @@ suitable_faith_for_undirected_ghw_trigger = {
 }
 
 conclave_influence_variable_effect_trigger = {
-	has_variable = TCT_conclave_influence
+	has_variable = tct_conclave_influence
 }
 
 tct_investiture_struggle_switch_sides_decision_liege_requirements_trigger = {
@@ -466,7 +466,7 @@ tct_investiture_struggle_is_valid_loyal_puppet_of_papal = {
 tct_archbishop_trigger = {
 	primary_title = {
 		OR ={
-			has_variable = TCT_archbishop
+			has_variable = tct_archbishop
 			this = title:d_archbishop_auch
 			this = title:d_archbishop_narbonne
 			this = title:d_archbishop_bordeaux
@@ -491,7 +491,7 @@ tct_archbishop_trigger = {
 	government_has_flag = government_is_theocracy
 }
 
-TCT_investiture_candidates_common_trigger = {
+tct_investiture_candidates_common_trigger = {
 	is_landed = no
 	can_be_clergy_due_to_gender_trigger = yes
 	is_adult = yes
@@ -500,8 +500,8 @@ TCT_investiture_candidates_common_trigger = {
 	}
 }
 
-TCT_investiture_candidates_courtier_trigger = {
-	TCT_investiture_candidates_common_trigger = yes
+tct_investiture_candidates_courtier_trigger = {
+	tct_investiture_candidates_common_trigger = yes
 	NOR = {
 		has_variable = theocratic_successor
 		is_child_of = liege_or_court_owner

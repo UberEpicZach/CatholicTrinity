@@ -1,4 +1,4 @@
-﻿TCT_antiking_faction = {
+﻿tct_antiking_faction = {
 	# TCT Todo: Make a New CB to Enforce our effects
 	casus_belli = claimant_faction_war
 
@@ -74,13 +74,13 @@
 				is_ai = no
 				NOT = { this = scope:faction.faction_leader }
 			}
-			trigger_event = TCT_faction_demand.2005
+			trigger_event = tct_faction_demand.2005
 		}
 
 		# Send the actual demand in 5 days
 		faction_target = {
 			trigger_event = {
-				id = TCT_faction_demand.2001
+				id = tct_faction_demand.2001
 				days = 5
 			}
 		}

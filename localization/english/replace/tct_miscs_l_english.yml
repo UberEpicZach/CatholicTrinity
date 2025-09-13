@@ -9,11 +9,11 @@
  public_opinion_positive: "High Public Opinion!"
  refusedpope: "Refused the Pope."
 
- TCT_lots_of_gold_pope_paid:0 "[actor.GetName] Asked for Gold"
- TCT_lots_of_gold_pope_paid_desc:0 "Because of the ample gold in your Papal Treasury, [RIGHT_CHARACTER.GetName] asked for and received funds from the Papacy."
+ tct_lots_of_gold_pope_paid:0 "[actor.GetName] Asked for Gold"
+ tct_lots_of_gold_pope_paid_desc:0 "Because of the ample gold in your Papal Treasury, [RIGHT_CHARACTER.GetName] asked for and received funds from the Papacy."
 
- TCT_paid_indulgences: "Ecclesiastical Record: Yearly Indulgences"
- TCT_paid_indulgences_desc: "This year, the Curia reports that #Bold [GetTitleByKey('k_papal_state').MakeScope.GetVariable('indulgence_count_this_year').GetValue|0P] #!souls sought penitents and have contributed #Bold [gold_i] [GetTitleByKey('k_papal_state').MakeScope.GetVariable('indulgence_gold_this_year').GetValue|0P]#! in exchange for papal indulgences.\nTheir sins are absolved; their souls, unburdened."
+ tct_paid_indulgences: "Ecclesiastical Record: Yearly Indulgences"
+ tct_paid_indulgences_desc: "This year, the Curia reports that #Bold [GetTitleByKey('k_papal_state').MakeScope.GetVariable('indulgence_count_this_year').GetValue|0P] #!souls sought penitents and have contributed #Bold [gold_i] [GetTitleByKey('k_papal_state').MakeScope.GetVariable('indulgence_gold_this_year').GetValue|0P]#! in exchange for papal indulgences.\nTheir sins are absolved; their souls, unburdened."
  invest_in_cardinal_AI_decision_desc: "This decision is for AI to Invest in the College of Cardinals, Please report this as a bug if  you can see this"
  invest_in_cardinal_AI_decision_tooltip: "This decision is for AI to Invest in the College of Cardinals, Please report this as a bug if  you can see this"
  invest_in_cardinal_AI: "AI Invest in College"
@@ -35,7 +35,7 @@
  InstallAntipope_decision_tooltip: "Install [antipope|E]"
  InstallAntipope: "Install [antipope|E]"
  InstallAntipope_confirm: "Install [antipope|E]"
- TCT_creator_of_antipope: "Creator of [antipope|E]"
+ tct_creator_of_antipope: "Creator of [antipope|E]"
 
  EXCOMMUNICATION_0_OPINION:0 "[recipient.GetShortUIName|U] has a positive Opinion of [secondary_recipient.GetShortUIName]: $VALUE|=+0$"
  EXCOMMUNICATION_50_OPINION:0 "[recipient.GetShortUIName|U] has a positive Opinion of over 50 of [secondary_recipient.GetShortUIName]: $VALUE|=+0$"
@@ -52,9 +52,9 @@
  HookGainedTCT: "You have gained a Hook"
  deinvest_in_cardinal_AI_decision_effect_tooltip: "This decision is for AI to Deinvest in the College of Cardinals, Please report this  as a bug if you can see this"
  
- trait_TCT_antipope:0 "Antipope"
- trait_TCT_antipope_desc:0 "This character is an [antipope|E], a contender for the [faith|E] [head_of_faith|E]."
- TCT_make_antipope_interaction_desc:0 "Create an [antipope|E]"
+ trait_tct_antipope:0 "Antipope"
+ trait_tct_antipope_desc:0 "This character is an [antipope|E], a contender for the [faith|E] [head_of_faith|E]."
+ tct_make_antipope_interaction_desc:0 "Create an [antipope|E]"
  
  DonationCountyClergy: "Donate land to the Clergy"
  DonationCountyClergy: "Donate land to the Clergy"
@@ -70,12 +70,12 @@
  close_tooltip: "Close"
  increased_fervor: "Fervor Change"
 
- TCT_helped_in_religious_war: "Helped in Religious War"
- TCT_appointed_bishop_investiture_bad: "Illegally Appointed Bishop"
- TCT_appointed_bishop_investiture_bad_desc: "Appointed Bishop Using 'Illegal' Investiture Rights"
+ tct_helped_in_religious_war: "Helped in Religious War"
+ tct_appointed_bishop_investiture_bad: "Illegally Appointed Bishop"
+ tct_appointed_bishop_investiture_bad_desc: "Appointed Bishop Using 'Illegal' Investiture Rights"
 
- TCT_appointed_bishop_investiture_good: "Appointed Bishop"
- TCT_appointed_bishop_investiture_good_desc: "Appointed Bishop Using Investiture Rights"
+ tct_appointed_bishop_investiture_good: "Appointed Bishop"
+ tct_appointed_bishop_investiture_good_desc: "Appointed Bishop Using Investiture Rights"
 
  tct_marriage_norms_modifier: "Marriage Scandal"
  tct_marriage_norms_modifier_desc: "Your controversial marriage arrangements have scandalized the realm, undermining their trust in your rule."

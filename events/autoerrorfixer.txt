@@ -28,16 +28,16 @@ autoerrorfixer.1 = {
 		fix_variable_error = {ERROR = cardinal_story}
 		fix_variable_error = {ERROR = cardinal_boost}
 		fix_variable_error = {ERROR = cardinal_debuff}
-		fix_variable_error = {ERROR = TCT_saint_day_dummychar}
-		fix_variable_error = {ERROR = TCT_saint_day_saint}
+		fix_variable_error = {ERROR = tct_saint_day_dummychar}
+		fix_variable_error = {ERROR = tct_saint_day_saint}
 		fix_variable_error = {ERROR = faith_saint_day_dummy_chars}
-		fix_variable_error = {ERROR = TCT_commissioned_sisitine_chapel}
+		fix_variable_error = {ERROR = tct_commissioned_sisitine_chapel}
 		fix_variable_error = {ERROR = pilgrimage_cooldown_timer}
 		fix_variable_error = {ERROR = selected_culture}
-		fix_variable_error = {ERROR = TCT_is_loaded}
-		fix_variable_error = {ERROR = TCT_autocephaly}
-		fix_variable_error = {ERROR = TCT_canonical_territory}
-		fix_variable_error = {ERROR = TCT_ecumenical_patriarch_list}
+		fix_variable_error = {ERROR = tct_is_loaded}
+		fix_variable_error = {ERROR = tct_autocephaly}
+		fix_variable_error = {ERROR = tct_canonical_territory}
+		fix_variable_error = {ERROR = tct_ecumenical_patriarch_list}
 		fix_variable_error = {ERROR = culture_options}
 		fix_variable_error = {ERROR = sp_unrest_catalyst_reveal_secret_supporter}
 		fix_variable_error = {ERROR = sp_stabil_catalyst_reveal_secret_detractor}
@@ -50,62 +50,62 @@ autoerrorfixer.1 = {
         fix_variable_error = {ERROR = existing_antiking_faction}
         fix_variable_error = {ERROR = HRT_edict_scholastic_advancement_var}
         fix_variable_error = {ERROR = HRT_edict_ecclesiastical_patronage_var}
-        fix_variable_error = {ERROR = TCT_archbishop}
-        fix_variable_error = {ERROR = TCT_papal_authority_vassals_war_var}
+        fix_variable_error = {ERROR = tct_archbishop}
+        fix_variable_error = {ERROR = tct_papal_authority_vassals_war_var}
         fix_variable_error = {ERROR = last_explicit_defied_emperor}
-        fix_variable_error = {ERROR = TCT_papal_authority_infidels_var}
+        fix_variable_error = {ERROR = tct_papal_authority_infidels_var}
         fix_variable_error = {ERROR = HRT_edict_urban_rights_var}
         fix_variable_error = {ERROR = HRT_edict_imperial_works_var}
-        fix_variable_error = {ERROR = TCT_papal_authority}
-        fix_variable_error = {ERROR = TCT_papal_authority_vassals_bonus_var}
+        fix_variable_error = {ERROR = tct_papal_authority}
+        fix_variable_error = {ERROR = tct_papal_authority_vassals_bonus_var}
         fix_variable_error = {ERROR = HRT_edict_consular_taxation_var}
-        fix_variable_error = {ERROR = TCT_papal_authority_unheld_heartlands}
+        fix_variable_error = {ERROR = tct_papal_authority_unheld_heartlands}
         fix_variable_error = {ERROR = HRT_edict_border_defense_var}
         fix_variable_error = {ERROR = custom_map_mode_changing}
         fix_variable_error = {ERROR = HRT_edict_diplomatic_corps_var}
-        fix_variable_error = {ERROR = TCT_papal_authority_vassals_var}
-        fix_variable_error = {ERROR = TCT_papacy}
+        fix_variable_error = {ERROR = tct_papal_authority_vassals_var}
+        fix_variable_error = {ERROR = tct_papacy}
         fix_variable_error = {ERROR = HRT_edict_legal_unification_var}
         fix_variable_error = {ERROR = HRT_edict_levy_conscription_var}
         fix_variable_error = {ERROR = HRT_core_territory}
-        fix_variable_error = {ERROR = TCT_papal_authority_years_reigned}
-        fix_variable_error = {ERROR = TCT_patriarchate_of_barony}
+        fix_variable_error = {ERROR = tct_papal_authority_years_reigned}
+        fix_variable_error = {ERROR = tct_patriarchate_of_barony}
         fix_variable_error = {ERROR = not_interested_in_the_investiture_controversy}
         fix_variable_error = {ERROR = test_var}
         fix_variable_error = {ERROR = KOH_is_loaded}
         fix_variable_error = {ERROR = tct_investiture_struggle_intro_flag_character_list}
-        fix_variable_error = {ERROR = TCT_antiking_faction}
+        fix_variable_error = {ERROR = tct_antiking_faction}
         fix_variable_error = {ERROR = HRT_edict_chivalric_excellence_var}
         fix_variable_error = {ERROR = existing_antiking_faction}
         fix_variable_error = {ERROR = HRT_edict_scholastic_advancement_var}
         fix_variable_error = {ERROR = HRT_edict_ecclesiastical_patronage_var}
-        fix_variable_error = {ERROR = TCT_archbishop}
-        fix_variable_error = {ERROR = TCT_papal_authority_vassals_war_var}
+        fix_variable_error = {ERROR = tct_archbishop}
+        fix_variable_error = {ERROR = tct_papal_authority_vassals_war_var}
         fix_variable_error = {ERROR = last_explicit_defied_emperor}
-        fix_variable_error = {ERROR = TCT_papal_authority_infidels_var}
+        fix_variable_error = {ERROR = tct_papal_authority_infidels_var}
         fix_variable_error = {ERROR = HRT_edict_urban_rights_var}
         fix_variable_error = {ERROR = HRT_edict_imperial_works_var}
-        fix_variable_error = {ERROR = TCT_papal_authority}
-        fix_variable_error = {ERROR = TCT_papal_authority_vassals_bonus_var}
+        fix_variable_error = {ERROR = tct_papal_authority}
+        fix_variable_error = {ERROR = tct_papal_authority_vassals_bonus_var}
         fix_variable_error = {ERROR = HRT_edict_consular_taxation_var}
-        fix_variable_error = {ERROR = TCT_papal_authority_unheld_heartlands}
+        fix_variable_error = {ERROR = tct_papal_authority_unheld_heartlands}
         fix_variable_error = {ERROR = HRT_edict_border_defense_var}
         fix_variable_error = {ERROR = custom_map_mode_changing}
         fix_variable_error = {ERROR = HRT_edict_diplomatic_corps_var}
-        fix_variable_error = {ERROR = TCT_papal_authority_vassals_var}
-        fix_variable_error = {ERROR = TCT_papacy}
+        fix_variable_error = {ERROR = tct_papal_authority_vassals_var}
+        fix_variable_error = {ERROR = tct_papacy}
         fix_variable_error = {ERROR = HRT_edict_legal_unification_var}
         fix_variable_error = {ERROR = HRT_edict_levy_conscription_var}
         fix_variable_error = {ERROR = HRT_core_territory}
-        fix_variable_error = {ERROR = TCT_papal_authority_years_reigned}
-        fix_variable_error = {ERROR = TCT_patriarchate_of_barony}
+        fix_variable_error = {ERROR = tct_papal_authority_years_reigned}
+        fix_variable_error = {ERROR = tct_patriarchate_of_barony}
         fix_variable_error = {ERROR = not_interested_in_the_investiture_controversy}
         fix_variable_error = {ERROR = test_var}
         fix_variable_error = {ERROR = KOH_is_loaded}
         fix_variable_error = {ERROR = tct_investiture_struggle_intro_flag_character_list}
-        fix_variable_error = {ERROR = TCT_antiking_faction}
-        fix_variable_error = {ERROR = TCT_pentarchy_map }
-        fix_variable_error = {ERROR = TCT_patriarchate } 
+        fix_variable_error = {ERROR = tct_antiking_faction}
+        fix_variable_error = {ERROR = tct_pentarchy_map }
+        fix_variable_error = {ERROR = tct_patriarchate } 
         fix_variable_error = {ERROR = tct_ecumenical_patriarch }
         fix_variable_error = {ERROR = force_ai_created_laamp }
         fix_variable_error = {ERROR = saint_days_procession }

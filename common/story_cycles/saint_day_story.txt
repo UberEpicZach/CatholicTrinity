@@ -76,7 +76,7 @@
 #								}
 #							}
 #						}
-#						trigger_event = { on_action = TCT_saint_day_real }
+#						trigger_event = { on_action = tct_saint_day_real }
 #					}
 #				}
 #			}

@@ -1,0 +1,34 @@
+﻿l_english:
+ manage_papal_affairs: "Manage Papal Affairs"
+ manage_papal_affairs_tooltip: "You will manage your Papal Affairs, deciding how to handle requests from religious rulers."
+ manage_papal_affairs_desc: "You will manage your Papal Affairs, deciding on how to handle requests from religious rulers
+ manage_papal_affairs_divorce: "Divorce Requests"
+ papal_divorce_request_tooltip: "Choose how to handle divorce requests from your subjects. You can automatically approve all requests, deny them outright, or set specific criteria based on the petitioner's rank or circumstances."
+ manage_papal_affairs_gold: "Requests for Gold"
+ papal_gold_request_tooltip: "Decide how to respond to requests for financial assistance. You can approve requests based on the petitioner's gold reserves, deny them if they exceed a certain amount, or set rank-based criteria for approval."
+ manage_papal_affairs_excommunication: "Excommunication Requests"
+ papal_excomunication_request_tooltip: "Manage requests for excommunication. You can set rules based on the petitioner's piety, the target's rank, or whether the target is an ally of the Papacy. Use this power to enforce Church doctrine and discipline."
+ manage_papal_affairs_confirm: "Choose Affairs"
+
+ choose_papal_affair_decision_tooltip: "Select one of the available papal affairs to manage. Each affair allows you to set specific rules for handling requests from your subjects."
+
+ # Divorce Choices
+ tct_religious_events.850.t: "Manage Divorce Requests"
+ tct_religious_events.850.d: "Choose how to handle divorce requests from your subjects. You can automatically approve all requests, deny them outright, or set specific criteria based on the petitioner's rank or circumstances."
+ tct_religious_events.850.a: ""
+ tct_religious_events.850.b: ""
+ tct_religious_events.850.c: ""
+ 
+ # Gold Choices
+ tct_religious_events.851.t: "Manage Requests for Gold"
+ tct_religious_events.851.d: "Decide how to respond to requests for financial assistance. You can approve requests based on the petitioner's gold reserves, deny them if they exceed a certain amount, or set rank-based criteria for approval."
+ tct_religious_events.851.a: ""
+ tct_religious_events.851.b: ""
+ tct_religious_events.851.c: ""
+ 
+ # Excommunication Choices
+ tct_religious_events.852.t: "Manage Excommunication Requests"
+ tct_religious_events.852.d: "Manage requests for excommunication. You can set rules based on the petitioner's piety, the target's rank, or whether the target is an ally of the Papacy. Use this power to enforce Church doctrine and discipline."
+ tct_religious_events.852.a: ""
+ tct_religious_events.852.b: ""
+ tct_religious_events.852.c: ""

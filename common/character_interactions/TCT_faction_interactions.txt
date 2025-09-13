@@ -85,7 +85,7 @@
 					object = scope:recipient
 					NOT = {
 						any_targeting_faction = {
-							faction_is_type = TCT_antiking_faction
+							faction_is_type = tct_antiking_faction
 							special_character = scope:recipient
 							special_title = scope:landed_title
 						}
@@ -103,7 +103,7 @@
 		scope:actor = {
 			can_join_or_create_faction_against = {
 				who = scope:secondary_actor
-				faction = TCT_antiking_faction
+				faction = tct_antiking_faction
 				check_in_a_faction = no # already checked in is_shown. Via the faction interface we'd see this twice if it fails (TIT-11380)
 			}
 		}
@@ -201,13 +201,13 @@
 			if = {
 				limit = {
 					can_create_faction = {
-						type = TCT_antiking_faction
+						type = tct_antiking_faction
 						target = scope:secondary_actor
 					}
 				}
 
 				create_faction = {
-					type = TCT_antiking_faction
+					type = tct_antiking_faction
 					target = scope:secondary_actor
 				}
 				joined_faction = {
@@ -216,7 +216,7 @@
 				}
 				scope:recipient = {
 					add_to_variable_list = {
-						name = TCT_antiking_faction
+						name = tct_antiking_faction
 						target = scope:actor.joined_faction
 					}
 				}

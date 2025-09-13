@@ -3,7 +3,7 @@
 	title:d_bavaria.holder = character:112600
 	title:e_hre.holder = character:1316
 	NOT = {
-		exists = global_var:TCT_1066_First_Saxon_Chain
+		exists = global_var:tct_1066_First_Saxon_Chain
 	}
 }
 
@@ -25,7 +25,7 @@ tct_neutral_struggle_second_saxon_chain_trigger = {
 	}
 	
 	NOT = {
-		exists = global_var:TCT_1066_Second_Saxon_Chain
+		exists = global_var:tct_1066_Second_Saxon_Chain
 	}
 	exists = global_var:end_of_saxon_chain_one
 }

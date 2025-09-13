@@ -94,7 +94,7 @@
 				}
 				is_character_interaction_potentially_accepted = {
 					recipient = scope:antipope_vassal_temp
-					interaction = TCT_make_antipope_interaction
+					interaction = tct_make_antipope_interaction
 				}
 				any_character_struggle = {
 					is_struggle_type = investiture_controversy_struggle
@@ -120,14 +120,14 @@
 								limit = {
 									is_character_interaction_potentially_accepted = {
 										recipient = title:e_hre.holder
-										interaction = TCT_make_antipope_interaction
+										interaction = tct_make_antipope_interaction
 									}
 									tct_possible_antipope_vassal_trigger = yes
 								}
 								save_scope_as = antipope_vassal
 							}
 						}
-						TCT_create_antipope = {
+						tct_create_antipope = {
 							ANTIPOPE = scope:antipope_vassal
 							CREATOR = title:e_hre.holder
 						}
@@ -135,11 +135,11 @@
 							every_involved_ruler = {
 								limit = {
 									NOT = {
-										has_character_flag = had_TCT_religious_events_0409
+										has_character_flag = had_tct_religious_events_0409
 									}
 								}
-								trigger_event = { days = 1 id = TCT_religious_events.403 }
-								add_character_flag = had_TCT_religious_events_0409
+								trigger_event = { days = 1 id = tct_religious_events.403 }
+								add_character_flag = had_tct_religious_events_0409
 							}
 						}
 					}

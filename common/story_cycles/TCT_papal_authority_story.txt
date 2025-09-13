@@ -1,22 +1,22 @@
-﻿# TCT_papacy_story = {
+﻿# tct_papacy_story = {
 
 # 	on_setup = {
 # 		story_owner = {
 # 			#To scope to emperor
 # 			title:c_roma = {
 # 				set_variable = {
-# 					name = TCT_papacy
+# 					name = tct_papacy
 # 					value = scope:story.story_owner
 # 				}
 # 			}
-# 			TCT_papacy_story_setup_effect = yes
+# 			tct_papacy_story_setup_effect = yes
 # 		}
 # 	}
 	
 # 	on_owner_death = {
 # 		title:c_roma = {
 # 			set_variable = {
-# 				name = TCT_deceasedpope
+# 				name = tct_deceasedpope
 # 				value = scope:story.story_owner
 # 			}
 # 		}
@@ -25,12 +25,12 @@
 # 	}
 
 # 	on_end = {
-# 		remove_variable = TCT_papal_authority_years_reigned
-# 		# remove_variable = TCT_papal_authority_vassals_var
-# 		# remove_variable = TCT_papal_authority_vassals_bonus_var
-# 		# remove_variable = TCT_papal_authority_vassals_war_var
-# 		# remove_variable = TCT_papal_authority_infidels_var
-# 		# remove_variable = TCT_papal_authority_unheld_heartlands
+# 		remove_variable = tct_papal_authority_years_reigned
+# 		# remove_variable = tct_papal_authority_vassals_var
+# 		# remove_variable = tct_papal_authority_vassals_bonus_var
+# 		# remove_variable = tct_papal_authority_vassals_war_var
+# 		# remove_variable = tct_papal_authority_infidels_var
+# 		# remove_variable = tct_papal_authority_unheld_heartlands
 # 	}
 
 # 	effect_group = {
@@ -43,23 +43,23 @@
 # 				story_owner = {
 # 					#Reset Variables
 # 					# change_variable = {
-# 					# 	name = TCT_papal_authority_vassals_var
+# 					# 	name = tct_papal_authority_vassals_var
 # 					# 	multiply = 0
 # 					# }
 # 					# change_variable = {
-# 					# 	name = TCT_papal_authority_vassals_bonus_var
+# 					# 	name = tct_papal_authority_vassals_bonus_var
 # 					# 	multiply = 0
 # 					# }
 # 					# change_variable = {
-# 					# 	name = TCT_papal_authority_vassals_war_var
+# 					# 	name = tct_papal_authority_vassals_war_var
 # 					# 	multiply = 0
 # 					# }
 # 					# change_variable = {
-# 					# 	name = TCT_papal_authority_infidels_var
+# 					# 	name = tct_papal_authority_infidels_var
 # 					# 	multiply = 0
 # 					# }
 # 					# change_variable = {
-# 					# 	name = TCT_papal_authority_unheld_heartlands
+# 					# 	name = tct_papal_authority_unheld_heartlands
 # 					# 	multiply = 0
 # 					# }
 
@@ -67,7 +67,7 @@
 # 					# 	#Total Vassal Count
 # 					# 	prev = {
 # 					# 		change_variable = {
-# 					# 			name = TCT_papal_authority_vassals_var
+# 					# 			name = tct_papal_authority_vassals_var
 # 					# 			add = 1
 # 					# 		}
 # 					# 	}
@@ -76,7 +76,7 @@
 # 					# 		limit = { highest_held_title_tier = tier_kingdom }
 # 					# 		prev = {
 # 					# 			change_variable = {
-# 					# 				name = TCT_papal_authority_vassals_bonus_var
+# 					# 				name = tct_papal_authority_vassals_bonus_var
 # 					# 				add = authority_gain_per_vassal_kingdom_bonus
 # 					# 			}
 # 					# 		}
@@ -85,7 +85,7 @@
 # 					# 		limit = { highest_held_title_tier = tier_duchy }
 # 					# 		prev = {
 # 					# 			change_variable = {
-# 					# 				name = TCT_papal_authority_vassals_bonus_var
+# 					# 				name = tct_papal_authority_vassals_bonus_var
 # 					# 				add = authority_gain_per_vassal_duchy_bonus
 # 					# 			}
 # 					# 		}
@@ -95,7 +95,7 @@
 # 					# 		limit = { is_at_war = yes }
 # 					# 		prev = {
 # 					# 			change_variable = {
-# 					# 				name = TCT_papal_authority_vassals_war_var
+# 					# 				name = tct_papal_authority_vassals_war_var
 # 					# 				add = authority_loss_per_waged_vassal_war
 # 					# 			}
 # 					# 		}
@@ -105,7 +105,7 @@
 # 					# 		limit = { NOT = { faith = prev.faith } }
 # 					# 		prev = {
 # 					# 			change_variable = {
-# 					# 				name = TCT_papal_authority_vassals_bonus_var
+# 					# 				name = tct_papal_authority_vassals_bonus_var
 # 					# 				add = authority_gain_per_vassal_duchy_bonus
 # 					# 			}
 # 					# 		}
@@ -122,7 +122,7 @@
 # 					# 	}
 # 					# 	prev = {
 # 					# 		change_variable = {
-# 					# 			name = TCT_papal_authority_unheld_heartlands
+# 					# 			name = tct_papal_authority_unheld_heartlands
 # 					# 			add = 1
 # 					# 		}
 # 					# 	}
@@ -130,24 +130,24 @@
 
 # 					#Prevent exceeding authority range (0-100)
 # 					if = {
-# 						limit = { TCT_papal_authority_limiter_value <= 0 }
+# 						limit = { tct_papal_authority_limiter_value <= 0 }
 # 						set_variable = {
-# 							name = TCT_papal_authority
+# 							name = tct_papal_authority
 # 							value = 0
 # 						}
 # 					}
 # 					else_if = {
-# 						limit = { TCT_papal_authority_limiter_value >= 100 }
+# 						limit = { tct_papal_authority_limiter_value >= 100 }
 # 						set_variable = {
-# 							name = TCT_papal_authority
+# 							name = tct_papal_authority
 # 							value = 100
 # 						}
 # 					}
 # 					#Apply Monthly Authority Change
 # 					else = {
 # 						change_variable = {
-# 							name = TCT_papal_authority
-# 							add = TCT_papal_authority_change_value
+# 							name = tct_papal_authority
+# 							add = tct_papal_authority_change_value
 # 						}
 # 					}
 # 				}
@@ -162,7 +162,7 @@
 # 	# 		trigger = {
 # 	# 			story_owner = {
 # 	# 				is_ai = yes
-# 	# 				TCT_papal_authority_progressbar_value >= 100
+# 	# 				tct_papal_authority_progressbar_value >= 100
 # 	# 				prestige > major_prestige_value
 # 	# 			}
 # 	# 		}
@@ -265,7 +265,7 @@
 # 			effect = {
 # 				story_owner = {
 # 					change_variable = {
-# 						name = TCT_papal_authority_years_reigned
+# 						name = tct_papal_authority_years_reigned
 # 						add = 1
 # 					}
 # 				}

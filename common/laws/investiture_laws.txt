@@ -33,7 +33,7 @@ investiture_law = {
 		ai_will_do = {
 			value = investiture_law_ai_will_do_value
 			if = {
-				limit = { has_character_flag = TCT_start_investiture_controversy }
+				limit = { has_character_flag = tct_start_investiture_controversy }
 				subtract = 1000
 			}
 		}
@@ -109,14 +109,14 @@ investiture_law = {
 							}
 							add_opinion = {
 								target = root
-								modifier = TCT_free_investiture
+								modifier = tct_free_investiture
 								opinion = 20
 							}
 						}
 						else = {
 							add_opinion = {
 								target = root
-								modifier = TCT_free_investiture
+								modifier = tct_free_investiture
 								opinion = 10
 							}
 						}

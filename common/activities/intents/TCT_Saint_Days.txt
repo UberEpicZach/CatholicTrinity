@@ -1,4 +1,4 @@
-﻿TCT_saint_days_reverence_intent = {
+﻿tct_saint_days_reverence_intent = {
 	icon = pious_intent
 
 	auto_complete = yes
@@ -55,7 +55,7 @@
 	}
 }
 
-TCT_saint_days_gratitude_intent = {
+tct_saint_days_gratitude_intent = {
 	icon = altruism_intent
 
 	auto_complete = yes
@@ -96,7 +96,7 @@ TCT_saint_days_gratitude_intent = {
 	}
 }
 
-TCT_saint_days_atonement_intent = {
+tct_saint_days_atonement_intent = {
 	icon = reduce_stress_intent
 
 	auto_complete = yes

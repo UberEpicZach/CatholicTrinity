@@ -142,16 +142,16 @@ divest_from_cardinal = {
 
 
 #TCT
-TCT_no_antipopes = {
+tct_no_antipopes = {
 	scope = character
 
 	is_valid = {
 		scope:faith = {
 			trigger_if = {
 				limit = {
-					has_variable_list = TCT_antipopes
+					has_variable_list = tct_antipopes
 				}
-				variable_list_size = { name = TCT_antipopes value = 0 } 
+				variable_list_size = { name = tct_antipopes value = 0 } 
 			}
 		}
 	}
