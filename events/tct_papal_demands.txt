@@ -1,0 +1,1039 @@
+﻿namespace = tct_papal_demands
+
+# Unified List of Papal Demands (Coronation / Anointment)
+
+# # Material / Prestige
+
+# # Gold Payment – The Pope requests gold from the ruler.
+# # Why: More likely if the ruler is wealthy or higher tier. Vassals or greedy rulers increase likelihood.
+# # Timing: Immediate
+# # Base Weight: 20
+
+# # Prestige Sacrifice – The ruler must lose prestige to show humility.
+# # Why: Chosen if the Pope wants to reinforce Church authority over the ruler or if the ruler is proud or ambitious.
+# # Timing: Immediate
+# # Base Weight: 10
+
+# # Artifact Transfer – A Christian relic or artifact must be given to the Pope.
+# # Why: Triggered if the ruler owns rare or valuable Christian artifacts.
+# # Timing: Immediate
+# # Base Weight: 15
+
+# # Religious / Clerical
+
+# # Vow of Celibacy – The ruler or heir must take vows of celibacy.
+# # Why: Chosen for rulers without strong heirs or if the Pope wants to influence succession indirectly.
+# # Timing: Immediate
+# # Base Weight: 5
+
+# # Switch to Papal Investiture – Pope enforces Papal Investiture if free investiture is in use.
+# # Why: More likely if the ruler currently practices free investiture. Less likely if ruler is an emperor or strong king.
+# # Timing: Immediate
+# # Base Weight: 30
+
+# # Give Land to Holy Orders – A duchy or county is granted to an existing Holy Order.
+# # Why: Triggered if Holy Orders exist and the ruler has spare land to give. More likely if ruler is at least duke-level.
+# # Timing: Immediate
+# # Base Weight: 5
+
+# # Political / Territorial
+
+# # Donation of Constantine / Return Italian Lands – The Pope demands restoration of de jure Papal lands (Latium, Romagna, Spoleto, etc.).
+# # Why: Chosen if the Papacy does not control its historical holdings. Less likely if the Pope already controls them.
+# # Timing: Immediate
+# # Base Weight: 20
+
+# # Transfer of Vassal – Pope demands an Italian vassal be transferred under Papal control.
+# # Why: More likely if the ruler holds Italian vassals, especially those historically connected to the Papacy.
+# # Timing: Immediate
+# # Base Weight: 15
+
+# # Recognition of Papal Independence – If the Pope is a vassal, he demands freedom.
+# # Why: Always triggered if Pope is a vassal. Less likely if the liege is strong or ruler is weak.
+# # Timing: Immediate
+# # Base Weight: 80
+
+# # Succession / Dynastic
+
+# # Succession Downgrade – Ruler must switch to a less advantageous succession law.
+# # Why: Triggered if the Pope wants to weaken the dynasty’s long-term strength. More likely if ruler has many heirs.
+# # Timing: Immediate
+# # Base Weight: 10
+
+# # Abdication – Ruler is pressured to step down in favor of an heir.
+# # Why: More likely if ruler is old, immoral, or unpopular. The Pope gains influence over the new ruler.
+# # Timing: Immediate
+# # Base Weight: 10
+
+# # Military / Campaigns
+
+# # Depose an Excommunicated Ruler – Ruler is asked to attack a neighboring excommunicated character.
+# # Why: More likely if a target is nearby, independent, and excommunicated. Less likely if target is strong.
+# # Timing: Deferred
+# # Base Weight: 30
+
+# # Depose an Antipope – Ruler is asked to attack and remove an Antipope.
+# # Why: Triggered if antipopes exist within diplomatic range. Less likely if the ruler is too weak.
+# # Timing: Deferred
+# # Base Weight: 30
+
+# # Crusade or Religious War Support – Ruler is asked to join or lead a war against infidels, heretics, or holders of Papal lands.
+# # Why: More likely if ruler is zealous or has a military capability. Less likely if ruler is already at war.
+# # Timing: Deferred
+# # Base Weight: 30
+
+# # Invade Italian Lands on Pope’s Behalf – Ruler is asked to attack characters controlling de jure Papal territory.
+# # Why: Triggered if the Pope lacks historical holdings and potential enemies exist nearby. Less likely if Papacy already controls these lands.
+# # Timing: Deferred
+# # Base Weight: 30
+
+# # Piety / Personal
+
+# # Go on Pilgrimage – Ruler must complete a pilgrimage before coronation.
+# # Why: More likely for rulers with low piety or if Pope wants visible display of devotion.
+# # Timing: Deferred
+# # Base Weight: 15
+
+# # Public Penance (Immoral Ruler Variant) – Rulers with immoral traits perform penance (e.g., sponsoring church construction).
+# # Why: Triggered for gluttonous, drunkard, greedy, or cynical rulers. Less likely for zealous or pious rulers.
+# # Timing: Deferred (for building/ritual), Immediate (if simple prestige loss)
+# # Base Weight: 10
+
+
+
+tct_papal_demands.1 = { # Event for Pope.
+	title = tct_papal_demands.1.t
+	desc = {
+		desc = tct_papal_demands.1.desc.intro
+		first_valid = {
+			triggered_desc = {
+				trigger = { var:papal_demand = flag:gold_payment }
+				desc = tct_papal_demands.1.desc.gold_payment
+			}
+			triggered_desc = {
+				trigger = { var:papal_demand = flag:prestige_sacrifice }
+				desc = tct_papal_demands.1.desc.prestige_sacrifice
+			}
+			triggered_desc = {
+				trigger = { var:papal_demand = flag:artifact_transfer }
+				desc = tct_papal_demands.1.desc.artifact_transfer
+			}
+			triggered_desc = {
+				trigger = { var:papal_demand = flag:vow_of_celibacy }
+				desc = tct_papal_demands.1.desc.vow_of_celibacy
+			}
+			triggered_desc = {
+				trigger = { var:papal_demand = flag:switch_to_papal_investiture }
+				desc = tct_papal_demands.1.desc.switch_to_papal_investiture
+			}
+			triggered_desc = {
+				trigger = { var:papal_demand = flag:give_land_to_holy_orders }
+				desc = tct_papal_demands.1.desc.give_land_to_holy_orders
+			}
+			triggered_desc = {
+				trigger = { var:papal_demand = flag:donation_of_constantine }
+				desc = tct_papal_demands.1.desc.donation_of_constantine
+			}
+			triggered_desc = {
+				trigger = { var:papal_demand = flag:return_italian_lands }
+				desc = tct_papal_demands.1.desc.return_italian_lands
+			}
+			triggered_desc = {
+				trigger = { var:papal_demand = flag:recognition_of_papal_independence }
+				desc = tct_papal_demands.1.desc.recognition_of_papal_independence
+			}
+			triggered_desc = {
+				trigger = { var:papal_demand = flag:succession_downgrade }
+				desc = tct_papal_demands.1.desc.succession_downgrade
+			}
+			triggered_desc = {
+				trigger = { var:papal_demand = flag:abdication }
+				desc = tct_papal_demands.1.desc.abdication
+			}
+			triggered_desc = {
+				trigger = { var:papal_demand = flag:depose_excommunicated_ruler }
+				desc = tct_papal_demands.1.desc.depose_excommunicated_ruler
+			}
+			triggered_desc = {
+				trigger = { var:papal_demand = flag:depose_antipope }
+				desc = tct_papal_demands.1.desc.depose_antipope
+			}
+			triggered_desc = {
+				trigger = { var:papal_demand = flag:crusade_or_religious_war_support }
+				desc = tct_papal_demands.1.desc.crusade_or_religious_war_support
+			}
+			triggered_desc = {
+				trigger = { var:papal_demand = flag:invade_italian_lands_on_popes_behalf }
+				desc = tct_papal_demands.1.desc.invade_italian_lands_on_popes_behalf
+			}
+			triggered_desc = {
+				trigger = { var:papal_demand = flag:go_on_pilgrimage }
+				desc = tct_papal_demands.1.desc.go_on_pilgrimage
+			}
+			triggered_desc = {
+				trigger = { var:papal_demand = flag:public_penance }
+				desc = tct_papal_demands.1.desc.public_penance
+			}
+		}
+		desc = tct_papal_demands.1.desc.ending
+	}
+	theme = faith
+	override_background = {
+		reference = throne_room
+	}
+	left_portrait = {
+		character = root
+		animation = reading
+		camera = camera_event_left_to_the_left_pointing_in
+	}
+	right_portrait = {
+		character = scope:cardinal # The Cardinal Envoy
+		animation = personality_cynical
+		camera = camera_event_right_pointing_right_scheme
+	}
+	lower_right_portrait = {
+		character = scope:recipient # The Pope
+	}
+
+	immediate = {
+		random_living_cardinal = { save_scope_as = cardinal } 
+		remove_variable ?= papal_demand
+		if = {
+			limit = {
+				 #is_ai = yes
+				 always = yes
+			}
+			title:e_hre.holder = { save_scope_as = actor }
+			title:k_papal_state.holder = {save_scope_as = recipient }
+			random_list = {
+				20 = { # Gold Payment
+					modifier = {
+						# If Pope is broke, higher chance
+						add = 20
+						root = { gold < 100 }
+					}
+					modifier = {
+						# If Pope is already very wealthy, less likely
+						add = -10
+						root = { gold > 1000 }
+					}
+					modifier = {
+						# If Pope dislikes you, higher chance he bleeds you
+						add = 10
+						opinion = { target = scope:actor value < 0 }
+					}
+					modifier = {
+						# If Pope likes you, less chance
+						add = -5
+						opinion = { target = scope:actor value > 40 }
+					}
+					set_variable = { 
+						name = papal_demand 
+						value = flag:gold_payment
+					}
+					custom_tooltip = "gold_payment"
+				}
+				10 = { # Prestige Sacrifice
+					modifier = {
+						# If recipient has very high prestige, Pope more likely to demand humility
+						add = 10
+						scope:actor = { prestige > 1000 }
+					}
+					modifier = {
+						# If recipient already has low prestige, Pope less likely to demand this
+						add = -10
+						scope:actor = { prestige < 200 }
+					}
+					modifier = {
+						# Pope dislikes the ruler: more likely to humiliate
+						add = 15
+						opinion = { target = scope:actor value < -20 }
+					}
+					modifier = {
+						# Pope likes the ruler: less likely to humiliate
+						add = -10
+						opinion = { target = scope:actor value > 40 }
+					}
+					set_variable = { 
+						name = papal_demand 
+						value = flag:prestige_sacrifice
+					}
+					custom_tooltip = "prestige_sacrifice"
+				}
+				5 = { # Vow of Celibacy
+					modifier = {
+						# Less likely if ruler already has strong heirs
+						add = -15
+						scope:actor = { 
+							any_heir = {
+								count > 0
+							}
+						}
+					}
+					modifier = {
+						# More likely if ruler has no heirs or weak heirs
+						add = 10
+						scope:actor = { 
+							NOT = { any_heir = { count > 0 } }
+						}
+					}
+					modifier = {
+						# Pope dislikes recipient: more likely to demand celibacy
+						add = 10
+						opinion = { target = scope:actor value < -20 }
+					}
+					modifier = {
+						# Pope likes recipient: less likely
+						add = -10
+						opinion = { target = scope:actor value > 40 }
+					}
+					set_variable = { 
+						name = papal_demand 
+						value = flag:vow_of_celibacy
+					}
+					custom_tooltip = "vow_of_celibacy"
+				}
+				30 = { # Switch to Papal Investiture
+					trigger = {
+						scope:actor = { has_law = free_investiture }
+					}
+					modifier = {
+						# Pope dislikes recipient: more likely
+						add = 10
+						opinion = { target = scope:actor value < -20 }
+					}
+					modifier = {
+						# Pope likes recipient: less likely
+						add = -10
+						opinion = { target = scope:actor value > 40 }
+					}
+					set_variable = { 
+						name = papal_demand 
+						value = flag:switch_to_papal_investiture
+					}
+					custom_tooltip = "switch_to_papal_investiture"
+				}
+				5 = { # Give Land to Holy Orders
+					trigger = {
+						faith = { any_faith_holy_order = { count >= 1 } }
+						scope:actor = {
+							any_held_title = {
+								limit = {
+									tier = tier_barony
+									barony_is_valid_for_holy_order_lease_trigger = { CHARACTER = scope:actor }
+								}
+							}
+						}
+					}
+					modifier = {
+						add = -5
+						# Pope likes ruler
+						opinion = { target = scope:actor value > 40 }
+					}
+					modifier = {
+						add = 10
+						# Pope dislikes ruler
+						opinion = { target = scope:actor value < -20 }
+					}
+					modifier = {
+						add = 5
+						# Ruler is a duke or king
+						scope:actor = { tier >= tier_duchy }
+					}
+					set_variable = { 
+						name = papal_demand 
+						value = flag:give_land_to_holy_orders
+					}
+					# lease_out_to = scope:holy_order
+					# any_faith_holy_order
+					custom_tooltip = "give_land_to_holy_orders"
+				}
+				20 = { # Return Italian Lands / Donation of Constantine
+					modifier = {
+						factor = 0
+						NOT = {
+							title:k_romagna = {
+								any_in_de_jure_hierarchy = {
+									holder ?= {
+										OR = {
+											this = scope:actor
+											is_vassal_or_below_of = scope:actor
+										}
+										NOT = { this = scope:recipient }
+									}
+								}
+							}
+						}
+					}
+
+					if = {
+						limit = {
+							NOR = {
+								scope:recipient = { has_trait = lunatic }
+								scope:recipient = { has_trait = possessed }
+							}
+						}
+						# Normal pope: calls for partial return of Italian lands
+						set_variable = { 
+							name = papal_demand 
+							value = flag:return_italian_lands
+						}
+						custom_tooltip = "return_italian_lands"
+					}
+
+					if = {
+						limit = {
+							OR = {
+								scope:recipient = { has_trait = lunatic }
+								scope:recipient = { has_trait = possessed }
+							}
+						}
+						# Mad pope: calls for full Donation of Constantine
+						set_variable = { 
+							name = papal_demand 
+							value = flag:donation_of_constantine
+						}
+						custom_tooltip = "donation_of_constantine"
+					}
+				}
+				80 = { 
+					trigger = {
+						scope:recipient = { is_vassal_of = scope:actor }
+					}
+					modifier = {
+						# Pope likes recipient: less likely to demand independence
+						add = -20
+						opinion = { target = scope:actor value > 40 }
+					}
+					modifier = {
+						# Pope hates recipient: more likely to demand independence
+						add = 20
+						opinion = { target = scope:actor value < -20 }
+					}
+					modifier = {
+						# Ambitious Pope more likely to demand independence
+						add = 15
+						scope:recipient = { has_trait = ambitious }
+					}
+					modifier = {
+						# Humble Pope less likely to demand independence
+						add = -15
+						scope:recipient = { has_trait = humble }
+					}
+					modifier = {
+						# Arrogant Pope more likely to demand independence
+						add = 10
+						scope:recipient = { has_trait = arrogant }
+					}
+					modifier = {
+						# Content Pope less likely to demand independence
+						add = -10
+						scope:recipient = { has_trait = content }
+					}
+					set_variable = { 
+						name = papal_demand 
+						value = flag:recognition_of_papal_independence
+					}
+					custom_tooltip = "recognition_of_papal_independence"
+				}
+				10 = {
+					trigger = {
+						scope:actor = { 
+							primary_title = {
+								title_can_reduce_partition_law_trigger = yes
+							}
+						}
+					}
+					modifier = {
+						# Pope dislikes recipient: more likely to weaken succession
+						add = 15
+						opinion = { target = scope:actor value < -20 }
+					}
+					modifier = {
+						# Pope likes recipient: less likely to demand succession change
+						add = -10
+						opinion = { target = scope:actor value > 40 }
+					}
+					modifier = {
+						# Ambitious Pope more likely to weaken dynasties
+						add = 10
+						scope:recipient = { has_trait = ambitious }
+					}
+					modifier = {
+						# More likely if recipient has many potential heirs
+						add = 10
+						scope:actor = { 
+							any_child = { count >= 3 }
+						}
+					}
+					set_variable = { 
+						name = papal_demand 
+						value = flag:succession_downgrade
+					}
+					custom_tooltip = "succession_downgrade"
+				}
+				# 10 = { #Makes no sense for Coronations. 
+				# 	set_variable = { 
+				# 		name = papal_demand 
+				# 		value = flag:abdication
+				# 	}
+				# 	custom_tooltip = "abdication"
+				# }
+				30 = { # Depose Excommunicated Ruler
+					trigger = {
+						# Check if there's an excommunicated neighbor to target
+						any_neighboring_realm_same_rank_owner = {
+							faith = { has_doctrine = doctrine_excommunication_head }
+							has_trait = excommunicated
+							NOT = { this = scope:actor }
+						}
+					}
+					modifier = {
+						# More likely if Pope is zealous
+						add = 10
+						scope:recipient = { has_trait = zealous }
+					}
+					modifier = {
+						# Less likely if recipient is already at war
+						add = -15
+						scope:actor = { is_at_war = yes }
+					}
+					modifier = {
+						# More likely if target is weak
+						add = 10
+						any_neighboring_realm_same_rank_owner = {
+							has_trait = excommunicated
+							military_strength <= scope:actor.military_strength
+						}
+					}
+					modifier = {
+						# Less likely if target is very strong
+						add = -20
+						any_neighboring_realm_same_rank_owner = {
+							has_trait = excommunicated
+							military_strength > scope:actor.military_strength
+						}
+					}
+					set_variable = { 
+						name = papal_demand 
+						value = flag:depose_excommunicated_ruler
+					}
+					custom_tooltip = "depose_excommunicated_ruler"
+				}
+				30 = { # Depose Antipope
+					trigger = {
+						# Check if any antipope exists
+						any_faith_character = {
+							has_trait = tct_antipope
+							OR = {
+								# Antipope is in a neighboring realm
+								any_liege_or_above = {
+									any_neighboring_realm_same_rank_owner = {
+										this = scope:actor
+									}
+								}
+								# Or antipope is in recipient's own realm (if recipient has vassals with antipopes)
+								any_liege_or_above = {
+									this = scope:actor
+								}
+							}
+						}
+					}
+					modifier = {
+						# More likely if Pope really dislikes antipopes (obviously)
+						add = 20
+						scope:recipient = { has_trait = zealous }
+					}
+					modifier = {
+						# Less likely if recipient is weak
+						add = -15
+						scope:actor = { 
+							military_strength < 1000
+						}
+					}
+					modifier = {
+						# Less likely if already at war
+						add = -10
+						scope:actor = { is_at_war = yes }
+					}
+					set_variable = { 
+						name = papal_demand 
+						value = flag:depose_antipope
+					}
+					custom_tooltip = "depose_antipope"
+				}
+				30 = { # Crusade or Religious War Support
+					trigger = {
+						OR = {
+							# There's an active crusade
+							faith = { exists = great_holy_war } 
+							# Or there are nearby infidels/heretics to fight
+							any_neighboring_realm_same_rank_owner = {
+								faith = {
+									faith_hostility_level = {
+										target = scope:recipient.capital_county.faith
+										value >= faith_hostile_level
+									}
+								}
+								NOT = { this = scope:actor }
+							}
+						}
+					}
+					modifier = {
+						# More likely if recipient is zealous
+						add = 15
+						scope:actor = { has_trait = zealous }
+					}
+					modifier = {
+						# More likely if Pope is zealous
+						add = 10
+						scope:recipient = { has_trait = zealous }
+					}
+					modifier = {
+						# Less likely if recipient is already at war
+						add = -20
+						scope:actor = { is_at_war = yes }
+					}
+					modifier = {
+						# More likely if recipient has strong military
+						add = 10
+						scope:actor = { 
+							military_strength > 2000
+						}
+					}
+					modifier = {
+						# Less likely if recipient is weak
+						add = -15
+						scope:actor = { 
+							military_strength < 500
+						}
+					}
+					set_variable = { 
+						name = papal_demand 
+						value = flag:crusade_or_religious_war_support
+					}
+					custom_tooltip = "crusade_or_religious_war_support"
+				}
+				30 = { # Invade Italian Lands on Pope's Behalf
+					trigger = {
+						# Check if Pope doesn't control key Italian territories
+						OR = {
+							title:k_italy = {
+								any_in_de_jure_hierarchy = {
+									NOR = {
+										holder ?= { this = scope:recipient }
+										holder ?= { this = scope:actor }
+									}
+								}
+							}
+							title:k_romagna = {
+								any_in_de_jure_hierarchy = {
+									NOR = {
+										holder ?= { this = scope:recipient }
+										holder ?= { this = scope:actor }
+									}
+								}
+							}
+						}
+					}
+					modifier = {
+						# More likely if Pope is ambitious
+						add = 15
+						scope:recipient = { has_trait = ambitious }
+					}
+					modifier = {
+						# Less likely if recipient is already at war
+						add = -15
+						scope:actor = { is_at_war = yes }
+					}
+					modifier = {
+						# More likely if there are weak targets in Italian regions
+						add = 10
+						any_ruler = {
+							any_held_title = {
+								title_province = {
+									geographical_region = world_europe_south_italy
+								}
+							}
+							military_strength < scope:actor.military_strength
+							NOT = { this = scope:recipient }
+							NOT = { this = scope:actor }
+						}
+					}
+					modifier = {
+						# Less likely if targets are very strong
+						add = -20
+						any_ruler = {
+							any_held_title = {
+								title_province = {
+									geographical_region = world_europe_south_italy
+								}
+							}
+							military_strength > scope:actor.military_strength
+							NOT = { this = scope:recipient }
+							NOT = { this = scope:actor }
+						}
+					}
+					set_variable = { 
+						name = papal_demand 
+						value = flag:invade_italian_lands_on_popes_behalf
+					}
+					custom_tooltip = "invade_italian_lands_on_popes_behalf"
+				}
+				15 = { # Go on Pilgrimage
+					modifier = {
+						# More likely if recipient has low piety
+						add = 15
+						scope:actor = { piety < 500 }
+					}
+					modifier = {
+						# Less likely if recipient has high piety
+						add = -10
+						scope:actor = { piety > 1500 }
+					}
+					modifier = {
+						# More likely if Pope wants visible display of devotion
+						add = 10
+						scope:recipient = { has_trait = zealous }
+					}
+					set_variable = { 
+						name = papal_demand 
+						value = flag:go_on_pilgrimage
+					}
+					custom_tooltip = "go_on_pilgrimage"
+				}
+				10 = { # Public Penance
+					modifier = {
+						# More likely if recipient has immoral traits
+						add = 20
+						scope:actor = { 
+							num_sinful_traits >= 3
+						}
+					}
+					modifier = {
+						# Much more likely if Pope strongly dislikes recipient
+						add = 25
+						opinion = { target = scope:actor value < -30 }
+					}
+					modifier = {
+						# Less likely if Pope likes recipient
+						add = -50
+						opinion = { target = scope:actor value > 20 }
+					}
+					modifier = {
+						# Less likely if recipient has very high piety
+						add = -20
+						scope:actor = { piety > 2000 }
+					}
+					set_variable = { 
+						name = papal_demand 
+						value = flag:public_penance
+					}
+					custom_tooltip = "public_penance"
+				}
+			} 
+		}
+	}
+
+	# I accept
+	option = {
+		if = {
+			limit = {
+				exists = var:papal_demand
+			}
+			# Lay the Groundwork for Each Demand that requires
+			# Effect: Pope demands gold payment
+			if = {
+				limit = { var:papal_demand = flag:gold_payment }
+				scope:actor = {
+					pay_short_term_gold = {
+						target = scope:recipient
+						gold = {
+							value = 0
+							add = {
+								value = scope:actor.monthly_character_income
+								multiply = {
+									value = 12
+									add = {
+										value = 0
+										if = {
+											limit = { scope:actor = { highest_held_title_tier = tier_kingdom } }
+											add = 6
+										}
+										if = {
+											limit = { scope:actor = { highest_held_title_tier = tier_empire } }
+											add = 12
+										}
+									}
+								}
+							}
+							# Minimum payment
+							min = 100
+							# Maximum payment caps
+							if = {
+								limit = { scope:actor = { highest_held_title_tier = tier_empire } }
+								max = 1200
+							}
+						}
+					}
+				}
+				scope:recipient = {
+					custom_tooltip = anoinment_request_accepted_tt
+					add_to_variable_list = {
+						name = supported_anointments
+						target = scope:actor
+					}
+				}
+				scope:actor = {
+					trigger_event = coronation_events.0400
+				}
+			}
+			
+			# Effect: Ruler must lose prestige
+			if = {
+				limit = { var:papal_demand = flag:prestige_sacrifice }
+				scope:actor = {
+					add_prestige = {
+						value = 0
+						subtract = {
+							value = scope:actor.prestige
+							multiply = 500
+							add = {
+								value = 0
+								if = {
+									limit = { scope:actor = { highest_held_title_tier >= tier_kingdom } }
+									add = 100
+								}
+								if = {
+									limit = { scope:actor = { highest_held_title_tier >= tier_empire } }
+									add = 200
+								}
+							}
+						}
+						# Minimum prestige loss
+						min = -200
+						# Maximum prestige loss caps
+						if = {
+							limit = { scope:actor = { highest_held_title_tier >= tier_empire } }
+							max = -6000
+						}
+					}
+				}
+				scope:recipient = {
+					custom_tooltip = anoinment_request_accepted_tt
+					add_to_variable_list = {
+						name = supported_anointments
+						target = scope:actor
+					}
+				}
+				scope:actor = {
+					trigger_event = coronation_events.0400
+				}
+				
+				
+			}
+			# if = {
+			# 	limit = { var:papal_demand = flag:artifact_transfer }
+			# 	# Effect: Transfer artifact to Pope
+			# 	add_gold = 5 # placeholder
+			# }
+			# Effect: Ruler or heir takes vow of celibacy
+			if = {
+				limit = { var:papal_demand = flag:vow_of_celibacy }
+				add_trait = celibate
+				add_piety = medium_piety_gain
+				scope:recipient = {
+					custom_tooltip = anoinment_request_accepted_tt
+					add_to_variable_list = {
+						name = supported_anointments
+						target = scope:actor
+					}
+				}
+				scope:actor = {
+					trigger_event = coronation_events.0400
+				}				
+			}
+			
+			# Effect: Change to papal investiture law
+			if = {
+				limit = { var:papal_demand = flag:switch_to_papal_investiture }
+				if = {
+					limit = {
+						has_realm_law = free_investiture
+					}
+					add_realm_law_skip_effects = papal_investiture
+				}
+				set_variable = {
+					name = investiture_cooldown
+					years = @investiture_cooldown_years
+				}
+					
+				add_piety = 25
+				faith = {
+					change_fervor = {
+						value = 2
+						desc = increased_fervor
+					}
+				}
+
+				faith.religious_head = {
+					add_opinion = {
+						target = PREV
+						opinion = 10
+						modifier = changed_investiture_law
+					}
+					
+					trigger_event = {
+						id = tct_religious_events.26
+						days = 1
+					}
+				}
+
+				if = { # Catalyst
+					limit = {
+						any_character_struggle = { phase_has_catalyst = tct_catalyst_hre_switched_papal_investiture }
+					}
+					every_character_struggle = {
+						activate_struggle_catalyst = {
+							catalyst = tct_catalyst_hre_switched_papal_investiture
+							character = scope:actor
+						}
+						#log_debug_variable_for_persian_struggle_effect = { VAR = stabil_tct_catalyst_install_loyalist_cb }
+					}
+				}
+				scope:recipient = {
+					custom_tooltip = anoinment_request_accepted_tt
+					add_to_variable_list = {
+						name = supported_anointments
+						target = scope:actor
+					}
+				}
+				scope:actor = {
+					trigger_event = coronation_events.0400
+				}	
+			}
+			# Effect: Grant land to holy order
+			if = {
+				limit = { var:papal_demand = flag:give_land_to_holy_orders }
+				
+				if = {
+					limit = { faith = { any_faith_holy_order = { count >= 1 } } }
+					random_held_title = {
+						limit = {
+							tier = tier_barony
+							barony_is_valid_for_holy_order_lease_trigger = { CHARACTER = root }
+						}
+						save_scope_as = province
+					}
+
+					faith = { 
+						random_faith_holy_order = {
+							save_scope_as = holy_order	
+						}
+					}
+					scope:province = { lease_out_to = scope:holy_order }
+				}
+			}
+			# Effect: Full donation of Constantine demand
+			if = {
+				limit = { var:papal_demand = flag:donation_of_constantine }
+				add_gold = 5 # placeholder
+			}
+			# Effect: Return specific Italian lands
+			if = {
+				limit = { var:papal_demand = flag:return_italian_lands }
+				
+				add_gold = 5 # placeholder
+			}
+			# Effect: Pope demands independence from vassalage
+			if = {
+				limit = { var:papal_demand = flag:recognition_of_papal_independence }
+				
+				add_gold = 5 # placeholder
+			}
+			# Effect: Change to worse succession law
+			if = {
+				limit = { var:papal_demand = flag:succession_downgrade }
+				
+				reduce_partition_succession_law_effect = yes
+			}
+			# Effect: Ruler abdicates in favor of heir
+			if = {
+				limit = { var:papal_demand = flag:abdication }
+				
+				add_prestige = -5 # placeholder
+			}
+			# Effect: Attack excommunicated neighbor
+			if = {
+				limit = { var:papal_demand = flag:depose_excommunicated_ruler }
+				
+				add_gold = 5 # placeholder
+			}
+			# Effect: Attack and remove antipope
+			if = {
+				limit = { var:papal_demand = flag:depose_antipope }
+				
+				add_piety = 5 # placeholder
+			}
+			# Effect: Join crusade or religious war
+			if = {
+				limit = { var:papal_demand = flag:crusade_or_religious_war_support }
+				
+				add_piety = 5 # placeholder
+			}
+			# Effect: Attack rulers in Italian territories
+			if = {
+				limit = { var:papal_demand = flag:invade_italian_lands_on_popes_behalf }
+				
+				# Find an Italian title not held by actor or recipient
+				random_county_in_region = {
+					region = world_europe_south_italy
+					limit = {
+						NOR = { 
+							holder = scope:actor 
+							holder = scope:recipient
+							holder = { top_liege = { this = scope:actor } }
+							holder = { top_liege = { this = scope:recipient } }
+						}
+						any_title_to_title_neighboring_county = { holder.top_liege = scope:recipient }
+					}
+					save_scope_as = italian_war_target
+				}
+
+				scope:recipient = {
+					add_pressed_claim = scope:italian_war_target
+				}
+				scope:actor = {
+					add_pressed_claim = scope:italian_war_target
+					start_war = {
+						cb = claim_cb_non_target_top_liege
+						target = scope:italian_war_target.holder.top_liege
+						claimant = scope:recipient
+						target_title = scope:italian_war_target
+					}
+				}
+				scope:italian_war_target.holder = {
+					add_character_flag = invade_italian_lands_on_popes_behalf_target
+				}
+			}
+			# Effect: Ruler must go on pilgrimage
+			if = {
+				limit = { var:papal_demand = flag:go_on_pilgrimage }
+				
+				add_piety = 5 # placeholder
+			}
+			# Effect: Perform public penance
+			if = {
+				limit = { var:papal_demand = flag:public_penance }
+				
+				add_piety = 5 # placeholder
+			}
+
+		}
+	}
+
+	# I refuse
+	option = {
+	
+	}
+}

@@ -2273,18 +2273,18 @@ claim_cb_non_target_top_liege = {
 					}
 				}
 			}
-			AND = { 
-				NOT = { scope:claimant = scope:attacker } 
-				scope:claimant = {
-					OR = {
-						is_alive = no 
-						NOR = { 
-							is_vassal_or_below_of = scope:attacker 
-							is_courtier_of = scope:attacker 
-						}
-					}
-				}
-			} 
+			# AND = { 
+			# 	NOT = { scope:claimant = scope:attacker } 
+			# 	scope:claimant = {
+			# 		OR = {
+			# 			is_alive = no 
+			# 			NOR = { 
+			# 				is_vassal_or_below_of = scope:attacker 
+			# 				is_courtier_of = scope:attacker 
+			# 			}
+			# 		}
+			# 	}
+			# } 
 		}
 	}
 
@@ -2421,28 +2421,28 @@ claim_cb_non_target_top_liege = {
 
 		resolve_title_and_vassal_change = scope:change
 
-		if = {
-			limit = {
-				NOT = { scope:claimant = scope:attacker }
-				scope:claimant.primary_title.tier < scope:attacker.primary_title.tier
-				scope:claimant = {
-					NOT = { target_is_liege_or_above = scope:attacker }
-				}
-			}
+		# if = {
+		# 	limit = {
+		# 		NOT = { scope:claimant = scope:attacker }
+		# 		scope:claimant.primary_title.tier < scope:attacker.primary_title.tier
+		# 		scope:claimant = {
+		# 			NOT = { target_is_liege_or_above = scope:attacker }
+		# 		}
+		# 	}
 
-			create_title_and_vassal_change = {
-				type = conquest_claim
-				save_scope_as = change_two
-				add_claim_on_loss = yes
-			}
-			scope:claimant = {
-				change_liege = {
-					liege = scope:attacker
-					change = scope:change_two
-				}
-			}
-			resolve_title_and_vassal_change = scope:change_two
-		}
+		# 	create_title_and_vassal_change = {
+		# 		type = conquest_claim
+		# 		save_scope_as = change_two
+		# 		add_claim_on_loss = yes
+		# 	}
+		# 	scope:claimant = {
+		# 		change_liege = {
+		# 			liege = scope:attacker
+		# 			change = scope:change_two
+		# 		}
+		# 	}
+		# 	resolve_title_and_vassal_change = scope:change_two
+		# }
 
 		if = {
 			limit = {

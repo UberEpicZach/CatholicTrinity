@@ -8,44 +8,15 @@
 	special_interaction = create_claimant_faction_against_interaction
 	interface = create_claimant_faction_against
 
-	is_shown = {
-		any_character = {
-			# Must have a claim on the HRE
-			has_claim_on = title:e_hre
+	# is_shown = {
+	# 	scope:secondary_actor = {
+	# 		has_title = title:e_hre
 
-			# Must be adult and capable
-			age = { age >= 16 }
-			NOT = { has_trait = incapable }
-			NOT = { has_trait = blind }
-			NOT = { has_trait = eunuch }
+	# 		# Exclude if there is already a global antiking faction
+	# 		NOT = { exists = global_var:existing_antiking_faction }
 
-			# Optional: Only Catholic if required
-			has_faith = faith:catholic
-
-			# Must hold at least one landed title
-			exists = landed_title
-
-			# Either independent or vassal (optional)
-			OR = {
-				is_independent_ruler = yes
-				is_vassal = yes
-			}
-
-			# Exclude if there is already a global antiking faction
-			NOT = { exists = global_var:existing_antiking_faction }
-
-			# Optional custom description for UI
-			trigger_if = {
-				limit = { any_held_title = { any_claimant = { NOT = { has_trait = incapable } } } }
-				custom_description = { text = "basic_capable_claimant_found" }
-			}
-			trigger_else = {
-				custom_description = { text = "basic_claimant_found" }
-			}
-
-			# Additional filters like truce, struggles, etc., can be nested here
-		}
-	}
+	# 	}
+	# }
 
 
 	is_valid_showing_failures_only = {

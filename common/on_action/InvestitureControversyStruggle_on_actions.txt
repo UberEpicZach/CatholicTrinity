@@ -210,6 +210,31 @@ tct_on_war_won_attacker = {
 				set_variable = { name = crusader_state value = yes }
 			}
 		}
+		if = {
+			limit = {
+				scope:defender = {
+					has_character_flag = invade_italian_lands_on_popes_behalf_target
+				}
+				scope:attacker = {
+					has_variable = papal_demand
+					#var:papal_demand ?= flag:invade_italian_lands_on_popes_behalf
+					save_scope_as = actor
+				}
+			}
+			title:k_papal_state.holder = {
+				save_scope_as = recipient
+			}
+			scope:recipient = {
+				custom_tooltip = anoinment_request_accepted_tt
+				add_to_variable_list = {
+					name = supported_anointments
+					target = scope:actor
+				}
+			}
+			scope:actor = {
+				trigger_event = coronation_events.0400
+			}
+		}
 	}
 }
 

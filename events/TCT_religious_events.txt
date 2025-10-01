@@ -5229,116 +5229,116 @@ tct_religious_events.403 = {
 	}
 }
 
+# Depriected - done entirely via decision now
+# scripted_effect get_held_title_to_donate = {
+# 	clear_variable_list = personally_held_counties_list
 
-scripted_effect get_held_title_to_donate = {
-	clear_variable_list = personally_held_counties_list
+# 	every_held_title = {
+# 		limit = { tier = tier_county NOT = { root.capital_county = this } }
+# 		add_to_list = personally_held_counties_list
+# 	}
 
-	every_held_title = {
-		limit = { tier = tier_county NOT = { root.capital_county = this } }
-		add_to_list = personally_held_counties_list
-	}
+# 	every_in_list = {
+# 		list = personally_held_counties_list
+# 		add_to_prev_list = {NAME = personally_held_counties_list}
+# 	}
+# }
 
-	every_in_list = {
-		list = personally_held_counties_list
-		add_to_prev_list = {NAME = personally_held_counties_list}
-	}
-}
+# tct_religious_events.500 = { 
+# 	title = tct_religious_events.500.t
+# 	desc = {
+# 		first_valid = {
+# 			triggered_desc = {
+# 				trigger = {
+# 					has_trait = cynical
+# 				}
+# 				desc = tct_religious_events.500.desc.cynical
+# 			}
+# 			triggered_desc = {
+# 				trigger = {
+# 					NOT = { has_trait = cynical }
+# 				}
+# 				desc = tct_religious_events.500.desc
+# 			}
+# 		}
+# 	}
 
-tct_religious_events.500 = { 
-	title = tct_religious_events.500.t
-	desc = {
-		first_valid = {
-			triggered_desc = {
-				trigger = {
-					has_trait = cynical
-				}
-				desc = tct_religious_events.500.desc.cynical
-			}
-			triggered_desc = {
-				trigger = {
-					NOT = { has_trait = cynical }
-				}
-				desc = tct_religious_events.500.desc
-			}
-		}
-	}
+# 	widget = {
+# 		gui = "donation_to_clergy_title_selection_widget"
+# 		container = "custom_widgets_container"
+# 	}
 
-	widget = {
-		gui = "donation_to_clergy_title_selection_widget"
-		container = "custom_widgets_container"
-	}
+# 	theme = learning_scholarship_focus
+# 	left_portrait = {
+# 		character = root
+# 	}
 
-	theme = learning_scholarship_focus
-	left_portrait = {
-		character = root
-	}
+# 	immediate = {
+# 		remove_variable = selected_title
+# 		clear_variable_list = personally_held_counties_list
+# 		get_held_title_to_donate = yes
+# 	}
 
-	immediate = {
-		remove_variable = selected_title
-		clear_variable_list = personally_held_counties_list
-		get_held_title_to_donate = yes
-	}
+# 	option = {
+# 		name = tct_religious_events.500.a
+# 		if = {
+# 			limit = { has_variable = selected_title }
+# 			var:selected_title = {
+# 				save_scope_as = selected_title
+# 			}
+# 			custom_tooltip = tct_religious_events.500.a.tt
+# 			hidden_effect = {
+# 				create_character = {
+# 					template = priest_character_template
+# 					location = root.capital_province
+# 					save_scope_as = template_priest
+# 				}
+# 				create_title_and_vassal_change = {
+# 					type = granted
+# 					save_scope_as = title_change
+# 					add_claim_on_loss = no
+# 				}
+# 				scope:selected_title = {
+# 					change_title_holder = {
+# 						holder = scope:template_priest
+# 						change = scope:title_change
+# 					}
+# 				}
+# 				resolve_title_and_vassal_change = scope:title_change
+# 				scope:template_priest = {
+# 					add_realm_law = bishop_theocratic_succession_law
+# 					change_government = theocracy_government
+# 				}
+# 			}
+# 			add_piety = 500
+# 			tct_get_pope_of_target = {
+# 				TARGET = root
+# 			}
+# 			scope:pope_of_target = {
+# 				add_opinion = {
+# 					target = root
+# 					modifier = grantedlandtoclergy
+# 					opinion = 10
+# 				}
+# 			}
+# 			add_character_modifier = {
+# 				modifier = donatedlandtoclergy
+# 				years = 5
+# 			}
+# 		}
+# 		else = {
+# 			remove_decision_cooldown = DonationCountyClergy
+# 		}
 
-	option = {
-		name = tct_religious_events.500.a
-		if = {
-			limit = { has_variable = selected_title }
-			var:selected_title = {
-				save_scope_as = selected_title
-			}
-			custom_tooltip = tct_religious_events.500.a.tt
-			hidden_effect = {
-				create_character = {
-					template = priest_character_template
-					location = root.capital_province
-					save_scope_as = template_priest
-				}
-				create_title_and_vassal_change = {
-					type = granted
-					save_scope_as = title_change
-					add_claim_on_loss = no
-				}
-				scope:selected_title = {
-					change_title_holder = {
-						holder = scope:template_priest
-						change = scope:title_change
-					}
-				}
-				resolve_title_and_vassal_change = scope:title_change
-				scope:template_priest = {
-					add_realm_law = bishop_theocratic_succession_law
-					change_government = theocracy_government
-				}
-			}
-			add_piety = 500
-			tct_get_pope_of_target = {
-				TARGET = root
-			}
-			scope:pope_of_target = {
-				add_opinion = {
-					target = root
-					modifier = grantedlandtoclergy
-					opinion = 10
-				}
-			}
-			add_character_modifier = {
-				modifier = donatedlandtoclergy
-				years = 5
-			}
-		}
-		else = {
-			remove_decision_cooldown = DonationCountyClergy
-		}
-
-		ai_chance = {
-			base = 100
-		}
-	}
-	option = {
-		name = tct_religious_events.500.b
-		remove_decision_cooldown = DonationCountyClergy
-	}
-}
+# 		ai_chance = {
+# 			base = 100
+# 		}
+# 	}
+# 	option = {
+# 		name = tct_religious_events.500.b
+# 		remove_decision_cooldown = DonationCountyClergy
+# 	}
+# }
 
 #Election of Pope Gregory VII
 tct_religious_events.600 = {

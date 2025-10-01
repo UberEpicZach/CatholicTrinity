@@ -13,12 +13,18 @@ on_title_gain = {
 trinity_hre_confirmation_on_title_gain = {
 	trigger = {
 		liege ?= { this = title:e_hre.holder }
-		NOT = { this = title:e_hre.holder }
+		NOT = { 
+			this = title:e_hre.holder
+			has_government = theocracy_government
+		}
 	}
 	effect = {
 		if = {
 			limit = {
-				NOT = { has_variable = confirmation_cooldown_vassal }
+				NOT = { 
+					has_variable = confirmation_cooldown_vassal 
+					has_government = theocracy_government
+				}
 			}
 			add_character_modifier = tct_unconfirmed_title_holder
 		}
