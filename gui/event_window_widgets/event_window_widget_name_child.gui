@@ -11,6 +11,7 @@ vbox = {
 	spacing = 3
 
 	datacontext = "[EventWindowWidgetNameCharacter.GetCharacter]"
+	datacontext = "[Character.GetCulture]"
 
 	editbox_standard = {
 		size = { 240 30 }
@@ -97,6 +98,7 @@ vbox = {
 	hbox = {
 		
 		event_button_round = {
+			visible = "[Culture.ShouldSuggestAncestorName]"
 			onclick = "[EventWindowWidgetNameCharacter.SetCurrentNameCultural( EventWindowWidgetNameCharacter.GetRandomAvailableAncestorName )]"
 			onclick = "[PdxGuiTriggerAllAnimations('name_refresh')]"
 			tooltip = "event_window_widget_name_child_after_random_ancestor"
@@ -160,6 +162,7 @@ vbox = {
 		}
 
 		event_button_round = {
+			visible = "[Culture.ShouldSuggestFamilyName]"
 			onclick = "[GetVariableSystem.Toggle( 'family_members_options_open' )]"
 			tooltip =  "event_window_widget_name_child_after_family_member"
 			using = tooltip_se
