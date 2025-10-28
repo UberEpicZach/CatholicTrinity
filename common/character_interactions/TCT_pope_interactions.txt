@@ -289,7 +289,7 @@ tct_make_antipope_interaction = {
 	}
 }
 
-# COMMUNION TENET #Updated to Wandering Nobles
+# COMMUNION TENET #Updated to All Under Heaven
 excommunicate_interaction = { # TCT
 	category = interaction_category_hostile
 	common_interaction = yes #suppress error
@@ -453,7 +453,14 @@ excommunicate_interaction = { # TCT
 		ai_recipients = primary_war_enemies
 	}
 	
-	ai_frequency = 36
+	ai_frequency_by_tier = {
+		barony = 0
+		county = 72
+		duchy = 36
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
 
 	ai_will_do = {
 		base = 50
@@ -473,13 +480,24 @@ excommunicate_interaction = { # TCT
 				}
 			}
 		}
+
+		modifier = {
+			factor = 0
+			scope:recipient = {
+				involved_activity ?= {
+					has_activity_type = activity_coronation
+					activity_host = prev
+				}
+			}
+		}
 	}
 }
 
-#Updated to Wandering Nobles
+#Updated to All Under Heaven
 request_excommunication_interaction = {
 	category = interaction_category_hostile
 	icon = excommunication
+	interface_priority = 30
 
 	desc = request_excommunication_interaction_desc
 	redirect = {
@@ -849,7 +867,14 @@ request_excommunication_interaction = {
 		ai_recipients = primary_war_enemies
 	}
 	
-	ai_frequency = 36
+	ai_frequency_by_tier = {
+		barony = 0
+		county = 48
+		duchy = 36
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
 
 	ai_will_do = {
 		base = 25
@@ -872,10 +897,11 @@ request_excommunication_interaction = {
 	}
 }
 
-#Updated to Wandering Nobles + made it harder to request claims on higher tier titles
+#Updated to All Under Heaven + made it harder to request claims on higher tier titles
 hof_ask_for_claim_interaction = { #TCT
 	category = interaction_category_diplomacy
 	icon = religious_claim
+	interface_priority = 35
 
 	desc = hof_ask_for_claim_interaction_desc
 	target_type = title
@@ -959,7 +985,7 @@ hof_ask_for_claim_interaction = { #TCT
 			limit = {
 				scope:secondary_recipient = {
 					government_allows = administrative
-					is_independent_ruler = yes
+					top_liege = this
 				}
 				scope:actor = {
 					government_allows = administrative
@@ -1038,13 +1064,13 @@ hof_ask_for_claim_interaction = { #TCT
 					}
 
 					# Unless it's the HRE in the Investiture Controversy
-					# scope:recipient = {
-					# 	has_title = title:e_hre
-					# 	any_character_struggle = {
-					# 		involvement = involved
-					# 		is_struggle_type = investiture_controversy_struggle
-					# 	}
-					# }
+					scope:recipient = {
+						has_title = title:e_hre
+						any_character_struggle = {
+							involvement = involved
+							is_struggle_type = investiture_controversy_struggle
+						}
+					}
 				}
 			}
 			custom_description = {
@@ -1067,7 +1093,7 @@ hof_ask_for_claim_interaction = { #TCT
 			limit = {
 				scope:secondary_recipient = {
 					government_allows = administrative
-					NOT = { is_independent_ruler = yes }
+					NOT = { top_liege = this }
 				}
 				scope:actor = {
 					government_allows = administrative
@@ -1101,8 +1127,9 @@ hof_ask_for_claim_interaction = { #TCT
 				}
 			}
 		}
-		scope:recipient = { is_busy_in_events_localised = yes }
 		scope:secondary_recipient = { NOT = { has_strong_hook = scope:actor } }
+		# Japanese Emperor cannot take this action
+		scope:actor = { tgp_is_japanese_emperor_trigger = no }
 	}
 
 	cost = {
@@ -1142,7 +1169,14 @@ hof_ask_for_claim_interaction = { #TCT
 		ai_recipients = peer_vassals
 		ai_recipients = liege
 	}
-	ai_frequency = 36
+	ai_frequency_by_tier = {
+		barony = 0
+		county = 108
+		duchy = 36
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
 	
 	ai_potential = {
 		is_playable_character = yes
@@ -1169,7 +1203,7 @@ hof_ask_for_claim_interaction = { #TCT
 
 		modifier = {
 			add = 500
-			ai_has_conqueror_personality = yes
+			has_variable = conqueror
 			NOR = {
 				has_relation_friend = scope:secondary_recipient
 				has_relation_lover = scope:secondary_recipient
@@ -1260,7 +1294,7 @@ hof_ask_for_claim_interaction = { #TCT
 			add = {
 				if = {
 					limit = {
-						NOT = { scope:recipient = scope:secondary_recipient }
+						scope:recipient != scope:secondary_recipient
 					}
 					subtract = "scope:recipient.opinion(scope:secondary_recipient)"
 				}
@@ -1814,7 +1848,7 @@ hof_ask_for_claim_interaction = { #TCT
 	}
 	send_option = {
 		is_shown = {
-			NOT = { scope:actor = scope:recipient }
+			scope:actor != scope:recipient
 		}
 		is_valid = {
 			scope:actor = {
@@ -1860,7 +1894,7 @@ hof_ask_for_claim_interaction = { #TCT
 	}
 }
 
-##Updated to Wandering Nobles
+##Updated to All Under Heaven
 hof_ask_for_gold_interaction = { # TCT
 	icon = icon_gold
 	category = interaction_category_religion
@@ -1873,7 +1907,14 @@ hof_ask_for_gold_interaction = { # TCT
 	ai_target_quick_trigger = {
 		adult = yes
 	}
-	ai_frequency = 24
+	ai_frequency_by_tier = {
+		barony = 0
+		county = 36
+		duchy = 24
+		kingdom = 6
+		empire = 6
+		hegemony = 6
+	}
 	
 	cooldown_against_recipient = { years = 3 }
 	
@@ -2315,6 +2356,28 @@ hof_ask_for_gold_interaction = { # TCT
 		}
 
 		modifier = {
+			add = -25
+			desc = BASE_RELUCTANCE
+			trigger = {
+				has_game_rule = hard_difficulty
+				scope:actor = {
+					is_ai = no
+				}
+			}
+		}
+		
+		modifier = {
+			add = -75
+			desc = BASE_RELUCTANCE
+			trigger = {
+				has_game_rule = very_hard_difficulty
+				scope:actor = {
+					is_ai = no
+				}
+			}
+		}
+
+		modifier = {
 			desc = RELIGIOUS_HEAD_INTERACTION_CONCLAVE_INFLUENCE_ACTOR
 			add = {
 				add = 10
@@ -2369,7 +2432,7 @@ hof_ask_for_gold_interaction = { # TCT
 	
 	send_option = {
 		is_shown = {
-			NOT = { scope:actor = scope:recipient }
+			scope:actor != scope:recipient
 		}
 		is_valid = {
 			scope:actor = {
@@ -2450,7 +2513,7 @@ hof_ask_for_gold_interaction = { # TCT
 		}
 		modifier = { # Dukes are also somewhat reluctant to request gold if not independent.
 			highest_held_title_tier = tier_duchy 
-			is_independent_ruler = no
+			top_liege != this
 			scope:recipient.gold < 3000
 			add = -25
 		}
@@ -2511,10 +2574,20 @@ hof_ask_for_gold_interaction = { # TCT
 			}
 			scope:recipient.gold >= 1000
 		}
+
+		modifier = { #That's _my_ piety
+			add = -100
+			scope:actor = { ai_has_builder_or_pious_builder_personality = yes }
+		}
+
+		modifier = { #Go on! Git!
+			add = -100
+			scope:actor = { government_has_flag = government_is_mandala }
+		}
 	}
 }
 
-##Updated to Wandering Nobles
+##Updated to All Under Heaven
 seek_indulgences_interaction = {
 	icon = religious
 	category = interaction_category_religion
@@ -2524,9 +2597,7 @@ seek_indulgences_interaction = {
 	notification_text = RELIGIOUS_HEAD_SEEK_INDULGENCES
 
 	is_shown = {
-		NOT = {
-			scope:recipient = scope:actor
-		}
+		scope:recipient != scope:actor
 		scope:actor.faith = {
 			has_doctrine = tenet_communion
 		}
@@ -2616,7 +2687,6 @@ seek_indulgences_interaction = {
 				is_at_war_with = scope:recipient
 			}
 		}
-		scope:recipient = { is_busy_in_events_localised = yes }
 	}
 	
 	ai_accept = {
@@ -2701,7 +2771,14 @@ seek_indulgences_interaction = {
 		ai_recipients = head_of_faith
 	}
 	
-	ai_frequency = 36
+	ai_frequency_by_tier = {
+		barony = 0
+		county = 36
+		duchy = 36
+		kingdom = 36
+		empire = 36
+		hegemony = 36
+	}
 
 	ai_will_do = {
 		base = -25
@@ -2748,7 +2825,7 @@ seek_indulgences_interaction = {
 	}
 }
 
-##Updated to Wandering Nobles
+##Updated to All Under Heaven
 declaration_of_repentance_interaction = {
 	icon = religious
 	category = interaction_category_religion
@@ -2764,9 +2841,7 @@ declaration_of_repentance_interaction = {
 	notification_text = RELIGIOUS_HEAD_DECLARATION_OF_REPENTANCE
 
 	is_shown = {
-		NOT = {
-			scope:recipient = scope:actor
-		}
+		scope:recipient != scope:actor
 		scope:actor = {
 			has_trait = excommunicated
 			faith = {
@@ -2799,7 +2874,6 @@ declaration_of_repentance_interaction = {
 				is_at_war_with = scope:recipient
 			}
 		}
-		scope:recipient = { is_busy_in_events_localised = yes }
 	}
 	
 	send_option = {
@@ -2890,6 +2964,28 @@ declaration_of_repentance_interaction = {
 				}
 			}
 		}
+		modifier = {
+			add = 20
+			scope:recipient = {
+				is_landed = no
+			}
+			OR = {
+				scope:recipient.liege ?= scope:actor
+				scope:recipient.top_liege ?= scope:actor
+			}
+			desc = I_AM_LIEGE_TOP_LIEGE
+		}
+		modifier = {
+			add = 10
+			scope:recipient = {
+				is_landed = yes
+			}
+			OR = {
+				scope:recipient.liege ?= scope:actor
+				scope:recipient.top_liege ?= scope:actor
+			}
+			desc = I_AM_LIEGE_TOP_LIEGE
+		}
 		
 		evaluate_action_increasing_house_unity = {
 			VALUE = 50
@@ -2952,14 +3048,21 @@ declaration_of_repentance_interaction = {
 		ai_recipients = scripted_relations #TCT CHANGE, Can't be head_of_faith due to Anti-popes
 	}
 	
-	ai_frequency = 72
+	ai_frequency_by_tier = {
+		barony = 0
+		county = 72
+		duchy = 72
+		kingdom = 36
+		empire = 36
+		hegemony = 36
+	}
 
 	ai_will_do = {
 		base = 100
 	}
 }
 
-##Updated to Wandering Nobles
+##Updated to All Under Heaven
 lift_excommunication_interaction = {
 	category = interaction_category_religion
 	icon = excommunication
@@ -2995,7 +3098,6 @@ lift_excommunication_interaction = {
 	
 
 	is_valid_showing_failures_only = {
-		scope:recipient = { is_busy_in_events_localised = yes }
 		scope:actor = {
 			NOT = {
 				is_at_war_with = scope:recipient
@@ -3040,7 +3142,14 @@ lift_excommunication_interaction = {
 		ai_recipients = war_allies
 	}
 	
-	ai_frequency = 72
+	ai_frequency_by_tier = {
+		barony = 0
+		county = 96
+		duchy = 72
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
 
 	ai_will_do = {
 		base = 10
@@ -3063,7 +3172,7 @@ lift_excommunication_interaction = {
 	}
 }
 
-##Updated to Wandering Nobles
+##Updated to All Under Heaven
 divorce_character_interaction = { 
 	category = interaction_category_diplomacy
 	use_diplomatic_range = no
@@ -3129,8 +3238,15 @@ divorce_character_interaction = {
 				has_doctrine = doctrine_divorce_disallowed
 			}
 		}
-		scope:recipient = { is_busy_in_events_localised = yes }
 		scope:recipient = { NOT = { has_strong_hook = scope:actor } }
+		scope:actor = {
+			custom_tooltip = {
+				NOT = {
+					var:family_widow_forbidden_divorce ?= scope:target
+				}
+				text = BOUND_TO_FAMILY_WIDOW
+			}
+		}
 	}
 
 	auto_accept = yes
@@ -3166,7 +3282,14 @@ divorce_character_interaction = {
 	ai_targets = {
 		ai_recipients = spouses
 	}
-	ai_frequency = 36
+	ai_frequency_by_tier = {
+		barony = 0
+		county = 72
+		duchy = 36
+		kingdom = 36
+		empire = 36
+		hegemony = 36
+	}
 	
 	ai_potential = {
 		is_ruler = yes
@@ -3198,15 +3321,10 @@ divorce_character_interaction = {
 				allowed_to_marry_same_sex_trigger = no
 			}
 		}
-		
-		# Unity modifiers
-		evaluate_action_decreasing_house_unity = {
-			VALUE = 100
-		}
 	}
 }
 
-##Updated to Wandering Nobles
+##Updated to All Under Heaven
 divorce_character_rel_head_interaction = {
 	category = interaction_category_diplomacy
 	use_diplomatic_range = no
@@ -3286,8 +3404,6 @@ divorce_character_rel_head_interaction = {
 		scope:actor = {
 			NOT = { has_trait = excommunicated }
 		}
-		scope:recipient = { is_busy_in_events_localised = yes }
-		scope:secondary_recipient = { is_busy_in_events_localised = yes }
 		custom_tooltip = {
 			NOT = {
 				scope:actor.culture = {
@@ -3298,6 +3414,14 @@ divorce_character_rel_head_interaction = {
 		}
 		NOT = {
 			scope:secondary_recipient = { has_strong_hook = scope:actor }
+		}
+		scope:actor = {
+			custom_tooltip = {
+				NOT = {
+					var:family_widow_forbidden_divorce ?= scope:recipient
+				}
+				text = BOUND_TO_FAMILY_WIDOW
+			}
 		}
 	}
 
@@ -3568,7 +3692,14 @@ divorce_character_rel_head_interaction = {
 	ai_targets = {
 		ai_recipients = spouses
 	}
-	ai_frequency = 36
+	ai_frequency_by_tier = {
+		barony = 0
+		county = 72
+		duchy = 36
+		kingdom = 36
+		empire = 36
+		hegemony = 36
+	}
 	
 	ai_potential = {
 		is_ruler = yes
@@ -3608,7 +3739,7 @@ divorce_character_rel_head_interaction = {
 	}	
 }
 
-##Updated to Wandering Nobles
+##Updated to All Under Heaven
 take_vows_interaction = {
 	category = interaction_category_friendly
 	icon = religious
@@ -3724,6 +3855,7 @@ take_vows_interaction = {
 			else_if = {
 				limit = {
 					scope:recipient = { is_child_of = scope:actor }
+					has_legitimacy = yes
 				}
 				add_legitimacy = {
 					value = miniscule_legitimacy_loss
@@ -3784,9 +3916,7 @@ take_vows_interaction = {
 			if = {
 				limit = {
 					exists = faith.religious_head
-					NOT = {
-						faith.religious_head = scope:actor
-					}
+					faith.religious_head != scope:actor
 					scope:recipient = {
 						is_close_family_of = scope:actor
 					}
@@ -3797,6 +3927,18 @@ take_vows_interaction = {
 						modifier = pious_opinion
 						opinion = 10
 					}
+				}
+			}
+			if = {
+				limit = {
+					house = {
+						has_house_power_parameter = humility_take_the_vows_bonus
+					}
+				}
+				add_piety_experience = 100
+				add_character_modifier = {
+					modifier = tgp_humility_take_the_vows_bonus_modifier
+					years = 10
 				}
 			}
 		}
@@ -3962,7 +4104,7 @@ take_vows_interaction = {
 						is_clergy = yes
 					}
 					any_secret = {
-						secret_type = secret_lover
+						type = secret_lover
 						secret_target = {	
 							is_clergy = yes
 						}
@@ -4229,9 +4371,7 @@ take_vows_interaction = {
 		modifier = {
 			add = 50
 			scope:recipient = {
-				NOT = {
-					is_primary_heir_of = scope:actor
-				}
+				is_primary_heir_of != scope:actor
 			}
 			scope:actor.primary_title = {
 				place_in_line_of_succession = {
@@ -4255,9 +4395,7 @@ take_vows_interaction = {
 				NOT = { is_heir_of = scope:actor }
 				any_heir_title = {
 					exists = holder
-					NOT = {
-						holder = scope:actor
-					}
+					holder != scope:actor
 					place_in_line_of_succession = {
 						target = scope:recipient
 						value < 2
@@ -4362,9 +4500,7 @@ take_vows_interaction = {
 	ai_potential = {
 		is_adult = yes
 		piety >= major_piety_value
-		NOT = {
-			faith = faith:orthodox
-		}
+		faith != faith:orthodox
 	}
 			
 	ai_target_quick_trigger = {
@@ -4380,7 +4516,14 @@ take_vows_interaction = {
 		ai_recipients = children
 	}
 	
-	ai_frequency = 72
+	ai_frequency_by_tier = {
+		barony = 0
+		county = 144
+		duchy = 72
+		kingdom = 24
+		empire = 24
+		hegemony = 24
+	}
 
 	ai_will_do = {
 		base = 0
@@ -4497,17 +4640,14 @@ take_vows_interaction = {
 			add = 50
 			scope:actor = {
 				ai_greed >= medium_positive_ai_value
-				any_child = {
-					count >= 1
-				}
+				any_child = { }
 			}
 			scope:recipient = {
 				NOT = {
 					is_child_of = scope:actor
 				}
 				any_claim = {
-					exists = holder
-					holder = scope:actor
+					holder ?= scope:actor
 				}
 			}
 		}
@@ -4635,10 +4775,11 @@ take_vows_interaction = {
 	}
 }
 
-#Updated to LOTD: added stuff for the Struggle
+#Updated to All Under Heaven: added stuff for the Struggle
 claim_throne_interaction = {
 	icon = icon_scheme_claim_throne
-	category = interaction_category_hostile
+	category = interaction_category_vassal
+	interface_priority = 268 # after Start Claimant Faction
 
 	ai_targets = {
 		ai_recipients = liege
@@ -4647,6 +4788,7 @@ claim_throne_interaction = {
 	auto_accept = yes
 	use_diplomatic_range = no
 	ignores_pending_interaction_block = yes
+
 
 	scheme = claim_throne
 
@@ -4693,9 +4835,25 @@ claim_throne_interaction = {
 						has_struggle_phase_parameter = unlocks_claim_throne_for_caliph_vassals
 					}
 				}
+				has_character_flag = confederation_claim_throne
+				AND = {
+					government_allows = merit
+					situation:dynastic_cycle ?= { situation_current_phase = situation_dynastic_cycle_phase_chaos }
+					exists = top_participant_group:dynastic_cycle
+				}
+			}
+			OR = {
+				NOT = { government_allows = merit }
+				government_has_flag = government_is_meritocratic
+				government_has_flag = government_is_steppe_admin
+				AND = {
+					government_allows = merit
+					situation:dynastic_cycle ?= { situation_current_phase = situation_dynastic_cycle_phase_chaos }
+					exists = top_participant_group:dynastic_cycle
+				}
 			}
 		}
-		NOT = { scope:recipient = scope:actor }
+		scope:recipient != scope:actor	
 	}
 
 	is_valid_showing_failures_only = {
@@ -4833,7 +4991,6 @@ claim_throne_interaction = {
 	
 	ai_potential = {
 		is_adult = yes
-		highest_held_title_tier > tier_barony
 		ai_greed >= medium_positive_ai_value
 		learning >= medium_skill_rating
 		intrigue >= mediocre_skill_rating
@@ -4868,7 +5025,14 @@ claim_throne_interaction = {
 		}
 	}
 
-	ai_frequency = 36
+	ai_frequency_by_tier = {
+		barony = 0
+		county = 48
+		duchy = 36
+		kingdom = 36
+		empire = 0
+		hegemony = 0
+	}
 
 	ai_will_do = {
 		base = 100
