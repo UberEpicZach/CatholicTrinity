@@ -1,0 +1,24 @@
+﻿NGovernment = {
+	GOVERNMENT_TYPES = {
+		"feudal_government"
+		"republic_government"
+		"theocracy_government"
+		"clan_government"
+		"tribal_government"
+		"mercenary_government"
+		"holy_order_government"
+		"administrative_government"
+		"landless_adventurer_government"
+		"nomad_government"
+		"herder_government"
+		"celestial_government"
+		"japan_administrative_government"
+		"japan_feudal_government"
+		"mandala_government"
+		"wanua_government"
+		"meritocratic_government"
+		"steppe_admin_government"
+		# TCT added
+		"mercenary_government_mod"
+	}
+}

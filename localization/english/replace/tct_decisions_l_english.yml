@@ -15,20 +15,20 @@
  # Divorce Choices
  tct_religious_events.850.t: "Manage Divorce Requests"
  tct_religious_events.850.d: "Choose how to handle divorce requests from your subjects. You can automatically approve all requests, deny them outright, or set specific criteria based on the petitioner's rank or circumstances."
- tct_religious_events.850.a: ""
- tct_religious_events.850.b: ""
- tct_religious_events.850.c: ""
+ tct_religious_events.850.a: "Approve all divorce requests automatically."
+ tct_religious_events.850.b: "Deny all divorce requests outright."
+ tct_religious_events.850.c: "Handle routine petitions automatically."
  
  # Gold Choices
  tct_religious_events.851.t: "Manage Requests for Gold"
  tct_religious_events.851.d: "Decide how to respond to requests for financial assistance. You can approve requests based on the petitioner's gold reserves, deny them if they exceed a certain amount, or set rank-based criteria for approval."
- tct_religious_events.851.a: ""
- tct_religious_events.851.b: ""
- tct_religious_events.851.c: ""
+ tct_religious_events.851.a: "Approve all gold requests automatically."
+ tct_religious_events.851.b: "Deny all gold requests outright."
+ tct_religious_events.851.c: "Handle routine petitions automatically."
  
  # Excommunication Choices
  tct_religious_events.852.t: "Manage Excommunication Requests"
  tct_religious_events.852.d: "Manage requests for excommunication. You can set rules based on the petitioner's piety, the target's rank, or whether the target is an ally of the Papacy. Use this power to enforce Church doctrine and discipline."
- tct_religious_events.852.a: ""
- tct_religious_events.852.b: ""
- tct_religious_events.852.c: ""
+ tct_religious_events.852.a: "Approve all excommunication requests automatically."
+ tct_religious_events.852.b: "Deny all excommunication requests outright."
+ tct_religious_events.852.c: "Handle routine petitions automatically."

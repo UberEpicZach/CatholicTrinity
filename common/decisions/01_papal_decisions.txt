@@ -583,19 +583,19 @@ manage_papal_affairs = {
 
 		item = { # Divorce
 			value = papal_divorce_request
-			current_description = papal_affairs_divorce_tooltip
+			#current_description = papal_affairs_divorce_tooltip
 			localization = manage_papal_affairs_divorce
 			icon = "gfx/interface/icons/character_interactions/icon_marriage.dds"
 		} 
 		item = { #Requests for Gold
 			value = papal_gold_request
-			current_description = papal_affairs_gold_tooltip
+			#current_description = papal_affairs_gold_tooltip
 			localization = manage_papal_affairs_gold
 			icon = "gfx/interface/icons/character_interactions/request_funding_interaction.dds"
 		}
 		item = { #Excomunication requests
 			value = papal_excomunication_request
-			current_description = papal_affairs_excommunication_tooltip
+			#current_description = papal_affairs_excommunication_tooltip
 			localization = manage_papal_affairs_excommunication
 			icon = "gfx/interface/icons/character_interactions/excommunication.dds"
 		}

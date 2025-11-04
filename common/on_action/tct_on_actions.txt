@@ -633,6 +633,7 @@ on_title_gain = {
 		on_gain_papacy
 		on_gain_cardinal
 		priests_learn_latin
+		antipope_title_destroyer
 	}
 }
 on_gain_cardinal = {
@@ -926,6 +927,19 @@ on_gain_papacy = {
 				limit = { has_variable = antipope_title }
 				root = { destroy_title = prev }
 			}
+		}
+	}
+}
+
+antipope_title_destroyer = {
+	trigger = {
+		primary_title = {
+			has_variable = antipope_title
+		}
+	}
+	effect = {
+		primary_title = {
+			root = { destroy_title = prev }
 		}
 	}
 }

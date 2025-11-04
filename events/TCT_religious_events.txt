@@ -6060,6 +6060,9 @@ tct_religious_events.850 = {
 	}
 	option = {
 		name = tct_religious_events.850.c
+		title:k_papal_state = {
+			set_variable = tct_delegate_override
+		}
 	}
 }
 

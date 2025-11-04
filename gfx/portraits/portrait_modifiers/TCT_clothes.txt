@@ -61,7 +61,10 @@
 				NOT = {
 					exists = global_var:cfp_is_loaded
 				}
-				has_title = title:k_papal_state
+				OR = {
+                    has_title = title:k_papal_state
+                    has_trait = tct_antipope
+                }
             }
         }
     }

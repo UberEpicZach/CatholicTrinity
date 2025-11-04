@@ -194,6 +194,7 @@ tct_papal_demands.1 = { # Event for Pope.
 	lower_right_portrait = {
 		character = scope:recipient # The Pope
 	}
+	orpan = yes
 
 	immediate = {
 		random_living_cardinal = { save_scope_as = cardinal } 
@@ -318,10 +319,8 @@ tct_papal_demands.1 = { # Event for Pope.
 						faith = { any_faith_holy_order = { count >= 1 } }
 						scope:actor = {
 							any_held_title = {
-								limit = {
-									tier = tier_barony
-									barony_is_valid_for_holy_order_lease_trigger = { CHARACTER = scope:actor }
-								}
+								tier = tier_barony
+								barony_is_valid_for_holy_order_lease_trigger = { CHARACTER = scope:actor }
 							}
 						}
 					}
@@ -483,9 +482,9 @@ tct_papal_demands.1 = { # Event for Pope.
 					trigger = {
 						# Check if there's an excommunicated neighbor to target
 						any_neighboring_realm_same_rank_owner = {
-							faith = { has_doctrine = doctrine_excommunication_head }
+							faith = root.faith
 							has_trait = excommunicated
-							NOT = { this = scope:actor }
+							this != scope:actor
 						}
 					}
 					modifier = {

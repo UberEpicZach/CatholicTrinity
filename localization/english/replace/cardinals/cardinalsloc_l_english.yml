@@ -3,8 +3,16 @@
  CardinalFlavor2: "Cardinal-Bishop"
  CardinalFlavor3: "Cardinal-Archbishop"
  CardinalFlavor4: "Cardinal-Dean"
+
+ CardinalFlavor1_possessive: "Cardinal-Priest's"
+ CardinalFlavor2_possessive: "Cardinal-Bishop's"
+ CardinalFlavor3_possessive: "Cardinal-Archbishop's"
+ CardinalFlavor4_possessive: "Cardinal-Dean's"
+
+
  emperorbishop: "Primas"
  popebishop: "Pope"
+ popebishop_possessive: "Pope's"
  kingbishop: "King-Bishop"
  dukebishop: "Archbishop"
  countbishop: "Prince-Bishop"

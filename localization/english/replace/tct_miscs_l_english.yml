@@ -4,7 +4,9 @@
  I_PAPAL: "[papal_investiture|E]"
  I_FREE: "[free_investiture|E]"
 
- appoint_governor:0 "Appoint Bishopric Successor"
+ appoint_governor: "Appoint Bishopric Successor"
+
+ hof_interaction_opinion: "Your Holiness's opinion of [actor.GetName] is less than 10"
 
  public_opinion_positive: "High Public Opinion!"
  refusedpope: "Refused the Pope."

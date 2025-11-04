@@ -4,7 +4,7 @@
 	test_default = yes
 	group = bm_group_1066
 	recommended = yes
-	weight = { value = 500 }
+	weight = { value = 1500 }
 	# #Holy Roman Emperor Heinrich IV
 	character = {
 		name = "bookmark_heinrich" #Holy Roman Emperor Heinrich IV

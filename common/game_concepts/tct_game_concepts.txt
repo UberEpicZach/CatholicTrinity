@@ -72,7 +72,7 @@ anti_pope = {
 # Struggle Stuff
 ###################################
 investiture_controversy_struggle = {
-	alias = { struggle_region_region }
+	alias = { investiture_struggle_region_region }
 	parent = struggle
 }
 

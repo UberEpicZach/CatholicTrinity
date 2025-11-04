@@ -182,15 +182,15 @@ empire_mercenary_mod = {
 papacy_papal_legate = {
 	type = character
 	special = councillor
-	priority = 666
+	priority = 1000
 	council_position = councillor_chancellor
 	titles = { k_papal_state }
 }
 
-papacy_general_auditor  = {
+papacy_general_auditor = {
 	type = character
 	special = councillor
-	priority = 666
+	priority = 1000
 	council_position = councillor_marshal
 	titles = { k_papal_state }
 }
@@ -198,23 +198,24 @@ papacy_general_auditor  = {
 papacy_papal_majordomo = {
 	type = character
 	special = councillor
-	priority = 666
+	priority = 1000
 	council_position = councillor_court_chaplain
 	titles = { k_papal_state }
 }
 
+
 papacy_papal_camerlengo = {
 	type = character
 	special = councillor
-	priority = 666
+	priority = 1000
 	council_position = councillor_steward
 	titles = { k_papal_state }
 }
 
-papacy_grand_inquisitor  = {
+papacy_grand_inquisitor = {
 	type = character
 	special = councillor
-	priority = 666
+	priority = 1000
 	council_position = councillor_spymaster
 	titles = { k_papal_state }
 }
@@ -224,12 +225,13 @@ head_of_faith_antipope = {
 	gender = male
 	special = holder
 	tier = duchy
-	priority = 727
+	priority = 9000
 	flag = tct_antipope_of_ruler
 	governments = { theocracy_government }
 	religions = { christianity_religion }
 	flavourization_rules = { 
 		top_liege = no
+		ignore_top_liege_government = yes
 		only_holder = yes
 	}
 }

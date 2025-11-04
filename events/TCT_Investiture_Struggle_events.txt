@@ -80,9 +80,6 @@ tct_investiture_struggle.0001 = {
 				}
 			}
 		}
-	}
-
-	after = {
 		# Cue this event up again for the next time around.
 		trigger_event = {
 			id = tct_investiture_struggle.0001

@@ -500,25 +500,23 @@ request_excommunication_interaction = {
 	interface_priority = 30
 
 	desc = request_excommunication_interaction_desc
+	
 	redirect = {
 		if = {
 			limit = {
-				scope:actor.faith = { AND = { has_doctrine = doctrine_independent_papacy_head has_variable_list = tct_antipopes } }	
-			}
-			tct_get_pope_of_target = {
-				TARGET = scope:recipient
-			}
-			if = {
-				limit = {
-					exists = scope:pope_of_target
-				}
-				scope:recipient = {
-					save_scope_as = secondary_recipient
-				}
-				scope:pope_of_target = {
-					save_scope_as = recipient
+				scope:actor.faith = {
+					OR = {
+						has_doctrine = doctrine_independent_papacy_head
+						has_variable_list = tct_antipopes
+					}
 				}
 			}
+	
+			scope:recipient = {
+				save_scope_as = secondary_recipient
+			}
+	
+			tct_papal_delegate_authority = yes
 		}
 		else_if = {
 			limit = {
@@ -531,25 +529,11 @@ request_excommunication_interaction = {
 				save_scope_as = recipient
 			}
 		}
-		if = {
-			limit = {
-				scope:actor = {
-					conclave_influence_variable_effect_trigger = yes
-				}
-			}
-			scope:actor = {
-				conclave_influence_variable_removing_effect = yes
-			}
+		scope:actor ?= {
+			conclave_influence_variable_removing_effect = yes
 		}
-		if = {
-			limit = {
-				scope:secondary_recipient = {
-					conclave_influence_variable_effect_trigger = yes
-				}
-			}
-			scope:secondary_recipient = {
-				conclave_influence_variable_removing_effect = yes
-			}
+		scope:secondary_recipient ?= {
+			conclave_influence_variable_removing_effect = yes
 		}
 		if = {
 			limit = {
@@ -654,7 +638,6 @@ request_excommunication_interaction = {
 				is_at_war_with = scope:recipient
 			}
 		}
-		scope:recipient = { is_busy_in_events_localised = yes }
 		scope:secondary_recipient = { NOT = { has_strong_hook = scope:actor } }
 		custom_tooltip = {
 			text = cannot_take_overt_hostile_actions_against_diarch.tt
@@ -787,7 +770,7 @@ request_excommunication_interaction = {
 			if = {
 				limit = { scope:excommunication_hook = yes }
 				scope:actor = {
-					use_hook = scope:recipient
+					use_hook = scope:recipient.top_liege
 				}
 			}
 
@@ -909,17 +892,19 @@ hof_ask_for_claim_interaction = { #TCT
 	redirect = {
 		if = {
 			limit = {
-				scope:actor.faith = { AND = { has_doctrine = doctrine_independent_papacy_head has_variable_list = tct_antipopes } }	
+				scope:actor.faith = {
+					OR = {
+						has_doctrine = doctrine_independent_papacy_head
+						has_variable_list = tct_antipopes
+					}
+				}
 			}
-			tct_get_pope_of_target = {
-				TARGET = scope:recipient
-			}
+	
 			scope:recipient = {
 				save_scope_as = secondary_recipient
 			}
-			scope:pope_of_target = {
-				save_scope_as = recipient
-			}
+	
+			tct_papal_delegate_authority = yes
 		}
 		else_if = {
 			limit = {
@@ -1900,6 +1885,51 @@ hof_ask_for_gold_interaction = { # TCT
 	category = interaction_category_religion
 
 	desc = hof_ask_for_gold_interaction_desc
+
+	redirect = {
+		scope:recipient = {
+			save_scope_as = secondary_recipient
+		}
+		if = {
+			limit = {
+				scope:actor.faith = {
+					OR = {
+						has_doctrine = doctrine_independent_papacy_head
+						has_variable_list = tct_antipopes
+					}
+				}
+			}
+	
+			tct_papal_delegate_authority = yes
+		}
+
+		else_if = {
+			limit = {
+				exists = scope:actor.faith.religious_head
+			}
+			scope:recipient = {
+				save_scope_as = secondary_recipient
+			}
+			scope:actor.faith.religious_head = {
+				save_scope_as = recipient
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					exists = scope:actor.faith.religious_head
+					NOT = {
+						scope:actor  = {
+							has_faith = faith:catholic
+						}
+					}
+				}
+				scope:actor.faith.religious_head = {
+					save_scope_as = recipient
+				}
+			}
+		}
+	}
 	
 	ai_targets = {
 		ai_recipients = head_of_faith
@@ -1917,11 +1947,9 @@ hof_ask_for_gold_interaction = { # TCT
 	}
 	
 	cooldown_against_recipient = { years = 3 }
-	
+
 	is_shown = {
-		NOT = {
-			scope:recipient = scope:actor
-		}
+		scope:recipient != scope:actor
 		scope:actor.faith = {
 			OR = {
 				has_doctrine = doctrine_independent_papacy_head
@@ -1929,30 +1957,13 @@ hof_ask_for_gold_interaction = { # TCT
 			}
 		}
 
-		trigger_if = {
-			limit = {
-				scope:actor = {
-					faith = {
-						AND = {
-							has_doctrine = doctrine_independent_papacy_head 
-							has_variable_list = tct_antipopes
-						}
-					}
-				}	
-			}
-			tct_is_pope_of_target_trigger = { 
-				TARGET = scope:actor 
-				POPE = scope:recipient 
-			}
-		}
-		trigger_else = {
-			exists = scope:actor.faith.religious_head
-			scope:actor.faith.religious_head = scope:recipient
-		}
+		# scope:actor = {
+		# 	is_playable_character = yes
+		# }
 	}
 
 	is_valid_showing_failures_only = {
-		scope:recipient = {
+		scope:recipient.top_liege = {
 			gold >= scope:actor.head_of_faith_gold_value
 		}
 		scope:actor = {
@@ -1962,7 +1973,7 @@ hof_ask_for_gold_interaction = { # TCT
 				NOT = { has_trait = excommunicated }
 			}
 			NOT = {
-				is_at_war_with = scope:recipient
+				is_at_war_with = scope:recipient.top_liege
 			}
 		}
 		scope:actor = {
@@ -1973,41 +1984,43 @@ hof_ask_for_gold_interaction = { # TCT
 				}
 			}
 		}
-		scope:recipient = { is_busy_in_events_localised = yes }
 
-		scope:recipient = {
-			OR = {
-				NOT = {
-					has_any_major_negative_opinion_against_character_trigger = { CHARACTER = scope:actor }
-					has_any_petty_revenge_opinion_against_character_trigger = { CHARACTER = scope:actor }
-					opinion = {
-						target = scope:actor
-						value <= 10
+		scope:recipient.top_liege = {
+			custom_description = {
+				text = "hof_interaction_opinion"
+				OR = {
+					NOT = {
+						has_any_major_negative_opinion_against_character_trigger = { CHARACTER = scope:actor }
+						has_any_petty_revenge_opinion_against_character_trigger = { CHARACTER = scope:actor }
+						opinion = {
+							target = scope:actor
+							value <= 10
+						}
 					}
-				}
-				AND = {
-					has_any_major_negative_opinion_against_character_trigger = { CHARACTER = scope:actor }
-					has_any_petty_revenge_opinion_against_character_trigger = { CHARACTER = scope:actor }
-					opinion = {
-						target = scope:actor
-						value <= 10
-					}
-					OR = {
-						scope:actor = {
-							is_at_war = yes
-							any_character_war = {
-								is_attacker = scope:actor
-								OR = {
-									using_non_ghw_holy_war_cb_trigger = yes
-									using_cb = excommunication_war
+					AND = {
+						has_any_major_negative_opinion_against_character_trigger = { CHARACTER = scope:actor }
+						has_any_petty_revenge_opinion_against_character_trigger = { CHARACTER = scope:actor }
+						opinion = {
+							target = scope:actor
+							value <= 10
+						}
+						OR = {
+							scope:actor = {
+								is_at_war = yes
+								any_character_war = {
+									is_attacker = scope:actor
+									OR = {
+										using_non_ghw_holy_war_cb_trigger = yes
+										using_cb = excommunication_war
+									}
 								}
 							}
-						}
-						scope:actor = {
-							is_at_war = yes
-							any_character_war = {
-								is_defender = scope:actor
-								using_non_ghw_holy_war_cb_trigger = yes
+							scope:actor = {
+								is_at_war = yes
+								any_character_war = {
+									is_defender = scope:actor
+									using_non_ghw_holy_war_cb_trigger = yes
+								}
 							}
 						}
 					}
@@ -2397,37 +2410,37 @@ hof_ask_for_gold_interaction = { # TCT
 				object = scope:recipient
 				scope:hook = yes
 			}
-			custom_description = {
-				text = "lots_of_money"
-				subject = scope:actor
-				object = scope:recipient
-				scope:recipient = {
-					AND = {
-						gold >= 3000
-						NOT = {
-							has_any_major_negative_opinion_against_character_trigger = { CHARACTER = scope:actor }
-							has_any_petty_revenge_opinion_against_character_trigger = { CHARACTER = scope:actor }
-							opinion = {
-								target = scope:actor
-								value <= 10
-							}
-						}
-					}
-				}
-			}
+			# custom_description = {
+			# 	text = "lots_of_money"
+			# 	subject = scope:actor
+			# 	object = scope:recipient
+			# 	scope:recipient = {
+			# 		AND = {
+			# 			gold >= 3000
+			# 			NOT = {
+			# 				has_any_major_negative_opinion_against_character_trigger = { CHARACTER = scope:actor }
+			# 				has_any_petty_revenge_opinion_against_character_trigger = { CHARACTER = scope:actor }
+			# 				opinion = {
+			# 					target = scope:actor
+			# 					value <= 10
+			# 				}
+			# 			}
+			# 		}
+			# 	}
+			# }
 		}
 	}
 	on_auto_accept = {
-		scope:recipient = {
-			send_interface_message = {
-				type = msg_lots_of_gold_effect
-				title = tct_lots_of_gold_pope_paid
-				desc = tct_lots_of_gold_pope_paid_desc
+		# scope:recipient = {
+		# 	send_interface_message = {
+		# 		type = msg_lots_of_gold_effect
+		# 		title = tct_lots_of_gold_pope_paid
+		# 		desc = tct_lots_of_gold_pope_paid_desc
 
-				left_icon = scope:recipient
-				right_icon = scope:actor
-			}
-		}
+		# 		left_icon = scope:recipient
+		# 		right_icon = scope:actor
+		# 	}
+		# }
 	}
 	
 	send_option = {
@@ -3172,9 +3185,9 @@ lift_excommunication_interaction = {
 	}
 }
 
-##Updated to All Under Heaven
+# ##Updated to All Under Heaven
 divorce_character_interaction = { 
-	category = interaction_category_diplomacy
+	category = interaction_category_debug
 	use_diplomatic_range = no
 	icon = icon_marriage
 
@@ -3182,71 +3195,73 @@ divorce_character_interaction = {
 	cost = { piety = divorce_cost }
 	
 	is_shown = {
-		scope:actor.faith = {
-			# We are not required to seek approval of a spiritual HoF
-			NAND = {
-				has_doctrine = doctrine_divorce_approval
-				has_doctrine = doctrine_spiritual_head
-				exists = religious_head
-			}
-			# We are not required to seek approval of a house head
-			NAND = {
-				has_doctrine = doctrine_divorce_approval
-				exists = scope:actor.house
-				exists = scope:actor.house.house_head
-				scope:actor = { is_house_head = no }
-			}
-			NOT = {
-				has_doctrine = doctrine_divorce_approval
-			}
-		}
-		scope:recipient.faith = {
-			# We are not required to seek approval of a spiritual HoF
-			NAND = {
-				has_doctrine = doctrine_divorce_approval
-				has_doctrine = doctrine_spiritual_head
-				exists = religious_head
-			}
-			# We are not required to seek approval of a house head
-			NAND = {
-				has_doctrine = doctrine_divorce_approval
-				exists = scope:actor.house
-				exists = scope:actor.house.house_head
-				scope:actor = { is_house_head = no }
-			}
-			NOT = {
-				has_doctrine = doctrine_divorce_approval
-			}
-		}
-		scope:recipient = {
-			is_spouse_of = scope:actor
-			is_concubine = no # Can set aside Concubines at any time
-		}
+		always = no
+		# scope:actor.faith = {
+		# 	# We are not required to seek approval of a spiritual HoF
+		# 	NAND = {
+		# 		has_doctrine = doctrine_divorce_approval
+		# 		has_doctrine = doctrine_spiritual_head
+		# 		exists = religious_head
+		# 	}
+		# 	# We are not required to seek approval of a house head
+		# 	NAND = {
+		# 		has_doctrine = doctrine_divorce_approval
+		# 		exists = scope:actor.house
+		# 		exists = scope:actor.house.house_head
+		# 		scope:actor = { is_house_head = no }
+		# 	}
+		# 	NOT = {
+		# 		has_doctrine = doctrine_divorce_approval
+		# 	}
+		# }
+		# scope:recipient.faith = {
+		# 	# We are not required to seek approval of a spiritual HoF
+		# 	NAND = {
+		# 		has_doctrine = doctrine_divorce_approval
+		# 		has_doctrine = doctrine_spiritual_head
+		# 		exists = religious_head
+		# 	}
+		# 	# We are not required to seek approval of a house head
+		# 	NAND = {
+		# 		has_doctrine = doctrine_divorce_approval
+		# 		exists = scope:actor.house
+		# 		exists = scope:actor.house.house_head
+		# 		scope:actor = { is_house_head = no }
+		# 	}
+		# 	NOT = {
+		# 		has_doctrine = doctrine_divorce_approval
+		# 	}
+		# }
+		# scope:recipient = {
+		# 	is_spouse_of = scope:actor
+		# 	is_concubine = no # Can set aside Concubines at any time
+		# }
 	}
 
 	is_valid_showing_failures_only = {
-		custom_tooltip = {
-			NOT = {
-				scope:actor.culture = {
-					has_cultural_parameter = cannot_divorce
-				}
-			}
-			text = CULTURE_FORBIDS_DIVORCE
-		}
-		NOT = {
-			scope:actor.faith = {
-				has_doctrine = doctrine_divorce_disallowed
-			}
-		}
-		scope:recipient = { NOT = { has_strong_hook = scope:actor } }
-		scope:actor = {
-			custom_tooltip = {
-				NOT = {
-					var:family_widow_forbidden_divorce ?= scope:target
-				}
-				text = BOUND_TO_FAMILY_WIDOW
-			}
-		}
+		always = no
+		# custom_tooltip = {
+		# 	NOT = {
+		# 		scope:actor.culture = {
+		# 			has_cultural_parameter = cannot_divorce
+		# 		}
+		# 	}
+		# 	text = CULTURE_FORBIDS_DIVORCE
+		# }
+		# NOT = {
+		# 	scope:actor.faith = {
+		# 		has_doctrine = doctrine_divorce_disallowed
+		# 	}
+		# }
+		# scope:recipient = { NOT = { has_strong_hook = scope:actor } }
+		# scope:actor = {
+		# 	custom_tooltip = {
+		# 		NOT = {
+		# 			var:family_widow_forbidden_divorce ?= scope:target
+		# 		}
+		# 		text = BOUND_TO_FAMILY_WIDOW
+		# 	}
+		# }
 	}
 
 	auto_accept = yes
@@ -3324,7 +3339,7 @@ divorce_character_interaction = {
 	}
 }
 
-##Updated to All Under Heaven
+# ##Updated to All Under Heaven
 divorce_character_rel_head_interaction = {
 	category = interaction_category_diplomacy
 	use_diplomatic_range = no
@@ -3338,21 +3353,23 @@ divorce_character_rel_head_interaction = {
 		scope:recipient = {
 			save_scope_as = secondary_recipient
 		}
-
 		if = {
 			limit = {
-				scope:actor.faith = { AND = { has_doctrine = doctrine_independent_papacy_head has_variable_list = tct_antipopes } }	
+				scope:actor.faith = {
+					OR = {
+						has_doctrine = doctrine_independent_papacy_head
+						has_variable_list = tct_antipopes
+					}
+				}
 			}
-			tct_get_pope_of_target = {
-				TARGET = scope:recipient
-			}
+	
 			scope:recipient = {
 				save_scope_as = secondary_recipient
 			}
-			scope:pope_of_target = {
-				save_scope_as = recipient
-			}
+	
+			tct_papal_delegate_authority = yes
 		}
+
 		else_if = {
 			limit = {
 				exists = scope:actor.faith.religious_head

@@ -457,9 +457,9 @@ tct_get_pope_of_target = {
 	}
 }
 
-tct_get_local_church_authority = {
+# tct_get_local_church_authority = {
 	
-}
+# }
 
 tct_is_pope_test = {
 	if = {
@@ -832,6 +832,7 @@ tct_create_antipope = {
 		save_scope_as = liege_culture
 	}
 	$ANTIPOPE$ = {
+		add_character_flag = tct_antipope_of_ruler
 		remove_cardinal = yes
 		create_character = {
 			location = $ANTIPOPE$.capital_province
@@ -892,7 +893,6 @@ tct_create_antipope = {
 		}
 		set_capital_county = $CREATOR$.primary_title.title_capital_county
 		set_color_from_title = title:k_papal_state
-		#set_ruler_uses_title_name = no # Not actually valid
 		set_coa = title:k_papal_state
 		set_definitive_form = yes
 		set_can_be_named_after_dynasty = no
@@ -941,6 +941,10 @@ tct_create_antipope = {
 				}
 			}
 		}
+	}
+
+	$ANTIPOPE$ = {
+		change_government = theocracy_government
 	}
 }
 
@@ -1504,6 +1508,118 @@ tct_indulgences_gold_tracker = {
 		else = {
 			set_variable = { name = temp_indulgence_gold value = seek_indulgences_buy_piety_value }
 			track_indulgence_gold_and_count = yes
+		}
+	}
+}
+
+hof_ask_for_gold_interaction_effect = {
+	scope:recipient.top_liege = {
+		pay_short_term_gold = {
+			target = scope:actor
+			gold = scope:actor.head_of_faith_gold_value
+		}
+		add_opinion = {
+			target = scope:actor
+			modifier = requested_money_opinion
+			opinion = -20
+		}
+	}
+	scope:actor = {
+		if = {
+			limit = {
+				scope:hook = no
+			}
+			add_piety = major_piety_loss
+		}
+		if = {
+			limit = { always = scope:hook }
+			use_hook = scope:recipient
+		}
+		if = {
+			limit = {
+				any_vassal = {
+					vassal_stance = zealot
+				}
+			}
+			custom_tooltip = zealot_vassal_disapproves_asking_hof_for_gold
+			hidden_effect = {
+				every_vassal = {
+					vassal_stance = zealot
+					add_opinion = {
+						target = scope:actor
+						modifier = zealot_disapproves_of_asking_hof_for_gold_opinion
+					}
+				}
+			}
+		}
+	}
+}
+
+testingantipope = {
+	title:e_hre.holder = {
+		if = {
+			limit = {
+				exists = character:73530
+			}
+			character:73530 = {
+				save_scope_as = antipope_vassal
+			}
+		}
+		else = {
+			random_vassal_or_below = {
+				limit = {
+					is_character_interaction_potentially_accepted = {
+						recipient = title:e_hre.holder
+						interaction = tct_make_antipope_interaction
+					}
+					tct_possible_antipope_vassal_trigger = yes
+				}
+				save_scope_as = antipope_vassal
+			}
+		}
+		tct_create_antipope = {
+			ANTIPOPE = scope:antipope_vassal
+			CREATOR = title:e_hre.holder
+		}
+		struggle:investiture_controversy_struggle = {
+			every_involved_ruler = {
+				limit = {
+					NOT = {
+						has_character_flag = had_tct_religious_events_0409
+					}
+				}
+				trigger_event = { days = 1 id = tct_religious_events.403 }
+				add_character_flag = had_tct_religious_events_0409
+			}
+		}
+	}
+}
+
+tct_papal_delegate_authority = {
+	tct_get_pope_of_target = {
+		TARGET = scope:recipient
+	}
+	# Manage Papal Affairs
+	# If Papal Title Has tct_delegate_override, redirect to one of his councillors instead
+	if = {
+		limit = { 
+			scope:pope_of_target = {
+				primary_title = { has_variable = tct_delegate_override }
+				#is_ai = no
+			}
+		}
+		if = {
+       		limit = { scope:actor = { highest_held_title_tier < tier_kingdom } }
+			scope:pope_of_target = {
+				cp:councillor_chancellor = {
+					save_scope_as = recipient
+				}
+			}
+		}
+		else = {
+			scope:pope_of_target = {
+				save_scope_as = recipient
+			}
 		}
 	}
 }

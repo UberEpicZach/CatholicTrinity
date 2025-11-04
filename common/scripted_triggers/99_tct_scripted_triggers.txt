@@ -636,7 +636,7 @@ tct_hre_devastation_check = {
 			tier = tier_county
 			percent >= 0.5
 			# For each de jure county in the HRE, check its capital province once
-			province = {
+			any_county_province = {
 				OR = {
 					# Looted / burned / depopulated
 					has_province_modifier = recently_looted_modifier

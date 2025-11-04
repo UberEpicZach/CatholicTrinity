@@ -15,6 +15,7 @@ trinity_hre_confirmation_on_title_gain = {
 		liege ?= { this = title:e_hre.holder }
 		NOT = { 
 			this = title:e_hre.holder
+			this = title:k_papal_state.holder
 			has_government = theocracy_government
 		}
 	}
