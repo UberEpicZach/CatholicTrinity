@@ -192,6 +192,10 @@ end_investiture_controversy_struggle_effect = {
 		}
 		trigger_event = $EVENT$
 	}
+	set_global_variable = {
+		name = tct_investiture_ending
+		value = flag:none
+	}
 	struggle:investiture_controversy_struggle ?= { end_struggle = $ENDING$ }
 }
 

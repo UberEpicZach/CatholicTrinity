@@ -47,6 +47,57 @@ scripted_trigger tct_investiture_struggle_0001_valid_ai_struggle_char_trigger = 
 	}
 }
 
+tct_investiture_struggle.9000 = {
+	type = character_event
+	window = fullscreen_event
+	title = tct_investiture_struggle.9000.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { global_var:tct_investiture_ending = flag:tct_investiture_ending_imperial }
+				desc = tct_investiture_struggle.9000.desc.imperial
+			}
+			triggered_desc = {
+				trigger = { global_var:tct_investiture_ending = flag:tct_investiture_ending_papal }
+				desc = tct_investiture_struggle.9000.desc.papal
+			}
+			desc = tct_investiture_struggle.9000.desc.concordat
+		}
+		triggered_desc = {
+			trigger = { has_trait = tct_imperial_supporter }
+			desc = tct_investiture_struggle.9000.desc.allegiance_imperial
+		}
+		triggered_desc = {
+			trigger = { has_trait = tct_papal_supporter }
+			desc = tct_investiture_struggle.9000.desc.allegiance_papal
+		}
+		triggered_desc = {
+			trigger = {
+				NOR = {
+					has_trait = tct_imperial_supporter
+					has_trait = tct_papal_supporter
+				}
+			}
+			desc = tct_investiture_struggle.9000.desc.allegiance_neutral
+		}
+	}
+	theme = realm
+	override_background = { reference = tct_investiture_struggle }
+	immediate = {
+		if = {
+			limit = { exists = title:e_hre.holder }
+			title:e_hre.holder = { save_scope_as = emperor }
+		}
+		if = {
+			limit = { exists = title:k_papal_state.holder }
+			title:k_papal_state.holder = { save_scope_as = pope }
+		}
+	}
+	option = {
+		name = tct_investiture_struggle.9000.a
+	}
+}
+
 
 tct_investiture_struggle.0001 = {
 	hidden = yes
