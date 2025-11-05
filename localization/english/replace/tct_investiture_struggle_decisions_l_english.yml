@@ -450,6 +450,8 @@ tct_neutral_struggle.0003.a: "All in good time..."
  seat_of_christendom: "Seat of Christendom"
  seat_of_christendom_desc: "With the Investiture Controversy resolved, the seat of Christendom is now firmly established in the your [capital|E]."
 
+ tct_investiture_struggle.9000.t: "The Investiture Controversy Ends"
+ tct_investiture_struggle.9000.a: "History will remember this day."
 
    
  tct_struggle_supporter: "Conflict Sides"

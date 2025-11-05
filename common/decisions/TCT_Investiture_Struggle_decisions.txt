@@ -443,6 +443,10 @@ investiture_struggle_papal_supremacy_decision = {
 	}
 
 	effect = {
+		set_global_variable = {
+			name = tct_investiture_ending
+			value = flag:tct_investiture_ending_papal
+		}
 		if = {
 			limit = { has_dlc_feature = legends }
 			legend_seed_struggle_ending_effect = {
@@ -527,8 +531,19 @@ investiture_struggle_papal_supremacy_decision = {
 		# }
 		# fp2_holiday_in_iberia_check = yes
 
+		end_investiture_controversy_struggle_effect = {
+			ENDING = yes
+			EVENT = tct_investiture_struggle.9000
+			FLAG = flag:end_investiture_controversy_struggle_ending
+		}
+
 		# Trigger a player facing event as a coda
-		trigger_event = fp2_struggle.0900
+		trigger_event = tct_investiture_struggle.9000
+
+		set_global_variable = {
+			name = tct_investiture_ending
+			value = flag:none
+		}
 	}
 
 	cost = {}
@@ -605,6 +620,10 @@ investiture_struggle_imperial_supremacy_decision = {
 	}
 
 	effect = {
+		set_global_variable = {
+			name = tct_investiture_ending
+			value = flag:tct_investiture_ending_imperial
+		}
 		if = {
 			limit = { has_dlc_feature = legends }
 			legend_seed_struggle_ending_effect = {
@@ -725,8 +744,19 @@ investiture_struggle_imperial_supremacy_decision = {
 		# }
 		# fp2_holiday_in_iberia_check = yes
 
+		end_investiture_controversy_struggle_effect = {
+			ENDING = yes
+			EVENT = tct_investiture_struggle.9000
+			FLAG = flag:end_investiture_controversy_struggle_ending
+		}
+
 		# Trigger a player facing event as a coda
-		trigger_event = fp2_struggle.0900
+		trigger_event = tct_investiture_struggle.9000
+
+		set_global_variable = {
+			name = tct_investiture_ending
+			value = flag:none
+		}
 	}
 
 	cost = {}
@@ -797,9 +827,20 @@ investiture_struggle_concordat_decision = {
 	}
 
 	effect = {
-
-		# Trigger a player facing event as a coda
-		# trigger_event = fp2_struggle.0900
+		set_global_variable = {
+			name = tct_investiture_ending
+			value = flag:tct_investiture_ending_concordat
+		}
+		end_investiture_controversy_struggle_effect = {
+			ENDING = yes
+			EVENT = tct_investiture_struggle.9000
+			FLAG = flag:end_investiture_controversy_struggle_ending
+		}
+		trigger_event = tct_investiture_struggle.9000
+		set_global_variable = {
+			name = tct_investiture_ending
+			value = flag:none
+		}
 	}
 
 	cost = {}

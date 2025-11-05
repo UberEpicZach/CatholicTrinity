@@ -834,7 +834,7 @@
 
 				end_investiture_controversy_struggle_effect = {
 					ENDING = yes
-					EVENT = fp3_struggle.0082
+					EVENT = tct_investiture_struggle.9000
 					FLAG = flag:end_investiture_controversy_struggle_ending
 				}
 			}
