@@ -55,30 +55,13 @@ tct_investiture_struggle.9000 = {
 		first_valid = {
 			triggered_desc = {
 				trigger = { global_var:tct_investiture_ending = flag:tct_investiture_ending_imperial }
-				desc = tct_investiture_struggle.9000.desc.imperial
+				desc = investiture_struggle_imperial_supremacy_decision_desc
 			}
 			triggered_desc = {
 				trigger = { global_var:tct_investiture_ending = flag:tct_investiture_ending_papal }
-				desc = tct_investiture_struggle.9000.desc.papal
+				desc = investiture_struggle_papal_supremacy_decision_desc
 			}
-			desc = tct_investiture_struggle.9000.desc.concordat
-		}
-		triggered_desc = {
-			trigger = { has_trait = tct_imperial_supporter }
-			desc = tct_investiture_struggle.9000.desc.allegiance_imperial
-		}
-		triggered_desc = {
-			trigger = { has_trait = tct_papal_supporter }
-			desc = tct_investiture_struggle.9000.desc.allegiance_papal
-		}
-		triggered_desc = {
-			trigger = {
-				NOR = {
-					has_trait = tct_imperial_supporter
-					has_trait = tct_papal_supporter
-				}
-			}
-			desc = tct_investiture_struggle.9000.desc.allegiance_neutral
+			desc = investiture_struggle_concordat_decision_desc
 		}
 	}
 	theme = realm

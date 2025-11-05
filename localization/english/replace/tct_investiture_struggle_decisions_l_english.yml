@@ -451,12 +451,6 @@ tct_neutral_struggle.0003.a: "All in good time..."
  seat_of_christendom_desc: "With the Investiture Controversy resolved, the seat of Christendom is now firmly established in the your [capital|E]."
 
  tct_investiture_struggle.9000.t: "The Investiture Controversy Ends"
- tct_investiture_struggle.9000.desc.imperial: "Imperial banners drown the halls of [GetTitleByKey('e_hre').GetHolder.GetCapitalLocation.GetNameNoTooltip], as [GetTitleByKey('e_hre').GetHolder.GetTitledFirstNameNoTooltip] declares that the appointment of every bishop once more flows from the imperial hand. Papal envoys depart the court in brooding silence while princes pledge their obedience to the restored temporal supremacy of the crown."
- tct_investiture_struggle.9000.desc.papal: "In Rome, [GetTitleByKey('k_papal_state').GetHolder.GetTitledFirstNameNoTooltip] lifts the pastoral staff before a sea of prelates, proclaiming that no mortal lord shall usurp the keys of Saint Peter again. Imperial agents kneel for absolution, and the great cathedrals ring with the triumph of the Church."
- tct_investiture_struggle.9000.desc.concordat: "[GetTitleByKey('e_hre').GetHolder.GetTitledFirstNameNoTooltip] and [GetTitleByKey('k_papal_state').GetHolder.GetTitledFirstNameNoTooltip] affix their seals to the Pactum Callixtinum, dividing the duties of crosier and sceptre with wary grace. In courts and cloisters alike, relief mingles with suspicion as the long feud gives way to a fragile peace."
- tct_investiture_struggle.9000.desc.allegiance_imperial: "For those who stood by the Emperor, the verdict vindicates years of iron resolve; the mitres of Christendom must now heed the call of the crown."
- tct_investiture_struggle.9000.desc.allegiance_papal: "Among the ranks of Papal loyalists, prayers of thanksgiving rise, certain that the See of Peter has reclaimed its sacred prerogatives."
- tct_investiture_struggle.9000.desc.allegiance_neutral: "And for those who walked the middle path, the settlement promises respite, yet the balance between altar and throne has never felt more delicate."
  tct_investiture_struggle.9000.a: "History will remember this day."
 
    
