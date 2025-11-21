@@ -565,58 +565,58 @@ Declare_Minor_Crusade = {
 	}
 }
 
-manage_papal_affairs = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_legitimacy.dds"
-	}
+# manage_papal_affairs = {
+# 	picture = {
+# 		reference = "gfx/interface/illustrations/decisions/decision_legitimacy.dds"
+# 	}
 	
-	is_shown = {
-		has_title = title:k_papal_state
-		is_ai = no
-	}
+# 	is_shown = {
+# 		has_title = title:k_papal_state
+# 		is_ai = no
+# 	}
 
-	widget = {
-		gui = "decision_view_widget_option_list_generic"
-		controller = decision_option_list_controller
-		decision_to_second_step_button = "CHOOSE_CHARACTER_ROLE_DECISION_NEXT_STEP_BUTTON"
-		show_from_start = yes
+# 	widget = {
+# 		gui = "decision_view_widget_option_list_generic"
+# 		controller = decision_option_list_controller
+# 		decision_to_second_step_button = "CHOOSE_CHARACTER_ROLE_DECISION_NEXT_STEP_BUTTON"
+# 		show_from_start = yes
 
-		item = { # Divorce
-			value = papal_divorce_request
-			#current_description = papal_affairs_divorce_tooltip
-			localization = manage_papal_affairs_divorce
-			icon = "gfx/interface/icons/character_interactions/icon_marriage.dds"
-		} 
-		item = { #Requests for Gold
-			value = papal_gold_request
-			#current_description = papal_affairs_gold_tooltip
-			localization = manage_papal_affairs_gold
-			icon = "gfx/interface/icons/character_interactions/request_funding_interaction.dds"
-		}
-		item = { #Excomunication requests
-			value = papal_excomunication_request
-			#current_description = papal_affairs_excommunication_tooltip
-			localization = manage_papal_affairs_excommunication
-			icon = "gfx/interface/icons/character_interactions/excommunication.dds"
-		}
-	}
+# 		item = { # Divorce
+# 			value = papal_divorce_request
+# 			#current_description = papal_affairs_divorce_tooltip
+# 			localization = manage_papal_affairs_divorce
+# 			icon = "gfx/interface/icons/character_interactions/icon_marriage.dds"
+# 		} 
+# 		item = { #Requests for Gold
+# 			value = papal_gold_request
+# 			#current_description = papal_affairs_gold_tooltip
+# 			localization = manage_papal_affairs_gold
+# 			icon = "gfx/interface/icons/character_interactions/request_funding_interaction.dds"
+# 		}
+# 		item = { #Excomunication requests
+# 			value = papal_excomunication_request
+# 			#current_description = papal_affairs_excommunication_tooltip
+# 			localization = manage_papal_affairs_excommunication
+# 			icon = "gfx/interface/icons/character_interactions/excommunication.dds"
+# 		}
+# 	}
 
-	effect = {
-		custom_tooltip = choose_papal_affair_decision_tooltip
-		hidden_effect = {
-			custom_tooltip = choose_papal_affair_decision_tooltip
-			if = { # Divorce
-				limit = { scope:papal_divorce_request = yes }
-				trigger_event = tct_religious_events.850
-			}
-			else_if = { # Request for Gold
-				limit = { scope:papal_gold_request = yes }
-				trigger_event = tct_religious_events.851
-			}
-			else_if = { # Excommunication Request
-				limit = { scope:papal_excomunication_request = yes }
-				trigger_event = tct_religious_events.852
-			}
-		}
-	}
-}
+# 	effect = {
+# 		custom_tooltip = choose_papal_affair_decision_tooltip
+# 		hidden_effect = {
+# 			custom_tooltip = choose_papal_affair_decision_tooltip
+# 			if = { # Divorce
+# 				limit = { scope:papal_divorce_request = yes }
+# 				trigger_event = tct_religious_events.850
+# 			}
+# 			else_if = { # Request for Gold
+# 				limit = { scope:papal_gold_request = yes }
+# 				trigger_event = tct_religious_events.851
+# 			}
+# 			else_if = { # Excommunication Request
+# 				limit = { scope:papal_excomunication_request = yes }
+# 				trigger_event = tct_religious_events.852
+# 			}
+# 		}
+# 	}
+# }
