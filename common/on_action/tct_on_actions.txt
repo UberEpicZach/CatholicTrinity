@@ -662,6 +662,13 @@ on_death = {
 		on_person_death_saint
 		on_theocrat_investiture_death
 		on_theocratic_investiture_death_no_successor
+		tct_cardinal_update
+	}
+}
+
+tct_cardinal_update = {
+	effect = {
+		update_cardinal_window = yes
 	}
 }
 
@@ -742,7 +749,10 @@ on_theocratic_investiture_death_no_successor = {
 	effect = {
 		if = {
 			limit = {
-				is_ai = yes
+				top_liege = { 
+					is_ai = yes
+					has_realm_law = free_investiture
+				}
 			}
 			if = {
 				limit = {
@@ -904,6 +914,10 @@ on_pope_death = {
 					value = scope:duplicatename
 				}
 				trigger_event = tct_religious_events.400
+				var:beneficiary = {
+					add_hook = { type = favor_hook target = prev years = 10 } 
+					add_piety = cardinal_election_piety_for_beneficiary
+				}
 			}
 		}
 	}
