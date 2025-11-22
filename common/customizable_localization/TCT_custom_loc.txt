@@ -5,6 +5,7 @@
 			OR = {
 				has_trait = tct_antipope
 				has_title = title:k_papal_state
+				has_primary_title = title:k_papal_state
 			}
 		}
 		localization_key = popebishop
