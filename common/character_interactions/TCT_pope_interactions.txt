@@ -11,7 +11,7 @@ tct_make_antipope_interaction = {
 			faith = {
 				this = scope:recipient.faith
 				has_doctrine = doctrine_independent_papacy_head
-				NOT = { 
+				NOR = { 
 					religious_head = scope:actor 
 					religious_head = scope:recipient 
 				}
@@ -33,7 +33,7 @@ tct_make_antipope_interaction = {
 
 	is_valid_showing_failures_only = {
 		scope:recipient = {
-			NOT = {
+			NOR = {
 				has_trait = incapable
 				has_trait = excommunicated
 			}
@@ -543,11 +543,11 @@ request_excommunication_interaction = {
 		}
 		if = {
 			limit = {
-				scope:secondary_recipient = {
+				scope:secondary_recipient ?= {
 					conclave_influence_variable_effect_trigger = yes
 				}
 			}
-			scope:secondary_recipient = {
+			scope:secondary_recipient ?= {
 				conclave_influence_variable_removing_effect = yes
 			}
 		}
@@ -5454,7 +5454,7 @@ tct_investiture_controversy_change_allegiance = {
 		scope:recipient = {
 			any_character_struggle = { is_struggle_type = investiture_controversy_struggle }
 			# You cannot ask the Emperor Or Pope!
-			NOT = { 
+			NOR = { 
 				this = title:e_hre.holder 
 				this = title:k_papal_state.holder
 			}

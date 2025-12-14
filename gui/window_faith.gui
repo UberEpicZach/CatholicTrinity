@@ -697,7 +697,6 @@ window = {
 											text_single = {
 												name = "doctrine_name"
 												align = center
-												#raw_text = "Bingo Bongo Tongo gyngo"
 												text = "[FaithDoctrine.GetNameNoTooltip( GuiFaithDoctrineItem.GetFaith )]"
 												default_format = "#high"
 												multiline = yes
@@ -893,6 +892,7 @@ window = {
 								text = "RELIGIOUS_HEAD"
 								default_format = "#low"
 								fontsize_min = 14
+								max_width = 240
 							}
 
 							hbox = {
@@ -1024,7 +1024,6 @@ window = {
 							layoutpolicy_horizontal = expanding
 							datacontext = "[Faith.GetReligiousHeadTitle]"
 							visible = "[Title.IsValid]"
-							margin_left = -5
 							spacing = 5
 
 							coa_title_tiny_crown = {
@@ -1658,6 +1657,7 @@ types FaithShared
 				text = "FAITH_WINDOW_FERVOR"
 				default_format = "#high"
 				align = nobaseline
+				max_width = 180
 			}
 		}
 		hbox = {
